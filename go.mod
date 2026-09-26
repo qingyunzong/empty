@@ -1,0 +1,3 @@
+module counterrate
+
+go 1.24.2
