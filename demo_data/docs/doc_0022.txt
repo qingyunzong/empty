@@ -1,0 +1,7 @@
+索引 term024！缺失 term002。term034，term010，term033、term006！term034，term045！term032 term040、term033、term026！term013 term025 term046、term040 term016。term024
+term003 term004
+缺失
+term040、term037。term006，term019
+term033，文档
+term029，term010 孤儿 文档，term030，统计 term022
+term029。搜索 索引！term022，

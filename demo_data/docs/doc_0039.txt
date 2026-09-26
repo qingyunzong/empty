@@ -1,0 +1,3 @@
+索引
+一致 term018、term011 term006。term047、term024 term041、term020，term023 term035、一致。term015 term002 term036
+倒排 term013！term027！term046 term019 term009，

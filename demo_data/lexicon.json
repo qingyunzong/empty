@@ -1,0 +1,244 @@
+{
+  "terms": {
+    "ghost000": {
+      "df": 0,
+      "term_id": 60
+    },
+    "ghost001": {
+      "df": 0,
+      "term_id": 61
+    },
+    "term000": {
+      "df": 21,
+      "term_id": 0
+    },
+    "term001": {
+      "df": 21,
+      "term_id": 1
+    },
+    "term002": {
+      "df": 21,
+      "term_id": 2
+    },
+    "term003": {
+      "df": 19,
+      "term_id": 3
+    },
+    "term004": {
+      "df": 23,
+      "term_id": 4
+    },
+    "term005": {
+      "df": 24,
+      "term_id": 5
+    },
+    "term006": {
+      "df": 20,
+      "term_id": 6
+    },
+    "term007": {
+      "df": 20,
+      "term_id": 7
+    },
+    "term008": {
+      "df": 17,
+      "term_id": 8
+    },
+    "term009": {
+      "df": 26,
+      "term_id": 9
+    },
+    "term010": {
+      "df": 25,
+      "term_id": 10
+    },
+    "term011": {
+      "df": 21,
+      "term_id": 11
+    },
+    "term012": {
+      "df": 22,
+      "term_id": 12
+    },
+    "term013": {
+      "df": 21,
+      "term_id": 13
+    },
+    "term014": {
+      "df": 16,
+      "term_id": 14
+    },
+    "term015": {
+      "df": 21,
+      "term_id": 15
+    },
+    "term016": {
+      "df": 19,
+      "term_id": 16
+    },
+    "term017": {
+      "df": 17,
+      "term_id": 17
+    },
+    "term018": {
+      "df": 19,
+      "term_id": 18
+    },
+    "term019": {
+      "df": 17,
+      "term_id": 19
+    },
+    "term020": {
+      "df": 15,
+      "term_id": 20
+    },
+    "term021": {
+      "df": 21,
+      "term_id": 21
+    },
+    "term022": {
+      "df": 18,
+      "term_id": 22
+    },
+    "term023": {
+      "df": 24,
+      "term_id": 23
+    },
+    "term024": {
+      "df": 16,
+      "term_id": 24
+    },
+    "term025": {
+      "df": 21,
+      "term_id": 25
+    },
+    "term026": {
+      "df": 17,
+      "term_id": 26
+    },
+    "term027": {
+      "df": 20,
+      "term_id": 27
+    },
+    "term028": {
+      "df": 21,
+      "term_id": 28
+    },
+    "term029": {
+      "df": 24,
+      "term_id": 29
+    },
+    "term030": {
+      "df": 17,
+      "term_id": 30
+    },
+    "term031": {
+      "df": 18,
+      "term_id": 31
+    },
+    "term032": {
+      "df": 17,
+      "term_id": 32
+    },
+    "term033": {
+      "df": 21,
+      "term_id": 33
+    },
+    "term034": {
+      "df": 16,
+      "term_id": 34
+    },
+    "term035": {
+      "df": 18,
+      "term_id": 35
+    },
+    "term036": {
+      "df": 18,
+      "term_id": 36
+    },
+    "term037": {
+      "df": 17,
+      "term_id": 37
+    },
+    "term038": {
+      "df": 20,
+      "term_id": 38
+    },
+    "term041": {
+      "df": 18,
+      "term_id": 41
+    },
+    "term042": {
+      "df": 20,
+      "term_id": 42
+    },
+    "term043": {
+      "df": 14,
+      "term_id": 43
+    },
+    "term044": {
+      "df": 20,
+      "term_id": 44
+    },
+    "term045": {
+      "df": 21,
+      "term_id": 45
+    },
+    "term046": {
+      "df": 17,
+      "term_id": 46
+    },
+    "term047": {
+      "df": 19,
+      "term_id": 47
+    },
+    "一致": {
+      "df": 21,
+      "term_id": 48
+    },
+    "修复": {
+      "df": 13,
+      "term_id": 49
+    },
+    "倒排": {
+      "df": 21,
+      "term_id": 50
+    },
+    "基线": {
+      "df": 24,
+      "term_id": 51
+    },
+    "孤儿": {
+      "df": 17,
+      "term_id": 52
+    },
+    "审计": {
+      "df": 13,
+      "term_id": 53
+    },
+    "搜索": {
+      "df": 12,
+      "term_id": 54
+    },
+    "文档": {
+      "df": 17,
+      "term_id": 55
+    },
+    "索引": {
+      "df": 25,
+      "term_id": 56
+    },
+    "统计": {
+      "df": 23,
+      "term_id": 57
+    },
+    "缺失": {
+      "df": 20,
+      "term_id": 58
+    },
+    "词典": {
+      "df": 13,
+      "term_id": 59
+    }
+  }
+}
