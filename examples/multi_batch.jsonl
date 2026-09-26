@@ -1,0 +1,7 @@
+{"op": "earn", "batch_id": "b1", "amount": 5, "expiry": 10, "time": 0}
+{"op": "earn", "batch_id": "b2", "amount": 8, "expiry": 6, "time": 0}
+{"op": "earn", "batch_id": "b3", "amount": 3, "expiry": 6, "time": 0}
+{"op": "consume", "consumption_id": "c1", "amount": 9, "time": 2}
+{"op": "refund", "consumption_id": "c1", "amount": 4, "time": 3, "refund_id": "r1"}
+{"op": "refund", "consumption_id": "c1", "amount": 4, "time": 3, "refund_id": "r1"}
+{"op": "refund", "consumption_id": "c1", "amount": 3, "time": 8, "refund_id": "r2"}
