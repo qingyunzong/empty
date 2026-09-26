@@ -1,0 +1,9 @@
+{
+  "events": [
+    {"id": "in-1", "seq": 1, "delta": 5},
+    {"id": "out-late", "seq": 3, "delta": -2}
+  ],
+  "late_events": [
+    {"id": "late-mid", "seq": 2, "delta": -4}
+  ]
+}
