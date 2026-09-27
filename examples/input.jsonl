@@ -1,0 +1,9 @@
+{"type": "watermark", "partition": 1, "time": 5}
+{"type": "data", "partition": 0, "time": 7, "seq": 1, "payload": "synthetic-a"}
+{"type": "watermark", "partition": 0, "time": 10}
+{"type": "data", "partition": 1, "time": 6, "seq": 2, "payload": "synthetic-b"}
+{"type": "watermark", "partition": 1, "time": 7}
+{"type": "watermark", "partition": 1, "time": 8}
+{"type": "data", "partition": 0, "time": 3, "seq": 9, "payload": "synthetic-late"}
+{"type": "barrier", "partition": 1, "state": "idle"}
+{"type": "data", "partition": 0, "time": 9, "seq": 3, "payload": "synthetic-c"}
