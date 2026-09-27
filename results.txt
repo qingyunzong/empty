@@ -1,0 +1,23 @@
+$ python -m unittest discover -s tests -v
+
+test_cli_bad_slot_code_exact (test_slot.TestCli.test_cli_bad_slot_code_exact) ... ok
+test_cli_bad_slot_exit_2 (test_slot.TestCli.test_cli_bad_slot_exit_2) ... ok
+test_cli_invalid_json_exit_2 (test_slot.TestCli.test_cli_invalid_json_exit_2) ... ok
+test_cli_none (test_slot.TestCli.test_cli_none) ... ok
+test_cli_ok_with_ties (test_slot.TestCli.test_cli_ok_with_ties) ... ok
+test_busy_edge_allows_immediate_start (test_slot.TestFindSlots.test_busy_edge_allows_immediate_start) ... ok
+test_error_d_non_positive (test_slot.TestFindSlots.test_error_d_non_positive) ... ok
+test_error_inverted_intervals (test_slot.TestFindSlots.test_error_inverted_intervals) ... ok
+test_error_malformed_input_is_bad_input (test_slot.TestFindSlots.test_error_malformed_input_is_bad_input) ... ok
+test_error_window_inverted (test_slot.TestFindSlots.test_error_window_inverted) ... ok
+test_multiple_people_union (test_slot.TestFindSlots.test_multiple_people_union) ... ok
+test_no_feasible_slot_returns_none (test_slot.TestFindSlots.test_no_feasible_slot_returns_none) ... ok
+test_overlapping_prefer_counted_once (test_slot.TestFindSlots.test_overlapping_prefer_counted_once) ... ok
+test_random_three_people_against_minute_oracle (test_slot.TestFindSlots.test_random_three_people_against_minute_oracle) ... ok
+test_tie_break_prefers_earlier_and_shorter (test_slot.TestFindSlots.test_tie_break_prefers_earlier_and_shorter) ... ok
+test_tied_best_slots_all_returned (test_slot.TestFindSlots.test_tied_best_slots_all_returned) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.447s
+
+OK
