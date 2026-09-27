@@ -1,0 +1,26 @@
+# rollsync TEST LOG
+date: 2026-09-27 14:41:31 UTC
+python: Python 3.14.4
+cmd: python -m unittest discover -s tests -v
+---
+test_strong_check_rejects_weak_collision (test_rollsync.TestAdlerCollisionIntercept.test_strong_check_rejects_weak_collision) ... ok
+test_both_empty (test_rollsync.TestBoundaries.test_both_empty) ... ok
+test_identical_files (test_rollsync.TestBoundaries.test_identical_files) ... ok
+test_new_empty (test_rollsync.TestBoundaries.test_new_empty) ... ok
+test_old_empty (test_rollsync.TestBoundaries.test_old_empty) ... ok
+test_cli_roundtrip_stdout_and_replay (test_rollsync.TestCliAndFailureModes.test_cli_roundtrip_stdout_and_replay) ... ok
+test_library_raises_on_corrupt_and_checksum (test_rollsync.TestCliAndFailureModes.test_library_raises_on_corrupt_and_checksum) ... ok
+test_tampered_old_exits_6_via_copy_segment_hash (test_rollsync.TestCliAndFailureModes.test_tampered_old_exits_6_via_copy_segment_hash) ... ok
+test_tampered_output_hash_exits_6_and_target_untouched (test_rollsync.TestCliAndFailureModes.test_tampered_output_hash_exits_6_and_target_untouched) ... ok
+test_truncated_patch_does_not_create_target (test_rollsync.TestCliAndFailureModes.test_truncated_patch_does_not_create_target) ... ok
+test_truncated_patch_fails_and_target_untouched (test_rollsync.TestCliAndFailureModes.test_truncated_patch_fails_and_target_untouched) ... ok
+test_one_mebibyte_roundtrip (test_rollsync.TestRandomRoundTrip.test_one_mebibyte_roundtrip) ... ok
+test_random_samples_against_naive_lcs (test_rollsync.TestRandomRoundTrip.test_random_samples_against_naive_lcs) ... ok
+test_segment_order_independent_and_replay_idempotent (test_rollsync.TestRandomRoundTrip.test_segment_order_independent_and_replay_idempotent) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.990s
+
+OK
+---
+exit_code: 0
