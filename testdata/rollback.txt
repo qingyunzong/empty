@@ -1,0 +1,5 @@
+# same shape but the drop at t=10 has no restart marker -> uncertain
+0 100
+10 5
+20 15
+30 30

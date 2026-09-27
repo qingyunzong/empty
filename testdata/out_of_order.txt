@@ -1,0 +1,5 @@
+# samples delivered out of order, with a marked restart
+20 3 reset
+30 13
+0 0
+10 40

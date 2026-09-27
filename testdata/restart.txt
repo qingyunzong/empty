@@ -1,0 +1,5 @@
+# counter climbs to 100, process restarts at t=10 (marked), new epoch
+0 100
+10 5 reset
+20 15
+30 30

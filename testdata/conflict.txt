@@ -1,0 +1,5 @@
+# duplicate timestamp t=10 carries two different values
+0 0
+10 10
+10 4
+20 6
