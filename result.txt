@@ -1,0 +1,19 @@
+# minigit test results
+# date: 2026-09-27 20:50:51 UTC
+# python: Python 3.14.4
+# command: python3 -m unittest test_minigit -v
+
+test_abort_discards_staging_and_keeps_history (test_minigit.MinigitTestCase.test_abort_discards_staging_and_keeps_history) ... ok
+test_commit_multi_path_and_message (test_minigit.MinigitTestCase.test_commit_multi_path_and_message) ... ok
+test_fail_after_objects_then_resume (test_minigit.MinigitTestCase.test_fail_after_objects_then_resume) ... ok
+test_filter_strip_prefix_across_commits (test_minigit.MinigitTestCase.test_filter_strip_prefix_across_commits) ... ok
+test_invalid_regex_exits_2 (test_minigit.MinigitTestCase.test_invalid_regex_exits_2) ... ok
+test_message_regex_replaced_once (test_minigit.MinigitTestCase.test_message_regex_replaced_once) ... ok
+test_no_change_filter_preserves_ref_and_object_ids (test_minigit.MinigitTestCase.test_no_change_filter_preserves_ref_and_object_ids) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.308s
+
+OK
+
+# exit code: 0
