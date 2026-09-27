@@ -1,0 +1,24 @@
+test_cancel_rejects_writes_and_is_observable_at_checkpoint (test_lease.LeaseCliTest.test_cancel_rejects_writes_and_is_observable_at_checkpoint) ... ok
+test_crash_after_acquire_recover_returns_original_token (test_lease.LeaseCliTest.test_crash_after_acquire_recover_returns_original_token) ... ok
+test_crash_after_release_recovers_released_state (test_lease.LeaseCliTest.test_crash_after_release_recovers_released_state) ... ok
+test_crash_after_write_discards_later_events (test_lease.LeaseCliTest.test_crash_after_write_discards_later_events) ... ok
+test_crash_after_write_recovers_effect_and_opid_dedups (test_lease.LeaseCliTest.test_crash_after_write_recovers_effect_and_opid_dedups) ... ok
+test_crash_without_matching_event_is_error (test_lease.LeaseCliTest.test_crash_without_matching_event_is_error) ... ok
+test_different_opid_produces_separate_effects (test_lease.LeaseCliTest.test_different_opid_produces_separate_effects) ... ok
+test_duplicate_write_same_token_opid_is_idempotent (test_lease.LeaseCliTest.test_duplicate_write_same_token_opid_is_idempotent) ... ok
+test_expired_lease_issues_new_token_to_same_key (test_lease.LeaseCliTest.test_expired_lease_issues_new_token_to_same_key) ... ok
+test_full_lifecycle_token_monotonicity (test_lease.LeaseCliTest.test_full_lifecycle_token_monotonicity) ... ok
+test_initial_state_is_free_with_token_zero (test_lease.LeaseCliTest.test_initial_state_is_free_with_token_zero) ... ok
+test_new_owner_gets_strictly_larger_token (test_lease.LeaseCliTest.test_new_owner_gets_strictly_larger_token) ... ok
+test_other_key_rejected_while_lease_held (test_lease.LeaseCliTest.test_other_key_rejected_while_lease_held) ... ok
+test_release_undoes_effects_in_reverse_order (test_lease.LeaseCliTest.test_release_undoes_effects_in_reverse_order) ... ok
+test_renew_extends_expiry_and_recover_keeps_it (test_lease.LeaseCliTest.test_renew_extends_expiry_and_recover_keeps_it) ... ok
+test_same_key_returns_same_token_while_lease_valid (test_lease.LeaseCliTest.test_same_key_returns_same_token_while_lease_valid) ... ok
+test_stale_token_write_exit_9_and_new_token_writable (test_lease.LeaseCliTest.test_stale_token_write_exit_9_and_new_token_writable) ... ok
+test_state_enum_reference (test_lease.LeaseCliTest.test_state_enum_reference) ... ok
+test_write_after_release_errors (test_lease.LeaseCliTest.test_write_after_release_errors) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 15.013s
+
+OK
