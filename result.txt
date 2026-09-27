@@ -1,0 +1,18 @@
+test_cancel_blocks_writes_and_state_is_canceled (test_lease.LeaseCLITest.test_cancel_blocks_writes_and_state_is_canceled) ... ok
+test_crash_after_acquire_recover_returns_same_token (test_lease.LeaseCLITest.test_crash_after_acquire_recover_returns_same_token) ... ok
+test_crash_after_release_recover_keeps_released_state (test_lease.LeaseCLITest.test_crash_after_release_recover_keeps_released_state) ... ok
+test_crash_after_write_recover_dedups_opid (test_lease.LeaseCLITest.test_crash_after_write_recover_dedups_opid) ... ok
+test_duplicate_write_is_idempotent (test_lease.LeaseCLITest.test_duplicate_write_is_idempotent) ... ok
+test_initial_state_is_free (test_lease.LeaseCLITest.test_initial_state_is_free) ... ok
+test_new_owner_gets_larger_token (test_lease.LeaseCLITest.test_new_owner_gets_larger_token) ... ok
+test_release_undoes_effects_in_reverse_order (test_lease.LeaseCLITest.test_release_undoes_effects_in_reverse_order) ... ok
+test_renew_extends_lease (test_lease.LeaseCLITest.test_renew_extends_lease) ... ok
+test_same_key_acquire_returns_same_token (test_lease.LeaseCLITest.test_same_key_acquire_returns_same_token) ... ok
+test_stale_token_rejected_new_token_accepted (test_lease.LeaseCLITest.test_stale_token_rejected_new_token_accepted) ... ok
+test_state_enum_reference (test_lease.LeaseCLITest.test_state_enum_reference) ... ok
+test_write_after_release_fails (test_lease.LeaseCLITest.test_write_after_release_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.670s
+
+OK
