@@ -1,0 +1,26 @@
+budgetsync test run
+2026-09-27T02:44:54Z
+Python 3.14.4
+$ python -m unittest discover -s tests -v
+
+test_budget_zero_writes_empty_file (test_budgetsync.CliTests.test_budget_zero_writes_empty_file) ... ok
+test_negative_budget_exit_code_2 (test_budgetsync.CliTests.test_negative_budget_exit_code_2) ... ok
+test_non_object_exit_code_3 (test_budgetsync.CliTests.test_non_object_exit_code_3) ... ok
+test_plan_outputs_jsonl_and_summary (test_budgetsync.CliTests.test_plan_outputs_jsonl_and_summary) ... ok
+test_full_budget_converges (test_budgetsync.ExhaustiveOptimumTests.test_full_budget_converges) ... ok
+test_optimum_and_tie_break_for_all_key_subsets (test_budgetsync.ExhaustiveOptimumTests.test_optimum_and_tie_break_for_all_key_subsets) ... ok
+test_ordering_delete_before_set (test_budgetsync.ExhaustiveOptimumTests.test_ordering_delete_before_set) ... ok
+test_full_plan_reaches_fixed_point (test_budgetsync.IdempotencyTests.test_full_plan_reaches_fixed_point) ... ok
+test_plan_idempotent (test_budgetsync.IdempotencyTests.test_plan_idempotent) ... ok
+test_bool_not_equal_to_int (test_budgetsync.SemanticsTests.test_bool_not_equal_to_int) ... ok
+test_budget_zero_empty_plan (test_budgetsync.SemanticsTests.test_budget_zero_empty_plan) ... ok
+test_negative_budget_raises (test_budgetsync.SemanticsTests.test_negative_budget_raises) ... ok
+test_nested_normalization_and_negative_zero (test_budgetsync.SemanticsTests.test_nested_normalization_and_negative_zero) ... ok
+test_no_mismatches_empty_plan_any_budget (test_budgetsync.SemanticsTests.test_no_mismatches_empty_plan_any_budget) ... ok
+test_no_partial_set_value_is_whole_field (test_budgetsync.SemanticsTests.test_no_partial_set_value_is_whole_field) ... ok
+test_non_object_raises (test_budgetsync.SemanticsTests.test_non_object_raises) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.752s
+
+OK
