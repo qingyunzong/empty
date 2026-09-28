@@ -1,0 +1,50 @@
+=== python -m unittest discover -s tests -v ===
+$ date: 2026-09-28T23:32:31Z; python: Python 3.14.4
+test_cli_feasible (test_calplan.TestCli.test_cli_feasible) ... ok
+test_cli_infeasible_is_not_parse_error (test_calplan.TestCli.test_cli_infeasible_is_not_parse_error) ... ok
+test_cli_malformed_json_exit_2 (test_calplan.TestCli.test_cli_malformed_json_exit_2) ... ok
+test_cli_missing_field_exit_2_stderr_json (test_calplan.TestCli.test_cli_missing_field_exit_2_stderr_json) ... ok
+test_cli_start_ge_end_exit_2 (test_calplan.TestCli.test_cli_start_ge_end_exit_2) ... ok
+test_accepts_offset_utc_and_naive_inputs_as_utc (test_calplan.TestPlanAcceptance.test_accepts_offset_utc_and_naive_inputs_as_utc) ... ok
+test_busy_crossing_midnight_blocks_those_minutes (test_calplan.TestPlanAcceptance.test_busy_crossing_midnight_blocks_those_minutes) ... ok
+test_busy_touching_edge_does_not_conflict (test_calplan.TestPlanAcceptance.test_busy_touching_edge_does_not_conflict) ... ok
+test_earliest_placement_tiebreak_start_then_end (test_calplan.TestPlanAcceptance.test_earliest_placement_tiebreak_start_then_end) ... ok
+test_holiday_consumes_whole_day (test_calplan.TestPlanAcceptance.test_holiday_consumes_whole_day) ... ok
+test_holiday_on_weekend_is_not_double_counted (test_calplan.TestPlanAcceptance.test_holiday_on_weekend_is_not_double_counted) ... ok
+test_infeasible_returns_partial_earliest_segments (test_calplan.TestPlanAcceptance.test_infeasible_returns_partial_earliest_segments) ... ok
+test_infeasible_when_window_has_no_capacity (test_calplan.TestPlanAcceptance.test_infeasible_when_window_has_no_capacity) ... ok
+test_missing_field_is_bad_input (test_calplan.TestPlanAcceptance.test_missing_field_is_bad_input) ... ok
+test_non_utc_timezone_is_bad_input (test_calplan.TestPlanAcceptance.test_non_utc_timezone_is_bad_input) ... ok
+test_segment_split_at_end_of_workday_picks_up_next_workday (test_calplan.TestPlanAcceptance.test_segment_split_at_end_of_workday_picks_up_next_workday) ... ok
+test_start_ge_end_is_bad_input (test_calplan.TestPlanAcceptance.test_start_ge_end_is_bad_input) ... ok
+test_subminute_precision_is_bad_input (test_calplan.TestPlanAcceptance.test_subminute_precision_is_bad_input) ... ok
+test_weekend_is_skipped (test_calplan.TestPlanAcceptance.test_weekend_is_skipped) ... ok
+test_zero_duration_needs_nothing (test_calplan.TestPlanAcceptance.test_zero_duration_needs_nothing) ... ok
+test_200_random_cases_against_minute_grid (test_differential.DifferentialTests.test_200_random_cases_against_minute_grid) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.758s
+
+OK
+
+=== CLI demo 1: feasible (holiday 2026-01-01 Thu swallowed whole day; busy 10:00-11:00) ===
+{"status": "feasible", "segments": [{"start": "2026-01-02T00:00:00Z", "end": "2026-01-02T03:20:00Z"}], "remaining_minutes": 0}
+exit=0
+
+=== CLI demo 2: split Fri 23:30 -> Mon 00:00 (weekend skipped, half-open midnight cut) ===
+{"status": "feasible", "segments": [{"start": "2026-01-02T23:30:00Z", "end": "2026-01-03T00:00:00Z"}, {"start": "2026-01-05T00:00:00Z", "end": "2026-01-05T00:30:00Z"}], "remaining_minutes": 0}
+exit=0
+
+=== CLI demo 3: busy flush against edge [10:00,11:00), start exactly 11:00 ===
+{"status": "feasible", "segments": [{"start": "2026-01-01T11:00:00Z", "end": "2026-01-01T12:00:00Z"}], "remaining_minutes": 0}
+exit=0
+
+=== CLI demo 4: infeasible (candidate window is Saturday only) ===
+{"status": "infeasible", "segments": [], "remaining_minutes": 1}
+exit=0 (infeasible is a normal business result, not a parse error)
+
+=== CLI demo 5: BAD_INPUT missing field (JSON on stderr, exit 2) ===
+exit=2
+
+=== CLI demo 6: BAD_INPUT start>=end (JSON on stderr, exit 2) ===
+exit=2
