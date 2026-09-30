@@ -1,0 +1,10 @@
+test_crash_between_dst_and_ack (test_winsync.TestCrashRecovery.test_crash_between_dst_and_ack) ... ok
+test_first_segment_corrupt (test_winsync.TestFirstSegmentCorrupt.test_first_segment_corrupt) ... ok
+test_random_scenarios (test_winsync.TestRandomVsReference.test_random_scenarios) ... ok
+test_resume_after_quarantine_then_fix (test_winsync.TestResumeNoDuplicates.test_resume_after_quarantine_then_fix) ... ok
+test_window_1_vs_8 (test_winsync.TestWindowEquivalence.test_window_1_vs_8) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.360s
+
+OK
