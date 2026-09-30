@@ -1,0 +1,21 @@
+test_budget_zero (test_budgetsync.BudgetZeroTest.test_budget_zero) ... ok
+test_bool_distinct_from_number (test_budgetsync.CanonicalCompareTest.test_bool_distinct_from_number) ... ok
+test_int_float_equal (test_budgetsync.CanonicalCompareTest.test_int_float_equal) ... ok
+test_negative_zero_equal (test_budgetsync.CanonicalCompareTest.test_negative_zero_equal) ... ok
+test_nested_difference_sets_full_value (test_budgetsync.CanonicalCompareTest.test_nested_difference_sets_full_value) ... ok
+test_nested_key_order_equal (test_budgetsync.CanonicalCompareTest.test_nested_key_order_equal) ... ok
+test_budget_zero_writes_empty_file (test_budgetsync.CliTest.test_budget_zero_writes_empty_file) ... ok
+test_negative_budget_exit_2 (test_budgetsync.CliTest.test_negative_budget_exit_2) ... ok
+test_non_object_exit_3 (test_budgetsync.CliTest.test_non_object_exit_3) ... ok
+test_plan_cli_end_to_end (test_budgetsync.CliTest.test_plan_cli_end_to_end) ... ok
+test_full_budget_converges (test_budgetsync.IdempotencyTest.test_full_budget_converges) ... ok
+test_reapply_plan_stable (test_budgetsync.IdempotencyTest.test_reapply_plan_stable) ... ok
+test_exhaustive_mixed_ops (test_budgetsync.OptimalityTest.test_exhaustive_mixed_ops) ... ok
+test_exhaustive_subsets_n12 (test_budgetsync.OptimalityTest.test_exhaustive_subsets_n12) ... ok
+test_tie_break_delete_before_set (test_budgetsync.OptimalityTest.test_tie_break_delete_before_set) ... ok
+test_tie_break_key_order (test_budgetsync.OptimalityTest.test_tie_break_key_order) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 6.449s
+
+OK
