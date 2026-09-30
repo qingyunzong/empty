@@ -1,0 +1,4 @@
+apple 3 1 2 2
+banana 4294967295 0
+apple 7
+cherry 100 200 300
