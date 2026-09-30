@@ -1,0 +1,21 @@
+test_malformed_snapshot_json (test_snapsync.TestCorruptSnapshotExitCode8.test_malformed_snapshot_json) ... ok
+test_missing_snapshot_with_truncated_log_is_rejected (test_snapsync.TestCorruptSnapshotExitCode8.test_missing_snapshot_with_truncated_log_is_rejected) ... ok
+test_no_silent_fallback_to_older_generation (test_snapsync.TestCorruptSnapshotExitCode8.test_no_silent_fallback_to_older_generation) ... ok
+test_tampered_state_hash (test_snapsync.TestCorruptSnapshotExitCode8.test_tampered_state_hash) ... ok
+test_keep_k_retains_exactly_k_generations (test_snapsync.TestKeepZeroBehavesAsOne.test_keep_k_retains_exactly_k_generations) ... ok
+test_keep_zero (test_snapsync.TestKeepZeroBehavesAsOne.test_keep_zero) ... ok
+test_genesis_constant (test_snapsync.TestLogCorruption.test_genesis_constant) ... ok
+test_genesis_snapshot_hash_is_checked (test_snapsync.TestLogCorruption.test_genesis_snapshot_hash_is_checked) ... ok
+test_tampered_log_crc_refuses_truncation (test_snapsync.TestLogCorruption.test_tampered_log_crc_refuses_truncation) ... ok
+test_random_logs_match_full_replay (test_snapsync.TestRandomCompactAgainstFullReplay.test_random_logs_match_full_replay) ... ok
+test_restore_after_compaction_equals_full_replay (test_snapsync.TestRestoreConsistency.test_restore_after_compaction_equals_full_replay) ... ok
+test_restore_from_mid_log_snapshot_prefix (test_snapsync.TestRestoreConsistency.test_restore_from_mid_log_snapshot_prefix) ... ok
+test_second_compaction_across_term_switch (test_snapsync.TestTermBoundaryTruncation.test_second_compaction_across_term_switch) ... ok
+test_snapshot_at_term_boundary_compacts_cleanly (test_snapsync.TestTermBoundaryTruncation.test_snapshot_at_term_boundary_compacts_cleanly) ... ok
+test_stale_term_at_boundary_seq_is_rejected (test_snapsync.TestTermBoundaryTruncation.test_stale_term_at_boundary_seq_is_rejected) ... ok
+test_wrong_term_at_boundary_seq_is_rejected (test_snapsync.TestTermBoundaryTruncation.test_wrong_term_at_boundary_seq_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.049s
+
+OK
