@@ -1,0 +1,9 @@
+command: python3.11 -m unittest discover -s tests -v
+python: Python 3.11.16
+date: 2026-09-30T15:29:18Z
+
+
+----------------------------------------------------------------------
+Ran 36 tests in 17.825s
+
+OK
