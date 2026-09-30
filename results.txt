@@ -1,0 +1,23 @@
+# Command: python -m unittest discover -s tests -v
+# Note: 'python' is not on PATH in this environment; ran as 'python3' (Python 3.14.4)
+
+test_missing_field_raises (test_calplan.BadInputTest.test_missing_field_raises) ... ok
+test_negative_duration_raises (test_calplan.BadInputTest.test_negative_duration_raises) ... ok
+test_start_not_before_end_raises (test_calplan.BadInputTest.test_start_not_before_end_raises) ... ok
+test_cli_infeasible_is_not_an_error (test_calplan.CliTest.test_cli_infeasible_is_not_an_error) ... ok
+test_cli_invalid_json_exits_2 (test_calplan.CliTest.test_cli_invalid_json_exits_2) ... ok
+test_cli_missing_field_exits_2_with_json_stderr (test_calplan.CliTest.test_cli_missing_field_exits_2_with_json_stderr) ... ok
+test_cli_start_not_before_end_exits_2 (test_calplan.CliTest.test_cli_start_not_before_end_exits_2) ... ok
+test_cli_success_writes_json_to_stdout (test_calplan.CliTest.test_cli_success_writes_json_to_stdout) ... ok
+test_matches_minute_level_reference_on_200_cases (test_calplan.RandomizedReferenceTest.test_matches_minute_level_reference_on_200_cases) ... ok
+test_busy_touching_edges_does_not_conflict (test_calplan.SemanticsTest.test_busy_touching_edges_does_not_conflict) ... ok
+test_cross_midnight_split_by_utc_day (test_calplan.SemanticsTest.test_cross_midnight_split_by_utc_day) ... ok
+test_holiday_disables_whole_day (test_calplan.SemanticsTest.test_holiday_disables_whole_day) ... ok
+test_holiday_on_weekend_not_double_counted (test_calplan.SemanticsTest.test_holiday_on_weekend_not_double_counted) ... ok
+test_infeasible_when_window_too_small (test_calplan.SemanticsTest.test_infeasible_when_window_too_small) ... ok
+test_weekend_is_skipped (test_calplan.SemanticsTest.test_weekend_is_skipped) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.972s
+
+OK
