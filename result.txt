@@ -1,0 +1,11 @@
+test_event_log_is_append_only_jsonl (test_transfer.EventLogTest.test_event_log_is_append_only_jsonl) ... ok
+test_bad_cli_usage_exit_4 (test_transfer.InvalidInputTest.test_bad_cli_usage_exit_4) ... ok
+test_invalid_requests_exit_4 (test_transfer.InvalidInputTest.test_invalid_requests_exit_4) ... ok
+test_conflicting_idemkey_rejected (test_transfer.RepeatedRequestTest.test_conflicting_idemkey_rejected) ... ok
+test_same_idemkey_replay_returns_same_final_state (test_transfer.RepeatedRequestTest.test_same_idemkey_replay_returns_same_final_state) ... ok
+test_transition_table_cell_by_cell (test_transfer.TransitionTableTest.test_transition_table_cell_by_cell) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.659s
+
+OK
