@@ -1,0 +1,13 @@
+test_actions_are_idempotent_by_request_key_and_step (test_saga.SagaCliTest.test_actions_are_idempotent_by_request_key_and_step) ... ok
+test_cancel_after_completed_conflicts_with_exit_9 (test_saga.SagaCliTest.test_cancel_after_completed_conflicts_with_exit_9) ... ok
+test_cancel_before_second_step_compensates_only_a (test_saga.SagaCliTest.test_cancel_before_second_step_compensates_only_a) ... ok
+test_cancel_before_start_gives_canceled_without_actions (test_saga.SagaCliTest.test_cancel_before_start_gives_canceled_without_actions) ... ok
+test_crash_recovery_completes_run (test_saga.SagaCliTest.test_crash_recovery_completes_run) ... ok
+test_crash_recovery_still_completes_cancel (test_saga.SagaCliTest.test_crash_recovery_still_completes_cancel) ... ok
+test_failed_action_marks_saga_failed (test_saga.SagaCliTest.test_failed_action_marks_saga_failed) ... ok
+test_repeated_cancel_is_idempotent (test_saga.SagaCliTest.test_repeated_cancel_is_idempotent) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.161s
+
+OK

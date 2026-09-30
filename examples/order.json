@@ -1,0 +1,14 @@
+{
+  "name": "order-saga",
+  "steps": [
+    {"name": "reserve-stock",
+     "commit": {"type": "log", "message": "stock reserved"},
+     "compensate": {"type": "log", "message": "stock released"}},
+    {"name": "charge-card",
+     "commit": {"type": "log", "message": "card charged"},
+     "compensate": {"type": "log", "message": "card refunded"}},
+    {"name": "send-confirmation",
+     "commit": {"type": "log", "message": "email sent"},
+     "compensate": {"type": "log", "message": "email revoked"}}
+  ]
+}
