@@ -1,0 +1,12 @@
+test_foreign_file_conflicts (test_sync.TestConflict.test_foreign_file_conflicts) ... ok
+test_kill_mid_copy_recovers_cleanly (test_sync.TestCrashRecovery.test_kill_mid_copy_recovers_cleanly) ... ok
+test_batches_of_at_most_64_ops (test_sync.TestEmptyAndBatching.test_batches_of_at_most_64_ops) ... ok
+test_custom_state_path_outside_dst (test_sync.TestEmptyAndBatching.test_custom_state_path_outside_dst) ... ok
+test_empty_source_clears_destination_but_keeps_state (test_sync.TestEmptyAndBatching.test_empty_source_clears_destination_but_keeps_state) ... ok
+test_random_trees_match_bruteforce (test_sync.TestRandomTrees.test_random_trees_match_bruteforce) ... ok
+test_rename_only (test_sync.TestRename.test_rename_only) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.388s
+
+OK
