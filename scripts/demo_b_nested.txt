@@ -1,0 +1,17 @@
+# B: three-level nested transactions, rollback undoes only the current layer
+begin
+add a x
+begin
+add b x
+begin
+add c x
+search x
+rollback
+search x
+rollback
+search x
+add d x
+commit
+search x
+search x --snapshot 1
+search x --snapshot 0

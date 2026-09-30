@@ -1,0 +1,12 @@
+# misc semantics: empty commit, del no-op, overwrite
+begin
+commit
+seq
+begin
+add a x
+add a y
+del ghost
+commit
+search x
+search y
+seq

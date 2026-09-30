@@ -1,0 +1,20 @@
+# C: snapshots keep old results under interleaved add/commit
+begin
+add d1 x
+commit
+search x --snapshot 1
+begin
+add d2 x
+search x --snapshot 1
+search x
+commit
+search x --snapshot 1
+search x --snapshot 2
+begin
+del d1
+add d2 y
+commit
+search x --snapshot 1
+search x --snapshot 2
+search x --snapshot 3
+search y --snapshot 3
