@@ -1,0 +1,25 @@
+test_cli_duplicate_level_exits_2 (test_roster.CliTests.test_cli_duplicate_level_exits_2) ... ok
+test_cli_infeasible_is_not_an_error (test_roster.CliTests.test_cli_infeasible_is_not_an_error) ... ok
+test_cli_negative_demand_exits_2 (test_roster.CliTests.test_cli_negative_demand_exits_2) ... ok
+test_cli_solves_from_stdin (test_roster.CliTests.test_cli_solves_from_stdin) ... ok
+test_cli_unknown_skill_exits_2 (test_roster.CliTests.test_cli_unknown_skill_exits_2) ... ok
+test_repeated_runs_are_identical (test_roster.DeterminismTests.test_repeated_runs_are_identical) ... ok
+test_ties_break_by_date_then_employee_id (test_roster.DeterminismTests.test_ties_break_by_date_then_employee_id) ... ok
+test_matches_exhaustive_optimum (test_roster.ExhaustiveCrossCheckTests.test_matches_exhaustive_optimum) ... ok
+test_fully_infeasible_returns_status_not_exception (test_roster.HardConstraintTests.test_fully_infeasible_returns_status_not_exception) ... ok
+test_off_blocks_assignment (test_roster.HardConstraintTests.test_off_blocks_assignment) ... ok
+test_off_weekday_applies_to_whole_horizon (test_roster.HardConstraintTests.test_off_weekday_applies_to_whole_horizon) ... ok
+test_one_shift_per_person_per_day (test_roster.HardConstraintTests.test_one_shift_per_person_per_day) ... ok
+test_skill_mismatch_is_hard (test_roster.HardConstraintTests.test_skill_mismatch_is_hard) ... ok
+test_deeper_level_still_runs_after_relaxation (test_roster.LayeredRollbackTests.test_deeper_level_still_runs_after_relaxation) ... ok
+test_lower_level_rollback_keeps_higher_level (test_roster.LayeredRollbackTests.test_lower_level_rollback_keeps_higher_level) ... ok
+test_partial_level_is_fully_rolled_back (test_roster.LayeredRollbackTests.test_partial_level_is_fully_rolled_back) ... ok
+test_duplicate_skill_across_levels (test_roster.ValidationTests.test_duplicate_skill_across_levels) ... ok
+test_error_code_constant (test_roster.ValidationTests.test_error_code_constant) ... ok
+test_negative_demand (test_roster.ValidationTests.test_negative_demand) ... ok
+test_unknown_skill_in_levels (test_roster.ValidationTests.test_unknown_skill_in_levels) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.190s
+
+OK
