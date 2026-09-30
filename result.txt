@@ -1,0 +1,14 @@
+test_approve_before_deadline_prevents_timeout (test_approval.CliCase.test_approve_before_deadline_prevents_timeout) ... ok
+test_crash_after_decision_event_recovers_without_duplicate_compensation (test_approval.CliCase.test_crash_after_decision_event_recovers_without_duplicate_compensation) ... ok
+test_crash_mid_compensation_recovers_remaining_only (test_approval.CliCase.test_crash_mid_compensation_recovers_remaining_only) ... ok
+test_duplicate_approve_idempotent_and_conflict_exit_9 (test_approval.CliCase.test_duplicate_approve_idempotent_and_conflict_exit_9) ... ok
+test_high_amount_two_level_approval_completes (test_approval.CliCase.test_high_amount_two_level_approval_completes) ... ok
+test_low_amount_needs_manager_only (test_approval.CliCase.test_low_amount_needs_manager_only) ... ok
+test_manager_rejects_finance_refused_reverse_compensation (test_approval.CliCase.test_manager_rejects_finance_refused_reverse_compensation) ... ok
+test_reference_state_table_is_wellformed (test_approval.CliCase.test_reference_state_table_is_wellformed) ... ok
+test_timeout_auto_cancels_with_per_tick_events (test_approval.CliCase.test_timeout_auto_cancels_with_per_tick_events) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.852s
+
+OK
