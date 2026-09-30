@@ -1,0 +1,14 @@
+{
+  "sensitivity": {"salary": "high"},
+  "roles": {
+    "analyst": {
+      "row_filters": [
+        {"when": "dept == 'ops'", "effect": "deny"}
+      ],
+      "column_rules": [
+        {"sensitivity_at_least": "high", "action": "hash"},
+        {"column": "name", "action": "redact", "when": "salary is null"}
+      ]
+    }
+  }
+}

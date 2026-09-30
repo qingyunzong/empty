@@ -1,0 +1,8 @@
+{
+  "columns": ["id", "name", "dept", "salary"],
+  "rows": [
+    {"id": 1, "name": "ada", "dept": "eng", "salary": 100},
+    {"id": 2, "name": "bob", "dept": "ops", "salary": 90},
+    {"id": 3, "name": "cy", "dept": "eng", "salary": null}
+  ]
+}
