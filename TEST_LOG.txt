@@ -1,0 +1,18 @@
+$ python -m unittest discover -s tests -v
+
+test_crash_between_dst_and_ack (test_winsync.TestCrashRecovery.test_crash_between_dst_and_ack) ... ok
+test_duplicate_ack_no_regress_no_skip (test_winsync.TestCrashRecovery.test_duplicate_ack_no_regress_no_skip) ... ok
+test_idempotent_rerun (test_winsync.TestCrashRecovery.test_idempotent_rerun) ... ok
+test_cli_clean_run_exit_0 (test_winsync.TestFirstSegmentCorrupt.test_cli_clean_run_exit_0) ... ok
+test_cli_missing_src_error (test_winsync.TestFirstSegmentCorrupt.test_cli_missing_src_error) ... ok
+test_first_segment_corrupt (test_winsync.TestFirstSegmentCorrupt.test_first_segment_corrupt) ... ok
+test_commits_before_corruption_are_kept (test_winsync.TestQuarantineStopsCommits.test_commits_before_corruption_are_kept) ... ok
+test_randomized (test_winsync.TestRandomizedVsReference.test_randomized) ... ok
+test_window_1_vs_8 (test_winsync.TestWindowEquivalence.test_window_1_vs_8) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.044s
+
+OK
+
+exit code: 0
