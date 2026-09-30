@@ -1,0 +1,36 @@
+test_crash_recovers_then_run_is_noop (test_transfer.TransferCliTest.test_crash_recovers_then_run_is_noop) ... ok
+test_duplicate_request_same_idemkey (test_transfer.TransferCliTest.test_duplicate_request_same_idemkey) ... ok
+test_each_cell_of_reference_table (test_transfer.TransferCliTest.test_each_cell_of_reference_table) ... ok
+test_event_log_is_append_only_jsonl (test_transfer.TransferCliTest.test_event_log_is_append_only_jsonl) ... ok
+test_invalid_config_shape (test_transfer.TransferCliTest.test_invalid_config_shape) ... ok
+test_invalid_json_config (test_transfer.TransferCliTest.test_invalid_json_config) ... ok
+test_missing_config_file (test_transfer.TransferCliTest.test_missing_config_file) ... ok
+test_replay_after_compensation (test_transfer.TransferCliTest.test_replay_after_compensation) ... ok
+test_replay_after_failure (test_transfer.TransferCliTest.test_replay_after_failure) ... ok
+test_state_before_new (test_transfer.TransferCliTest.test_state_before_new) ... ok
+test_transition_table (test_transfer.TransferCliTest.test_transition_table) ... ok
+test_unknown_command_and_bad_crash_point (test_transfer.TransferCliTest.test_unknown_command_and_bad_crash_point) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.275s
+
+OK
+
+=== observed exit codes / outputs ===
+duplicate          $ run again              -> exit 0 | {"balances": {"alice": 800, "bob": 700}, "status": "COMPLETED"}
+invalid-json       $ new /tmp/transfer-test-v6cmce7j/bad.json -> exit 4 | 
+ok                 $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+ok                 $ run                    -> exit 0 | {"balances": {"alice": 800, "bob": 700}, "status": "COMPLETED"}
+crash_debit_event  $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+crash_debit_event  $ crash --at after_debit_event -> exit 2 | {"balances": {"alice": 1000, "bob": 500}, "crashed": true, "status": "PREPARED"}
+crash_debit_event  $ recover                -> exit 0 | {"balances": {"alice": 800, "bob": 700}, "status": "COMPLETED"}
+crash_debit_act    $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+crash_debit_act    $ crash --at after_debit_action -> exit 2 | {"balances": {"alice": 800, "bob": 500}, "crashed": true, "status": "PREPARED"}
+crash_debit_act    $ recover                -> exit 0 | {"balances": {"alice": 800, "bob": 700}, "status": "COMPLETED"}
+crash_credit_act   $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+crash_credit_act   $ crash --at after_credit_action -> exit 2 | {"balances": {"alice": 800, "bob": 700}, "crashed": true, "status": "PREPARED"}
+crash_credit_act   $ recover                -> exit 0 | {"balances": {"alice": 800, "bob": 700}, "status": "COMPLETED"}
+compensate         $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+compensate         $ run                    -> exit 0 | {"balances": {"alice": 1000, "bob": 500}, "status": "COMPENSATED"}
+failed             $ new                    -> exit 0 | {"idemkey": "tx-1", "status": "PENDING"}
+failed             $ run                    -> exit 10 | {"balances": {"alice": 800, "bob": 500}, "status": "FAILED"}
