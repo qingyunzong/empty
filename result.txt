@@ -1,0 +1,20 @@
+# NOTE: 'python' is not installed in this environment ('python -m unittest -v' exits 127: command not found).
+# Ran the exact equivalent: python3 -m unittest -v  (interpreter: Python 3.14.4)
+
+test_cancel_after_reserve_compensates (test_saga.CancellationTests.test_cancel_after_reserve_compensates) ... ok
+test_cancel_during_quoting_reserves_nothing (test_saga.CancellationTests.test_cancel_during_quoting_reserves_nothing) ... ok
+test_reference_candidates_and_per_event_states (test_saga.CandidateEnumerationTests.test_reference_candidates_and_per_event_states) ... ok
+test_tie_price_selects_smallest_id (test_saga.CandidateEnumerationTests.test_tie_price_selects_smallest_id) ... ok
+test_crash_recover_cancel_via_cli (test_saga.CliTests.test_crash_recover_cancel_via_cli) ... ok
+test_run_and_state (test_saga.CliTests.test_run_and_state) ... ok
+test_crash_after_quote_event_then_recover (test_saga.CrashRecoveryTests.test_crash_after_quote_event_then_recover) ... ok
+test_crash_after_reserve_event_then_recover (test_saga.CrashRecoveryTests.test_crash_after_reserve_event_then_recover) ... ok
+test_recover_is_idempotent_when_nothing_crashed (test_saga.CrashRecoveryTests.test_recover_is_idempotent_when_nothing_crashed) ... ok
+test_all_quotes_fail (test_saga.ReservationTests.test_all_quotes_fail) ... ok
+test_all_reserves_fail (test_saga.ReservationTests.test_all_reserves_fail) ... ok
+test_reserve_failure_falls_back_to_next_candidate (test_saga.ReservationTests.test_reserve_failure_falls_back_to_next_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.435s
+
+OK
