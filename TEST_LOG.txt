@@ -1,0 +1,25 @@
+test_corrupt_head_file (test_hierosync.TestCorruption.test_corrupt_head_file) ... ok
+test_cyclic_parent_pointer (test_hierosync.TestCorruption.test_cyclic_parent_pointer) ... ok
+test_dangling_parent_pointer (test_hierosync.TestCorruption.test_dangling_parent_pointer) ... ok
+test_malformed_commit_file (test_hierosync.TestCorruption.test_malformed_commit_file) ... ok
+test_tampered_tree_hash (test_hierosync.TestCorruption.test_tampered_tree_hash) ... ok
+test_empty_dir_created_by_undone_commit_removed_otherwise_kept (test_hierosync.TestInterleaved.test_empty_dir_created_by_undone_commit_removed_otherwise_kept) ... ok
+test_interleaved_sequence_is_deterministic (test_hierosync.TestInterleaved.test_interleaved_sequence_is_deterministic) ... ok
+test_replay_gives_identical_result (test_hierosync.TestInterleaved.test_replay_gives_identical_result) ... ok
+test_random_ops_against_reference_model (test_hierosync.TestRandomModel.test_random_ops_against_reference_model) ... ok
+test_sibling_branches_untouched (test_hierosync.TestSiblingUndo.test_sibling_branches_untouched) ... ok
+test_hash_dir_entries_deterministic_order (test_hierosync.TestUnits.test_hash_dir_entries_deterministic_order) ... ok
+test_missing_root_rejected (test_hierosync.TestUnits.test_missing_root_rejected) ... ok
+test_negative_undo_rejected (test_hierosync.TestUnits.test_negative_undo_rejected) ... ok
+test_noop_commit_lands_in_skipped_on_undo (test_hierosync.TestUnits.test_noop_commit_lands_in_skipped_on_undo) ... ok
+test_scan_tree_includes_empty_dirs (test_hierosync.TestUnits.test_scan_tree_includes_empty_dirs) ... ok
+test_stdout_json_shape (test_hierosync.TestUnits.test_stdout_json_shape) ... ok
+test_store_inside_root_rejected (test_hierosync.TestUnits.test_store_inside_root_rejected) ... ok
+test_timestamps_strictly_increase (test_hierosync.TestUnits.test_timestamps_strictly_increase) ... ok
+test_undo_beyond_history_clamps_to_empty (test_hierosync.TestUnits.test_undo_beyond_history_clamps_to_empty) ... ok
+test_undo_with_no_history_is_plain_commit (test_hierosync.TestUnits.test_undo_with_no_history_is_plain_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 24.037s
+
+OK
