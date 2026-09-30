@@ -1,0 +1,29 @@
+test_commit_output_and_store (test_basic.TestBasicCommit.test_commit_output_and_store) ... ok
+test_root_outside_repo_rejected (test_basic.TestBasicCommit.test_root_outside_repo_rejected) ... ok
+test_undo_more_than_history_empties_tree (test_basic.TestBasicCommit.test_undo_more_than_history_empties_tree) ... ok
+test_undo_restores_previous_state (test_basic.TestBasicCommit.test_undo_restores_previous_state) ... ok
+test_undo_zero_is_plain_commit (test_basic.TestBasicCommit.test_undo_zero_is_plain_commit) ... ok
+test_empty_dir_created_by_undone_commit_is_deleted (test_basic.TestEmptyDirRule.test_empty_dir_created_by_undone_commit_is_deleted) ... ok
+test_empty_dir_not_created_by_undone_commit_is_kept (test_basic.TestEmptyDirRule.test_empty_dir_not_created_by_undone_commit_is_kept) ... ok
+test_commits_totally_ordered_by_timestamp_and_seq (test_basic.TestTotalOrder.test_commits_totally_ordered_by_timestamp_and_seq) ... ok
+test_corrupt_head_file (test_corruption.TestCorruption.test_corrupt_head_file) ... ok
+test_cyclic_parent_pointer (test_corruption.TestCorruption.test_cyclic_parent_pointer) ... ok
+test_dangling_parent_pointer (test_corruption.TestCorruption.test_dangling_parent_pointer) ... ok
+test_garbage_snapshot_file (test_corruption.TestCorruption.test_garbage_snapshot_file) ... ok
+test_two_node_cycle (test_corruption.TestCorruption.test_two_node_cycle) ... ok
+test_interleaved_create_delete_sequence (test_interleaved.TestInterleavedUndo.test_interleaved_create_delete_sequence) ... ok
+test_sequence_replay_gives_identical_result (test_interleaved.TestInterleavedUndo.test_sequence_replay_gives_identical_result) ... ok
+test_undo_create_removes_file_and_dir (test_interleaved.TestInterleavedUndo.test_undo_create_removes_file_and_dir) ... ok
+test_undo_delete_restores_file (test_interleaved.TestInterleavedUndo.test_undo_delete_restores_file) ... ok
+test_undo_of_undo_is_deterministic (test_interleaved.TestInterleavedUndo.test_undo_of_undo_is_deterministic) ... ok
+test_random_seed_1 (test_random_model.TestRandomModel.test_random_seed_1) ... ok
+test_random_seed_2 (test_random_model.TestRandomModel.test_random_seed_2) ... ok
+test_random_seed_3 (test_random_model.TestRandomModel.test_random_seed_3) ... ok
+test_deep_nesting_sibling_untouched (test_siblings.TestSiblingIsolation.test_deep_nesting_sibling_untouched) ... ok
+test_root_undo_affects_everything (test_siblings.TestSiblingIsolation.test_root_undo_affects_everything) ... ok
+test_undo_spans_sibling_commit_but_preserves_it (test_siblings.TestSiblingIsolation.test_undo_spans_sibling_commit_but_preserves_it) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 12.978s
+
+OK
