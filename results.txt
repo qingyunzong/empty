@@ -1,0 +1,25 @@
+test_bad_slot_exit_2 (test_cli.TestCli.test_bad_slot_exit_2) ... ok
+test_none_status (test_cli.TestCli.test_none_status) ... ok
+test_ok (test_cli.TestCli.test_ok) ... ok
+test_tied_slots_via_cli (test_cli.TestCli.test_tied_slots_via_cli) ... ok
+test_bad_input_distinct_from_none (test_core.TestBadInput.test_bad_input_distinct_from_none) ... ok
+test_inverted_busy_interval (test_core.TestBadInput.test_inverted_busy_interval) ... ok
+test_inverted_prefer_interval (test_core.TestBadInput.test_inverted_prefer_interval) ... ok
+test_inverted_window (test_core.TestBadInput.test_inverted_window) ... ok
+test_non_positive_duration (test_core.TestBadInput.test_non_positive_duration) ... ok
+test_busy_exactly_filling_gap_edges (test_core.TestBoundary.test_busy_exactly_filling_gap_edges) ... ok
+test_busy_touching_window_end (test_core.TestBoundary.test_busy_touching_window_end) ... ok
+test_busy_touching_window_start_allows_immediate_start (test_core.TestBoundary.test_busy_touching_window_start_allows_immediate_start) ... ok
+test_fully_busy (test_core.TestNoFeasible.test_fully_busy) ... ok
+test_window_without_enough_length (test_core.TestNoFeasible.test_window_without_enough_length) ... ok
+test_nested_prefer_counted_once (test_core.TestPreferOverlap.test_nested_prefer_counted_once) ... ok
+test_overlapping_prefer_counted_once (test_core.TestPreferOverlap.test_overlapping_prefer_counted_once) ... ok
+test_higher_score_wins (test_core.TestTies.test_higher_score_wins) ... ok
+test_tie_break_start_then_end (test_core.TestTies.test_tie_break_start_then_end) ... ok
+test_two_equal_score_slots_both_returned (test_core.TestTies.test_two_equal_score_slots_both_returned) ... ok
+test_random_3_person_small_window (test_random_enum.TestRandomEnum.test_random_3_person_small_window) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.187s
+
+OK
