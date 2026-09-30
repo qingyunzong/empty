@@ -1,0 +1,21 @@
+test_corrupt_log_reports_failed (test_request_flow.RequestFlowTestCase.test_corrupt_log_reports_failed)
+事件日志损坏时状态为 FAILED. ... ok
+test_crash_between_decision_event_and_action_recover (test_request_flow.RequestFlowTestCase.test_crash_between_decision_event_and_action_recover)
+决策事件与动作之间崩溃, 恢复后补偿不重复. ... ok
+test_crash_mid_compensation_recover_no_duplicate (test_request_flow.RequestFlowTestCase.test_crash_mid_compensation_recover_no_duplicate)
+补偿中途崩溃, 恢复只补剩余项, 不重复补偿. ... ok
+test_high_amount_two_level_approval (test_request_flow.RequestFlowTestCase.test_high_amount_two_level_approval)
+高额单(>=1000)需经理+财务两级审批, 全部批准后汇合完成. ... ok
+test_idempotent_and_conflicting_decision (test_request_flow.RequestFlowTestCase.test_idempotent_and_conflicting_decision)
+同一审批人重复相同决定幂等; 已决后相反决定返回退出码 9. ... ok
+test_low_amount_single_level_approval (test_request_flow.RequestFlowTestCase.test_low_amount_single_level_approval)
+低额单(<1000)只需经理一级审批; 财务不是必需审批人. ... ok
+test_manager_reject_reverse_compensation (test_request_flow.RequestFlowTestCase.test_manager_reject_reverse_compensation)
+经理拒绝后按逆序补偿预留项; 之后财务的决定被拒. ... ok
+test_timeout_auto_cancel_per_tick_events (test_request_flow.RequestFlowTestCase.test_timeout_auto_cancel_per_tick_events)
+tick 达到截止时间未决定则自动取消并补偿; 校验每 tick 事件序列. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.989s
+
+OK
