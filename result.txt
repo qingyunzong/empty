@@ -1,0 +1,13 @@
+test_cancel_after_completion_conflicts_with_exit_9 (test_saga.CancelAfterCompletedTest.test_cancel_after_completion_conflicts_with_exit_9) ... ok
+test_cancel_after_A_before_B_compensates_only_A (test_saga.CancelAfterFirstStepTest.test_cancel_after_A_before_B_compensates_only_A) ... ok
+test_cancel_before_start_yields_canceled_with_no_actions (test_saga.CancelBeforeStartTest.test_cancel_before_start_yields_canceled_with_no_actions) ... ok
+test_cancel_survives_crash_and_recovery_completes_it (test_saga.CrashRecoveryCancelTest.test_cancel_survives_crash_and_recovery_completes_it) ... ok
+test_failing_commit_marks_saga_failed (test_saga.FailedActionTest.test_failing_commit_marks_saga_failed) ... ok
+test_repeated_cancel_is_idempotent (test_saga.RepeatedCancelTest.test_repeated_cancel_is_idempotent) ... ok
+test_full_run_completes_all_steps_in_order (test_saga.RunAndRecoverTest.test_full_run_completes_all_steps_in_order) ... ok
+test_recover_after_crash_resumes_without_reexecuting_actions (test_saga.RunAndRecoverTest.test_recover_after_crash_resumes_without_reexecuting_actions) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.192s
+
+OK
