@@ -1,0 +1,29 @@
+test_associative (test_vcmerge.AlgebraPropertyTests.test_associative) ... ok
+test_commutative (test_vcmerge.AlgebraPropertyTests.test_commutative) ... ok
+test_document_level_idempotent (test_vcmerge.AlgebraPropertyTests.test_document_level_idempotent) ... ok
+test_idempotent (test_vcmerge.AlgebraPropertyTests.test_idempotent) ... ok
+test_invalid_json_error (test_vcmerge.CliTests.test_invalid_json_error) ... ok
+test_invalid_structure_error (test_vcmerge.CliTests.test_invalid_structure_error) ... ok
+test_merge_conflicts_printed_and_canonical_out (test_vcmerge.CliTests.test_merge_conflicts_printed_and_canonical_out) ... ok
+test_missing_input_file_error (test_vcmerge.CliTests.test_missing_input_file_error) ... ok
+test_negative_counter_exit_code_3 (test_vcmerge.CliTests.test_negative_counter_exit_code_3) ... ok
+test_repeated_merge_byte_identical (test_vcmerge.CliTests.test_repeated_merge_byte_identical) ... ok
+test_malformed_documents_rejected (test_vcmerge.ClockComparisonTests.test_malformed_documents_rejected) ... ok
+test_missing_entries_are_zero (test_vcmerge.ClockComparisonTests.test_missing_entries_are_zero) ... ok
+test_negative_counter_rejected (test_vcmerge.ClockComparisonTests.test_negative_counter_rejected) ... ok
+test_normalization_drops_zero_counters (test_vcmerge.ClockComparisonTests.test_normalization_drops_zero_counters) ... ok
+test_exhaustive_tiny_graphs (test_vcmerge.EventGraphConvergenceTests.test_exhaustive_tiny_graphs) ... ok
+test_random_graphs_up_to_8_events (test_vcmerge.EventGraphConvergenceTests.test_random_graphs_up_to_8_events) ... ok
+test_comparable_newer_wins (test_vcmerge.MergeSemanticsTests.test_comparable_newer_wins) ... ok
+test_concurrent_writes_conflict_and_deterministic (test_vcmerge.MergeSemanticsTests.test_concurrent_writes_conflict_and_deterministic) ... ok
+test_delete_beats_concurrent_update (test_vcmerge.MergeSemanticsTests.test_delete_beats_concurrent_update) ... ok
+test_key_union (test_vcmerge.MergeSemanticsTests.test_key_union) ... ok
+test_late_update_does_not_resurrect (test_vcmerge.MergeSemanticsTests.test_late_update_does_not_resurrect) ... ok
+test_no_conflict_when_values_identical_but_clocks_differ (test_vcmerge.MergeSemanticsTests.test_no_conflict_when_values_identical_but_clocks_differ) ... ok
+test_tombstone_retained_when_only_on_one_replica (test_vcmerge.MergeSemanticsTests.test_tombstone_retained_when_only_on_one_replica) ... ok
+test_update_after_delete_wins (test_vcmerge.MergeSemanticsTests.test_update_after_delete_wins) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 11.882s
+
+OK
