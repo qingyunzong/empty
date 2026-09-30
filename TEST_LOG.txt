@@ -1,0 +1,19 @@
+test_both_empty_are_equal (test_merklesync.CliMiscTest.test_both_empty_are_equal) ... ok
+test_cli_output_schema (test_merklesync.CliMiscTest.test_cli_output_schema) ... ok
+test_invalid_json_exit_code_2 (test_merklesync.CliMiscTest.test_invalid_json_exit_code_2) ... ok
+test_library_rejects_bad_record (test_merklesync.CliMiscTest.test_library_rejects_bad_record) ... ok
+test_missing_file_exit_code_2 (test_merklesync.CliMiscTest.test_missing_file_exit_code_2) ... ok
+test_enough_rounds_complete (test_merklesync.IncompleteTest.test_enough_rounds_complete) ... ok
+test_equal_streams_finish_immediately (test_merklesync.IncompleteTest.test_equal_streams_finish_immediately) ... ok
+test_one_round_is_incomplete (test_merklesync.IncompleteTest.test_one_round_is_incomplete) ... ok
+test_duplicate_key_exit_code_3 (test_merklesync.OrderValidationTest.test_duplicate_key_exit_code_3) ... ok
+test_library_raises_order_error (test_merklesync.OrderValidationTest.test_library_raises_order_error) ... ok
+test_unordered_input_exit_code_3 (test_merklesync.OrderValidationTest.test_unordered_input_exit_code_3) ... ok
+test_random_injection_matches_reference (test_merklesync.RandomizedDiffTest.test_random_injection_matches_reference) ... ok
+test_empty_interval_hash_constant (test_merklesync.WhitespaceTest.test_empty_interval_hash_constant) ... ok
+test_whitespace_only_difference_is_equal (test_merklesync.WhitespaceTest.test_whitespace_only_difference_is_equal) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.397s
+
+OK
