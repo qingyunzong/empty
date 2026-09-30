@@ -1,0 +1,14 @@
+test_counts_json_shape_and_unknown_op (test_cdcsync.TestCliAndCounts.test_counts_json_shape_and_unknown_op) ... ok
+test_broken_hash_chain_exit_3 (test_cdcsync.TestCorruptLog.test_broken_hash_chain_exit_3) ... ok
+test_invalid_json_exit_3 (test_cdcsync.TestCorruptLog.test_invalid_json_exit_3) ... ok
+test_fault_in_process_rolls_back_and_recovers (test_cdcsync.TestFaultInjection.test_fault_in_process_rolls_back_and_recovers) ... ok
+test_fault_via_cli_restart_correct (test_cdcsync.TestFaultInjection.test_fault_via_cli_restart_correct) ... ok
+test_exhaustive_permutations_small_n (test_cdcsync.TestRandomLog.test_exhaustive_permutations_small_n)
+A: all permutations of n <= 7 events match the model. ... ok
+test_random_200_events_with_duplicates (test_cdcsync.TestRandomLog.test_random_200_events_with_duplicates) ... ok
+test_gap_pending_then_filled (test_cdcsync.TestSeqGap.test_gap_pending_then_filled) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.992s
+
+OK
