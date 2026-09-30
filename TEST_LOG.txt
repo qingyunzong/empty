@@ -1,0 +1,15 @@
+test_malformed_snapshot_json (test_snapsync.TestCorruptSnapshot.test_malformed_snapshot_json) ... ok
+test_missing_snapshot (test_snapsync.TestCorruptSnapshot.test_missing_snapshot) ... ok
+test_tampered_state_hash (test_snapsync.TestCorruptSnapshot.test_tampered_state_hash) ... ok
+test_keep_zero_behaves_like_one (test_snapsync.TestKeepZero.test_keep_zero_behaves_like_one) ... ok
+test_corrupt_log_rejected_and_untouched (test_snapsync.TestLogIntegrity.test_corrupt_log_rejected_and_untouched) ... ok
+test_random_logs_against_full_replay (test_snapsync.TestRandomCompaction.test_random_logs_against_full_replay) ... ok
+test_keep_prunes_older_generations_but_never_current (test_snapsync.TestRetention.test_keep_prunes_older_generations_but_never_current) ... ok
+test_cut_at_first_entry_of_new_term (test_snapsync.TestTermBoundary.test_cut_at_first_entry_of_new_term) ... ok
+test_cut_at_last_entry_of_old_term (test_snapsync.TestTermBoundary.test_cut_at_last_entry_of_old_term) ... ok
+test_term_mismatch_at_boundary_rejected (test_snapsync.TestTermBoundary.test_term_mismatch_at_boundary_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.933s
+
+OK
