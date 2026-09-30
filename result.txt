@@ -1,0 +1,25 @@
+# jsonmerge3 test results
+# command: python3.11 -m unittest discover -s tests -v
+# python: Python 3.11.16
+# date: 2026-09-30T19:22:02Z
+
+test_clean_merge_exit_0 (test_cli.CliTest.test_clean_merge_exit_0) ... ok
+test_conflict_exit_1_and_pointer_on_stderr (test_cli.CliTest.test_conflict_exit_1_and_pointer_on_stderr) ... ok
+test_invalid_json_exit_2_and_no_output_written (test_cli.CliTest.test_invalid_json_exit_2_and_no_output_written) ... ok
+test_missing_input_file_exit_2 (test_cli.CliTest.test_missing_input_file_exit_2) ... ok
+test_usage_error_exit_2 (test_cli.CliTest.test_usage_error_exit_2) ... ok
+test_added_key_different_values_conflict (test_merge.ExplicitSemanticsTest.test_added_key_different_values_conflict) ... ok
+test_added_key_same_value_both_sides (test_merge.ExplicitSemanticsTest.test_added_key_same_value_both_sides) ... ok
+test_array_append_vs_modify_existing (test_merge.ExplicitSemanticsTest.test_array_append_vs_modify_existing) ... ok
+test_array_same_new_index_different_values (test_merge.ExplicitSemanticsTest.test_array_same_new_index_different_values) ... ok
+test_delete_vs_modify_conflict (test_merge.ExplicitSemanticsTest.test_delete_vs_modify_conflict) ... ok
+test_nested_non_conflicting_edits (test_merge.ExplicitSemanticsTest.test_nested_non_conflicting_edits) ... ok
+test_root_scalar_conflict_pointer_is_empty_string (test_merge.ExplicitSemanticsTest.test_root_scalar_conflict_pointer_is_empty_string) ... ok
+test_all_cases_path_by_path (test_merge.IndependentEnumerationTest.test_all_cases_path_by_path) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.210s
+
+OK
+
+exit_code=0
