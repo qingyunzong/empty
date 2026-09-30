@@ -1,0 +1,19 @@
+{
+  "until": 200,
+  "events": [
+    {"tick": 10, "prio": 5, "name": "evt-late"},
+    {"tick": 5, "prio": 2, "name": "evt-b"},
+    {"tick": 5, "prio": 1, "name": "evt-a",
+     "spawn": [{"tick": 5, "prio": 0, "name": "evt-a-child"}]},
+    {"tick": 5, "prio": 2, "name": "evt-c"},
+    {"tick": 20, "prio": 0, "name": "evt-cancelled"},
+    {"tick": 15, "prio": 0, "name": "evt-canceler", "cancel": "evt-cancelled"}
+  ],
+  "sessions": [
+    {"type": "arq", "name": "arq1", "start": 0,
+     "packets": ["m1", "m2", "m3"],
+     "ack_delay": 4, "timeout": 10, "max_retries": 3, "loss": [2]},
+    {"type": "heartbeat", "name": "hb1", "start": 0, "interval": 30,
+     "dead_after": 60, "peer_responds": false}
+  ]
+}
