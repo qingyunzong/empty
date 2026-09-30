@@ -1,0 +1,29 @@
+# safedelsync test log
+# command: python3.11 -m unittest discover -s tests -v
+# date: 2026-09-30T14:06:10Z
+# python: Python 3.11.16
+
+test_delete_propagates (test_sync.TestBasicSync.test_delete_propagates) ... ok
+test_first_sync_merges_both_sides (test_sync.TestBasicSync.test_first_sync_merges_both_sides) ... ok
+test_modify_propagates (test_sync.TestBasicSync.test_modify_propagates) ... ok
+test_new_file_on_one_side_is_copied_not_deleted (test_sync.TestBasicSync.test_new_file_on_one_side_is_copied_not_deleted) ... ok
+test_subdirectory_files (test_sync.TestBasicSync.test_subdirectory_files) ... ok
+test_cli_outputs_json_stats (test_sync.TestCli.test_cli_outputs_json_stats) ... ok
+test_corrupt_state_exits_4 (test_sync.TestCli.test_corrupt_state_exits_4) ... ok
+test_missing_directory_is_an_error (test_sync.TestCli.test_missing_directory_is_an_error) ... ok
+test_structurally_invalid_state_exits_4 (test_sync.TestCli.test_structurally_invalid_state_exits_4) ... ok
+test_both_modified_lexicographically_smaller_wins (test_sync.TestConflicts.test_both_modified_lexicographically_smaller_wins) ... ok
+test_both_sides_new_different_content_conflicts (test_sync.TestConflicts.test_both_sides_new_different_content_conflicts) ... ok
+test_conflict_count_does_not_grow_on_rerun (test_sync.TestConflicts.test_conflict_count_does_not_grow_on_rerun) ... ok
+test_delete_vs_modify_modify_wins (test_sync.TestConflicts.test_delete_vs_modify_modify_wins) ... ok
+test_genuinely_new_content_after_delete_is_added (test_sync.TestDeleteVsLateWrite.test_genuinely_new_content_after_delete_is_added) ... ok
+test_late_old_write_does_not_resurrect (test_sync.TestDeleteVsLateWrite.test_late_old_write_does_not_resurrect) ... ok
+test_interleaved_op_sequences_converge (test_sync.TestExhaustiveInterleaving.test_interleaved_op_sequences_converge) ... ok
+test_crash_before_state_write_then_rerun_is_stable (test_sync.TestInterruption.test_crash_before_state_write_then_rerun_is_stable) ... ok
+test_crash_with_conflict_pending_then_rerun_is_stable (test_sync.TestInterruption.test_crash_with_conflict_pending_then_rerun_is_stable) ... ok
+test_sigkill_mid_sync_then_rerun (test_sync.TestInterruption.test_sigkill_mid_sync_then_rerun) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.364s
+
+OK
