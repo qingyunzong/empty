@@ -1,0 +1,14 @@
+$ python3 -m unittest discover -s tests -v
+test_bad_json_line_exit_3 (test_cdcsync.TestBadLog.test_bad_json_line_exit_3) ... ok
+test_tampered_hash_field_exit_3 (test_cdcsync.TestBadLog.test_tampered_hash_field_exit_3) ... ok
+test_tampered_value_breaks_hash_chain_exit_3 (test_cdcsync.TestBadLog.test_tampered_value_breaks_hash_chain_exit_3) ... ok
+test_fault_between_apply_and_ckpt (test_cdcsync.TestFaultInjection.test_fault_between_apply_and_ckpt) ... ok
+test_all_permutations_small_sample (test_cdcsync.TestPermutations.test_all_permutations_small_sample) ... ok
+test_random_200_events_match_reference (test_cdcsync.TestRandomLog.test_random_200_events_match_reference) ... ok
+test_gap_pending_then_backfill (test_cdcsync.TestSeqGap.test_gap_pending_then_backfill) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.326s
+
+OK
+exit code: 0
