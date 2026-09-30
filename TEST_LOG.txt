@@ -1,0 +1,22 @@
+test_a_enumerated_operation_sequences (test_safedelsync.SyncTestCase.test_a_enumerated_operation_sequences) ... ok
+test_b_new_file_not_deleted (test_safedelsync.SyncTestCase.test_b_new_file_not_deleted) ... ok
+test_b_new_file_with_existing_state (test_safedelsync.SyncTestCase.test_b_new_file_with_existing_state) ... ok
+test_both_added_different_content_conflict (test_safedelsync.SyncTestCase.test_both_added_different_content_conflict) ... ok
+test_both_modified_conflict (test_safedelsync.SyncTestCase.test_both_modified_conflict) ... ok
+test_c_genuinely_new_content_after_delete_is_added (test_safedelsync.SyncTestCase.test_c_genuinely_new_content_after_delete_is_added) ... ok
+test_c_stale_echo_not_resurrected (test_safedelsync.SyncTestCase.test_c_stale_echo_not_resurrected) ... ok
+test_cli_json_output (test_safedelsync.SyncTestCase.test_cli_json_output) ... ok
+test_corrupt_state_exit_code_4 (test_safedelsync.SyncTestCase.test_corrupt_state_exit_code_4) ... ok
+test_d_crash_at_every_step_recovers (test_safedelsync.SyncTestCase.test_d_crash_at_every_step_recovers) ... ok
+test_d_crash_then_rerun_stable (test_safedelsync.SyncTestCase.test_d_crash_then_rerun_stable) ... ok
+test_delete_propagates (test_safedelsync.SyncTestCase.test_delete_propagates) ... ok
+test_delete_vs_modify_conflict (test_safedelsync.SyncTestCase.test_delete_vs_modify_conflict) ... ok
+test_nested_directories (test_safedelsync.SyncTestCase.test_nested_directories) ... ok
+test_same_change_both_sides_no_conflict (test_safedelsync.SyncTestCase.test_same_change_both_sides_no_conflict) ... ok
+test_wrong_version_state_exit_code_4 (test_safedelsync.SyncTestCase.test_wrong_version_state_exit_code_4) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 4.725s
+
+OK
+exit=0
