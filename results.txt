@@ -1,0 +1,26 @@
+$ python3 -m unittest discover -s tests -v
+(interpreter: Python 3.14.4; 'python' not on PATH, python3 used)
+
+test_cli_bad_roster_exit_2 (test_roster.CliTests.test_cli_bad_roster_exit_2) ... ok
+test_cli_infeasible_is_not_an_error (test_roster.CliTests.test_cli_infeasible_is_not_an_error) ... ok
+test_cli_ok (test_roster.CliTests.test_cli_ok) ... ok
+test_largest_gap_date_wins (test_roster.DeterminismTests.test_largest_gap_date_wins) ... ok
+test_tie_breaks_by_date_then_employee_id (test_roster.DeterminismTests.test_tie_breaks_by_date_then_employee_id) ... ok
+test_against_brute_force (test_roster.ExhaustiveComparisonTests.test_against_brute_force) ... ok
+test_hard_infeasible_returns_status_not_exception (test_roster.HardConstraintTests.test_hard_infeasible_returns_status_not_exception) ... ok
+test_off_expansion_helper (test_roster.HardConstraintTests.test_off_expansion_helper) ... ok
+test_off_sticks_to_whole_week (test_roster.HardConstraintTests.test_off_sticks_to_whole_week) ... ok
+test_off_whole_week_can_make_demand_infeasible (test_roster.HardConstraintTests.test_off_whole_week_can_make_demand_infeasible) ... ok
+test_one_shift_per_person_per_day_with_backtracking (test_roster.HardConstraintTests.test_one_shift_per_person_per_day_with_backtracking) ... ok
+test_low_level_rollback_keeps_higher_levels (test_roster.HierarchyRollbackTests.test_low_level_rollback_keeps_higher_levels) ... ok
+test_relaxed_level_leaves_no_assignments (test_roster.HierarchyRollbackTests.test_relaxed_level_leaves_no_assignments) ... ok
+test_duplicate_level_names (test_roster.ValidationTests.test_duplicate_level_names) ... ok
+test_negative_demand (test_roster.ValidationTests.test_negative_demand) ... ok
+test_negative_level_demand (test_roster.ValidationTests.test_negative_level_demand) ... ok
+test_unknown_skill_in_demand (test_roster.ValidationTests.test_unknown_skill_in_demand) ... ok
+test_unknown_skill_in_level (test_roster.ValidationTests.test_unknown_skill_in_level) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.072s
+
+OK
