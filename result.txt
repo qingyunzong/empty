@@ -1,0 +1,14 @@
+test_bad_payload_fails_permanently (test_inbox.InboxCase.test_bad_payload_fails_permanently) ... ok
+test_corrupt_results_file_reports_clear_error (test_inbox.InboxCase.test_corrupt_results_file_reports_clear_error) ... ok
+test_crash_after_claim_then_recover_same_result (test_inbox.InboxCase.test_crash_after_claim_then_recover_same_result) ... ok
+test_enqueue_accepts_once_and_dedupes (test_inbox.InboxCase.test_enqueue_accepts_once_and_dedupes) ... ok
+test_get_reports_status_result_attempts (test_inbox.InboxCase.test_get_reports_status_result_attempts) ... ok
+test_missing_fields_are_rejected (test_inbox.InboxCase.test_missing_fields_are_rejected) ... ok
+test_multiple_keys_reference_mapping (test_inbox.InboxCase.test_multiple_keys_reference_mapping) ... ok
+test_recovered_result_matches_clean_run_result (test_inbox.InboxCase.test_recovered_result_matches_clean_run_result) ... ok
+test_run_once_succeeds_and_is_idempotent (test_inbox.InboxCase.test_run_once_succeeds_and_is_idempotent) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.304s
+
+OK
