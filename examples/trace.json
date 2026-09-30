@@ -1,0 +1,66 @@
+{
+  "window": 4,
+  "seq_space": 8,
+  "timeout": 8,
+  "frame_delay": 1,
+  "ack_delay": 1,
+  "messages": [
+    {
+      "tick": 0,
+      "data": 0
+    },
+    {
+      "tick": 1,
+      "data": 1
+    },
+    {
+      "tick": 2,
+      "data": 2
+    },
+    {
+      "tick": 3,
+      "data": 3
+    },
+    {
+      "tick": 4,
+      "data": 4
+    },
+    {
+      "tick": 5,
+      "data": 5
+    },
+    {
+      "tick": 6,
+      "data": 6
+    },
+    {
+      "tick": 7,
+      "data": 7
+    },
+    {
+      "tick": 8,
+      "data": 8
+    },
+    {
+      "tick": 9,
+      "data": 9
+    },
+    {
+      "tick": 10,
+      "data": 10
+    },
+    {
+      "tick": 11,
+      "data": 11
+    }
+  ],
+  "script": {
+    "drop": [
+      {
+        "kind": "frame",
+        "seq": 2,
+        "occurrence": 1
+      }
+    ]
+  }
+}
