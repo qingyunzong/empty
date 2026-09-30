@@ -1,0 +1,24 @@
+# Real test run output
+# command: python3 -m unittest discover -s tests -v
+# date: 2026-09-30T12:29:03Z
+
+test_crash_after_claim_then_recover_same_result (test_idem.TestCrashRecover.test_crash_after_claim_then_recover_same_result) ... ok
+test_recover_bad_payload_fails_permanently (test_idem.TestCrashRecover.test_recover_bad_payload_fails_permanently) ... ok
+test_recover_with_nothing_crashed_is_noop (test_idem.TestCrashRecover.test_recover_with_nothing_crashed_is_noop) ... ok
+test_duplicate_enqueue_returns_original_without_new_record (test_idem.TestEnqueue.test_duplicate_enqueue_returns_original_without_new_record) ... ok
+test_first_enqueue_accepts_and_persists (test_idem.TestEnqueue.test_first_enqueue_accepts_and_persists) ... ok
+test_missing_fields_are_invalid (test_idem.TestEnqueue.test_missing_fields_are_invalid) ... ok
+test_corrupted_inbox_reports_clear_error (test_idem.TestGetAndCorruption.test_corrupted_inbox_reports_clear_error) ... ok
+test_corrupted_result_file_reports_clear_error (test_idem.TestGetAndCorruption.test_corrupted_result_file_reports_clear_error) ... ok
+test_get_reports_status_result_attempts (test_idem.TestGetAndCorruption.test_get_reports_status_result_attempts) ... ok
+test_get_unknown_key_invalid (test_idem.TestGetAndCorruption.test_get_unknown_key_invalid) ... ok
+test_scenario_against_reference_model (test_idem.TestReferenceModel.test_scenario_against_reference_model) ... ok
+test_bad_payload_fails_permanently_without_infinite_retry (test_idem.TestRunOnce.test_bad_payload_fails_permanently_without_infinite_retry) ... ok
+test_run_once_success_then_no_reexecution (test_idem.TestRunOnce.test_run_once_success_then_no_reexecution) ... ok
+test_run_once_unknown_key_invalid (test_idem.TestRunOnce.test_run_once_unknown_key_invalid) ... ok
+test_run_once_with_empty_inbox_is_noop (test_idem.TestRunOnce.test_run_once_with_empty_inbox_is_noop) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.640s
+
+OK
