@@ -1,0 +1,13 @@
+test_bad_record_dead_letter_then_continue (test_pipeline.PipelineTestCase.test_bad_record_dead_letter_then_continue) ... ok
+test_duplicate_detected_across_recovery (test_pipeline.PipelineTestCase.test_duplicate_detected_across_recovery) ... ok
+test_duplicate_id_does_not_overwrite (test_pipeline.PipelineTestCase.test_duplicate_id_does_not_overwrite) ... ok
+test_empty_input_completes (test_pipeline.PipelineTestCase.test_empty_input_completes) ... ok
+test_missing_input_is_explicit_error (test_pipeline.PipelineTestCase.test_missing_input_is_explicit_error) ... ok
+test_recover_from_each_crash_point (test_pipeline.PipelineTestCase.test_recover_from_each_crash_point) ... ok
+test_recover_without_state_is_explicit_error (test_pipeline.PipelineTestCase.test_recover_without_state_is_explicit_error) ... ok
+test_ten_records_order_and_content (test_pipeline.PipelineTestCase.test_ten_records_order_and_content) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.844s
+
+OK
