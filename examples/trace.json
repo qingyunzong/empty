@@ -1,0 +1,9 @@
+{
+  "frames": 12,
+  "timeout": 10,
+  "events": [
+    {"action": "drop", "kind": "data", "seq": 2, "occurrence": 1},
+    {"action": "delay", "kind": "data", "seq": 6, "occurrence": 1, "by": 2},
+    {"action": "corrupt", "kind": "ack", "seq": 4, "occurrence": 1}
+  ]
+}
