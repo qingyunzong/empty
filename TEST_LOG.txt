@@ -1,0 +1,26 @@
+# TEST_LOG — python -m unittest discover -s tests -v
+# date: 2026-09-30T14:12:44Z
+# python: Python 3.14.4
+
+test_strong_check_intercepts_false_hit (test_rollsync.TestAdlerCollision.test_strong_check_intercepts_false_hit) ... ok
+test_both_empty (test_rollsync.TestBoundaries.test_both_empty) ... ok
+test_empty_new (test_rollsync.TestBoundaries.test_empty_new) ... ok
+test_empty_old (test_rollsync.TestBoundaries.test_empty_old) ... ok
+test_identical (test_rollsync.TestBoundaries.test_identical) ... ok
+test_delta_apply_end_to_end (test_rollsync.TestCLI.test_delta_apply_end_to_end) ... ok
+test_corrupt_literal_payload_exit_6 (test_rollsync.TestCorruption.test_corrupt_literal_payload_exit_6) ... ok
+test_hash_mismatch_exit_6 (test_rollsync.TestCorruption.test_hash_mismatch_exit_6) ... ok
+test_truncated_patch_cli_preserves_target (test_rollsync.TestCorruption.test_truncated_patch_cli_preserves_target) ... ok
+test_truncated_patch_rejected_api (test_rollsync.TestCorruption.test_truncated_patch_rejected_api) ... ok
+test_final_bytes_match_reference (test_rollsync.TestNaiveLCSReference.test_final_bytes_match_reference) ... ok
+test_op_order_irrelevant (test_rollsync.TestPatchSemantics.test_op_order_irrelevant) ... ok
+test_replay_idempotent (test_rollsync.TestPatchSemantics.test_replay_idempotent) ... ok
+test_block_size_rules (test_rollsync.TestRollingAdler.test_block_size_rules) ... ok
+test_rolling_matches_zlib (test_rollsync.TestRollingAdler.test_rolling_matches_zlib) ... ok
+test_one_megabyte_roundtrip (test_rollsync.TestRoundTripRandom.test_one_megabyte_roundtrip) ... ok
+test_random_roundtrip (test_rollsync.TestRoundTripRandom.test_random_roundtrip) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.184s
+
+OK
