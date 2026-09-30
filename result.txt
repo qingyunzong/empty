@@ -1,0 +1,31 @@
+$ python -m unittest discover -v
+test_invalid_problem_fails (tests.test_cli.CliTest.test_invalid_problem_fails) ... ok
+test_malformed_json_fails (tests.test_cli.CliTest.test_malformed_json_fails) ... ok
+test_missing_input_file_fails (tests.test_cli.CliTest.test_missing_input_file_fails) ... ok
+test_negative_restart_threshold_fails (tests.test_cli.CliTest.test_negative_restart_threshold_fails) ... ok
+test_negative_total_budget_fails (tests.test_cli.CliTest.test_negative_total_budget_fails) ... ok
+test_run_success_outputs_required_fields (tests.test_cli.CliTest.test_run_success_outputs_required_fields) ... ok
+test_run_timeout_status (tests.test_cli.CliTest.test_run_timeout_status) ... ok
+test_matches_naive_backtracking_with_restarts (tests.test_solver.NaiveReferenceTest.test_matches_naive_backtracking_with_restarts) ... ok
+test_matches_naive_backtracking_without_restarts (tests.test_solver.NaiveReferenceTest.test_matches_naive_backtracking_without_restarts) ... ok
+test_initial_propagation_conflict_is_unsat_without_restart (tests.test_solver.ScenarioFourTest.test_initial_propagation_conflict_is_unsat_without_restart) ... ok
+test_restart_prunes_more_and_matches_naive_reference (tests.test_solver.ScenarioOneTest.test_restart_prunes_more_and_matches_naive_reference) ... ok
+test_zero_budget_without_initial_contradiction_is_timeout (tests.test_solver.ScenarioThreeTest.test_zero_budget_without_initial_contradiction_is_timeout) ... ok
+test_threshold_one_triggers_single_restart (tests.test_solver.ScenarioTwoTest.test_threshold_one_triggers_single_restart) ... ok
+test_budget_exhaustion_is_timeout_not_unsat (tests.test_solver.TimeoutTest.test_budget_exhaustion_is_timeout_not_unsat) ... ok
+test_root_contradiction_after_restarts_is_unsat (tests.test_solver.UnsatAfterRestartsTest.test_root_contradiction_after_restarts_is_unsat) ... ok
+test_rejects_bad_linear_operator (tests.test_solver.ValidationTest.test_rejects_bad_linear_operator) ... ok
+test_rejects_bad_table_row (tests.test_solver.ValidationTest.test_rejects_bad_table_row) ... ok
+test_rejects_duplicate_variable_names (tests.test_solver.ValidationTest.test_rejects_duplicate_variable_names) ... ok
+test_rejects_empty_variables (tests.test_solver.ValidationTest.test_rejects_empty_variables) ... ok
+test_rejects_non_object_problem (tests.test_solver.ValidationTest.test_rejects_non_object_problem) ... ok
+test_rejects_unknown_constraint_type (tests.test_solver.ValidationTest.test_rejects_unknown_constraint_type) ... ok
+test_rejects_unknown_variable_in_constraint (tests.test_solver.ValidationTest.test_rejects_unknown_variable_in_constraint) ... ok
+test_solver_rejects_negative_parameters (tests.test_solver.ValidationTest.test_solver_rejects_negative_parameters) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.513s
+
+OK
+
+exit code: 0
