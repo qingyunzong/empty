@@ -1,0 +1,16 @@
+$ python3 -m unittest discover -s tests -v
+# 2026-09-30T12:44:38Z Python 3.14.4 (note: only python3 exists on this machine; python -m unittest is equivalent)
+test_foreign_file_in_dst_conflicts_and_is_untouched (test_treesync.TestConflict.test_foreign_file_in_dst_conflicts_and_is_untouched) ... ok
+test_foreign_file_shadowing_new_src_file_not_overwritten (test_treesync.TestConflict.test_foreign_file_shadowing_new_src_file_not_overwritten) ... ok
+test_kill_between_op_and_journal_mark_recovers (test_treesync.TestCrashRecovery.test_kill_between_op_and_journal_mark_recovers) ... ok
+test_kill_during_copy_recovers_without_temp (test_treesync.TestCrashRecovery.test_kill_during_copy_recovers_without_temp) ... ok
+test_batches_of_at_most_64_ops (test_treesync.TestEmptyAndBatching.test_batches_of_at_most_64_ops) ... ok
+test_empty_source_clears_dst_but_keeps_state (test_treesync.TestEmptyAndBatching.test_empty_source_clears_dst_but_keeps_state) ... ok
+test_random_trees_match_bruteforce (test_treesync.TestRandomTrees.test_random_trees_match_bruteforce) ... ok
+test_pure_rename_is_not_delete_plus_create (test_treesync.TestRename.test_pure_rename_is_not_delete_plus_create) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.783s
+
+OK
+exit_code=0
