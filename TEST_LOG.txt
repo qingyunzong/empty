@@ -1,0 +1,34 @@
+# python -m unittest discover -s tests -v
+# python: Python 3.14.4  date: 2026-09-30T19:48:06Z
+test_invalid_json_exit_code_2 (test_cli.CliErrors.test_invalid_json_exit_code_2) ... ok
+test_missing_file_exit_code_2 (test_cli.CliErrors.test_missing_file_exit_code_2) ... ok
+test_negative_counter_exit_code_3 (test_cli.CliErrors.test_negative_counter_exit_code_3) ... ok
+test_commuted_cli_invocations_agree (test_cli.CliMerge.test_commuted_cli_invocations_agree) ... /home/delin/.local/share/gsb-workbench/artifacts/ca0950bf0c684686823b474e6a964612/run/A/attempt-105/workspace/tests/test_cli.py:98: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/tmpjp456jhd/o2.json'>
+  self.assertEqual(fh.read(), open(o2, "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_merge_writes_canonical_out_and_prints_conflicts (test_cli.CliMerge.test_merge_writes_canonical_out_and_prints_conflicts) ... ok
+test_no_conflicts_prints_zero (test_cli.CliMerge.test_no_conflicts_prints_zero) ... ok
+test_repeated_runs_byte_identical (test_cli.CliMerge.test_repeated_runs_byte_identical) ... ok
+test_all_sync_orders_converge (test_merge.AcceptanceAConvergence.test_all_sync_orders_converge) ... ok
+test_regression_causally_masked_loser (test_merge.AcceptanceAConvergence.test_regression_causally_masked_loser) ... ok
+test_comparable_clocks_newer_wins_no_conflict (test_merge.AcceptanceBConflict.test_comparable_clocks_newer_wins_no_conflict) ... ok
+test_concurrent_updates_conflict_deterministically (test_merge.AcceptanceBConflict.test_concurrent_updates_conflict_deterministically) ... ok
+test_missing_clock_counts_as_zero (test_merge.AcceptanceBConflict.test_missing_clock_counts_as_zero) ... ok
+test_non_string_values_compared_by_serialisation (test_merge.AcceptanceBConflict.test_non_string_values_compared_by_serialisation) ... ok
+test_concurrent_delete_beats_update (test_merge.AcceptanceCTombstone.test_concurrent_delete_beats_update) ... ok
+test_late_old_update_does_not_resurrect (test_merge.AcceptanceCTombstone.test_late_old_update_does_not_resurrect) ... ok
+test_newer_update_revives_after_delete (test_merge.AcceptanceCTombstone.test_newer_update_revives_after_delete) ... ok
+test_tombstone_retained_in_output (test_merge.AcceptanceCTombstone.test_tombstone_retained_in_output) ... ok
+test_merging_result_with_input_is_fixpoint (test_merge.AcceptanceDIdempotentBytes.test_merging_result_with_input_is_fixpoint) ... ok
+test_repeated_merge_byte_identical (test_merge.AcceptanceDIdempotentBytes.test_repeated_merge_byte_identical) ... ok
+test_commutative_associative_idempotent (test_merge.SemilatticeProperties.test_commutative_associative_idempotent) ... ok
+test_merge_with_empty_is_identity (test_merge.SemilatticeProperties.test_merge_with_empty_is_identity) ... ok
+test_malformed_document_rejected (test_merge.Validation.test_malformed_document_rejected) ... ok
+test_negative_counter_in_versions_rejected (test_merge.Validation.test_negative_counter_in_versions_rejected) ... ok
+test_negative_counter_rejected (test_merge.Validation.test_negative_counter_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 12.627s
+
+OK
