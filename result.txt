@@ -1,0 +1,21 @@
+test_cli_crash_after_reserve_then_recover (test_supplier_saga.CliTestCase.test_cli_crash_after_reserve_then_recover) ... ok
+test_cli_crash_cancel_recover_flow (test_supplier_saga.CliTestCase.test_cli_crash_cancel_recover_flow) ... ok
+test_cli_run_and_state (test_supplier_saga.CliTestCase.test_cli_run_and_state) ... ok
+test_cli_unknown_crash_point_fails (test_supplier_saga.CliTestCase.test_cli_unknown_crash_point_fails) ... ok
+test_all_candidates_reserve_failure_fails (test_supplier_saga.SagaTestCase.test_all_candidates_reserve_failure_fails) ... ok
+test_all_quotes_fail (test_supplier_saga.SagaTestCase.test_all_quotes_fail) ... ok
+test_cancel_after_reservation_compensates (test_supplier_saga.SagaTestCase.test_cancel_after_reservation_compensates) ... ok
+test_cancel_before_run_reserves_nothing (test_supplier_saga.SagaTestCase.test_cancel_before_run_reserves_nothing) ... ok
+test_cancel_during_quote_collection_reserves_nothing (test_supplier_saga.SagaTestCase.test_cancel_during_quote_collection_reserves_nothing) ... ok
+test_candidates_sorted_by_price_then_id (test_supplier_saga.SagaTestCase.test_candidates_sorted_by_price_then_id) ... ok
+test_crash_after_quote_event_then_recover (test_supplier_saga.SagaTestCase.test_crash_after_quote_event_then_recover) ... ok
+test_crash_after_reserve_event_then_recover (test_supplier_saga.SagaTestCase.test_crash_after_reserve_event_then_recover) ... ok
+test_crash_after_reserve_failure_then_recovers_to_fallback (test_supplier_saga.SagaTestCase.test_crash_after_reserve_failure_then_recovers_to_fallback) ... ok
+test_expected_state_after_every_event (test_supplier_saga.SagaTestCase.test_expected_state_after_every_event) ... ok
+test_reserve_failure_falls_back_to_next_candidate (test_supplier_saga.SagaTestCase.test_reserve_failure_falls_back_to_next_candidate) ... ok
+test_tie_price_chooses_smallest_id (test_supplier_saga.SagaTestCase.test_tie_price_chooses_smallest_id) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.570s
+
+OK

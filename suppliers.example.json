@@ -1,0 +1,5 @@
+[
+  {"id": "s1", "price": 100, "latency": 20, "quote_failed": false, "reserve_failed": true},
+  {"id": "s2", "price": 100, "latency": 10, "quote_failed": false, "reserve_failed": false},
+  {"id": "s3", "price": 80,  "latency": 30, "quote_failed": true,  "reserve_failed": false}
+]
