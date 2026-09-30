@@ -1,0 +1,29 @@
+# jsonmerge3 测试结果（真实运行记录）
+
+日期: 2026-10-01 03:53:18 CST
+Python: Python 3.14.4
+命令: python3 -m unittest discover -s tests -v
+
+```
+test_clean_merge_exit0_and_outputs (test_jsonmerge3.CliTests.test_clean_merge_exit0_and_outputs) ... ok
+test_conflict_exit1_and_pointer_on_stderr (test_jsonmerge3.CliTests.test_conflict_exit1_and_pointer_on_stderr) ... ok
+test_invalid_json_exit2_no_output (test_jsonmerge3.CliTests.test_invalid_json_exit2_no_output) ... ok
+test_missing_input_file_exit2_no_output (test_jsonmerge3.CliTests.test_missing_input_file_exit2_no_output) ... ok
+test_unwritable_output_exit2 (test_jsonmerge3.CliTests.test_unwritable_output_exit2) ... ok
+test_usage_error_exit2 (test_jsonmerge3.CliTests.test_usage_error_exit2) ... ok
+test_added_key_same_and_different (test_jsonmerge3.MergeUnitTests.test_added_key_same_and_different) ... ok
+test_array_append_one_side_modify_other_side (test_jsonmerge3.MergeUnitTests.test_array_append_one_side_modify_other_side) ... ok
+test_array_same_append_same_value_is_clean (test_jsonmerge3.MergeUnitTests.test_array_same_append_same_value_is_clean) ... ok
+test_array_same_new_index_different_values_conflict (test_jsonmerge3.MergeUnitTests.test_array_same_new_index_different_values_conflict) ... ok
+test_both_delete_same_key_is_clean (test_jsonmerge3.MergeUnitTests.test_both_delete_same_key_is_clean) ... ok
+test_delete_vs_modify_same_key_conflicts (test_jsonmerge3.MergeUnitTests.test_delete_vs_modify_same_key_conflicts) ... ok
+test_nested_object_non_conflicting_edits (test_jsonmerge3.MergeUnitTests.test_nested_object_non_conflicting_edits) ... ok
+test_pointer_escaping (test_jsonmerge3.MergeUnitTests.test_pointer_escaping) ... ok
+test_merge_matches_oracle_on_small_trees (test_jsonmerge3.OraclePropertyTests.test_merge_matches_oracle_on_small_trees) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.249s
+
+OK
+EXIT_CODE=0
+```
