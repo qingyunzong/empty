@@ -1,0 +1,18 @@
+test_cli_errors_exit_4 (test_orset.TestCLI.test_cli_errors_exit_4) ... ok
+test_cli_happy_path (test_orset.TestCLI.test_cli_happy_path) ... ok
+test_compact_does_not_fold_unobserved_tags (test_orset.TestCompact.test_compact_does_not_fold_unobserved_tags) ... ok
+test_compact_is_transparent_to_concurrent_remove (test_orset.TestCompact.test_compact_is_transparent_to_concurrent_remove) ... ok
+test_compact_preserves_queries_and_rejects_replay (test_orset.TestCompact.test_compact_preserves_queries_and_rejects_replay) ... ok
+test_compact_summary_survives_stale_remove_after_revive (test_orset.TestCompact.test_compact_summary_survives_stale_remove_after_revive) ... ok
+test_concurrent_add_beats_remove (test_orset.TestConcurrentAddWins.test_concurrent_add_beats_remove) ... ok
+test_observed_remove_then_no_readd_is_absent (test_orset.TestConcurrentAddWins.test_observed_remove_then_no_readd_is_absent) ... ok
+test_remove_cannot_reach_undelivered_add (test_orset.TestConcurrentAddWins.test_remove_cannot_reach_undelivered_add) ... ok
+test_late_remove_does_not_delete_revived_element (test_orset.TestLateRemoveMessage.test_late_remove_does_not_delete_revived_element) ... ok
+test_replayed_remove_is_idempotent (test_orset.TestLateRemoveMessage.test_replayed_remove_is_idempotent) ... ok
+test_enumerate_merge_orders (test_orset.TestMergeOrdersMatchReference.test_enumerate_merge_orders) ... ok
+test_merge_properties (test_orset.TestMergeOrdersMatchReference.test_merge_properties) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.950s
+
+OK

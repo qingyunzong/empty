@@ -1,0 +1,6 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/79c6b207e58a452eb2f78c1678ff73f2/judge/pair/attempt-001/demonstration-B/demonstration/probe_compact_observation.py
+A 尚未收到删除，contains(x): True
+B 压缩前删除标签: 1
+B 压缩后删除标签: 0；A 标签水位: 0
+后续合并 contains(x): False
+复现：未满足全节点观察条件，删除仍被折入水位
