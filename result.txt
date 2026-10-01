@@ -1,0 +1,36 @@
+Test command: python3 -m unittest discover -v
+Python: Python 3.14.4
+Date: 2026-10-01 05:11:59 UTC
+Working directory: /home/delin/.local/share/gsb-workbench/artifacts/0337e45bbeb543809489997b3a338ec4/run/B/attempt-023/workspace
+----------------------------------------
+test_boolean_domain_value_is_not_an_integer (tests.test_cli.CliErrorConventionTest.test_boolean_domain_value_is_not_an_integer) ... ok
+test_float_domain_value (tests.test_cli.CliErrorConventionTest.test_float_domain_value) ... ok
+test_missing_input_file (tests.test_cli.CliErrorConventionTest.test_missing_input_file) ... ok
+test_non_integer_domain_value (tests.test_cli.CliErrorConventionTest.test_non_integer_domain_value) ... ok
+test_unknown_constraint_type (tests.test_cli.CliErrorConventionTest.test_unknown_constraint_type) ... ok
+test_unknown_variable_reference (tests.test_cli.CliErrorConventionTest.test_unknown_variable_reference) ... ok
+test_inconsistent_output_has_conflict (tests.test_cli.CliSuccessTest.test_inconsistent_output_has_conflict) ... ok
+test_scenario1_end_to_end (tests.test_cli.CliSuccessTest.test_scenario1_end_to_end) ... ok
+test_explanation_contains_no_irrelevant_operations (tests.test_explanations.Scenario1ExplanationTest.test_explanation_contains_no_irrelevant_operations) ... ok
+test_explanation_equals_manual_minimal_premise (tests.test_explanations.Scenario1ExplanationTest.test_explanation_equals_manual_minimal_premise) ... ok
+test_conflict_is_usable_as_nogood (tests.test_explanations.Scenario2ConflictTest.test_conflict_is_usable_as_nogood) ... ok
+test_conflict_matches_naive_dependency_chains (tests.test_explanations.Scenario2ConflictTest.test_conflict_matches_naive_dependency_chains) ... ok
+test_single_constraint_wipeout (tests.test_explanations.Scenario2ConflictTest.test_single_constraint_wipeout) ... ok
+test_ne_with_singletons_wipes_out (tests.test_explanations.Scenario4SingletonTest.test_ne_with_singletons_wipes_out) ... ok
+test_reversed_arc_singleton_premise (tests.test_explanations.Scenario4SingletonTest.test_reversed_arc_singleton_premise) ... ok
+test_singleton_prunes_other_side (tests.test_explanations.Scenario4SingletonTest.test_singleton_prunes_other_side) ... ok
+test_singletons_already_consistent (tests.test_explanations.Scenario4SingletonTest.test_singletons_already_consistent) ... ok
+test_domains_match_tuple_based_reference (tests.test_propagator.AcceptanceScenario1Test.test_domains_match_tuple_based_reference) ... ok
+test_single_pruned_value (tests.test_propagator.AcceptanceScenario1Test.test_single_pruned_value) ... ok
+test_chain_propagation_matches_reference (tests.test_propagator.TupleTableCrossCheckTest.test_chain_propagation_matches_reference) ... ok
+test_each_constraint_type_in_isolation (tests.test_propagator.TupleTableCrossCheckTest.test_each_constraint_type_in_isolation) ... ok
+test_opposite_direction_arcs_are_not_deduplicated (tests.test_propagator.TupleTableCrossCheckTest.test_opposite_direction_arcs_are_not_deduplicated) ... ok
+test_random_problems_match_reference (tests.test_propagator.TupleTableCrossCheckTest.test_random_problems_match_reference) ... ok
+test_self_constraints_reach_true_fixpoint (tests.test_propagator.TupleTableCrossCheckTest.test_self_constraints_reach_true_fixpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 2.542s
+
+OK
+----------------------------------------
+Exit code: 0
