@@ -1,0 +1,770 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..a5de0ff
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,72 @@
++# vgc — MVCC 版本垃圾回收器
++
++`vgc` 是一个基于 MVCC（多版本并发控制）的版本垃圾回收器，仅依赖
++Python 3.11 标准库，提供可嵌入的 Python API 与 JSON 行协议 CLI。
++
++## 语义
++
++- **快照与版本**：`begin` 分配 `snapshot_ts`，`commit` 从全局单调时钟分配
++  `commit_ts`。快照 `ts` 对每键可见的是 `commit_ts <= ts` 的最新版本。
++- **low_watermark**：所有活跃事务 `snapshot_ts` 的最小值（无活跃事务时取
++  当前时钟）。`commit_ts` 小于它且对任何活跃快照均不可见的版本可回收；
++  长事务存活期间其可见版本严禁回收。
++- **max_versions 预算**：每键版本数超限且存在可安全回收的版本时，回收最老
++  版本；若因活跃快照钉住而无法降到预算内，`gc` 返回 `GC_DEFERRED` 状态
++  （而非报错），并在 `deferred_keys` 中列出超限键。
++- **时间旅行**：`as_of(ts)` 在所需版本已被回收时报 `SNAPSHOT_EXPIRED`；
++  键在该时间戳尚不存在时返回 `NOT_FOUND`。
++
++## 布局
++
++- `vgc/core.py` — `MVCCStore`：事务、版本链、GC、统计
++- `vgc/cli.py` / `vgc/__main__.py` — JSON 行协议 CLI（`python -m vgc`）
++- `tests/test_vgc.py` — 验收测试与随机差分测试
++
++## CLI 协议（JSON 行）
++
++每行一个 JSON 请求，每行一个 JSON 响应：
++
++```
++{"op": "config", "max_versions": 2}
++{"op": "begin",  "txn": "t1"}                  -> {"status": "OK", "snapshot_ts": 0}
++{"op": "put",    "txn": "t1", "key": "a", "value": "v1"}
++{"op": "commit", "txn": "t1"}                  -> {"status": "OK", "commit_ts": 1}
++{"op": "abort",  "txn": "t1"}
++{"op": "get",    "txn": "t1", "key": "a"}      -> 读自己的快照（含未提交写）
++{"op": "gc"}     -> {"status": "OK"|"GC_DEFERRED", "collected": N,
++                     "low_watermark": N, "deferred_keys": [...],
++                     "versions_remaining": N}
++{"op": "as_of",  "key": "a", "ts": 1}          -> OK / NOT_FOUND / SNAPSHOT_EXPIRED
++{"op": "stats"}  -> 时钟、low_watermark、版本数、累计回收数等
++```
++
++运行：`python -m vgc [--max-versions N]`（也可用 `config` 操作动态设置）。
++
++## 测试
++
++命令：`python -m unittest discover -s tests -v`
++
++覆盖验收标准：
++a) 长事务持有时执行 `gc`，其可见版本保留（`LongTransactionPinningTest`）；
++b) 长事务提交后 `gc` 回收版本并输出正确统计（`CollectAfterLongTxnCommitTest`）；
++c) 对已过期快照 `as_of` 报 `SNAPSHOT_EXPIRED`（`SnapshotExpiredTest`）；
++d) 随机操作序列（10 个种子 × 400 步，随机 `max_versions`）与保留全部版本的
++   参考实现比对所有活跃快照的可见性（`RandomizedDifferentialTest`）。
++
++### 真实测试结果（Python 3.14.4，2026-09-27 实际运行）
++
++```
++test_json_lines_protocol (test_vgc.CliTest.test_json_lines_protocol) ... ok
++test_txn_lifecycle_errors (test_vgc.CliTest.test_txn_lifecycle_errors) ... ok
++test_gc_collects_after_long_txn_commits (test_vgc.CollectAfterLongTxnCommitTest.test_gc_collects_after_long_txn_commits) ... ok
++test_gc_preserves_versions_visible_to_long_txn (test_vgc.LongTransactionPinningTest.test_gc_preserves_versions_visible_to_long_txn) ... ok
++test_deferred_while_pinned_then_ok (test_vgc.MaxVersionsBudgetTest.test_deferred_while_pinned_then_ok) ... ok
++test_random_sequences (test_vgc.RandomizedDifferentialTest.test_random_sequences) ... ok
++test_as_of_expired_snapshot (test_vgc.SnapshotExpiredTest.test_as_of_expired_snapshot) ... ok
++test_cli_reports_snapshot_expired (test_vgc.SnapshotExpiredTest.test_cli_reports_snapshot_expired) ... ok
++
++----------------------------------------------------------------------
++Ran 8 tests in 0.025s
++
++OK
++```
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/test_vgc.cpython-314.pyc b/tests/__pycache__/test_vgc.cpython-314.pyc
+new file mode 100644
+index 0000000..413c00e
+Binary files /dev/null and b/tests/__pycache__/test_vgc.cpython-314.pyc differ
+diff --git a/tests/test_vgc.py b/tests/test_vgc.py
+new file mode 100644
+index 0000000..1bc8266
+--- /dev/null
++++ b/tests/test_vgc.py
+@@ -0,0 +1,274 @@
++"""Acceptance and randomized differential tests for the vgc package."""
++
++import io
++import json
++import random
++import unittest
++
++from vgc import GC_DEFERRED, OK, MVCCStore, SnapshotExpired, TxnError
++from vgc.cli import serve
++
++
++def commit_value(store, txn, key, value):
++    """Helper: single-write transaction, returns commit_ts."""
++    store.begin(txn)
++    store.put(txn, key, value)
++    return store.commit(txn)
++
++
++class LongTransactionPinningTest(unittest.TestCase):
++    """(a) While a long transaction is alive, gc keeps its visible versions."""
++
++    def test_gc_preserves_versions_visible_to_long_txn(self):
++        store = MVCCStore()
++        commit_value(store, "w0", "k", "v1")
++        snap_ts = store.begin("long")  # snapshot sees "v1"
++        commit_value(store, "w1", "k", "v2")
++        commit_value(store, "w2", "k", "v3")
++
++        result = store.gc()
++        self.assertEqual(result.status, OK)
++        self.assertEqual(result.collected, 0)  # v1 still visible to "long"
++        self.assertEqual(result.low_watermark, snap_ts)
++
++        # The long transaction still reads its own snapshot.
++        self.assertEqual(store.as_of("k", snap_ts), "v1")
++        self.assertEqual(store.get("long", "k"), "v1")
++        # Newer snapshots see the newest committed version.
++        self.assertEqual(store.as_of("k", store.clock), "v3")
++        self.assertEqual(len(store._versions["k"]), 3)
++
++
++class CollectAfterLongTxnCommitTest(unittest.TestCase):
++    """(b) After the long transaction commits, gc collects and reports stats."""
++
++    def test_gc_collects_after_long_txn_commits(self):
++        store = MVCCStore()
++        commit_value(store, "w0", "k", "v1")
++        store.begin("long")
++        commit_value(store, "w1", "k", "v2")
++        commit_value(store, "w2", "k", "v3")
++        store.gc()
++        self.assertEqual(len(store._versions["k"]), 3)
++
++        store.put("long", "other", "x")
++        store.commit("long")  # long txn no longer pins anything
++
++        result = store.gc()
++        self.assertEqual(result.status, OK)
++        self.assertEqual(result.collected, 2)  # v1, v2 collected; v3 kept
++        self.assertEqual(result.low_watermark, store.clock)
++        self.assertEqual(len(store._versions["k"]), 1)
++
++        stats = store.stats()
++        self.assertEqual(stats["collected_total"], 2)
++        self.assertEqual(stats["gc_runs"], 2)
++        self.assertEqual(stats["versions_total"], 2)  # k: v3, other: x
++        self.assertEqual(stats["versions_per_key"], {"k": 1, "other": 1})
++        self.assertEqual(stats["active_snapshots"], {})
++        self.assertEqual(stats["low_watermark"], store.clock)
++
++
++class SnapshotExpiredTest(unittest.TestCase):
++    """(c) as_of on an expired snapshot reports SNAPSHOT_EXPIRED."""
++
++    def test_as_of_expired_snapshot(self):
++        store = MVCCStore()
++        ts_v1 = commit_value(store, "w0", "k", "v1")
++        commit_value(store, "w1", "k", "v2")
++        store.gc()  # no active snapshots: v1 collected
++
++        with self.assertRaises(SnapshotExpired) as ctx:
++            store.as_of("k", ts_v1)
++        self.assertEqual(ctx.exception.key, "k")
++        self.assertEqual(ctx.exception.ts, ts_v1)
++
++        # A timestamp before the key ever existed is NOT_FOUND, not expired.
++        self.assertIsNone(store.as_of("k", ts_v1 - 1))
++        # Current reads still work.
++        self.assertEqual(store.as_of("k", store.clock), "v2")
++
++    def test_cli_reports_snapshot_expired(self):
++        responses = run_cli([
++            {"op": "begin", "txn": "w0"},
++            {"op": "put", "txn": "w0", "key": "k", "value": "v1"},
++            {"op": "commit", "txn": "w0"},          # commit_ts = 1
++            {"op": "begin", "txn": "w1"},
++            {"op": "put", "txn": "w1", "key": "k", "value": "v2"},
++            {"op": "commit", "txn": "w1"},
++            {"op": "gc"},
++            {"op": "as_of", "key": "k", "ts": 1},
++            {"op": "as_of", "key": "k", "ts": 2},
++        ])
++        self.assertEqual(responses[6]["status"], OK)
++        self.assertEqual(responses[6]["collected"], 1)
++        self.assertEqual(responses[7]["status"], "SNAPSHOT_EXPIRED")
++        self.assertEqual(responses[8]["status"], OK)
++        self.assertEqual(responses[8]["value"], "v2")
++
++
++class MaxVersionsBudgetTest(unittest.TestCase):
++    """max_versions budget: GC_DEFERRED instead of an error when pinned."""
++
++    def test_deferred_while_pinned_then_ok(self):
++        store = MVCCStore(max_versions=2)
++        commit_value(store, "w0", "k", "v1")
++        store.begin("long")  # pins v1
++        commit_value(store, "w1", "k", "v2")
++        commit_value(store, "w2", "k", "v3")
++        commit_value(store, "w3", "k", "v4")
++
++        result = store.gc()
++        self.assertEqual(result.status, GC_DEFERRED)
++        self.assertEqual(result.deferred_keys, ["k"])
++        self.assertEqual(result.collected, 0)
++        self.assertEqual(len(store._versions["k"]), 4)  # over budget but pinned
++
++        store.abort("long")
++        result = store.gc()
++        self.assertEqual(result.status, OK)
++        self.assertEqual(result.collected, 3)
++        self.assertEqual(len(store._versions["k"]), 1)  # only v4 remains
++        self.assertEqual(store.as_of("k", store.clock), "v4")
++
++
++class ReferenceModel:
++    """Keeps every version forever; the ground truth for visibility."""
++
++    def __init__(self):
++        self.versions = {}  # key -> list[(commit_ts, value)]
++
++    def commit(self, writes, commit_ts):
++        for key, value in writes.items():
++            self.versions.setdefault(key, []).append((commit_ts, value))
++
++    def visible(self, key, ts):
++        result = None
++        for commit_ts, value in self.versions.get(key, []):
++            if commit_ts <= ts:
++                result = value
++            else:
++                break
++        return result
++
++    def keys(self):
++        return self.versions.keys()
++
++
++class RandomizedDifferentialTest(unittest.TestCase):
++    """(d) Random op sequences: every active snapshot must see exactly what
++    the keep-everything reference sees, across arbitrary gc interleavings."""
++
++    def run_random(self, seed, steps=400):
++        rng = random.Random(seed)
++        store = MVCCStore(max_versions=rng.choice([None, 2, 3, 5]))
++        ref = ReferenceModel()
++        keys = [f"k{i}" for i in range(4)]
++        active = {}  # txn -> {"snapshot_ts": int, "writes": dict}
++        counter = 0
++
++        for _ in range(steps):
++            op = rng.choice(
++                ["begin", "put", "commit", "abort", "gc", "gc", "check"]
++            )
++            if op == "begin" or not active and op in ("put", "commit", "abort"):
++                counter += 1
++                txn = f"t{counter}"
++                snap = store.begin(txn)
++                active[txn] = {"snapshot_ts": snap, "writes": {}}
++            elif op == "put":
++                txn = rng.choice(list(active))
++                key = rng.choice(keys)
++                value = rng.randint(0, 1000)
++                store.put(txn, key, value)
++                active[txn]["writes"][key] = value
++            elif op == "commit":
++                txn = rng.choice(list(active))
++                commit_ts = store.commit(txn)
++                ref.commit(active.pop(txn)["writes"], commit_ts)
++            elif op == "abort":
++                txn = rng.choice(list(active))
++                store.abort(txn)
++                active.pop(txn)
++            elif op == "gc":
++                store.gc()
++            else:  # check
++                pass
++
++            # After every step: all active snapshots must see exactly what
++            # the reference (which never collects) sees.
++            for txn, state in active.items():
++                snap = state["snapshot_ts"]
++                for key in keys:
++                    expected = state["writes"].get(key, ref.visible(key, snap))
++                    actual = store.get(txn, key)
++                    self.assertEqual(
++                        actual,
++                        expected,
++                        f"seed={seed} txn={txn} snap={snap} key={key}",
++                    )
++            # low_watermark invariant: min active snapshot, else clock.
++            if active:
++                self.assertEqual(
++                    store.low_watermark(),
++                    min(s["snapshot_ts"] for s in active.values()),
++                )
++            else:
++                self.assertEqual(store.low_watermark(), store.clock)
++
++    def test_random_sequences(self):
++        for seed in range(10):
++            with self.subTest(seed=seed):
++                self.run_random(seed)
++
++
++class CliTest(unittest.TestCase):
++    def test_json_lines_protocol(self):
++        responses = run_cli([
++            {"op": "config", "max_versions": 2},
++            {"op": "begin", "txn": "t1"},
++            {"op": "put", "txn": "t1", "key": "a", "value": 1},
++            {"op": "commit", "txn": "t1"},
++            {"op": "begin", "txn": "t2"},
++            {"op": "put", "txn": "t2", "key": "a", "value": 2},
++            {"op": "commit", "txn": "t2"},
++            {"op": "gc"},
++            {"op": "as_of", "key": "a", "ts": 2},
++            {"op": "stats"},
++            {"op": "bogus"},
++            {"op": "commit", "txn": "t1"},
++        ])
++        self.assertEqual(responses[0], {"status": OK, "max_versions": 2})
++        self.assertEqual(responses[1]["snapshot_ts"], 0)
++        self.assertEqual(responses[3]["commit_ts"], 1)
++        self.assertEqual(responses[6]["commit_ts"], 2)
++        self.assertEqual(responses[7]["status"], OK)
++        self.assertEqual(responses[7]["collected"], 1)
++        self.assertEqual(responses[8]["status"], OK)
++        self.assertEqual(responses[8]["value"], 2)
++        stats = responses[9]
++        self.assertEqual(stats["status"], OK)
++        self.assertEqual(stats["versions_total"], 1)
++        self.assertEqual(stats["collected_total"], 1)
++        self.assertEqual(responses[10]["status"], "ERROR")
++        self.assertEqual(responses[11]["status"], "ERROR")
++
++    def test_txn_lifecycle_errors(self):
++        store = MVCCStore()
++        store.begin("t")
++        with self.assertRaises(TxnError):
++            store.begin("t")
++        store.commit("t")
++        with self.assertRaises(TxnError):
++            store.put("t", "k", 1)
++
++
++def run_cli(lines):
++    stdin = io.StringIO("".join(json.dumps(line) + "\n" for line in lines))
++    stdout = io.StringIO()
++    serve(MVCCStore(), stdin, stdout)
++    return [json.loads(line) for line in stdout.getvalue().splitlines()]
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/vgc/__init__.py b/vgc/__init__.py
+new file mode 100644
+index 0000000..4da217c
+--- /dev/null
++++ b/vgc/__init__.py
+@@ -0,0 +1,27 @@
++"""vgc: MVCC version garbage collector."""
++
++from .core import (
++    ERROR,
++    GC_DEFERRED,
++    NOT_FOUND,
++    OK,
++    SNAPSHOT_EXPIRED,
++    GcResult,
++    MVCCStore,
++    SnapshotExpired,
++    TxnError,
++    Version,
++)
++
++__all__ = [
++    "ERROR",
++    "GC_DEFERRED",
++    "NOT_FOUND",
++    "OK",
++    "SNAPSHOT_EXPIRED",
++    "GcResult",
++    "MVCCStore",
++    "SnapshotExpired",
++    "TxnError",
++    "Version",
++]
+diff --git a/vgc/__main__.py b/vgc/__main__.py
+new file mode 100644
+index 0000000..eb53e2f
+--- /dev/null
++++ b/vgc/__main__.py
+@@ -0,0 +1,3 @@
++from .cli import main
++
++raise SystemExit(main())
+diff --git a/vgc/__pycache__/__init__.cpython-314.pyc b/vgc/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..588124a
+Binary files /dev/null and b/vgc/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/vgc/__pycache__/__main__.cpython-314.pyc b/vgc/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..3d28aac
+Binary files /dev/null and b/vgc/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/vgc/__pycache__/cli.cpython-314.pyc b/vgc/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..9995ef9
+Binary files /dev/null and b/vgc/__pycache__/cli.cpython-314.pyc differ
+diff --git a/vgc/__pycache__/core.cpython-314.pyc b/vgc/__pycache__/core.cpython-314.pyc
+new file mode 100644
+index 0000000..1c01d48
+Binary files /dev/null and b/vgc/__pycache__/core.cpython-314.pyc differ
+diff --git a/vgc/cli.py b/vgc/cli.py
+new file mode 100644
+index 0000000..54837c3
+--- /dev/null
++++ b/vgc/cli.py
+@@ -0,0 +1,130 @@
++"""JSON-lines CLI for the vgc MVCC garbage collector.
++
++Reads one JSON object per line from stdin, writes one JSON object per line
++to stdout.  Supported ops:
++
++  {"op": "config", "max_versions": 3}
++  {"op": "begin",  "txn": "t1"}                    -> {"status": "OK", "snapshot_ts": N}
++  {"op": "put",    "txn": "t1", "key": "k", "value": V}
++  {"op": "commit", "txn": "t1"}                    -> {"status": "OK", "commit_ts": N}
++  {"op": "abort",  "txn": "t1"}
++  {"op": "get",    "txn": "t1", "key": "k"}
++  {"op": "gc"}                                     -> {"status": "OK"|"GC_DEFERRED", ...}
++  {"op": "as_of",  "key": "k", "ts": N}            -> OK / NOT_FOUND / SNAPSHOT_EXPIRED
++  {"op": "stats"}
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++
++from .core import (
++    ERROR,
++    GC_DEFERRED,
++    NOT_FOUND,
++    OK,
++    SNAPSHOT_EXPIRED,
++    MVCCStore,
++    SnapshotExpired,
++    TxnError,
++)
++
++
++def _require(request: dict, *fields: str):
++    missing = [f for f in fields if f not in request]
++    if missing:
++        raise ValueError(f"missing field(s): {', '.join(missing)}")
++    return [request[f] for f in fields]
++
++
++def handle(store: MVCCStore, request: dict) -> dict:
++    op = request.get("op")
++    if op == "config":
++        (max_versions,) = _require(request, "max_versions")
++        if max_versions is not None:
++            max_versions = int(max_versions)
++            if max_versions < 1:
++                raise ValueError("max_versions must be >= 1")
++        store.max_versions = max_versions
++        return {"status": OK, "max_versions": store.max_versions}
++    if op == "begin":
++        (txn,) = _require(request, "txn")
++        return {"status": OK, "snapshot_ts": store.begin(txn)}
++    if op == "put":
++        txn, key, value = _require(request, "txn", "key", "value")
++        store.put(txn, key, value)
++        return {"status": OK}
++    if op == "commit":
++        (txn,) = _require(request, "txn")
++        return {"status": OK, "commit_ts": store.commit(txn)}
++    if op == "abort":
++        (txn,) = _require(request, "txn")
++        store.abort(txn)
++        return {"status": OK}
++    if op == "get":
++        txn, key = _require(request, "txn", "key")
++        value = store.get(txn, key)
++        if value is None:
++            return {"status": NOT_FOUND}
++        return {"status": OK, "value": value}
++    if op == "gc":
++        result = store.gc()
++        return {
++            "status": result.status,
++            "collected": result.collected,
++            "low_watermark": result.low_watermark,
++            "deferred_keys": result.deferred_keys,
++            "versions_remaining": result.versions_remaining,
++        }
++    if op == "as_of":
++        key, ts = _require(request, "key", "ts")
++        try:
++            value = store.as_of(key, int(ts))
++        except SnapshotExpired as exc:
++            return {"status": SNAPSHOT_EXPIRED, "key": exc.key, "ts": exc.ts}
++        if value is None:
++            return {"status": NOT_FOUND}
++        return {"status": OK, "value": value}
++    if op == "stats":
++        return {"status": OK, **store.stats()}
++    raise ValueError(f"unknown op: {op!r}")
++
++
++def serve(store: MVCCStore, stdin, stdout) -> None:
++    for line in stdin:
++        line = line.strip()
++        if not line:
++            continue
++        try:
++            request = json.loads(line)
++            if not isinstance(request, dict):
++                raise ValueError("request must be a JSON object")
++            response = handle(store, request)
++        except SnapshotExpired as exc:
++            response = {"status": SNAPSHOT_EXPIRED, "key": exc.key, "ts": exc.ts}
++        except (TxnError, ValueError, KeyError, TypeError) as exc:
++            response = {"status": ERROR, "error": str(exc)}
++        stdout.write(json.dumps(response) + "\n")
++        stdout.flush()
++
++
++def main(argv=None) -> int:
++    parser = argparse.ArgumentParser(
++        prog="vgc", description="MVCC version garbage collector (JSON-lines protocol)"
++    )
++    parser.add_argument(
++        "--max-versions",
++        type=int,
++        default=None,
++        help="per-key version budget (default: unlimited)",
++    )
++    args = parser.parse_args(argv)
++    store = MVCCStore(max_versions=args.max_versions)
++    serve(store, sys.stdin, sys.stdout)
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/vgc/core.py b/vgc/core.py
+new file mode 100644
+index 0000000..25852c9
+--- /dev/null
++++ b/vgc/core.py
+@@ -0,0 +1,205 @@
++"""MVCC version garbage collector core.
++
++Semantics
++---------
++- Every transaction gets a ``snapshot_ts`` at ``begin`` and versions get a
++  ``commit_ts`` at ``commit`` from a single monotonic clock.
++- A snapshot at ``ts`` sees, per key, the newest version with
++  ``commit_ts <= ts``.
++- ``low_watermark`` is the minimum ``snapshot_ts`` across all active
++  transactions (or the current clock when no transaction is active).
++  A version is collectable iff a newer version of the same key exists with
++  ``commit_ts <= low_watermark`` -- i.e. it is invisible to every active
++  snapshot and to every future snapshot.
++- Each key has a ``max_versions`` budget.  ``gc()`` never collects a version
++  that is still visible to an active snapshot; if a key stays over budget
++  because nothing more can be safely collected, the gc run reports
++  ``GC_DEFERRED`` instead of failing.
++- ``as_of(ts)`` raises :class:`SnapshotExpired` when the version that would
++  be visible at ``ts`` has already been collected.
++"""
++
++from __future__ import annotations
++
++from bisect import bisect_right
++from dataclasses import dataclass, field
++
++OK = "OK"
++GC_DEFERRED = "GC_DEFERRED"
++SNAPSHOT_EXPIRED = "SNAPSHOT_EXPIRED"
++NOT_FOUND = "NOT_FOUND"
++ERROR = "ERROR"
++
++
++class SnapshotExpired(Exception):
++    """Raised when a time-travel read needs a version that GC collected."""
++
++    def __init__(self, key: str, ts: int):
++        super().__init__(
++            f"snapshot at ts={ts} expired for key {key!r}: "
++            "required version was garbage collected"
++        )
++        self.key = key
++        self.ts = ts
++
++
++class TxnError(Exception):
++    """Raised for invalid transaction lifecycle operations."""
++
++
++@dataclass
++class Version:
++    commit_ts: int
++    value: object
++
++
++@dataclass
++class _Txn:
++    snapshot_ts: int
++    writes: dict = field(default_factory=dict)
++    active: bool = True
++
++
++@dataclass
++class GcResult:
++    status: str
++    collected: int
++    low_watermark: int
++    deferred_keys: list
++    versions_remaining: int
++
++
++class MVCCStore:
++    """A tiny MVCC key/value store with snapshot-aware version GC."""
++
++    def __init__(self, max_versions: int | None = None):
++        if max_versions is not None and max_versions < 1:
++            raise ValueError("max_versions must be >= 1")
++        self.max_versions = max_versions
++        self.clock = 0
++        # key -> list[Version] sorted by commit_ts (append-only prefix GC).
++        self._versions: dict[str, list[Version]] = {}
++        # key -> commit_ts of the first version ever committed for the key.
++        self._first_commit: dict[str, int] = {}
++        self._txns: dict[str, _Txn] = {}
++        self.collected_total = 0
++        self.gc_runs = 0
++
++    # ------------------------------------------------------------------ txns
++
++    def begin(self, txn: str) -> int:
++        state = self._txns.get(txn)
++        if state is not None and state.active:
++            raise TxnError(f"transaction {txn!r} already active")
++        state = _Txn(snapshot_ts=self.clock)
++        self._txns[txn] = state
++        return state.snapshot_ts
++
++    def put(self, txn: str, key: str, value) -> None:
++        state = self._require_active(txn)
++        state.writes[key] = value
++
++    def commit(self, txn: str) -> int:
++        state = self._require_active(txn)
++        self.clock += 1
++        commit_ts = self.clock
++        for key, value in state.writes.items():
++            versions = self._versions.setdefault(key, [])
++            versions.append(Version(commit_ts=commit_ts, value=value))
++            self._first_commit.setdefault(key, commit_ts)
++        state.active = False
++        state.writes = {}
++        return commit_ts
++
++    def abort(self, txn: str) -> None:
++        state = self._require_active(txn)
++        state.active = False
++        state.writes = {}
++
++    def _require_active(self, txn: str) -> _Txn:
++        state = self._txns.get(txn)
++        if state is None or not state.active:
++            raise TxnError(f"transaction {txn!r} is not active")
++        return state
++
++    def active_snapshots(self) -> dict[str, int]:
++        return {t: s.snapshot_ts for t, s in self._txns.items() if s.active}
++
++    # ------------------------------------------------------------------- gc
++
++    def low_watermark(self) -> int:
++        active = [s.snapshot_ts for s in self._txns.values() if s.active]
++        return min(active) if active else self.clock
++
++    def _safe_keep_start(self, commits: list[int], low_watermark: int) -> int:
++        """Index of the oldest version that must be kept.
++
++        Everything before this index has a newer version with
++        ``commit_ts <= low_watermark`` and is therefore invisible to every
++        active (and future) snapshot.
++        """
++        covered = bisect_right(commits, low_watermark)
++        return max(0, covered - 1)
++
++    def gc(self) -> GcResult:
++        low_watermark = self.low_watermark()
++        collected = 0
++        deferred_keys = []
++        for key, versions in self._versions.items():
++            commits = [v.commit_ts for v in versions]
++            keep_start = self._safe_keep_start(commits, low_watermark)
++            if keep_start:
++                del versions[:keep_start]
++                collected += keep_start
++            if self.max_versions is not None and len(versions) > self.max_versions:
++                deferred_keys.append(key)
++        self.collected_total += collected
++        self.gc_runs += 1
++        status = GC_DEFERRED if deferred_keys else OK
++        return GcResult(
++            status=status,
++            collected=collected,
++            low_watermark=low_watermark,
++            deferred_keys=sorted(deferred_keys),
++            versions_remaining=sum(len(v) for v in self._versions.values()),
++        )
++
++    # ----------------------------------------------------------------- reads
++
++    def as_of(self, key: str, ts: int):
++        """Return the value visible at ``ts`` or None if the key is absent.
++
++        Raises :class:`SnapshotExpired` if the needed version was collected.
++        """
++        versions = self._versions.get(key)
++        if not versions:
++            return None
++        commits = [v.commit_ts for v in versions]
++        idx = bisect_right(commits, ts) - 1
++        if idx >= 0:
++            return versions[idx].value
++        if ts >= self._first_commit[key]:
++            raise SnapshotExpired(key, ts)
++        return None
++
++    def get(self, txn: str, key: str):
++        """Read your own snapshot (including your own staged writes)."""
++        state = self._require_active(txn)
++        if key in state.writes:
++            return state.writes[key]
++        return self.as_of(key, state.snapshot_ts)
++
++    # ----------------------------------------------------------------- stats
++
++    def stats(self) -> dict:
++        return {
++            "clock": self.clock,
++            "low_watermark": self.low_watermark(),
++            "keys": len(self._versions),
++            "versions_total": sum(len(v) for v in self._versions.values()),
++            "versions_per_key": {k: len(v) for k, v in sorted(self._versions.items())},
++            "collected_total": self.collected_total,
++            "gc_runs": self.gc_runs,
++            "active_snapshots": self.active_snapshots(),
++            "max_versions": self.max_versions,
++        }

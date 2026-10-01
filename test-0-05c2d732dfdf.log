@@ -1,0 +1,13 @@
+test_json_lines_protocol (test_vgc.CliTest.test_json_lines_protocol) ... ok
+test_txn_lifecycle_errors (test_vgc.CliTest.test_txn_lifecycle_errors) ... ok
+test_gc_collects_after_long_txn_commits (test_vgc.CollectAfterLongTxnCommitTest.test_gc_collects_after_long_txn_commits) ... ok
+test_gc_preserves_versions_visible_to_long_txn (test_vgc.LongTransactionPinningTest.test_gc_preserves_versions_visible_to_long_txn) ... ok
+test_deferred_while_pinned_then_ok (test_vgc.MaxVersionsBudgetTest.test_deferred_while_pinned_then_ok) ... ok
+test_random_sequences (test_vgc.RandomizedDifferentialTest.test_random_sequences) ... ok
+test_as_of_expired_snapshot (test_vgc.SnapshotExpiredTest.test_as_of_expired_snapshot) ... ok
+test_cli_reports_snapshot_expired (test_vgc.SnapshotExpiredTest.test_cli_reports_snapshot_expired) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.035s
+
+OK

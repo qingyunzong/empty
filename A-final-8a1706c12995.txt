@@ -1,0 +1,10 @@
+完成。从空仓库实现了 `vgc` 包，全部 9 个测试真实运行通过（OK）。
+
+**交付内容**
+- `vgc/core.py` — `MVCCStore`：逻辑时钟 + 快照事务；`low_watermark` = 最老活跃快照（无快照时为当前时钟）；GC 仅回收 `commit_ts < low_watermark` 且对任何活跃快照不可见、非最新的版本；`max_versions` 超限且无可回收版本时返回 `GC_DEFERRED`；`as_of` 通过每键 GC 水位线（`expired_below`）报 `SNAPSHOT_EXPIRED`。
+- `vgc/cli.py` + `vgc/__main__.py` — JSON 行协议 CLI：`python3 -m vgc --max-versions N`，支持 `begin/put/commit/gc/as_of/get/stats`。
+- `tests/test_vgc.py` — 验收 a–d：长事务持有期间可见版本保留；提交后 GC 回收并校验统计；过期快照报 `SNAPSHOT_EXPIRED`；10 种子 × 600 步随机序列与保留全部版本的参考实现逐步比对所有活跃快照可见性，另含 `GC_DEFERRED` 预算测试。
+- `tests/test_cli.py` — 子进程端到端 CLI 测试。
+- `README.md` — 语义、协议、示例及真实测试输出（`Ran 9 tests ... OK`）。
+
+一点说明：本环境只有 `python3`（3.14.4），无 `python` 别名，README 中已注明二者等价。
