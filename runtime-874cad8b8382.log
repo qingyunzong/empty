@@ -1,0 +1,5 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/3c6bbcbae3ae4004a678869df9426b5f/judge/pair/attempt-001/demonstration-B/demonstration/probe.py malformed
+verify_exit=1
+cli_error=json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/3c6bbcbae3ae4004a678869df9426b5f/judge/pair/attempt-001/demonstration-B/demonstration/probe.py truncated
+first_bad_block=4096 reported_offset=8191

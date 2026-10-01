@@ -1,0 +1,37 @@
+test_all_zero_1mib_cuts_only_at_max (test_chunker.TestChunker.test_all_zero_1mib_cuts_only_at_max) ... ok
+test_buffer_size_independence (test_chunker.TestChunker.test_buffer_size_independence) ... ok
+test_empty_input (test_chunker.TestChunker.test_empty_input) ... ok
+test_eof_cut_below_min_size (test_chunker.TestChunker.test_eof_cut_below_min_size) ... ok
+test_forced_cut_tie_takes_limit (test_chunker.TestChunker.test_forced_cut_tie_takes_limit) ... ok
+test_matches_reference_patterned_data (test_chunker.TestChunker.test_matches_reference_patterned_data) ... ok
+test_matches_reference_up_to_3000 (test_chunker.TestChunker.test_matches_reference_up_to_3000) ... ok
+test_min_size_respected (test_chunker.TestChunker.test_min_size_respected) ... ok
+test_buffer_size_flag_does_not_change_index (test_cli.TestCli.test_buffer_size_flag_does_not_change_index) ... ok
+test_chunk_and_verify_roundtrip (test_cli.TestCli.test_chunk_and_verify_roundtrip) ... ok
+test_chunk_default_output_name (test_cli.TestCli.test_chunk_default_output_name) ... ok
+test_locate_command (test_cli.TestCli.test_locate_command) ... ok
+test_locate_out_of_range (test_cli.TestCli.test_locate_out_of_range) ... ok
+test_verify_corrupt_index_file (test_cli.TestCli.test_verify_corrupt_index_file) ... ok
+test_verify_detects_single_byte_flip (test_cli.TestCli.test_verify_detects_single_byte_flip) ... ok
+test_bad_digest_field (test_index.TestIndexFormat.test_bad_digest_field) ... ok
+test_bad_header (test_index.TestIndexFormat.test_bad_header) ... ok
+test_empty_index_roundtrip (test_index.TestIndexFormat.test_empty_index_roundtrip) ... ok
+test_gap_is_corrupt (test_index.TestIndexFormat.test_gap_is_corrupt) ... ok
+test_nonpositive_length (test_index.TestIndexFormat.test_nonpositive_length) ... ok
+test_overlap_is_corrupt (test_index.TestIndexFormat.test_overlap_is_corrupt) ... ok
+test_roundtrip (test_index.TestIndexFormat.test_roundtrip) ... ok
+test_unsorted_is_corrupt (test_index.TestIndexFormat.test_unsorted_is_corrupt) ... ok
+test_locate_covers_position (test_index.TestLocate.test_locate_covers_position) ... ok
+test_locate_is_minimal_covering_chunk (test_index.TestLocate.test_locate_is_minimal_covering_chunk) ... ok
+test_locate_returns_chunk_at_boundary (test_index.TestLocate.test_locate_returns_chunk_at_boundary) ... ok
+test_out_of_range (test_index.TestLocate.test_out_of_range) ... ok
+test_first_bad_chunk_reports_minimal_offset (test_index.TestVerify.test_first_bad_chunk_reports_minimal_offset) ... ok
+test_single_byte_flip_reports_covering_chunk (test_index.TestVerify.test_single_byte_flip_reports_covering_chunk) ... ok
+test_trailing_data_is_corrupt (test_index.TestVerify.test_trailing_data_is_corrupt) ... ok
+test_truncated_data_is_corrupt (test_index.TestVerify.test_truncated_data_is_corrupt) ... ok
+test_verify_ok (test_index.TestVerify.test_verify_ok) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 42.611s
+
+OK

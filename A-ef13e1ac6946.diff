@@ -1,0 +1,1058 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..6929aba
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,58 @@
++# rchunk
++
++Content-defined chunking (CDC) with a verifiable `.chunk` index.
++Pure Python 3.11 standard library; tests use `unittest`.
++
++## Chunking algorithm
++
++- **Window** `W = 48` bytes, rolling weak checksum: 31-bit polynomial
++  rolling sum, `h = (h * 257 + byte) mod 2**31`; sliding removes the
++  outgoing byte's contribution `out * 257**47 (mod 2**31)`.
++- **Fingerprint cut**: when the low 13 bits of `h` are all 1s
++  (`h & 0x1FFF == 0x1FFF`) and the current chunk length is `>= 64`.
++- **Forced cut**: at chunk length `4096`, even without a fingerprint
++  match. If both conditions coincide on the same byte, the forced cut
++  (reached first, by length) is taken; the boundary is identical either
++  way.
++- **EOF cut**: any remaining bytes form the final chunk.
++- Rolling state resets at every boundary.
++
++Determinism: the split of a byte stream is unique and independent of
++read buffer size — `Chunker.feed()` may be called with any buffer sizes.
++
++## Index format (`.chunk`)
++
++Text format: header line `RCHUNK1`, then one line per chunk:
++
++```
++RCHUNK1
++<offset> <length> <sha256-hex>
++...
++```
++
++Entries are sorted by ascending offset and must tile the data
++contiguously from 0 — any gap or overlap is `Corrupt`. `verify`
++re-checks every chunk's sha256 and reports the smallest offset of the
++first bad chunk.
++
++## CLI
++
++```
++python -m rchunk chunk  INPUT [-o OUTPUT] [--buffer-size N]
++python -m rchunk verify DATA INDEX
++python -m rchunk locate INDEX POSITION
++```
++
++- `chunk`: writes `<INPUT>.chunk` (or `-o` path) with offset/len/sha256
++  per chunk.
++- `verify`: exit 0 and `OK: ...` when data matches the index; exit 1
++  with `CORRUPT (offset N): ...` on stderr otherwise.
++- `locate`: prints the (smallest) chunk covering byte `POSITION`.
++
++## Tests
++
++```
++python -m unittest discover -s tests -v
++```
++
++See `RESULTS.md` for the recorded run.
+diff --git a/RESULTS.md b/RESULTS.md
+new file mode 100644
+index 0000000..77cb441
+--- /dev/null
++++ b/RESULTS.md
+@@ -0,0 +1,54 @@
++# Test Results
++
++## Command
++
++```
++python3.11 -m unittest discover -s tests -v
++```
++
++(run from the repository root)
++
++## Environment
++
++- Python 3.11.16 (`/home/delin/.local/bin/python3.11`)
++- Linux x86_64
++- Date (UTC): 2026-10-01T03:59:20Z
++
++## Counts
++
++- Tests run: **32**
++- Passed: **32**
++- Failures: **0**
++- Errors: **0**
++- Wall time: 48.866s
++- Final status: **OK**
++
++## Tail of actual output
++
++```
++test_verify_ok (test_index.TestVerify.test_verify_ok) ... ok
++
++----------------------------------------------------------------------
++Ran 32 tests in 48.866s
++
++OK
++```
++
++## Coverage of acceptance criteria
++
++- `test_all_zero_1mib_cuts_only_at_max` — 1 MiB of zeros splits into
++  exactly 256 chunks of 4096 bytes (forced cuts only).
++- `test_buffer_size_independence` — random data chunked with 8, 4096
++  and 65536-byte buffers yields identical chunk lists and identical
++  serialized `.chunk` indexes.
++- `test_locate_is_minimal_covering_chunk` (plus CLI flip test) — after
++  flipping one byte, `locate` returns the smallest chunk covering it and
++  `verify` blames that chunk's offset.
++- `test_matches_reference_up_to_3000` — for every length 0..3000 the
++  streaming chunker (buffers 8 and 4096) matches the one-shot
++  byte-by-byte reference simulation.
++- `test_forced_cut_tie_takes_limit` — crafted input where the
++  fingerprint fires exactly on the byte reaching the 4096 limit; the
++  forced cut is taken and both implementations agree.
++- `test_first_bad_chunk_reports_minimal_offset` — with two corrupted
++  chunks, `verify` reports the smaller offset.
+diff --git a/rchunk/__init__.py b/rchunk/__init__.py
+new file mode 100644
+index 0000000..4ae3838
+--- /dev/null
++++ b/rchunk/__init__.py
+@@ -0,0 +1,43 @@
++"""rchunk: content-defined chunking with verifiable .chunk indexes."""
++
++from .core import (
++    BASE,
++    MASK,
++    MAX_SIZE,
++    MIN_SIZE,
++    MOD,
++    WINDOW,
++    Chunker,
++    RollingHash,
++    chunk_stream,
++)
++from .index import (
++    MAGIC,
++    ChunkEntry,
++    CorruptError,
++    dumps,
++    entries_from_data,
++    loads,
++    locate,
++    verify,
++)
++
++__all__ = [
++    "BASE",
++    "MASK",
++    "MAX_SIZE",
++    "MIN_SIZE",
++    "MOD",
++    "WINDOW",
++    "Chunker",
++    "RollingHash",
++    "chunk_stream",
++    "MAGIC",
++    "ChunkEntry",
++    "CorruptError",
++    "dumps",
++    "entries_from_data",
++    "loads",
++    "locate",
++    "verify",
++]
+diff --git a/rchunk/__main__.py b/rchunk/__main__.py
+new file mode 100644
+index 0000000..dbdd066
+--- /dev/null
++++ b/rchunk/__main__.py
+@@ -0,0 +1,6 @@
++import sys
++
++from .cli import main
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/rchunk/__pycache__/__init__.cpython-311.pyc b/rchunk/__pycache__/__init__.cpython-311.pyc
+new file mode 100644
+index 0000000..0305d56
+Binary files /dev/null and b/rchunk/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/rchunk/__pycache__/__main__.cpython-311.pyc b/rchunk/__pycache__/__main__.cpython-311.pyc
+new file mode 100644
+index 0000000..0fbbe6c
+Binary files /dev/null and b/rchunk/__pycache__/__main__.cpython-311.pyc differ
+diff --git a/rchunk/__pycache__/cli.cpython-311.pyc b/rchunk/__pycache__/cli.cpython-311.pyc
+new file mode 100644
+index 0000000..42c86c6
+Binary files /dev/null and b/rchunk/__pycache__/cli.cpython-311.pyc differ
+diff --git a/rchunk/__pycache__/core.cpython-311.pyc b/rchunk/__pycache__/core.cpython-311.pyc
+new file mode 100644
+index 0000000..0b3e9a8
+Binary files /dev/null and b/rchunk/__pycache__/core.cpython-311.pyc differ
+diff --git a/rchunk/__pycache__/index.cpython-311.pyc b/rchunk/__pycache__/index.cpython-311.pyc
+new file mode 100644
+index 0000000..1104f3a
+Binary files /dev/null and b/rchunk/__pycache__/index.cpython-311.pyc differ
+diff --git a/rchunk/cli.py b/rchunk/cli.py
+new file mode 100644
+index 0000000..5cde363
+--- /dev/null
++++ b/rchunk/cli.py
+@@ -0,0 +1,104 @@
++"""Command line interface for rchunk.
++
++Usage:
++    python -m rchunk chunk  INPUT [-o OUTPUT] [--buffer-size N]
++    python -m rchunk verify DATA INDEX
++    python -m rchunk locate INDEX POSITION
++"""
++
++from __future__ import annotations
++
++import argparse
++import hashlib
++import sys
++
++from . import core, index as index_mod
++
++
++def _cmd_chunk(args: argparse.Namespace) -> int:
++    output = args.output or args.input + ".chunk"
++    chunker = core.Chunker()
++    spans: list[tuple[int, int]] = []
++
++    with open(args.input, "rb") as fh:
++        while True:
++            buf = fh.read(args.buffer_size)
++            if not buf:
++                break
++            spans.extend(chunker.feed(buf))
++    spans.extend(chunker.finish())
++
++    records = []
++    with open(args.input, "rb") as fh:
++        for start, length in spans:
++            fh.seek(start)
++            digest = hashlib.sha256(fh.read(length)).digest()
++            records.append(index_mod.ChunkEntry(start, length, digest))
++
++    with open(output, "wb") as fh:
++        fh.write(index_mod.dumps(records))
++    total = records[-1].end if records else 0
++    print(f"wrote {output}: {len(records)} chunks, {total} bytes")
++    return 0
++
++
++def _cmd_verify(args: argparse.Namespace) -> int:
++    try:
++        with open(args.index, "rb") as fh:
++            entries = index_mod.loads(fh.read())
++        with open(args.data, "rb") as fh:
++            data = fh.read()
++        index_mod.verify(entries, data)
++    except index_mod.CorruptError as exc:
++        where = f" (offset {exc.offset})" if exc.offset is not None else ""
++        print(f"CORRUPT{where}: {exc}", file=sys.stderr)
++        return 1
++    total = entries[-1].end if entries else 0
++    print(f"OK: {len(entries)} chunks, {total} bytes")
++    return 0
++
++
++def _cmd_locate(args: argparse.Namespace) -> int:
++    try:
++        with open(args.index, "rb") as fh:
++            entries = index_mod.loads(fh.read())
++        entry = index_mod.locate(entries, args.position)
++    except index_mod.CorruptError as exc:
++        print(f"CORRUPT: {exc}", file=sys.stderr)
++        return 1
++    print(
++        f"position {args.position} -> chunk offset={entry.offset} "
++        f"len={entry.length} sha256={entry.sha256.hex()}"
++    )
++    return 0
++
++
++def build_parser() -> argparse.ArgumentParser:
++    parser = argparse.ArgumentParser(prog="rchunk", description=__doc__)
++    sub = parser.add_subparsers(dest="command", required=True)
++
++    p_chunk = sub.add_parser("chunk", help="chunk a file and write a .chunk index")
++    p_chunk.add_argument("input")
++    p_chunk.add_argument("-o", "--output")
++    p_chunk.add_argument("--buffer-size", type=int, default=65536)
++    p_chunk.set_defaults(func=_cmd_chunk)
++
++    p_verify = sub.add_parser("verify", help="verify data against a .chunk index")
++    p_verify.add_argument("data")
++    p_verify.add_argument("index")
++    p_verify.set_defaults(func=_cmd_verify)
++
++    p_locate = sub.add_parser("locate", help="find the chunk covering a byte position")
++    p_locate.add_argument("index")
++    p_locate.add_argument("position", type=int)
++    p_locate.set_defaults(func=_cmd_locate)
++
++    return parser
++
++
++def main(argv: list[str] | None = None) -> int:
++    args = build_parser().parse_args(argv)
++    if getattr(args, "buffer_size", 1) <= 0:
++        print("buffer size must be positive", file=sys.stderr)
++        return 2
++    return args.func(args)
+diff --git a/rchunk/core.py b/rchunk/core.py
+new file mode 100644
+index 0000000..70d55e4
+--- /dev/null
++++ b/rchunk/core.py
+@@ -0,0 +1,115 @@
++"""rchunk content-defined chunking core.
++
++Chunking rules (deterministic, independent of read buffer size):
++
++- A 48-byte rolling window feeds a 31-bit polynomial rolling checksum:
++  h = (h * BASE + byte) mod 2**31, sliding removes out * BASE**(W-1).
++- Cut when the low 13 bits of the checksum are all 1s AND the current
++  chunk length has reached MIN_SIZE (64).
++- Cut unconditionally when the chunk length reaches MAX_SIZE (4096),
++  even if the fingerprint did not match. If both conditions coincide on
++  the same byte, the forced cut (reached first by length) wins; both
++  produce the same boundary.
++- Cut at EOF for any remaining bytes.
++
++The rolling state resets at every chunk boundary, so each boundary
++depends only on the bytes of the current chunk.
++"""
++
++from __future__ import annotations
++
++WINDOW = 48
++MIN_SIZE = 64
++MAX_SIZE = 4096
++MASK = 0x1FFF  # low 13 bits
++MOD = 1 << 31
++BASE = 257
++_POW_BASE = pow(BASE, WINDOW - 1, MOD)
++
++
++class RollingHash:
++    """31-bit polynomial rolling checksum over a window of WINDOW bytes."""
++
++    __slots__ = ("h", "_buf", "_count")
++
++    def __init__(self) -> None:
++        self.h = 0
++        self._buf = [0] * WINDOW
++        self._count = 0
++
++    def reset(self) -> None:
++        self.h = 0
++        self._count = 0
++
++    def update(self, byte: int) -> None:
++        count = self._count
++        h = self.h
++        slot = count % WINDOW
++        if count >= WINDOW:
++            h = (h - self._buf[slot] * _POW_BASE) % MOD
++        self._buf[slot] = byte
++        self._count = count + 1
++        self.h = (h * BASE + byte) % MOD
++
++    def boundary(self) -> bool:
++        """True when the low 13 bits of the checksum are all 1s."""
++        return (self.h & MASK) == MASK
++
++
++class Chunker:
++    """Streaming content-defined chunker.
++
++    Feed bytes with :meth:`feed` (any buffer sizes) and finalize with
++    :meth:`finish`. Both return ``(offset, length)`` pairs for chunks
++    completed during the call. The split of a byte stream is unique and
++    does not depend on how the stream was buffered into feed calls.
++    """
++
++    __slots__ = ("_hash", "_start", "_pos")
++
++    def __init__(self) -> None:
++        self._hash = RollingHash()
++        self._start = 0  # absolute offset of current chunk start
++        self._pos = 0    # absolute offset of next byte to consume
++
++    def feed(self, data: bytes) -> list[tuple[int, int]]:
++        chunks: list[tuple[int, int]] = []
++        h = self._hash
++        pos = self._pos
++        start = self._start
++        for byte in data:
++            h.update(byte)
++            pos += 1
++            length = pos - start
++            if length == MAX_SIZE:
++                # Forced cut at the hard limit, fingerprint or not.
++                chunks.append((start, length))
++                start = pos
++                h.reset()
++            elif length >= MIN_SIZE and h.boundary():
++                chunks.append((start, length))
++                start = pos
++                h.reset()
++        self._pos = pos
++        self._start = start
++        return chunks
++
++    def finish(self) -> list[tuple[int, int]]:
++        if self._pos > self._start:
++            chunk = [(self._start, self._pos - self._start)]
++            self._start = self._pos
++            self._hash.reset()
++            return chunk
++        return []
++
++
++def chunk_stream(data: bytes, buffer_size: int = 65536) -> list[tuple[int, int]]:
++    """One-shot helper: chunk *data* reading it in buffer_size pieces."""
++    if buffer_size <= 0:
++        raise ValueError("buffer_size must be positive")
++    chunker = Chunker()
++    chunks: list[tuple[int, int]] = []
++    for i in range(0, len(data), buffer_size):
++        chunks.extend(chunker.feed(data[i:i + buffer_size]))
++    chunks.extend(chunker.finish())
++    return chunks
+diff --git a/rchunk/index.py b/rchunk/index.py
+new file mode 100644
+index 0000000..0a7458d
+--- /dev/null
++++ b/rchunk/index.py
+@@ -0,0 +1,158 @@
++"""Chunk index (.chunk) format, validation and lookup.
++
++Text format, one header line plus one line per chunk::
++
++    RCHUNK1
++    <offset> <length> <sha256-hex>
++    ...
++
++Offsets are 0-based byte positions in the data stream. A well-formed
++index is sorted by ascending offset and tiles the data contiguously:
++the first offset is 0 and every subsequent offset equals the previous
++offset plus the previous length. Any gap or overlap is Corrupt.
++"""
++
++from __future__ import annotations
++
++import bisect
++import hashlib
++from dataclasses import dataclass
++
++MAGIC = "RCHUNK1"
++
++
++class CorruptError(Exception):
++    """Raised when an index or the data it describes is corrupt.
++
++    ``offset`` is the smallest offset known to be bad, when applicable.
++    """
++
++    def __init__(self, message: str, offset: int | None = None) -> None:
++        super().__init__(message)
++        self.offset = offset
++
++
++@dataclass(frozen=True)
++class ChunkEntry:
++    offset: int
++    length: int
++    sha256: bytes
++
++    @property
++    def end(self) -> int:
++        return self.offset + self.length
++
++
++def hash_chunk(data: bytes, offset: int, length: int) -> bytes:
++    return hashlib.sha256(data[offset:offset + length]).digest()
++
++
++def entries_from_data(data: bytes, chunks: list[tuple[int, int]]) -> list[ChunkEntry]:
++    return [
++        ChunkEntry(offset, length, hash_chunk(data, offset, length))
++        for offset, length in chunks
++    ]
++
++
++def dumps(entries: list[ChunkEntry]) -> bytes:
++    """Serialize an index. Entries must already be structurally valid."""
++    _check_structure(entries)
++    lines = [MAGIC]
++    for entry in entries:
++        lines.append(f"{entry.offset} {entry.length} {entry.sha256.hex()}")
++    return ("\n".join(lines) + "\n").encode("ascii")
++
++
++def loads(raw: bytes) -> list[ChunkEntry]:
++    """Parse and structurally validate an index.
++
++    Raises CorruptError on any malformed line, unsorted offsets, gaps
++    or overlaps.
++    """
++    try:
++        text = raw.decode("ascii")
++    except UnicodeDecodeError as exc:
++        raise CorruptError("index is not ASCII text") from exc
++    lines = text.split("\n")
++    if not lines or lines[0] != MAGIC:
++        raise CorruptError("bad index header")
++    entries: list[ChunkEntry] = []
++    for lineno, line in enumerate(lines[1:], start=2):
++        if line == "" and lineno == len(lines):
++            continue  # single trailing newline
++        parts = line.split(" ")
++        if len(parts) != 3:
++            raise CorruptError(f"line {lineno}: expected 3 fields")
++        offset_s, length_s, digest_hex = parts
++        try:
++            offset = int(offset_s)
++            length = int(length_s)
++        except ValueError as exc:
++            raise CorruptError(f"line {lineno}: non-integer offset/length") from exc
++        if offset < 0 or length <= 0:
++            raise CorruptError(
++                f"line {lineno}: negative offset or non-positive length",
++                offset=max(offset, 0),
++            )
++        if len(digest_hex) != 64:
++            raise CorruptError(f"line {lineno}: sha256 must be 64 hex chars", offset=offset)
++        try:
++            digest = bytes.fromhex(digest_hex)
++        except ValueError as exc:
++            raise CorruptError(f"line {lineno}: bad sha256 hex", offset=offset) from exc
++        entries.append(ChunkEntry(offset, length, digest))
++    _check_structure(entries)
++    return entries
++
++
++def _check_structure(entries: list[ChunkEntry]) -> None:
++    """Enforce ascending, contiguous, non-overlapping offsets."""
++    expected = 0
++    for entry in entries:
++        if entry.offset != expected:
++            kind = "overlap" if entry.offset < expected else "gap"
++            raise CorruptError(
++                f"index {kind} at offset {entry.offset} (expected {expected})",
++                offset=min(entry.offset, expected),
++            )
++        if entry.length <= 0:
++            raise CorruptError(
++                f"non-positive length at offset {entry.offset}", offset=entry.offset
++            )
++        expected = entry.offset + entry.length
++
++
++def verify(entries: list[ChunkEntry], data: bytes) -> None:
++    """Verify *data* against the index.
++
++    Checks that the index tiles the whole data exactly and that every
++    chunk's sha256 matches. Raises CorruptError reporting the smallest
++    offset of the first bad chunk.
++    """
++    _check_structure(entries)
++    total = entries[-1].end if entries else 0
++    if total != len(data):
++        raise CorruptError(
++            f"index covers {total} bytes but data has {len(data)}",
++            offset=min(total, len(data)),
++        )
++    for entry in entries:
++        actual = hash_chunk(data, entry.offset, entry.length)
++        if actual != entry.sha256:
++            raise CorruptError(
++                f"sha256 mismatch at offset {entry.offset}", offset=entry.offset
++            )
++
++
++def locate(entries: list[ChunkEntry], position: int) -> ChunkEntry:
++    """Return the (smallest) chunk covering byte *position*."""
++    if not entries:
++        raise CorruptError("empty index")
++    if position < 0 or position >= entries[-1].end:
++        raise CorruptError(
++            f"position {position} out of range",
++            offset=min(max(position, 0), entries[-1].end),
++        )
++    starts = [entry.offset for entry in entries]
++    idx = bisect.bisect_right(starts, position) - 1
++    return entries[idx]
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/__init__.cpython-311.pyc b/tests/__pycache__/__init__.cpython-311.pyc
+new file mode 100644
+index 0000000..1b2c4ab
+Binary files /dev/null and b/tests/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/tests/__pycache__/reference.cpython-311.pyc b/tests/__pycache__/reference.cpython-311.pyc
+new file mode 100644
+index 0000000..5bbef37
+Binary files /dev/null and b/tests/__pycache__/reference.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_chunker.cpython-311.pyc b/tests/__pycache__/test_chunker.cpython-311.pyc
+new file mode 100644
+index 0000000..823e5b1
+Binary files /dev/null and b/tests/__pycache__/test_chunker.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_cli.cpython-311.pyc b/tests/__pycache__/test_cli.cpython-311.pyc
+new file mode 100644
+index 0000000..b6e832c
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_index.cpython-311.pyc b/tests/__pycache__/test_index.cpython-311.pyc
+new file mode 100644
+index 0000000..b3230e9
+Binary files /dev/null and b/tests/__pycache__/test_index.cpython-311.pyc differ
+diff --git a/tests/reference.py b/tests/reference.py
+new file mode 100644
+index 0000000..b5e684f
+--- /dev/null
++++ b/tests/reference.py
+@@ -0,0 +1,50 @@
++"""Independent one-shot reference implementation of the rchunk spec.
++
++Simulates the rolling state byte by byte over the whole input in a
++single pass. Used by the tests to cross-check the streaming Chunker.
++Written directly from the spec:
++
++- window W=48, 31-bit polynomial rolling checksum (base 257, mod 2**31)
++- cut when low 13 bits of the checksum are all 1s and length >= 64
++- forced cut at length 4096 even without a fingerprint match; when a
++  fingerprint match and the forced cut coincide on the same byte, the
++  forced cut (condition reached first, by length) is the one taken
++- final partial chunk is cut at EOF
++- rolling state resets at every boundary
++"""
++
++from collections import deque
++
++W = 48
++MIN_SIZE = 64
++MAX_SIZE = 4096
++MASK = 0x1FFF
++MOD = 1 << 31
++BASE = 257
++POW = pow(BASE, W - 1, MOD)
++
++
++def reference_chunks(data: bytes) -> list[tuple[int, int]]:
++    bounds: list[tuple[int, int]] = []
++    start = 0
++    h = 0
++    window: deque[int] = deque()
++    for i, byte in enumerate(data):
++        if len(window) == W:
++            h = (h - window.popleft() * POW) % MOD
++        window.append(byte)
++        h = (h * BASE + byte) % MOD
++        length = i - start + 1
++        if length == MAX_SIZE:
++            bounds.append((start, length))
++            start = i + 1
++            h = 0
++            window.clear()
++        elif length >= MIN_SIZE and (h & MASK) == MASK:
++            bounds.append((start, length))
++            start = i + 1
++            h = 0
++            window.clear()
++    if start < len(data):
++        bounds.append((start, len(data) - start))
++    return bounds
+diff --git a/tests/test_chunker.py b/tests/test_chunker.py
+new file mode 100644
+index 0000000..4faa138
+--- /dev/null
++++ b/tests/test_chunker.py
+@@ -0,0 +1,114 @@
++import random
++import unittest
++
++from rchunk import (
++    MAX_SIZE,
++    MIN_SIZE,
++    MASK,
++    Chunker,
++    RollingHash,
++    chunk_stream,
++    dumps,
++    entries_from_data,
++)
++from tests.reference import reference_chunks
++
++
++def chunked(chunker, data, buffer_size):
++    chunks = []
++    for i in range(0, len(data), buffer_size):
++        chunks.extend(chunker.feed(data[i:i + buffer_size]))
++    chunks.extend(chunker.finish())
++    return chunks
++
++
++class TestChunker(unittest.TestCase):
++    def test_all_zero_1mib_cuts_only_at_max(self):
++        data = b"\x00" * (1024 * 1024)
++        chunks = chunk_stream(data, 65536)
++        self.assertEqual(len(chunks), 256)
++        for offset, length in chunks:
++            self.assertEqual(length, MAX_SIZE)
++        self.assertEqual([off for off, _ in chunks], [i * MAX_SIZE for i in range(256)])
++        # zeros never produce a fingerprint match, so no other cut exists
++        h = RollingHash()
++        for _ in range(4096):
++            h.update(0)
++            self.assertFalse(h.boundary())
++
++    def test_buffer_size_independence(self):
++        rng = random.Random(20261001)
++        data = rng.randbytes(300_000)
++        results = {size: chunked(Chunker(), data, size) for size in (8, 4096, 65536)}
++        self.assertEqual(results[8], results[4096])
++        self.assertEqual(results[4096], results[65536])
++        indexes = {
++            size: dumps(entries_from_data(data, chunks))
++            for size, chunks in results.items()
++        }
++        self.assertEqual(indexes[8], indexes[4096])
++        self.assertEqual(indexes[4096], indexes[65536])
++        # offsets tile the stream contiguously
++        expected = 0
++        for offset, length in results[8]:
++            self.assertEqual(offset, expected)
++            expected = offset + length
++        self.assertEqual(expected, len(data))
++
++    def test_min_size_respected(self):
++        rng = random.Random(7)
++        data = rng.randbytes(200_000)
++        chunks = chunk_stream(data, 4096)
++        for offset, length in chunks[:-1]:
++            self.assertGreaterEqual(length, MIN_SIZE)
++            self.assertLessEqual(length, MAX_SIZE)
++
++    def test_forced_cut_tie_takes_limit(self):
++        # Crafted so the fingerprint matches exactly on the byte that
++        # reaches MAX_SIZE: 4094 zero bytes keep the hash at 0, then
++        # 0xff, 0x00 make h = 255*257 = 65535, whose low 13 bits are all 1.
++        prefix = b"\x00" * (MAX_SIZE - 2) + b"\xff\x00"
++        h = RollingHash()
++        for byte in prefix:
++            h.update(byte)
++        self.assertTrue(h.boundary())  # fingerprint fires exactly at the limit
++        tail = b"tail-after-forced-cut"
++        chunks = chunk_stream(prefix + tail, 65536)
++        self.assertEqual(chunks[0], (0, MAX_SIZE))
++        self.assertEqual(chunks[1], (MAX_SIZE, len(tail)))
++        self.assertEqual(chunks, reference_chunks(prefix + tail))
++
++    def test_matches_reference_up_to_3000(self):
++        rng = random.Random(424242)
++        data = rng.randbytes(3000)
++        for n in range(0, 3001):
++            prefix = data[:n]
++            expected = reference_chunks(prefix)
++            for buffer_size in (8, 4096):
++                actual = chunked(Chunker(), prefix, buffer_size)
++                self.assertEqual(
++                    actual, expected, f"mismatch at length {n}, buffer {buffer_size}"
++                )
++
++    def test_matches_reference_patterned_data(self):
++        patterns = [
++            b"\x00" * 3000,
++            bytes(i % 256 for i in range(3000)),
++            b"\xff" * 3000,
++            (b"\x00" * 63 + b"\xff") * 46,
++        ]
++        for data in patterns:
++            self.assertEqual(chunk_stream(data, 8), reference_chunks(data))
++            self.assertEqual(chunk_stream(data, 4096), reference_chunks(data))
++
++    def test_empty_input(self):
++        self.assertEqual(chunk_stream(b"", 8), [])
++        self.assertEqual(reference_chunks(b""), [])
++
++    def test_eof_cut_below_min_size(self):
++        data = b"short"
++        self.assertEqual(chunk_stream(data, 2), [(0, 5)])
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..7194b8c
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,94 @@
++import contextlib
++import io
++import os
++import random
++import tempfile
++import unittest
++
++from rchunk.cli import main
++from rchunk import loads, locate
++
++
++def run_cli(argv):
++    out, err = io.StringIO(), io.StringIO()
++    with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
++        code = main(argv)
++    return code, out.getvalue(), err.getvalue()
++
++
++class TestCli(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++        rng = random.Random(31337)
++        self.data = rng.randbytes(120_000)
++        self.data_path = os.path.join(self.tmp.name, "data.bin")
++        with open(self.data_path, "wb") as fh:
++            fh.write(self.data)
++        self.index_path = os.path.join(self.tmp.name, "data.bin.chunk")
++
++    def chunk(self, *extra):
++        code, _, _ = run_cli(["chunk", self.data_path, "-o", self.index_path, *extra])
++        self.assertEqual(code, 0)
++
++    def test_chunk_and_verify_roundtrip(self):
++        self.chunk()
++        code, out, _ = run_cli(["verify", self.data_path, self.index_path])
++        self.assertEqual(code, 0)
++        self.assertIn("OK", out)
++
++    def test_chunk_default_output_name(self):
++        code, out, _ = run_cli(["chunk", self.data_path])
++        self.assertEqual(code, 0)
++        self.assertTrue(os.path.exists(self.index_path))
++
++    def test_buffer_size_flag_does_not_change_index(self):
++        self.chunk("--buffer-size", "8")
++        with open(self.index_path, "rb") as fh:
++            small = fh.read()
++        self.chunk("--buffer-size", "65536")
++        with open(self.index_path, "rb") as fh:
++            large = fh.read()
++        self.assertEqual(small, large)
++
++    def test_verify_detects_single_byte_flip(self):
++        self.chunk()
++        pos = 50_000
++        with open(self.data_path, "r+b") as fh:
++            fh.seek(pos)
++            fh.write(bytes([self.data[pos] ^ 0xFF]))
++        code, _, err = run_cli(["verify", self.data_path, self.index_path])
++        self.assertEqual(code, 1)
++        self.assertIn("CORRUPT", err)
++        with open(self.index_path, "rb") as fh:
++            entries = loads(fh.read())
++        expected = locate(entries, pos)
++        self.assertIn(f"offset {expected.offset}", err)
++
++    def test_locate_command(self):
++        self.chunk()
++        pos = 70_000
++        code, out, _ = run_cli(["locate", self.index_path, str(pos)])
++        self.assertEqual(code, 0)
++        with open(self.index_path, "rb") as fh:
++            entries = loads(fh.read())
++        entry = locate(entries, pos)
++        self.assertIn(f"offset={entry.offset}", out)
++        self.assertIn(f"len={entry.length}", out)
++
++    def test_locate_out_of_range(self):
++        self.chunk()
++        code, _, err = run_cli(["locate", self.index_path, str(len(self.data))])
++        self.assertEqual(code, 1)
++        self.assertIn("CORRUPT", err)
++
++    def test_verify_corrupt_index_file(self):
++        with open(self.index_path, "wb") as fh:
++            fh.write(b"RCHUNK1\n0 10 " + b"0" * 64 + b"\n7 10 " + b"0" * 64 + b"\n")
++        code, _, err = run_cli(["verify", self.data_path, self.index_path])
++        self.assertEqual(code, 1)
++        self.assertIn("CORRUPT", err)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_index.py b/tests/test_index.py
+new file mode 100644
+index 0000000..b713b4f
+--- /dev/null
++++ b/tests/test_index.py
+@@ -0,0 +1,153 @@
++import hashlib
++import random
++import unittest
++
++from rchunk import (
++    ChunkEntry,
++    CorruptError,
++    chunk_stream,
++    dumps,
++    entries_from_data,
++    loads,
++    locate,
++    verify,
++)
++
++
++def make_entries(data, buffer_size=65536):
++    return entries_from_data(data, chunk_stream(data, buffer_size))
++
++
++class TestIndexFormat(unittest.TestCase):
++    def setUp(self):
++        rng = random.Random(99)
++        self.data = rng.randbytes(50_000)
++        self.entries = make_entries(self.data)
++
++    def test_roundtrip(self):
++        raw = dumps(self.entries)
++        self.assertEqual(loads(raw), self.entries)
++        self.assertTrue(raw.startswith(b"RCHUNK1\n"))
++
++    def test_empty_index_roundtrip(self):
++        raw = dumps([])
++        self.assertEqual(loads(raw), [])
++        verify([], b"")
++
++    def test_gap_is_corrupt(self):
++        bad = [
++            ChunkEntry(0, 100, b"\x00" * 32),
++            ChunkEntry(101, 100, b"\x00" * 32),
++        ]
++        with self.assertRaises(CorruptError):
++            dumps(bad)
++        raw = b"RCHUNK1\n0 100 " + b"0" * 64 + b"\n101 100 " + b"0" * 64 + b"\n"
++        with self.assertRaises(CorruptError):
++            loads(raw)
++
++    def test_overlap_is_corrupt(self):
++        bad = [
++            ChunkEntry(0, 100, b"\x00" * 32),
++            ChunkEntry(50, 100, b"\x00" * 32),
++        ]
++        with self.assertRaises(CorruptError):
++            dumps(bad)
++
++    def test_unsorted_is_corrupt(self):
++        bad = [
++            ChunkEntry(100, 100, b"\x00" * 32),
++            ChunkEntry(0, 100, b"\x00" * 32),
++        ]
++        with self.assertRaises(CorruptError):
++            dumps(bad)
++
++    def test_bad_header(self):
++        with self.assertRaises(CorruptError):
++            loads(b"RCHUNK0\n")
++
++    def test_bad_digest_field(self):
++        with self.assertRaises(CorruptError):
++            loads(b"RCHUNK1\n0 10 " + b"z" * 64 + b"\n")
++        with self.assertRaises(CorruptError):
++            loads(b"RCHUNK1\n0 10 " + b"0" * 63 + b"\n")
++
++    def test_nonpositive_length(self):
++        with self.assertRaises(CorruptError):
++            loads(b"RCHUNK1\n0 0 " + b"0" * 64 + b"\n")
++
++
++class TestVerify(unittest.TestCase):
++    def setUp(self):
++        rng = random.Random(1234)
++        self.data = bytearray(rng.randbytes(80_000))
++        self.entries = make_entries(bytes(self.data))
++
++    def test_verify_ok(self):
++        verify(self.entries, bytes(self.data))
++
++    def test_single_byte_flip_reports_covering_chunk(self):
++        pos = 40_000
++        self.data[pos] ^= 0xFF
++        with self.assertRaises(CorruptError) as ctx:
++            verify(self.entries, bytes(self.data))
++        expected = locate(self.entries, pos)
++        self.assertEqual(ctx.exception.offset, expected.offset)
++
++    def test_first_bad_chunk_reports_minimal_offset(self):
++        positions = [70_000, 10_000]
++        for pos in positions:
++            self.data[pos] ^= 0xFF
++        with self.assertRaises(CorruptError) as ctx:
++            verify(self.entries, bytes(self.data))
++        earlier = locate(self.entries, 10_000)
++        later = locate(self.entries, 70_000)
++        self.assertLess(earlier.offset, later.offset)
++        self.assertEqual(ctx.exception.offset, earlier.offset)
++
++    def test_trailing_data_is_corrupt(self):
++        with self.assertRaises(CorruptError):
++            verify(self.entries, bytes(self.data) + b"x")
++
++    def test_truncated_data_is_corrupt(self):
++        with self.assertRaises(CorruptError):
++            verify(self.entries, bytes(self.data[:-1]))
++
++
++class TestLocate(unittest.TestCase):
++    def setUp(self):
++        rng = random.Random(555)
++        self.data = rng.randbytes(60_000)
++        self.entries = make_entries(self.data)
++
++    def test_locate_covers_position(self):
++        for pos in (0, 1, 63, 64, 4095, 4096, 30_000, len(self.data) - 1):
++            entry = locate(self.entries, pos)
++            self.assertLessEqual(entry.offset, pos)
++            self.assertLess(pos, entry.offset + entry.length)
++
++    def test_locate_returns_chunk_at_boundary(self):
++        second = self.entries[1]
++        self.assertEqual(locate(self.entries, second.offset), second)
++        self.assertEqual(locate(self.entries, second.offset - 1), self.entries[0])
++
++    def test_locate_is_minimal_covering_chunk(self):
++        # after flipping a byte, locate finds exactly the chunk verify blames
++        pos = 12_345
++        entry = locate(self.entries, pos)
++        mutated = bytearray(self.data)
++        mutated[pos] ^= 0x01
++        with self.assertRaises(CorruptError) as ctx:
++            verify(self.entries, bytes(mutated))
++        self.assertEqual(ctx.exception.offset, entry.offset)
++
++    def test_out_of_range(self):
++        with self.assertRaises(CorruptError):
++            locate(self.entries, len(self.data))
++        with self.assertRaises(CorruptError):
++            locate(self.entries, -1)
++        with self.assertRaises(CorruptError):
++            locate([], 0)
++
++
++if __name__ == "__main__":
++    unittest.main()

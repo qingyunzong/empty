@@ -1,0 +1,19 @@
+test_all_zero_1mib_cuts_only_at_max (test_rchunk.ChunkSemanticsTest.test_all_zero_1mib_cuts_only_at_max) ... ok
+test_buffer_size_independence (test_rchunk.ChunkSemanticsTest.test_buffer_size_independence) ... ok
+test_empty_input (test_rchunk.ChunkSemanticsTest.test_empty_input) ... ok
+test_forced_cut_tie_and_precedence (test_rchunk.ChunkSemanticsTest.test_forced_cut_tie_and_precedence) ... ok
+test_locate_and_verify_after_one_byte_change (test_rchunk.ChunkSemanticsTest.test_locate_and_verify_after_one_byte_change) ... ok
+test_locate_out_of_range (test_rchunk.ChunkSemanticsTest.test_locate_out_of_range) ... ok
+test_reference_comparison_up_to_3000 (test_rchunk.ChunkSemanticsTest.test_reference_comparison_up_to_3000) ... ok
+test_chunk_locate_verify_roundtrip (test_rchunk.CliTest.test_chunk_locate_verify_roundtrip) ... ok
+test_first_bad_chunk_reports_min_offset (test_rchunk.IndexValidationTest.test_first_bad_chunk_reports_min_offset) ... ok
+test_gap_is_corrupt (test_rchunk.IndexValidationTest.test_gap_is_corrupt) ... ok
+test_overlap_is_corrupt (test_rchunk.IndexValidationTest.test_overlap_is_corrupt) ... ok
+test_roundtrip_and_verify (test_rchunk.IndexValidationTest.test_roundtrip_and_verify) ... ok
+test_size_mismatch_is_corrupt (test_rchunk.IndexValidationTest.test_size_mismatch_is_corrupt) ... ok
+test_unsorted_is_corrupt (test_rchunk.IndexValidationTest.test_unsorted_is_corrupt) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 55.515s
+
+OK
