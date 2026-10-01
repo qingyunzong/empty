@@ -1,0 +1,28 @@
+test_ancestor_sets_match_independent_enumeration (test_minivcs.TestAncestorEnumeration.test_ancestor_sets_match_independent_enumeration) ... ok
+test_expected_ancestor_sets (test_minivcs.TestAncestorEnumeration.test_expected_ancestor_sets) ... ok
+test_lca (test_minivcs.TestAncestorEnumeration.test_lca) ... ok
+test_no_common_ancestor (test_minivcs.TestAncestorEnumeration.test_no_common_ancestor) ... ok
+test_abort_restores_branch_and_clears_state (test_minivcs.TestConflictResolveContinue.test_abort_restores_branch_and_clears_state) ... ok
+test_conflict_then_resolve_then_continue (test_minivcs.TestConflictResolveContinue.test_conflict_then_resolve_then_continue) ... ok
+test_continue_with_unresolved_conflict_stays_conflicted (test_minivcs.TestConflictResolveContinue.test_continue_with_unresolved_conflict_stays_conflicted) ... ok
+test_modify_delete_conflict_resolved_by_delete (test_minivcs.TestConflictResolveContinue.test_modify_delete_conflict_resolved_by_delete) ... ok
+test_abort_without_rebase (test_minivcs.TestErrorExitCodes.test_abort_without_rebase) ... ok
+test_continue_without_rebase (test_minivcs.TestErrorExitCodes.test_continue_without_rebase) ... ok
+test_rebase_unknown_branch (test_minivcs.TestErrorExitCodes.test_rebase_unknown_branch) ... ok
+test_rebase_while_in_progress (test_minivcs.TestErrorExitCodes.test_rebase_while_in_progress) ... ok
+test_resolve_without_conflict (test_minivcs.TestErrorExitCodes.test_resolve_without_conflict) ... ok
+test_crash_then_abort_restores (test_minivcs.TestFailBeforeRef.test_crash_then_abort_restores) ... ok
+test_crash_then_continue_does_not_duplicate (test_minivcs.TestFailBeforeRef.test_crash_then_continue_does_not_duplicate) ... ok
+test_fast_forward (test_minivcs.TestFastForward.test_fast_forward) ... ok
+test_commit_chains_on_branch_tip (test_minivcs.TestInitAndCommit.test_commit_chains_on_branch_tip) ... ok
+test_commit_delete_path (test_minivcs.TestInitAndCommit.test_commit_delete_path) ... ok
+test_commit_object_shape (test_minivcs.TestInitAndCommit.test_commit_object_shape) ... ok
+test_commit_outside_repo_errors (test_minivcs.TestInitAndCommit.test_commit_outside_repo_errors) ... ok
+test_conflict_free_rebase (test_minivcs.TestRebaseMerge.test_conflict_free_rebase) ... ok
+test_no_common_ancestor_empty_base (test_minivcs.TestRebaseMerge.test_no_common_ancestor_empty_base) ... ok
+test_merge_expectations (test_minivcs.TestThreeWayMerge.test_merge_expectations) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 46.836s
+
+OK
