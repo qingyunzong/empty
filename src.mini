@@ -1,0 +1,9 @@
+# hmtype example program
+let id = fun x -> x
+let const = fun x -> fun y -> x
+let compose = fun f -> fun g -> fun x -> f (g x)
+let pair = let id2 = fun z -> z in (id2 1, id2 true)
+let add = fun x -> fun y -> x + y
+let is_pos = fun n -> n > 0
+let fact = fix (fun self -> fun n -> if n == 0 then 1 else n * self (n - 1))
+let answer = add 20 22
