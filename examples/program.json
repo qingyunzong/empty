@@ -1,0 +1,7 @@
+{
+  "threads": [
+    {"name": "T1", "ops": [{"op": "write", "addr": "x", "value": 1}]},
+    {"name": "T2", "ops": [{"op": "write", "addr": "x", "value": 2}]},
+    {"name": "T3", "ops": [{"op": "assert", "addr": "x", "eq": 0}]}
+  ]
+}
