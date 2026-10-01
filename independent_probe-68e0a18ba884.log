@@ -1,0 +1,390 @@
+interpreter: Python 3.11.16
+CASE old_lease_after_reacquire INPUT {"ops": [{"acquire": {"r": 1}, "client": "a", "t": 0, "ttl": 3}, {"client": "a", "release": ["r"], "t": 1}, {"acquire": {"r": 1}, "client": "a", "t": 2, "ttl": 10}, {"acquire": {"r": 1}, "client": "b", "t": 3, "ttl": 10}], "resources": {"other": 1, "r": 1}}
+SIDE A SHA 2173c3efe35ddf866f0dd10e3de7f184a3c6bb99
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmprsdxl4df/ops.json", "--out", "/tmp/tmprsdxl4df/A.json"]
+EXIT 0
+STDOUT ''
+STDERR ''
+STATE {
+  "events": [
+    {
+      "client": "a",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0
+    },
+    {
+      "client": "a",
+      "op": "release",
+      "resources": {
+        "r": 1
+      },
+      "result": "RELEASED",
+      "seq": 1,
+      "t": 1
+    },
+    {
+      "client": "a",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 2,
+      "t": 2
+    },
+    {
+      "client": "a",
+      "op": "expire",
+      "resources": {
+        "r": 1
+      },
+      "result": "EXPIRED",
+      "seq": 3,
+      "t": 3
+    },
+    {
+      "client": "b",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 4,
+      "t": 3
+    }
+  ],
+  "holders": {
+    "b": {
+      "r": 1
+    }
+  },
+  "resources": {
+    "other": 1,
+    "r": 1
+  },
+  "waiting": []
+}
+
+SIDE B SHA 5cd2d220b3c9567012b996d32289f41396154efa
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmprsdxl4df/ops.json", "--out", "/tmp/tmprsdxl4df/B.json"]
+EXIT 0
+STDOUT 'wrote /tmp/tmprsdxl4df/B.json (GRANTED=2, RELEASED=1, WAITING=1); sha256=1a0a07acedbd863b8265a4f0a2200ee4bb3699e04e648962ceb51f15cbcf9b4c\n'
+STDERR ''
+STATE {
+  "holders": {
+    "a": {
+      "expires_at": {
+        "r": 12
+      },
+      "resources": {
+        "r": 1
+      }
+    }
+  },
+  "resources": {
+    "other": 1,
+    "r": 1
+  },
+  "results": [
+    {
+      "client": "a",
+      "expires_at": 3,
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0,
+      "ttl": 3
+    },
+    {
+      "client": "a",
+      "kind": "release",
+      "resources": {
+        "r": 1
+      },
+      "result": "RELEASED",
+      "seq": 1,
+      "t": 1
+    },
+    {
+      "client": "a",
+      "expires_at": 12,
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 2,
+      "t": 2,
+      "ttl": 10
+    },
+    {
+      "client": "b",
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "WAITING",
+      "seq": 3,
+      "t": 3,
+      "ttl": 10
+    }
+  ]
+}
+
+CASE zero_ttl_queued_grant INPUT {"ops": [{"acquire": {"r": 1}, "client": "a", "t": 0, "ttl": 0}, {"acquire": {"r": 1}, "client": "b", "t": 0, "ttl": 0}], "resources": {"r": 1}}
+SIDE A SHA 2173c3efe35ddf866f0dd10e3de7f184a3c6bb99
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmpcea1mhjn/ops.json", "--out", "/tmp/tmpcea1mhjn/A.json"]
+EXIT 0
+STDOUT ''
+STDERR ''
+STATE {
+  "events": [
+    {
+      "client": "a",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0
+    },
+    {
+      "client": "b",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "WAITING",
+      "seq": 1,
+      "t": 0
+    },
+    {
+      "client": "a",
+      "op": "expire",
+      "resources": {
+        "r": 1
+      },
+      "result": "EXPIRED",
+      "seq": 2,
+      "t": 0
+    },
+    {
+      "client": "b",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 3,
+      "t": 0
+    }
+  ],
+  "holders": {
+    "b": {
+      "r": 1
+    }
+  },
+  "resources": {
+    "r": 1
+  },
+  "waiting": []
+}
+
+SIDE B SHA 5cd2d220b3c9567012b996d32289f41396154efa
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmpcea1mhjn/ops.json", "--out", "/tmp/tmpcea1mhjn/B.json"]
+EXIT 0
+STDOUT 'wrote /tmp/tmpcea1mhjn/B.json (EXPIRED=2, GRANTED=2, WAITING=1); sha256=44fc751edd4a5fd2ba45e75ea1bc6efb1f7ea71ff899b175d983a5dfef6b3235\n'
+STDERR ''
+STATE {
+  "holders": {},
+  "resources": {
+    "r": 1
+  },
+  "results": [
+    {
+      "client": "a",
+      "expires_at": 0,
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0,
+      "ttl": 0
+    },
+    {
+      "client": "b",
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "WAITING",
+      "seq": 1,
+      "t": 0,
+      "ttl": 0
+    },
+    {
+      "client": "a",
+      "kind": "expire",
+      "resources": {
+        "r": 1
+      },
+      "result": "EXPIRED",
+      "seq": 2,
+      "t": 0
+    },
+    {
+      "client": "b",
+      "expires_at": 0,
+      "kind": "grant",
+      "request_t": 0,
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 3,
+      "t": 0
+    },
+    {
+      "client": "b",
+      "kind": "expire",
+      "resources": {
+        "r": 1
+      },
+      "result": "EXPIRED",
+      "seq": 4,
+      "t": 0
+    }
+  ]
+}
+
+CASE blocked_queue_head INPUT {"ops": [{"acquire": {"r": 1}, "client": "a", "t": 0, "ttl": 10}, {"acquire": {"r": 1}, "client": "b", "t": 1, "ttl": 10}, {"acquire": {"s": 1}, "client": "c", "t": 2, "ttl": 10}], "resources": {"r": 1, "s": 1}}
+SIDE A SHA 2173c3efe35ddf866f0dd10e3de7f184a3c6bb99
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmpzi_rogi2/ops.json", "--out", "/tmp/tmpzi_rogi2/A.json"]
+EXIT 0
+STDOUT ''
+STDERR ''
+STATE {
+  "events": [
+    {
+      "client": "a",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0
+    },
+    {
+      "client": "b",
+      "op": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "WAITING",
+      "seq": 1,
+      "t": 1
+    },
+    {
+      "client": "c",
+      "op": "acquire",
+      "resources": {
+        "s": 1
+      },
+      "result": "GRANTED",
+      "seq": 2,
+      "t": 2
+    }
+  ],
+  "holders": {
+    "a": {
+      "r": 1
+    },
+    "c": {
+      "s": 1
+    }
+  },
+  "resources": {
+    "r": 1,
+    "s": 1
+  },
+  "waiting": [
+    {
+      "client": "b",
+      "needs": {
+        "r": 1
+      },
+      "t": 1
+    }
+  ]
+}
+
+SIDE B SHA 5cd2d220b3c9567012b996d32289f41396154efa
+COMMAND ["/home/delin/.local/bin/python3.11", "-m", "leasesim", "run", "/tmp/tmpzi_rogi2/ops.json", "--out", "/tmp/tmpzi_rogi2/B.json"]
+EXIT 0
+STDOUT 'wrote /tmp/tmpzi_rogi2/B.json (GRANTED=1, WAITING=2); sha256=998d3c0a6d682758ea25ca04256e4a3b0bc3ee1bbbd45493936343565dbab93f\n'
+STDERR ''
+STATE {
+  "holders": {
+    "a": {
+      "expires_at": {
+        "r": 10
+      },
+      "resources": {
+        "r": 1
+      }
+    }
+  },
+  "resources": {
+    "r": 1,
+    "s": 1
+  },
+  "results": [
+    {
+      "client": "a",
+      "expires_at": 10,
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "GRANTED",
+      "seq": 0,
+      "t": 0,
+      "ttl": 10
+    },
+    {
+      "client": "b",
+      "kind": "acquire",
+      "resources": {
+        "r": 1
+      },
+      "result": "WAITING",
+      "seq": 1,
+      "t": 1,
+      "ttl": 10
+    },
+    {
+      "client": "c",
+      "kind": "acquire",
+      "resources": {
+        "s": 1
+      },
+      "result": "WAITING",
+      "seq": 2,
+      "t": 2,
+      "ttl": 10
+    }
+  ]
+}
+

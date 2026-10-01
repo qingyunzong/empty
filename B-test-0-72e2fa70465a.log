@@ -1,0 +1,39 @@
+test_against_reference_implementation (test_fuzz.TestFuzzCrossCheck.test_against_reference_implementation) ... ok
+test_second_crossed_request_is_deadlock (test_sim.TestAcceptanceA.test_second_crossed_request_is_deadlock) ... ok
+test_system_continues_after_deadlock (test_sim.TestAcceptanceA.test_system_continues_after_deadlock) ... ok
+test_expiry_precedes_same_tick_acquire (test_sim.TestAcceptanceB.test_expiry_precedes_same_tick_acquire) ... ok
+test_same_tick_ops_ordered_by_client (test_sim.TestAcceptanceB.test_same_tick_ops_ordered_by_client) ... ok
+test_ttl_zero_released_at_end_of_tick (test_sim.TestAcceptanceB.test_ttl_zero_released_at_end_of_tick) ... ok
+test_fifo_head_of_line_blocking (test_sim.TestAcceptanceC.test_fifo_head_of_line_blocking) ... ok
+test_no_partial_occupation (test_sim.TestAcceptanceC.test_no_partial_occupation) ... ok
+test_byte_identical_across_runs (test_sim.TestAcceptanceE.test_byte_identical_across_runs) ... ok
+test_cli_byte_identical (test_sim.TestAcceptanceE.test_cli_byte_identical) ... ok
+test_deadlock_example_exit0 (test_sim.TestCliSubprocess.test_deadlock_example_exit0) ... ok
+test_error_example_exit2 (test_sim.TestCliSubprocess.test_error_example_exit2) ... ok
+test_missing_file_exit2 (test_sim.TestCliSubprocess.test_missing_file_exit2) ... ok
+test_concurrent_hold_conflict_pending_request (test_sim.TestErrors.test_concurrent_hold_conflict_pending_request) ... leasesim: error: client 'b' already has a pending request: concurrent-hold conflict
+ok
+test_concurrent_hold_conflict_same_resource (test_sim.TestErrors.test_concurrent_hold_conflict_same_resource) ... leasesim: error: client 'a' already holds resource(s) ['r']: concurrent-hold conflict
+ok
+test_duplicate_client_same_tick (test_sim.TestErrors.test_duplicate_client_same_tick) ... leasesim: error: duplicate op for (t=0, client='a')
+ok
+test_need_exceeds_capacity (test_sim.TestErrors.test_need_exceeds_capacity) ... leasesim: error: op #0: need 2 exceeds capacity of 'r' (1)
+ok
+test_need_negative (test_sim.TestErrors.test_need_negative) ... leasesim: error: op #0: need for 'r' must be a positive integer
+ok
+test_need_zero (test_sim.TestErrors.test_need_zero) ... leasesim: error: op #0: need for 'r' must be a positive integer
+ok
+test_release_after_expiry (test_sim.TestErrors.test_release_after_expiry) ... leasesim: error: op #1: client 'a' does not hold resource 'r'
+ok
+test_release_unheld (test_sim.TestErrors.test_release_unheld) ... leasesim: error: op #0: client 'a' does not hold resource 'r'
+ok
+test_sim_raises_simerror (test_sim.TestErrors.test_sim_raises_simerror) ... ok
+test_unknown_resource (test_sim.TestErrors.test_unknown_resource) ... leasesim: error: op #0: unknown resource 'nope'
+ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.353s
+
+OK
+wrote /tmp/tmpc8szax_2/state0.json (GRANTED=1, RELEASED=1, WAITING=4); sha256=c2655c3dee3a0b50f44a8ffccf4a165db08f36d069e851da54892ccde65df23c
+wrote /tmp/tmpc8szax_2/state1.json (GRANTED=1, RELEASED=1, WAITING=4); sha256=c2655c3dee3a0b50f44a8ffccf4a165db08f36d069e851da54892ccde65df23c
