@@ -1,0 +1,40 @@
+test_baseline_command (test_cli.TestCLI.test_baseline_command) ... ok
+test_minimize_and_verify_roundtrip (test_cli.TestCLI.test_minimize_and_verify_roundtrip) ... ok
+test_overlapping_intervals_rejected (test_cli.TestCLI.test_overlapping_intervals_rejected) ... ok
+test_update_command (test_cli.TestCLI.test_update_command) ... ok
+test_verify_rejects_tampered_cert (test_cli.TestCLI.test_verify_rejects_tampered_cert) ... ok
+test_gap_rejected (test_dfa.TestDFAValidation.test_gap_rejected) ... ok
+test_incomplete_cover_rejected (test_dfa.TestDFAValidation.test_incomplete_cover_rejected) ... ok
+test_merge_intervals_event_sweep (test_dfa.TestDFAValidation.test_merge_intervals_event_sweep) ... ok
+test_overlap_rejected (test_dfa.TestDFAValidation.test_overlap_rejected) ... ok
+test_reachable (test_dfa.TestDFAValidation.test_reachable) ... ok
+test_step_run_accepts (test_dfa.TestDFAValidation.test_step_run_accepts) ... ok
+test_unknown_target_rejected (test_dfa.TestDFAValidation.test_unknown_target_rejected) ... ok
+test_build_and_replace (test_dfa.TestInverseIndex.test_build_and_replace) ... ok
+test_copy_is_independent (test_dfa.TestInverseIndex.test_copy_is_independent) ... ok
+test_random_updates_match_full_rebuild (test_incremental.TestBatchUpdates.test_random_updates_match_full_rebuild) ... ok
+test_transition_and_final_batch (test_incremental.TestBatchUpdates.test_transition_and_final_batch) ... ok
+test_final_change_cascades_then_undo_remerges (test_incremental.TestCascadeSplitAndRemerge.test_final_change_cascades_then_undo_remerges) ... ok
+test_partial_final_change_matches_rebuild (test_incremental.TestCascadeSplitAndRemerge.test_partial_final_change_matches_rebuild) ... ok
+test_failed_validation_restores_partition_and_index (test_incremental.TestRollback.test_failed_validation_restores_partition_and_index) ... ok
+test_invalid_update_leaves_state_untouched (test_incremental.TestRollback.test_invalid_update_leaves_state_untouched) ... ok
+test_canonical_numbering_follows_lexicographic_words (test_minimize.TestMinimize.test_canonical_numbering_follows_lexicographic_words) ... ok
+test_chain_splits_by_distance_to_final (test_minimize.TestMinimize.test_chain_splits_by_distance_to_final) ... ok
+test_cross_check_pairwise_fixpoint (test_minimize.TestMinimize.test_cross_check_pairwise_fixpoint) ... ok
+test_empty_language_single_block (test_minimize.TestMinimize.test_empty_language_single_block) ... ok
+test_equivalent_duplicates_merge (test_minimize.TestMinimize.test_equivalent_duplicates_merge) ... ok
+test_isomorphic_inputs_serialize_identically (test_minimize.TestMinimize.test_isomorphic_inputs_serialize_identically) ... ok
+test_unreachable_final_state_trimmed (test_minimize.TestMinimize.test_unreachable_final_state_trimmed) ... ok
+test_certificate_verifies (test_proof.TestProofDAG.test_certificate_verifies) ... ok
+test_dag_shares_suffix_nodes (test_proof.TestProofDAG.test_dag_shares_suffix_nodes) ... ok
+test_empty_language_certificate_verifies (test_proof.TestProofDAG.test_empty_language_certificate_verifies) ... ok
+test_merged_blocks_rejected (test_proof.TestProofDAG.test_merged_blocks_rejected) ... ok
+test_missing_root_rejected (test_proof.TestProofDAG.test_missing_root_rejected) ... ok
+test_tampered_word_rejected (test_proof.TestProofDAG.test_tampered_word_rejected) ... ok
+test_verifier_does_not_call_minimizer (test_proof.TestProofDAG.test_verifier_does_not_call_minimizer) ... ok
+test_words_are_shortest (test_proof.TestProofDAG.test_words_are_shortest) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 1.921s
+
+OK
