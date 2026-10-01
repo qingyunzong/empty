@@ -1,0 +1,2 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/ff91c7eaf24f45e5a3184b78fb143423/judge/pair/attempt-001/demonstration-B/demonstration/probe_cross_phase.py
+{"old_epoch": 1, "joint_epoch": 1, "ack_results": [false, false, false, true], "committed": true, "read": "old", "accepted_after_begin": true}

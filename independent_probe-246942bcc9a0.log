@@ -1,0 +1,6 @@
+{"side": "A", "sha": "11682e378c4b7b8f007ceabef42f788cf6aa217c"}
+{"side": "B", "sha": "1ebb6f4e67f041457f0f24413e2c02118b06d321"}
+{"case": "restart_after_begin", "side": "A", "phase": "joint", "epoch": 2, "committed_config_epoch": 1}
+{"case": "restart_after_begin", "side": "B", "joint": null, "epoch": 1}
+{"case": "old_write_ack_after_begin", "side": "A", "old_epoch": 1, "joint_epoch": 2, "result": "STALE_EPOCH", "committed": false}
+{"case": "old_write_ack_after_begin", "side": "B", "old_epoch": 1, "joint_epoch": 1, "ack_results": [false, false, false, true], "committed": true, "read": "old"}
