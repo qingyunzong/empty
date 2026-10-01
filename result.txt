@@ -1,0 +1,35 @@
+Test command: python -m unittest discover -v
+Date: 2026-10-01 03:51:59 UTC
+Python: Python 3.14.4
+
+test_ac3_decomposition_is_weaker_in_general (tests.test_alldiff.Ac3ReferenceComparisonTests.test_ac3_decomposition_is_weaker_in_general) ... ok
+test_cases_where_ac3_matches_gac (tests.test_alldiff.Ac3ReferenceComparisonTests.test_cases_where_ac3_matches_gac) ... ok
+test_cli_boolean_domain_error (tests.test_alldiff.CliTests.test_cli_boolean_domain_error) ... ok
+test_cli_dict_with_domains_key (tests.test_alldiff.CliTests.test_cli_dict_with_domains_key) ... ok
+test_cli_empty_variables (tests.test_alldiff.CliTests.test_cli_empty_variables) ... ok
+test_cli_invalid_json_error (tests.test_alldiff.CliTests.test_cli_invalid_json_error) ... ok
+test_cli_missing_file_error (tests.test_alldiff.CliTests.test_cli_missing_file_error) ... ok
+test_cli_negative_num_variables_error (tests.test_alldiff.CliTests.test_cli_negative_num_variables_error) ... ok
+test_cli_nested_hall (tests.test_alldiff.CliTests.test_cli_nested_hall) ... ok
+test_cli_non_integer_domain_error (tests.test_alldiff.CliTests.test_cli_non_integer_domain_error) ... ok
+test_cli_scenario_1 (tests.test_alldiff.CliTests.test_cli_scenario_1) ... ok
+test_cli_unsat (tests.test_alldiff.CliTests.test_cli_unsat) ... ok
+test_handpicked_cases (tests.test_alldiff.GacReferenceComparisonTests.test_handpicked_cases) ... ok
+test_random_cases_against_gac_reference (tests.test_alldiff.GacReferenceComparisonTests.test_random_cases_against_gac_reference) ... ok
+test_empty_domain_is_unsat (tests.test_alldiff.PropagatorAcceptanceTests.test_empty_domain_is_unsat) ... ok
+test_no_pruning_when_all_values_supported (tests.test_alldiff.PropagatorAcceptanceTests.test_no_pruning_when_all_values_supported) ... ok
+test_scenario_1_three_variables (tests.test_alldiff.PropagatorAcceptanceTests.test_scenario_1_three_variables) ... ok
+test_scenario_2_unsat (tests.test_alldiff.PropagatorAcceptanceTests.test_scenario_2_unsat) ... ok
+test_scenario_3_empty_variable_list (tests.test_alldiff.PropagatorAcceptanceTests.test_scenario_3_empty_variable_list) ... ok
+test_scenario_4_nested_hall_sets (tests.test_alldiff.PropagatorAcceptanceTests.test_scenario_4_nested_hall_sets) ... ok
+test_boolean_value_rejected (tests.test_alldiff.ValidationTests.test_boolean_value_rejected) ... ok
+test_duplicates_and_unsorted_normalized (tests.test_alldiff.ValidationTests.test_duplicates_and_unsorted_normalized) ... ok
+test_float_value_rejected (tests.test_alldiff.ValidationTests.test_float_value_rejected) ... ok
+test_non_integer_value_rejected (tests.test_alldiff.ValidationTests.test_non_integer_value_rejected) ... ok
+test_non_list_domain_rejected (tests.test_alldiff.ValidationTests.test_non_list_domain_rejected) ... ok
+test_non_list_input_rejected (tests.test_alldiff.ValidationTests.test_non_list_input_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 2.334s
+
+OK
