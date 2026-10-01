@@ -1,0 +1,15 @@
+test_delete_critical_edge_then_rollback_restores_path (test_dreach.AcceptanceTests.test_delete_critical_edge_then_rollback_restores_path) ... ok
+test_duplicate_insert_is_idempotent (test_dreach.AcceptanceTests.test_duplicate_insert_is_idempotent) ... ok
+test_json_error_exit2 (test_dreach.AcceptanceTests.test_json_error_exit2) ... ok
+test_lexicographically_smallest_witness (test_dreach.AcceptanceTests.test_lexicographically_smallest_witness) ... ok
+test_rollback_unknown_id_exit1_and_state_unchanged (test_dreach.AcceptanceTests.test_rollback_unknown_id_exit1_and_state_unchanged) ... ok
+test_savepoint_ids_monotonic (test_dreach.AcceptanceTests.test_savepoint_ids_monotonic) ... ok
+test_snapshot_then_insert_then_rollback_loses_reachability (test_dreach.AcceptanceTests.test_snapshot_then_insert_then_rollback_loses_reachability) ... ok
+test_unreachable_witness_is_null (test_dreach.AcceptanceTests.test_unreachable_witness_is_null) ... ok
+test_witness_self_path (test_dreach.AcceptanceTests.test_witness_self_path) ... ok
+test_random_traces_match_oracle (test_dreach.RandomModelTests.test_random_traces_match_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 3.836s
+
+OK
