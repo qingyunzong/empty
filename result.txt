@@ -1,0 +1,34 @@
+Test command: python3 -m unittest discover -v
+(environment provides python3; 'python' alias is not installed)
+Date: 2026-10-01 09:27:06 UTC
+Python: Python 3.14.4
+
+test_error_backtrack_beyond_current (tests.test_cli.TestCLI.test_error_backtrack_beyond_current) ... ok
+test_error_backtrack_negative (tests.test_cli.TestCLI.test_error_backtrack_negative) ... ok
+test_error_invalid_assign_json (tests.test_cli.TestCLI.test_error_invalid_assign_json) ... ok
+test_error_missing_input_file (tests.test_cli.TestCLI.test_error_missing_input_file) ... ok
+test_error_unknown_variable (tests.test_cli.TestCLI.test_error_unknown_variable) ... ok
+test_error_value_not_in_domain (tests.test_cli.TestCLI.test_error_value_not_in_domain) ... ok
+test_run_conflict_rolls_back (tests.test_cli.TestCLI.test_run_conflict_rolls_back) ... ok
+test_run_no_assignments (tests.test_cli.TestCLI.test_run_no_assignments) ... ok
+test_run_unsat (tests.test_cli.TestCLI.test_run_unsat) ... ok
+test_run_with_assignments (tests.test_cli.TestCLI.test_run_with_assignments) ... ok
+test_run_with_backtrack_option (tests.test_cli.TestCLI.test_run_with_backtrack_option) ... ok
+test_chain_conflict_matches_deepcopy_reference (tests.test_core.TestChainConflictAgainstReference.test_chain_conflict_matches_deepcopy_reference) ... ok
+test_assign_unknown_variable (tests.test_core.TestErrors.test_assign_unknown_variable) ... ok
+test_assign_value_not_in_domain (tests.test_core.TestErrors.test_assign_value_not_in_domain) ... ok
+test_assign_value_pruned_at_level_zero (tests.test_core.TestErrors.test_assign_value_pruned_at_level_zero) ... ok
+test_backtrack_beyond_current_level (tests.test_core.TestErrors.test_backtrack_beyond_current_level) ... ok
+test_backtrack_negative_level (tests.test_core.TestErrors.test_backtrack_negative_level) ... ok
+test_level_zero_propagation (tests.test_core.TestInitialPropagation.test_level_zero_propagation) ... ok
+test_level_zero_unsat (tests.test_core.TestInitialPropagation.test_level_zero_unsat) ... ok
+test_backtrack_across_three_levels (tests.test_core.TestMultiLevelBacktrack.test_backtrack_across_three_levels) ... ok
+test_backtrack_is_noop_at_current_level (tests.test_core.TestMultiLevelBacktrack.test_backtrack_is_noop_at_current_level) ... ok
+test_backtrack_to_zero_keeps_level_zero_changes (tests.test_core.TestMultiLevelBacktrack.test_backtrack_to_zero_keeps_level_zero_changes) ... ok
+test_no_deepcopy_state_kept (tests.test_core.TestTrailAccounting.test_no_deepcopy_state_kept) ... ok
+test_trail_entries_equal_removal_count (tests.test_core.TestTrailAccounting.test_trail_entries_equal_removal_count) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 2.510s
+
+OK
