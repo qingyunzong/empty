@@ -1,0 +1,83 @@
+[
+  {
+    "type": "capacity",
+    "c": 1
+  },
+  {
+    "type": "submit",
+    "t": 0,
+    "flow": 1,
+    "size": 6,
+    "prio": 3
+  },
+  {
+    "type": "submit",
+    "t": 0,
+    "flow": 2,
+    "size": 6,
+    "prio": 1
+  },
+  {
+    "type": "tick",
+    "t": 1
+  },
+  {
+    "type": "tick",
+    "t": 2
+  },
+  {
+    "type": "tick",
+    "t": 3
+  },
+  {
+    "type": "submit",
+    "t": 4,
+    "flow": 3,
+    "size": 2,
+    "prio": 2
+  },
+  {
+    "type": "tick",
+    "t": 4
+  },
+  {
+    "type": "tick",
+    "t": 5
+  },
+  {
+    "type": "tick",
+    "t": 6
+  },
+  {
+    "type": "tick",
+    "t": 7
+  },
+  {
+    "type": "tick",
+    "t": 8
+  },
+  {
+    "type": "tick",
+    "t": 9
+  },
+  {
+    "type": "tick",
+    "t": 10
+  },
+  {
+    "type": "tick",
+    "t": 11
+  },
+  {
+    "type": "tick",
+    "t": 12
+  },
+  {
+    "type": "tick",
+    "t": 13
+  },
+  {
+    "type": "tick",
+    "t": 14
+  }
+]

@@ -1,0 +1,21 @@
+t=0 submit flow=1 size=6 prio=3
+t=0 submit flow=2 size=6 prio=1
+t=0 capacity c=1
+t=1 tick serve flow=1 remaining=5
+t=2 tick serve flow=2 remaining=5
+t=3 tick serve flow=1 remaining=4
+t=4 submit flow=3 size=2 prio=2
+t=4 tick serve flow=1 remaining=3
+t=5 tick serve flow=3 remaining=1
+t=6 tick serve flow=3 remaining=0
+t=6 finish flow=3 finish_t=6
+t=7 tick serve flow=1 remaining=2
+t=8 tick serve flow=2 remaining=4
+t=9 tick serve flow=1 remaining=1
+t=10 tick serve flow=1 remaining=0
+t=10 finish flow=1 finish_t=10
+t=11 tick serve flow=2 remaining=3
+t=12 tick serve flow=2 remaining=2
+t=13 tick serve flow=2 remaining=1
+t=14 tick serve flow=2 remaining=0
+t=14 finish flow=2 finish_t=14
