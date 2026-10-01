@@ -1,0 +1,13 @@
+{
+  "anchor": "2021-01-31",
+  "time_of_day": "09:00",
+  "interval_months": 1,
+  "day_spec": "day_of_month",
+  "adjust": "following",
+  "anchor_mode": "original",
+  "holidays": ["2021-05-01", "2021-10-01"],
+  "tz": "Asia/Shanghai",
+  "gap_policy": "reject",
+  "overlap_policy": "first",
+  "version": 1
+}
