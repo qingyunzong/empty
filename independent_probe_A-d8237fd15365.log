@@ -1,0 +1,7 @@
+side=A sha=d5e484fae074bda8ee5adf3b84fe6ca766e1942c
+python=3.11.16 executable=/home/delin/.local/bin/python3.11
+chunks=[(0, 4096), (4096, 4096)]
+truncated: CorruptError offset=8191 message=index covers 8192 bytes but data has 8191
+malformed_index_cli: exit=1
+stdout=''
+stderr='CORRUPT: line 2: non-integer offset/length\n'
