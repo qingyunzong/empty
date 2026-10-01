@@ -1,0 +1,7 @@
+[
+  {"offset": 0, "fallthrough": true, "targets": [6]},
+  {"offset": 2, "fallthrough": true, "targets": []},
+  {"offset": 4, "fallthrough": false, "targets": [2]},
+  {"offset": 6, "fallthrough": false, "targets": []},
+  {"offset": 8, "fallthrough": false, "targets": []}
+]

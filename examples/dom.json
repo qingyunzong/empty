@@ -1,0 +1,89 @@
+{
+  "blocks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 0,
+      "offsets": [
+        0
+      ],
+      "successors": [
+        1,
+        2
+      ],
+      "reachable": true,
+      "dom": [
+        0
+      ],
+      "idom": null
+    },
+    {
+      "id": 1,
+      "start": 2,
+      "end": 4,
+      "offsets": [
+        2,
+        4
+      ],
+      "successors": [
+        1
+      ],
+      "reachable": true,
+      "dom": [
+        0,
+        1
+      ],
+      "idom": 0
+    },
+    {
+      "id": 2,
+      "start": 6,
+      "end": 6,
+      "offsets": [
+        6
+      ],
+      "successors": [],
+      "reachable": true,
+      "dom": [
+        0,
+        2
+      ],
+      "idom": 0
+    },
+    {
+      "id": 3,
+      "start": 8,
+      "end": 8,
+      "offsets": [
+        8
+      ],
+      "successors": [],
+      "reachable": false,
+      "dom": null,
+      "idom": null
+    }
+  ],
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "back_edges": [
+    [
+      1,
+      1
+    ]
+  ],
+  "loop_headers": [
+    1
+  ]
+}
