@@ -1,0 +1,3 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-A/demonstration/probe_precreation.py
+first_commit_ts=1 gc_reclaimed=1
+as_of(0,k): SnapshotExpired; SNAPSHOT_EXPIRED: key='k' ts=0 predates the GC horizon

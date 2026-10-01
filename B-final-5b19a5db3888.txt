@@ -1,0 +1,9 @@
+完成。从空仓库实现了 `vgc` 包，全部 8 个测试实际运行通过。
+
+**交付内容**
+- `vgc/core.py` — `MVCCStore`：全局单调时钟分配 `snapshot_ts`/`commit_ts`；`low_watermark` 取活跃快照最小值（无活跃事务取当前时钟）；GC 按前缀安全回收（存在 `commit_ts <= low_watermark` 的更新版本才可回收），长事务可见版本严格保留；`max_versions` 超限且无法安全回收时返回 `GC_DEFERRED` 而非报错；`as_of` 在所需版本已回收时抛 `SnapshotExpired`（键当时不存在则返回 `NOT_FOUND`）。
+- `vgc/cli.py` + `vgc/__main__.py` — JSON 行协议 CLI（`python -m vgc`），支持 `config/begin/put/commit/abort/get/gc/as_of/stats`，已做端到端冒烟验证。
+- `tests/test_vgc.py` — 覆盖验收 a–d：长事务钉住、提交后回收与统计断言、过期快照报错、`max_versions` 的 DEFERRED 语义，以及 10 种子 × 400 步随机序列与保留全版本参考实现的活跃快照可见性差分比对（每步校验）。
+- `README.md` — 语义、协议说明及真实测试结果（`Ran 8 tests ... OK`，Python 3.14.4 实际运行）。
+
+**测试结果**：`python -m unittest discover -s tests -v` → 8 tests, OK（已记录在 README）。

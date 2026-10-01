@@ -1,0 +1,12 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py boundary
+{"collected": 1, "before_first_commit": null}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py pin
+{"collected": 0, "low_watermark": 1, "long_read": "v1"}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py release
+{"after_collected": 2, "collected_total": 2, "versions_total": 1}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py budget
+{"status": "GC_DEFERRED", "deferred_keys": ["k"], "versions_remaining": 4, "long_read": "v1"}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py expiry
+{"gc_collected": 1, "as_of": {"status": "SNAPSHOT_EXPIRED", "key": "k", "ts": 1}}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/89682de232b847869d625d48cc292a7b/judge/pair/attempt-001/demonstration-B/demonstration/probe.py get_abort
+{"own_read": "temporary", "after_abort": null, "versions_total": 0}

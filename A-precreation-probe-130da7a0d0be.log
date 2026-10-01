@@ -1,0 +1,1 @@
+{"as_of_before_first_commit": {"kind": "SNAPSHOT_EXPIRED"}, "expected": {"kind": "value", "value": null}, "gc": {"deferred_keys": [], "low_watermark": 2, "reclaimed": 1, "status": "GC_OK"}, "side": "A"}

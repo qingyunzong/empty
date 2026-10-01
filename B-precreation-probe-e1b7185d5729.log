@@ -1,0 +1,1 @@
+{"as_of_before_first_commit": {"kind": "value", "value": null}, "expected": {"kind": "value", "value": null}, "gc": {"collected": 1, "deferred_keys": [], "low_watermark": 2, "status": "OK", "versions_remaining": 1}, "side": "B"}
