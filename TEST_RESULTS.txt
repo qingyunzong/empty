@@ -1,0 +1,63 @@
+command: python3.11 -m unittest discover -s tests -v
+python: Python 3.11.16
+date: 2026-10-01T03:41:58Z
+
+test_alias_chain (test_batch_alias_snapshot.TestAliases.test_alias_chain) ... ok
+test_alias_cycle_rejected (test_batch_alias_snapshot.TestAliases.test_alias_cycle_rejected) ... ok
+test_alias_rule (test_batch_alias_snapshot.TestAliases.test_alias_rule) ... ok
+test_alias_to_wildcard (test_batch_alias_snapshot.TestAliases.test_alias_to_wildcard) ... ok
+test_cache_invalidated_by_commit (test_batch_alias_snapshot.TestAliases.test_cache_invalidated_by_commit) ... ok
+test_cache_invalidated_by_rule_version (test_batch_alias_snapshot.TestAliases.test_cache_invalidated_by_rule_version) ... ok
+test_add_remove_doc (test_batch_alias_snapshot.TestBatch.test_add_remove_doc) ... ok
+test_delete_field (test_batch_alias_snapshot.TestBatch.test_delete_field) ... ok
+test_failed_batch_rolls_back (test_batch_alias_snapshot.TestBatch.test_failed_batch_rolls_back) ... ok
+test_move_to_existing_path_fails (test_batch_alias_snapshot.TestBatch.test_move_to_existing_path_fails) ... ok
+test_nested_field_move (test_batch_alias_snapshot.TestBatch.test_nested_field_move) ... ok
+test_remove_doc_failure_rolls_back (test_batch_alias_snapshot.TestBatch.test_remove_doc_failure_rolls_back) ... ok
+test_set_nested_field (test_batch_alias_snapshot.TestBatch.test_set_nested_field) ... ok
+test_save_and_restore (test_batch_alias_snapshot.TestPersistence.test_save_and_restore) ... ok
+test_save_empty_index (test_batch_alias_snapshot.TestPersistence.test_save_empty_index) ... ok
+test_snapshot_keeps_alias_rules (test_batch_alias_snapshot.TestSnapshots.test_snapshot_keeps_alias_rules) ... ok
+test_snapshot_query (test_batch_alias_snapshot.TestSnapshots.test_snapshot_query) ... ok
+test_alias_and_query (test_cli.TestCli.test_alias_and_query) ... ok
+test_alias_cycle_rejected (test_cli.TestCli.test_alias_cycle_rejected) ... ok
+test_bad_query_reports_error (test_cli.TestCli.test_bad_query_reports_error) ... ok
+test_batch_update_and_rollback (test_cli.TestCli.test_batch_update_and_rollback) ... ok
+test_build_and_query (test_cli.TestCli.test_build_and_query) ... ok
+test_check_command (test_cli.TestCli.test_check_command) ... ok
+test_query_not_universe (test_cli.TestCli.test_query_not_universe) ... ok
+test_stats (test_cli.TestCli.test_stats) ... ok
+test_boolean_operators (test_index_queries.TestPhrasesAndFields.test_boolean_operators) ... ok
+test_cross_field_pseudo_phrase_rejected (test_index_queries.TestPhrasesAndFields.test_cross_field_pseudo_phrase_rejected) ... ok
+test_evidence_locates_original_text (test_index_queries.TestPhrasesAndFields.test_evidence_locates_original_text) ... ok
+test_field_inheritance_nested (test_index_queries.TestPhrasesAndFields.test_field_inheritance_nested) ... ok
+test_mixed_result_not_confused (test_index_queries.TestPhrasesAndFields.test_mixed_result_not_confused) ... ok
+test_multiple_fragments_same_doc (test_index_queries.TestPhrasesAndFields.test_multiple_fragments_same_doc) ... ok
+test_near (test_index_queries.TestPhrasesAndFields.test_near) ... ok
+test_near_evidence_span (test_index_queries.TestPhrasesAndFields.test_near_evidence_span) ... ok
+test_not_universe_semantics (test_index_queries.TestPhrasesAndFields.test_not_universe_semantics) ... ok
+test_not_with_empty_field_value (test_index_queries.TestPhrasesAndFields.test_not_with_empty_field_value) ... ok
+test_paragraph_boundary_blocks_phrase (test_index_queries.TestPhrasesAndFields.test_paragraph_boundary_blocks_phrase) ... ok
+test_phrase_over_boolean_operand_rejected (test_index_queries.TestPhrasesAndFields.test_phrase_over_boolean_operand_rejected) ... ok
+test_phrase_within_field (test_index_queries.TestPhrasesAndFields.test_phrase_within_field) ... ok
+test_same_name_array_fields (test_index_queries.TestPhrasesAndFields.test_same_name_array_fields) ... ok
+test_wildcard_field_single_instance (test_index_queries.TestPhrasesAndFields.test_wildcard_field_single_instance) ... ok
+test_stats_update_atomically_with_index (test_index_queries.TestStatsAtomicity.test_stats_update_atomically_with_index) ... ok
+test_evidence_spans_match_original_text (test_interpreter.TestCrossCheck.test_evidence_spans_match_original_text) ... ok
+test_full_query_results_match_interpreter (test_interpreter.TestCrossCheck.test_full_query_results_match_interpreter) ... ok
+test_interpreter_evidence_agrees_on_positional_queries (test_interpreter.TestCrossCheck.test_interpreter_evidence_agrees_on_positional_queries) ... ok
+test_errors (test_query_parser.TestParser.test_errors) ... ok
+test_field_group (test_query_parser.TestParser.test_field_group) ... ok
+test_field_term_and_phrase (test_query_parser.TestParser.test_field_term_and_phrase) ... ok
+test_near (test_query_parser.TestParser.test_near) ... ok
+test_near_with_phrase (test_query_parser.TestParser.test_near_with_phrase) ... ok
+test_nested_parentheses (test_query_parser.TestParser.test_nested_parentheses) ... ok
+test_phrase (test_query_parser.TestParser.test_phrase) ... ok
+test_precedence_not_and_or (test_query_parser.TestParser.test_precedence_not_and_or) ... ok
+test_term (test_query_parser.TestParser.test_term) ... ok
+test_wildcard_field (test_query_parser.TestParser.test_wildcard_field) ... ok
+
+----------------------------------------------------------------------
+Ran 54 tests in 6.421s
+
+OK
