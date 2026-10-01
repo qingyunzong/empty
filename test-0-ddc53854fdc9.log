@@ -1,0 +1,27 @@
+test_cli_end_to_end (test_dedupwin.CliTest.test_cli_end_to_end) ... ok
+test_cli_missing_id_exits_2 (test_dedupwin.CliTest.test_cli_missing_id_exits_2) ... ok
+test_cli_missing_ts_exits_2 (test_dedupwin.CliTest.test_cli_missing_ts_exits_2) ... ok
+test_cli_negative_ts_marked_bad (test_dedupwin.CliTest.test_cli_negative_ts_marked_bad) ... ok
+test_cli_replay_is_deterministic (test_dedupwin.CliTest.test_cli_replay_is_deterministic) ... ok
+test_conflict_first_wins (test_dedupwin.ConflictTest.test_conflict_first_wins) ... ok
+test_earlier_ts_wins_even_if_arriving_later (test_dedupwin.ConflictTest.test_earlier_ts_wins_even_if_arriving_later) ... ok
+test_identical_duplicate_is_not_a_conflict (test_dedupwin.ConflictTest.test_identical_duplicate_is_not_a_conflict) ... ok
+test_same_ts_stable_by_input_order (test_dedupwin.ConflictTest.test_same_ts_stable_by_input_order) ... ok
+test_empty_input (test_dedupwin.ErrorHandlingTest.test_empty_input) ... ok
+test_missing_id_raises (test_dedupwin.ErrorHandlingTest.test_missing_id_raises) ... ok
+test_missing_ts_raises (test_dedupwin.ErrorHandlingTest.test_missing_ts_raises) ... ok
+test_negative_ts_is_bad (test_dedupwin.ErrorHandlingTest.test_negative_ts_is_bad) ... ok
+test_boundary_exact_is_kept (test_dedupwin.EvictionBoundaryTest.test_boundary_exact_is_kept) ... ok
+test_evicted_winner_never_emitted (test_dedupwin.EvictionBoundaryTest.test_evicted_winner_never_emitted) ... ok
+test_one_below_boundary_is_evicted (test_dedupwin.EvictionBoundaryTest.test_one_below_boundary_is_evicted) ... ok
+test_large_skew_keeps_state_and_output (test_dedupwin.LargeSkewTest.test_large_skew_keeps_state_and_output) ... ok
+test_lower_bound_moves_only_with_max_ts (test_dedupwin.LargeSkewTest.test_lower_bound_moves_only_with_max_ts) ... ok
+test_exhaustive_small (test_dedupwin.PermutationTest.test_exhaustive_small) ... ok
+test_lower_bound_filters_old_events (test_dedupwin.PermutationTest.test_lower_bound_filters_old_events) ... ok
+test_random_permutations_n10 (test_dedupwin.PermutationTest.test_random_permutations_n10) ... ok
+test_reversed_and_rotations (test_dedupwin.PermutationTest.test_reversed_and_rotations) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.975s
+
+OK

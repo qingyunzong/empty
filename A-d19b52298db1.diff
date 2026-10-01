@@ -1,0 +1,611 @@
+diff --git a/RESULTS.md b/RESULTS.md
+new file mode 100644
+index 0000000..5565d62
+--- /dev/null
++++ b/RESULTS.md
+@@ -0,0 +1,64 @@
++# dedupwin 测试结果
++
++## 环境
++- Python: 3.14.4（代码仅使用 3.11 标准库：argparse / json / dataclasses / unittest）
++- 日期: 2026-10-01
++- 命令: `python3 -m unittest discover -v`（环境无 `python` 别名，使用 `python3`）
++
++## 真实运行输出
++
++```
++test_cli_end_to_end (tests.test_dedupwin.CliTest.test_cli_end_to_end) ... ok
++test_cli_missing_id_exits_2 (tests.test_dedupwin.CliTest.test_cli_missing_id_exits_2) ... ok
++test_cli_missing_ts_exits_2 (tests.test_dedupwin.CliTest.test_cli_missing_ts_exits_2) ... ok
++test_cli_negative_ts_marked_bad (tests.test_dedupwin.CliTest.test_cli_negative_ts_marked_bad) ... ok
++test_cli_replay_is_deterministic (tests.test_dedupwin.CliTest.test_cli_replay_is_deterministic) ... ok
++test_conflict_first_wins (tests.test_dedupwin.ConflictTest.test_conflict_first_wins) ... ok
++test_earlier_ts_wins_even_if_arriving_later (tests.test_dedupwin.ConflictTest.test_earlier_ts_wins_even_if_arriving_later) ... ok
++test_identical_duplicate_is_not_a_conflict (tests.test_dedupwin.ConflictTest.test_identical_duplicate_is_not_a_conflict) ... ok
++test_same_ts_stable_by_input_order (tests.test_dedupwin.ConflictTest.test_same_ts_stable_by_input_order) ... ok
++test_empty_input (tests.test_dedupwin.ErrorHandlingTest.test_empty_input) ... ok
++test_missing_id_raises (tests.test_dedupwin.ErrorHandlingTest.test_missing_id_raises) ... ok
++test_missing_ts_raises (tests.test_dedupwin.ErrorHandlingTest.test_missing_ts_raises) ... ok
++test_negative_ts_is_bad (tests.test_dedupwin.ErrorHandlingTest.test_negative_ts_is_bad) ... ok
++test_boundary_exact_is_kept (tests.test_dedupwin.EvictionBoundaryTest.test_boundary_exact_is_kept) ... ok
++test_evicted_winner_never_emitted (tests.test_dedupwin.EvictionBoundaryTest.test_evicted_winner_never_emitted) ... ok
++test_one_below_boundary_is_evicted (tests.test_dedupwin.EvictionBoundaryTest.test_one_below_boundary_is_evicted) ... ok
++test_large_skew_keeps_state_and_output (tests.test_dedupwin.LargeSkewTest.test_large_skew_keeps_state_and_output) ... ok
++test_lower_bound_moves_only_with_max_ts (tests.test_dedupwin.LargeSkewTest.test_lower_bound_moves_only_with_max_ts) ... ok
++test_exhaustive_small (tests.test_dedupwin.PermutationTest.test_exhaustive_small) ... ok
++test_lower_bound_filters_old_events (tests.test_dedupwin.PermutationTest.test_lower_bound_filters_old_events) ... ok
++test_random_permutations_n10 (tests.test_dedupwin.PermutationTest.test_random_permutations_n10) ... ok
++test_reversed_and_rotations (tests.test_dedupwin.PermutationTest.test_reversed_and_rotations) ... ok
++
++----------------------------------------------------------------------
++Ran 22 tests in 1.698s
++
++OK
++```
++
++## 验收标准覆盖
++
++1. **乱序排列一致性** (`PermutationTest`)：6 事件全排列（720 种）穷举 + 10 事件 300 次随机打乱 +
++   反转/全部旋转，输出均与"先按 (ts,id,输入序) 排序再去重"的参考实现一致；另有紧 skew/ret 下
++   L 裁剪旧事件的 100 次随机排列。
++2. **重复 id 冲突** (`ConflictTest`)：字段不一致记 `conflicts` 且首条（(ts,输入序) 最小者）为准；
++   相同字段重复不记冲突；同 ts 按输入序稳定。
++3. **驱逐边界** (`EvictionBoundaryTest`)：`id_max_ts == L - ret` 恰好保留（严格小于才驱逐），
++   差 1 即驱逐；被驱逐 id 的 winner 永不输出。
++4. **大 skew 不误判丢失** (`LargeSkewTest`)：skew=1e9 时 max_ts 大幅推进后，旧 id 状态保留、
++   迟到重复仍去重、迟到新 id 仍正常输出。
++
++## CLI 冒烟测试（真实运行）
++
++```
++$ python3 -m dedupwin --in /tmp/e.jsonl --skew 10000 --ret 60000
++{"id": "b", "key": "k1", "ts": 1000, "val": "b1"}
++{"id": "a", "key": "k1", "ts": 5000, "val": "first"}
++# stderr: {"bad": 1, "conflicts": 1, "duplicates": 1, "evicted": 0, "kept_ids": 2, ...}
++# exit=0
++
++$ python3 -m dedupwin --in /tmp/bad.jsonl --skew 1 --ret 1   # 缺 ts
++error: line 1: record missing 'ts'
++# exit=2
++```
+diff --git a/dedupwin/__init__.py b/dedupwin/__init__.py
+new file mode 100644
+index 0000000..6bd6bfa
+--- /dev/null
++++ b/dedupwin/__init__.py
+@@ -0,0 +1,6 @@
++"""dedupwin: bounded-skew streaming dedup over event-time windows."""
++
++from .core import DedupWin, MissingFieldError
++
++__all__ = ["DedupWin", "MissingFieldError"]
++__version__ = "0.1.0"
+diff --git a/dedupwin/__main__.py b/dedupwin/__main__.py
+new file mode 100644
+index 0000000..f1ca146
+--- /dev/null
++++ b/dedupwin/__main__.py
+@@ -0,0 +1,70 @@
++"""CLI: python -m dedupwin --in e.jsonl --skew 10000 --ret 60000
++
++Reads JSONL records {"id", "key", "ts", "val"}, emits deduplicated records
++with ts >= L (L = max_ts - skew - ret) to stdout as JSONL sorted by (ts, id).
++Statistics are printed to stderr as a single JSON line.
++
++Exit codes: 0 on success, 2 on input errors (missing id/ts, bad JSON, IO).
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++
++from .core import DedupWin, MissingFieldError
++
++
++def _build_parser():
++    parser = argparse.ArgumentParser(
++        prog="dedupwin",
++        description="Bounded-skew streaming dedup over event-time windows.",
++    )
++    parser.add_argument("--in", dest="input", required=True,
++                        help="input JSONL file ('-' for stdin)")
++    parser.add_argument("--skew", type=int, required=True,
++                        help="global max-ts-difference bound across sources")
++    parser.add_argument("--ret", type=int, required=True,
++                        help="retention horizon below max_ts - skew")
++    return parser
++
++
++def main(argv=None):
++    args = _build_parser().parse_args(argv)
++    if args.skew < 0 or args.ret < 0:
++        print("error: --skew and --ret must be non-negative", file=sys.stderr)
++        return 2
++
++    dwin = DedupWin(skew=args.skew, ret=args.ret)
++    try:
++        stream = sys.stdin if args.input == "-" else open(
++            args.input, "r", encoding="utf-8")
++        with stream:
++            for lineno, line in enumerate(stream, 1):
++                line = line.strip()
++                if not line:
++                    continue
++                try:
++                    record = json.loads(line)
++                except json.JSONDecodeError as exc:
++                    print(f"error: line {lineno}: invalid JSON: {exc}",
++                          file=sys.stderr)
++                    return 2
++                try:
++                    dwin.add(record)
++                except MissingFieldError as exc:
++                    print(f"error: line {lineno}: {exc}", file=sys.stderr)
++                    return 2
++    except OSError as exc:
++        print(f"error: cannot read {args.input!r}: {exc}", file=sys.stderr)
++        return 2
++
++    for record in dwin.results():
++        print(json.dumps(record, ensure_ascii=False, sort_keys=True))
++    print(json.dumps(dwin.stats(), sort_keys=True), file=sys.stderr)
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/dedupwin/__pycache__/__init__.cpython-314.pyc b/dedupwin/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..45f46d1
+Binary files /dev/null and b/dedupwin/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/dedupwin/__pycache__/__main__.cpython-314.pyc b/dedupwin/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..2c0808a
+Binary files /dev/null and b/dedupwin/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/dedupwin/__pycache__/core.cpython-314.pyc b/dedupwin/__pycache__/core.cpython-314.pyc
+new file mode 100644
+index 0000000..b24b5f3
+Binary files /dev/null and b/dedupwin/__pycache__/core.cpython-314.pyc differ
+diff --git a/dedupwin/core.py b/dedupwin/core.py
+new file mode 100644
+index 0000000..d70c032
+--- /dev/null
++++ b/dedupwin/core.py
+@@ -0,0 +1,143 @@
++"""dedupwin: bounded-skew streaming deduplication over event-time windows.
++
++Semantics
++---------
++* Global ``skew`` bounds the max event-time (``ts``) difference across sources.
++* The processable lower bound is ``L = max_ts - skew - ret``; only records
++  with ``ts >= L`` are emittable.
++* The first record per ``id`` (in ``(ts, input-order)`` order) wins; later
++  duplicates are dropped.  A duplicate whose ``key``/``val`` differ from the
++  winner is counted as a conflict; the first record stays authoritative.
++* Per-id state may be safely evicted once the id's max observed ``ts`` falls
++  strictly below ``L - ret``; ids inside the skew window are never declared
++  lost, no matter how long they have been absent.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++
++
++class MissingFieldError(ValueError):
++    """Raised when a record lacks a required field (``id`` or ``ts``)."""
++
++
++@dataclass
++class _IdState:
++    rid: object
++    winner: dict
++    winner_ts: float
++    winner_seq: int
++    max_ts: float
++
++
++class DedupWin:
++    """Streaming deduplicator with bounded-skew event-time retention."""
++
++    def __init__(self, skew, ret):
++        if skew < 0 or ret < 0:
++            raise ValueError("skew and ret must be non-negative")
++        self.skew = skew
++        self.ret = ret
++        self.max_ts = None
++        self._state = {}
++        self._seq = 0
++        self.duplicates = 0
++        self.conflicts = 0
++        self.bad = 0
++        self.evicted = 0
++
++    def lower_bound(self):
++        """Current processable lower bound L = max_ts - skew - ret."""
++        if self.max_ts is None:
++            return None
++        return self.max_ts - self.skew - self.ret
++
++    def eviction_bound(self):
++        """Ids whose max ts is strictly below this bound may be evicted."""
++        bound = self.lower_bound()
++        if bound is None:
++            return None
++        return bound - self.ret
++
++    @staticmethod
++    def _fields(record):
++        return (record.get("key"), record.get("val"))
++
++    def add(self, record):
++        """Feed one record.  Returns True if accepted, False if bad.
++
++        Raises MissingFieldError when ``id`` or ``ts`` is absent/invalid.
++        Records with negative ``ts`` are counted as bad and skipped.
++        """
++        if not isinstance(record, dict):
++            raise MissingFieldError("record is not a JSON object")
++        rid = record.get("id")
++        if rid is None:
++            raise MissingFieldError("record missing 'id'")
++        ts = record.get("ts")
++        if ts is None:
++            raise MissingFieldError("record missing 'ts'")
++        if isinstance(ts, bool) or not isinstance(ts, (int, float)):
++            raise MissingFieldError("record 'ts' is not a number")
++        if ts < 0:
++            self.bad += 1
++            return False
++
++        seq = self._seq
++        self._seq += 1
++        if self.max_ts is None or ts > self.max_ts:
++            self.max_ts = ts
++
++        state = self._state.get(rid)
++        if state is None:
++            self._state[rid] = _IdState(rid, dict(record), ts, seq, ts)
++        else:
++            self.duplicates += 1
++            if (ts, seq) < (state.winner_ts, state.winner_seq):
++                # The new record is earlier in (ts, input-order): it wins and
++                # the previous winner becomes a duplicate of it.
++                old_winner = state.winner
++                state.winner = dict(record)
++                state.winner_ts = ts
++                state.winner_seq = seq
++                if self._fields(old_winner) != self._fields(record):
++                    self.conflicts += 1
++            elif self._fields(record) != self._fields(state.winner):
++                self.conflicts += 1
++            if ts > state.max_ts:
++                state.max_ts = ts
++
++        self._evict()
++        return True
++
++    def _evict(self):
++        bound = self.eviction_bound()
++        if bound is None:
++            return
++        doomed = [rid for rid, st in self._state.items() if st.max_ts < bound]
++        for rid in doomed:
++            del self._state[rid]
++            self.evicted += 1
++
++    def results(self):
++        """Winning records with ts >= L, sorted by (ts, id) ascending."""
++        bound = self.lower_bound()
++        states = [
++            st for st in self._state.values()
++            if bound is None or st.winner_ts >= bound
++        ]
++        states.sort(key=lambda st: (st.winner_ts, st.rid))
++        return [dict(st.winner) for st in states]
++
++    def stats(self):
++        return {
++            "seen": self._seq,
++            "kept_ids": len(self._state),
++            "duplicates": self.duplicates,
++            "conflicts": self.conflicts,
++            "bad": self.bad,
++            "evicted": self.evicted,
++            "max_ts": self.max_ts,
++            "lower_bound": self.lower_bound(),
++        }
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/__init__.cpython-314.pyc b/tests/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..47cce2b
+Binary files /dev/null and b/tests/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_dedupwin.cpython-314.pyc b/tests/__pycache__/test_dedupwin.cpython-314.pyc
+new file mode 100644
+index 0000000..62f2b2f
+Binary files /dev/null and b/tests/__pycache__/test_dedupwin.cpython-314.pyc differ
+diff --git a/tests/test_dedupwin.py b/tests/test_dedupwin.py
+new file mode 100644
+index 0000000..9e2133f
+--- /dev/null
++++ b/tests/test_dedupwin.py
+@@ -0,0 +1,275 @@
++import itertools
++import json
++import os
++import random
++import subprocess
++import sys
++import tempfile
++import unittest
++
++from dedupwin import DedupWin, MissingFieldError
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++
++
++def reference(events, skew, ret):
++    """Reference: sort by (ts, id, input-order), then dedup first-wins,
++    then keep records with ts >= L = max_ts - skew - ret."""
++    valid = [(i, e) for i, e in enumerate(events) if e["ts"] >= 0]
++    if not valid:
++        return []
++    max_ts = max(e["ts"] for _, e in valid)
++    lower = max_ts - skew - ret
++    valid.sort(key=lambda p: (p[1]["ts"], p[1]["id"], p[0]))
++    seen = set()
++    out = []
++    for _, e in valid:
++        if e["id"] in seen:
++            continue
++        seen.add(e["id"])
++        if e["ts"] >= lower:
++            out.append(e)
++    return out
++
++
++def run_core(events, skew, ret):
++    dwin = DedupWin(skew, ret)
++    for e in events:
++        dwin.add(e)
++    return dwin
++
++
++def make_events():
++    """10 events, unique (ts, id) pairs; 'dup'/'late' have two copies with
++    distinct ts and distinct val so the winner is permutation-independent."""
++    return [
++        {"id": "a", "key": "k1", "ts": 10, "val": "a1"},
++        {"id": "b", "key": "k1", "ts": 4, "val": "b1"},
++        {"id": "c", "key": "k2", "ts": 27, "val": "c1"},
++        {"id": "dup", "key": "k3", "ts": 15, "val": "first"},
++        {"id": "dup", "key": "k3", "ts": 33, "val": "second"},
++        {"id": "e", "key": "k2", "ts": 8, "val": "e1"},
++        {"id": "late", "key": "k4", "ts": 20, "val": "early"},
++        {"id": "late", "key": "k4", "ts": 41, "val": "later"},
++        {"id": "g", "key": "k5", "ts": 1, "val": "g1"},
++        {"id": "h", "key": "k5", "ts": 12, "val": "h1"},
++    ]
++
++
++class PermutationTest(unittest.TestCase):
++    """Acceptance 1: shuffled input must match sort-then-dedup reference."""
++
++    def check_perm(self, events, skew, ret):
++        dwin = run_core(events, skew, ret)
++        self.assertEqual(dwin.results(), reference(events, skew, ret))
++
++    def test_exhaustive_small(self):
++        events = make_events()[:6]
++        for perm in itertools.permutations(events):
++            self.check_perm(list(perm), skew=1000, ret=1000)
++
++    def test_random_permutations_n10(self):
++        base = make_events()
++        self.assertLessEqual(len(base), 10)
++        rng = random.Random(20261001)
++        for _ in range(300):
++            perm = base[:]
++            rng.shuffle(perm)
++            self.check_perm(perm, skew=1000, ret=1000)
++
++    def test_reversed_and_rotations(self):
++        base = make_events()
++        self.check_perm(base[::-1], skew=1000, ret=1000)
++        for k in range(len(base)):
++            self.check_perm(base[k:] + base[:k], skew=1000, ret=1000)
++
++    def test_lower_bound_filters_old_events(self):
++        base = make_events()
++        rng = random.Random(7)
++        for _ in range(100):
++            perm = base[:]
++            rng.shuffle(perm)
++            # tight skew/ret so L cuts off some old events
++            self.check_perm(perm, skew=20, ret=5)
++
++
++class ConflictTest(unittest.TestCase):
++    """Acceptance 2: duplicate id with inconsistent fields -> first wins,
++    conflict recorded."""
++
++    def test_conflict_first_wins(self):
++        dwin = run_core([
++            {"id": "x", "key": "k", "ts": 10, "val": "a"},
++            {"id": "x", "key": "k", "ts": 20, "val": "b"},
++        ], skew=100, ret=100)
++        self.assertEqual(dwin.duplicates, 1)
++        self.assertEqual(dwin.conflicts, 1)
++        self.assertEqual([r["val"] for r in dwin.results()], ["a"])
++
++    def test_earlier_ts_wins_even_if_arriving_later(self):
++        dwin = run_core([
++            {"id": "x", "key": "k", "ts": 20, "val": "b"},
++            {"id": "x", "key": "k", "ts": 10, "val": "a"},
++        ], skew=100, ret=100)
++        self.assertEqual(dwin.conflicts, 1)
++        out = dwin.results()
++        self.assertEqual(len(out), 1)
++        self.assertEqual((out[0]["ts"], out[0]["val"]), (10, "a"))
++
++    def test_identical_duplicate_is_not_a_conflict(self):
++        dwin = run_core([
++            {"id": "x", "key": "k", "ts": 10, "val": "a"},
++            {"id": "x", "key": "k", "ts": 20, "val": "a"},
++        ], skew=100, ret=100)
++        self.assertEqual(dwin.duplicates, 1)
++        self.assertEqual(dwin.conflicts, 0)
++        self.assertEqual(len(dwin.results()), 1)
++
++    def test_same_ts_stable_by_input_order(self):
++        dwin = run_core([
++            {"id": "x", "key": "k", "ts": 10, "val": "first-in"},
++            {"id": "x", "key": "k", "ts": 10, "val": "second-in"},
++        ], skew=100, ret=100)
++        self.assertEqual(dwin.conflicts, 1)
++        self.assertEqual([r["val"] for r in dwin.results()], ["first-in"])
++
++
++class EvictionBoundaryTest(unittest.TestCase):
++    """Acceptance 3: id evicted iff id_max_ts < L - ret (strict)."""
++
++    def test_boundary_exact_is_kept(self):
++        dwin = DedupWin(skew=10, ret=20)
++        dwin.add({"id": "a", "key": "k", "ts": 100, "val": 1})
++        dwin.add({"id": "b", "key": "k", "ts": 150, "val": 1})
++        # max_ts=150 -> L = 150-10-20 = 120 -> L-ret = 100 == a.max_ts
++        self.assertEqual(dwin.eviction_bound(), 100)
++        self.assertEqual(dwin.evicted, 0)
++        self.assertIn("a", dwin._state)
++
++    def test_one_below_boundary_is_evicted(self):
++        dwin = DedupWin(skew=10, ret=20)
++        dwin.add({"id": "a", "key": "k", "ts": 100, "val": 1})
++        dwin.add({"id": "b", "key": "k", "ts": 151, "val": 1})
++        # max_ts=151 -> L-ret = 101 > 100 -> evict a
++        self.assertEqual(dwin.eviction_bound(), 101)
++        self.assertEqual(dwin.evicted, 1)
++        self.assertNotIn("a", dwin._state)
++
++    def test_evicted_winner_never_emitted(self):
++        dwin = DedupWin(skew=10, ret=20)
++        dwin.add({"id": "a", "key": "k", "ts": 100, "val": 1})
++        dwin.add({"id": "b", "key": "k", "ts": 1000, "val": 1})
++        self.assertEqual(dwin.evicted, 1)
++        self.assertEqual([r["id"] for r in dwin.results()], ["b"])
++
++
++class LargeSkewTest(unittest.TestCase):
++    """Acceptance 4: with large skew, absent ids are never declared lost;
++    late duplicates still dedup and late new ids still emit."""
++
++    def test_large_skew_keeps_state_and_output(self):
++        skew = 10 ** 9
++        dwin = run_core([
++            {"id": "a", "key": "k", "ts": 5, "val": "orig"},
++            {"id": "z", "key": "k", "ts": 1_000_000, "val": "far"},
++            # duplicate of 'a' long after max_ts advanced: must still dedup
++            {"id": "a", "key": "k", "ts": 7, "val": "copy"},
++            # brand-new id with tiny ts arriving late: must still emit
++            {"id": "new", "key": "k", "ts": 3, "val": "late-new"},
++        ], skew=skew, ret=10)
++        self.assertEqual(dwin.evicted, 0)
++        self.assertEqual(dwin.duplicates, 1)
++        out = dwin.results()
++        self.assertEqual([r["id"] for r in out], ["new", "a", "z"])
++        self.assertEqual(out[1]["val"], "orig")
++
++    def test_lower_bound_moves_only_with_max_ts(self):
++        dwin = DedupWin(skew=10 ** 9, ret=10)
++        dwin.add({"id": "a", "key": "k", "ts": 5, "val": 1})
++        self.assertLess(dwin.lower_bound(), 0)
++        self.assertEqual([r["id"] for r in dwin.results()], ["a"])
++
++
++class ErrorHandlingTest(unittest.TestCase):
++    def test_missing_id_raises(self):
++        dwin = DedupWin(1, 1)
++        with self.assertRaises(MissingFieldError):
++            dwin.add({"key": "k", "ts": 1, "val": 1})
++
++    def test_missing_ts_raises(self):
++        dwin = DedupWin(1, 1)
++        with self.assertRaises(MissingFieldError):
++            dwin.add({"id": "a", "key": "k", "val": 1})
++
++    def test_negative_ts_is_bad(self):
++        dwin = run_core([
++            {"id": "a", "key": "k", "ts": -5, "val": "neg"},
++            {"id": "b", "key": "k", "ts": 5, "val": "ok"},
++        ], skew=10, ret=10)
++        self.assertEqual(dwin.bad, 1)
++        self.assertEqual([r["id"] for r in dwin.results()], ["b"])
++
++    def test_empty_input(self):
++        dwin = DedupWin(10, 10)
++        self.assertEqual(dwin.results(), [])
++        self.assertIsNone(dwin.lower_bound())
++
++
++class CliTest(unittest.TestCase):
++    def run_cli(self, lines, skew=10000, ret=60000):
++        with tempfile.NamedTemporaryFile(
++                "w", suffix=".jsonl", delete=False, encoding="utf-8") as fh:
++            for line in lines:
++                fh.write(line if isinstance(line, str) else json.dumps(line))
++                fh.write("\n")
++            path = fh.name
++        try:
++            return subprocess.run(
++                [sys.executable, "-m", "dedupwin", "--in", path,
++                 "--skew", str(skew), "--ret", str(ret)],
++                capture_output=True, text=True, cwd=REPO_ROOT)
++        finally:
++            os.unlink(path)
++
++    def test_cli_end_to_end(self):
++        events = make_events()
++        rng = random.Random(42)
++        rng.shuffle(events)
++        proc = self.run_cli(events)
++        self.assertEqual(proc.returncode, 0, proc.stderr)
++        got = [json.loads(line) for line in proc.stdout.splitlines()]
++        self.assertEqual(got, reference(events, 10000, 60000))
++        stats = json.loads(proc.stderr.strip())
++        self.assertEqual(stats["duplicates"], 2)
++        self.assertEqual(stats["conflicts"], 2)
++
++    def test_cli_replay_is_deterministic(self):
++        events = make_events()
++        first = self.run_cli(events)
++        second = self.run_cli(events)
++        self.assertEqual(first.returncode, 0)
++        self.assertEqual(first.stdout, second.stdout)
++
++    def test_cli_missing_id_exits_2(self):
++        proc = self.run_cli([{"key": "k", "ts": 1, "val": 1}])
++        self.assertEqual(proc.returncode, 2)
++        self.assertIn("id", proc.stderr)
++
++    def test_cli_missing_ts_exits_2(self):
++        proc = self.run_cli([{"id": "a", "key": "k", "val": 1}])
++        self.assertEqual(proc.returncode, 2)
++        self.assertIn("ts", proc.stderr)
++
++    def test_cli_negative_ts_marked_bad(self):
++        proc = self.run_cli([
++            {"id": "a", "key": "k", "ts": -1, "val": "neg"},
++            {"id": "b", "key": "k", "ts": 2, "val": "ok"},
++        ])
++        self.assertEqual(proc.returncode, 0, proc.stderr)
++        self.assertEqual([json.loads(l)["id"] for l in proc.stdout.splitlines()],
++                         ["b"])
++        self.assertEqual(json.loads(proc.stderr.strip())["bad"], 1)
++
++
++if __name__ == "__main__":
++    unittest.main()

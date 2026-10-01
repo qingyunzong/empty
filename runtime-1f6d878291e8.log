@@ -1,0 +1,9 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/6d19feb590b141839829aee640ab4a99/judge/pair/attempt-001/demonstration-B/demonstration/probe.py winner
+乱序重复ID：预期=[('x', 10)] 实际=[('x', 20)]
+语义检查：失败
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/6d19feb590b141839829aee640ab4a99/judge/pair/attempt-001/demonstration-B/demonstration/probe.py lower_bound
+最终下限=10 输出=[('a', 0), ('b', 20)] 低于下限=[('a', 0)]
+语义检查：失败
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/6d19feb590b141839829aee640ab4a99/judge/pair/attempt-001/demonstration-B/demonstration/probe.py eviction
+驱逐后输出=[('a', 0), ('a', 6), ('b', 21)] 重复ID=['a']
+语义检查：失败
