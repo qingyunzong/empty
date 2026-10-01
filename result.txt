@@ -1,0 +1,29 @@
+test_clean_merge_exit_0 (test_trimerge.CliTests.test_clean_merge_exit_0) ... ok
+test_conflict_exit_1_and_markers (test_trimerge.CliTests.test_conflict_exit_1_and_markers) ... ok
+test_decode_error_exit_2_no_output (test_trimerge.CliTests.test_decode_error_exit_2_no_output) ... ok
+test_empty_base_different_insert_exit_1 (test_trimerge.CliTests.test_empty_base_different_insert_exit_1) ... ok
+test_empty_base_same_insert_exit_0 (test_trimerge.CliTests.test_empty_base_same_insert_exit_0) ... ok
+test_missing_input_exit_2_no_output (test_trimerge.CliTests.test_missing_input_exit_2_no_output) ... ok
+test_usage_error_exit_2_no_output (test_trimerge.CliTests.test_usage_error_exit_2_no_output) ... ok
+test_against_brute_force_random_up_to_8 (test_trimerge.LcsAlignmentTests.test_against_brute_force_random_up_to_8) ... ok
+test_against_brute_force_small (test_trimerge.LcsAlignmentTests.test_against_brute_force_small) ... ok
+test_disjoint (test_trimerge.LcsAlignmentTests.test_disjoint) ... ok
+test_identical (test_trimerge.LcsAlignmentTests.test_identical) ... ok
+test_tie_breaks_to_lexicographically_smallest (test_trimerge.LcsAlignmentTests.test_tie_breaks_to_lexicographically_smallest) ... ok
+test_against_reference_merge_exhaustive_tiny (test_trimerge.MergeTests.test_against_reference_merge_exhaustive_tiny) ... ok
+test_against_reference_merge_random_up_to_8 (test_trimerge.MergeTests.test_against_reference_merge_random_up_to_8) ... ok
+test_empty_base_different_insertions_conflict (test_trimerge.MergeTests.test_empty_base_different_insertions_conflict) ... ok
+test_empty_base_same_insertions (test_trimerge.MergeTests.test_empty_base_same_insertions) ... ok
+test_insertions_in_same_gap (test_trimerge.MergeTests.test_insertions_in_same_gap) ... ok
+test_modify_vs_delete_same_line_conflicts (test_trimerge.MergeTests.test_modify_vs_delete_same_line_conflicts) ... ok
+test_non_overlapping_edits_merge_cleanly (test_trimerge.MergeTests.test_non_overlapping_edits_merge_cleanly) ... ok
+test_one_side_delete_is_adopted (test_trimerge.MergeTests.test_one_side_delete_is_adopted) ... ok
+test_same_change_on_both_sides_is_clean (test_trimerge.MergeTests.test_same_change_on_both_sides_is_clean) ... ok
+test_same_line_modified_by_both_conflicts (test_trimerge.MergeTests.test_same_line_modified_by_both_conflicts) ... ok
+test_empty_text_is_empty_sequence (test_trimerge.SplitJoinTests.test_empty_text_is_empty_sequence) ... ok
+test_roundtrip (test_trimerge.SplitJoinTests.test_roundtrip) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 4.206s
+
+OK
