@@ -1,0 +1,56 @@
+command: python3.11 -m unittest discover -s tests -v
+date: 2026-10-01T06:09:45Z
+python: Python 3.11.16
+
+test_many_paths_shift_together (test_acceptance.TestArrayHeadInsert.test_many_paths_shift_together) ... ok
+test_old_snapshot_queries_during_index_switch (test_acceptance.TestIndexSwitchConcurrency.test_old_snapshot_queries_during_index_switch) ... ok
+test_cross_check (test_acceptance.TestReferenceCrossCheck.test_cross_check) ... ok
+test_error_reported_and_session_survives (test_cli.TestCli.test_error_reported_and_session_survives) ... ok
+test_persistence_across_processes (test_cli.TestCli.test_persistence_across_processes) ... ok
+test_session_roundtrip (test_cli.TestCli.test_session_roundtrip) ... ok
+test_add_reports_array_prefix_on_insert (test_engine.TestEngineOps.test_add_reports_array_prefix_on_insert) ... ok
+test_append_dash (test_engine.TestEngineOps.test_append_dash) ... ok
+test_copy (test_engine.TestEngineOps.test_copy) ... ok
+test_move_into_own_subtree_rejected (test_engine.TestEngineOps.test_move_into_own_subtree_rejected) ... ok
+test_move_missing_destination_parent_restores_source (test_engine.TestEngineOps.test_move_missing_destination_parent_restores_source) ... ok
+test_move_reports_both_sides (test_engine.TestEngineOps.test_move_reports_both_sides) ... ok
+test_object_key_reports_leaf (test_engine.TestEngineOps.test_object_key_reports_leaf) ... ok
+test_out_of_range (test_engine.TestEngineOps.test_out_of_range) ... ok
+test_remove_reports_array_prefix (test_engine.TestEngineOps.test_remove_reports_array_prefix) ... ok
+test_remove_root_rejected (test_engine.TestEngineOps.test_remove_root_rejected) ... ok
+test_replace_reports_leaf_only (test_engine.TestEngineOps.test_replace_reports_leaf_only) ... ok
+test_root_replace (test_engine.TestEngineOps.test_root_replace) ... ok
+test_test_op_type_strict (test_engine.TestEngineOps.test_test_op_type_strict) ... ok
+test_build_and_wildcards (test_index.TestIndex.test_build_and_wildcards) ... ok
+test_copy_is_independent (test_index.TestIndex.test_copy_is_independent) ... ok
+test_incremental_remove_under (test_index.TestIndex.test_incremental_remove_under) ... ok
+test_numeric_segment_matches_index_and_key (test_index.TestIndex.test_numeric_segment_matches_index_and_key) ... ok
+test_type_discrimination (test_index.TestIndex.test_type_discrimination) ... ok
+test_index_built_but_not_published (test_recovery.TestIndexPublishRecovery.test_index_built_but_not_published) ... ok
+test_crash_during_reclaim_keeps_consistency (test_recovery.TestReclaimRecovery.test_crash_during_reclaim_keeps_consistency) ... ok
+test_published_but_not_reclaimed (test_recovery.TestReclaimRecovery.test_published_but_not_reclaimed) ... ok
+test_committed_but_unpublished_replayed (test_recovery.TestWalRecovery.test_committed_but_unpublished_replayed) ... ok
+test_corrupt_tail_record_ignored (test_recovery.TestWalRecovery.test_corrupt_tail_record_ignored) ... ok
+test_log_half_written_tmp_ignored (test_recovery.TestWalRecovery.test_log_half_written_tmp_ignored) ... ok
+test_failed_test_op_rolls_back_everything (test_store.TestBatchAtomicity.test_failed_test_op_rolls_back_everything) ... ok
+test_move_into_own_subtree_rejected_and_rolled_back (test_store.TestBatchAtomicity.test_move_into_own_subtree_rejected_and_rolled_back) ... ok
+test_move_parent_into_child_rejected (test_store.TestBatchAtomicity.test_move_parent_into_child_rejected) ... ok
+test_and (test_store.TestQueries.test_and) ... ok
+test_eq (test_store.TestQueries.test_eq) ... ok
+test_eq_type_strict (test_store.TestQueries.test_eq_type_strict) ... ok
+test_exists (test_store.TestQueries.test_exists) ... ok
+test_sort_by_index_value (test_store.TestQueries.test_sort_by_index_value) ... ok
+test_unknown_index (test_store.TestQueries.test_unknown_index) ... ok
+test_snapshot_isolation_and_reclaim (test_store.TestSnapshots.test_snapshot_isolation_and_reclaim) ... ok
+test_versions_increment (test_store.TestSnapshots.test_versions_increment) ... ok
+test_duplicate_keys_rejected (test_strictjson.TestStrictJson.test_duplicate_keys_rejected) ... ok
+test_nested_duplicate_keys_rejected (test_strictjson.TestStrictJson.test_nested_duplicate_keys_rejected) ... ok
+test_non_json_constants_rejected (test_strictjson.TestStrictJson.test_non_json_constants_rejected) ... ok
+test_normal_document_ok (test_strictjson.TestStrictJson.test_normal_document_ok) ... ok
+test_int_float_bool_distinct (test_strictjson.TestValueTyping.test_int_float_bool_distinct) ... ok
+test_json_equal_strict (test_strictjson.TestValueTyping.test_json_equal_strict) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 1.295s
+
+OK
