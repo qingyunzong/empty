@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {"name": "kw", "regex": "if|else|while", "mode": "main"},
+    {"name": "ident", "regex": "[a-z]+", "mode": "main"},
+    {"name": "num", "regex": "[0-9]+", "mode": "main"},
+    {"name": "ws", "regex": "[ \t\n]+", "mode": "main", "skip": true},
+    {"name": "str_begin", "regex": "\"", "mode": "main", "push": "string"},
+    {"name": "str_text", "regex": "[^\"\\\\\n]+", "mode": "string"},
+    {"name": "str_esc", "regex": "\\\\.", "mode": "string"},
+    {"name": "str_end", "regex": "\"", "mode": "string", "pop": true},
+    {"name": "comment_begin", "regex": "/\\*", "mode": "main", "push": "comment", "skip": true},
+    {"name": "comment_nest", "regex": "/\\*", "mode": "comment", "push": "comment", "skip": true},
+    {"name": "comment_end", "regex": "\\*/", "mode": "comment", "pop": true, "skip": true},
+    {"name": "comment_body", "regex": "[^/*]+|/(?!\\*)|\\*(?!/)", "mode": "comment", "skip": true}
+  ]
+}
