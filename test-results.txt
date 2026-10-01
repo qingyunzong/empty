@@ -1,0 +1,51 @@
+Command: python3.11 -m unittest discover -s tests -v
+Date: 2026-10-01 03:22:29 UTC
+Python: Python 3.11.16
+
+test_budget_counts_new_product_edges (test_budget.TestBudget.test_budget_counts_new_product_edges) ... ok
+test_per_edge_resume_matches_unlimited (test_budget.TestBudget.test_per_edge_resume_matches_unlimited) ... ok
+test_resume_continues_edge_accounting (test_budget.TestBudget.test_resume_continues_edge_accounting) ... ok
+test_unknown_carries_resumable_frontier (test_budget.TestBudget.test_unknown_carries_resumable_frontier) ... ok
+test_budget_unknown_has_frontier (test_cli.TestCLI.test_budget_unknown_has_frontier) ... ok
+test_equivalence_with_witness (test_cli.TestCLI.test_equivalence_with_witness) ... ok
+test_inclusion_and_proof_roundtrip_through_cli (test_cli.TestCLI.test_inclusion_and_proof_roundtrip_through_cli) ... ok
+test_invalid_dfa_reports_error (test_cli.TestCLI.test_invalid_dfa_reports_error) ... ok
+test_replay_witness (test_cli.TestCLI.test_replay_witness) ... ok
+test_stdin_request (test_cli.TestCLI.test_stdin_request) ... ok
+test_atomic_overlapping_update_rejected (test_dfa.TestDFABasics.test_atomic_overlapping_update_rejected) ... ok
+test_exact_replacement_and_disjoint_addition (test_dfa.TestDFABasics.test_exact_replacement_and_disjoint_addition) ... ok
+test_implicit_sink_rejects (test_dfa.TestDFABasics.test_implicit_sink_rejects) ... ok
+test_interval_boundaries (test_dfa.TestDFABasics.test_interval_boundaries) ... ok
+test_interval_out_of_range (test_dfa.TestDFABasics.test_interval_out_of_range) ... ok
+test_json_roundtrip (test_dfa.TestDFABasics.test_json_roundtrip) ... ok
+test_overlapping_intervals_rejected_at_construction (test_dfa.TestDFABasics.test_overlapping_intervals_rejected_at_construction) ... ok
+test_exhaustive_words_over_small_alphabet (test_equiv.TestAgainstReference.test_exhaustive_words_over_small_alphabet) ... ok
+test_random_machines_match_full_product_reference (test_equiv.TestAgainstReference.test_random_machines_match_full_product_reference) ... ok
+test_empty_string_difference (test_equiv.TestFixedCases.test_empty_string_difference) ... ok
+test_implicit_sink_equals_explicit_dead_state (test_equiv.TestFixedCases.test_implicit_sink_equals_explicit_dead_state) ... ok
+test_inclusion (test_equiv.TestFixedCases.test_inclusion) ... ok
+test_inclusion_with_sink (test_equiv.TestFixedCases.test_inclusion_with_sink) ... ok
+test_interval_endpoint_splitting (test_equiv.TestFixedCases.test_interval_endpoint_splitting) ... ok
+test_lexicographically_smallest_among_same_length (test_equiv.TestFixedCases.test_lexicographically_smallest_among_same_length) ... ok
+test_same_length_witnesses_at_depth_two (test_equiv.TestFixedCases.test_same_length_witnesses_at_depth_two) ... ok
+test_proof_bound_to_version (test_incremental.TestIncremental.test_proof_bound_to_version) ... ok
+test_random_updates_against_reference (test_incremental.TestIncremental.test_random_updates_against_reference) ... ok
+test_update_invalidates_dependent_items_reuses_rest (test_incremental.TestIncremental.test_update_invalidates_dependent_items_reuses_rest) ... ok
+test_update_preserving_equivalence_reuses_proof (test_incremental.TestIncremental.test_update_preserving_equivalence_reuses_proof) ... ok
+test_duplicate_items_rejected (test_verify.TestVerifyProof.test_duplicate_items_rejected) ... ok
+test_inclusion_proof_verifies (test_verify.TestVerifyProof.test_inclusion_proof_verifies) ... ok
+test_tampered_missing_item (test_verify.TestVerifyProof.test_tampered_missing_item) ... ok
+test_tampered_missing_start_pair (test_verify.TestVerifyProof.test_tampered_missing_start_pair) ... ok
+test_tampered_segment_endpoints (test_verify.TestVerifyProof.test_tampered_segment_endpoints) ... ok
+test_tampered_successor_not_in_relation (test_verify.TestVerifyProof.test_tampered_successor_not_in_relation) ... ok
+test_tampered_version_binding (test_verify.TestVerifyProof.test_tampered_version_binding) ... ok
+test_valid_proof_accepted (test_verify.TestVerifyProof.test_valid_proof_accepted) ... ok
+test_replay_real_counterexample (test_verify.TestVerifyWitness.test_replay_real_counterexample) ... ok
+test_replay_through_implicit_sink (test_verify.TestVerifyWitness.test_replay_through_implicit_sink) ... ok
+test_tampered_witness_rejected (test_verify.TestVerifyWitness.test_tampered_witness_rejected) ... ok
+test_witness_mode_mismatch_rejected (test_verify.TestVerifyWitness.test_witness_mode_mismatch_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 1.529s
+
+OK
