@@ -1,0 +1,83 @@
+{
+  "command": "verify",
+  "variables": {
+    "x": [
+      1,
+      2
+    ],
+    "y": [
+      1,
+      2
+    ],
+    "z": [
+      1,
+      2
+    ]
+  },
+  "constraints": [
+    {
+      "type": "table",
+      "vars": [
+        "x",
+        "y"
+      ],
+      "tuples": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "vars": [
+        "x",
+        "z"
+      ],
+      "tuples": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "vars": [
+        "y",
+        "z"
+      ],
+      "tuples": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    }
+  ],
+  "certificate": {
+    "branches": [
+      {
+        "child": "conflict",
+        "value": 1
+      },
+      {
+        "child": "conflict",
+        "value": 2
+      }
+    ],
+    "var": "x"
+  }
+}
