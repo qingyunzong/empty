@@ -1,0 +1,32 @@
+Test command: python -m unittest discover -v
+Note: this environment provides no 'python' executable; the equivalent 'python3 -m unittest discover -v' (Python 3.14.4) was run instead.
+Date: 2026-10-01 06:12:56 UTC
+
+===== output =====
+
+test_invalid_problem_definition (tests.test_cli.CliErrorTest.test_invalid_problem_definition) ... ok
+test_malformed_json (tests.test_cli.CliErrorTest.test_malformed_json) ... ok
+test_missing_input_file (tests.test_cli.CliErrorTest.test_missing_input_file) ... ok
+test_negative_restart_threshold (tests.test_cli.CliErrorTest.test_negative_restart_threshold) ... ok
+test_negative_total_budget (tests.test_cli.CliErrorTest.test_negative_total_budget) ... ok
+test_initial_contradiction_is_unsat_without_restart (tests.test_cli.CliRunTest.test_initial_contradiction_is_unsat_without_restart) ... ok
+test_sat_with_restart (tests.test_cli.CliRunTest.test_sat_with_restart) ... ok
+test_threshold_one_single_restart (tests.test_cli.CliRunTest.test_threshold_one_single_restart) ... ok
+test_zero_budget_is_timeout (tests.test_cli.CliRunTest.test_zero_budget_is_timeout) ... ok
+test_budget_exhaustion_is_timeout_not_unsat (tests.test_solver.BudgetAndUnsatTest.test_budget_exhaustion_is_timeout_not_unsat) ... ok
+test_initial_propagation_contradiction_is_unsat_without_restart (tests.test_solver.BudgetAndUnsatTest.test_initial_propagation_contradiction_is_unsat_without_restart) ... ok
+test_threshold_zero_restarts_on_every_conflict (tests.test_solver.BudgetAndUnsatTest.test_threshold_zero_restarts_on_every_conflict) ... ok
+test_zero_budget_without_initial_contradiction_is_timeout (tests.test_solver.BudgetAndUnsatTest.test_zero_budget_without_initial_contradiction_is_timeout) ... ok
+test_all_different_sat (tests.test_solver.ReferenceComparisonTest.test_all_different_sat) ... ok
+test_all_different_unsat (tests.test_solver.ReferenceComparisonTest.test_all_different_unsat) ... ok
+test_eq_constraint (tests.test_solver.ReferenceComparisonTest.test_eq_constraint) ... ok
+test_restart_matches_reference_and_prunes_less (tests.test_solver.RestartScenarioTest.test_restart_matches_reference_and_prunes_less) ... ok
+test_without_restart_same_solution (tests.test_solver.RestartScenarioTest.test_without_restart_same_solution) ... ok
+test_first_conflict_triggers_single_restart (tests.test_solver.ThresholdOneTest.test_first_conflict_triggers_single_restart) ... ok
+test_invalid_problem_definitions (tests.test_solver.ValidationTest.test_invalid_problem_definitions) ... ok
+test_negative_parameters_raise (tests.test_solver.ValidationTest.test_negative_parameters_raise) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 4.423s
+
+OK

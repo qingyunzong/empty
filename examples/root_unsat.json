@@ -1,0 +1,8 @@
+{
+  "variables": [
+    {"name": "x", "domain": [1]}
+  ],
+  "constraints": [
+    {"type": "table", "vars": ["x"], "allowed": [[2]]}
+  ]
+}
