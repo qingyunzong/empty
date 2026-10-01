@@ -1,0 +1,15 @@
+{
+  "gpus": [
+    {"id": "g0", "mem": 16, "sm": 100},
+    {"id": "g1", "mem": 16, "sm": 100},
+    {"id": "g2", "mem": 8, "sm": 50}
+  ],
+  "requests": [
+    {"id": "train-a", "mem": 16, "sm": 100, "shareable": false, "preemptible": false, "arrival": 0, "duration": 6},
+    {"id": "train-b", "mem": 8, "sm": 50, "shareable": true, "preemptible": true, "arrival": 0, "duration": 8},
+    {"id": "infer-1", "mem": 4, "sm": 20, "shareable": true, "preemptible": true, "arrival": 1, "duration": 5},
+    {"id": "infer-2", "mem": 4, "sm": 30, "shareable": true, "preemptible": false, "arrival": 2, "duration": 4},
+    {"id": "train-c", "mem": 8, "sm": 60, "shareable": false, "preemptible": false, "arrival": 3, "duration": 3},
+    {"id": "infer-3", "mem": 2, "sm": 10, "shareable": true, "preemptible": true, "arrival": 4, "duration": 6}
+  ]
+}

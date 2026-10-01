@@ -1,0 +1,46 @@
+{
+  "jobs": [
+    {
+      "end": 6,
+      "gpu": "g0",
+      "id": "infer-1",
+      "preemptions": 0,
+      "start": 1
+    },
+    {
+      "end": 6,
+      "gpu": "g0",
+      "id": "infer-2",
+      "preemptions": 0,
+      "start": 2
+    },
+    {
+      "end": 10,
+      "gpu": "g2",
+      "id": "infer-3",
+      "preemptions": 0,
+      "start": 4
+    },
+    {
+      "end": 6,
+      "gpu": "g1",
+      "id": "train-a",
+      "preemptions": 0,
+      "start": 0
+    },
+    {
+      "end": 8,
+      "gpu": "g0",
+      "id": "train-b",
+      "preemptions": 0,
+      "start": 0
+    },
+    {
+      "end": 9,
+      "gpu": "g1",
+      "id": "train-c",
+      "preemptions": 0,
+      "start": 6
+    }
+  ]
+}
