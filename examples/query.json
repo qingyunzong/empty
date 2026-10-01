@@ -1,0 +1,12 @@
+{
+  "type": "select",
+  "conditions": [
+    {"left": "R.b", "op": "=", "right": {"const": 5}},
+    {"left": "R.a", "op": "=", "right": {"col": "S.c"}}
+  ],
+  "input": {
+    "type": "join",
+    "left": {"type": "relation", "name": "R"},
+    "right": {"type": "relation", "name": "S"}
+  }
+}
