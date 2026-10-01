@@ -1,0 +1,24 @@
+test_add_compact_list_across_processes (test_ilog.CliTests.test_add_compact_list_across_processes) ... ok
+test_bad_interval_exits_2 (test_ilog.CliTests.test_bad_interval_exits_2) ... ok
+test_cli_reports_rollback_recovery (test_ilog.CliTests.test_cli_reports_rollback_recovery) ... ok
+test_non_json_file_exits_2 (test_ilog.CliTests.test_non_json_file_exits_2) ... ok
+test_remove_via_cli (test_ilog.CliTests.test_remove_via_cli) ... ok
+test_add_merges_overlapping (test_ilog.CommitTests.test_add_merges_overlapping) ... ok
+test_commit_persists_state (test_ilog.CommitTests.test_commit_persists_state) ... ok
+test_remove_splits_and_trims (test_ilog.CommitTests.test_remove_splits_and_trims) ... ok
+test_uncommitted_changes_stay_in_memory (test_ilog.CommitTests.test_uncommitted_changes_stay_in_memory) ... ok
+test_compact_uses_the_commit_flow (test_ilog.CompactTests.test_compact_uses_the_commit_flow) ... ok
+test_remove_then_compact_merges_adjacent_boundaries (test_ilog.CompactTests.test_remove_then_compact_merges_adjacent_boundaries) ... ok
+test_bad_intervals_rejected (test_ilog.ErrorTests.test_bad_intervals_rejected) ... ok
+test_corrupt_main_file_raises_io (test_ilog.ErrorTests.test_corrupt_main_file_raises_io) ... ok
+test_permission_failure_raises_io (test_ilog.ErrorTests.test_permission_failure_raises_io) ... ok
+test_corrupt_tmp_with_marker_rolls_back (test_ilog.FaultInjectionTests.test_corrupt_tmp_with_marker_rolls_back) ... ok
+test_fault_after_marker_write_adopts_new_state (test_ilog.FaultInjectionTests.test_fault_after_marker_write_adopts_new_state) ... ok
+test_fault_after_replace_adopts_new_state (test_ilog.FaultInjectionTests.test_fault_after_replace_adopts_new_state) ... ok
+test_fault_after_tmp_write_keeps_old_state (test_ilog.FaultInjectionTests.test_fault_after_tmp_write_keeps_old_state) ... ok
+test_tmp_digest_mismatch_rolls_back (test_ilog.FaultInjectionTests.test_tmp_digest_mismatch_rolls_back) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 4.073s
+
+OK
