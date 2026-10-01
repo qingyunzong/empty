@@ -1,0 +1,10 @@
+{
+  "horizon": 6,
+  "jobs": [
+    {"id": "j1", "cpu": 2, "mem": 1, "deadline": 6, "duration": 2, "deps": [], "tags": []},
+    {"id": "j2", "cpu": 2, "mem": 1, "deadline": 6, "duration": 2, "deps": ["j1"], "tags": []}
+  ],
+  "machines": [
+    {"id": "m1", "cpu": 2, "mem": 2, "tags": []}
+  ]
+}
