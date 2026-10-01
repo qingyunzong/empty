@@ -1,0 +1,7 @@
+{
+  "tables": ["users", "orders", "items"],
+  "joins": [
+    {"left": "users", "left_attr": "id", "right": "orders", "right_attr": "user_id"},
+    {"left": "orders", "left_attr": "id", "right": "items", "right_attr": "order_id"}
+  ]
+}
