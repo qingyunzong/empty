@@ -1,0 +1,6 @@
+[
+  {"id": "a", "w": 2, "h": 2, "rotate": false},
+  {"id": "b", "w": 4, "h": 4, "rotate": false},
+  {"id": "c", "w": 4, "h": 1, "rotate": false},
+  {"id": "d", "w": 2, "h": 4, "rotate": false}
+]

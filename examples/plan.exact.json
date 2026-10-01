@@ -1,0 +1,56 @@
+{
+  "mode": "exact",
+  "placements": [
+    {
+      "bin": "B",
+      "copy": 0,
+      "h": 2,
+      "item": "a",
+      "rotated": false,
+      "w": 2,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "bin": "B",
+      "copy": 1,
+      "h": 4,
+      "item": "b",
+      "rotated": false,
+      "w": 4,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "bin": "B",
+      "copy": 1,
+      "h": 1,
+      "item": "c",
+      "rotated": false,
+      "w": 4,
+      "x": 0,
+      "y": 4
+    },
+    {
+      "bin": "B",
+      "copy": 0,
+      "h": 4,
+      "item": "d",
+      "rotated": false,
+      "w": 2,
+      "x": 2,
+      "y": 0
+    }
+  ],
+  "status": "OK",
+  "used_bins": [
+    {
+      "copy": 0,
+      "id": "B"
+    },
+    {
+      "copy": 1,
+      "id": "B"
+    }
+  ]
+}
