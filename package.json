@@ -1,0 +1,7 @@
+{
+  "name": "fund-pool-cli",
+  "version": "1.0.0",
+  "private": true,
+  "bin": { "pool": "cli.js" },
+  "scripts": { "test": "node --test" }
+}
