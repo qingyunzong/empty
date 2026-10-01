@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+"""Usage: delta <source.bin> <target.bin> <patch.json>"""
+
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from binpatch.cli import main_delta
+
+if __name__ == "__main__":
+    sys.exit(main_delta(sys.argv[1:]))

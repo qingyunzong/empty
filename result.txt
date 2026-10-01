@@ -1,0 +1,37 @@
+Command: python3.11 -m unittest discover -s tests -v
+Date: 2026-10-01T11:37:48+08:00
+Python: Python 3.11.16
+
+test_delta_missing_input_exit_2 (test_binpatch.CliEndToEndTests.test_delta_missing_input_exit_2) ... ok
+test_delta_then_patch_roundtrip (test_binpatch.CliEndToEndTests.test_delta_then_patch_roundtrip) ... ok
+test_delta_wrong_arg_count_exit_2 (test_binpatch.CliEndToEndTests.test_delta_wrong_arg_count_exit_2) ... ok
+test_patch_wrong_arg_count_exit_2 (test_binpatch.CliEndToEndTests.test_patch_wrong_arg_count_exit_2) ... ok
+test_roundtrip_empty_files (test_binpatch.CliEndToEndTests.test_roundtrip_empty_files) ... ok
+test_roundtrip_random_binary (test_binpatch.CliEndToEndTests.test_roundtrip_random_binary) ... ok
+test_empty_target (test_binpatch.DeltaCostTests.test_empty_target) ... ok
+test_profitable_copy_used_even_when_substring_occurs_once (test_binpatch.DeltaCostTests.test_profitable_copy_used_even_when_substring_occurs_once) ... ok
+test_repeated_long_string_generates_copy_and_beats_literal (test_binpatch.DeltaCostTests.test_repeated_long_string_generates_copy_and_beats_literal) ... ok
+test_short_unique_string_uses_no_unprofitable_copy (test_binpatch.DeltaCostTests.test_short_unique_string_uses_no_unprofitable_copy) ... ok
+test_tie_break_prefers_earlier_source_offset (test_binpatch.DeltaCostTests.test_tie_break_prefers_earlier_source_offset) ... ok
+test_tie_break_prefers_literal_over_break_even_copy (test_binpatch.DeltaCostTests.test_tie_break_prefers_literal_over_break_even_copy) ... ok
+test_exhaustive_binary_alphabet (test_binpatch.EnumerationCrossCheckTests.test_exhaustive_binary_alphabet) ... ok
+test_random_binary_targets_exactly_ten_bytes (test_binpatch.EnumerationCrossCheckTests.test_random_binary_targets_exactly_ten_bytes) ... ok
+test_random_targets_up_to_ten_bytes (test_binpatch.EnumerationCrossCheckTests.test_random_targets_up_to_ten_bytes) ... ok
+test_copy_negative_offset_rejected (test_binpatch.PatchValidationTests.test_copy_negative_offset_rejected) ... ok
+test_copy_out_of_bounds_rejected (test_binpatch.PatchValidationTests.test_copy_out_of_bounds_rejected) ... ok
+test_copy_zero_length_rejected (test_binpatch.PatchValidationTests.test_copy_zero_length_rejected) ... ok
+test_empty_literal_rejected (test_binpatch.PatchValidationTests.test_empty_literal_rejected) ... ok
+test_invalid_base64_rejected (test_binpatch.PatchValidationTests.test_invalid_base64_rejected) ... ok
+test_invalid_json_rejected (test_binpatch.PatchValidationTests.test_invalid_json_rejected) ... ok
+test_non_object_json_rejected (test_binpatch.PatchValidationTests.test_non_object_json_rejected) ... ok
+test_op_with_multiple_keys_rejected (test_binpatch.PatchValidationTests.test_op_with_multiple_keys_rejected) ... ok
+test_source_hash_mismatch_rejected (test_binpatch.PatchValidationTests.test_source_hash_mismatch_rejected) ... ok
+test_successful_apply_exit_zero (test_binpatch.PatchValidationTests.test_successful_apply_exit_zero) ... ok
+test_target_hash_mismatch_rejected_and_output_removed (test_binpatch.PatchValidationTests.test_target_hash_mismatch_rejected_and_output_removed) ... ok
+test_unknown_op_type_rejected (test_binpatch.PatchValidationTests.test_unknown_op_type_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 68.014s
+
+OK
+unittest exit code: 0
