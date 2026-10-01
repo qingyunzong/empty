@@ -1,0 +1,17 @@
+test_commit_persists_across_restart (test_dc.DcTestCase.test_commit_persists_across_restart) ... ok
+test_crash_after_commit_record_recovers_committed (test_dc.DcTestCase.test_crash_after_commit_record_recovers_committed) ... ok
+test_crash_recovery_no_partial_edges_then_rerun (test_dc.DcTestCase.test_crash_recovery_no_partial_edges_then_rerun) ... ok
+test_idempotent_replay_same_id (test_dc.DcTestCase.test_idempotent_replay_same_id) ... ok
+test_invalid_json_exits_2 (test_dc.DcTestCase.test_invalid_json_exits_2) ... ok
+test_invalid_schema_exits_2 (test_dc.DcTestCase.test_invalid_schema_exits_2) ... ok
+test_missing_tx_file_exits_2 (test_dc.DcTestCase.test_missing_tx_file_exits_2) ... ok
+test_multi_hop_connectivity_against_bfs (test_dc.DcTestCase.test_multi_hop_connectivity_against_bfs) ... ok
+test_query_sees_in_transaction_state (test_dc.DcTestCase.test_query_sees_in_transaction_state) ... ok
+test_remove_uninitialized_node_is_error (test_dc.DcTestCase.test_remove_uninitialized_node_is_error) ... ok
+test_rollback_on_remove_of_nonexistent_edge (test_dc.DcTestCase.test_rollback_on_remove_of_nonexistent_edge) ... ok
+test_rollback_on_uninitialized_node (test_dc.DcTestCase.test_rollback_on_uninitialized_node) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.260s
+
+OK
