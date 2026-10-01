@@ -1,0 +1,14 @@
+[
+  {"type": "capacity", "t": 0, "c": 1},
+  {"type": "submit", "t": 0, "flow": 1, "size": 3, "prio": 1},
+  {"type": "submit", "t": 0, "flow": 2, "size": 3, "prio": 1},
+  {"type": "tick", "t": 1},
+  {"type": "submit", "t": 2, "flow": 3, "size": 2, "prio": 3},
+  {"type": "tick", "t": 2},
+  {"type": "tick", "t": 3},
+  {"type": "tick", "t": 4},
+  {"type": "tick", "t": 5},
+  {"type": "tick", "t": 6},
+  {"type": "tick", "t": 7},
+  {"type": "tick", "t": 8}
+]

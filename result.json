@@ -1,0 +1,81 @@
+{
+  "flows": [
+    {
+      "finish_t": 7,
+      "flow": 1,
+      "prio": 1,
+      "remaining": 0,
+      "served": 3,
+      "size": 3,
+      "starved": false,
+      "submit_t": 0,
+      "weight": 1
+    },
+    {
+      "finish_t": 8,
+      "flow": 2,
+      "prio": 1,
+      "remaining": 0,
+      "served": 3,
+      "size": 3,
+      "starved": false,
+      "submit_t": 0,
+      "weight": 1
+    },
+    {
+      "finish_t": 4,
+      "flow": 3,
+      "prio": 3,
+      "remaining": 0,
+      "served": 2,
+      "size": 2,
+      "starved": false,
+      "submit_t": 2,
+      "weight": 3
+    }
+  ],
+  "service": [
+    {
+      "flow": 1,
+      "t": 1,
+      "units": 1
+    },
+    {
+      "flow": 2,
+      "t": 2,
+      "units": 1
+    },
+    {
+      "flow": 3,
+      "t": 3,
+      "units": 1
+    },
+    {
+      "flow": 3,
+      "t": 4,
+      "units": 1
+    },
+    {
+      "flow": 1,
+      "t": 5,
+      "units": 1
+    },
+    {
+      "flow": 2,
+      "t": 6,
+      "units": 1
+    },
+    {
+      "flow": 1,
+      "t": 7,
+      "units": 1
+    },
+    {
+      "flow": 2,
+      "t": 8,
+      "units": 1
+    }
+  ],
+  "starved": [],
+  "ticks": 8
+}

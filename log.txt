@@ -1,0 +1,15 @@
+submit t=0 flow=1 size=3 prio=1 weight=1
+submit t=0 flow=2 size=3 prio=1 weight=1
+capacity t=0 c=1
+tick t=1 serve flow=1 units=1
+submit t=2 flow=3 size=2 prio=3 weight=3
+tick t=2 serve flow=2 units=1
+tick t=3 serve flow=3 units=1
+tick t=4 serve flow=3 units=1
+finish t=4 flow=3
+tick t=5 serve flow=1 units=1
+tick t=6 serve flow=2 units=1
+tick t=7 serve flow=1 units=1
+finish t=7 flow=1
+tick t=8 serve flow=2 units=1
+finish t=8 flow=2
