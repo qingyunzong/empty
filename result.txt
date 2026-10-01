@@ -1,0 +1,25 @@
+# Test results (python3 -m unittest -v test_delta_patch)
+# python: Python 3.14.4
+# date: 2026-10-01 13:51:07 UTC
+
+test_bad_base64_rejected (test_delta_patch.CliTests.test_bad_base64_rejected) ... ok
+test_copy_bad_shape_rejected (test_delta_patch.CliTests.test_copy_bad_shape_rejected) ... ok
+test_copy_out_of_bounds_rejected (test_delta_patch.CliTests.test_copy_out_of_bounds_rejected) ... ok
+test_invalid_json_rejected (test_delta_patch.CliTests.test_invalid_json_rejected) ... ok
+test_roundtrip (test_delta_patch.CliTests.test_roundtrip) ... ok
+test_tampered_ops_fail_target_hash (test_delta_patch.CliTests.test_tampered_ops_fail_target_hash) ... ok
+test_unknown_op_type_rejected (test_delta_patch.CliTests.test_unknown_op_type_rejected) ... ok
+test_wrong_source_hash_rejected (test_delta_patch.CliTests.test_wrong_source_hash_rejected) ... ok
+test_wrong_target_hash_rejected (test_delta_patch.CliTests.test_wrong_target_hash_rejected) ... ok
+test_bruteforce_small_targets (test_delta_patch.DeltaEncodingTests.test_bruteforce_small_targets) ... ok
+test_empty_target (test_delta_patch.DeltaEncodingTests.test_empty_target) ... ok
+test_repeated_long_string_uses_copy_and_beats_literals (test_delta_patch.DeltaEncodingTests.test_repeated_long_string_uses_copy_and_beats_literals) ... ok
+test_short_unique_string_uses_no_copy (test_delta_patch.DeltaEncodingTests.test_short_unique_string_uses_no_copy) ... ok
+test_tiebreak_prefers_earlier_offset_then_longer_copy (test_delta_patch.DeltaEncodingTests.test_tiebreak_prefers_earlier_offset_then_longer_copy) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.190s
+
+OK
+
+exit code: 0
