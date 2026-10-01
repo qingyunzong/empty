@@ -1,0 +1,10 @@
+{
+  "resources": {"r1": 2, "r2": 1},
+  "ops": [
+    {"t": 0, "client": "A", "acquire": {"r1": 1, "r2": 1}, "ttl": 2},
+    {"t": 0, "client": "B", "acquire": {"r1": 1}},
+    {"t": 1, "client": "C", "acquire": {"r2": 1}},
+    {"t": 2, "client": "D", "acquire": {"r1": 1}, "ttl": 0},
+    {"t": 3, "client": "B", "release": ["r1"]}
+  ]
+}
