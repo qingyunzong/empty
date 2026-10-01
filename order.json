@@ -1,0 +1,16 @@
+{
+  "name": "trip",
+  "estimate": 0,
+  "children": [
+    { "name": "flight", "estimate": 300 },
+    {
+      "name": "hotel",
+      "estimate": 0,
+      "children": [
+        { "name": "room1", "estimate": 200 },
+        { "name": "room2", "estimate": 250 }
+      ]
+    },
+    { "name": "car", "estimate": 100 }
+  ]
+}
