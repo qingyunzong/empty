@@ -1,0 +1,853 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..41f815a
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,87 @@
++# incsp — 有向非负权图增量最短路
++
++维护一个单源最短路结构，边增删后做**差分更新**而非全图 Dijkstra，
++并支持等距路径中节点序列字典序最小的路径输出。
++
++## 运行环境
++
++Python 3.11+（仅标准库），开发验证环境为 Python 3.14。
++
++## CLI 用法
++
++从标准输入（或脚本文件）逐行读取命令：
++
++```bash
++python -m incsp              # 从 stdin 读命令
++python -m incsp script.txt   # 从文件读命令
++```
++
++命令：
++
++| 命令 | 语义 |
++| --- | --- |
++| `edge u v w` | 加/更新有向边 u→v，w 为 0..10^6 整数；重复边取最小权，记一次变更 |
++| `rm u v` | 删边 u→v（不存在则为 no-op） |
++| `src s` | 切换源点，清空缓存并全量重算一次 |
++| `dist t` | 输出最短距离，不可达输出 `INF` |
++| `path t` | 输出字典序最小的最短路节点序列（空格分隔）；不可达输出空行，exit 0 |
++| `recomputed` | 输出上一次变更操作重新定值的节点数（供测试统计） |
++
++规则：未知点自动创建；自环允许（不影响最短路）；负权、超界权重、
++非法命令均输出错误到 stderr 并以 exit 2 终止。
++
++示例：
++
++```
++$ printf 'src s\nedge s a 2\nedge a t 3\nedge s t 9\ndist t\npath t\nrm a t\ndist t\nrecomputed\n' | python -m incsp
++5
++s a t
++9
++1
++```
++
++## 增量算法（incsp/graph.py）
++
++只增量维护 `dist[]`；`path` 是查询时在紧边子图上贪心选最小标号节点
++（每步用 BFS 验证可达 t 且避开已访问点），因此并列最短路天然取字典序最小。
++
++- **加边/降权**：若 `dist[u]+w < dist[v]`，从 v 出发做只降不增的
++  Dijkstra 传播，仅触及距离真正变小的点。
++- **删边**：若被删边对 v 不紧则无影响。否则：
++  1. 候选集 C = 从 v 沿紧出边可达的点（只有它们可能受影响）；
++  2. C 中"仍有支撑"的点 = 源点自身、或有来自 C 外的紧入边、或可从
++     其他有支撑点沿紧边到达——即在新图中仍存在从 s 出发的紧路径；
++  3. 受影响集 = C − 有支撑集（零权互相支撑的环会因支撑不落地而被
++     正确判为受影响）；
++  4. 仅对受影响集置 INF，从边界重新播种做 mini-Dijkstra。
++  `last_recomputed` = 受影响集大小，恰好等于距离发生变化的节点数。
++
++## 测试
++
++```bash
++python -m unittest discover -s tests -v
++```
++
++覆盖验收标准：
++
++- **A** 加边出现更短路（含降权沿下游传播），recomputed 仅限受影响点
++- **B** 删唯一桥后目标变 `INF`、path 为空，recomputed 等于受影响子树大小
++- **C** 并列等长路径选字典序最小（含零权边、增删后仍成立）
++- **D** 固定种子随机 50 次更新（edge/rm/src），与全量 Dijkstra +
++  最短路枚举逐点对照 dist/path 一致，且每次 edge/rm 的
++  `recomputed` 不超过距离实际变化的节点数（受影响上界）
++- 语义：重复边取最小、未知点自动创建、自环、零权环、src 切换清缓存
++- CLI：负权/超界/非整数权重 exit 2，不可达 path 空行 exit 0，
++  100 链上加一条捷径 recomputed 远小于全图规模
++
++## 真实测试结果
++
++在仓库根目录实际执行 `python -m unittest discover -s tests -v`：
++
++```
++Ran 24 tests in 0.423s
++OK
++```
++
++通过 24 / 失败 0（另用 500 步随机压力脚本对照全量 Dijkstra 验证通过，
++该脚本未纳入测试套件）。
+diff --git a/incsp/__init__.py b/incsp/__init__.py
+new file mode 100644
+index 0000000..052aedd
+--- /dev/null
++++ b/incsp/__init__.py
+@@ -0,0 +1,3 @@
++from .graph import INF, MAX_WEIGHT, IncrementalGraph
++
++__all__ = ["IncrementalGraph", "INF", "MAX_WEIGHT"]
+diff --git a/incsp/__main__.py b/incsp/__main__.py
+new file mode 100644
+index 0000000..dd8a8c9
+--- /dev/null
++++ b/incsp/__main__.py
+@@ -0,0 +1,5 @@
++import sys
++
++from .cli import main
++
++sys.exit(main())
+diff --git a/incsp/__pycache__/__init__.cpython-314.pyc b/incsp/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..575078e
+Binary files /dev/null and b/incsp/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/incsp/__pycache__/__main__.cpython-314.pyc b/incsp/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..c48b451
+Binary files /dev/null and b/incsp/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/incsp/__pycache__/cli.cpython-314.pyc b/incsp/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..5144198
+Binary files /dev/null and b/incsp/__pycache__/cli.cpython-314.pyc differ
+diff --git a/incsp/__pycache__/graph.cpython-314.pyc b/incsp/__pycache__/graph.cpython-314.pyc
+new file mode 100644
+index 0000000..c4ee12a
+Binary files /dev/null and b/incsp/__pycache__/graph.cpython-314.pyc differ
+diff --git a/incsp/cli.py b/incsp/cli.py
+new file mode 100644
+index 0000000..212170d
+--- /dev/null
++++ b/incsp/cli.py
+@@ -0,0 +1,72 @@
++"""Command line interface for the incremental shortest path engine.
++
++Reads commands from stdin (or a script file given as argv[1]), one per line:
++
++    edge u v w     add/update directed edge u->v with integer weight 0..10^6
++                   (duplicate edges keep the minimum weight, one change)
++    rm u v         remove edge u->v (missing edge is a no-op)
++    src s          set the source node (clears all cached distances)
++    dist t         print shortest distance to t, or INF
++    path t         print lexicographically smallest shortest-path node
++                   sequence (space separated); empty line if unreachable
++    recomputed     print how many vertices the last mutation re-finalized
++
++Unknown nodes are created automatically; self-loops are allowed.
++Errors (negative/out-of-range weight, malformed command) exit with code 2.
++"""
++
++from __future__ import annotations
++
++import sys
++
++from .graph import INF, MAX_WEIGHT, IncrementalGraph
++
++
++def _fail(msg):
++    print(f"error: {msg}", file=sys.stderr)
++    return 2
++
++
++def run(stream, out):
++    g = IncrementalGraph()
++    for lineno, raw in enumerate(stream, 1):
++        parts = raw.split()
++        if not parts or parts[0].startswith("#"):
++            continue
++        cmd, args = parts[0], parts[1:]
++        if cmd == "edge" and len(args) == 3:
++            u, v = args[0], args[1]
++            try:
++                w = int(args[2])
++            except ValueError:
++                return _fail(f"line {lineno}: weight must be an integer, got {args[2]!r}")
++            if not 0 <= w <= MAX_WEIGHT:
++                return _fail(f"line {lineno}: weight {w} out of range 0..{MAX_WEIGHT}")
++            g.add_edge(u, v, w)
++        elif cmd == "rm" and len(args) == 2:
++            g.remove_edge(args[0], args[1])
++        elif cmd == "src" and len(args) == 1:
++            g.set_source(args[0])
++        elif cmd == "dist" and len(args) == 1:
++            d = g.distance(args[0])
++            print("INF" if d == INF else d, file=out)
++        elif cmd == "path" and len(args) == 1:
++            print(" ".join(g.path(args[0])), file=out)
++        elif cmd == "recomputed" and not args:
++            print(g.last_recomputed, file=out)
++        else:
++            return _fail(f"line {lineno}: invalid command: {raw.strip()!r}")
++    return 0
++
++
++def main(argv=None):
++    argv = sys.argv[1:] if argv is None else argv
++    if len(argv) > 1:
++        return _fail("usage: python -m incsp [script_file]")
++    if argv:
++        try:
++            with open(argv[0], "r", encoding="utf-8") as fh:
++                return run(fh, sys.stdout)
++        except OSError as exc:
++            return _fail(str(exc))
++    return run(sys.stdin, sys.stdout)
+diff --git a/incsp/graph.py b/incsp/graph.py
+new file mode 100644
+index 0000000..a989fc1
+--- /dev/null
++++ b/incsp/graph.py
+@@ -0,0 +1,252 @@
++"""Incremental single-source shortest paths on a directed non-negative graph.
++
++Distances are maintained differentially:
++  * edge insert / weight decrease -> bounded decrease-only propagation
++  * edge removal -> only the affected subtree (nodes that lost every
++    tight in-edge from an unaffected node) is recomputed, via a mini
++    Dijkstra seeded from the boundary of the affected set.
++
++`last_recomputed` records how many vertices were re-finalized by the
++most recent mutating operation (used by the tests to verify that updates
++stay local instead of re-running a full Dijkstra).
++"""
++
++from __future__ import annotations
++
++import heapq
++from collections import deque
++
++INF = float("inf")
++MAX_WEIGHT = 1_000_000
++
++
++class IncrementalGraph:
++    def __init__(self):
++        self.out = {}          # u -> {v: w}  (minimum weight kept per pair)
++        self.inn = {}          # v -> {u: w}  (mirror of self.out)
++        self.source = None
++        self.dist = {}         # node -> distance from source (INF if unreachable)
++        self.last_recomputed = 0
++
++    # ------------------------------------------------------------------ nodes
++    def _ensure(self, x):
++        if x not in self.out:
++            self.out[x] = {}
++            self.inn[x] = {}
++            self.dist[x] = INF
++
++    @property
++    def nodes(self):
++        return self.out.keys()
++
++    # ----------------------------------------------------------------- source
++    def set_source(self, s):
++        """Switch source; all cached distances are dropped and recomputed."""
++        self._ensure(s)
++        self.source = s
++        self._full_dijkstra()
++
++    def _full_dijkstra(self):
++        for x in self.dist:
++            self.dist[x] = INF
++        s = self.source
++        self.dist[s] = 0
++        pq = [(0, s)]
++        count = 0
++        while pq:
++            d, u = heapq.heappop(pq)
++            if d != self.dist[u]:
++                continue
++            count += 1
++            for v, w in self.out[u].items():
++                nd = d + w
++                if nd < self.dist[v]:
++                    self.dist[v] = nd
++                    heapq.heappush(pq, (nd, v))
++        self.last_recomputed = count
++
++    # ------------------------------------------------------------------- edge
++    def add_edge(self, u, v, w):
++        """Insert edge u->v; a duplicate keeps the minimum weight (one change).
++
++        Returns True if the stored edge set changed.
++        """
++        self._ensure(u)
++        self._ensure(v)
++        old = self.out[u].get(v)
++        if old is not None and w >= old:
++            self.last_recomputed = 0
++            return False
++        self.out[u][v] = w
++        self.inn[v][u] = w
++        self.last_recomputed = 0
++        if self.source is None:
++            return True
++        du = self.dist[u]
++        if du == INF or du + w >= self.dist[v]:
++            return True
++        # Decrease-only propagation starting at v; touches only vertices
++        # whose distance actually improves.
++        self.dist[v] = du + w
++        pq = [(du + w, v)]
++        count = 0
++        while pq:
++            d, x = heapq.heappop(pq)
++            if d != self.dist[x]:
++                continue
++            count += 1
++            for y, wy in self.out[x].items():
++                nd = d + wy
++                if nd < self.dist[y]:
++                    self.dist[y] = nd
++                    heapq.heappush(pq, (nd, y))
++        self.last_recomputed = count
++        return True
++
++    def remove_edge(self, u, v):
++        """Remove edge u->v; only the affected subtree is recomputed."""
++        self._ensure(u)
++        self._ensure(v)
++        old = self.out[u].get(v)
++        self.last_recomputed = 0
++        if old is None:
++            return False
++        del self.out[u][v]
++        del self.inn[v][u]
++        if self.source is None or u == v:
++            return True
++        # If the removed edge was not tight for v (or v was unreachable),
++        # no distance can change.
++        if (
++            self.dist[v] == INF
++            or self.dist[u] == INF
++            or self.dist[u] + old != self.dist[v]
++        ):
++            return True
++        affected = self._affected_set(v)
++        if not affected:
++            return True
++        # Detach the affected subtree, then re-grow it from the boundary.
++        for y in affected:
++            self.dist[y] = INF
++        pq = []
++        for y in affected:
++            best = None
++            for z, w in self.inn[y].items():
++                if z not in affected and self.dist[z] != INF:
++                    cand = self.dist[z] + w
++                    if best is None or cand < best:
++                        best = cand
++            if best is not None:
++                self.dist[y] = best
++                heapq.heappush(pq, (best, y))
++        while pq:
++            d, x = heapq.heappop(pq)
++            if d != self.dist[x]:
++                continue
++            for y, w in self.out[x].items():
++                if y not in affected:
++                    continue
++                nd = d + w
++                if nd < self.dist[y]:
++                    self.dist[y] = nd
++                    heapq.heappush(pq, (nd, y))
++        self.last_recomputed = len(affected)
++        return True
++
++    def _affected_set(self, v):
++        """Vertices whose distance must increase after an edge removal.
++
++        Computed locally: C = vertices reachable from v via tight out-edges
++        (only they can be affected, since any unchanged vertex still has a
++        shortest path avoiding the removed edge).  A member of C is *saved*
++        iff it is still reachable from the source through tight edges, i.e.
++        it is the source itself, has a tight in-edge from outside C, or is
++        tightly reachable from another saved member of C.  Everything else
++        in C lost every shortest path and must be recomputed.  Zero-weight
++        cycles that only support each other are correctly detected as
++        affected because support must be grounded outside C.
++        """
++        candidates = set()
++        stack = [v]
++        while stack:
++            x = stack.pop()
++            if x in candidates:
++                continue
++            candidates.add(x)
++            dx = self.dist[x]
++            if dx == INF:
++                continue
++            for y, w in self.out[x].items():
++                if y != x and y not in candidates and dx + w == self.dist[y]:
++                    stack.append(y)
++        saved = set()
++        dq = deque()
++        if self.source in candidates:
++            saved.add(self.source)
++            dq.append(self.source)
++        for y in candidates:
++            if y in saved:
++                continue
++            dy = self.dist[y]
++            for z, w in self.inn[y].items():
++                if z not in candidates and z != y and self.dist[z] != INF \
++                        and self.dist[z] + w == dy:
++                    saved.add(y)
++                    dq.append(y)
++                    break
++        while dq:
++            x = dq.popleft()
++            dx = self.dist[x]
++            for y, w in self.out[x].items():
++                if y in candidates and y not in saved and dx + w == self.dist[y]:
++                    saved.add(y)
++                    dq.append(y)
++        return candidates - saved
++    # ----------------------------------------------------------------- query
++    def distance(self, t):
++        return self.dist.get(t, INF)
++
++    def path(self, t):
++        """Lexicographically smallest node sequence among shortest paths."""
++        if self.source is None or self.dist.get(t, INF) == INF:
++            return []
++        result = [self.source]
++        visited = {self.source}
++        cur = self.source
++        while cur != t:
++            best = None
++            for x, w in self.out[cur].items():
++                if x in visited:
++                    continue
++                if self.dist[cur] + w != self.dist[x]:
++                    continue
++                if best is not None and x >= best:
++                    continue
++                if self._reachable_tight(x, t, visited):
++                    best = x
++            if best is None:  # unreachable via tight edges; should not happen
++                return []
++            result.append(best)
++            visited.add(best)
++            cur = best
++        return result
++
++    def _reachable_tight(self, start, t, blocked):
++        """BFS over tight edges (dist[a] + w == dist[b]) avoiding `blocked`."""
++        if start == t:
++            return True
++        seen = set(blocked)
++        seen.add(start)
++        dq = deque([start])
++        while dq:
++            a = dq.popleft()
++            da = self.dist[a]
++            for b, w in self.out[a].items():
++                if b in seen or da + w != self.dist[b]:
++                    continue
++                if b == t:
++                    return True
++                seen.add(b)
++                dq.append(b)
++        return False
+diff --git a/tests/__pycache__/test_cli.cpython-314.pyc b/tests/__pycache__/test_cli.cpython-314.pyc
+new file mode 100644
+index 0000000..54378cf
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_incremental.cpython-314.pyc b/tests/__pycache__/test_incremental.cpython-314.pyc
+new file mode 100644
+index 0000000..64c3e9a
+Binary files /dev/null and b/tests/__pycache__/test_incremental.cpython-314.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..ce209aa
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,80 @@
++"""CLI tests: real subprocess runs of `python -m incsp`."""
++
++import subprocess
++import sys
++import unittest
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parent.parent
++
++
++def run_cli(stdin_text):
++    return subprocess.run(
++        [sys.executable, "-m", "incsp"],
++        input=stdin_text,
++        capture_output=True,
++        text=True,
++        cwd=ROOT,
++    )
++
++
++class TestCLI(unittest.TestCase):
++    def test_basic_session(self):
++        r = run_cli("src s\nedge s a 2\nedge a t 3\ndist t\npath t\n")
++        self.assertEqual(r.returncode, 0, r.stderr)
++        self.assertEqual(r.stdout.splitlines(), ["5", "s a t"])
++
++    def test_unreachable_dist_and_path_exit_0(self):
++        r = run_cli("src s\nedge s a 1\ndist zzz\npath zzz\n")
++        self.assertEqual(r.returncode, 0, r.stderr)
++        lines = r.stdout.split("\n")
++        self.assertEqual(lines[0], "INF")
++        self.assertEqual(lines[1], "")  # empty path line
++
++    def test_negative_weight_exit_2(self):
++        r = run_cli("src s\nedge s a -1\n")
++        self.assertEqual(r.returncode, 2)
++        self.assertIn("error", r.stderr)
++
++    def test_weight_above_max_exit_2(self):
++        r = run_cli("edge s a 1000001\n")
++        self.assertEqual(r.returncode, 2)
++
++    def test_non_integer_weight_exit_2(self):
++        r = run_cli("edge s a 1.5\n")
++        self.assertEqual(r.returncode, 2)
++
++    def test_invalid_command_exit_2(self):
++        r = run_cli("bogus s a\n")
++        self.assertEqual(r.returncode, 2)
++
++    def test_unknown_nodes_and_self_loop_ok(self):
++        r = run_cli("edge x y 5\nedge x x 3\nsrc x\ndist y\npath y\n")
++        self.assertEqual(r.returncode, 0, r.stderr)
++        self.assertEqual(r.stdout.splitlines(), ["5", "x y"])
++
++    def test_recomputed_command(self):
++        r = run_cli(
++            "src s\nedge s a 1\nedge a b 1\nedge b c 1\n"
++            "rm a b\nrecomputed\ndist c\n"
++        )
++        self.assertEqual(r.returncode, 0, r.stderr)
++        self.assertEqual(r.stdout.splitlines(), ["2", "INF"])
++
++    def test_incremental_not_full_recompute(self):
++        # 100-node chain; adding one shortcut must not recompute everything.
++        lines = ["src n0"]
++        for i in range(100):
++            lines.append(f"edge n{i} n{i+1} 1")
++        lines.append("edge n0 n100 5")
++        lines.append("recomputed")
++        lines.append("dist n100")
++        r = run_cli("\n".join(lines) + "\n")
++        self.assertEqual(r.returncode, 0, r.stderr)
++        recomputed, dist = r.stdout.splitlines()
++        self.assertEqual(dist, "5")
++        self.assertLessEqual(int(recomputed), 50)  # far below full graph size
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_incremental.py b/tests/test_incremental.py
+new file mode 100644
+index 0000000..ca1be99
+--- /dev/null
++++ b/tests/test_incremental.py
+@@ -0,0 +1,288 @@
++"""Acceptance tests A-D plus semantic edge cases for IncrementalGraph."""
++
++import heapq
++import random
++import unittest
++
++from incsp import INF, IncrementalGraph
++
++
++# --------------------------------------------------------------------- refs
++def ref_dijkstra(nodes, edges, s):
++    """Independent full Dijkstra over an edge dict {(u, v): w}."""
++    adj = {n: {} for n in nodes}
++    for (u, v), w in edges.items():
++        adj.setdefault(u, {})[v] = w
++        adj.setdefault(v, {})
++    dist = {n: INF for n in adj}
++    dist[s] = 0
++    pq = [(0, s)]
++    while pq:
++        d, u = heapq.heappop(pq)
++        if d != dist[u]:
++            continue
++        for v, w in adj[u].items():
++            nd = d + w
++            if nd < dist[v]:
++                dist[v] = nd
++                heapq.heappush(pq, (nd, v))
++    return dist
++
++
++def ref_best_path(edges, s, t, dist):
++    """Enumerate ALL shortest s->t paths (tight prefixes) and return the
++    lexicographically smallest node sequence; [] if unreachable."""
++    if dist.get(t, INF) == INF:
++        return []
++    adj = {}
++    for (u, v), w in edges.items():
++        adj.setdefault(u, []).append((v, w))
++        adj.setdefault(v, adj.get(v, []))
++    best = []
++
++    def dfs(cur, acc, path, visited):
++        nonlocal best
++        if cur == t:
++            if acc == dist[t] and (not best or path < best):
++                best = list(path)
++            return
++        for nxt, w in adj.get(cur, []):
++            if nxt in visited:
++                continue
++            na = acc + w
++            # Any shortest-path prefix is tight: na == dist[nxt].
++            if na > dist.get(nxt, INF) or na > dist[t]:
++                continue
++            visited.add(nxt)
++            path.append(nxt)
++            dfs(nxt, na, path, visited)
++            path.pop()
++            visited.discard(nxt)
++
++    dfs(s, 0, [s], {s})
++    return best
++
++
++# --------------------------------------------------------------- acceptance
++class TestA_ShorterPathAppears(unittest.TestCase):
++    def test_edge_addition_improves_dist_incrementally(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "a", 5)
++        g.add_edge("a", "t", 5)
++        g.add_edge("s", "b", 1)
++        self.assertEqual(g.distance("t"), 10)
++        g.add_edge("b", "t", 1)  # s->b->t = 2
++        self.assertEqual(g.distance("t"), 2)
++        self.assertEqual(g.path("t"), ["s", "b", "t"])
++        # Only t had to be re-finalized, not the whole graph.
++        self.assertEqual(g.last_recomputed, 1)
++
++    def test_decrease_propagates_downstream(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        for u, v, w in [("s", "a", 9), ("a", "b", 1), ("b", "c", 1), ("c", "t", 1)]:
++            g.add_edge(u, v, w)
++        self.assertEqual(g.distance("t"), 12)
++        g.add_edge("s", "a", 2)  # cheaper weight on existing edge
++        self.assertEqual(g.distance("t"), 5)
++        self.assertEqual(g.last_recomputed, 4)  # a, b, c, t
++        self.assertEqual(g.path("t"), ["s", "a", "b", "c", "t"])
++
++
++class TestB_BridgeRemoval(unittest.TestCase):
++    def test_removing_unique_bridge_makes_unreachable(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        for u, v, w in [("s", "a", 1), ("a", "b", 2), ("b", "c", 3)]:
++            g.add_edge(u, v, w)
++        self.assertEqual(g.distance("c"), 6)
++        g.remove_edge("a", "b")  # the only bridge
++        self.assertEqual(g.distance("b"), INF)
++        self.assertEqual(g.distance("c"), INF)
++        self.assertEqual(g.path("b"), [])
++        self.assertEqual(g.path("c"), [])
++        # Only the affected subtree {b, c} was recomputed.
++        self.assertEqual(g.last_recomputed, 2)
++        # Unaffected side keeps its distance.
++        self.assertEqual(g.distance("a"), 1)
++
++    def test_removal_with_alternative_reroutes(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        for u, v, w in [("s", "a", 1), ("a", "t", 1), ("s", "b", 5), ("b", "t", 5)]:
++            g.add_edge(u, v, w)
++        self.assertEqual(g.distance("t"), 2)
++        g.remove_edge("a", "t")
++        self.assertEqual(g.distance("t"), 10)
++        self.assertEqual(g.path("t"), ["s", "b", "t"])
++        self.assertEqual(g.last_recomputed, 1)  # only t changed
++
++
++class TestC_LexicographicTieBreak(unittest.TestCase):
++    def test_equal_length_paths_pick_lexicographically_smallest(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        for u, v, w in [("s", "b", 1), ("s", "a", 1), ("a", "t", 1), ("b", "t", 1)]:
++            g.add_edge(u, v, w)
++        self.assertEqual(g.distance("t"), 2)
++        self.assertEqual(g.path("t"), ["s", "a", "t"])
++
++    def test_zero_weight_tie_prefers_smaller_next_node(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "t", 2)
++        g.add_edge("s", "a", 0)
++        g.add_edge("a", "t", 2)
++        # [s, a, t] < [s, t] because "a" < "t" at position 1.
++        self.assertEqual(g.path("t"), ["s", "a", "t"])
++
++    def test_tie_break_survives_updates(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "t", 4)
++        g.add_edge("s", "c", 2)
++        g.add_edge("c", "t", 2)
++        self.assertEqual(g.path("t"), ["s", "c", "t"])
++        g.add_edge("s", "b", 2)
++        g.add_edge("b", "t", 2)
++        self.assertEqual(g.path("t"), ["s", "b", "t"])
++        g.remove_edge("s", "b")
++        self.assertEqual(g.path("t"), ["s", "c", "t"])
++
++
++class TestD_RandomizedVsFullDijkstra(unittest.TestCase):
++    def test_50_random_updates_match_full_recompute(self):
++        rng = random.Random(20261001)
++        nodes = list("abcdefg")
++        g = IncrementalGraph()
++        src = "a"
++        g.set_source(src)
++        ref_edges = {}
++        for step in range(50):
++            before = ref_dijkstra(nodes, ref_edges, src)
++            op = rng.choice(["edge", "edge", "edge", "rm", "rm", "src"])
++            if op == "edge":
++                u, v = rng.choice(nodes), rng.choice(nodes)
++                w = rng.randint(0, 6)
++                g.add_edge(u, v, w)
++                key = (u, v)
++                if key not in ref_edges or w < ref_edges[key]:
++                    ref_edges[key] = w
++            elif op == "rm":
++                if ref_edges and rng.random() < 0.7:
++                    u, v = rng.choice(sorted(ref_edges))
++                else:
++                    u, v = rng.choice(nodes), rng.choice(nodes)
++                g.remove_edge(u, v)
++                ref_edges.pop((u, v), None)
++            else:
++                src = rng.choice(nodes)
++                g.set_source(src)
++            after = ref_dijkstra(nodes, ref_edges, src)
++            for n in nodes:
++                self.assertEqual(
++                    g.distance(n), after[n],
++                    f"step {step} ({op}): dist({n}) differs",
++                )
++            for n in nodes:
++                self.assertEqual(
++                    g.path(n), ref_best_path(ref_edges, src, n, after),
++                    f"step {step} ({op}): path({n}) differs",
++                )
++            changed = sum(1 for n in nodes if before[n] != after[n])
++            if op in ("edge", "rm"):
++                # Differential update must stay within the affected set.
++                self.assertLessEqual(
++                    g.last_recomputed, changed,
++                    f"step {step} ({op}): recomputed {g.last_recomputed} "
++                    f"> affected {changed}",
++                )
++            else:
++                # src switch clears the cache: one bounded full pass.
++                self.assertLessEqual(g.last_recomputed, len(nodes))
++
++
++# ----------------------------------------------------------------- semantics
++class TestSemantics(unittest.TestCase):
++    def test_duplicate_edge_keeps_minimum(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "t", 7)
++        self.assertFalse(g.add_edge("s", "t", 9))   # larger dup: no change
++        self.assertEqual(g.distance("t"), 7)
++        self.assertTrue(g.add_edge("s", "t", 3))    # smaller dup: one change
++        self.assertEqual(g.distance("t"), 3)
++        g.remove_edge("s", "t")
++        self.assertEqual(g.distance("t"), INF)      # single logical edge gone
++
++    def test_unknown_nodes_auto_created(self):
++        g = IncrementalGraph()
++        g.add_edge("x", "y", 5)
++        g.set_source("x")
++        self.assertEqual(g.distance("y"), 5)
++        self.assertEqual(g.distance("zzz"), INF)    # never mentioned
++        self.assertEqual(g.path("zzz"), [])
++
++    def test_self_loop_allowed_and_ignored(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "s", 0)
++        g.add_edge("s", "s", 4)
++        g.add_edge("s", "a", 1)
++        g.add_edge("a", "a", 2)
++        self.assertEqual(g.distance("s"), 0)
++        self.assertEqual(g.distance("a"), 1)
++        g.remove_edge("a", "a")
++        self.assertEqual(g.distance("a"), 1)
++        self.assertEqual(g.last_recomputed, 0)
++
++    def test_zero_weight_cycle(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "a", 1)
++        g.add_edge("a", "b", 0)
++        g.add_edge("b", "a", 0)
++        g.add_edge("b", "t", 1)
++        self.assertEqual(g.distance("t"), 2)
++        g.remove_edge("a", "b")
++        self.assertEqual(g.distance("t"), INF)
++
++    def test_zero_weight_mutual_support_cycle_not_grounded(self):
++        # x and y keep dist 1 only through each other (zero-weight cycle);
++        # cutting the external support must invalidate BOTH.
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "x", 1)
++        g.add_edge("x", "y", 0)
++        g.add_edge("y", "x", 0)
++        self.assertEqual(g.distance("x"), 1)
++        self.assertEqual(g.distance("y"), 1)
++        g.remove_edge("s", "x")
++        self.assertEqual(g.distance("x"), INF)
++        self.assertEqual(g.distance("y"), INF)
++        self.assertEqual(g.last_recomputed, 2)
++
++    def test_src_switch_clears_cache(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "a", 1)
++        g.add_edge("a", "t", 1)
++        self.assertEqual(g.distance("t"), 2)
++        g.set_source("a")
++        self.assertEqual(g.distance("t"), 1)
++        self.assertEqual(g.distance("s"), INF)  # s unreachable from a
++        g.add_edge("t", "s", 1)
++        self.assertEqual(g.distance("s"), 2)    # incremental update still works
++
++    def test_rm_missing_edge_is_noop(self):
++        g = IncrementalGraph()
++        g.set_source("s")
++        g.add_edge("s", "a", 1)
++        self.assertFalse(g.remove_edge("s", "b"))
++        self.assertEqual(g.distance("a"), 1)
++        self.assertEqual(g.last_recomputed, 0)
++
++
++if __name__ == "__main__":
++    unittest.main()

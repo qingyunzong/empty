@@ -1,0 +1,3 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/70022eaeb75f4ef0aba5c68846e5b239/judge/pair/attempt-001/demonstration-B/demonstration/probe_recomputed.py
+节点=4 实际变化=1 recomputed=2 链尾距离=2 路径未变
+节点=103 实际变化=1 recomputed=101 链尾距离=2 路径未变

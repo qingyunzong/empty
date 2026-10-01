@@ -1,0 +1,29 @@
+test_basic_session (test_cli.TestCLI.test_basic_session) ... ok
+test_incremental_not_full_recompute (test_cli.TestCLI.test_incremental_not_full_recompute) ... ok
+test_invalid_command_exit_2 (test_cli.TestCLI.test_invalid_command_exit_2) ... ok
+test_negative_weight_exit_2 (test_cli.TestCLI.test_negative_weight_exit_2) ... ok
+test_non_integer_weight_exit_2 (test_cli.TestCLI.test_non_integer_weight_exit_2) ... ok
+test_recomputed_command (test_cli.TestCLI.test_recomputed_command) ... ok
+test_unknown_nodes_and_self_loop_ok (test_cli.TestCLI.test_unknown_nodes_and_self_loop_ok) ... ok
+test_unreachable_dist_and_path_exit_0 (test_cli.TestCLI.test_unreachable_dist_and_path_exit_0) ... ok
+test_weight_above_max_exit_2 (test_cli.TestCLI.test_weight_above_max_exit_2) ... ok
+test_decrease_propagates_downstream (test_incremental.TestA_ShorterPathAppears.test_decrease_propagates_downstream) ... ok
+test_edge_addition_improves_dist_incrementally (test_incremental.TestA_ShorterPathAppears.test_edge_addition_improves_dist_incrementally) ... ok
+test_removal_with_alternative_reroutes (test_incremental.TestB_BridgeRemoval.test_removal_with_alternative_reroutes) ... ok
+test_removing_unique_bridge_makes_unreachable (test_incremental.TestB_BridgeRemoval.test_removing_unique_bridge_makes_unreachable) ... ok
+test_equal_length_paths_pick_lexicographically_smallest (test_incremental.TestC_LexicographicTieBreak.test_equal_length_paths_pick_lexicographically_smallest) ... ok
+test_tie_break_survives_updates (test_incremental.TestC_LexicographicTieBreak.test_tie_break_survives_updates) ... ok
+test_zero_weight_tie_prefers_smaller_next_node (test_incremental.TestC_LexicographicTieBreak.test_zero_weight_tie_prefers_smaller_next_node) ... ok
+test_50_random_updates_match_full_recompute (test_incremental.TestD_RandomizedVsFullDijkstra.test_50_random_updates_match_full_recompute) ... ok
+test_duplicate_edge_keeps_minimum (test_incremental.TestSemantics.test_duplicate_edge_keeps_minimum) ... ok
+test_rm_missing_edge_is_noop (test_incremental.TestSemantics.test_rm_missing_edge_is_noop) ... ok
+test_self_loop_allowed_and_ignored (test_incremental.TestSemantics.test_self_loop_allowed_and_ignored) ... ok
+test_src_switch_clears_cache (test_incremental.TestSemantics.test_src_switch_clears_cache) ... ok
+test_unknown_nodes_auto_created (test_incremental.TestSemantics.test_unknown_nodes_auto_created) ... ok
+test_zero_weight_cycle (test_incremental.TestSemantics.test_zero_weight_cycle) ... ok
+test_zero_weight_mutual_support_cycle_not_grounded (test_incremental.TestSemantics.test_zero_weight_mutual_support_cycle_not_grounded) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.284s
+
+OK
