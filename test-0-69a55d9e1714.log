@@ -1,0 +1,20 @@
+test_basic_queries (test_cli.CliTest.test_basic_queries) ... ok
+test_commands_from_file (test_cli.CliTest.test_commands_from_file) ... ok
+test_duplicate_edge_min_and_single_removal (test_cli.CliTest.test_duplicate_edge_min_and_single_removal) ... ok
+test_malformed_command_exits_2 (test_cli.CliTest.test_malformed_command_exits_2) ... ok
+test_negative_weight_exits_2 (test_cli.CliTest.test_negative_weight_exits_2) ... ok
+test_remove_bridge_then_recomputed (test_cli.CliTest.test_remove_bridge_then_recomputed) ... ok
+test_src_switch_clears_cache (test_cli.CliTest.test_src_switch_clears_cache) ... ok
+test_unknown_nodes_auto_created_and_self_loop (test_cli.CliTest.test_unknown_nodes_auto_created_and_self_loop) ... ok
+test_unreachable_is_inf_and_empty_path_exit0 (test_cli.CliTest.test_unreachable_is_inf_and_empty_path_exit0) ... ok
+test_duplicate_edge_keeps_minimum (test_engine.AcceptanceA.test_duplicate_edge_keeps_minimum) ... ok
+test_insert_reveals_shorter_path (test_engine.AcceptanceA.test_insert_reveals_shorter_path) ... ok
+test_remove_unique_bridge (test_engine.AcceptanceB.test_remove_unique_bridge) ... ok
+test_lexicographic_tie_break (test_engine.AcceptanceC.test_lexicographic_tie_break) ... ok
+test_zero_weight_edges_and_self_loops (test_engine.AcceptanceC.test_zero_weight_edges_and_self_loops) ... ok
+test_random_updates_match_full_dijkstra (test_engine.AcceptanceD.test_random_updates_match_full_dijkstra) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.224s
+
+OK

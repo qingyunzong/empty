@@ -1,0 +1,4 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/70022eaeb75f4ef0aba5c68846e5b239/judge/pair/attempt-001/demonstration-A/demonstration/probe.py locality
+{"b_distance": "inf", "recomputed": 1, "removed": true, "t_distance": 2, "t_path": ["s", "a", "t"], "tail_distance": 2, "tail_path_length": 103}
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/70022eaeb75f4ef0aba5c68846e5b239/judge/pair/attempt-001/demonstration-A/demonstration/probe.py cli
+{"exit": 0, "lines": ["2", "s a t", "s a t", "s b t", "INF", ""], "stderr": ""}
