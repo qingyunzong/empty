@@ -1,0 +1,4 @@
+{
+  "A": {"parents": [], "tree": {"x": "1", "same": "v", "diff": "a"}},
+  "B": {"parents": [], "tree": {"y": "2", "same": "v", "diff": "b"}}
+}

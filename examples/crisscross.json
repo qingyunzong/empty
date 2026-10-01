@@ -1,0 +1,7 @@
+{
+  "R":  {"parents": [], "tree": {"h": "0", "k": "x"}},
+  "B1": {"parents": ["R"], "tree": {"h": "1", "k": "x"}},
+  "C1": {"parents": ["R"], "tree": {"h": "2", "k": "x"}},
+  "D":  {"parents": ["B1", "C1"], "tree": {"h": "3", "k": "x"}},
+  "E":  {"parents": ["C1", "B1"], "tree": {"h": "3", "k": "x"}}
+}
