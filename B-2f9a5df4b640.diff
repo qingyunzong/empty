@@ -1,0 +1,667 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..162f5f3
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,47 @@
++# csp_persist
++
++约束求解库 + CLI：冲突 Nogood（不可行赋值子句）的追加写日志持久化与崩溃恢复。纯 Python 3.11 标准库实现，单机离线，无外部依赖。
++
++## 日志格式
++
++每条 Nogood 以追加写（append-only）方式落盘，单条记录布局（整数均为大端）：
++
++```
+++--------------------+-----------------------+-------------------+
++| payload 长度 u32   | 子句 JSON payload     | CRC32(payload) u32|
+++--------------------+-----------------------+-------------------+
++```
++
++单条写入在 `flush` + `fsync` 完成后才视为已提交。
++
++## 故障点与恢复语义
++
++- **故障点 a：写入中途崩溃** —— 末尾条目截断（长度头、payload 或校验和不完整），视为未提交。
++- **故障点 b：内容损坏** —— 存储的 CRC32 与 payload 实际校验和不匹配。
++
++恢复时从日志头部顺序解析，遇到**第一个**截断或校验失败的条目立即停止，仅返回此前已提交的合法条目。日志不存在或为空时加载结果为空列表 `[]`，不影响正常求解。
++
++加载后的合法 Nogood 通过 `CSPSolver.add_nogoods` 直接进入求解器子句库（按规范形式去重，不重复推导），回溯搜索时凡部分赋值覆盖某条 Nogood 的全部文字即剪枝。
++
++## CLI
++
++```bash
++python -m csp_persist write --log <日志路径> --clause '<子句JSON>'
++python -m csp_persist load  --log <日志路径>
++```
++
++- `write` 成功输出 `{"status": "committed", ...}`，退出码 0。
++- `load` 输出加载到的子句列表（JSON 数组）。
++- 退出码：`0` 成功；`1` 日志路径不可写等 I/O 错误；`2` 子句 JSON 非法。
++
++子句格式：非空 JSON 数组，每个元素为恰好含 `var`（非空字符串）与 `value`（JSON 标量）的对象，如 `[{"var":"x","value":1}]`。
++
++持久化失败（如只读目录）不会抛出致命错误，内存中的搜索逻辑不受影响（`CSPSolver.persist_nogood` 返回 `False`）。
++
++## 测试
++
++```bash
++python -m unittest discover -v
++```
++
++测试覆盖：3 条 Nogood 写入/加载往返与剪枝行为、第 2 条截断崩溃恢复、篡改 1 字节导致校验失败、只读目录写入失败但求解正常、缺失/空日志、非法子句退出码，以及与朴素参考解析器（`tests/test_persist.py` 中独立实现的 `naive_parse`）的随机对照。真实运行结果见 `result.txt`。
+diff --git a/csp_persist/__init__.py b/csp_persist/__init__.py
+new file mode 100644
+index 0000000..d658fca
+--- /dev/null
++++ b/csp_persist/__init__.py
+@@ -0,0 +1,6 @@
++"""Constraint solving with persistent nogood logging and crash recovery."""
++
++from .log import ClauseFormatError, NogoodLog, parse_clause_json
++from .solver import CSPSolver
++
++__all__ = ["ClauseFormatError", "CSPSolver", "NogoodLog", "parse_clause_json"]
+diff --git a/csp_persist/__main__.py b/csp_persist/__main__.py
+new file mode 100644
+index 0000000..3b05b52
+--- /dev/null
++++ b/csp_persist/__main__.py
+@@ -0,0 +1,60 @@
++"""CLI: python -m csp_persist [write|load] --log PATH [--clause JSON]
++
++Exit codes: 0 success; 1 log I/O error (e.g. unwritable path);
++2 invalid clause JSON.
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++
++from .log import ClauseFormatError, NogoodLog, parse_clause_json
++
++EXIT_OK = 0
++EXIT_IO_ERROR = 1
++EXIT_BAD_CLAUSE = 2
++
++
++def build_parser():
++    parser = argparse.ArgumentParser(
++        prog="csp_persist",
++        description="Append-only nogood log with CRC32 crash recovery.")
++    subparsers = parser.add_subparsers(dest="command", required=True)
++
++    write = subparsers.add_parser("write", help="append one nogood clause")
++    write.add_argument("--log", required=True, help="path to the nogood log")
++    write.add_argument("--clause", required=True, help="clause as JSON")
++
++    load = subparsers.add_parser("load", help="load committed nogood clauses")
++    load.add_argument("--log", required=True, help="path to the nogood log")
++    return parser
++
++
++def main(argv=None):
++    args = build_parser().parse_args(argv)
++    log = NogoodLog(args.log)
++
++    if args.command == "write":
++        try:
++            clause = parse_clause_json(args.clause)
++        except ClauseFormatError as exc:
++            print(f"error: invalid clause: {exc}", file=sys.stderr)
++            return EXIT_BAD_CLAUSE
++        try:
++            log.append(clause)
++        except OSError as exc:
++            print(f"error: cannot write log '{log.path}': {exc}",
++                  file=sys.stderr)
++            return EXIT_IO_ERROR
++        print(json.dumps({"status": "committed", "log": log.path}))
++        return EXIT_OK
++
++    clauses = log.load()
++    print(json.dumps(clauses))
++    return EXIT_OK
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/csp_persist/__pycache__/__init__.cpython-314.pyc b/csp_persist/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..832444f
+Binary files /dev/null and b/csp_persist/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/csp_persist/__pycache__/__main__.cpython-314.pyc b/csp_persist/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..e16103d
+Binary files /dev/null and b/csp_persist/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/csp_persist/__pycache__/log.cpython-314.pyc b/csp_persist/__pycache__/log.cpython-314.pyc
+new file mode 100644
+index 0000000..9d9df98
+Binary files /dev/null and b/csp_persist/__pycache__/log.cpython-314.pyc differ
+diff --git a/csp_persist/__pycache__/solver.cpython-314.pyc b/csp_persist/__pycache__/solver.cpython-314.pyc
+new file mode 100644
+index 0000000..23e8959
+Binary files /dev/null and b/csp_persist/__pycache__/solver.cpython-314.pyc differ
+diff --git a/csp_persist/log.py b/csp_persist/log.py
+new file mode 100644
+index 0000000..d460ef3
+--- /dev/null
++++ b/csp_persist/log.py
+@@ -0,0 +1,124 @@
++"""Append-only nogood log with CRC32 integrity checks and crash recovery.
++
++On-disk entry format (all integers big-endian)::
++
++    +-------------------+----------------------+------------------+
++    | payload length u32 | clause JSON payload | CRC32(payload) u32 |
++    +-------------------+----------------------+------------------+
++
++Failure model
++-------------
++Two explicit failure points are handled at load time:
++
++a) Crash mid-write: the trailing entry is truncated (incomplete header,
++   payload, or checksum).  It is treated as never committed.
++b) Corruption: the stored CRC32 does not match the payload bytes.
++
++Recovery semantics: the log is parsed sequentially from the start.  The
++first truncated or corrupt entry stops the scan immediately; only the
++entries committed before it are returned.  A missing or empty log yields
++an empty list.
++"""
++
++from __future__ import annotations
++
++import json
++import os
++import struct
++import zlib
++
++_HEADER = struct.Struct(">I")  # payload length
++_CRC = struct.Struct(">I")     # crc32 of payload
++
++
++class ClauseFormatError(ValueError):
++    """Raised when a nogood clause JSON payload is malformed."""
++
++
++def canonicalize_clause(clause):
++    """Validate a nogood clause and return its canonical JSON string.
++
++    A clause is a non-empty list of literals, each an object with exactly
++    the keys ``var`` (non-empty string) and ``value`` (JSON scalar).
++    """
++    if not isinstance(clause, list) or not clause:
++        raise ClauseFormatError(
++            "clause must be a non-empty JSON array of literals")
++    for literal in clause:
++        if not isinstance(literal, dict) or set(literal) != {"var", "value"}:
++            raise ClauseFormatError(
++                "each literal must be an object with exactly 'var' and 'value'")
++        if not isinstance(literal["var"], str) or not literal["var"]:
++            raise ClauseFormatError("literal 'var' must be a non-empty string")
++        value = literal["value"]
++        if value is not None and not isinstance(value, (str, int, float, bool)):
++            raise ClauseFormatError("literal 'value' must be a JSON scalar")
++    return json.dumps(clause, sort_keys=True, separators=(",", ":"))
++
++
++def parse_clause_json(text):
++    """Parse and validate a clause from its JSON text representation."""
++    try:
++        clause = json.loads(text)
++    except json.JSONDecodeError as exc:
++        raise ClauseFormatError(f"invalid JSON: {exc}") from exc
++    canonicalize_clause(clause)
++    return clause
++
++
++def encode_entry(clause):
++    """Encode a validated clause as a log entry (header + payload + CRC32)."""
++    payload = canonicalize_clause(clause).encode("utf-8")
++    crc = zlib.crc32(payload) & 0xFFFFFFFF
++    return _HEADER.pack(len(payload)) + payload + _CRC.pack(crc)
++
++
++class NogoodLog:
++    """Append-only persistent store for nogood clauses."""
++
++    def __init__(self, path):
++        self.path = os.fspath(path)
++
++    def append(self, clause):
++        """Append one nogood entry.
++
++        The entry is considered committed only after the file buffer is
++        flushed and fsync'd.  Raises ClauseFormatError for malformed
++        clauses and OSError for I/O failures (e.g. unwritable path).
++        """
++        entry = encode_entry(clause)
++        with open(self.path, "ab") as handle:
++            handle.write(entry)
++            handle.flush()
++            os.fsync(handle.fileno())
++
++    def load(self):
++        """Load committed nogoods, stopping at the first bad entry.
++
++        Returns the list of clauses committed before the first truncated
++        or checksum-mismatched entry.  Missing or empty logs yield [].
++        """
++        clauses = []
++        try:
++            handle = open(self.path, "rb")
++        except FileNotFoundError:
++            return clauses
++        with handle:
++            while True:
++                header = handle.read(_HEADER.size)
++                if len(header) == 0:
++                    break  # clean end of log
++                if len(header) < _HEADER.size:
++                    break  # truncated length header
++                (length,) = _HEADER.unpack(header)
++                payload = handle.read(length)
++                if len(payload) < length:
++                    break  # truncated payload
++                crc_bytes = handle.read(_CRC.size)
++                if len(crc_bytes) < _CRC.size:
++                    break  # truncated checksum
++                (expected_crc,) = _CRC.unpack(crc_bytes)
++                if zlib.crc32(payload) & 0xFFFFFFFF != expected_crc:
++                    break  # checksum mismatch
++                clauses.append(json.loads(payload.decode("utf-8")))
++        return clauses
+diff --git a/csp_persist/solver.py b/csp_persist/solver.py
+new file mode 100644
+index 0000000..c847271
+--- /dev/null
++++ b/csp_persist/solver.py
+@@ -0,0 +1,81 @@
++"""Backtracking CSP solver with nogood-based pruning.
++
++A nogood is a set of (variable, value) assignments that must not all
++hold simultaneously.  During search, any partial assignment that covers
++every literal of a known nogood is pruned immediately.  Nogoods are
++deduplicated by canonical form so a clause is never derived twice.
++"""
++
++from __future__ import annotations
++
++_SENTINEL = object()
++
++
++class CSPSolver:
++    def __init__(self, domains):
++        """domains: mapping of variable name -> iterable of candidate values."""
++        self.domains = {var: list(values) for var, values in domains.items()}
++        self.nogoods = []          # list of frozenset[(var, value)]
++        self._nogood_keys = set()  # dedup index
++        self.pruned_nodes = 0      # search nodes cut by nogood pruning
++
++    @staticmethod
++    def _key(clause):
++        return frozenset((lit["var"], lit["value"]) for lit in clause)
++
++    def add_nogood(self, clause):
++        """Add one nogood clause; returns False if it was already known."""
++        key = self._key(clause)
++        if key in self._nogood_keys:
++            return False
++        self._nogood_keys.add(key)
++        self.nogoods.append(key)
++        return True
++
++    def add_nogoods(self, clauses):
++        """Add loaded nogoods to the clause database; returns count added."""
++        return sum(1 for clause in clauses if self.add_nogood(clause))
++
++    def persist_nogood(self, log, clause):
++        """Best-effort persistence of a nogood.
++
++        I/O failures (e.g. unwritable log path) are swallowed so that
++        in-memory search state is never affected; returns False on failure.
++        Malformed clauses still raise ClauseFormatError.
++        """
++        try:
++            log.append(clause)
++        except OSError:
++            return False
++        return True
++
++    def _violates_nogood(self, assignment):
++        for nogood in self.nogoods:
++            if all(assignment.get(var, _SENTINEL) == value
++                   for var, value in nogood):
++                return True
++        return False
++
++    def solve(self, max_solutions=None):
++        """Backtracking search; returns the list of solutions found."""
++        variables = list(self.domains)
++        assignment = {}
++        solutions = []
++
++        def backtrack(index):
++            if max_solutions is not None and len(solutions) >= max_solutions:
++                return
++            if index == len(variables):
++                solutions.append(dict(assignment))
++                return
++            var = variables[index]
++            for value in self.domains[var]:
++                assignment[var] = value
++                if self._violates_nogood(assignment):
++                    self.pruned_nodes += 1
++                else:
++                    backtrack(index + 1)
++                del assignment[var]
++
++        backtrack(0)
++        return solutions
+diff --git a/result.txt b/result.txt
+new file mode 100644
+index 0000000..e07cd8e
+--- /dev/null
++++ b/result.txt
+@@ -0,0 +1,20 @@
++test_invalid_clause_json_returns_nonzero (tests.test_persist.TestCLI.test_invalid_clause_json_returns_nonzero) ... ok
++test_load_missing_log_returns_empty_list (tests.test_persist.TestCLI.test_load_missing_log_returns_empty_list) ... ok
++test_unwritable_log_path_returns_nonzero (tests.test_persist.TestCLI.test_unwritable_log_path_returns_nonzero) ... ok
++test_write_then_load_via_cli (tests.test_persist.TestCLI.test_write_then_load_via_cli) ... ok
++test_corrupted_byte_invalidates_entry_and_all_after (tests.test_persist.TestCrashRecovery.test_corrupted_byte_invalidates_entry_and_all_after) ... ok
++test_missing_and_empty_log_load_empty (tests.test_persist.TestCrashRecovery.test_missing_and_empty_log_load_empty) ... ok
++test_truncated_header_and_checksum (tests.test_persist.TestCrashRecovery.test_truncated_header_and_checksum) ... ok
++test_truncated_second_entry_recovers_first_only (tests.test_persist.TestCrashRecovery.test_truncated_second_entry_recovers_first_only) ... ok
++test_random_logs_match_naive_parser (tests.test_persist.TestNaiveReferenceCrossCheck.test_random_logs_match_naive_parser) ... ok
++test_append_raises_oserror_on_readonly_path (tests.test_persist.TestReadOnlyLogPath.test_append_raises_oserror_on_readonly_path) ... ok
++test_write_failure_does_not_break_solver (tests.test_persist.TestReadOnlyLogPath.test_write_failure_does_not_break_solver) ... ok
++test_nogoods_deduplicated (tests.test_persist.TestWriteLoadRoundTrip.test_nogoods_deduplicated) ... ok
++test_pruning_matches_brute_force (tests.test_persist.TestWriteLoadRoundTrip.test_pruning_matches_brute_force) ... ok
++test_three_nogoods_roundtrip_and_pruning (tests.test_persist.TestWriteLoadRoundTrip.test_three_nogoods_roundtrip_and_pruning) ... ok
++
++----------------------------------------------------------------------
++Ran 14 tests in 1.162s
++
++OK
++exit=0
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/__init__.cpython-314.pyc b/tests/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..8f665d2
+Binary files /dev/null and b/tests/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_persist.cpython-314.pyc b/tests/__pycache__/test_persist.cpython-314.pyc
+new file mode 100644
+index 0000000..332925b
+Binary files /dev/null and b/tests/__pycache__/test_persist.cpython-314.pyc differ
+diff --git a/tests/test_persist.py b/tests/test_persist.py
+new file mode 100644
+index 0000000..7e08f2f
+--- /dev/null
++++ b/tests/test_persist.py
+@@ -0,0 +1,260 @@
++"""Tests for csp_persist: nogood log persistence, recovery, solver pruning."""
++
++import json
++import os
++import random
++import stat
++import struct
++import subprocess
++import sys
++import tempfile
++import unittest
++import zlib
++from pathlib import Path
++
++REPO_ROOT = Path(__file__).resolve().parent.parent
++sys.path.insert(0, str(REPO_ROOT))
++
++from csp_persist import CSPSolver, NogoodLog  # noqa: E402
++from csp_persist.log import encode_entry  # noqa: E402
++
++
++def naive_parse(path):
++    """Naive reference log parser, written independently of csp_persist.
++
++    Sequentially reads [len u32][payload][crc32 u32] records and stops at
++    the first record that is incomplete or fails its checksum.
++    """
++    clauses = []
++    if not os.path.exists(path):
++        return clauses
++    with open(path, "rb") as handle:
++        data = handle.read()
++    pos = 0
++    while pos < len(data):
++        if pos + 4 > len(data):
++            break
++        (length,) = struct.unpack(">I", data[pos:pos + 4])
++        pos += 4
++        if pos + length + 4 > len(data):
++            break
++        payload = data[pos:pos + length]
++        pos += length
++        (crc,) = struct.unpack(">I", data[pos:pos + 4])
++        pos += 4
++        if zlib.crc32(payload) & 0xFFFFFFFF != crc:
++            break
++        clauses.append(json.loads(payload.decode("utf-8")))
++    return clauses
++
++
++CLAUSE_1 = [{"var": "x", "value": 1}, {"var": "y", "value": 1}]
++CLAUSE_2 = [{"var": "x", "value": 2}, {"var": "y", "value": 2}]
++CLAUSE_3 = [{"var": "z", "value": 0}]
++
++
++class TempLogMixin(unittest.TestCase):
++    def setUp(self):
++        self.tmpdir = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmpdir.cleanup)
++        self.log_path = os.path.join(self.tmpdir.name, "nogoods.log")
++        self.log = NogoodLog(self.log_path)
++
++
++class TestWriteLoadRoundTrip(TempLogMixin):
++    def test_three_nogoods_roundtrip_and_pruning(self):
++        clauses = [CLAUSE_1, CLAUSE_2, CLAUSE_3]
++        for clause in clauses:
++            self.log.append(clause)
++
++        loaded = self.log.load()
++        self.assertEqual(loaded, clauses)
++
++        solver = CSPSolver({"x": [1, 2, 3], "y": [1, 2, 3], "z": [0, 1]})
++        added = solver.add_nogoods(loaded)
++        self.assertEqual(added, 3)
++        self.assertEqual(len(solver.nogoods), 3)
++
++        solutions = solver.solve()
++        # Brute-force cross-check: 18 raw assignments minus those covered
++        # by any nogood ({x=1,y=1}, {x=2,y=2}, {z=0}) -> 7 solutions.
++        import itertools
++        expected = [
++            dict(zip("xyz", values)) for values in itertools.product(
++                [1, 2, 3], [1, 2, 3], [0, 1])
++            if not any(all(dict(zip("xyz", values))[var] == value
++                           for var, value in nogood)
++                       for nogood in solver.nogoods)
++        ]
++        self.assertEqual(len(expected), 7)
++        self.assertEqual(solutions, expected)
++        self.assertGreater(solver.pruned_nodes, 0)
++        for solution in solutions:
++            for nogood in solver.nogoods:
++                self.assertFalse(
++                    all(solution[var] == value for var, value in nogood))
++
++    def test_nogoods_deduplicated(self):
++        solver = CSPSolver({"x": [1, 2]})
++        self.assertTrue(solver.add_nogood(CLAUSE_1))
++        self.assertFalse(solver.add_nogood(CLAUSE_1))
++        self.assertFalse(solver.add_nogood(list(reversed(CLAUSE_1))))
++        self.assertEqual(len(solver.nogoods), 1)
++
++    def test_pruning_matches_brute_force(self):
++        solver = CSPSolver({"x": [1, 2], "y": [1, 2]})
++        solver.add_nogoods([CLAUSE_1, CLAUSE_2])
++        solutions = solver.solve()
++        self.assertEqual(solutions,
++                         [{"x": 1, "y": 2}, {"x": 2, "y": 1}])
++        self.assertEqual(solver.pruned_nodes, 2)
++
++
++class TestCrashRecovery(TempLogMixin):
++    def _write_entries(self, clauses):
++        blob = b""
++        offsets = []
++        for clause in clauses:
++            offsets.append(len(blob))
++            blob += encode_entry(clause)
++        return blob, offsets
++
++    def test_truncated_second_entry_recovers_first_only(self):
++        blob, offsets = self._write_entries([CLAUSE_1, CLAUSE_2, CLAUSE_3])
++        # Simulate a crash mid-write of entry 2: keep entry 1 plus a
++        # partial slice of entry 2 (header + half its payload).
++        entry2_size = offsets[2] - offsets[1]
++        cut = offsets[1] + 4 + entry2_size // 2
++        with open(self.log_path, "wb") as handle:
++            handle.write(blob[:cut])
++        self.assertEqual(self.log.load(), [CLAUSE_1])
++
++    def test_truncated_header_and_checksum(self):
++        blob, offsets = self._write_entries([CLAUSE_1, CLAUSE_2])
++        for cut in (offsets[1] + 2, len(blob) - 1):  # partial header / crc
++            with open(self.log_path, "wb") as handle:
++                handle.write(blob[:cut])
++            self.assertEqual(self.log.load(), [CLAUSE_1])
++
++    def test_corrupted_byte_invalidates_entry_and_all_after(self):
++        blob, offsets = self._write_entries([CLAUSE_1, CLAUSE_2, CLAUSE_3])
++        # Flip one byte inside entry 2's payload.
++        flip_at = offsets[1] + 6
++        corrupted = bytearray(blob)
++        corrupted[flip_at] ^= 0xFF
++        with open(self.log_path, "wb") as handle:
++            handle.write(corrupted)
++        self.assertEqual(self.log.load(), [CLAUSE_1])
++
++    def test_missing_and_empty_log_load_empty(self):
++        self.assertEqual(self.log.load(), [])
++        Path(self.log_path).touch()
++        self.assertEqual(self.log.load(), [])
++
++
++class TestNaiveReferenceCrossCheck(TempLogMixin):
++    def test_random_logs_match_naive_parser(self):
++        rng = random.Random(20261001)
++        for _ in range(25):
++            clauses = [
++                [{"var": f"v{rng.randrange(4)}",
++                  "value": rng.randrange(4)}
++                 for _ in range(rng.randrange(1, 4))]
++                for _ in range(rng.randrange(1, 6))
++            ]
++            blob = b"".join(encode_entry(c) for c in clauses)
++            mode = rng.randrange(4)
++            if mode == 1 and blob:  # truncate at a random point
++                blob = blob[:rng.randrange(len(blob))]
++            elif mode == 2 and blob:  # flip a random byte
++                blob = bytearray(blob)
++                blob[rng.randrange(len(blob))] ^= 1 << rng.randrange(8)
++                blob = bytes(blob)
++            elif mode == 3:  # append random garbage
++                blob += bytes(rng.randrange(256)
++                              for _ in range(rng.randrange(1, 10)))
++            with open(self.log_path, "wb") as handle:
++                handle.write(blob)
++            self.assertEqual(self.log.load(), naive_parse(self.log_path))
++
++
++class TestReadOnlyLogPath(TempLogMixin):
++    def test_write_failure_does_not_break_solver(self):
++        readonly_dir = os.path.join(self.tmpdir.name, "readonly")
++        os.mkdir(readonly_dir)
++        os.chmod(readonly_dir, stat.S_IRUSR | stat.S_IXUSR)
++        self.addCleanup(os.chmod, readonly_dir,
++                        stat.S_IRWXU)
++        bad_log = NogoodLog(os.path.join(readonly_dir, "nogoods.log"))
++
++        solver = CSPSolver({"x": [1, 2], "y": [1, 2]})
++        ok = solver.persist_nogood(bad_log, CLAUSE_1)
++        self.assertFalse(ok)  # persistence failed, no exception escaped
++
++        # In-memory search logic is unaffected by the persistence failure.
++        solver.add_nogood(CLAUSE_1)
++        solutions = solver.solve()
++        self.assertNotIn({"x": 1, "y": 1}, solutions)
++        self.assertEqual(len(solutions), 3)
++
++    def test_append_raises_oserror_on_readonly_path(self):
++        readonly_dir = os.path.join(self.tmpdir.name, "ro2")
++        os.mkdir(readonly_dir)
++        os.chmod(readonly_dir, stat.S_IRUSR | stat.S_IXUSR)
++        self.addCleanup(os.chmod, readonly_dir, stat.S_IRWXU)
++        bad_log = NogoodLog(os.path.join(readonly_dir, "nogoods.log"))
++        with self.assertRaises(OSError):
++            bad_log.append(CLAUSE_1)
++
++
++class TestCLI(unittest.TestCase):
++    def setUp(self):
++        self.tmpdir = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmpdir.cleanup)
++        self.log_path = os.path.join(self.tmpdir.name, "nogoods.log")
++
++    def run_cli(self, *args):
++        return subprocess.run(
++            [sys.executable, "-m", "csp_persist", *args],
++            capture_output=True, text=True, cwd=REPO_ROOT)
++
++    def test_write_then_load_via_cli(self):
++        for clause in (CLAUSE_1, CLAUSE_2, CLAUSE_3):
++            result = self.run_cli("write", "--log", self.log_path,
++                                  "--clause", json.dumps(clause))
++            self.assertEqual(result.returncode, 0, result.stderr)
++            self.assertEqual(json.loads(result.stdout)["status"], "committed")
++
++        result = self.run_cli("load", "--log", self.log_path)
++        self.assertEqual(result.returncode, 0, result.stderr)
++        self.assertEqual(json.loads(result.stdout),
++                         [CLAUSE_1, CLAUSE_2, CLAUSE_3])
++
++    def test_load_missing_log_returns_empty_list(self):
++        result = self.run_cli("load", "--log", self.log_path)
++        self.assertEqual(result.returncode, 0, result.stderr)
++        self.assertEqual(json.loads(result.stdout), [])
++
++    def test_invalid_clause_json_returns_nonzero(self):
++        for bad in ("not json", "[]", '{"var": "x"}',
++                    '[{"var": "x"}]', '[{"var": 1, "value": 2}]',
++                    '[{"var": "x", "value": [1]}]'):
++            result = self.run_cli("write", "--log", self.log_path,
++                                  "--clause", bad)
++            self.assertNotEqual(result.returncode, 0, bad)
++            self.assertFalse(os.path.exists(self.log_path))
++
++    def test_unwritable_log_path_returns_nonzero(self):
++        readonly_dir = os.path.join(self.tmpdir.name, "readonly")
++        os.mkdir(readonly_dir)
++        os.chmod(readonly_dir, stat.S_IRUSR | stat.S_IXUSR)
++        self.addCleanup(os.chmod, readonly_dir, stat.S_IRWXU)
++        result = self.run_cli(
++            "write", "--log", os.path.join(readonly_dir, "nogoods.log"),
++            "--clause", json.dumps(CLAUSE_1))
++        self.assertNotEqual(result.returncode, 0)
++        self.assertIn("error", result.stderr)
++
++
++if __name__ == "__main__":
++    unittest.main()

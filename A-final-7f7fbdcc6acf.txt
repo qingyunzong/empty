@@ -1,0 +1,15 @@
+完成。从空仓库实现了完整的 Nogood 持久化约束求解库，全部 12 个测试真实通过（`Ran 12 tests ... OK`，结果已写入 `result.txt`）。
+
+**实现结构**
+- `csp_persist/log.py` — 追加写日志：记录格式为 `长度(4B) + JSON载荷 + CRC32(4B)`，单条写入后 `flush + fsync` 才视为已提交；`load_clauses` 顺序解析，遇截断（故障点 a）或校验和不匹配（故障点 b）立即停止，仅返回合法前缀；缺失/空日志返回空列表
+- `csp_persist/solver.py` — 回溯 CSP 求解器 + `NogoodStore` 子句库（frozenset 去重，重复加载不重复推导），部分赋值包含任一 nogood 即剪枝，并暴露 `nodes`/`pruned` 计数供观测
+- `csp_persist/__main__.py` — CLI：`write`/`load`，退出码 `0` 成功、`2` 日志不可写/IO 错误、`3` 子句格式非法；持久化失败与内存搜索完全隔离
+- `tests/test_csp_persist.py` — 12 个用例，覆盖全部 4 个验收场景 + 50 组随机日志与朴素参考解析器 `naive_parse_log` 的对照测试
+
+**验收场景对应**
+- 3 条写入后加载与内存子句一致、剪枝行为正确（解避开所有 nogood、冲突组合被剪、全覆盖时返回不可满足）
+- 第 2 条截断（含仅截断 CRC 的情形）→ 仅返回第 1 条
+- 篡改第 2 条 1 字节 → CRC 不匹配，第 2、3 条均丢弃
+- 只读目录写入 → 退出码 2 + `LogWriteError`，求解器照常求解
+
+**环境说明**：系统无 `python` 命令，仅有 `python3.11`（3.11.16），我在仓库内建了 `.bin/python` 软链，以 `PATH` 前置方式按要求的 `python -m unittest discover -v` 原样运行；CLI 冒烟（含非法子句退出码 3、只读目录退出码 2）也已实测通过。

@@ -1,0 +1,4 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/8f8a2f23ddac40118ae259ad24198c13/judge/pair/attempt-001/demonstration-A/demonstration/probe_empty_nogood.py
+loaded=[[]]
+empty_assignment_conflicts=True
+solve_result={}; pruned=0
