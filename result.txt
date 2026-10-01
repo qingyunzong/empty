@@ -1,0 +1,30 @@
+Test command: python -m unittest discover -v
+Date: 2026-10-01 06:20:58 UTC
+Python: Python 3.14.4
+======================================================================
+test_empty_initial_domain_always_unsat (tests.test_propagate.TestBoundarySemantics.test_empty_initial_domain_always_unsat) ... ok
+test_timeout_never_reported_as_unsat_or_complete (tests.test_propagate.TestBoundarySemantics.test_timeout_never_reported_as_unsat_or_complete) ... ok
+test_unsat_during_propagation_discards_budget (tests.test_propagate.TestBoundarySemantics.test_unsat_during_propagation_discards_budget) ... ok
+test_zero_budget_returns_initial_domains_timeout (tests.test_propagate.TestBoundarySemantics.test_zero_budget_returns_initial_domains_timeout) ... ok
+test_budget_of_three_checks (tests.test_propagate.TestBudgetTruncation.test_budget_of_three_checks) ... ok
+test_every_budget_prefix_matches_reference (tests.test_propagate.TestBudgetTruncation.test_every_budget_prefix_matches_reference) ... ok
+test_truncation_after_first_removal (tests.test_propagate.TestBudgetTruncation.test_truncation_after_first_removal) ... ok
+test_cli_complete (tests.test_propagate.TestCLI.test_cli_complete) ... ok
+test_cli_invalid_json_fails (tests.test_propagate.TestCLI.test_cli_invalid_json_fails) ... ok
+test_cli_missing_file_fails (tests.test_propagate.TestCLI.test_cli_missing_file_fails) ... ok
+test_cli_negative_budget_fails (tests.test_propagate.TestCLI.test_cli_negative_budget_fails) ... ok
+test_cli_timeout_zero_budget (tests.test_propagate.TestCLI.test_cli_timeout_zero_budget) ... ok
+test_cli_unknown_variable_fails (tests.test_propagate.TestCLI.test_cli_unknown_variable_fails) ... ok
+test_complete_matches_reference (tests.test_propagate.TestReferenceMatchesBudgeted.test_complete_matches_reference) ... ok
+test_expected_fixpoint_domains (tests.test_propagate.TestReferenceMatchesBudgeted.test_expected_fixpoint_domains) ... ok
+test_malformed_inputs (tests.test_propagate.TestValidationErrors.test_malformed_inputs) ... ok
+test_negative_budget (tests.test_propagate.TestValidationErrors.test_negative_budget) ... ok
+test_non_integer_budget (tests.test_propagate.TestValidationErrors.test_non_integer_budget) ... ok
+test_unknown_variable_in_constraint (tests.test_propagate.TestValidationErrors.test_unknown_variable_in_constraint) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.184s
+
+OK
+======================================================================
+Exit code: 0
