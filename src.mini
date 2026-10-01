@@ -1,0 +1,6 @@
+-- hmtype demo file
+let id = fun x -> x
+let both = (id 1, id true)
+let const = fun x -> fun y -> x
+let fact = fix f -> fun n -> if n = 0 then 1 else n * f (n - 1)
+let cmp = fun a -> fun b -> a <= b
