@@ -1,0 +1,5 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/79c6b207e58a452eb2f78c1678ff73f2/judge/pair/attempt-001/demonstration-A/demonstration/probe.py overlap
+交叠摘要：压缩后存在=True；未压缩存在=False
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/79c6b207e58a452eb2f78c1678ff73f2/judge/pair/attempt-001/demonstration-A/demonstration/probe.py growth
+单标签压缩：压缩前=140字节；压缩后=235字节
+压缩后更大=True；保留完整标签=True；摘要数=1

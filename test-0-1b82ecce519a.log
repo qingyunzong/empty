@@ -1,0 +1,16 @@
+test_add_contains_dump_roundtrip (test_cli.TestCLI.test_add_contains_dump_roundtrip) ... ok
+test_errors_exit_4 (test_cli.TestCLI.test_errors_exit_4) ... ok
+test_json_lines_multiple_requests (test_cli.TestCLI.test_json_lines_multiple_requests) ... ok
+test_rem_merge_compact_flow (test_cli.TestCLI.test_rem_merge_compact_flow) ... ok
+test_enumerate_merge_orders (test_orset.TestAllMergeOrdersMatchReference.test_enumerate_merge_orders) ... ok
+test_compact_actually_shrinks_state (test_orset.TestCompact.test_compact_actually_shrinks_state) ... ok
+test_compact_preserves_queries_and_rejects_replays (test_orset.TestCompact.test_compact_preserves_queries_and_rejects_replays) ... ok
+test_concurrent_add_and_remove (test_orset.TestConcurrentAddWins.test_concurrent_add_and_remove) ... ok
+test_sequential_remove_still_wins (test_orset.TestConcurrentAddWins.test_sequential_remove_still_wins) ... ok
+test_late_and_replayed_remove (test_orset.TestLateRemoveReplay.test_late_and_replayed_remove) ... ok
+test_three_properties (test_orset.TestMergeProperties.test_three_properties) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 5.402s
+
+OK
