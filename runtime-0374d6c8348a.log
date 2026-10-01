@@ -1,0 +1,4 @@
+$ /usr/bin/env PATH=/opt/homebrew/bin:/usr/bin:/bin /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/cc4ffddc17e54948912bc3dc9e7cf817/judge/pair/attempt-001/demonstration-A/demonstration/probe_starvation.py
+等待时间=101，阈值=100；完成时刻=101
+实际饥饿名单=[]；完成时获得服务=True
+复现：超时后完成的流未列入饥饿名单

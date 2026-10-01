@@ -1,0 +1,18 @@
+test_missing_input_file (test_cli.TestCliErrors.test_missing_input_file) ... ok
+test_negative_size (test_cli.TestCliErrors.test_negative_size) ... ok
+test_non_positive_capacity (test_cli.TestCliErrors.test_non_positive_capacity) ... ok
+test_time_regression (test_cli.TestCliErrors.test_time_regression) ... ok
+test_bundled_sample_runs (test_cli.TestCliSample.test_bundled_sample_runs) ... ok
+test_five_runs_byte_identical (test_cli.TestEDeterministicLogs.test_five_runs_byte_identical) ... ok
+test_finish_times_and_starved_match_reference (test_crosscheck.TestDCrossCheck.test_finish_times_and_starved_match_reference) ... ok
+test_starvation_actually_observed (test_crosscheck.TestDCrossCheck.test_starvation_actually_observed) ... ok
+test_exact_service_sequence (test_fairq.TestAEqualWeightAlternation.test_exact_service_sequence) ... ok
+test_every_aligned_four_tick_window_is_exactly_3_to_1 (test_fairq.TestBWeightedRatio.test_every_aligned_four_tick_window_is_exactly_3_to_1) ... ok
+test_first_ten_ticks_best_integer_ratio (test_fairq.TestBWeightedRatio.test_first_ten_ticks_best_integer_ratio) ... ok
+test_twenty_ticks_exact_ratio (test_fairq.TestBWeightedRatio.test_twenty_ticks_exact_ratio) ... ok
+test_switch_happens_next_tick (test_fairq.TestCNoImmediatePreemption.test_switch_happens_next_tick) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.706s
+
+OK
