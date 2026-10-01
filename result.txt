@@ -1,0 +1,21 @@
+命令: python -m unittest discover -v
+解释器: Python 3.11.16 (python3.11)
+日期: 2026-10-01
+
+test_bit_flip_in_second_entry_stops_loading (tests.test_csp_persist.TestCrashRecovery.test_bit_flip_in_second_entry_stops_loading) ... ok
+test_missing_and_empty_log_load_empty (tests.test_csp_persist.TestCrashRecovery.test_missing_and_empty_log_load_empty) ... ok
+test_truncated_checksum_returns_first_only (tests.test_csp_persist.TestCrashRecovery.test_truncated_checksum_returns_first_only) ... ok
+test_truncated_second_entry_returns_first_only (tests.test_csp_persist.TestCrashRecovery.test_truncated_second_entry_returns_first_only) ... ok
+test_invalid_clause_rejected_with_nonzero_exit (tests.test_csp_persist.TestErrorHandling.test_invalid_clause_rejected_with_nonzero_exit) ... ok
+test_load_missing_log_via_cli_returns_empty_list (tests.test_csp_persist.TestErrorHandling.test_load_missing_log_via_cli_returns_empty_list) ... ok
+test_readonly_directory_write_fails_gracefully (tests.test_csp_persist.TestErrorHandling.test_readonly_directory_write_fails_gracefully) ... ok
+test_random_logs_match_naive_reference (tests.test_csp_persist.TestNaiveParserCrossCheck.test_random_logs_match_naive_reference) ... ok
+test_cli_write_three_then_cli_load (tests.test_csp_persist.TestWriteLoadRoundtrip.test_cli_write_three_then_cli_load) ... ok
+test_loaded_clauses_match_memory_and_prune (tests.test_csp_persist.TestWriteLoadRoundtrip.test_loaded_clauses_match_memory_and_prune) ... ok
+test_no_duplicate_derivation_on_reload (tests.test_csp_persist.TestWriteLoadRoundtrip.test_no_duplicate_derivation_on_reload) ... ok
+test_pruning_behavior_with_loaded_nogoods (tests.test_csp_persist.TestWriteLoadRoundtrip.test_pruning_behavior_with_loaded_nogoods) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.978s
+
+OK
