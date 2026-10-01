@@ -1,0 +1,92 @@
+date: 2026-10-01 05:21:26 UTC
+python: Python 3.14.4
+command: python -m unittest discover -v
+==================================================
+test_cyclic_implication_log_rejected (tests.test_explain.BrokenRecordTest.test_cyclic_implication_log_rejected) ... ok
+test_missing_conflict_state (tests.test_explain.BrokenRecordTest.test_missing_conflict_state) ... ok
+test_unknown_decision_reference (tests.test_explain.BrokenRecordTest.test_unknown_decision_reference) ... ok
+test_unknown_removal_reference (tests.test_explain.BrokenRecordTest.test_unknown_removal_reference) ... ok
+test_unknown_variable_reference (tests.test_explain.BrokenRecordTest.test_unknown_variable_reference) ... ok
+test_broken_record_nonzero_exit (tests.test_explain.CliTest.test_broken_record_nonzero_exit) ... ok
+test_generate_level0_unsat (tests.test_explain.CliTest.test_generate_level0_unsat) ... ok
+test_generate_multilevel_backjump (tests.test_explain.CliTest.test_generate_multilevel_backjump) ... ok
+test_generate_success (tests.test_explain.CliTest.test_generate_success) ... ok
+test_missing_conflict_nonzero_exit (tests.test_explain.CliTest.test_missing_conflict_nonzero_exit) ... ok
+test_missing_input_file_nonzero_exit (tests.test_explain.CliTest.test_missing_input_file_nonzero_exit) ... ok
+test_output_option (tests.test_explain.CliTest.test_output_option) ... ok
+test_empty_clause_and_unsat (tests.test_explain.LevelZeroConflictTest.test_empty_clause_and_unsat) ... ok
+test_reference_agrees (tests.test_explain.LevelZeroConflictTest.test_reference_agrees) ... ok
+test_backjump_is_highest_external_level (tests.test_explain.MultilevelConflictTest.test_backjump_is_highest_external_level) ... ok
+test_clause_contents (tests.test_explain.MultilevelConflictTest.test_clause_contents) ... ok
+test_matches_naive_cut_enumeration (tests.test_explain.MultilevelConflictTest.test_matches_naive_cut_enumeration) ... ok
+test_no_irrelevant_decisions (tests.test_explain.MultilevelConflictTest.test_no_irrelevant_decisions) ... ok
+test_backjump_level (tests.test_explain.ThreeVariableChainTest.test_backjump_level) ... ok
+test_clause_contents (tests.test_explain.ThreeVariableChainTest.test_clause_contents) ... ok
+test_matches_naive_cut_enumeration (tests.test_explain.ThreeVariableChainTest.test_matches_naive_cut_enumeration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.667s
+
+OK
+==================================================
+exit code: 0
+
+CLI demo: python -m csp_explain generate --input examples/conflict_3var.json
+{
+  "clause": [
+    {
+      "variable": "z",
+      "value": 1,
+      "kind": "removed",
+      "level": 2
+    },
+    {
+      "variable": "y",
+      "value": 2,
+      "kind": "removed",
+      "level": 1
+    }
+  ],
+  "backjump_level": 1,
+  "unsatisfiable": false
+}
+exit code: 0
+
+CLI demo: python -m csp_explain generate --input examples/conflict_multilevel.json
+{
+  "clause": [
+    {
+      "variable": "v",
+      "value": 1,
+      "kind": "assigned",
+      "level": 4
+    },
+    {
+      "variable": "w",
+      "value": 1,
+      "kind": "removed",
+      "level": 2
+    },
+    {
+      "variable": "y",
+      "value": 1,
+      "kind": "removed",
+      "level": 1
+    }
+  ],
+  "backjump_level": 2,
+  "unsatisfiable": false
+}
+exit code: 0
+
+CLI demo: python -m csp_explain generate --input examples/conflict_level0.json
+{
+  "clause": [],
+  "backjump_level": -1,
+  "unsatisfiable": true
+}
+exit code: 0
+
+CLI demo (broken record): python -m csp_explain generate --input examples/broken_unknown_variable.json
+{"error": "invalid conflict record: implications[0]: antecedent references unknown decision ghost=9"}
+exit code: 2

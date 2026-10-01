@@ -1,0 +1,13 @@
+{
+  "decisions": [
+    {"variable": "x", "value": 1, "level": 1}
+  ],
+  "implications": [
+    {"variable": "y", "value": 2, "level": 1, "constraint": "c_xy",
+     "antecedents": [{"variable": "ghost", "value": 9, "kind": "assigned"}]}
+  ],
+  "conflict": {
+    "level": 1,
+    "antecedents": [{"variable": "y", "value": 2, "kind": "removed"}]
+  }
+}

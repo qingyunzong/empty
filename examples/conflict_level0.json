@@ -1,0 +1,17 @@
+{
+  "decisions": [],
+  "implications": [
+    {"variable": "x", "value": 1, "level": 0, "constraint": "c0a", "antecedents": []},
+    {"variable": "x", "value": 2, "level": 0, "constraint": "c0b",
+     "antecedents": [{"variable": "x", "value": 1, "kind": "removed"}]}
+  ],
+  "conflict": {
+    "variable": "x",
+    "level": 0,
+    "constraint": "domain_wipeout_x",
+    "antecedents": [
+      {"variable": "x", "value": 1, "kind": "removed"},
+      {"variable": "x", "value": 2, "kind": "removed"}
+    ]
+  }
+}

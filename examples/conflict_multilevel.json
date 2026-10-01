@@ -1,0 +1,33 @@
+{
+  "decisions": [
+    {"variable": "x", "value": 1, "level": 1},
+    {"variable": "z", "value": 1, "level": 2},
+    {"variable": "d", "value": 0, "level": 3},
+    {"variable": "v", "value": 1, "level": 4}
+  ],
+  "implications": [
+    {"variable": "y", "value": 1, "level": 1, "constraint": "c1",
+     "antecedents": [{"variable": "x", "value": 1, "kind": "assigned"}]},
+    {"variable": "w", "value": 1, "level": 2, "constraint": "c2",
+     "antecedents": [{"variable": "z", "value": 1, "kind": "assigned"}]},
+    {"variable": "u", "value": 1, "level": 4, "constraint": "c3",
+     "antecedents": [
+       {"variable": "y", "value": 1, "kind": "removed"},
+       {"variable": "v", "value": 1, "kind": "assigned"}
+     ]},
+    {"variable": "u", "value": 2, "level": 4, "constraint": "c4",
+     "antecedents": [
+       {"variable": "w", "value": 1, "kind": "removed"},
+       {"variable": "v", "value": 1, "kind": "assigned"}
+     ]}
+  ],
+  "conflict": {
+    "variable": "u",
+    "level": 4,
+    "constraint": "domain_wipeout_u",
+    "antecedents": [
+      {"variable": "u", "value": 1, "kind": "removed"},
+      {"variable": "u", "value": 2, "kind": "removed"}
+    ]
+  }
+}

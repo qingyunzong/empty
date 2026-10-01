@@ -1,0 +1,23 @@
+{
+  "decisions": [
+    {"variable": "x", "value": 1, "level": 1},
+    {"variable": "y", "value": 1, "level": 2}
+  ],
+  "implications": [
+    {"variable": "y", "value": 2, "level": 1, "constraint": "c_xy",
+     "antecedents": [{"variable": "x", "value": 1, "kind": "assigned"}]},
+    {"variable": "z", "value": 1, "level": 2, "constraint": "c_yz1",
+     "antecedents": [{"variable": "y", "value": 1, "kind": "assigned"}]},
+    {"variable": "z", "value": 2, "level": 2, "constraint": "c_yz2",
+     "antecedents": [{"variable": "y", "value": 2, "kind": "removed"}]}
+  ],
+  "conflict": {
+    "variable": "z",
+    "level": 2,
+    "constraint": "domain_wipeout_z",
+    "antecedents": [
+      {"variable": "z", "value": 1, "kind": "removed"},
+      {"variable": "z", "value": 2, "kind": "removed"}
+    ]
+  }
+}
