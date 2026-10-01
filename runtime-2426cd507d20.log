@@ -1,0 +1,4 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/e6a6a04d841b4b7dbeaea0664ce46e2e/judge/pair/attempt-001/demonstration-B/demonstration/probe.py hash
+received=accepted delivered=changed hash_valid=False
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/e6a6a04d841b4b7dbeaea0664ce46e2e/judge/pair/attempt-001/demonstration-B/demonstration/probe.py recovery
+before=conflict evidence=1; after_recovery=old evidence=0

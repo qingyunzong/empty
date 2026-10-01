@@ -1,0 +1,4 @@
+$ env PATH=/opt/homebrew/bin:/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/e6a6a04d841b4b7dbeaea0664ce46e2e/judge/pair/attempt-001/demonstration-A/demonstration/probe.py acked-conflict
+initial=complete conflicting_retransmit=dup conflict_evidence=0
+$ env PATH=/opt/homebrew/bin:/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/e6a6a04d841b4b7dbeaea0664ce46e2e/judge/pair/attempt-001/demonstration-A/demonstration/probe.py late-epoch
+old_epoch=complete new_epoch=complete late_old_epoch=complete

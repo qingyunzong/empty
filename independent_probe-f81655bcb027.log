@@ -1,0 +1,7 @@
+interpreter: 3.11.16
+A sha: eb9720ec08139fa7a42c7cdc7e351fec10736313
+B sha: 0f93cae17f5d86068addab93aa5c58ffd02683e3
+A assembled conflict: {"initial": "complete", "conflict_status": "dup", "conflict_evidence_count": 0}
+A late epoch: {"first": "complete", "newer": "complete", "late_old_epoch": "complete"}
+B corrupt payload: {"received": {"status": "accepted", "seq": 0, "assembled": true}, "delivered": [{"cursor": 0, "stream": "s", "epoch": 0, "seq": 0, "content": "changed", "hash": "0682c5f2076f099c", "close": false}], "hash_matches_content": false}
+B recovered conflict: {"before_status": "conflict", "before_evidence_count": 1, "after_status": "old", "after_evidence_count": 0}

@@ -1,0 +1,16 @@
+交付完成。`python3.11 -m unittest discover -s tests -v`：**32 个测试全部通过**（结果已记录到 `test-results.txt`）。
+
+**库结构**（`reorder/`，纯 Python 3.11 标准库）
+- `seqnum.py` — 循环序号算术：仅在显式窗口 `[base, base+window)` 内可比较（`2*window ≤ modulus`），窗口外明确区分 `OLD`/`FUTURE`，禁止整数大小比较回绕序号
+- `messages.py` — 帧 = 流 id + epoch + 循环序号 + 分片坐标 + 全内容 SHA-256 哈希；CLOSE 帧占一个序号
+- `stream.py` — 每 `(stream_id, epoch)` 接收状态机：乱序缓冲、持久确认去重、选择确认区间、缺口重传请求；窗口满时对窗外帧返回确定性 `BACKPRESSURE`，窗内缺口帧始终接受，已确认未交付数据永不丢弃；同序号不同内容原子拒绝并保留证据
+- `engine.py` + `journal.py` — 多流路由 + JSONL WAL，记录 `recv`/`assembled`/`delivered`/`conflict` 四类提交点；确认只发生在拼装提交点，恢复后校验"已交付 ⊆ 已确认"不变式（违反抛 `CorruptionError`）；确认集合只留窗口内序号保证有界内存
+- `refmodel.py` — 结构独立的无界参考缓冲模型（游标由交付计数推导，共享的仅是协议层的窗口分类）
+- `vnet.py` — 虚拟网络 + BFS 短调度枚举（含崩溃事件），逐事件与参考模型核对输出；首个分歧即最短失败调度（可重放 JSON），`minimize_schedule` 支持贪心化简
+- `cli.py` — JSONL CLI：`recv`/`poll`/`crash`/`recover`/`status`/`conflicts`
+
+**测试覆盖**（`tests/`，32 项）
+- 回绕（modulus 4/8 跨环交付 + 穷举核对）、缺最后分片、重复关闭、崩溃在确认前（重传重收）与确认后（去重不重复交付）、窗口满时背压 + 补缺口、跨 epoch 迟到帧（旧 epoch `CLOSED`，新 epoch 独立）、冲突重发（证据跨崩溃保留）
+- 穷举校验 5 个场景全部与参考模型一致；用故意丢失确认集合的 `ForgetfulEngine` 验证了最短失败调度 `[deliver, crash, deliver]` 的发现、重放与化简
+
+修复过程中发现并解决了一个真实缺陷：确认集合若不随窗口滑动裁剪，回绕后的新消息会被上一周期的旧确认误判为重复——这正是"不能用普通整数比较回绕序号"的一类隐蔽变体。

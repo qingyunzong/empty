@@ -1,0 +1,1822 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..be54ef0
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,67 @@
++# msdeliv — 多源有序交付层
++
++按 `(stream_id, epoch)` 区分的有序交付层，Python 3.11 标准库实现，无第三方依赖。
++
++## 特性
++
++- **循环序号**：序号只在显式窗口内可比较（`msdeliv/seqnum.py`）。相对下一期望序号的
++  前向距离 `d`：`d < window` 在窗口内；`d >= mod - window` 明确为旧消息；
++  其余为模糊区，拒绝而非用整数大小比较回绕序号。要求 `2*window < mod`。
++- **分片与内容哈希**：每个分片携带整消息内容哈希；同序号不同内容的重发被**原子拒绝**
++  （不改变任何状态），并保留证据（双方哈希与载荷），证据写入日志、崩溃恢复后仍在。
++- **乱序 / 重复 / 冲突重发**：乱序分片入窗缓冲；精确重复幂等；已交付序号在过去窗口内
++  仍比对哈希，内容不同记为冲突。
++- **选择确认与缺口重传**：`acks()` 返回相对 `next_seq` 偏移的确认区间、缺口区间和
++  具体重传序号列表，避免在窗口外比较循环序号。
++- **确定性背压**：乱序缓冲达到 `capacity` 时对新序号返回 `busy`（同一状态同一决策，
++  不驱逐任何已确认未交付数据）；队首缺口帧（`seq == next_seq`）始终可接受，窗口满不会死锁。
++- **流关闭**：`close` 消息交付后流关闭；重复关闭幂等。
++- **持久化与恢复**：JSONL 日志记录接收（`recv`）、拼装完成（`assembled`）、业务交付
++  提交点（`delivered`，含全局输出游标）以及冲突证据。恢复时确定性重放，确认集合与
++  输出游标与崩溃前一致；已确认未交付数据恢复后照常交付（恰好一次）。
++- **跨 epoch**：迟到旧 epoch 帧返回 `stale_epoch`，与窗口内旧帧区分，不污染当前状态。
++
++## 虚拟网络对拍
++
++`msdeliv/vnet.py` 枚举短交付顺序（排列含重复帧），把同一调度跑在真实引擎和独立的
++无界参考缓冲模型（`msdeliv/refmodel.py`）上，核对交付输出一致。背压/模糊被拒的帧
++由虚拟网络停驻并在状态变化时重试（模拟发送方重传）。发现分歧时
++`minimize_failing` 贪心缩减为最短失败调度，可序列化为 JSON 并用
++`vnet.replay_file` 或 CLI 重放。
++
++## JSON CLI
++
++```
++python3.11 -m msdeliv.cli < commands.jsonl
++```
++
++每行一个 JSON 命令，每行输出一个 JSON 事件：
++
++```
++{"op":"new","mod":16,"window":4,"capacity":2,"log":"session.jsonl"}
++{"op":"send","frame":{"stream":"s","epoch":0,"seq":0,"frag":0,"frags":1,"payload":"hi","hash":"...","close":false}}
++{"op":"poll"}                 -> {"event":"delivered","outputs":[...]}
++{"op":"acks","stream":"s","epoch":0}
++{"op":"crash"} / {"op":"recover"}
++{"op":"replay","schedule":[...],"prefix":[...]}   虚拟网络重放调度
++{"op":"verify","schedule":[...]}                  与参考模型对拍；分歧时输出 minimal_schedule
++```
++
++## 测试
++
++```
++python3.11 -m unittest discover -s tests -v
++```
++
++覆盖：序号回绕、缺最后分片、重复关闭、确认前/后崩溃、窗口满时补缺口、
++跨 epoch 迟到帧、冲突重发（含证据持久化）、乱序/重复/冲突调度的穷举对拍、
++最短失败调度缩减与重放、CLI 端到端。
++
++### 最近一次运行结果
++
++```
++Ran 35 tests in ~2.5s
++
++OK
++```
++（35 个测试全部通过；详见提交时的实际运行记录。）
+diff --git a/TEST_RESULTS.txt b/TEST_RESULTS.txt
+new file mode 100644
+index 0000000..44d808f
+--- /dev/null
++++ b/TEST_RESULTS.txt
+@@ -0,0 +1,43 @@
++test_crash_recover_via_cli (test_cli.TestCli.test_crash_recover_via_cli) ... ok
++test_replay_and_verify_ops (test_cli.TestCli.test_replay_and_verify_ops) ... ok
++test_session_send_poll_acks (test_cli.TestCli.test_session_send_poll_acks) ... ok
++test_unknown_op_and_bad_json (test_cli.TestCli.test_unknown_op_and_bad_json) ... ok
++test_epochs_recover_consistently (test_engine.TestEpochs.test_epochs_recover_consistently) ... ok
++test_late_frame_from_previous_epoch_is_stale (test_engine.TestEpochs.test_late_frame_from_previous_epoch_is_stale) ... ok
++test_ack_set_and_cursor_consistent_after_recovery (test_engine.TestPersistence.test_ack_set_and_cursor_consistent_after_recovery) ... ok
++test_conflict_evidence_survives_recovery (test_engine.TestPersistence.test_conflict_evidence_survives_recovery) ... ok
++test_crash_after_ack_before_delivery_commit (test_engine.TestPersistence.test_crash_after_ack_before_delivery_commit) ... ok
++test_crash_after_delivery_commit_no_duplicate (test_engine.TestPersistence.test_crash_after_delivery_commit_no_duplicate) ... ok
++test_crash_before_ack_needs_retransmit (test_engine.TestPersistence.test_crash_before_ack_needs_retransmit) ... ok
++test_recovery_detects_corrupt_log (test_engine.TestPersistence.test_recovery_detects_corrupt_log) ... /home/delin/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/traceback.py:237: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpwhdsup74/engine.jsonl' mode='a' encoding='utf-8'>
++  tb.tb_frame.clear()
++ResourceWarning: Enable tracemalloc to get the object allocation traceback
++ok
++test_ambiguous_and_old_classification (test_receiver.TestReceiver.test_ambiguous_and_old_classification) ... ok
++test_backpressure_window_full_then_gap_fill (test_receiver.TestReceiver.test_backpressure_window_full_then_gap_fill) ... ok
++test_close_and_duplicate_close (test_receiver.TestReceiver.test_close_and_duplicate_close) ... ok
++test_conflict_after_delivery_still_recorded (test_receiver.TestReceiver.test_conflict_after_delivery_still_recorded) ... ok
++test_conflicting_retransmit_rejected_atomically_with_evidence (test_receiver.TestReceiver.test_conflicting_retransmit_rejected_atomically_with_evidence) ... ok
++test_duplicate_is_idempotent (test_receiver.TestReceiver.test_duplicate_is_idempotent) ... ok
++test_in_order_delivery (test_receiver.TestReceiver.test_in_order_delivery) ... ok
++test_missing_last_fragment_blocks_and_requests_gap (test_receiver.TestReceiver.test_missing_last_fragment_blocks_and_requests_gap) ... ok
++test_out_of_order_then_gap_fill_cascades (test_receiver.TestReceiver.test_out_of_order_then_gap_fill_cascades) ... ok
++test_wraparound_delivery (test_receiver.TestReceiver.test_wraparound_delivery) ... ok
++test_boundaries (test_seqnum.TestSeqNum.test_boundaries) ... ok
++test_classify_distinguishes_old_from_future (test_seqnum.TestSeqNum.test_classify_distinguishes_old_from_future) ... ok
++test_fwd_dist_wraps (test_seqnum.TestSeqNum.test_fwd_dist_wraps) ... ok
++test_no_plain_integer_wraparound_compare (test_seqnum.TestSeqNum.test_no_plain_integer_wraparound_compare) ... ok
++test_window_params_validated (test_seqnum.TestSeqNum.test_window_params_validated) ... ok
++test_close_schedules (test_vnet.TestEnumeration.test_close_schedules) ... ok
++test_conflicting_retransmit_schedules (test_vnet.TestEnumeration.test_conflicting_retransmit_schedules) ... ok
++test_fragmented_schedules_with_duplicate (test_vnet.TestEnumeration.test_fragmented_schedules_with_duplicate) ... ok
++test_wraparound_schedules (test_vnet.TestEnumeration.test_wraparound_schedules) ... ok
++test_minimize_failing_shrinks_schedule (test_vnet.TestScenarios.test_minimize_failing_shrinks_schedule) ... ok
++test_missing_last_fragment_parks_overflow (test_vnet.TestScenarios.test_missing_last_fragment_parks_overflow) ... ok
++test_replay_file_roundtrip (test_vnet.TestScenarios.test_replay_file_roundtrip) ... ok
++test_window_full_then_gap_fill_via_vnet (test_vnet.TestScenarios.test_window_full_then_gap_fill_via_vnet) ... ok
++
++----------------------------------------------------------------------
++Ran 35 tests in 3.146s
++
++OK
+diff --git a/msdeliv/__init__.py b/msdeliv/__init__.py
+new file mode 100644
+index 0000000..4604f68
+--- /dev/null
++++ b/msdeliv/__init__.py
+@@ -0,0 +1,26 @@
++"""msdeliv: multi-source ordered delivery layer with cyclic sequence numbers.
++
++Provides a per-(stream, epoch) reassembly and ordered-delivery layer with:
++  - cyclic sequence numbers compared only inside an explicit window
++  - fragmentation / reassembly with per-message content hashes
++  - duplicate, conflicting-retransmit, old and future frame classification
++  - selective ack ranges and gap retransmit requests
++  - deterministic backpressure when the receive window is full
++  - durable JSONL logging of receive / assemble / delivery commit points
++  - crash recovery with ack-set / output-cursor consistency
++"""
++
++from .frames import Frame, message_frames
++from .engine import DeliveryEngine
++from .seqnum import PAST, WINDOW, AMBIGUOUS, classify, fwd_dist
++
++__all__ = [
++    "Frame",
++    "message_frames",
++    "DeliveryEngine",
++    "PAST",
++    "WINDOW",
++    "AMBIGUOUS",
++    "classify",
++    "fwd_dist",
++]
+diff --git a/msdeliv/__pycache__/__init__.cpython-311.pyc b/msdeliv/__pycache__/__init__.cpython-311.pyc
+new file mode 100644
+index 0000000..731d757
+Binary files /dev/null and b/msdeliv/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/cli.cpython-311.pyc b/msdeliv/__pycache__/cli.cpython-311.pyc
+new file mode 100644
+index 0000000..e30d029
+Binary files /dev/null and b/msdeliv/__pycache__/cli.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/engine.cpython-311.pyc b/msdeliv/__pycache__/engine.cpython-311.pyc
+new file mode 100644
+index 0000000..66202ad
+Binary files /dev/null and b/msdeliv/__pycache__/engine.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/frames.cpython-311.pyc b/msdeliv/__pycache__/frames.cpython-311.pyc
+new file mode 100644
+index 0000000..d8e34e0
+Binary files /dev/null and b/msdeliv/__pycache__/frames.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/log.cpython-311.pyc b/msdeliv/__pycache__/log.cpython-311.pyc
+new file mode 100644
+index 0000000..d58fe4d
+Binary files /dev/null and b/msdeliv/__pycache__/log.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/receiver.cpython-311.pyc b/msdeliv/__pycache__/receiver.cpython-311.pyc
+new file mode 100644
+index 0000000..22c1da5
+Binary files /dev/null and b/msdeliv/__pycache__/receiver.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/refmodel.cpython-311.pyc b/msdeliv/__pycache__/refmodel.cpython-311.pyc
+new file mode 100644
+index 0000000..d7ef373
+Binary files /dev/null and b/msdeliv/__pycache__/refmodel.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/seqnum.cpython-311.pyc b/msdeliv/__pycache__/seqnum.cpython-311.pyc
+new file mode 100644
+index 0000000..3bd1a14
+Binary files /dev/null and b/msdeliv/__pycache__/seqnum.cpython-311.pyc differ
+diff --git a/msdeliv/__pycache__/vnet.cpython-311.pyc b/msdeliv/__pycache__/vnet.cpython-311.pyc
+new file mode 100644
+index 0000000..425a600
+Binary files /dev/null and b/msdeliv/__pycache__/vnet.cpython-311.pyc differ
+diff --git a/msdeliv/cli.py b/msdeliv/cli.py
+new file mode 100644
+index 0000000..cca8eca
+--- /dev/null
++++ b/msdeliv/cli.py
+@@ -0,0 +1,142 @@
++"""JSON-lines CLI.
++
++Usage: python3.11 -m msdeliv.cli < commands.jsonl
++
++One JSON command per line on stdin, one JSON event per line on stdout.
++
++Commands:
++  {"op":"new","mod":16,"window":4,"log":"path.jsonl"}   start a session
++  {"op":"send","frame":{...}}                           offer one frame
++  {"op":"poll"}                                         commit deliveries
++  {"op":"acks","stream":"s","epoch":0}                  selective acks
++  {"op":"state"}                                        engine state
++  {"op":"crash"}                                        drop memory, keep log
++  {"op":"recover"}                                      rebuild from log
++  {"op":"replay","schedule":[...],"prefix":[...]}       run via virtual net
++  {"op":"verify","schedule":[...],"prefix":[...]}       cross-check vs model
++"""
++
++from __future__ import annotations
++
++import json
++import sys
++
++from . import vnet
++from .engine import DeliveryEngine
++from .frames import Frame
++from .log import DurableLog
++
++
++class Session:
++    def __init__(self):
++        self.engine = None
++        self.log_path = None
++        self.mod = None
++        self.window = None
++
++    def handle(self, cmd):
++        op = cmd.get("op")
++        handler = getattr(self, f"op_{op}", None)
++        if handler is None:
++            return {"event": "error", "error": f"unknown op: {op}"}
++        try:
++            return handler(cmd)
++        except Exception as exc:  # keep the CLI total: report, don't crash
++            return {"event": "error", "error": f"{type(exc).__name__}: {exc}"}
++
++    def op_new(self, cmd):
++        self.mod = int(cmd.get("mod", 1 << 16))
++        self.window = int(cmd.get("window", 8))
++        self.capacity = cmd.get("capacity")
++        self.log_path = cmd.get("log")
++        if self.log_path:
++            open(self.log_path, "w").close()  # fresh session truncates the log
++        self.engine = DeliveryEngine(mod=self.mod, window=self.window,
++                                     capacity=self.capacity,
++                                     log=DurableLog(self.log_path))
++        return {"event": "ready", "mod": self.mod, "window": self.window,
++                "capacity": self.engine.capacity}
++
++    def op_send(self, cmd):
++        result = self.engine.offer(Frame.from_dict(cmd["frame"]))
++        result["event"] = "accept"
++        return result
++
++    def op_poll(self, cmd):
++        return {"event": "delivered", "outputs": self.engine.poll()}
++
++    def op_acks(self, cmd):
++        return {"event": "acks",
++                "acks": self.engine.acks(cmd["stream"], int(cmd["epoch"]))}
++
++    def op_state(self, cmd):
++        return {"event": "state", "state": self.engine.state()}
++
++    def op_crash(self, cmd):
++        if self.engine is not None:
++            self.engine.log.close()
++        self.engine = None
++        return {"event": "crashed"}
++
++    def op_recover(self, cmd):
++        path = cmd.get("log", self.log_path)
++        self.engine = DeliveryEngine.recover(path)
++        self.mod, self.window = self.engine.mod, self.engine.window
++        return {"event": "recovered", "cursor": self.engine.cursor,
++                "state": self.engine.state()}
++
++    def op_replay(self, cmd):
++        mod = int(cmd.get("mod", self.mod or (1 << 16)))
++        window = int(cmd.get("window", self.window or 8))
++        capacity = cmd.get("capacity")
++        prefix = [Frame.from_dict(d) for d in cmd.get("prefix", [])]
++        schedule = [Frame.from_dict(d) for d in cmd["schedule"]]
++        outputs, _engine, parked = vnet.run_schedule(schedule, mod, window,
++                                                     capacity,
++                                                     prefix)
++        return {"event": "outputs", "outputs": outputs,
++                "parked": [f.to_dict() for f in parked]}
++
++    def op_verify(self, cmd):
++        mod = int(cmd.get("mod", self.mod or (1 << 16)))
++        window = int(cmd.get("window", self.window or 8))
++        capacity = cmd.get("capacity")
++        prefix = [Frame.from_dict(d) for d in cmd.get("prefix", [])]
++        schedule = [Frame.from_dict(d) for d in cmd["schedule"]]
++        mismatches = vnet.compare(schedule, mod, window, capacity, prefix)
++        if not mismatches:
++            return {"event": "ok"}
++        minimal = vnet.minimize_failing(
++            schedule,
++            lambda s: bool(vnet.compare(s, mod, window, capacity, prefix)),
++        )
++        return {
++            "event": "mismatch",
++            "mismatches": mismatches,
++            "minimal_schedule": [f.to_dict() for f in minimal],
++            "prefix": [f.to_dict() for f in prefix],
++            "mod": mod,
++            "window": window,
++        }
++
++
++def main(argv=None):
++    session = Session()
++    out = sys.stdout
++    for line in sys.stdin:
++        line = line.strip()
++        if not line:
++            continue
++        try:
++            cmd = json.loads(line)
++        except json.JSONDecodeError as exc:
++            out.write(json.dumps({"event": "error", "error": str(exc)}) + "\n")
++            out.flush()
++            continue
++        out.write(json.dumps(session.handle(cmd), sort_keys=True) + "\n")
++        out.flush()
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/msdeliv/engine.py b/msdeliv/engine.py
+new file mode 100644
+index 0000000..7677da8
+--- /dev/null
++++ b/msdeliv/engine.py
+@@ -0,0 +1,172 @@
++"""Ordered delivery DeliveryEngine.
++
++Streams are keyed by (stream_id, epoch).  The engine logs receive,
++assemble and business-delivery commit points to a durable JSONL log and
++can be rebuilt from it after a crash.
++"""
++
++from __future__ import annotations
++
++from .frames import Frame
++from .log import DurableLog
++from .receiver import ACCEPTED, CONFLICT, ReassemblyBuffer
++from .seqnum import check_window_params
++
++STALE = "stale_epoch"
++
++
++class DeliveryEngine:
++    def __init__(self, mod=1 << 16, window=8, capacity=None, log=None,
++                 write_config=True):
++        check_window_params(mod, window)
++        self.mod = mod
++        self.window = window
++        self.capacity = capacity if capacity is not None else window
++        self.log = log if log is not None else DurableLog(None)
++        self.buffers = {}        # (stream, epoch) -> ReassemblyBuffer
++        self.active_epoch = {}   # stream -> highest epoch seen
++        self.cursor = 0          # global output cursor (commit point)
++        self.outputs = []        # committed delivery records
++        self._logging = True
++        if write_config:
++            self.log.record("config", mod=mod, window=window,
++                            capacity=self.capacity)
++
++    def offer(self, frame):
++        """Offer one frame (Frame or dict).  Returns a status dict."""
++        if isinstance(frame, dict):
++            frame = Frame.from_dict(frame)
++        active = self.active_epoch.get(frame.stream)
++        if active is not None and frame.epoch < active:
++            # Late frame from a superseded epoch: distinguishable from a
++            # future frame, rejected without touching current state.
++            evt = {"status": STALE, "stream": frame.stream,
++                   "epoch": frame.epoch, "active_epoch": active,
++                   "seq": frame.seq}
++            if self._logging:
++                self.log.record("stale", frame=frame.to_dict(),
++                                active_epoch=active)
++            return evt
++        if active is None or frame.epoch > active:
++            self.active_epoch[frame.stream] = frame.epoch
++        key = (frame.stream, frame.epoch)
++        buf = self.buffers.get(key)
++        if buf is None:
++            buf = ReassemblyBuffer(frame.stream, frame.epoch,
++                                   self.mod, self.window, self.capacity)
++            self.buffers[key] = buf
++        res = buf.accept(frame)
++        if self._logging and res.status == ACCEPTED:
++            self.log.record("recv", frame=frame.to_dict())
++            if res.detail.get("assembled"):
++                self.log.record("assembled", stream=frame.stream,
++                                epoch=frame.epoch, seq=frame.seq,
++                                hash=frame.hash)
++        if self._logging and res.status == CONFLICT:
++            self.log.record("conflict", frame=frame.to_dict(),
++                            evidence=res.detail)
++        return res.to_dict()
++
++    def poll(self):
++        """Commit all deliverable messages; returns delivery records."""
++        committed = []
++        for key in sorted(self.buffers):
++            buf = self.buffers[key]
++            for seq, content, hash_, close in buf.poll_ready():
++                rec = {
++                    "cursor": self.cursor,
++                    "stream": buf.stream,
++                    "epoch": buf.epoch,
++                    "seq": seq,
++                    "content": content,
++                    "hash": hash_,
++                    "close": close,
++                }
++                self.cursor += 1
++                self.outputs.append(rec)
++                committed.append(rec)
++                if self._logging:
++                    self.log.record("delivered", **rec)
++        return committed
++
++    def acks(self, stream, epoch):
++        buf = self.buffers.get((stream, epoch))
++        return buf.acks() if buf is not None else None
++
++    def evidence(self):
++        ev = []
++        for key in sorted(self.buffers):
++            ev.extend(self.buffers[key].evidence)
++        return ev
++
++    def state(self):
++        return {
++            "cursor": self.cursor,
++            "mod": self.mod,
++            "window": self.window,
++            "capacity": self.capacity,
++            "streams": [self.buffers[k].acks() for k in sorted(self.buffers)],
++        }
++
++    @classmethod
++    def recover(cls, log_path):
++        """Rebuild an engine from its durable log.
++
++        Replays recv / conflict / delivered events deterministically; the
++        recovered ack set and output cursor equal the logged ones.
++        Messages acknowledged but not yet delivered at the crash are
++        reassembled in memory and become deliverable on the next poll().
++        """
++        events = DurableLog.replay(log_path)
++        config = next((e for e in events if e["kind"] == "config"), None)
++        if config is None:
++            raise ValueError("log has no config header")
++        engine = cls(mod=config["mod"], window=config["window"],
++                     capacity=config.get("capacity"),
++                     log=DurableLog(log_path), write_config=False)
++        engine._logging = False
++        for ev in events:
++            kind = ev["kind"]
++            if kind == "config":
++                continue
++            if kind in ("recv", "conflict"):
++                engine.offer(Frame.from_dict(ev["frame"]))
++            elif kind == "delivered":
++                engine._apply_delivered(ev)
++            elif kind in ("assembled", "stale"):
++                continue  # informational / no state change
++            else:
++                raise ValueError(f"unknown log event: {kind}")
++        engine._logging = True
++        return engine
++
++    def _apply_delivered(self, ev):
++        key = (ev["stream"], ev["epoch"])
++        buf = self.buffers.get(key)
++        if buf is None:
++            raise ValueError("delivered event for unknown stream")
++        if buf.next_seq != ev["seq"]:
++            raise ValueError(
++                f"recovery mismatch: next_seq={buf.next_seq} != {ev['seq']}"
++            )
++        asm = buf.slots.pop(ev["seq"], None)
++        if asm is None or not asm.complete or asm.hash != ev["hash"]:
++            raise ValueError("recovery mismatch: incomplete or hash mismatch")
++        if ev["cursor"] != self.cursor:
++            raise ValueError("recovery mismatch: output cursor diverged")
++        buf._remember_delivered(ev["seq"], ev["hash"])
++        buf.next_seq = (ev["seq"] + 1) % buf.mod
++        buf.delivered_count += 1
++        if asm.close:
++            buf.closed = True
++        rec = {
++            "cursor": self.cursor,
++            "stream": ev["stream"],
++            "epoch": ev["epoch"],
++            "seq": ev["seq"],
++            "content": asm.content(),
++            "hash": ev["hash"],
++            "close": asm.close,
++        }
++        self.cursor += 1
++        self.outputs.append(rec)
+diff --git a/msdeliv/frames.py b/msdeliv/frames.py
+new file mode 100644
+index 0000000..4a9a740
+--- /dev/null
++++ b/msdeliv/frames.py
+@@ -0,0 +1,66 @@
++"""Frame model and helpers.
++
++A frame carries one fragment of one message.  Every fragment of a
++message repeats the message-level content hash so that a conflicting
++retransmit (same sequence number, different content) is detectable
++from any single fragment.
++"""
++
++from __future__ import annotations
++
++import hashlib
++from dataclasses import dataclass
++
++
++@dataclass(frozen=True)
++class Frame:
++    stream: str
++    epoch: int
++    seq: int
++    frag: int
++    frags: int
++    payload: str
++    hash: str
++    close: bool = False
++
++    def to_dict(self):
++        return {
++            "stream": self.stream,
++            "epoch": self.epoch,
++            "seq": self.seq,
++            "frag": self.frag,
++            "frags": self.frags,
++            "payload": self.payload,
++            "hash": self.hash,
++            "close": self.close,
++        }
++
++    @staticmethod
++    def from_dict(d):
++        return Frame(
++            stream=d["stream"],
++            epoch=int(d["epoch"]),
++            seq=int(d["seq"]),
++            frag=int(d["frag"]),
++            frags=int(d["frags"]),
++            payload=d["payload"],
++            hash=d["hash"],
++            close=bool(d.get("close", False)),
++        )
++
++
++def content_hash(content: str) -> str:
++    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
++
++
++def message_frames(stream, epoch, seq, content, frags=1, close=False):
++    """Split ``content`` into ``frags`` frames sharing one content hash."""
++    if frags < 1:
++        raise ValueError("frags must be >= 1")
++    h = content_hash(content)
++    size = (len(content) + frags - 1) // frags
++    parts = [content[i * size:(i + 1) * size] for i in range(frags)] or [""]
++    return [
++        Frame(stream, epoch, seq, i, frags, parts[i], h, close)
++        for i in range(frags)
++    ]
+diff --git a/msdeliv/log.py b/msdeliv/log.py
+new file mode 100644
+index 0000000..3cef1c4
+--- /dev/null
++++ b/msdeliv/log.py
+@@ -0,0 +1,47 @@
++"""Durable JSON-lines log for receive / assemble / delivery commit points.
++
++Every state-changing decision is appended (and fsynced) before it is
++reported to the caller, so a crash can lose at most the unacknowledged
++frames.  Recovery replays the log deterministically.
++"""
++
++from __future__ import annotations
++
++import json
++import os
++
++
++class DurableLog:
++    def __init__(self, path=None):
++        self.path = path
++        self.records = []
++        self._fh = None
++        if path is not None:
++            self._fh = open(path, "a", encoding="utf-8")
++
++    def record(self, kind, **fields):
++        rec = {"kind": kind}
++        rec.update(fields)
++        self.records.append(rec)
++        if self._fh is not None:
++            self._fh.write(json.dumps(rec, sort_keys=True) + "\n")
++            self._fh.flush()
++            os.fsync(self._fh.fileno())
++        return rec
++
++    def close(self):
++        if self._fh is not None:
++            self._fh.close()
++            self._fh = None
++
++    @staticmethod
++    def replay(path):
++        events = []
++        if path is None or not os.path.exists(path):
++            return events
++        with open(path, "r", encoding="utf-8") as fh:
++            for line in fh:
++                line = line.strip()
++                if line:
++                    events.append(json.loads(line))
++        return events
+diff --git a/msdeliv/receiver.py b/msdeliv/receiver.py
+new file mode 100644
+index 0000000..8934c16
+--- /dev/null
++++ b/msdeliv/receiver.py
+@@ -0,0 +1,232 @@
++"""Per-(stream, epoch) reassembly buffer with windowed flow control."""
++
++from __future__ import annotations
++
++from . import seqnum
++
++ACCEPTED = "accepted"
++DUPLICATE = "duplicate"
++OLD = "old"                # unambiguously in the past
++AMBIGUOUS = "ambiguous"    # outside the valid comparison window
++BUSY = "busy"              # window full: deterministic backpressure
++CONFLICT = "conflict"      # same seq, different content: atomically rejected
++CLOSED = "closed"          # stream already closed
++INVALID = "invalid"        # malformed frame
++
++
++class AcceptResult:
++    def __init__(self, status, **detail):
++        self.status = status
++        self.detail = detail
++
++    def to_dict(self):
++        out = {"status": self.status}
++        out.update(self.detail)
++        return out
++
++    def __repr__(self):
++        return f"AcceptResult({self.to_dict()!r})"
++
++
++class Assembly:
++    """Fragments of one message.
++
++    The first fragment pins the content hash; any later fragment
++    disagreeing with it is a conflict and mutates nothing.
++    """
++
++    __slots__ = ("frags_total", "hash", "close", "parts", "complete")
++
++    def __init__(self, frags_total, hash_, close):
++        self.frags_total = frags_total
++        self.hash = hash_
++        self.close = close
++        self.parts = {}
++        self.complete = False
++
++    def add(self, frame):
++        """Returns 'ok', 'duplicate' or 'conflict'. Never mutates on conflict."""
++        if (
++            frame.hash != self.hash
++            or frame.frags != self.frags_total
++            or frame.close != self.close
++            or not (0 <= frame.frag < self.frags_total)
++        ):
++            return "conflict"
++        if frame.frag in self.parts:
++            if self.parts[frame.frag] != frame.payload:
++                return "conflict"
++            return "duplicate"
++        self.parts[frame.frag] = frame.payload
++        if len(self.parts) == self.frags_total:
++            self.complete = True
++        return "ok"
++
++    def content(self):
++        return "".join(self.parts[i] for i in range(self.frags_total))
++
++
++class ReassemblyBuffer:
++    def __init__(self, stream, epoch, mod, window, capacity=None):
++        seqnum.check_window_params(mod, window)
++        if capacity is None:
++            capacity = window
++        if not (0 < capacity <= window):
++            raise ValueError("need 0 < capacity <= window")
++        self.stream = stream
++        self.epoch = epoch
++        self.mod = mod
++        self.window = window
++        self.capacity = capacity  # max out-of-order messages buffered
++        self.next_seq = 0            # next sequence number to deliver (cyclic)
++        self.delivered_count = 0     # absolute delivery cursor inside the epoch
++        self.slots = {}              # seq -> Assembly (window occupancy)
++        self.received_abs = set()    # absolute indices of fully received messages
++        self.delivered_hashes = {}   # seq -> hash of recently delivered messages
++        self.closed = False
++        self.evidence = []           # retained conflict evidence
++
++    def _classify(self, seq):
++        return seqnum.classify(seq, self.next_seq, self.mod, self.window)
++
++    def _abs_index(self, seq):
++        return self.delivered_count + seqnum.fwd_dist(self.next_seq, seq, self.mod)
++
++    def accept(self, frame):
++        if frame.stream != self.stream or frame.epoch != self.epoch:
++            return AcceptResult(INVALID, reason="wrong stream/epoch")
++        if frame.frags < 1 or not (0 <= frame.frag < frame.frags):
++            return AcceptResult(INVALID, reason="bad fragment coordinates")
++        if self.closed:
++            return AcceptResult(CLOSED, reason="stream closed", seq=frame.seq)
++
++        cls = self._classify(frame.seq)
++        if cls == seqnum.PAST:
++            kept = self.delivered_hashes.get(frame.seq)
++            if kept is not None and kept != frame.hash:
++                ev = self._evidence(frame, kept_hash=kept, kept_payload=None)
++                return AcceptResult(CONFLICT, **ev)
++            return AcceptResult(OLD, seq=frame.seq, next_seq=self.next_seq)
++        if cls == seqnum.AMBIGUOUS:
++            return AcceptResult(AMBIGUOUS, seq=frame.seq, next_seq=self.next_seq)
++
++        asm = self.slots.get(frame.seq)
++        if asm is None:
++            if len(self.slots) >= self.capacity and frame.seq != self.next_seq:
++                # Deterministic backpressure: the decision depends only on
++                # current state, and no acknowledged data is ever evicted.
++                # The head-of-line gap frame (seq == next_seq) is always
++                # admissible so a full window can never deadlock.
++                return AcceptResult(
++                    BUSY,
++                    seq=frame.seq,
++                    capacity=self.capacity,
++                    buffered=sorted(self.slots),
++                )
++            asm = Assembly(frame.frags, frame.hash, frame.close)
++            verdict = asm.add(frame)
++            if verdict == "conflict":  # unreachable after validation, be safe
++                return AcceptResult(INVALID, reason="inconsistent frame")
++            self.slots[frame.seq] = asm
++            if asm.complete:
++                self.received_abs.add(self._abs_index(frame.seq))
++            return AcceptResult(ACCEPTED, seq=frame.seq, assembled=asm.complete)
++
++        verdict = asm.add(frame)
++        if verdict == "conflict":
++            ev = self._evidence(
++                frame, kept_hash=asm.hash, kept_payload=asm.parts.get(frame.frag)
++            )
++            return AcceptResult(CONFLICT, **ev)
++        if verdict == "duplicate":
++            return AcceptResult(DUPLICATE, seq=frame.seq)
++        if asm.complete:
++            self.received_abs.add(self._abs_index(frame.seq))
++        return AcceptResult(ACCEPTED, seq=frame.seq, assembled=asm.complete)
++
++    def _evidence(self, frame, kept_hash, kept_payload):
++        ev = {
++            "stream": self.stream,
++            "epoch": self.epoch,
++            "seq": frame.seq,
++            "frag": frame.frag,
++            "kept_hash": kept_hash,
++            "rejected_hash": frame.hash,
++            "kept_payload": kept_payload,
++            "rejected_payload": frame.payload,
++        }
++        self.evidence.append(ev)
++        return ev
++
++    def poll_ready(self):
++        """Pop contiguous complete messages starting at next_seq."""
++        out = []
++        while True:
++            asm = self.slots.get(self.next_seq)
++            if asm is None or not asm.complete:
++                break
++            del self.slots[self.next_seq]
++            seq = self.next_seq
++            out.append((seq, asm.content(), asm.hash, asm.close))
++            self.next_seq = (self.next_seq + 1) % self.mod
++            self.delivered_count += 1
++            self._remember_delivered(seq, asm.hash)
++            if asm.close:
++                self.closed = True
++                break
++        return out
++
++    def _remember_delivered(self, seq, hash_):
++        self.delivered_hashes[seq] = hash_
++        keep = set()
++        for s in self.delivered_hashes:
++            d = (s - self.next_seq) % self.mod
++            if d >= self.mod - self.window:
++                keep.add(s)
++        self.delivered_hashes = {
++            s: h for s, h in self.delivered_hashes.items() if s in keep
++        }
++
++    def acks(self):
++        """Selective ack ranges and gap retransmit requests.
++
++        Ranges and gaps are offsets relative to ``next_seq``; only offsets
++        inside the valid comparison window are reported, so no cyclic
++        number is ever compared outside its valid window.
++        """
++        offsets = sorted(
++            a - self.delivered_count
++            for a in self.received_abs
++            if -self.window <= a - self.delivered_count < self.window
++        )
++        ranges = []
++        for off in offsets:
++            if ranges and off == ranges[-1][1] + 1:
++                ranges[-1][1] = off
++            else:
++                ranges.append([off, off])
++        gaps = []
++        if offsets:
++            have = set(offsets)
++            for off in range(0, offsets[-1] + 1):
++                if off in have:
++                    continue
++                if gaps and off == gaps[-1][1] + 1:
++                    gaps[-1][1] = off
++                else:
++                    gaps.append([off, off])
++        retransmit = [
++            (self.next_seq + off) % self.mod
++            for start, end in gaps
++            for off in range(start, end + 1)
++        ]
++        return {
++            "stream": self.stream,
++            "epoch": self.epoch,
++            "next_seq": self.next_seq,
++            "delivered": self.delivered_count,
++            "closed": self.closed,
++            "ack_ranges": ranges,
++            "gap_ranges": gaps,
++            "retransmit": retransmit,
++        }
+diff --git a/msdeliv/refmodel.py b/msdeliv/refmodel.py
+new file mode 100644
+index 0000000..f2a7441
+--- /dev/null
++++ b/msdeliv/refmodel.py
+@@ -0,0 +1,101 @@
++"""Independent unbounded reference buffer model.
++
++Used only to cross-check the real engine.  It has no receive window, no
++capacity limit and no backpressure: every frame is mapped to an absolute
++message index (nearest cycle to the delivery cursor) and buffered
++forever; delivery is the contiguous prefix from index 0 and stops at a
++close message.  Conflicting content never overwrites what was first
++accepted.  This is a deliberately separate, simpler implementation of
++the same externally visible contract.
++
++Validity condition (shared with any cyclic-sequence protocol): a frame
++must not be delayed by a full cycle or more, otherwise its sequence
++number aliases and no receiver could classify it.
++"""
++
++from __future__ import annotations
++
++from .frames import Frame
++
++
++class _StreamModel:
++    def __init__(self, mod):
++        self.mod = mod
++        self.next_abs = 0            # absolute index of next expected message
++        self.msgs = {}               # abs index -> assembly
++        self.delivered_hashes = {}   # abs index -> hash
++        self.out = []                # delivered records
++        self.closed = False
++        self.conflict = False
++
++    def offer(self, frame):
++        if self.closed:
++            return
++        next_seq = self.next_abs % self.mod
++        d = (frame.seq - next_seq) % self.mod
++        if d <= self.mod // 2:
++            abs_idx = self.next_abs + d
++        else:
++            abs_idx = self.next_abs + d - self.mod
++        if abs_idx < self.next_abs:
++            kept = self.delivered_hashes.get(abs_idx)
++            if kept is not None and kept != frame.hash:
++                self.conflict = True
++            return
++        msg = self.msgs.get(abs_idx)
++        if msg is None:
++            if frame.frags < 1 or not (0 <= frame.frag < frame.frags):
++                return
++            msg = {"hash": frame.hash, "frags": frame.frags,
++                   "close": frame.close, "parts": {}}
++            self.msgs[abs_idx] = msg
++        if (
++            frame.hash != msg["hash"]
++            or frame.frags != msg["frags"]
++            or frame.close != msg["close"]
++            or not (0 <= frame.frag < msg["frags"])
++            or (frame.frag in msg["parts"]
++                and msg["parts"][frame.frag] != frame.payload)
++        ):
++            self.conflict = True
++            return
++        msg["parts"][frame.frag] = frame.payload
++        self._drain()
++
++    def _drain(self):
++        while True:
++            msg = self.msgs.get(self.next_abs)
++            if msg is None or len(msg["parts"]) < msg["frags"]:
++                return
++            del self.msgs[self.next_abs]
++            content = "".join(msg["parts"][i] for i in range(msg["frags"]))
++            self.out.append({
++                "seq": self.next_abs % self.mod,
++                "content": content,
++                "hash": msg["hash"],
++                "close": msg["close"],
++            })
++            self.delivered_hashes[self.next_abs] = msg["hash"]
++            self.next_abs += 1
++            if msg["close"]:
++                self.closed = True
++                return
++
++
++class ReferenceModel:
++    def __init__(self, mod):
++        self.mod = mod
++        self.streams = {}
++
++    def offer(self, frame):
++        if isinstance(frame, dict):
++            frame = Frame.from_dict(frame)
++        key = (frame.stream, frame.epoch)
++        model = self.streams.get(key)
++        if model is None:
++            model = _StreamModel(self.mod)
++            self.streams[key] = model
++        model.offer(frame)
++
++    def delivered(self):
++        return {key: list(model.out) for key, model in self.streams.items()}
+diff --git a/msdeliv/seqnum.py b/msdeliv/seqnum.py
+new file mode 100644
+index 0000000..7fa055d
+--- /dev/null
++++ b/msdeliv/seqnum.py
+@@ -0,0 +1,44 @@
++"""Cyclic sequence-number arithmetic.
++
++Sequence numbers live in ``Z/mod``.  A comparison between two sequence
++numbers is only meaningful when their forward distance is known to be
++small; therefore all classification is done relative to an explicit
++window anchored at the next expected sequence number:
++
++  * offset ``d = (seq - base) mod mod``
++  * ``0 <= d < window``            -> inside the receive window
++  * ``mod - window <= d < mod``    -> unambiguously in the past (old)
++  * anything else                  -> ambiguous, comparison is invalid
++
++The ambiguous band exists because with cyclic numbers a far-ahead
++"future" value and a far-behind "past" value are indistinguishable
++without extra state; frames landing there must be rejected, never
++ordered by plain integer comparison.
++"""
++
++PAST = "past"
++WINDOW = "window"
++AMBIGUOUS = "ambiguous"
++
++
++def check_window_params(mod, window):
++    if not isinstance(mod, int) or mod <= 0 or (mod & (mod - 1)) != 0:
++        raise ValueError("mod must be a positive power of two")
++    if not isinstance(window, int) or window <= 0 or 2 * window >= mod:
++        raise ValueError("need 0 < 2*window < mod for unambiguous comparison")
++
++
++def fwd_dist(a, b, mod):
++    """Forward distance from ``a`` to ``b`` on the cycle of size ``mod``."""
++    return (b - a) % mod
++
++
++def classify(seq, base, mod, window):
++    """Classify ``seq`` relative to ``base`` (the next expected number)."""
++    check_window_params(mod, window)
++    d = (seq - base) % mod
++    if d < window:
++        return WINDOW
++    if d >= mod - window:
++        return PAST
++    return AMBIGUOUS
+diff --git a/msdeliv/vnet.py b/msdeliv/vnet.py
+new file mode 100644
+index 0000000..584c51b
+--- /dev/null
++++ b/msdeliv/vnet.py
+@@ -0,0 +1,130 @@
++"""Virtual network: deterministic schedule runner and cross-checker.
++
++A schedule is a list of frames offered in order.  Frames answered with
++deterministic backpressure (busy) or classified ambiguous (too far
++ahead of the window) are parked and retried whenever the engine state
++changes, modelling a sender that retransmits until acknowledged.
++
++``compare`` runs the same schedule through the engine and through the
++independent unbounded reference model and reports any divergence in
++delivered output.  ``minimize_failing`` shrinks a failing schedule to
++a minimal replayable one.
++"""
++
++from __future__ import annotations
++
++from .engine import DeliveryEngine
++from .frames import Frame
++from .log import DurableLog
++from .receiver import AMBIGUOUS, BUSY
++from .refmodel import ReferenceModel
++
++RETRYABLE = (BUSY, AMBIGUOUS)
++
++
++def run_schedule(schedule, mod, window, capacity=None, prefix=()):
++    """Run a schedule through the engine. Returns (outputs, engine, parked)."""
++    engine = DeliveryEngine(mod=mod, window=window, capacity=capacity,
++                            log=DurableLog(None))
++    outputs = []
++    parked = []
++
++    def pump():
++        progressed = True
++        while progressed:
++            progressed = False
++            new = engine.poll()
++            if new:
++                outputs.extend(new)
++                progressed = True
++            if parked:
++                still = []
++                for f in parked:
++                    status = engine.offer(f)["status"]
++                    if status in RETRYABLE:
++                        still.append(f)
++                    else:
++                        progressed = True
++                if len(still) != len(parked):
++                    parked[:] = still
++
++    for frame in list(prefix) + list(schedule):
++        frame = _as_frame(frame)
++        status = engine.offer(frame)["status"]
++        if status in RETRYABLE:
++            parked.append(frame)
++        pump()
++    for _ in range(2 * len(parked) + 4):
++        if not parked:
++            break
++        before = (len(parked), len(outputs))
++        pump()
++        if (len(parked), len(outputs)) == before:
++            break
++    return outputs, engine, list(parked)
++
++
++def compare(schedule, mod, window, capacity=None, prefix=()):
++    """Cross-check engine output against the reference model."""
++    outputs, _engine, _parked = run_schedule(schedule, mod, window, capacity,
++                                             prefix)
++    ref = ReferenceModel(mod)
++    for frame in list(prefix) + list(schedule):
++        ref.offer(_as_frame(frame))
++    ref_delivered = ref.delivered()
++    eng_grouped = {}
++    for rec in outputs:
++        eng_grouped.setdefault((rec["stream"], rec["epoch"]), []).append(
++            {k: rec[k] for k in ("seq", "content", "hash", "close")}
++        )
++    mismatches = []
++    keys = sorted(set(ref_delivered) | set(eng_grouped))
++    for key in keys:
++        ref_recs = [
++            {k: r[k] for k in ("seq", "content", "hash", "close")}
++            for r in ref_delivered.get(key, [])
++        ]
++        eng_recs = eng_grouped.get(key, [])
++        if ref_recs != eng_recs:
++            mismatches.append({
++                "stream": key[0],
++                "epoch": key[1],
++                "engine": eng_recs,
++                "reference": ref_recs,
++            })
++    return mismatches
++
++
++def minimize_failing(schedule, is_failing):
++    """Greedy 1-minimality: remove frames while the schedule still fails."""
++    sched = list(schedule)
++    changed = True
++    while changed:
++        changed = False
++        for i in range(len(sched)):
++            candidate = sched[:i] + sched[i + 1:]
++            if candidate and is_failing(candidate):
++                sched = candidate
++                changed = True
++                break
++    return sched
++
++
++def replay_file(path, mod=None, window=None, capacity=None):
++    """Replay a recorded JSON schedule; returns the delivered outputs."""
++    import json
++
++    with open(path, "r", encoding="utf-8") as fh:
++        doc = json.load(fh)
++    mod = mod if mod is not None else doc["mod"]
++    window = window if window is not None else doc["window"]
++    capacity = capacity if capacity is not None else doc.get("capacity")
++    prefix = [Frame.from_dict(d) for d in doc.get("prefix", [])]
++    schedule = [Frame.from_dict(d) for d in doc["schedule"]]
++    outputs, _engine, parked = run_schedule(schedule, mod, window, capacity,
++                                            prefix)
++    return {"outputs": outputs, "parked": [f.to_dict() for f in parked]}
++
++
++def _as_frame(frame):
++    return Frame.from_dict(frame) if isinstance(frame, dict) else frame
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/tests/__init__.py
+@@ -0,0 +1 @@
++
+diff --git a/tests/__pycache__/test_cli.cpython-311.pyc b/tests/__pycache__/test_cli.cpython-311.pyc
+new file mode 100644
+index 0000000..fc4c7d9
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_engine.cpython-311.pyc b/tests/__pycache__/test_engine.cpython-311.pyc
+new file mode 100644
+index 0000000..964d20f
+Binary files /dev/null and b/tests/__pycache__/test_engine.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_receiver.cpython-311.pyc b/tests/__pycache__/test_receiver.cpython-311.pyc
+new file mode 100644
+index 0000000..afbde68
+Binary files /dev/null and b/tests/__pycache__/test_receiver.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_seqnum.cpython-311.pyc b/tests/__pycache__/test_seqnum.cpython-311.pyc
+new file mode 100644
+index 0000000..296c945
+Binary files /dev/null and b/tests/__pycache__/test_seqnum.cpython-311.pyc differ
+diff --git a/tests/__pycache__/test_vnet.cpython-311.pyc b/tests/__pycache__/test_vnet.cpython-311.pyc
+new file mode 100644
+index 0000000..af85a6b
+Binary files /dev/null and b/tests/__pycache__/test_vnet.cpython-311.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..3a3444d
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,90 @@
++import json
++import os
++import subprocess
++import sys
++import tempfile
++import unittest
++
++from msdeliv.frames import message_frames
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++
++
++def run_cli(commands):
++    env = dict(os.environ)
++    env["PYTHONPATH"] = REPO_ROOT + os.pathsep + env.get("PYTHONPATH", "")
++    proc = subprocess.run(
++        [sys.executable, "-m", "msdeliv.cli"],
++        input="\n".join(json.dumps(c) for c in commands) + "\n",
++        capture_output=True,
++        text=True,
++        cwd=REPO_ROOT,
++        env=env,
++        timeout=60,
++    )
++    assert proc.returncode == 0, proc.stderr
++    return [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
++
++
++class TestCli(unittest.TestCase):
++    def test_session_send_poll_acks(self):
++        (m0,) = message_frames("s", 0, 0, "zero")
++        (m2,) = message_frames("s", 0, 2, "two")
++        events = run_cli([
++            {"op": "new", "mod": 16, "window": 4},
++            {"op": "send", "frame": m2.to_dict()},
++            {"op": "poll"},
++            {"op": "acks", "stream": "s", "epoch": 0},
++            {"op": "send", "frame": m0.to_dict()},
++            {"op": "poll"},
++        ])
++        self.assertEqual(events[0]["event"], "ready")
++        self.assertEqual(events[1]["status"], "accepted")
++        self.assertEqual(events[2]["outputs"], [])  # gap at seq 0... wait seq1 missing
++        self.assertEqual(events[3]["acks"]["retransmit"], [0, 1])
++        self.assertEqual(events[4]["status"], "accepted")
++        contents = [o["content"] for o in events[5]["outputs"]]
++        self.assertEqual(contents, ["zero"])  # seq 1 still missing
++
++    def test_crash_recover_via_cli(self):
++        (m0,) = message_frames("s", 0, 0, "zero")
++        (m1,) = message_frames("s", 0, 1, "one")
++        with tempfile.TemporaryDirectory() as d:
++            log = os.path.join(d, "log.jsonl")
++            events = run_cli([
++                {"op": "new", "mod": 16, "window": 4, "log": log},
++                {"op": "send", "frame": m0.to_dict()},
++                {"op": "send", "frame": m1.to_dict()},
++                {"op": "crash"},
++                {"op": "recover"},
++                {"op": "poll"},
++            ])
++        self.assertEqual(events[3]["event"], "crashed")
++        self.assertEqual(events[4]["event"], "recovered")
++        self.assertEqual(events[4]["cursor"], 0)
++        contents = [o["content"] for o in events[5]["outputs"]]
++        self.assertEqual(contents, ["zero", "one"])
++
++    def test_replay_and_verify_ops(self):
++        frames = (
++            message_frames("s", 0, 1, "one")
++            + message_frames("s", 0, 0, "zero")
++        )
++        schedule = [f.to_dict() for f in frames]
++        events = run_cli([
++            {"op": "replay", "mod": 16, "window": 4, "schedule": schedule},
++            {"op": "verify", "mod": 16, "window": 4, "schedule": schedule},
++        ])
++        self.assertEqual(events[0]["event"], "outputs")
++        self.assertEqual(
++            [o["content"] for o in events[0]["outputs"]], ["zero", "one"]
++        )
++        self.assertEqual(events[1]["event"], "ok")
++
++    def test_unknown_op_and_bad_json(self):
++        events = run_cli([{"op": "nope"}])
++        self.assertEqual(events[0]["event"], "error")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_engine.py b/tests/test_engine.py
+new file mode 100644
+index 0000000..b378f9a
+--- /dev/null
++++ b/tests/test_engine.py
+@@ -0,0 +1,144 @@
++import os
++import tempfile
++import unittest
++
++from msdeliv.engine import STALE, DeliveryEngine
++from msdeliv.frames import message_frames
++from msdeliv.log import DurableLog
++from msdeliv.receiver import ACCEPTED, CONFLICT, OLD
++
++
++class EngineCase(unittest.TestCase):
++    def setUp(self):
++        self.dir = tempfile.TemporaryDirectory()
++        self.log_path = os.path.join(self.dir.name, "engine.jsonl")
++
++    def tearDown(self):
++        self.dir.cleanup()
++
++    def engine(self, mod=16, window=4, capacity=None):
++        eng = DeliveryEngine(mod=mod, window=window, capacity=capacity,
++                             log=DurableLog(self.log_path))
++        self.addCleanup(eng.log.close)
++        return eng
++
++    def recover(self):
++        eng = DeliveryEngine.recover(self.log_path)
++        self.addCleanup(eng.log.close)
++        return eng
++
++
++class TestPersistence(EngineCase):
++    def test_crash_after_ack_before_delivery_commit(self):
++        eng = self.engine()
++        (m0,) = message_frames("s", 0, 0, "zero")
++        (m1,) = message_frames("s", 0, 1, "one")
++        self.assertEqual(eng.offer(m0)["status"], ACCEPTED)  # acked, durable
++        self.assertEqual(eng.offer(m1)["status"], ACCEPTED)
++        eng.log.close()  # crash: no poll(), no delivered commit
++
++        rec = self.recover()
++        self.assertEqual(rec.cursor, 0)
++        out = rec.poll()  # acked-but-undelivered data is not lost
++        self.assertEqual([r["content"] for r in out], ["zero", "one"])
++        self.assertEqual(rec.cursor, 2)
++
++    def test_crash_after_delivery_commit_no_duplicate(self):
++        eng = self.engine()
++        (m0,) = message_frames("s", 0, 0, "zero")
++        eng.offer(m0)
++        self.assertEqual(len(eng.poll()), 1)
++        eng.log.close()
++
++        rec = self.recover()
++        self.assertEqual(rec.cursor, 1)
++        self.assertEqual(rec.poll(), [])  # not delivered twice
++        self.assertEqual(rec.offer(m0)["status"], OLD)  # retransmit is old
++
++    def test_crash_before_ack_needs_retransmit(self):
++        eng = self.engine()
++        eng.log.close()  # crash before anything was acknowledged
++        rec = self.recover()
++        (m0,) = message_frames("s", 0, 0, "zero")
++        self.assertEqual(rec.offer(m0)["status"], ACCEPTED)
++        self.assertEqual([r["content"] for r in rec.poll()], ["zero"])
++
++    def test_ack_set_and_cursor_consistent_after_recovery(self):
++        eng = self.engine()
++        frags = message_frames("s", 0, 0, "abcdef", frags=3)
++        (m1,) = message_frames("s", 0, 1, "one")
++        (m2,) = message_frames("s", 0, 2, "two")
++        eng.offer(frags[0])
++        eng.offer(m2)
++        eng.offer(m1)
++        eng.poll()
++        before = eng.acks("s", 0)
++        cursor_before = eng.cursor
++        eng.log.close()
++
++        rec = self.recover()
++        self.assertEqual(rec.acks("s", 0), before)
++        self.assertEqual(rec.cursor, cursor_before)
++        # finishing the message works identically after recovery
++        rec.offer(frags[1])
++        rec.offer(frags[2])
++        self.assertEqual([r["content"] for r in rec.poll()],
++                         ["abcdef", "one", "two"])
++
++    def test_conflict_evidence_survives_recovery(self):
++        eng = self.engine()
++        (good,) = message_frames("s", 0, 0, "good")
++        (evil,) = message_frames("s", 0, 0, "evil")
++        eng.offer(good)
++        self.assertEqual(eng.offer(evil)["status"], CONFLICT)
++        eng.log.close()
++
++        rec = self.recover()
++        ev = rec.evidence()
++        self.assertEqual(len(ev), 1)
++        self.assertEqual(ev[0]["kept_hash"], good.hash)
++        self.assertEqual(ev[0]["rejected_hash"], evil.hash)
++        self.assertEqual([r["content"] for r in rec.poll()], ["good"])
++
++    def test_recovery_detects_corrupt_log(self):
++        eng = self.engine()
++        (m1,) = message_frames("s", 0, 1, "one")
++        eng.offer(m1)  # only seq 1 logged; a delivered event for 0 is corrupt
++        eng.log.record("delivered", cursor=0, stream="s", epoch=0, seq=0,
++                       content="x", hash="bad", close=False)
++        eng.log.close()
++        with self.assertRaises(ValueError):
++            self.recover()
++
++
++class TestEpochs(EngineCase):
++    def test_late_frame_from_previous_epoch_is_stale(self):
++        eng = self.engine()
++        (m0,) = message_frames("s", 0, 0, "epoch0-zero")
++        (n0,) = message_frames("s", 1, 0, "epoch1-zero")
++        eng.offer(m0)
++        eng.poll()
++        self.assertEqual(eng.offer(n0)["status"], ACCEPTED)  # epoch advances
++        late = message_frames("s", 0, 1, "epoch0-one")[0]
++        res = eng.offer(late)
++        self.assertEqual(res["status"], STALE)
++        self.assertEqual(res["active_epoch"], 1)
++        # state not corrupted: epoch 1 still delivers in order
++        self.assertEqual([r["content"] for r in eng.poll()], ["epoch1-zero"])
++        # epoch 0 buffer untouched
++        self.assertEqual(eng.acks("s", 0)["delivered"], 1)
++
++    def test_epochs_recover_consistently(self):
++        eng = self.engine()
++        eng.offer(message_frames("s", 0, 0, "e0")[0])
++        eng.offer(message_frames("s", 1, 0, "e1")[0])
++        eng.poll()
++        eng.log.close()
++        rec = self.recover()
++        self.assertEqual(rec.cursor, 2)
++        late = message_frames("s", 0, 1, "late")[0]
++        self.assertEqual(rec.offer(late)["status"], STALE)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_receiver.py b/tests/test_receiver.py
+new file mode 100644
+index 0000000..19bea72
+--- /dev/null
++++ b/tests/test_receiver.py
+@@ -0,0 +1,150 @@
++import unittest
++
++from msdeliv.frames import message_frames
++from msdeliv.receiver import (
++    ACCEPTED,
++    AMBIGUOUS,
++    BUSY,
++    CLOSED,
++    CONFLICT,
++    DUPLICATE,
++    OLD,
++    ReassemblyBuffer,
++)
++
++
++def buf(mod=16, window=4, capacity=None):
++    return ReassemblyBuffer("s", 0, mod, window, capacity)
++
++
++class TestReceiver(unittest.TestCase):
++    def test_in_order_delivery(self):
++        b = buf()
++        for f in message_frames("s", 0, 0, "hello", frags=2):
++            self.assertEqual(b.accept(f).status, ACCEPTED)
++        out = b.poll_ready()
++        self.assertEqual([(s, c) for s, c, _, _ in out], [(0, "hello")])
++        self.assertEqual(b.next_seq, 1)
++
++    def test_out_of_order_then_gap_fill_cascades(self):
++        b = buf()
++        (m1,) = message_frames("s", 0, 1, "one")
++        (m2,) = message_frames("s", 0, 2, "two")
++        (m0,) = message_frames("s", 0, 0, "zero")
++        b.accept(m2)
++        b.accept(m1)
++        self.assertEqual(b.poll_ready(), [])
++        b.accept(m0)
++        out = b.poll_ready()
++        self.assertEqual([c for _, c, _, _ in out], ["zero", "one", "two"])
++
++    def test_duplicate_is_idempotent(self):
++        b = buf()
++        (m,) = message_frames("s", 0, 0, "x")
++        self.assertEqual(b.accept(m).status, ACCEPTED)
++        self.assertEqual(b.accept(m).status, DUPLICATE)
++        self.assertEqual(len(b.poll_ready()), 1)
++
++    def test_missing_last_fragment_blocks_and_requests_gap(self):
++        b = buf()
++        frags = message_frames("s", 0, 0, "abcdef", frags=3)
++        (m1,) = message_frames("s", 0, 1, "next")
++        b.accept(frags[0])
++        b.accept(frags[1])
++        b.accept(m1)
++        self.assertEqual(b.poll_ready(), [])
++        acks = b.acks()
++        self.assertEqual(acks["retransmit"], [0])
++        self.assertEqual(acks["ack_ranges"], [[1, 1]])
++        b.accept(frags[2])
++        out = b.poll_ready()
++        self.assertEqual([c for _, c, _, _ in out], ["abcdef", "next"])
++
++    def test_conflicting_retransmit_rejected_atomically_with_evidence(self):
++        b = buf()
++        (good,) = message_frames("s", 0, 0, "good")
++        (evil,) = message_frames("s", 0, 0, "evil")
++        b.accept(good)
++        res = b.accept(evil)
++        self.assertEqual(res.status, CONFLICT)
++        self.assertEqual(len(b.evidence), 1)
++        ev = b.evidence[0]
++        self.assertEqual(ev["kept_hash"], good.hash)
++        self.assertEqual(ev["rejected_hash"], evil.hash)
++        self.assertEqual(ev["rejected_payload"], "evil")
++        out = b.poll_ready()
++        self.assertEqual([c for _, c, _, _ in out], ["good"])
++
++    def test_conflict_after_delivery_still_recorded(self):
++        b = buf()
++        (good,) = message_frames("s", 0, 0, "good")
++        (evil,) = message_frames("s", 0, 0, "evil")
++        b.accept(good)
++        b.poll_ready()
++        res = b.accept(evil)
++        self.assertEqual(res.status, CONFLICT)
++        self.assertEqual(len(b.evidence), 1)
++
++    def test_close_and_duplicate_close(self):
++        b = buf()
++        (fin,) = message_frames("s", 0, 0, "bye", close=True)
++        self.assertEqual(b.accept(fin).status, ACCEPTED)
++        self.assertEqual(b.accept(fin).status, DUPLICATE)
++        out = b.poll_ready()
++        self.assertTrue(out[0][3])
++        self.assertTrue(b.closed)
++        self.assertEqual(b.accept(fin).status, CLOSED)
++        (m1,) = message_frames("s", 0, 1, "late")
++        self.assertEqual(b.accept(m1).status, CLOSED)
++
++    def test_backpressure_window_full_then_gap_fill(self):
++        b = buf(mod=16, window=4, capacity=2)
++        (m1,) = message_frames("s", 0, 1, "one")
++        (m2,) = message_frames("s", 0, 2, "two")
++        (m3,) = message_frames("s", 0, 3, "three")
++        (m0,) = message_frames("s", 0, 0, "zero")
++        b.accept(m1)
++        b.accept(m2)
++        res = b.accept(m3)
++        self.assertEqual(res.status, BUSY)
++        self.assertEqual(b.accept(m3).status, BUSY)
++        self.assertEqual(sorted(b.slots), [1, 2])
++        self.assertEqual(b.accept(m0).status, ACCEPTED)
++        out = b.poll_ready()
++        self.assertEqual([c for _, c, _, _ in out], ["zero", "one", "two"])
++        self.assertEqual(b.accept(m3).status, ACCEPTED)
++
++    def test_ambiguous_and_old_classification(self):
++        b = buf(mod=16, window=4)
++        for seq in range(6):
++            (m,) = message_frames("s", 0, seq, f"m{seq}")
++            b.accept(m)
++            b.poll_ready()
++        (far_future,) = message_frames("s", 0, (6 + 6) % 16, "future")
++        self.assertEqual(b.accept(far_future).status, AMBIGUOUS)
++        (old,) = message_frames("s", 0, 4, "m4")  # exact retransmit: old
++        self.assertEqual(b.accept(old).status, OLD)
++        (changed,) = message_frames("s", 0, 4, "changed")  # conflict: evidence
++        self.assertEqual(b.accept(changed).status, CONFLICT)
++
++    def test_wraparound_delivery(self):
++        b = buf(mod=8, window=3)
++        delivered = []
++        for i in range(12):
++            seq = i % 8
++            (m,) = message_frames("s", 0, seq, f"m{i}")
++            self.assertEqual(b.accept(m).status, ACCEPTED, i)
++            delivered.extend(b.poll_ready())
++        self.assertEqual(len(delivered), 12)
++        self.assertEqual(b.next_seq, 4)
++        self.assertEqual(b.delivered_count, 12)
++        # exact retransmit of the most recent seq-2 message ("m10"): old
++        (stale,) = message_frames("s", 0, 2, "m10")
++        self.assertEqual(b.accept(stale).status, OLD)
++        # same seq, different content: conflict with retained evidence
++        (forged,) = message_frames("s", 0, 2, "m2")
++        self.assertEqual(b.accept(forged).status, CONFLICT)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_seqnum.py b/tests/test_seqnum.py
+new file mode 100644
+index 0000000..9b085f9
+--- /dev/null
++++ b/tests/test_seqnum.py
+@@ -0,0 +1,54 @@
++import unittest
++
++from msdeliv.seqnum import (
++    AMBIGUOUS,
++    PAST,
++    WINDOW,
++    check_window_params,
++    classify,
++    fwd_dist,
++)
++
++
++class TestSeqNum(unittest.TestCase):
++    def test_window_params_validated(self):
++        check_window_params(16, 4)
++        with self.assertRaises(ValueError):
++            check_window_params(16, 8)   # 2*window must be < mod
++        with self.assertRaises(ValueError):
++            check_window_params(15, 4)   # mod must be a power of two
++        with self.assertRaises(ValueError):
++            check_window_params(16, 0)
++
++    def test_fwd_dist_wraps(self):
++        self.assertEqual(fwd_dist(14, 2, 16), 4)
++        self.assertEqual(fwd_dist(2, 14, 16), 12)
++        self.assertEqual(fwd_dist(5, 5, 16), 0)
++
++    def test_classify_distinguishes_old_from_future(self):
++        # base=14, mod=16, window=4:
++        #   window    = {14, 15, 0, 1}   (offsets 0..3)
++        #   ambiguous = {2, ..., 9}      (offsets 4..11)
++        #   past      = {10, 11, 12, 13} (offsets 12..15)
++        for seq in (14, 15, 0, 1):
++            self.assertEqual(classify(seq, 14, 16, 4), WINDOW, seq)
++        for seq in (2, 5, 9):
++            self.assertEqual(classify(seq, 14, 16, 4), AMBIGUOUS, seq)
++        for seq in (10, 11, 12, 13):
++            self.assertEqual(classify(seq, 14, 16, 4), PAST, seq)
++
++    def test_boundaries(self):
++        # offset exactly window -> ambiguous; offset exactly mod-window -> past
++        self.assertEqual(classify(4, 0, 16, 4), AMBIGUOUS)
++        self.assertEqual(classify(12, 0, 16, 4), PAST)
++        self.assertEqual(classify(3, 0, 16, 4), WINDOW)
++
++    def test_no_plain_integer_wraparound_compare(self):
++        # seq 1 < seq 13 as integers, but relative to base 14 the "smaller"
++        # 1 is in-window future while the "larger" 13 is old past.
++        self.assertEqual(classify(1, 14, 16, 4), WINDOW)
++        self.assertEqual(classify(13, 14, 16, 4), PAST)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_vnet.py b/tests/test_vnet.py
+new file mode 100644
+index 0000000..d86da14
+--- /dev/null
++++ b/tests/test_vnet.py
+@@ -0,0 +1,155 @@
++import itertools
++import json
++import os
++import tempfile
++import unittest
++
++from msdeliv import vnet
++from msdeliv.frames import message_frames
++
++
++def unique_permutations(frames):
++    return set(itertools.permutations(frames))
++
++
++def check_all(schedules, mod, window, capacity=None, prefix=()):
++    checked = 0
++    for sched in schedules:
++        mismatches = vnet.compare(list(sched), mod, window, capacity, prefix)
++        if mismatches:
++            minimal = vnet.minimize_failing(
++                list(sched),
++                lambda s: bool(vnet.compare(s, mod, window, capacity, prefix)),
++            )
++            doc = {
++                "mod": mod,
++                "window": window,
++                "capacity": capacity,
++                "prefix": [f.to_dict() for f in prefix],
++                "schedule": [f.to_dict() for f in minimal],
++            }
++            raise AssertionError(
++                "engine/reference divergence; minimal replayable schedule:\n"
++                + json.dumps(doc, indent=1)
++            )
++        checked += 1
++    return checked
++
++
++class TestEnumeration(unittest.TestCase):
++    def test_fragmented_schedules_with_duplicate(self):
++        mod, window, capacity = 16, 4, 2
++        frames = (
++            message_frames("s", 0, 0, "aaa", frags=2)
++            + message_frames("s", 0, 1, "b")
++            + message_frames("s", 0, 2, "c")
++            + message_frames("s", 0, 3, "d")
++        )
++        frames.append(frames[2])  # duplicate of message 1
++        checked = check_all(unique_permutations(frames), mod, window, capacity)
++        self.assertGreater(checked, 100)
++
++    def test_wraparound_schedules(self):
++        mod, window, capacity = 8, 3, 2
++        prefix = []
++        for seq in range(5):  # deliver 0..4 up front, next_seq = 5
++            prefix += message_frames("s", 0, seq, f"pre{seq}")
++        frames = []
++        for i, seq in enumerate((5, 6, 7, 0, 1)):  # crosses the wrap point
++            frames += message_frames("s", 0, seq, f"post{i}")
++        frames.append(frames[1])  # duplicate of seq 6
++        checked = check_all(
++            unique_permutations(frames), mod, window, capacity, prefix
++        )
++        self.assertGreater(checked, 100)
++
++    def test_conflicting_retransmit_schedules(self):
++        mod, window = 16, 4
++        good = message_frames("s", 0, 0, "good-content", frags=2)
++        (evil_template,) = message_frames("s", 0, 0, "evil-content")
++        evil = type(evil_template)(
++            evil_template.stream, evil_template.epoch, evil_template.seq,
++            0, 2, "evil-", evil_template.hash,
++        )
++        (b,) = message_frames("s", 0, 1, "b")
++        frames = good + [evil, b]
++        checked = check_all(unique_permutations(frames), mod, window)
++        self.assertGreater(checked, 10)
++
++    def test_close_schedules(self):
++        mod, window = 16, 4
++        (m0,) = message_frames("s", 0, 0, "zero")
++        (fin,) = message_frames("s", 0, 1, "bye", close=True)
++        frames = [m0, fin, fin, m0]  # duplicate close and duplicate message
++        checked = check_all(unique_permutations(frames), mod, window)
++        self.assertGreater(checked, 5)
++
++
++class TestScenarios(unittest.TestCase):
++    def test_window_full_then_gap_fill_via_vnet(self):
++        mod, window, capacity = 16, 4, 2
++        gap = message_frames("s", 0, 0, "g")
++        m1 = message_frames("s", 0, 1, "one")
++        m2 = message_frames("s", 0, 2, "two")
++        m3 = message_frames("s", 0, 3, "three")
++        schedule = m1 + m2 + m3 + gap  # gap arrives last
++        outputs, engine, parked = vnet.run_schedule(
++            schedule, mod, window, capacity
++        )
++        self.assertEqual(parked, [])
++        self.assertEqual(
++            [o["content"] for o in outputs], ["g", "one", "two", "three"]
++        )
++
++    def test_missing_last_fragment_parks_overflow(self):
++        mod, window, capacity = 16, 4, 2
++        frags = message_frames("s", 0, 0, "abcdef", frags=3)
++        m1 = message_frames("s", 0, 1, "one")
++        m2 = message_frames("s", 0, 2, "two")
++        m3 = message_frames("s", 0, 3, "three")
++        # last fragment of message 0 never arrives
++        schedule = frags[:2] + m1 + m2 + m3
++        outputs, engine, parked = vnet.run_schedule(
++            schedule, mod, window, capacity
++        )
++        self.assertEqual(outputs, [])  # head gap: nothing deliverable
++        self.assertEqual(len(parked), 2)  # m2 and m3 could not be buffered
++        acks = engine.acks("s", 0)
++        self.assertEqual(acks["retransmit"], [0])
++
++    def test_minimize_failing_shrinks_schedule(self):
++        frames = message_frames("s", 0, 0, "a") + message_frames("s", 0, 1, "b")
++        target = frames[0]
++
++        def is_failing(sched):
++            return target in sched
++
++        minimal = vnet.minimize_failing(frames, is_failing)
++        self.assertEqual(minimal, [target])
++
++    def test_replay_file_roundtrip(self):
++        mod, window, capacity = 16, 4, 2
++        frames = (
++            message_frames("s", 0, 1, "one")
++            + message_frames("s", 0, 0, "zero")
++            + message_frames("s", 0, 2, "two")
++        )
++        doc = {
++            "mod": mod,
++            "window": window,
++            "capacity": capacity,
++            "prefix": [],
++            "schedule": [f.to_dict() for f in frames],
++        }
++        with tempfile.TemporaryDirectory() as d:
++            path = os.path.join(d, "schedule.json")
++            with open(path, "w", encoding="utf-8") as fh:
++                json.dump(doc, fh)
++            result = vnet.replay_file(path, mod, window)
++        self.assertEqual(
++            [o["content"] for o in result["outputs"]], ["zero", "one", "two"]
++        )
++
++
++if __name__ == "__main__":
++    unittest.main()

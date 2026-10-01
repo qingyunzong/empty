@@ -1,0 +1,43 @@
+test_crash_recover_via_cli (test_cli.TestCli.test_crash_recover_via_cli) ... ok
+test_replay_and_verify_ops (test_cli.TestCli.test_replay_and_verify_ops) ... ok
+test_session_send_poll_acks (test_cli.TestCli.test_session_send_poll_acks) ... ok
+test_unknown_op_and_bad_json (test_cli.TestCli.test_unknown_op_and_bad_json) ... ok
+test_epochs_recover_consistently (test_engine.TestEpochs.test_epochs_recover_consistently) ... ok
+test_late_frame_from_previous_epoch_is_stale (test_engine.TestEpochs.test_late_frame_from_previous_epoch_is_stale) ... ok
+test_ack_set_and_cursor_consistent_after_recovery (test_engine.TestPersistence.test_ack_set_and_cursor_consistent_after_recovery) ... ok
+test_conflict_evidence_survives_recovery (test_engine.TestPersistence.test_conflict_evidence_survives_recovery) ... ok
+test_crash_after_ack_before_delivery_commit (test_engine.TestPersistence.test_crash_after_ack_before_delivery_commit) ... ok
+test_crash_after_delivery_commit_no_duplicate (test_engine.TestPersistence.test_crash_after_delivery_commit_no_duplicate) ... ok
+test_crash_before_ack_needs_retransmit (test_engine.TestPersistence.test_crash_before_ack_needs_retransmit) ... ok
+test_recovery_detects_corrupt_log (test_engine.TestPersistence.test_recovery_detects_corrupt_log) ... /home/delin/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/traceback.py:237: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmplk0cg_hl/engine.jsonl' mode='a' encoding='utf-8'>
+  tb.tb_frame.clear()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_ambiguous_and_old_classification (test_receiver.TestReceiver.test_ambiguous_and_old_classification) ... ok
+test_backpressure_window_full_then_gap_fill (test_receiver.TestReceiver.test_backpressure_window_full_then_gap_fill) ... ok
+test_close_and_duplicate_close (test_receiver.TestReceiver.test_close_and_duplicate_close) ... ok
+test_conflict_after_delivery_still_recorded (test_receiver.TestReceiver.test_conflict_after_delivery_still_recorded) ... ok
+test_conflicting_retransmit_rejected_atomically_with_evidence (test_receiver.TestReceiver.test_conflicting_retransmit_rejected_atomically_with_evidence) ... ok
+test_duplicate_is_idempotent (test_receiver.TestReceiver.test_duplicate_is_idempotent) ... ok
+test_in_order_delivery (test_receiver.TestReceiver.test_in_order_delivery) ... ok
+test_missing_last_fragment_blocks_and_requests_gap (test_receiver.TestReceiver.test_missing_last_fragment_blocks_and_requests_gap) ... ok
+test_out_of_order_then_gap_fill_cascades (test_receiver.TestReceiver.test_out_of_order_then_gap_fill_cascades) ... ok
+test_wraparound_delivery (test_receiver.TestReceiver.test_wraparound_delivery) ... ok
+test_boundaries (test_seqnum.TestSeqNum.test_boundaries) ... ok
+test_classify_distinguishes_old_from_future (test_seqnum.TestSeqNum.test_classify_distinguishes_old_from_future) ... ok
+test_fwd_dist_wraps (test_seqnum.TestSeqNum.test_fwd_dist_wraps) ... ok
+test_no_plain_integer_wraparound_compare (test_seqnum.TestSeqNum.test_no_plain_integer_wraparound_compare) ... ok
+test_window_params_validated (test_seqnum.TestSeqNum.test_window_params_validated) ... ok
+test_close_schedules (test_vnet.TestEnumeration.test_close_schedules) ... ok
+test_conflicting_retransmit_schedules (test_vnet.TestEnumeration.test_conflicting_retransmit_schedules) ... ok
+test_fragmented_schedules_with_duplicate (test_vnet.TestEnumeration.test_fragmented_schedules_with_duplicate) ... ok
+test_wraparound_schedules (test_vnet.TestEnumeration.test_wraparound_schedules) ... ok
+test_minimize_failing_shrinks_schedule (test_vnet.TestScenarios.test_minimize_failing_shrinks_schedule) ... ok
+test_missing_last_fragment_parks_overflow (test_vnet.TestScenarios.test_missing_last_fragment_parks_overflow) ... ok
+test_replay_file_roundtrip (test_vnet.TestScenarios.test_replay_file_roundtrip) ... ok
+test_window_full_then_gap_fill_via_vnet (test_vnet.TestScenarios.test_window_full_then_gap_fill_via_vnet) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 3.984s
+
+OK
