@@ -1,0 +1,14 @@
+完成。从空仓库实现了完整的复制组模拟器，24 个测试全部通过。
+
+**实现**
+- `repligroup/core.py` — 状态机：epoch 单调计数器（abort 不复用 epoch）、`begin_change` 校验 old 为当前配置且无进行中变更（否则 `STALE_CONFIG`）、joint 阶段写需 old 与 new 双多数派、`commit`/`abort` 边界、旧 epoch 的 propose/ack 均拒绝（`STALE_EPOCH`）
+- `repligroup/store.py` — 配置与已提交写经 `write → fsync → rename → dir fsync` 持久化；`SIM_CRASH_BEFORE_CONFIG_FSYNC=1` 在配置记录 fsync 前 `os._exit(2)` 注入故障；恢复时忽略残留 `.tmp`，回到崩溃前 committed 配置；未确认写仅存内存
+- `repligroup/__main__.py` — JSON 行 CLI（`propose`/`ack`/`begin`/`commit`/`abort`/`write`/`read`），任一命令出错退出码 6
+
+**验收覆盖**
+- A：`tests/test_quorum.py` 枚举 1–5 节点全部子集（62 组），验证提交 ⟺ 多数派，且任意两多数派相交
+- B：`tests/test_epoch.py` begin/commit 后旧 epoch 的 propose 与 ack 均被拒绝；epoch 跨 abort 仍唯一递增
+- C：`tests/test_joint.py` 新配置全票但旧配置零票不得提交，反之亦然；双多数派才提交；abort 回滚且保留已确认写
+- D：`tests/test_crash.py` 子进程驱动真实 CLI：fsync 前崩溃后恢复 epoch=1、成员与已提交写一致；未确认写重启后丢失
+
+**测试结果**（真实运行，`python -m unittest discover -s tests -v`）：`Ran 24 tests ... OK`，完整输出已记录在 `README.md`。

@@ -1,0 +1,1009 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..894aa70
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,48 @@
++# rgroup — 复制组模拟器（≤7 节点，epoch 配置 + 联合共识）
++
++纯 Python 3.11 标准库实现，无第三方依赖。
++
++## 语义
++
++1. 每个已提交配置的 epoch 唯一且单调递增（初始 epoch=1，每次 `commit` +1）。
++2. `begin_change(old, new)` 仅当 `old` 等于当前成员集合且没有进行中的变更时进入
++   joint，否则报 `STALE_CONFIG`。
++3. joint 阶段的写需要 old 与 new 各自多数派确认才提交。
++4. `commit_change` 仅在 joint 成功后生效；`abort` 回滚到 old 配置，已确认写不丢失。
++5. 未确认写只存在于内存，绝不落盘；已提交配置与已确认写在 tmp+fsync+rename 后
++   才生效。故障点定义为配置记录 fsync 前崩溃（`failpoint=before_config_fsync`），
++   恢复（`Group.load` / CLI `crash`）必须回到崩溃前已提交配置。
++
++## CLI
++
++```
++python3 -m rgroup   # 从 stdin 读 JSON 行，向 stdout 写 JSON 行；任何错误 exit=6
++```
++
++状态目录由环境变量 `RGROUP_HOME` 指定（默认 `./.rgroup`）。
++
++命令：`init`、`propose`、`ack`、`write`、`read`、`begin`、`commit`、`abort`，
++另有辅助命令 `crash`（丢弃内存、从磁盘恢复）与 `status`。
++
++示例：
++
++```
++{"cmd":"init","nodes":["a","b","c"]}
++{"cmd":"write","value":"hello","node":"a"}
++{"cmd":"ack","id":1,"node":"b"}
++{"cmd":"begin","old":["a","b","c"],"new":["a","d","e"]}
++{"cmd":"commit"}
++{"cmd":"read"}
++```
++
++错误响应形如 `{"ok":false,"error":"STALE_CONFIG","message":"..."}`，进程退出码 6。
++
++## 测试
++
++```
++python3 -m unittest discover -s tests -v
++```
++
++覆盖验收点：A 枚举 ≤5 节点全部多数派子集验证法定人数（含两两相交性、
++提交阈值精确性）；B 旧 epoch 写/ack 被拒绝；C joint 中仅新配置多数派不得提交；
++D fsync 前崩溃恢复后 epoch 与已提交写一致。
+diff --git a/rgroup/__init__.py b/rgroup/__init__.py
+new file mode 100644
+index 0000000..1932437
+--- /dev/null
++++ b/rgroup/__init__.py
+@@ -0,0 +1,27 @@
++from .core import (
++    BadConfig,
++    Config,
++    CrashError,
++    Error,
++    Group,
++    NoGroup,
++    NotInJoint,
++    StaleConfig,
++    UnknownNode,
++    UnknownWrite,
++    is_majority,
++)
++
++__all__ = [
++    "BadConfig",
++    "Config",
++    "CrashError",
++    "Error",
++    "Group",
++    "NoGroup",
++    "NotInJoint",
++    "StaleConfig",
++    "UnknownNode",
++    "UnknownWrite",
++    "is_majority",
++]
+diff --git a/rgroup/__main__.py b/rgroup/__main__.py
+new file mode 100644
+index 0000000..dd8a8c9
+--- /dev/null
++++ b/rgroup/__main__.py
+@@ -0,0 +1,5 @@
++import sys
++
++from .cli import main
++
++sys.exit(main())
+diff --git a/rgroup/__pycache__/__init__.cpython-314.pyc b/rgroup/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..65212fb
+Binary files /dev/null and b/rgroup/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/rgroup/__pycache__/__main__.cpython-314.pyc b/rgroup/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..41e0356
+Binary files /dev/null and b/rgroup/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/rgroup/__pycache__/cli.cpython-314.pyc b/rgroup/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..6f96f71
+Binary files /dev/null and b/rgroup/__pycache__/cli.cpython-314.pyc differ
+diff --git a/rgroup/__pycache__/core.cpython-314.pyc b/rgroup/__pycache__/core.cpython-314.pyc
+new file mode 100644
+index 0000000..5392d48
+Binary files /dev/null and b/rgroup/__pycache__/core.cpython-314.pyc differ
+diff --git a/rgroup/cli.py b/rgroup/cli.py
+new file mode 100644
+index 0000000..966e48e
+--- /dev/null
++++ b/rgroup/cli.py
+@@ -0,0 +1,109 @@
++"""JSON-lines CLI for the replicated-group simulator.
++
++Reads one JSON command per line from stdin, writes one JSON response per
++line to stdout. Any command error prints {"ok": false, "error": CODE} and
++exits with status 6.
++
++State is persisted under RGROUP_HOME (default ./.rgroup). Joint state and
++unconfirmed writes are memory-only, so a process exit is a crash.
++
++Commands:
++  init    {"cmd":"init","nodes":["A","B","C"]}
++  propose {"cmd":"propose","value":V}
++  ack     {"cmd":"ack","id":N,"node":"A"}
++  write   {"cmd":"write","value":V,"node":"A"}
++  read    {"cmd":"read"}
++  begin   {"cmd":"begin","old":[...],"new":[...]}
++  commit  {"cmd":"commit" [,"failpoint":"before_config_fsync"]}
++  abort   {"cmd":"abort"}
++  crash   {"cmd":"crash"}     # drop memory, recover from disk
++  status  {"cmd":"status"}
++"""
++
++from __future__ import annotations
++
++import json
++import os
++import sys
++
++from .core import Error, Group, NoGroup
++
++EXIT_ERROR = 6
++
++
++def _state_dir() -> str:
++    return os.environ.get("RGROUP_HOME", ".rgroup")
++
++
++def _handle(group: Group | None, cmd: dict, path: str) -> tuple[Group | None, dict]:
++    op = cmd.get("cmd")
++
++    if op == "init":
++        group = Group(cmd["nodes"], path=path)
++        group._persist()
++        return group, {"ok": True, "epoch": group.config.epoch}
++
++    if op == "crash":
++        group = Group.load(path)  # recover last committed state from disk
++        return group, {"ok": True, "recovered": True, "epoch": group.config.epoch}
++
++    if group is None:
++        raise NoGroup("no group initialized; send init first")
++
++    if op == "propose":
++        write = group.propose(cmd.get("value"))
++        return group, {"ok": True, "id": write.id, "epoch": write.epoch, "committed": write.committed}
++    if op == "ack":
++        committed = group.ack(cmd["id"], cmd["node"])
++        return group, {"ok": True, "committed": committed}
++    if op == "write":
++        write = group.write(cmd.get("value"), cmd["node"])
++        return group, {"ok": True, "id": write.id, "committed": write.committed}
++    if op == "read":
++        return group, {"ok": True, "value": group.read(), "epoch": group.config.epoch}
++    if op == "begin":
++        group.begin_change(cmd["old"], cmd["new"])
++        return group, {"ok": True, "joint": True, "epoch": group.config.epoch}
++    if op == "commit":
++        if "failpoint" in cmd:
++            group.failpoint = cmd["failpoint"]
++        config = group.commit_change()
++        return group, {"ok": True, "epoch": config.epoch, "members": sorted(config.members)}
++    if op == "abort":
++        config = group.abort()
++        return group, {"ok": True, "epoch": config.epoch, "members": sorted(config.members)}
++    if op == "status":
++        return group, {"ok": True, **group.status()}
++
++    raise Error(f"unknown command {op!r}")
++
++
++def main(argv: list[str] | None = None) -> int:
++    path = _state_dir()
++    group: Group | None = None
++    if os.path.exists(os.path.join(path, "state.json")):
++        group = Group.load(path)
++
++    for line in sys.stdin:
++        line = line.strip()
++        if not line:
++            continue
++        try:
++            cmd = json.loads(line)
++        except json.JSONDecodeError as exc:
++            print(json.dumps({"ok": False, "error": "BAD_JSON", "message": str(exc)}), flush=True)
++            return EXIT_ERROR
++        try:
++            group, resp = _handle(group, cmd, path)
++        except Error as exc:
++            print(
++                json.dumps({"ok": False, "error": exc.code, "message": str(exc)}),
++                flush=True,
++            )
++            return EXIT_ERROR
++        print(json.dumps(resp), flush=True)
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/rgroup/core.py b/rgroup/core.py
+new file mode 100644
+index 0000000..97cc87b
+--- /dev/null
++++ b/rgroup/core.py
+@@ -0,0 +1,286 @@
++"""Core replicated-group state machine with epoch'd configs and joint consensus.
++
++Semantics implemented:
++  1. Every committed config has a unique, monotonically increasing epoch.
++  2. begin_change(old, new) enters joint only if `old` is the current member
++     set and no change is in flight; otherwise STALE_CONFIG.
++  3. During joint, a write commits only when acked by a majority of the old
++     config AND a majority of the new config.
++  4. commit_change takes effect only from a successful joint; abort rolls
++     back to the old config without losing any confirmed write.
++  5. Unconfirmed writes are never persisted. Committed config + committed
++     writes are fsynced to disk; a crash before the config record fsync
++     recovers to the pre-crash committed config.
++"""
++
++from __future__ import annotations
++
++import json
++import os
++from dataclasses import dataclass, field
++from typing import Any, Iterable, Optional
++
++MAX_NODES = 7
++
++STATE_FILE = "state.json"
++
++
++class Error(Exception):
++    """Base error; `code` is the machine-readable error name."""
++
++    code = "INTERNAL"
++
++    def __init__(self, message: str = ""):
++        super().__init__(message or self.code)
++
++
++class StaleConfig(Error):
++    code = "STALE_CONFIG"
++
++
++class NotInJoint(Error):
++    code = "NOT_IN_JOINT"
++
++
++class UnknownWrite(Error):
++    code = "UNKNOWN_WRITE"
++
++
++class UnknownNode(Error):
++    code = "UNKNOWN_NODE"
++
++
++class BadConfig(Error):
++    code = "BAD_CONFIG"
++
++
++class NoGroup(Error):
++    code = "NO_GROUP"
++
++
++class CrashError(Error):
++    """Simulated crash at a fault-injection point."""
++
++    code = "CRASH"
++
++
++def is_majority(acks: Iterable[Any], members: Iterable[Any]) -> bool:
++    """True iff `acks` covers a strict majority of `members`."""
++    members = set(members)
++    if not members:
++        return False
++    return len(set(acks) & members) * 2 > len(members)
++
++
++@dataclass(frozen=True)
++class Config:
++    members: frozenset
++    epoch: int
++
++    def to_dict(self) -> dict:
++        return {"members": sorted(self.members), "epoch": self.epoch}
++
++
++@dataclass
++class Write:
++    id: int
++    value: Any
++    epoch: int
++    acks: set = field(default_factory=set)
++    committed: bool = False
++
++
++def _validate_members(members: Iterable[Any]) -> frozenset:
++    members = frozenset(members)
++    if not members:
++        raise BadConfig("member set must be non-empty")
++    if len(members) > MAX_NODES:
++        raise BadConfig(f"member set exceeds {MAX_NODES} nodes")
++    return members
++
++
++class Group:
++    """A single replication group (<= MAX_NODES members)."""
++
++    def __init__(self, members: Iterable[Any], epoch: int = 1, path: Optional[str] = None):
++        members = _validate_members(members)
++        self.config = Config(members, epoch)
++        self.joint: Optional[tuple[frozenset, frozenset]] = None  # (old, new)
++        self.writes: dict[int, Write] = {}
++        self.committed: list[tuple[int, Any]] = []  # (write id, value) in commit order
++        self.next_id = 1
++        # Last config epoch known to each node; nodes left behind by a config
++        # change keep their stale epoch and can no longer serve writes.
++        self.known: dict[Any, int] = {m: epoch for m in members}
++        self.path = path
++        self.failpoint: Optional[str] = None
++
++    # ------------------------------------------------------------------
++    # persistence
++    # ------------------------------------------------------------------
++    def _persist(self) -> None:
++        """Atomically persist committed config + committed writes (fsync)."""
++        if self.path is None:
++            return
++        if self.failpoint == "before_config_fsync":
++            # Fault point: crash before the config record is fsynced. The
++            # on-disk committed state is left untouched.
++            raise CrashError("simulated crash before config record fsync")
++        os.makedirs(self.path, exist_ok=True)
++        payload = json.dumps(
++            {
++                "config": self.config.to_dict(),
++                "committed": [[wid, value] for wid, value in self.committed],
++            }
++        )
++        tmp = os.path.join(self.path, STATE_FILE + ".tmp")
++        final = os.path.join(self.path, STATE_FILE)
++        with open(tmp, "w", encoding="utf-8") as fh:
++            fh.write(payload)
++            fh.flush()
++            os.fsync(fh.fileno())
++        os.replace(tmp, final)
++        dirfd = os.open(self.path, os.O_RDONLY)
++        try:
++            os.fsync(dirfd)
++        finally:
++            os.close(dirfd)
++
++    @classmethod
++    def load(cls, path: str) -> "Group":
++        """Recover a group from disk: last committed config + committed writes.
++
++        Joint state and unconfirmed writes live only in memory, so recovery
++        always returns to the pre-crash committed configuration.
++        """
++        final = os.path.join(path, STATE_FILE)
++        if not os.path.exists(final):
++            raise NoGroup(f"no persisted group at {path}")
++        with open(final, encoding="utf-8") as fh:
++            data = json.load(fh)
++        group = cls.__new__(cls)
++        cfg = data["config"]
++        group.config = Config(frozenset(cfg["members"]), cfg["epoch"])
++        group.joint = None
++        group.writes = {}
++        group.committed = [(wid, value) for wid, value in data["committed"]]
++        group.next_id = max((wid for wid, _ in group.committed), default=0) + 1
++        group.known = {m: cfg["epoch"] for m in cfg["members"]}
++        group.path = path
++        group.failpoint = None
++        return group
++
++    # ------------------------------------------------------------------
++    # quorum / writes
++    # ------------------------------------------------------------------
++    def _check_node_current(self, node: Any) -> None:
++        if node not in self.known:
++            raise UnknownNode(f"unknown node {node!r}")
++        if self.known[node] != self.config.epoch:
++            raise StaleConfig(
++                f"node {node!r} at epoch {self.known[node]}, "
++                f"current epoch is {self.config.epoch}"
++            )
++
++    def _quorum_met(self, write: Write) -> bool:
++        if self.joint is not None:
++            old, new = self.joint
++            return is_majority(write.acks, old) and is_majority(write.acks, new)
++        return is_majority(write.acks, self.config.members)
++
++    def _evaluate(self, write: Write) -> bool:
++        if not write.committed and self._quorum_met(write):
++            write.committed = True
++            self.committed.append((write.id, write.value))
++            self._persist()  # confirmed writes are durable before being reported
++        return write.committed
++
++    def propose(self, value: Any, node: Any = None) -> Write:
++        """Create a write at the current epoch; optionally acked by `node`."""
++        if node is not None:
++            self._check_node_current(node)
++        write = Write(id=self.next_id, value=value, epoch=self.config.epoch)
++        self.next_id += 1
++        if node is not None:
++            write.acks.add(node)
++        self.writes[write.id] = write
++        self._evaluate(write)
++        return write
++
++    def write(self, value: Any, node: Any) -> Write:
++        """Client write through `node`: propose + the node's own ack."""
++        return self.propose(value, node=node)
++
++    def ack(self, write_id: int, node: Any) -> bool:
++        """Record `node`'s ack; returns True iff the write is committed."""
++        write = self.writes.get(write_id)
++        if write is None:
++            raise UnknownWrite(f"unknown write id {write_id}")
++        if write.epoch != self.config.epoch:
++            raise StaleConfig(
++                f"write {write_id} proposed at epoch {write.epoch}, "
++                f"current epoch is {self.config.epoch}"
++            )
++        self._check_node_current(node)
++        write.acks.add(node)
++        return self._evaluate(write)
++
++    def read(self) -> Any:
++        """Return the most recently committed value (None if none)."""
++        return self.committed[-1][1] if self.committed else None
++
++    # ------------------------------------------------------------------
++    # membership changes (two-phase joint consensus)
++    # ------------------------------------------------------------------
++    def begin_change(self, old: Iterable[Any], new: Iterable[Any]) -> None:
++        old = frozenset(old)
++        new = _validate_members(new)
++        if self.joint is not None:
++            raise StaleConfig("a membership change is already in flight")
++        if old != self.config.members:
++            raise StaleConfig(
++                f"old {sorted(old)!r} does not match current "
++                f"config {sorted(self.config.members)!r}"
++            )
++        self.joint = (self.config.members, new)
++        for member in new:
++            self.known.setdefault(member, self.config.epoch)
++
++    def commit_change(self) -> Config:
++        if self.joint is None:
++            raise NotInJoint("no membership change in flight")
++        _, new = self.joint
++        self.config = Config(new, self.config.epoch + 1)
++        self.joint = None
++        for member in new:
++            self.known[member] = self.config.epoch
++        # Nodes removed from the group keep their old (now stale) epoch.
++        self._persist()
++        return self.config
++
++    def abort(self) -> Config:
++        if self.joint is None:
++            raise NotInJoint("no membership change in flight")
++        self.joint = None
++        # Committed writes are untouched; the old config stays in effect.
++        return self.config
++
++    # ------------------------------------------------------------------
++    # introspection
++    # ------------------------------------------------------------------
++    def status(self) -> dict:
++        return {
++            "config": self.config.to_dict(),
++            "joint": (
++                {"old": sorted(self.joint[0]), "new": sorted(self.joint[1])}
++                if self.joint
++                else None
++            ),
++            "committed": [[wid, value] for wid, value in self.committed],
++            "pending": [
++                {"id": w.id, "epoch": w.epoch, "acks": sorted(w.acks)}
++                for w in self.writes.values()
++                if not w.committed
++            ],
++            "known_epochs": {str(k): v for k, v in sorted(self.known.items(), key=lambda kv: str(kv[0]))},
++        }
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/test_cli.cpython-314.pyc b/tests/__pycache__/test_cli.cpython-314.pyc
+new file mode 100644
+index 0000000..2a13ece
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_crash.cpython-314.pyc b/tests/__pycache__/test_crash.cpython-314.pyc
+new file mode 100644
+index 0000000..1a28f9f
+Binary files /dev/null and b/tests/__pycache__/test_crash.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_epoch.cpython-314.pyc b/tests/__pycache__/test_epoch.cpython-314.pyc
+new file mode 100644
+index 0000000..7bf2e6b
+Binary files /dev/null and b/tests/__pycache__/test_epoch.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_joint.cpython-314.pyc b/tests/__pycache__/test_joint.cpython-314.pyc
+new file mode 100644
+index 0000000..2c3225e
+Binary files /dev/null and b/tests/__pycache__/test_joint.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_quorum.cpython-314.pyc b/tests/__pycache__/test_quorum.cpython-314.pyc
+new file mode 100644
+index 0000000..da6d092
+Binary files /dev/null and b/tests/__pycache__/test_quorum.cpython-314.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..89c91f6
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,135 @@
++"""CLI end-to-end tests: JSON lines in/out, exit code 6 on errors."""
++
++import json
++import os
++import subprocess
++import sys
++import tempfile
++import unittest
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++
++
++def run_cli(lines, home):
++    env = dict(os.environ, RGROUP_HOME=home)
++    proc = subprocess.run(
++        [sys.executable, "-m", "rgroup"],
++        input="\n".join(json.dumps(line) for line in lines) + "\n",
++        capture_output=True,
++        text=True,
++        env=env,
++        cwd=REPO_ROOT,
++    )
++    responses = [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
++    return proc.returncode, responses
++
++
++class TestCli(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++        self.home = self.tmp.name
++
++    def test_happy_path_write_read(self):
++        code, resp = run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "write", "value": "hello", "node": "a"},
++                {"cmd": "ack", "id": 1, "node": "b"},
++                {"cmd": "read"},
++            ],
++            self.home,
++        )
++        self.assertEqual(code, 0)
++        self.assertEqual(resp[0], {"ok": True, "epoch": 1})
++        self.assertEqual(resp[1]["id"], 1)
++        self.assertFalse(resp[1]["committed"])
++        self.assertTrue(resp[2]["committed"])
++        self.assertEqual(resp[3]["value"], "hello")
++
++    def test_stale_config_error_exit_6(self):
++        code, resp = run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "begin", "old": ["x", "y", "z"], "new": ["a", "d", "e"]},
++            ],
++            self.home,
++        )
++        self.assertEqual(code, 6)
++        self.assertEqual(resp[-1]["ok"], False)
++        self.assertEqual(resp[-1]["error"], "STALE_CONFIG")
++
++    def test_commit_without_joint_exit_6(self):
++        code, resp = run_cli([{"cmd": "init", "nodes": ["a"]}, {"cmd": "commit"}], self.home)
++        self.assertEqual(code, 6)
++        self.assertEqual(resp[-1]["error"], "NOT_IN_JOINT")
++
++    def test_joint_write_needs_both_majorities_via_cli(self):
++        code, resp = run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "begin", "old": ["a", "b", "c"], "new": ["c", "d", "e"]},
++                {"cmd": "propose", "value": "v"},
++                {"cmd": "ack", "id": 1, "node": "d"},
++                {"cmd": "ack", "id": 1, "node": "e"},  # new majority only
++                {"cmd": "ack", "id": 1, "node": "a"},
++                {"cmd": "ack", "id": 1, "node": "c"},  # now both majorities
++            ],
++            self.home,
++        )
++        self.assertEqual(code, 0)
++        committed = [r["committed"] for r in resp[3:]]
++        self.assertEqual(committed, [False, False, False, True])
++
++    def test_crash_before_fsync_recovery_via_cli(self):
++        # Session 1: init, commit a write, begin change, crash during commit.
++        code, resp = run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "write", "value": "durable", "node": "a"},
++                {"cmd": "ack", "id": 1, "node": "b"},
++                {"cmd": "begin", "old": ["a", "b", "c"], "new": ["a", "d", "e"]},
++                {"cmd": "commit", "failpoint": "before_config_fsync"},
++            ],
++            self.home,
++        )
++        self.assertEqual(code, 6)
++        self.assertEqual(resp[-1]["error"], "CRASH")
++
++        # Session 2 (new process): recovery sees pre-crash committed state.
++        code, resp = run_cli([{"cmd": "status"}, {"cmd": "read"}], self.home)
++        self.assertEqual(code, 0)
++        self.assertEqual(resp[0]["config"], {"members": ["a", "b", "c"], "epoch": 1})
++        self.assertIsNone(resp[0]["joint"])
++        self.assertEqual(resp[1]["value"], "durable")
++
++    def test_crash_command_recovers_from_disk(self):
++        run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "write", "value": "x", "node": "a"},
++                {"cmd": "ack", "id": 1, "node": "b"},
++            ],
++            self.home,
++        )
++        code, resp = run_cli([{"cmd": "crash"}, {"cmd": "read"}], self.home)
++        self.assertEqual(code, 0)
++        self.assertTrue(resp[0]["recovered"])
++        self.assertEqual(resp[1]["value"], "x")
++
++    def test_old_epoch_write_rejected_via_cli(self):
++        code, resp = run_cli(
++            [
++                {"cmd": "init", "nodes": ["a", "b", "c"]},
++                {"cmd": "begin", "old": ["a", "b", "c"], "new": ["a", "d", "e"]},
++                {"cmd": "commit"},
++                {"cmd": "write", "value": "stale", "node": "b"},
++            ],
++            self.home,
++        )
++        self.assertEqual(code, 6)
++        self.assertEqual(resp[-1]["error"], "STALE_CONFIG")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_crash.py b/tests/test_crash.py
+new file mode 100644
+index 0000000..815d233
+--- /dev/null
++++ b/tests/test_crash.py
+@@ -0,0 +1,76 @@
++"""Acceptance D: crash before config fsync recovers pre-crash committed state."""
++
++import os
++import tempfile
++import unittest
++
++from rgroup import CrashError, Group
++
++
++class TestCrashRecovery(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++        self.path = self.tmp.name
++
++    def test_crash_before_config_fsync_recovers_old_config(self):
++        group = Group(["a", "b", "c"], path=self.path)
++        group._persist()  # initial committed config (epoch 1) hits disk
++        write = group.write("committed-value", node="a")
++        group.ack(write.id, "b")  # committed + fsynced at epoch 1
++
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        group.failpoint = "before_config_fsync"
++        with self.assertRaises(CrashError):
++            group.commit_change()  # crashes before the config record fsync
++
++        recovered = Group.load(self.path)
++        self.assertEqual(recovered.config.epoch, 1)
++        self.assertEqual(recovered.config.members, frozenset({"a", "b", "c"}))
++        self.assertIsNone(recovered.joint)
++        # Committed writes survive; nothing unconfirmed leaked to disk.
++        self.assertEqual([v for _, v in recovered.committed], ["committed-value"])
++        self.assertEqual(recovered.read(), "committed-value")
++
++    def test_unconfirmed_writes_never_persisted(self):
++        group = Group(["a", "b", "c"], path=self.path)
++        group._persist()
++        group.write("durable", node="a")
++        group.ack(1, "b")  # committed
++        pending = group.propose("volatile")  # no quorum: memory only
++        group.ack(pending.id, "a")  # 1/3 acks, still uncommitted
++
++        recovered = Group.load(self.path)
++        self.assertEqual(recovered.read(), "durable")
++        self.assertEqual(len(recovered.committed), 1)
++        self.assertEqual(recovered.writes, {})  # pending write is gone
++
++    def test_recovery_roundtrip_across_committed_changes(self):
++        group = Group(["a", "b", "c"], path=self.path)
++        group._persist()
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        group.commit_change()  # epoch 2 fsynced
++        write = group.write("v2", node="d")
++        group.ack(write.id, "e")
++
++        recovered = Group.load(self.path)
++        self.assertEqual(recovered.config.epoch, 2)
++        self.assertEqual(recovered.config.members, frozenset({"a", "d", "e"}))
++        self.assertEqual(recovered.read(), "v2")
++        # Recovered group keeps working: epoch still monotonic.
++        recovered.begin_change(["a", "d", "e"], ["b", "d", "e"])
++        self.assertEqual(recovered.commit_change().epoch, 3)
++
++    def test_state_file_is_valid_after_each_commit(self):
++        group = Group(["a", "b", "c"], path=self.path)
++        group._persist()
++        for i in range(3):
++            write = group.write(f"v{i}", node="a")
++            group.ack(write.id, "b")
++            # Disk state is loadable after every committed write.
++            self.assertEqual(Group.load(self.path).read(), f"v{i}")
++        self.assertTrue(os.path.exists(os.path.join(self.path, "state.json")))
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_epoch.py b/tests/test_epoch.py
+new file mode 100644
+index 0000000..b7c9a58
+--- /dev/null
++++ b/tests/test_epoch.py
+@@ -0,0 +1,66 @@
++"""Acceptance B: writes at old epochs are rejected; epochs are monotonic."""
++
++import unittest
++
++from rgroup import Group, StaleConfig
++
++
++class TestEpochMonotonicity(unittest.TestCase):
++    def test_epochs_unique_and_increasing(self):
++        group = Group(["a", "b", "c"])
++        self.assertEqual(group.config.epoch, 1)
++        epochs = [group.config.epoch]
++        group.begin_change(["a", "b", "c"], ["a", "b", "d"])
++        epochs.append(group.commit_change().epoch)
++        group.begin_change(["a", "b", "d"], ["a", "d", "e"])
++        epochs.append(group.commit_change().epoch)
++        self.assertEqual(epochs, [1, 2, 3])
++        self.assertEqual(len(set(epochs)), len(epochs))
++        self.assertEqual(epochs, sorted(epochs))
++
++    def test_abort_does_not_advance_epoch(self):
++        group = Group(["a", "b", "c"])
++        group.begin_change(["a", "b", "c"], ["a", "b", "d"])
++        group.abort()
++        self.assertEqual(group.config.epoch, 1)
++        # The same change can be retried and committed afterwards.
++        group.begin_change(["a", "b", "c"], ["a", "b", "d"])
++        self.assertEqual(group.commit_change().epoch, 2)
++
++
++class TestStaleWritesRejected(unittest.TestCase):
++    def _advanced_group(self):
++        group = Group(["a", "b", "c"])
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        group.commit_change()  # epoch 2, members {a, d, e}
++        return group
++
++    def test_write_via_removed_node_rejected(self):
++        group = self._advanced_group()
++        with self.assertRaises(StaleConfig):
++            group.write("v", node="b")  # b stuck at epoch 1
++
++    def test_write_via_current_node_accepted(self):
++        group = self._advanced_group()
++        write = group.write("v", node="d")
++        self.assertEqual(write.epoch, 2)
++
++    def test_old_epoch_write_ack_rejected_after_commit(self):
++        group = Group(["a", "b", "c"])
++        write = group.propose("v")  # epoch 1, no acks yet
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        group.commit_change()
++        with self.assertRaises(StaleConfig):
++            group.ack(write.id, "a")
++        self.assertFalse(write.committed)
++        self.assertIsNone(group.read())
++
++    def test_stale_node_ack_rejected(self):
++        group = self._advanced_group()
++        write = group.propose("v")  # epoch 2
++        with self.assertRaises(StaleConfig):
++            group.ack(write.id, "c")  # c left behind at epoch 1
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_joint.py b/tests/test_joint.py
+new file mode 100644
+index 0000000..7341af5
+--- /dev/null
++++ b/tests/test_joint.py
+@@ -0,0 +1,95 @@
++"""Acceptance C: joint-phase quorum needs both old and new majorities."""
++
++import unittest
++
++from rgroup import Group, NotInJoint, StaleConfig
++
++
++class TestBeginChangeGuards(unittest.TestCase):
++    def test_begin_with_wrong_old_is_stale(self):
++        group = Group(["a", "b", "c"])
++        with self.assertRaises(StaleConfig):
++            group.begin_change(["a", "b"], ["a", "d", "e"])
++
++    def test_begin_while_joint_in_flight_is_stale(self):
++        group = Group(["a", "b", "c"])
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        with self.assertRaises(StaleConfig):
++            group.begin_change(["a", "b", "c"], ["a", "b", "d"])
++
++    def test_commit_and_abort_require_joint(self):
++        group = Group(["a", "b", "c"])
++        with self.assertRaises(NotInJoint):
++            group.commit_change()
++        with self.assertRaises(NotInJoint):
++            group.abort()
++
++
++class TestJointQuorum(unittest.TestCase):
++    def setUp(self):
++        self.group = Group(["a", "b", "c"])
++        self.group.begin_change(["a", "b", "c"], ["c", "d", "e"])
++
++    def test_new_majority_without_old_majority_does_not_commit(self):
++        # {d, e} is a majority of the new config {c, d, e} but only 1/3
++        # of the old config {a, b, c}: the write must NOT commit.
++        write = self.group.propose("v")
++        self.assertFalse(self.group.ack(write.id, "d"))
++        self.assertFalse(self.group.ack(write.id, "e"))
++        self.assertFalse(write.committed)
++        self.assertIsNone(self.group.read())
++
++    def test_old_majority_without_new_majority_does_not_commit(self):
++        write = self.group.propose("v")
++        self.assertFalse(self.group.ack(write.id, "a"))
++        self.assertFalse(self.group.ack(write.id, "b"))  # old majority only
++        self.assertFalse(write.committed)
++
++    def test_both_majorities_commit(self):
++        write = self.group.propose("v")
++        self.group.ack(write.id, "d")
++        self.group.ack(write.id, "e")  # new majority, old 1/3
++        self.assertFalse(write.committed)
++        self.group.ack(write.id, "a")
++        self.assertFalse(write.committed)  # old {a} still 1/3... need 2 of old
++        self.assertTrue(self.group.ack(write.id, "c"))  # old {a,c}, new {c,d,e}
++        self.assertEqual(self.group.read(), "v")
++
++
++class TestCommitAndAbort(unittest.TestCase):
++    def test_commit_activates_new_config(self):
++        group = Group(["a", "b", "c"])
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        config = group.commit_change()
++        self.assertEqual(config.members, frozenset({"a", "d", "e"}))
++        self.assertEqual(config.epoch, 2)
++        # After commit, a majority of the NEW config alone suffices.
++        write = group.propose("v")
++        group.ack(write.id, "d")
++        self.assertTrue(group.ack(write.id, "e"))
++
++    def test_abort_rolls_back_and_keeps_confirmed_writes(self):
++        group = Group(["a", "b", "c"])
++        write = group.write("before", node="a")
++        group.ack(write.id, "b")  # committed under old config
++        group.begin_change(["a", "b", "c"], ["a", "d", "e"])
++        joint_write = group.propose("during-joint")
++        group.ack(joint_write.id, "a")
++        group.ack(joint_write.id, "b")  # old majority
++        group.ack(joint_write.id, "d")
++        group.ack(joint_write.id, "e")  # new majority -> committed in joint
++        self.assertTrue(joint_write.committed)
++        config = group.abort()
++        self.assertEqual(config.members, frozenset({"a", "b", "c"}))
++        self.assertEqual(config.epoch, 1)
++        # Confirmed writes survive the abort, in order.
++        self.assertEqual([v for _, v in group.committed], ["before", "during-joint"])
++        self.assertEqual(group.read(), "during-joint")
++        # Old-config majority still suffices after rollback.
++        w = group.propose("after")
++        group.ack(w.id, "a")
++        self.assertTrue(group.ack(w.id, "c"))
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_quorum.py b/tests/test_quorum.py
+new file mode 100644
+index 0000000..c4e83d9
+--- /dev/null
++++ b/tests/test_quorum.py
+@@ -0,0 +1,63 @@
++"""Acceptance A: enumerate all majority subsets for <=5 nodes, verify quorum."""
++
++import itertools
++import unittest
++
++from rgroup import Group, is_majority
++
++
++def subsets(nodes):
++    for r in range(len(nodes) + 1):
++        for combo in itertools.combinations(nodes, r):
++            yield set(combo)
++
++
++class TestQuorumEnumeration(unittest.TestCase):
++    def test_is_majority_matches_strict_majority(self):
++        for n in range(1, 6):
++            nodes = list(range(n))
++            for subset in subsets(nodes):
++                self.assertEqual(
++                    is_majority(subset, nodes),
++                    len(subset) * 2 > n,
++                    msg=f"n={n} subset={subset}",
++                )
++
++    def test_any_two_majorities_intersect(self):
++        for n in range(1, 6):
++            nodes = list(range(n))
++            majorities = [s for s in subsets(nodes) if is_majority(s, nodes)]
++            for first, second in itertools.product(majorities, repeat=2):
++                self.assertTrue(
++                    first & second,
++                    msg=f"n={n}: disjoint majorities {first} {second}",
++                )
++
++    def test_write_commits_exactly_at_majority(self):
++        for n in range(1, 6):
++            nodes = [f"n{i}" for i in range(n)]
++            for subset in subsets(nodes):
++                group = Group(nodes)
++                write = group.propose("v")
++                for node in subset:
++                    group.ack(write.id, node)
++                self.assertEqual(
++                    write.committed,
++                    is_majority(subset, nodes),
++                    msg=f"n={n} acks={subset}",
++                )
++
++    def test_commit_threshold_is_hit_exactly(self):
++        # A write must flip to committed exactly when the ack set first
++        # becomes a majority, not before.
++        nodes = ["a", "b", "c", "d", "e"]
++        group = Group(nodes)
++        write = group.propose("v")
++        self.assertFalse(group.ack(write.id, "a"))
++        self.assertFalse(group.ack(write.id, "b"))
++        self.assertTrue(group.ack(write.id, "c"))  # 3/5: first majority
++        self.assertTrue(group.ack(write.id, "d"))  # idempotent
++
++
++if __name__ == "__main__":
++    unittest.main()

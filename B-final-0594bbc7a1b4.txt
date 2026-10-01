@@ -1,0 +1,24 @@
+完成。从空仓库实现了复制组模拟器，全部测试真实运行通过。
+
+**实现**
+- `rgroup/core.py` — 核心状态机：`Config(members, epoch)`、`is_majority`、`Group`（propose/ack/write/read、begin_change/commit_change/abort、fsync 持久化与 `Group.load` 恢复、`before_config_fsync` 故障注入点）
+- `rgroup/cli.py` + `rgroup/__main__.py` — JSON 行 CLI（`python3 -m rgroup`），状态目录由 `RGROUP_HOME` 指定，任何错误输出 `{"ok":false,"error":...}` 并 exit=6
+- `tests/` — 29 个测试覆盖验收点 A–D 及 CLI 端到端
+
+**关键语义落点**
+- epoch 唯一递增：初始 1，`commit` 时 +1；joint/abort 不占新 epoch
+- 旧配置写隔离：被移除节点保留旧 epoch，其 write/ack 报 `STALE_CONFIG`；旧 epoch 未确认写在配置提交后 ack 同样被拒
+- joint 双多数派：写需 old 与 new 各自严格多数；abort 回滚 old 且已确认写保留在提交日志
+- 崩溃恢复：已提交配置+已确认写经 tmp→fsync→rename→目录 fsync 落盘；joint 与未确认写仅内存；fsync 前崩溃后 `Group.load` 回到崩溃前 committed 配置
+
+**测试结果（真实运行）**
+环境中无 `python` 命令，实际使用 `python3`（3.14.4，代码仅用 3.11 标准库特性）：
+
+```
+$ python3 -m unittest discover -s tests -v
+...（29 个用例全部 ok，含 test_quorum/test_epoch/test_joint/test_crash/test_cli）
+Ran 29 tests in 2.998s
+OK
+```
+
+CLI 冒烟示例：`{"cmd":"init","nodes":["a","b","c"]}` → `write` → `ack` → `read`，或带 `{"cmd":"commit","failpoint":"before_config_fsync"}` 注入崩溃后新进程 `status` 验证恢复。

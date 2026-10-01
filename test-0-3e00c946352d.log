@@ -1,0 +1,34 @@
+test_commit_without_joint_exit_6 (test_cli.TestCli.test_commit_without_joint_exit_6) ... ok
+test_crash_before_fsync_recovery_via_cli (test_cli.TestCli.test_crash_before_fsync_recovery_via_cli) ... ok
+test_crash_command_recovers_from_disk (test_cli.TestCli.test_crash_command_recovers_from_disk) ... ok
+test_happy_path_write_read (test_cli.TestCli.test_happy_path_write_read) ... ok
+test_joint_write_needs_both_majorities_via_cli (test_cli.TestCli.test_joint_write_needs_both_majorities_via_cli) ... ok
+test_old_epoch_write_rejected_via_cli (test_cli.TestCli.test_old_epoch_write_rejected_via_cli) ... ok
+test_stale_config_error_exit_6 (test_cli.TestCli.test_stale_config_error_exit_6) ... ok
+test_crash_before_config_fsync_recovers_old_config (test_crash.TestCrashRecovery.test_crash_before_config_fsync_recovers_old_config) ... ok
+test_recovery_roundtrip_across_committed_changes (test_crash.TestCrashRecovery.test_recovery_roundtrip_across_committed_changes) ... ok
+test_state_file_is_valid_after_each_commit (test_crash.TestCrashRecovery.test_state_file_is_valid_after_each_commit) ... ok
+test_unconfirmed_writes_never_persisted (test_crash.TestCrashRecovery.test_unconfirmed_writes_never_persisted) ... ok
+test_abort_does_not_advance_epoch (test_epoch.TestEpochMonotonicity.test_abort_does_not_advance_epoch) ... ok
+test_epochs_unique_and_increasing (test_epoch.TestEpochMonotonicity.test_epochs_unique_and_increasing) ... ok
+test_old_epoch_write_ack_rejected_after_commit (test_epoch.TestStaleWritesRejected.test_old_epoch_write_ack_rejected_after_commit) ... ok
+test_stale_node_ack_rejected (test_epoch.TestStaleWritesRejected.test_stale_node_ack_rejected) ... ok
+test_write_via_current_node_accepted (test_epoch.TestStaleWritesRejected.test_write_via_current_node_accepted) ... ok
+test_write_via_removed_node_rejected (test_epoch.TestStaleWritesRejected.test_write_via_removed_node_rejected) ... ok
+test_begin_while_joint_in_flight_is_stale (test_joint.TestBeginChangeGuards.test_begin_while_joint_in_flight_is_stale) ... ok
+test_begin_with_wrong_old_is_stale (test_joint.TestBeginChangeGuards.test_begin_with_wrong_old_is_stale) ... ok
+test_commit_and_abort_require_joint (test_joint.TestBeginChangeGuards.test_commit_and_abort_require_joint) ... ok
+test_abort_rolls_back_and_keeps_confirmed_writes (test_joint.TestCommitAndAbort.test_abort_rolls_back_and_keeps_confirmed_writes) ... ok
+test_commit_activates_new_config (test_joint.TestCommitAndAbort.test_commit_activates_new_config) ... ok
+test_both_majorities_commit (test_joint.TestJointQuorum.test_both_majorities_commit) ... ok
+test_new_majority_without_old_majority_does_not_commit (test_joint.TestJointQuorum.test_new_majority_without_old_majority_does_not_commit) ... ok
+test_old_majority_without_new_majority_does_not_commit (test_joint.TestJointQuorum.test_old_majority_without_new_majority_does_not_commit) ... ok
+test_any_two_majorities_intersect (test_quorum.TestQuorumEnumeration.test_any_two_majorities_intersect) ... ok
+test_commit_threshold_is_hit_exactly (test_quorum.TestQuorumEnumeration.test_commit_threshold_is_hit_exactly) ... ok
+test_is_majority_matches_strict_majority (test_quorum.TestQuorumEnumeration.test_is_majority_matches_strict_majority) ... ok
+test_write_commits_exactly_at_majority (test_quorum.TestQuorumEnumeration.test_write_commits_exactly_at_majority) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 1.579s
+
+OK
