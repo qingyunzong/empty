@@ -1,0 +1,7 @@
+interpreter: Python 3.11.16
+A valid-CRC invalid-clause middle entry: {"exit": 0, "stdout": "{\"status\": \"ok\", \"clauses\": [[[\"x\", 1]]], \"count\": 1}\n", "stderr": ""}
+A valid-CRC wrong-type middle entry: {"exit": 0, "stdout": "{\"status\": \"ok\", \"clauses\": [[[\"x\", 1]]], \"count\": 1}\n", "stderr": ""}
+A empty nogood empty-domain solve: {"exit": 0, "stdout": "{} 0\n", "stderr": ""}
+B valid-CRC invalid-clause middle entry: {"exit": 0, "stdout": "[[{\"var\": \"x\", \"value\": 1}], {\"bad\": 1}, [{\"var\": \"x\", \"value\": 1}]]\n", "stderr": ""}
+B valid-CRC wrong-type middle entry: {"exit": 0, "stdout": "[[{\"var\": \"x\", \"value\": 1}], \"not a clause\", [{\"var\": \"x\", \"value\": 1}]]\n", "stderr": ""}
+B repeat solve counter: {"exit": 0, "stdout": "[{'x': 2}] 1\n[{'x': 2}] 2\n", "stderr": ""}

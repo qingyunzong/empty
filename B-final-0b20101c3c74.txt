@@ -1,0 +1,15 @@
+实现完成，全部 14 个测试真实通过（`OK`，退出码 0），结果已写入 `result.txt`。
+
+**交付内容**
+- `csp_persist/log.py` — 追加写日志：条目格式为 `[长度 u32][子句JSON payload][CRC32 u32]`（大端），`flush`+`fsync` 后才算提交；加载时顺序解析，遇第一个截断/校验失败条目即停，仅返回之前已提交条目；日志缺失/为空返回 `[]`
+- `csp_persist/solver.py` — 回溯 CSP 求解器，Nogood 按规范形式去重入库（不重复推导），部分赋值覆盖某条 Nogood 全部文字即剪枝；`persist_nogood` 吞掉 `OSError`，持久化失败不影响内存搜索
+- `csp_persist/__main__.py` — CLI：`python -m csp_persist write|load --log <路径> [--clause <JSON>]`；退出码 `0` 成功 / `1` 日志不可写 / `2` 子句非法
+- `tests/test_persist.py` — 14 个用例覆盖全部验收场景，含独立实现的朴素参考解析器 `naive_parse` 做 25 组随机日志（截断/篡改/垃圾追加）对照
+- `README.md` — 日志格式、两类故障点与恢复语义、CLI 用法说明
+- `result.txt` — `python -m unittest discover -v` 的真实完整输出
+
+**验收场景对应**
+- 3 条 Nogood 写入后加载与内存子句一致，剪枝结果与暴力枚举完全吻合（`test_three_nogoods_roundtrip_and_pruning`）
+- 第 2 条截断 → 仅返回第 1 条（`test_truncated_second_entry_recovers_first_only`）
+- 篡改第 2 条 1 字节 → 第 2 条及后续均不加载（`test_corrupted_byte_invalidates_entry_and_all_after`）
+- 只读目录写入返回非零/抛 `OSError` 被封装，求解逻辑照常运行（`TestReadOnlyLogPath`、CLI 用例）

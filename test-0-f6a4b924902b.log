@@ -1,0 +1,19 @@
+test_invalid_clause_json_returns_nonzero (test_persist.TestCLI.test_invalid_clause_json_returns_nonzero) ... ok
+test_load_missing_log_returns_empty_list (test_persist.TestCLI.test_load_missing_log_returns_empty_list) ... ok
+test_unwritable_log_path_returns_nonzero (test_persist.TestCLI.test_unwritable_log_path_returns_nonzero) ... ok
+test_write_then_load_via_cli (test_persist.TestCLI.test_write_then_load_via_cli) ... ok
+test_corrupted_byte_invalidates_entry_and_all_after (test_persist.TestCrashRecovery.test_corrupted_byte_invalidates_entry_and_all_after) ... ok
+test_missing_and_empty_log_load_empty (test_persist.TestCrashRecovery.test_missing_and_empty_log_load_empty) ... ok
+test_truncated_header_and_checksum (test_persist.TestCrashRecovery.test_truncated_header_and_checksum) ... ok
+test_truncated_second_entry_recovers_first_only (test_persist.TestCrashRecovery.test_truncated_second_entry_recovers_first_only) ... ok
+test_random_logs_match_naive_parser (test_persist.TestNaiveReferenceCrossCheck.test_random_logs_match_naive_parser) ... ok
+test_append_raises_oserror_on_readonly_path (test_persist.TestReadOnlyLogPath.test_append_raises_oserror_on_readonly_path) ... ok
+test_write_failure_does_not_break_solver (test_persist.TestReadOnlyLogPath.test_write_failure_does_not_break_solver) ... ok
+test_nogoods_deduplicated (test_persist.TestWriteLoadRoundTrip.test_nogoods_deduplicated) ... ok
+test_pruning_matches_brute_force (test_persist.TestWriteLoadRoundTrip.test_pruning_matches_brute_force) ... ok
+test_three_nogoods_roundtrip_and_pruning (test_persist.TestWriteLoadRoundTrip.test_three_nogoods_roundtrip_and_pruning) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.739s
+
+OK

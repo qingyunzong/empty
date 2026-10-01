@@ -1,0 +1,4 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/8f8a2f23ddac40118ae259ad24198c13/judge/pair/attempt-001/demonstration-B/demonstration/probe.py recovery
+恢复条目数=3; 非法第二条=1; 后续第三条=1
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/8f8a2f23ddac40118ae259ad24198c13/judge/pair/attempt-001/demonstration-B/demonstration/probe.py counter
+首轮剪枝=1; 次轮累计剪枝=2; 解数=1
