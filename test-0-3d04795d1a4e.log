@@ -1,0 +1,19 @@
+test_error_codes (test_cli.TestCli.test_error_codes) ... ok
+test_happy_path (test_cli.TestCli.test_happy_path) ... ok
+test_retry_after_conflict_via_cli (test_cli.TestCli.test_retry_after_conflict_via_cli) ... ok
+test_write_conflict_error (test_cli.TestCli.test_write_conflict_error) ... ok
+test_a_first_committer_wins_on_same_key (test_engine.TestSnapshotIsolation.test_a_first_committer_wins_on_same_key) ... ok
+test_b_disjoint_write_sets_both_commit (test_engine.TestSnapshotIsolation.test_b_disjoint_write_sets_both_commit) ... ok
+test_c_write_skew_is_allowed (test_engine.TestSnapshotIsolation.test_c_write_skew_is_allowed) ... ok
+test_conflict_detection_is_key_based_not_value_based (test_engine.TestSnapshotIsolation.test_conflict_detection_is_key_based_not_value_based) ... ok
+test_d_failed_txn_retries_successfully (test_engine.TestSnapshotIsolation.test_d_failed_txn_retries_successfully) ... ok
+test_read_missing_key_returns_none (test_engine.TestSnapshotIsolation.test_read_missing_key_returns_none) ... ok
+test_read_only_txn_never_conflicts (test_engine.TestSnapshotIsolation.test_read_only_txn_never_conflicts) ... ok
+test_read_own_writes (test_engine.TestSnapshotIsolation.test_read_own_writes) ... ok
+test_snapshot_reads_never_see_later_commits (test_engine.TestSnapshotIsolation.test_snapshot_reads_never_see_later_commits) ... ok
+test_random_interleavings_match_reference_model (test_random_model.TestRandomInterleaving.test_random_interleavings_match_reference_model) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.103s
+
+OK

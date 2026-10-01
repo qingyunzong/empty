@@ -1,0 +1,21 @@
+test_malformed_input_yields_error_objects (test_cli.CliTests.test_malformed_input_yields_error_objects) ... ok
+test_read_write_roundtrip_and_snapshot (test_cli.CliTests.test_read_write_roundtrip_and_snapshot) ... ok
+test_write_conflict_over_cli (test_cli.CliTests.test_write_conflict_over_cli) ... ok
+test_conflict_detection_is_key_based_not_value_based (test_engine.ConflictTests.test_conflict_detection_is_key_based_not_value_based) ... ok
+test_disjoint_write_sets_both_commit (test_engine.ConflictTests.test_disjoint_write_sets_both_commit) ... ok
+test_retry_after_conflict_succeeds (test_engine.ConflictTests.test_retry_after_conflict_succeeds) ... ok
+test_same_key_first_committer_wins (test_engine.ConflictTests.test_same_key_first_committer_wins) ... ok
+test_write_skew_is_allowed (test_engine.ConflictTests.test_write_skew_is_allowed) ... ok
+test_abort_discards_writes (test_engine.SnapshotTests.test_abort_discards_writes) ... ok
+test_empty_commit_succeeds (test_engine.SnapshotTests.test_empty_commit_succeeds) ... ok
+test_missing_key_reads_none (test_engine.SnapshotTests.test_missing_key_reads_none) ... ok
+test_read_your_own_writes (test_engine.SnapshotTests.test_read_your_own_writes) ... ok
+test_reads_never_see_later_commits (test_engine.SnapshotTests.test_reads_never_see_later_commits) ... ok
+test_uncommitted_writes_are_invisible (test_engine.SnapshotTests.test_uncommitted_writes_are_invisible) ... ok
+test_unknown_txn_raises (test_engine.SnapshotTests.test_unknown_txn_raises) ... ok
+test_random_interleavings_match_reference_model (test_random_model.RandomModelTest.test_random_interleavings_match_reference_model) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.544s
+
+OK
