@@ -1,0 +1,12 @@
+{
+  "gpus": [
+    {"id": "g0", "mem": 8, "sm": 8},
+    {"id": "g1", "mem": 8, "sm": 8}
+  ],
+  "requests": [
+    {"id": "a", "mem": 3, "sm": 3, "shareable": true,  "preemptible": true,  "arrival": 0, "duration": 6},
+    {"id": "b", "mem": 3, "sm": 3, "shareable": true,  "preemptible": false, "arrival": 1, "duration": 3},
+    {"id": "c", "mem": 4, "sm": 4, "shareable": false, "preemptible": false, "arrival": 2, "duration": 2},
+    {"id": "d", "mem": 2, "sm": 2, "shareable": true,  "preemptible": true,  "arrival": 0, "duration": 4}
+  ]
+}
