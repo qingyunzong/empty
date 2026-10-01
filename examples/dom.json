@@ -1,0 +1,169 @@
+{
+  "blocks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 0,
+      "offsets": [
+        0
+      ],
+      "successors": [
+        1
+      ],
+      "unreachable": false,
+      "dom": [
+        0
+      ],
+      "idom": null
+    },
+    {
+      "id": 1,
+      "start": 4,
+      "end": 4,
+      "offsets": [
+        4
+      ],
+      "successors": [
+        2,
+        3
+      ],
+      "unreachable": false,
+      "dom": [
+        0,
+        1
+      ],
+      "idom": 0
+    },
+    {
+      "id": 2,
+      "start": 12,
+      "end": 12,
+      "offsets": [
+        12
+      ],
+      "successors": [
+        4
+      ],
+      "unreachable": false,
+      "dom": [
+        0,
+        1,
+        2
+      ],
+      "idom": 1
+    },
+    {
+      "id": 3,
+      "start": 20,
+      "end": 20,
+      "offsets": [
+        20
+      ],
+      "successors": [
+        4
+      ],
+      "unreachable": false,
+      "dom": [
+        0,
+        1,
+        3
+      ],
+      "idom": 1
+    },
+    {
+      "id": 4,
+      "start": 24,
+      "end": 24,
+      "offsets": [
+        24
+      ],
+      "successors": [
+        1,
+        5
+      ],
+      "unreachable": false,
+      "dom": [
+        0,
+        1,
+        4
+      ],
+      "idom": 1
+    },
+    {
+      "id": 5,
+      "start": 28,
+      "end": 28,
+      "offsets": [
+        28
+      ],
+      "successors": [],
+      "unreachable": false,
+      "dom": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "idom": 4
+    },
+    {
+      "id": 6,
+      "start": 32,
+      "end": 32,
+      "offsets": [
+        32
+      ],
+      "successors": [],
+      "unreachable": true,
+      "dom": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "idom": null
+    }
+  ],
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "back_edges": [
+    [
+      4,
+      1
+    ]
+  ],
+  "loop_headers": [
+    1
+  ]
+}

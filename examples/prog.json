@@ -1,0 +1,11 @@
+{
+  "instructions": [
+    {"offset": 0,  "op": "LOAD", "fallthrough": true,  "targets": []},
+    {"offset": 4,  "op": "JZ",   "fallthrough": false, "targets": [12, 20]},
+    {"offset": 12, "op": "ADD",  "fallthrough": false, "targets": [24]},
+    {"offset": 20, "op": "SUB",  "fallthrough": true,  "targets": []},
+    {"offset": 24, "op": "JNZ",  "fallthrough": true,  "targets": [4]},
+    {"offset": 28, "op": "RET",  "fallthrough": false, "targets": []},
+    {"offset": 32, "op": "HALT", "fallthrough": false, "targets": []}
+  ]
+}
