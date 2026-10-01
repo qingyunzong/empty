@@ -1,0 +1,31 @@
+# Test results (real output)
+# Date: 2026-10-01 08:09:02 UTC
+# Command: python -m unittest discover -v
+# Python: Python 3.14.4 (/usr/bin/python3.14)
+# Note: the environment only provides python3; a 'python' symlink to python3 was used.
+
+test_invalid_json_is_error (tests.test_cli.CliExplainTest.test_invalid_json_is_error) ... ok
+test_missing_input_file_is_error (tests.test_cli.CliExplainTest.test_missing_input_file_is_error) ... ok
+test_non_integer_domain_values_are_error (tests.test_cli.CliExplainTest.test_non_integer_domain_values_are_error) ... ok
+test_unknown_constraint_type_is_error (tests.test_cli.CliExplainTest.test_unknown_constraint_type_is_error) ... ok
+test_unknown_variable_is_error (tests.test_cli.CliExplainTest.test_unknown_variable_is_error) ... ok
+test_unsat_problem_reports_conflict (tests.test_cli.CliExplainTest.test_unsat_problem_reports_conflict) ... ok
+test_valid_problem_outputs_json (tests.test_cli.CliExplainTest.test_valid_problem_outputs_json) ... ok
+test_conflict_is_usable_as_nogood (tests.test_explanations.ConflictExplanationTest.test_conflict_is_usable_as_nogood) ... ok
+test_conflict_matches_naive_trace (tests.test_explanations.ConflictExplanationTest.test_conflict_matches_naive_trace) ... ok
+test_explanations_contain_only_direct_premises (tests.test_explanations.ExplanationShapeTest.test_explanations_contain_only_direct_premises) ... ok
+test_eq_with_singleton_other (tests.test_explanations.SingletonVariableTest.test_eq_with_singleton_other) ... ok
+test_lt_with_singleton_other (tests.test_explanations.SingletonVariableTest.test_lt_with_singleton_other) ... ok
+test_ne_with_singleton_other (tests.test_explanations.SingletonVariableTest.test_ne_with_singleton_other) ... ok
+test_domains_match_tuple_reference (tests.test_propagation.AcceptanceScenario1Test.test_domains_match_tuple_reference) ... ok
+test_explanation_of_x3_is_minimal (tests.test_propagation.AcceptanceScenario1Test.test_explanation_of_x3_is_minimal) ... ok
+test_all_ops_handcrafted (tests.test_propagation.ReferenceComparisonTest.test_all_ops_handcrafted) ... ok
+test_large_domain_without_pregenerated_tuples (tests.test_propagation.ReferenceComparisonTest.test_large_domain_without_pregenerated_tuples) ... ok
+test_random_problems_match_reference (tests.test_propagation.ReferenceComparisonTest.test_random_problems_match_reference) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 2.296s
+
+OK
+
+exit_code=0
