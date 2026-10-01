@@ -1,0 +1,22 @@
+完成。从空仓库实现了完整的 `leasesim`，全部测试真实运行通过。
+
+**交付内容**
+- `leasesim/sim.py` — 核心模拟器：原子多资源获取、TTL 到期（同 t 到期先于 acquire，ttl=0 当 tick 末释放）、按 `(请求t, client)` 的 FIFO 等待队列、等待图环检测（确定性迭代 DFS），环上 `(t, client)` 最大者标 `DEADLOCK` 并踢出，系统不会无限阻塞
+- `leasesim/cli.py` — `python -m leasesim run ops.json --out state.json`；输入校验，错误一律退出码 2（need≤0、超 capacity、未知资源、重复 `(t,client)`、client 并发持有冲突、release 未持有资源）
+- `examples/` — 死锁、正常、超容量三个示例
+- `tests/test_sim.py` + `tests/test_fuzz.py` — 23 个测试
+
+**验收对照**
+- A：`examples/deadlock.json` 交叉请求，第二个请求标 `DEADLOCK`（cycle `[a,b]`），b 释放后 a 被授予 r2，系统继续运行
+- B：到期先于同 t acquire；ttl=0 当 tick 末释放，同 t 排在后面的 client 先 WAITING 再在 t=0 被授予
+- C：三资源缺一即整体 WAITING 且零占用，释放后一次性原子授予全部三个
+- D：`tests/test_fuzz.py` 内置独立参照实现（BFS 自可达环检测 + 全局最大受害者），400 种子随机场景（≤6 op、≤3 资源）全量比对事件流与 holders；另离线 5000 种子验证：1109 个有效场景全一致、312 个死锁、3891 个错误一致性
+- E：`json.dumps(sort_keys=True)` 确定性输出，重复运行 `cmp` 字节相同
+
+**真实运行记录**（已写入 `README.md`）
+- `python -m unittest discover -s tests -v`：23 tests，OK
+- 死锁例：exit 0，state sha256 `bf8ed5ce…a3ce2`，最终 holders 为 a 持有 r1+r2
+- 正常例：exit 0，sha256 `b88d6d70…86cdb`
+- 超容量例：exit 2，stderr 报 `need 2 exceeds capacity of 'r1' (1)`
+
+一个设计取舍说明：等待队列采用严格 FIFO（队首阻塞），只有死锁请求会被跳过——这与"批准队首会形成环则跳过，继续检查后续"的语义一致；环境中 Python 为 3.14，但代码仅用 3.11 标准库特性。

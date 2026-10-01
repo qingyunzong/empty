@@ -1,0 +1,19 @@
+Done. Built from empty repo; all 16 tests pass and the CLI runs both examples with exit code 0.
+
+**Implementation**
+- `leasesim/simulator.py` — core engine: atomic all-or-nothing acquire, expiry heap (`ttl=0` released at end of tick, other expirations processed before same-tick acquires), wait queue ordered by `(t, client)`, wait-for graph cycle detection via iterative DFS — a request that would close a cycle is rejected `DEADLOCK` and the queue keeps scanning, so the system never blocks indefinitely.
+- `leasesim/cli.py` + `leasesim/__main__.py` — `python -m leasesim run ops.json --out state.json`; canonical JSON (sorted keys) for byte-identical reruns; exit code 2 on `need<=0`, need over capacity, duplicate concurrent holding, release-of-unheld, or malformed input.
+
+**Acceptance coverage**
+- A: `tests/test_simulator.py` crossed-request case — B's cycle-closing request is `DEADLOCK`, and A's queued request is granted after B releases.
+- B: expiry-before-same-tick-acquire and `ttl=0` end-of-tick release tests.
+- C: three-resource request missing one holds nothing (verified via final holders).
+- D: `tests/test_fuzz.py` — 1500 seeds (≤6 ops, ≤3 resources), 1287 valid scenarios cross-checked event-for-event against an independent reference model using Kahn's topological sort (23 deadlocks exercised, all matching).
+- E: `tests/test_cli.py` runs the CLI twice and asserts byte-identical `state.json`.
+
+**Recorded real runs** (in `README.md`)
+- `examples/deadlock.json` → exit 0, holders `{"A": {"r1": 1, "r2": 1}}`, sha256 `0db82f93…d526`
+- `examples/normal.json` → exit 0, holders `{"C": {"r2": 1}}`, sha256 `159f2b19…f7d9`
+- Error example → `error: op #0: need 5 exceeds capacity of 'r1'`, exit 2
+
+One design choice worth noting: when the queue head can't be satisfied but isn't deadlocked, later requests are still checked (skip semantics) — documented in the README and module docstring.

@@ -1,0 +1,21 @@
+test_deterministic_byte_identical_output (test_cli.TestCli.test_deterministic_byte_identical_output) ... ok
+test_missing_file_exit_code_2 (test_cli.TestCli.test_missing_file_exit_code_2) ... ok
+test_run_writes_state_and_exit_zero (test_cli.TestCli.test_run_writes_state_and_exit_zero) ... ok
+test_validation_error_exit_code_2 (test_cli.TestCli.test_validation_error_exit_code_2) ... ok
+test_deadlock_marks_match_reference (test_fuzz.TestFuzzDeadlockCrossCheck.test_deadlock_marks_match_reference) ... ok
+test_cross_deadlock_and_recovery (test_simulator.TestAcceptanceA.test_cross_deadlock_and_recovery) ... ok
+test_expiry_precedes_same_tick_acquire (test_simulator.TestAcceptanceB.test_expiry_precedes_same_tick_acquire) ... ok
+test_ttl_zero_released_at_end_of_tick (test_simulator.TestAcceptanceB.test_ttl_zero_released_at_end_of_tick) ... ok
+test_all_or_nothing (test_simulator.TestAcceptanceC.test_all_or_nothing) ... ok
+test_duplicate_concurrent_holding_conflict (test_simulator.TestErrors.test_duplicate_concurrent_holding_conflict) ... ok
+test_need_exceeds_capacity (test_simulator.TestErrors.test_need_exceeds_capacity) ... ok
+test_need_zero (test_simulator.TestErrors.test_need_zero) ... ok
+test_release_unheld_resource (test_simulator.TestErrors.test_release_unheld_resource) ... ok
+test_unknown_resource (test_simulator.TestErrors.test_unknown_resource) ... ok
+test_later_tick_expiry_flushes_earlier_ttl_zero (test_simulator.TestOrdering.test_later_tick_expiry_flushes_earlier_ttl_zero) ... ok
+test_same_tick_lexicographic_client_order (test_simulator.TestOrdering.test_same_tick_lexicographic_client_order) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.271s
+
+OK

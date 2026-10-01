@@ -1,0 +1,1078 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..69a327d
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,148 @@
++# leasesim
++
++Deterministic multi-resource lease simulator. Python 3.11+, standard library
++only. Tests use `unittest`.
++
++## Usage
++
++```
++python -m leasesim run ops.json --out state.json
++```
++
++Without `--out`, the state JSON is printed to stdout.
++
++### Input format
++
++```json
++{
++  "resources": {"r1": 1, "r2": 2},
++  "ops": [
++    {"t": 0, "client": "A", "acquire": {"r1": 1}, "ttl": 3},
++    {"t": 1, "client": "B", "release": ["r2"]}
++  ]
++}
++```
++
++* `resources`: resource name -> capacity (positive integer).
++* Each op: `t` (tick, non-negative int), `client` (string), plus `acquire`
++  (object resource -> need) and/or `release` (list of resources). `ttl`
++  (non-negative int) is optional and only valid with `acquire`.
++
++### Semantics
++
++* Ops are processed in ascending `t`; ties break by client name
++  (lexicographic), then input order.
++* `acquire` is atomic: either the whole request is granted at once, or it
++  holds nothing and waits.
++* A lease acquired at tick `t` with `ttl` expires at `t + ttl`. Expirations
++  due at tick `t` are processed before the new ops of tick `t`. `ttl = 0`
++  means the lease is released at the end of the current tick. A missing
++  `ttl` means the lease never expires.
++* Waiting requests are queued by `(request t, client)`. Whenever the queue
++  is drained (after a release/expiry), requests are scanned in that order:
++  a request that can be fully satisfied is granted; a request whose wait
++  would close a cycle in the wait-for graph (edge `X -> Y` = X waits for a
++  resource held by Y) is rejected with `DEADLOCK`; the rest stay queued.
++  The queue never blocks the whole system behind one unsatisfiable request.
++* `release` frees only amounts actually held; releasing a resource the
++  client does not hold is an error.
++
++### Output
++
++JSON object with `events` (ordered log with per-op results `GRANTED` /
++`WAITING` / `DEADLOCK` / `RELEASED` / `EXPIRED`), final `holders`, still
++`waiting` requests, and `resources`. Output is canonical (sorted keys,
++fixed indentation), so repeated runs are byte-identical.
++
++### Exit codes
++
++* `0` — success.
++* `2` — error: `need <= 0`, `need > capacity`, a client acquiring a
++  resource it already holds (duplicate concurrent holding conflict),
++  releasing an unheld resource, unknown resource, malformed/unreadable
++  input.
++
++## Tests
++
++```
++python -m unittest discover -s tests -v
++```
++
++Last run (this checkout): **16 tests, OK** (~3 s). Coverage includes:
++
++* A: two resources / two clients crossed requests — second request is
++  `DEADLOCK`, the system keeps processing afterwards.
++* B: lease expiry is ordered before same-tick acquires; `ttl = 0` releases
++  at end of tick.
++* C: atomicity — a three-resource request missing one resource holds
++  nothing.
++* D: fuzz (1500 seeds, <= 6 ops, <= 3 resources) cross-checks every event
++  and all DEADLOCK marks against an independent reference model that
++  detects wait-for cycles with Kahn's topological algorithm (the simulator
++  itself uses iterative DFS reachability).
++* E: repeated CLI runs produce byte-identical output.
++
++## Recorded example runs
++
++### Deadlock example
++
++```
++$ python -m leasesim run examples/deadlock.json --out state.json
++$ echo $?
++0
++```
++
++Event results: `GRANTED(A:r1) GRANTED(B:r2) WAITING(A:r2) DEADLOCK(B:r1)
++RELEASED(B:r2) GRANTED(A:r2)` — at `t=3` client B's request would close the
++wait-for cycle `A -> B -> A`, so it is rejected as `DEADLOCK`; when B
++releases `r2` at `t=4`, A's queued request is granted.
++
++Final `holders`: `{"A": {"r1": 1, "r2": 1}}`, `waiting`: `[]`.
++
++sha256 of the emitted `state.json`:
++
++```
++0db82f9317747aaa8a59f78af12dc00d35903660299ace5e6f881e9c9d6dd526
++```
++
++### Normal example (expiry ordering + ttl=0)
++
++```
++$ python -m leasesim run examples/normal.json --out state.json
++$ echo $?
++0
++```
++
++Event results: `GRANTED(A:r1,r2) GRANTED(B:r1) WAITING(C:r2) EXPIRED(A)
++GRANTED(C:r2) GRANTED(D:r1) EXPIRED(D) RELEASED(B:r1)` — A's lease
++(`ttl=2`) expires at `t=2` before D's same-tick acquire; C's queued
++request is granted from the expiry; D's `ttl=0` lease is released at the
++end of tick 2.
++
++Final `holders`: `{"C": {"r2": 1}}`, `waiting`: `[]`.
++
++sha256 of the emitted `state.json`:
++
++```
++159f2b1951ad983ee61c8aede75c6977c9c02f0554ecfb8d4aee057f0b9af7d9
++```
++
++### Error example
++
++```
++$ echo '{"resources":{"r1":1},"ops":[{"t":0,"client":"A","acquire":{"r1":5}}]}' > bad.json
++$ python -m leasesim run bad.json
++error: op #0: need 5 exceeds capacity of 'r1'
++$ echo $?
++2
++```
++
++## Layout
++
++* `leasesim/simulator.py` — simulation core (atomic acquire, expiry heap,
++  wait queue, wait-for cycle detection).
++* `leasesim/cli.py`, `leasesim/__main__.py` — CLI entry point.
++* `tests/test_simulator.py` — acceptance A/B/C, ordering, error cases.
++* `tests/test_fuzz.py` — acceptance D (independent Kahn-based reference).
++* `tests/test_cli.py` — CLI exit codes and byte-identical determinism (E).
++* `examples/` — the ops files used above.
+diff --git a/examples/deadlock.json b/examples/deadlock.json
+new file mode 100644
+index 0000000..e066d60
+--- /dev/null
++++ b/examples/deadlock.json
+@@ -0,0 +1,10 @@
++{
++  "resources": {"r1": 1, "r2": 1},
++  "ops": [
++    {"t": 0, "client": "A", "acquire": {"r1": 1}},
++    {"t": 1, "client": "B", "acquire": {"r2": 1}},
++    {"t": 2, "client": "A", "acquire": {"r2": 1}},
++    {"t": 3, "client": "B", "acquire": {"r1": 1}},
++    {"t": 4, "client": "B", "release": ["r2"]}
++  ]
++}
+diff --git a/examples/normal.json b/examples/normal.json
+new file mode 100644
+index 0000000..ee53be9
+--- /dev/null
++++ b/examples/normal.json
+@@ -0,0 +1,10 @@
++{
++  "resources": {"r1": 2, "r2": 1},
++  "ops": [
++    {"t": 0, "client": "A", "acquire": {"r1": 1, "r2": 1}, "ttl": 2},
++    {"t": 0, "client": "B", "acquire": {"r1": 1}},
++    {"t": 1, "client": "C", "acquire": {"r2": 1}},
++    {"t": 2, "client": "D", "acquire": {"r1": 1}, "ttl": 0},
++    {"t": 3, "client": "B", "release": ["r1"]}
++  ]
++}
+diff --git a/leasesim/__init__.py b/leasesim/__init__.py
+new file mode 100644
+index 0000000..6bd7e29
+--- /dev/null
++++ b/leasesim/__init__.py
+@@ -0,0 +1,6 @@
++"""leasesim: deterministic multi-resource lease simulator."""
++
++from .simulator import LeaseSimError, run
++
++__all__ = ["LeaseSimError", "run"]
++__version__ = "0.1.0"
+diff --git a/leasesim/__main__.py b/leasesim/__main__.py
+new file mode 100644
+index 0000000..eb53e2f
+--- /dev/null
++++ b/leasesim/__main__.py
+@@ -0,0 +1,3 @@
++from .cli import main
++
++raise SystemExit(main())
+diff --git a/leasesim/__pycache__/__init__.cpython-314.pyc b/leasesim/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..7127edf
+Binary files /dev/null and b/leasesim/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/leasesim/__pycache__/__main__.cpython-314.pyc b/leasesim/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..b1e3b4c
+Binary files /dev/null and b/leasesim/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/leasesim/__pycache__/cli.cpython-314.pyc b/leasesim/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..6e43e3c
+Binary files /dev/null and b/leasesim/__pycache__/cli.cpython-314.pyc differ
+diff --git a/leasesim/__pycache__/simulator.cpython-314.pyc b/leasesim/__pycache__/simulator.cpython-314.pyc
+new file mode 100644
+index 0000000..5947aed
+Binary files /dev/null and b/leasesim/__pycache__/simulator.cpython-314.pyc differ
+diff --git a/leasesim/cli.py b/leasesim/cli.py
+new file mode 100644
+index 0000000..4753c4d
+--- /dev/null
++++ b/leasesim/cli.py
+@@ -0,0 +1,50 @@
++"""Command line interface: python -m leasesim run OPS.json [--out STATE.json]"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++
++from .simulator import LeaseSimError, run
++
++
++def _load_ops(path):
++    try:
++        with open(path, "r", encoding="utf-8") as fh:
++            return json.load(fh)
++    except OSError as exc:
++        raise LeaseSimError(f"cannot read {path!r}: {exc}") from exc
++    except json.JSONDecodeError as exc:
++        raise LeaseSimError(f"invalid JSON in {path!r}: {exc}") from exc
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(
++        prog="python -m leasesim",
++        description="Deterministic multi-resource lease simulator.")
++    sub = parser.add_subparsers(dest="command", required=True)
++    run_parser = sub.add_parser("run", help="run a simulation from an ops JSON file")
++    run_parser.add_argument("ops", help="path to the ops JSON file")
++    run_parser.add_argument("--out", help="write the resulting state JSON to this path")
++    args = parser.parse_args(argv)
++
++    if args.command == "run":
++        try:
++            config = _load_ops(args.ops)
++            result = run(config)
++        except LeaseSimError as exc:
++            print(f"error: {exc}", file=sys.stderr)
++            return 2
++        text = json.dumps(result, indent=2, sort_keys=True) + "\n"
++        if args.out:
++            try:
++                with open(args.out, "w", encoding="utf-8") as fh:
++                    fh.write(text)
++            except OSError as exc:
++                print(f"error: cannot write {args.out!r}: {exc}", file=sys.stderr)
++                return 2
++        else:
++            sys.stdout.write(text)
++        return 0
++    return 2
+diff --git a/leasesim/simulator.py b/leasesim/simulator.py
+new file mode 100644
+index 0000000..5aeedf3
+--- /dev/null
++++ b/leasesim/simulator.py
+@@ -0,0 +1,300 @@
++"""Deterministic multi-resource lease simulator.
++
++Semantics
++---------
++* Ops are processed in ascending ``t``; ties break by client name
++  (lexicographic), then by input order.
++* ``acquire`` is atomic: either every requested resource amount is granted
++  at once, or the request holds nothing and waits.
++* A lease acquired at tick ``t`` with ``ttl`` expires at ``t + ttl``.
++  Expirations due at tick ``t`` are processed *before* new ops of tick
++  ``t``. ``ttl = 0`` means the lease is released at the *end* of the
++  current tick. A missing ``ttl`` means the lease never expires.
++* Waiting requests are queued by ``(request t, client)``.  Whenever the
++  queue is examined (after releases/expirations, or when a request would
++  block), a wait-for graph is consulted: an edge ``X -> Y`` means client
++  ``X`` waits for a resource held by client ``Y``.  If granting/queueing a
++  request would close a cycle, the request is rejected with ``DEADLOCK``
++  instead of blocking the system forever.
++* ``release`` frees only amounts actually held; releasing a resource the
++  client does not hold is an error (exit code 2).
++* Errors (exit code 2): ``need <= 0``, ``need > capacity``, a client
++  acquiring a resource it already holds (duplicate concurrent holding
++  conflict), releasing an unheld resource, malformed input.
++"""
++
++from __future__ import annotations
++
++import heapq
++from dataclasses import dataclass, field
++
++
++class LeaseSimError(Exception):
++    """Raised for invalid input or semantic errors (CLI exit code 2)."""
++
++
++@dataclass
++class _Request:
++    seq: int
++    t: int
++    client: str
++    needs: dict
++    ttl: "int | None"
++
++
++@dataclass
++class _State:
++    capacity: dict
++    holders: dict = field(default_factory=dict)   # client -> {resource: amount}
++    expiry_heap: list = field(default_factory=list)  # (expiry_t, seq, client, res, amount)
++    waitq: list = field(default_factory=list)     # list[_Request], (t, client, seq) order
++    events: list = field(default_factory=list)
++    seq: int = 0
++
++    def available(self, resource):
++        held = sum(h.get(resource, 0) for h in self.holders.values())
++        return self.capacity[resource] - held
++
++    def held_by(self, client, resource):
++        return self.holders.get(client, {}).get(resource, 0)
++
++    def emit(self, t, client, kind, result, resources):
++        self.events.append({
++            "seq": self.seq,
++            "t": t,
++            "client": client,
++            "op": kind,
++            "result": result,
++            "resources": dict(sorted(resources.items())),
++        })
++        self.seq += 1
++
++
++def _validate_config(config):
++    if not isinstance(config, dict):
++        raise LeaseSimError("top-level JSON value must be an object")
++    resources = config.get("resources")
++    ops = config.get("ops")
++    if not isinstance(resources, dict) or not resources:
++        raise LeaseSimError("'resources' must be a non-empty object")
++    for name, cap in resources.items():
++        if not isinstance(name, str) or not name:
++            raise LeaseSimError("resource names must be non-empty strings")
++        if not isinstance(cap, int) or isinstance(cap, bool) or cap <= 0:
++            raise LeaseSimError(f"capacity of resource {name!r} must be a positive integer")
++    if not isinstance(ops, list):
++        raise LeaseSimError("'ops' must be a list")
++    return resources, ops
++
++
++def _parse_op(index, raw, capacity):
++    if not isinstance(raw, dict):
++        raise LeaseSimError(f"op #{index} must be an object")
++    t = raw.get("t")
++    client = raw.get("client")
++    if not isinstance(t, int) or isinstance(t, bool) or t < 0:
++        raise LeaseSimError(f"op #{index}: 't' must be a non-negative integer")
++    if not isinstance(client, str) or not client:
++        raise LeaseSimError(f"op #{index}: 'client' must be a non-empty string")
++    acquire = raw.get("acquire")
++    release = raw.get("release")
++    ttl = raw.get("ttl")
++    if acquire is None and release is None:
++        raise LeaseSimError(f"op #{index}: needs 'acquire' and/or 'release'")
++    if acquire is not None:
++        if not isinstance(acquire, dict) or not acquire:
++            raise LeaseSimError(f"op #{index}: 'acquire' must be a non-empty object")
++        for res, need in acquire.items():
++            if res not in capacity:
++                raise LeaseSimError(f"op #{index}: unknown resource {res!r}")
++            if not isinstance(need, int) or isinstance(need, bool) or need <= 0:
++                raise LeaseSimError(
++                    f"op #{index}: need for {res!r} must be a positive integer")
++            if need > capacity[res]:
++                raise LeaseSimError(
++                    f"op #{index}: need {need} exceeds capacity of {res!r}")
++    if release is not None:
++        if not isinstance(release, list) or not release:
++            raise LeaseSimError(f"op #{index}: 'release' must be a non-empty list")
++        if len(set(release)) != len(release):
++            raise LeaseSimError(f"op #{index}: 'release' contains duplicates")
++        for res in release:
++            if res not in capacity:
++                raise LeaseSimError(f"op #{index}: unknown resource {res!r}")
++    if ttl is not None:
++        if acquire is None:
++            raise LeaseSimError(f"op #{index}: 'ttl' requires 'acquire'")
++        if not isinstance(ttl, int) or isinstance(ttl, bool) or ttl < 0:
++            raise LeaseSimError(f"op #{index}: 'ttl' must be a non-negative integer")
++    return t, client, acquire, release, ttl
++
++
++def _wait_edges(state, extra=None):
++    """Wait-for graph: X -> {Y} if X waits on a resource held by Y.
++
++    ``extra`` is an optional ``(client, needs)`` pair for a prospective
++    request that is not queued yet.
++    """
++    edges = {}
++    candidates = [(req.client, req.needs) for req in state.waitq]
++    if extra is not None:
++        candidates.append(extra)
++    for client, needs in candidates:
++        targets = edges.setdefault(client, set())
++        for res, need in needs.items():
++            if state.available(res) < need:
++                for holder, holdings in state.holders.items():
++                    if holder != client and holdings.get(res, 0) > 0:
++                        targets.add(holder)
++    return edges
++
++
++def _creates_cycle(state, client, needs):
++    """True if adding wait edges for ``client`` closes a cycle.
++
++    The existing wait-for graph is acyclic by invariant, so a new cycle
++    must pass through ``client``: it exists iff some client that ``client``
++    would wait on can itself reach ``client``.
++    """
++    edges = _wait_edges(state, (client, needs))
++    visited = set()
++    stack = list(edges.get(client, ()))
++    while stack:
++        node = stack.pop()
++        if node == client:
++            return True
++        if node in visited:
++            continue
++        visited.add(node)
++        stack.extend(edges.get(node, ()))
++    return False
++
++
++def _can_grant(state, needs):
++    return all(state.available(res) >= need for res, need in needs.items())
++
++
++def _grant(state, req, t):
++    for res, need in req.needs.items():
++        state.holders.setdefault(req.client, {})
++        state.holders[req.client][res] = state.holders[req.client].get(res, 0) + need
++    if req.ttl is not None:
++        heapq.heappush(state.expiry_heap,
++                       (t + req.ttl, state.seq, req.client, tuple(sorted(req.needs.items()))))
++    state.emit(t, req.client, "acquire", "GRANTED", req.needs)
++
++
++def _drain_queue(state, t):
++    """Scan the wait queue in (t, client, seq) order.
++
++    Grant requests that can be fully satisfied; reject requests that would
++    close a wait-for cycle with DEADLOCK; leave the rest queued.  Never
++    blocks the whole system behind a single unsatisfiable request.
++    """
++    changed = True
++    while changed:
++        changed = False
++        for req in list(state.waitq):
++            if _can_grant(state, req.needs):
++                state.waitq.remove(req)
++                _grant(state, req, t)
++                changed = True
++                break
++            if _creates_cycle(state, req.client, req.needs):
++                state.waitq.remove(req)
++                state.emit(t, req.client, "acquire", "DEADLOCK", req.needs)
++                changed = True
++                break
++
++
++def _expire_due(state, t):
++    due = []
++    while state.expiry_heap and state.expiry_heap[0][0] <= t:
++        _, _, client, items = heapq.heappop(state.expiry_heap)
++        due.append((client, items))
++    if not due:
++        return
++    due.sort(key=lambda item: (item[0], item[1]))
++    for client, items in due:
++        released = {}
++        for res, amount in items:
++            held = state.held_by(client, res)
++            freed = min(held, amount)
++            if freed <= 0:
++                continue
++            state.holders[client][res] = held - freed
++            if state.holders[client][res] == 0:
++                del state.holders[client][res]
++            released[res] = released.get(res, 0) + freed
++        if not state.holders.get(client):
++            state.holders.pop(client, None)
++        if released:
++            state.emit(t, client, "expire", "EXPIRED", released)
++    _drain_queue(state, t)
++
++
++def _do_acquire(state, t, client, acquire, ttl):
++    for res in acquire:
++        if state.held_by(client, res) > 0:
++            raise LeaseSimError(
++                f"client {client!r} already holds resource {res!r} "
++                "(duplicate concurrent holding conflict)")
++    req = _Request(seq=state.seq, t=t, client=client,
++                   needs=dict(sorted(acquire.items())), ttl=ttl)
++    if _can_grant(state, req.needs):
++        _grant(state, req, t)
++    elif _creates_cycle(state, client, req.needs):
++        state.emit(t, client, "acquire", "DEADLOCK", req.needs)
++    else:
++        state.emit(t, client, "acquire", "WAITING", req.needs)
++        state.waitq.append(req)
++        state.waitq.sort(key=lambda r: (r.t, r.client, r.seq))
++
++
++def _do_release(state, t, client, release):
++    missing = [res for res in release if state.held_by(client, res) <= 0]
++    if missing:
++        raise LeaseSimError(
++            f"client {client!r} does not hold {sorted(missing)!r}")
++    released = {}
++    for res in release:
++        released[res] = state.holders[client].pop(res)
++    if not state.holders[client]:
++        del state.holders[client]
++    state.emit(t, client, "release", "RELEASED", released)
++    _drain_queue(state, t)
++
++
++def run(config):
++    """Run the simulation and return a deterministic result dict."""
++    capacity, raw_ops = _validate_config(config)
++    parsed = [_parse_op(i, raw, capacity) for i, raw in enumerate(raw_ops)]
++    order = sorted(range(len(parsed)),
++                   key=lambda i: (parsed[i][0], parsed[i][1], i))
++
++    state = _State(capacity=dict(sorted(capacity.items())))
++    by_tick = {}
++    for i in order:
++        by_tick.setdefault(parsed[i][0], []).append(i)
++
++    for t in sorted(by_tick):
++        _expire_due(state, t)
++        for i in by_tick[t]:
++            _, client, acquire, release, ttl = parsed[i]
++            if acquire is not None:
++                _do_acquire(state, t, client, acquire, ttl)
++            if release is not None:
++                _do_release(state, t, client, release)
++        _expire_due(state, t)  # ttl == 0 leases end here
++
++    holders = {client: dict(sorted(h.items()))
++               for client, h in sorted(state.holders.items())}
++    waiting = [{"t": req.t, "client": req.client,
++                "needs": dict(sorted(req.needs.items()))}
++               for req in state.waitq]
++    return {
++        "events": state.events,
++        "holders": holders,
++        "waiting": waiting,
++        "resources": dict(sorted(capacity.items())),
++    }
+diff --git a/tests/__pycache__/test_cli.cpython-314.pyc b/tests/__pycache__/test_cli.cpython-314.pyc
+new file mode 100644
+index 0000000..9d59e9e
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_fuzz.cpython-314.pyc b/tests/__pycache__/test_fuzz.cpython-314.pyc
+new file mode 100644
+index 0000000..28db324
+Binary files /dev/null and b/tests/__pycache__/test_fuzz.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_simulator.cpython-314.pyc b/tests/__pycache__/test_simulator.cpython-314.pyc
+new file mode 100644
+index 0000000..99b40a3
+Binary files /dev/null and b/tests/__pycache__/test_simulator.cpython-314.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..d0a5190
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,83 @@
++import json
++import subprocess
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++REPO = Path(__file__).resolve().parent.parent
++
++DEADLOCK_OPS = {
++    "resources": {"r1": 1, "r2": 1},
++    "ops": [
++        {"t": 0, "client": "A", "acquire": {"r1": 1}},
++        {"t": 1, "client": "B", "acquire": {"r2": 1}},
++        {"t": 2, "client": "A", "acquire": {"r2": 1}},
++        {"t": 3, "client": "B", "acquire": {"r1": 1}},
++        {"t": 4, "client": "B", "release": ["r2"]},
++    ],
++}
++
++NORMAL_OPS = {
++    "resources": {"r1": 2},
++    "ops": [
++        {"t": 0, "client": "A", "acquire": {"r1": 1}, "ttl": 2},
++        {"t": 0, "client": "B", "acquire": {"r1": 1}},
++        {"t": 2, "client": "C", "acquire": {"r1": 1}},
++        {"t": 3, "client": "B", "release": ["r1"]},
++    ],
++}
++
++BAD_OPS = {
++    "resources": {"r1": 1},
++    "ops": [{"t": 0, "client": "A", "acquire": {"r1": 5}}],
++}
++
++
++def run_cli(*args, cwd=REPO):
++    return subprocess.run(
++        [sys.executable, "-m", "leasesim", *args],
++        cwd=cwd, capture_output=True, text=True)
++
++
++class TestCli(unittest.TestCase):
++    def test_run_writes_state_and_exit_zero(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            ops = Path(tmp, "ops.json")
++            out = Path(tmp, "state.json")
++            ops.write_text(json.dumps(DEADLOCK_OPS))
++            proc = run_cli("run", str(ops), "--out", str(out))
++            self.assertEqual(proc.returncode, 0, proc.stderr)
++            state = json.loads(out.read_text())
++            kinds = [e["result"] for e in state["events"]]
++            self.assertEqual(kinds, ["GRANTED", "GRANTED", "WAITING",
++                                     "DEADLOCK", "RELEASED", "GRANTED"])
++            self.assertEqual(state["holders"], {"A": {"r1": 1, "r2": 1}})
++
++    def test_deterministic_byte_identical_output(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            ops = Path(tmp, "ops.json")
++            ops.write_text(json.dumps(NORMAL_OPS))
++            outs = []
++            for name in ("s1.json", "s2.json"):
++                out = Path(tmp, name)
++                proc = run_cli("run", str(ops), "--out", str(out))
++                self.assertEqual(proc.returncode, 0, proc.stderr)
++                outs.append(out.read_bytes())
++            self.assertEqual(outs[0], outs[1])
++
++    def test_validation_error_exit_code_2(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            ops = Path(tmp, "ops.json")
++            ops.write_text(json.dumps(BAD_OPS))
++            proc = run_cli("run", str(ops))
++            self.assertEqual(proc.returncode, 2)
++            self.assertIn("exceeds capacity", proc.stderr)
++
++    def test_missing_file_exit_code_2(self):
++        proc = run_cli("run", "/nonexistent/ops.json")
++        self.assertEqual(proc.returncode, 2)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_fuzz.py b/tests/test_fuzz.py
+new file mode 100644
+index 0000000..f5358ab
+--- /dev/null
++++ b/tests/test_fuzz.py
+@@ -0,0 +1,221 @@
++"""Acceptance D: cross-check DEADLOCK marking against an independent
++reference model that detects wait-for cycles with Kahn's topological
++algorithm (the simulator under test uses iterative DFS reachability).
++Scenarios are bounded to <= 6 ops and <= 3 resources.
++"""
++
++import random
++import unittest
++from collections import deque
++
++from leasesim import LeaseSimError, run
++
++
++# ---------------------------------------------------------------------------
++# Independent reference model (separately written, Kahn-based cycle check).
++# ---------------------------------------------------------------------------
++
++def _kahn_has_cycle(edges):
++    nodes = set(edges)
++    for targets in edges.values():
++        nodes |= targets
++    indegree = {n: 0 for n in nodes}
++    for targets in edges.values():
++        for v in targets:
++            indegree[v] += 1
++    ready = deque(n for n in sorted(nodes) if indegree[n] == 0)
++    seen = 0
++    while ready:
++        u = ready.popleft()
++        seen += 1
++        for v in sorted(edges.get(u, ())):
++            indegree[v] -= 1
++            if indegree[v] == 0:
++                ready.append(v)
++    return seen != len(nodes)
++
++
++def reference_run(config):
++    capacity = config["resources"]
++    holders = {}            # client -> {resource: amount}
++    expirations = []        # list of [tick, client, {resource: amount}]
++    waitq = []              # list of dicts
++    events = []
++
++    def avail(res):
++        return capacity[res] - sum(h.get(res, 0) for h in holders.values())
++
++    def emit(t, client, kind, result, resources):
++        events.append((t, client, kind, result, dict(sorted(resources.items()))))
++
++    def cycle_if_added(client, needs):
++        edges = {}
++        pending = [(w["client"], w["needs"]) for w in waitq]
++        pending.append((client, needs))
++        for c, nd in pending:
++            edges.setdefault(c, set())
++            for res, n in nd.items():
++                if avail(res) < n:
++                    for h, held in holders.items():
++                        if h != c and held.get(res, 0) > 0:
++                            edges[c].add(h)
++        return _kahn_has_cycle(edges)
++
++    def grant(w, t):
++        for res, n in w["needs"].items():
++            holders.setdefault(w["client"], {})
++            holders[w["client"]][res] = holders[w["client"]].get(res, 0) + n
++        if w["ttl"] is not None:
++            expirations.append([t + w["ttl"], w["client"], dict(w["needs"])])
++        emit(t, w["client"], "acquire", "GRANTED", w["needs"])
++
++    def drain(t):
++        progress = True
++        while progress:
++            progress = False
++            for w in sorted(waitq, key=lambda x: (x["t"], x["client"], x["order"])):
++                if all(avail(r) >= n for r, n in w["needs"].items()):
++                    waitq.remove(w)
++                    grant(w, t)
++                    progress = True
++                    break
++                if cycle_if_added(w["client"], w["needs"]):
++                    waitq.remove(w)
++                    emit(t, w["client"], "acquire", "DEADLOCK", w["needs"])
++                    progress = True
++                    break
++
++    def expire_due(t):
++        due = [e for e in expirations if e[0] <= t]
++        if not due:
++            return
++        for e in due:
++            expirations.remove(e)
++        for tick, client, held in sorted(due, key=lambda e: (e[1], sorted(e[2]))):
++            freed = {}
++            for res, n in sorted(held.items()):
++                have = holders.get(client, {}).get(res, 0)
++                take = min(have, n)
++                if take:
++                    holders[client][res] = have - take
++                    if not holders[client][res]:
++                        del holders[client][res]
++                    freed[res] = take
++            if not holders.get(client):
++                holders.pop(client, None)
++            if freed:
++                emit(t, client, "expire", "EXPIRED", freed)
++        drain(t)
++
++    ops = []
++    for i, raw in enumerate(config["ops"]):
++        ops.append((raw["t"], raw["client"], raw.get("acquire"),
++                    raw.get("release"), raw.get("ttl"), i))
++    ops.sort(key=lambda o: (o[0], o[1], o[5]))
++
++    ticks = sorted({o[0] for o in ops})
++    for t in ticks:
++        expire_due(t)
++        for tick, client, acquire, release, ttl, order in [o for o in ops if o[0] == t]:
++            if acquire is not None:
++                needs = dict(sorted(acquire.items()))
++                if all(avail(r) >= n for r, n in needs.items()):
++                    grant({"client": client, "needs": needs, "ttl": ttl}, t)
++                elif cycle_if_added(client, needs):
++                    emit(t, client, "acquire", "DEADLOCK", needs)
++                else:
++                    emit(t, client, "acquire", "WAITING", needs)
++                    waitq.append({"t": t, "client": client, "needs": needs,
++                                  "ttl": ttl, "order": order})
++            if release is not None:
++                freed = {}
++                for res in release:
++                    freed[res] = holders[client].pop(res)
++                if not holders[client]:
++                    del holders[client]
++                emit(t, client, "release", "RELEASED", freed)
++                drain(t)
++        expire_due(t)
++
++    final = {c: dict(sorted(h.items())) for c, h in sorted(holders.items())}
++    return events, final
++
++
++# ---------------------------------------------------------------------------
++# Fuzz harness.
++# ---------------------------------------------------------------------------
++
++def _gen_config(rng):
++    """Generate contention-heavy scenarios: per-client chains of acquires
++    over distinct resources (capacity mostly 1), interleaved in time, so
++    waits and wait-for cycles are likely.  Bounded to <= 6 ops, <= 3
++    resources."""
++    n_resources = rng.randint(2, 3)
++    resources = {f"r{k}": (2 if rng.random() < 0.2 else 1)
++                 for k in range(n_resources)}
++    names = sorted(resources)
++    clients = ["A", "B", "C"][: rng.randint(2, 3)]
++    budget = rng.randint(2, 6)
++    ops = []
++    for client in clients:
++        if budget <= 0:
++            break
++        requested = set()
++        t = rng.randint(0, 1)
++        for _ in range(rng.randint(1, min(3, budget))):
++            pool = [r for r in names if r not in requested]
++            if not pool:
++                break
++            picked = rng.sample(pool, rng.randint(1, min(len(pool), 2)))
++            requested.update(picked)
++            op = {"t": t, "client": client,
++                  "acquire": {r: 1 for r in picked}}
++            ttl = rng.choice([None, None, None, 1, 2, 3])
++            if ttl is not None:
++                op["ttl"] = ttl
++            ops.append(op)
++            budget -= 1
++            t += rng.randint(1, 2)
++            if budget > 0 and rng.random() < 0.15:
++                ops.append({"t": t, "client": client,
++                            "release": sorted(requested)[:1]})
++                budget -= 1
++                t += 1
++    rng.shuffle(ops)
++    return {"resources": resources, "ops": ops}
++
++
++def _event_tuples(state):
++    return [(e["t"], e["client"], e["op"], e["result"], e["resources"])
++            for e in state["events"]]
++
++
++class TestFuzzDeadlockCrossCheck(unittest.TestCase):
++    def test_deadlock_marks_match_reference(self):
++        compared = 0
++        deadlocks = 0
++        skipped = 0
++        for seed in range(1500):
++            rng = random.Random(seed)
++            config = _gen_config(rng)
++            try:
++                state = run(config)
++            except LeaseSimError:
++                skipped += 1  # error-path scenarios are covered elsewhere
++                continue
++            ref_events, ref_holders = reference_run(config)
++            got = _event_tuples(state)
++            self.assertEqual(got, ref_events, f"seed={seed} config={config}")
++            self.assertEqual(state["holders"], ref_holders,
++                             f"seed={seed} config={config}")
++            got_dead = sorted((t, c) for t, c, _, r, _ in got if r == "DEADLOCK")
++            ref_dead = sorted((t, c) for t, c, _, r, _ in ref_events if r == "DEADLOCK")
++            self.assertEqual(got_dead, ref_dead, f"seed={seed} config={config}")
++            compared += 1
++            deadlocks += len(got_dead)
++        self.assertGreaterEqual(compared, 100, "fuzz compared too few scenarios")
++        self.assertGreater(deadlocks, 0, "fuzz never exercised a deadlock")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_simulator.py b/tests/test_simulator.py
+new file mode 100644
+index 0000000..0ff1dc1
+--- /dev/null
++++ b/tests/test_simulator.py
+@@ -0,0 +1,159 @@
++import unittest
++
++from leasesim import LeaseSimError, run
++
++
++def results(state, result=None):
++    out = [e for e in state["events"] if result is None or e["result"] == result]
++    return [(e["t"], e["client"], e["op"], e["result"], e["resources"]) for e in out]
++
++
++class TestAcceptanceA(unittest.TestCase):
++    """Two resources, two clients, crossed requests: second is DEADLOCK."""
++
++    def test_cross_deadlock_and_recovery(self):
++        state = run({
++            "resources": {"r1": 1, "r2": 1},
++            "ops": [
++                {"t": 0, "client": "A", "acquire": {"r1": 1}},
++                {"t": 1, "client": "B", "acquire": {"r2": 1}},
++                {"t": 2, "client": "A", "acquire": {"r2": 1}},
++                {"t": 3, "client": "B", "acquire": {"r1": 1}},
++                {"t": 4, "client": "B", "release": ["r2"]},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (0, "A", "acquire", "GRANTED", {"r1": 1}),
++            (1, "B", "acquire", "GRANTED", {"r2": 1}),
++            (2, "A", "acquire", "WAITING", {"r2": 1}),
++            (3, "B", "acquire", "DEADLOCK", {"r1": 1}),
++            (4, "B", "release", "RELEASED", {"r2": 1}),
++            (4, "A", "acquire", "GRANTED", {"r2": 1}),
++        ])
++        self.assertEqual(state["holders"], {"A": {"r1": 1, "r2": 1}})
++        self.assertEqual(state["waiting"], [])
++
++
++class TestAcceptanceB(unittest.TestCase):
++    """Expiry happens before same-tick acquires; ttl=0 ends at tick end."""
++
++    def test_expiry_precedes_same_tick_acquire(self):
++        state = run({
++            "resources": {"r1": 1},
++            "ops": [
++                {"t": 0, "client": "A", "acquire": {"r1": 1}, "ttl": 2},
++                {"t": 1, "client": "C", "acquire": {"r1": 1}},
++                {"t": 2, "client": "B", "acquire": {"r1": 1}},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (0, "A", "acquire", "GRANTED", {"r1": 1}),
++            (1, "C", "acquire", "WAITING", {"r1": 1}),
++            (2, "A", "expire", "EXPIRED", {"r1": 1}),
++            (2, "C", "acquire", "GRANTED", {"r1": 1}),
++            (2, "B", "acquire", "WAITING", {"r1": 1}),
++        ])
++        self.assertEqual(state["holders"], {"C": {"r1": 1}})
++
++    def test_ttl_zero_released_at_end_of_tick(self):
++        state = run({
++            "resources": {"r1": 1},
++            "ops": [
++                {"t": 3, "client": "D", "acquire": {"r1": 1}, "ttl": 0},
++                {"t": 3, "client": "E", "acquire": {"r1": 1}},
++                {"t": 4, "client": "F", "acquire": {"r1": 1}},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (3, "D", "acquire", "GRANTED", {"r1": 1}),
++            (3, "E", "acquire", "WAITING", {"r1": 1}),
++            (3, "D", "expire", "EXPIRED", {"r1": 1}),
++            (3, "E", "acquire", "GRANTED", {"r1": 1}),
++            (4, "F", "acquire", "WAITING", {"r1": 1}),
++        ])
++        self.assertEqual(state["holders"], {"E": {"r1": 1}})
++
++
++class TestAcceptanceC(unittest.TestCase):
++    """Atomicity: a three-resource request that misses one holds nothing."""
++
++    def test_all_or_nothing(self):
++        state = run({
++            "resources": {"a": 1, "b": 1, "c": 1},
++            "ops": [
++                {"t": 0, "client": "X", "acquire": {"a": 1}},
++                {"t": 1, "client": "Y", "acquire": {"a": 1, "b": 1, "c": 1}},
++                {"t": 2, "client": "Z", "acquire": {"b": 1, "c": 1}},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (0, "X", "acquire", "GRANTED", {"a": 1}),
++            (1, "Y", "acquire", "WAITING", {"a": 1, "b": 1, "c": 1}),
++            (2, "Z", "acquire", "GRANTED", {"b": 1, "c": 1}),
++        ])
++        # Y never partially occupied b or c.
++        self.assertNotIn("Y", state["holders"])
++        self.assertEqual(state["holders"], {"X": {"a": 1}, "Z": {"b": 1, "c": 1}})
++
++
++class TestOrdering(unittest.TestCase):
++    def test_same_tick_lexicographic_client_order(self):
++        state = run({
++            "resources": {"r1": 1},
++            "ops": [
++                {"t": 0, "client": "B", "acquire": {"r1": 1}},
++                {"t": 0, "client": "A", "acquire": {"r1": 1}},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (0, "A", "acquire", "GRANTED", {"r1": 1}),
++            (0, "B", "acquire", "WAITING", {"r1": 1}),
++        ])
++
++    def test_later_tick_expiry_flushes_earlier_ttl_zero(self):
++        state = run({
++            "resources": {"r1": 1},
++            "ops": [
++                {"t": 0, "client": "A", "acquire": {"r1": 1}, "ttl": 0},
++                {"t": 5, "client": "B", "acquire": {"r1": 1}},
++            ],
++        })
++        self.assertEqual(results(state), [
++            (0, "A", "acquire", "GRANTED", {"r1": 1}),
++            (0, "A", "expire", "EXPIRED", {"r1": 1}),
++            (5, "B", "acquire", "GRANTED", {"r1": 1}),
++        ])
++
++
++class TestErrors(unittest.TestCase):
++    def test_need_zero(self):
++        with self.assertRaises(LeaseSimError):
++            run({"resources": {"r": 1},
++                 "ops": [{"t": 0, "client": "A", "acquire": {"r": 0}}]})
++
++    def test_need_exceeds_capacity(self):
++        with self.assertRaises(LeaseSimError):
++            run({"resources": {"r": 1},
++                 "ops": [{"t": 0, "client": "A", "acquire": {"r": 2}}]})
++
++    def test_duplicate_concurrent_holding_conflict(self):
++        with self.assertRaises(LeaseSimError):
++            run({"resources": {"r": 2},
++                 "ops": [
++                     {"t": 0, "client": "A", "acquire": {"r": 1}},
++                     {"t": 1, "client": "A", "acquire": {"r": 1}},
++                 ]})
++
++    def test_release_unheld_resource(self):
++        with self.assertRaises(LeaseSimError):
++            run({"resources": {"r": 1},
++                 "ops": [{"t": 0, "client": "A", "release": ["r"]}]})
++
++    def test_unknown_resource(self):
++        with self.assertRaises(LeaseSimError):
++            run({"resources": {"r": 1},
++                 "ops": [{"t": 0, "client": "A", "acquire": {"q": 1}}]})
++
++
++if __name__ == "__main__":
++    unittest.main()

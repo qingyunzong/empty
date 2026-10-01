@@ -1,0 +1,6 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-B/demonstration/probe.py reacquire
+b=WAITING a.r=1 expires_at=12 EXPIRED=0
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-B/demonstration/probe.py zero_ttl
+b GRANTED=1 EXPIRED=1 t=0 holders={}
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-B/demonstration/probe.py queue
+c=WAITING GRANTED=1 WAITING=2 holders=['a']

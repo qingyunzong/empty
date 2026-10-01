@@ -1,0 +1,6 @@
+$ python3 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-A/demonstration/probe.py old_lease
+旧租约到期后：a到期事件=1，b获批事件=1，最终持有者={"b": {"r": 1}}
+$ python3 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-A/demonstration/probe.py zero_ttl
+零TTL排队请求：b获批=1，b到期=0，最终持有者={"b": {"r": 1}}
+$ python3 /home/delin/.local/share/gsb-workbench/artifacts/b6a192526d2c4a259f98ab44e5535945/judge/pair/attempt-001/demonstration-A/demonstration/probe.py queue_order
+等待队列：b等待=1，c获批=1，最终持有者={"a": {"r": 1}, "c": {"s": 1}}
