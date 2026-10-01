@@ -1,0 +1,5 @@
+[project]
+name = "billcycle"
+version = "1.0.0"
+description = "Local-calendar billing recurrence expansion with offline timezone tables"
+requires-python = ">=3.11"

@@ -1,0 +1,15 @@
+{
+  "name": "monthly-billing",
+  "anchor": "2024-01-31",
+  "interval_months": 1,
+  "day_of_month": 31,
+  "anchor_mode": "original",
+  "adjust": "following",
+  "time_of_day": "09:30",
+  "zone": "America/New_York",
+  "gap_policy": "shift_forward",
+  "repeat_policy": "earlier",
+  "add_dates": [],
+  "remove_dates": [],
+  "version": 1
+}
