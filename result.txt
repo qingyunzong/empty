@@ -1,0 +1,18 @@
+test_invalid_json_exits_2 (test_dc.TestBadInput.test_invalid_json_exits_2) ... ok
+test_malformed_transaction_exits_2 (test_dc.TestBadInput.test_malformed_transaction_exits_2) ... ok
+test_missing_tx_file_exits_2 (test_dc.TestBadInput.test_missing_tx_file_exits_2) ... ok
+test_committed_edge_survives_restart (test_dc.TestCommitAndRestart.test_committed_edge_survives_restart) ... ok
+test_query_sees_in_transaction_state (test_dc.TestCommitAndRestart.test_query_sees_in_transaction_state) ... ok
+test_crash_preserves_previously_committed_state (test_dc.TestCrashRecovery.test_crash_preserves_previously_committed_state) ... ok
+test_fail_after_beyond_mutation_count_commits (test_dc.TestCrashRecovery.test_fail_after_beyond_mutation_count_commits) ... ok
+test_fail_after_exits_3_and_recovery_reruns (test_dc.TestCrashRecovery.test_fail_after_exits_3_and_recovery_reruns) ... ok
+test_idempotent_replay_of_committed_tx (test_dc.TestCrashRecovery.test_idempotent_replay_of_committed_tx) ... ok
+test_recover_installs_committed_but_unsaved_tx (test_dc.TestRecoveryUnit.test_recover_installs_committed_but_unsaved_tx) ... ok
+test_remove_nonexistent_edge_rolls_back_whole_tx (test_dc.TestRollback.test_remove_nonexistent_edge_rolls_back_whole_tx) ... ok
+test_remove_uninitialized_node_rolls_back (test_dc.TestRollback.test_remove_uninitialized_node_rolls_back) ... ok
+test_uninitialized_node_reference_rolls_back (test_dc.TestRollback.test_uninitialized_node_reference_rolls_back) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 10.284s
+
+OK
