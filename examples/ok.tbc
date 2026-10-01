@@ -1,0 +1,7 @@
+# compare 3 and 4, then branch on the result
+CONST_INT 3
+CONST_INT 4
+CMP
+JZ 5
+HALT
+HALT

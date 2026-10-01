@@ -1,0 +1,6 @@
+# pc 4 is unreachable: its underflow is only a DeadType warning
+CONST_BOOL true
+JZ 3
+HALT
+HALT
+ADD
