@@ -1,0 +1,8 @@
+{
+  "type": "stack",
+  "operations": [
+    {"id": "p1", "op": "push", "arg": 1, "call": 0, "return": 10},
+    {"id": "p2", "op": "push", "arg": 2, "call": 1, "return": 9},
+    {"id": "p3", "op": "pop", "call": 2, "return": 8, "result": 2}
+  ]
+}

@@ -1,0 +1,35 @@
+test_bad_type_flag_exit_2 (test_cli.TestCliInvalidInput.test_bad_type_flag_exit_2) ... ok
+test_invalid_operation_exit_2 (test_cli.TestCliInvalidInput.test_invalid_operation_exit_2) ... ok
+test_malformed_json_exit_2 (test_cli.TestCliInvalidInput.test_malformed_json_exit_2) ... ok
+test_missing_file_exit_2 (test_cli.TestCliInvalidInput.test_missing_file_exit_2) ... ok
+test_negative_timeout_exit_2 (test_cli.TestCliInvalidInput.test_negative_timeout_exit_2) ... ok
+test_infeasible_history_exit_0 (test_cli.TestCliSolve.test_infeasible_history_exit_0) ... ok
+test_ok_history_exit_0 (test_cli.TestCliSolve.test_ok_history_exit_0) ... ok
+test_unknown_history_exit_0 (test_cli.TestCliSolve.test_unknown_history_exit_0) ... ok
+test_zero_timeout_exit_6 (test_cli.TestCliSolve.test_zero_timeout_exit_6) ... ok
+test_intervals_match_hand_computed_reference (test_solver.TestAcceptanceA.test_intervals_match_hand_computed_reference) ... ok
+test_conflict_ops_come_from_history (test_solver.TestAcceptanceB.test_conflict_ops_come_from_history) ... ok
+test_wrong_pop_order_is_infeasible (test_solver.TestAcceptanceB.test_wrong_pop_order_is_infeasible) ... ok
+test_pending_does_not_break_feasible_completed_history (test_solver.TestAcceptanceC.test_pending_does_not_break_feasible_completed_history) ... ok
+test_pending_push_makes_status_unknown_not_infeasible (test_solver.TestAcceptanceC.test_pending_push_makes_status_unknown_not_infeasible) ... ok
+test_unexplainable_pending_still_infeasible (test_solver.TestAcceptanceC.test_unexplainable_pending_still_infeasible) ... ok
+test_zero_timeout_returns_timeout_with_tightened_intervals (test_solver.TestAcceptanceD.test_zero_timeout_returns_timeout_with_tightened_intervals) ... ok
+test_empty_history (test_solver.TestStackSemantics.test_empty_history) ... ok
+test_empty_pop_returns_empty (test_solver.TestStackSemantics.test_empty_pop_returns_empty) ... ok
+test_empty_pop_with_value_is_infeasible (test_solver.TestStackSemantics.test_empty_pop_with_value_is_infeasible) ... ok
+test_lifo_matching (test_solver.TestStackSemantics.test_lifo_matching) ... ok
+test_bad_op_kind (test_solver.TestValidation.test_bad_op_kind) ... ok
+test_bool_call_rejected (test_solver.TestValidation.test_bool_call_rejected) ... ok
+test_completed_pop_requires_result (test_solver.TestValidation.test_completed_pop_requires_result) ... ok
+test_duplicate_ids (test_solver.TestValidation.test_duplicate_ids) ... ok
+test_missing_operations (test_solver.TestValidation.test_missing_operations) ... ok
+test_not_json (test_solver.TestValidation.test_not_json) ... ok
+test_not_object (test_solver.TestValidation.test_not_object) ... ok
+test_push_requires_arg (test_solver.TestValidation.test_push_requires_arg) ... ok
+test_return_before_call (test_solver.TestValidation.test_return_before_call) ... ok
+test_type_mismatch (test_solver.TestValidation.test_type_mismatch) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 3.335s
+
+OK
