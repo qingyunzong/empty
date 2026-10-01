@@ -1,0 +1,6 @@
+{
+  "workers": 2,
+  "aging_step": 2,
+  "boost": 3,
+  "base_quota": {"api": 1, "batch": 1}
+}

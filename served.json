@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "completed": 8,
+    "makespan": 10
+  },
+  "tickets": [
+    {
+      "arrival": 0,
+      "end": 3,
+      "group": "batch",
+      "id": "batch-0",
+      "start": 0,
+      "waits": 0
+    },
+    {
+      "arrival": 0,
+      "end": 1,
+      "group": "api",
+      "id": "api-0",
+      "start": 0,
+      "waits": 0
+    },
+    {
+      "arrival": 1,
+      "end": 2,
+      "group": "api",
+      "id": "api-1",
+      "start": 2,
+      "waits": 1
+    },
+    {
+      "arrival": 2,
+      "end": 6,
+      "group": "batch",
+      "id": "batch-1",
+      "start": 4,
+      "waits": 2
+    },
+    {
+      "arrival": 3,
+      "end": 4,
+      "group": "api",
+      "id": "api-2",
+      "start": 3,
+      "waits": 0
+    },
+    {
+      "arrival": 4,
+      "end": 7,
+      "group": "batch",
+      "id": "batch-2",
+      "start": 7,
+      "waits": 3
+    },
+    {
+      "arrival": 5,
+      "end": 5,
+      "group": "api",
+      "id": "api-3",
+      "start": 5,
+      "waits": 0
+    },
+    {
+      "arrival": 6,
+      "end": 9,
+      "group": "batch",
+      "id": "batch-3",
+      "start": 8,
+      "waits": 2
+    }
+  ]
+}

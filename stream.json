@@ -1,0 +1,10 @@
+[
+  {"id": "batch-0", "arrival": 0, "cost": 4, "group": "batch", "priority": 0},
+  {"id": "api-0",   "arrival": 0, "cost": 2, "group": "api",   "priority": 1},
+  {"id": "api-1",   "arrival": 1, "cost": 1, "group": "api",   "priority": 1},
+  {"id": "batch-1", "arrival": 2, "cost": 3, "group": "batch", "priority": 0},
+  {"id": "api-2",   "arrival": 3, "cost": 2, "group": "api",   "priority": 1},
+  {"id": "batch-2", "arrival": 4, "cost": 1, "group": "batch", "priority": 0},
+  {"id": "api-3",   "arrival": 5, "cost": 1, "group": "api",   "priority": 1},
+  {"id": "batch-3", "arrival": 6, "cost": 2, "group": "batch", "priority": 0}
+]
