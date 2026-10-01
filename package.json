@@ -1,0 +1,10 @@
+{
+  "name": "audit-voucher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline audit adjustment voucher solver and CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
