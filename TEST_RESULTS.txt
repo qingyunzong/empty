@@ -1,0 +1,57 @@
+Command: python3.11 -m unittest discover -s tests -v
+Date: 2026-10-01 06:10:23 UTC
+Python: Python 3.11.16
+
+test_budget_cursor_resume_roundtrip (test_cli.TestCLI.test_budget_cursor_resume_roundtrip) ... ok
+test_cursor_rejected_after_mutation (test_cli.TestCLI.test_cursor_rejected_after_mutation) ... ok
+test_error_is_json (test_cli.TestCLI.test_error_is_json) ... ok
+test_full_workflow (test_cli.TestCLI.test_full_workflow) ... ok
+test_snapshot_via_cli (test_cli.TestCLI.test_snapshot_via_cli) ... ok
+test_all_16_boolean_functions (test_filters.TestFilters.test_all_16_boolean_functions) ... ok
+test_invalid_expression_raises (test_filters.TestFilters.test_invalid_expression_raises) ... ok
+test_summary_prune_is_safe (test_filters.TestFilters.test_summary_prune_is_safe) ... ok
+test_summary_single_point_is_decisive (test_filters.TestFilters.test_summary_single_point_is_decisive) ... ok
+test_box_dist2_fractional (test_geometry.TestExactGeometry.test_box_dist2_fractional) ... ok
+test_box_dist2_inside_is_zero (test_geometry.TestExactGeometry.test_box_dist2_inside_is_zero) ... ok
+test_box_dist2_outside_is_exact (test_geometry.TestExactGeometry.test_box_dist2_outside_is_exact) ... ok
+test_box_union_contains_both (test_geometry.TestExactGeometry.test_box_union_contains_both) ... ok
+test_huge_coordinates_no_float_error (test_geometry.TestExactGeometry.test_huge_coordinates_no_float_error) ... ok
+test_squared_distance_is_exact_rational (test_geometry.TestExactGeometry.test_squared_distance_is_exact_rational) ... ok
+test_boxes_never_over_shrink_after_deletes (test_index.TestIndex.test_boxes_never_over_shrink_after_deletes) ... ok
+test_cursor_bound_to_data_version (test_index.TestIndex.test_cursor_bound_to_data_version) ... ok
+test_cursor_resume_with_snapshot_matches_oneshot (test_index.TestIndex.test_cursor_resume_with_snapshot_matches_oneshot) ... ok
+test_delete_nearest_point (test_index.TestIndex.test_delete_nearest_point) ... ok
+test_dimension_mismatch_rejected (test_index.TestIndex.test_dimension_mismatch_rejected) ... ok
+test_duplicate_coordinates (test_index.TestIndex.test_duplicate_coordinates) ... ok
+test_insert_delete_replace_versions (test_index.TestIndex.test_insert_delete_replace_versions) ... ok
+test_lazy_box_eventually_tightens (test_index.TestIndex.test_lazy_box_eventually_tightens) ... ok
+test_save_load_roundtrip (test_index.TestIndex.test_save_load_roundtrip) ... ok
+test_snapshot_pins_version (test_index.TestIndex.test_snapshot_pins_version) ... ok
+test_all_filter_combinations_3d (test_query.TestBruteForceCrossCheck.test_all_filter_combinations_3d) ... ok
+test_all_filter_combinations_small (test_query.TestBruteForceCrossCheck.test_all_filter_combinations_small) ... ok
+test_mutations_then_crosscheck (test_query.TestBruteForceCrossCheck.test_mutations_then_crosscheck) ... ok
+test_boundary_ties_broken_by_id (test_query.TestEdgeCases.test_boundary_ties_broken_by_id) ... ok
+test_budget_exhaustion_never_claims_exact (test_query.TestEdgeCases.test_budget_exhaustion_never_claims_exact) ... ok
+test_empty_index_and_zero_k (test_query.TestEdgeCases.test_empty_index_and_zero_k) ... ok
+test_k_greater_than_hits (test_query.TestEdgeCases.test_k_greater_than_hits) ... ok
+test_tie_at_kth_boundary_does_not_lose_competitors (test_query.TestEdgeCases.test_tie_at_kth_boundary_does_not_lose_competitors) ... ok
+test_unknown_result_candidates_are_real (test_query.TestEdgeCases.test_unknown_result_candidates_are_real) ... ok
+test_zero_budget_is_honestly_unknown (test_query.TestEdgeCases.test_zero_budget_is_honestly_unknown) ... ok
+test_large_sample_reports_real_visit_counts (test_query.TestLargeSampleStats.test_large_sample_reports_real_visit_counts) ... ok
+test_distance_certificate_must_exceed_kth (test_verify.TestCertificateVerification.test_distance_certificate_must_exceed_kth) ... ok
+test_genuine_certificates_verify (test_verify.TestCertificateVerification.test_genuine_certificates_verify) ... ok
+test_inflated_bound_is_caught (test_verify.TestCertificateVerification.test_inflated_bound_is_caught) ... ok
+test_negative_bound_is_caught (test_verify.TestCertificateVerification.test_negative_bound_is_caught) ... ok
+test_dropped_hit_is_caught (test_verify.TestVerifyResult.test_dropped_hit_is_caught) ... ok
+test_genuine_result_verifies_clean (test_verify.TestVerifyResult.test_genuine_result_verifies_clean) ... ok
+test_tampered_distance_is_caught (test_verify.TestVerifyResult.test_tampered_distance_is_caught) ... ok
+test_tampered_hit_is_caught (test_verify.TestVerifyResult.test_tampered_hit_is_caught) ... ok
+test_unknown_status_is_not_accepted_as_exact (test_verify.TestVerifyResult.test_unknown_status_is_not_accepted_as_exact) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 44.526s
+
+OK
+
+[large-sample n=3000] unfiltered: visited 69 nodes (8 leaves), certs=54
+[large-sample n=3000] filtered:   visited 140 nodes (31 leaves), certs=77
