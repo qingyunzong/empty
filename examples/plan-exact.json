@@ -1,0 +1,36 @@
+{
+  "mode": "exact",
+  "placements": [
+    {
+      "bin": "L",
+      "copy": 0,
+      "item": "a",
+      "rotated": false,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "bin": "L",
+      "copy": 0,
+      "item": "b",
+      "rotated": false,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "bin": "L",
+      "copy": 0,
+      "item": "c",
+      "rotated": false,
+      "x": 0,
+      "y": 2
+    }
+  ],
+  "status": "OK",
+  "used_bins": [
+    {
+      "copy": 0,
+      "id": "L"
+    }
+  ]
+}

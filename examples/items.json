@@ -1,0 +1,5 @@
+[
+  {"id": "a", "w": 2, "h": 2, "rotate": false},
+  {"id": "b", "w": 2, "h": 2, "rotate": false},
+  {"id": "c", "w": 4, "h": 2, "rotate": false}
+]
