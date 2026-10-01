@@ -1,0 +1,7 @@
+{
+  "drop": [{"src": "n1", "dst": "n2", "rate": 0.2}],
+  "dup": [{"src": "n2", "dst": "n1", "rate": 0.5, "copies": 1}],
+  "delay": [{"src": "*", "dst": "n3", "extra": 3}],
+  "clock_apply": [{"node": "n3", "offset": 20, "at": 10}],
+  "partitions": [{"a": "n1", "b": "n2", "start": 10, "end": 18}]
+}
