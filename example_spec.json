@@ -1,0 +1,18 @@
+{
+  "states": ["idle", "running", "done"],
+  "initial": "idle",
+  "vars": {"count": 0},
+  "transitions": {
+    "idle": ["start"],
+    "running": ["bump", "pick", "burst", "finish"],
+    "done": []
+  },
+  "ops": {
+    "start": {"to": "running"},
+    "bump": {"to": "running", "args": {"n": {"kind": "int", "lo": 1, "hi": 5}}, "effect": "count += n"},
+    "pick": {"to": "running", "args": {"c": {"kind": "choice", "options": ["x", "y", "z"]}}},
+    "burst": {"to": "running", "fork": {"name": "burst", "draws": 3}},
+    "finish": {"to": "done", "guard": "count >= 20"}
+  },
+  "invariants": ["count >= 0", "count <= 100"]
+}
