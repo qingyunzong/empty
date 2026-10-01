@@ -1,0 +1,20 @@
+test_scenario_1_three_variables_two_constraints (tests.test_dynamic.AcceptanceScenariosTest.test_scenario_1_three_variables_two_constraints) ... ok
+test_scenario_2_deleting_constraint_without_prunings (tests.test_dynamic.AcceptanceScenariosTest.test_scenario_2_deleting_constraint_without_prunings) ... ok
+test_scenario_3_unknown_constraint_id (tests.test_dynamic.AcceptanceScenariosTest.test_scenario_3_unknown_constraint_id) ... ok
+test_scenario_4_delete_last_constraint_restores_initial_domains (tests.test_dynamic.AcceptanceScenariosTest.test_scenario_4_delete_last_constraint_restores_initial_domains) ... ok
+test_cli_delete_success (tests.test_dynamic.CliTest.test_cli_delete_success) ... ok
+test_cli_invalid_problem_file (tests.test_dynamic.CliTest.test_cli_invalid_problem_file) ... ok
+test_cli_malformed_json (tests.test_dynamic.CliTest.test_cli_malformed_json) ... ok
+test_cli_negative_constraint_id_rejected (tests.test_dynamic.CliTest.test_cli_negative_constraint_id_rejected) ... ok
+test_cli_unknown_constraint_id (tests.test_dynamic.CliTest.test_cli_unknown_constraint_id) ... ok
+test_invalid_problems_rejected (tests.test_dynamic.ProblemValidationTest.test_invalid_problems_rejected) ... ok
+test_valid_problem_without_ids_uses_indices (tests.test_dynamic.ProblemValidationTest.test_valid_problem_without_ids_uses_indices) ... ok
+test_random_problems_match_reference (tests.test_dynamic.RandomizedCrossCheckTest.test_random_problems_match_reference) ... ok
+test_double_delete_raises (tests.test_dynamic.SequentialDeletionTest.test_double_delete_raises) ... ok
+test_multiple_sequential_deletions_match_reference (tests.test_dynamic.SequentialDeletionTest.test_multiple_sequential_deletions_match_reference) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.852s
+
+OK
+exit=0
