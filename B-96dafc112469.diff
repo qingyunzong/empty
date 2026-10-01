@@ -1,0 +1,1005 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..5c645ea
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,147 @@
++# fairq
++
++Deterministic fair-queueing simulator with priority-weighted DRF
++(deficit-style) service. Python 3.11 standard library only.
++
++## Usage
++
++```
++python -m fairq run events.json --out result.json --log log.txt
++```
++
++- `events.json`: JSON list of events (see below).
++- `--out`: result JSON path (default: stdout).
++- `--log`: deterministic service log path (optional; omitted if not given).
++- Exit code `0` on success, `2` on any validation/IO error; errors are
++  reported as a single JSON object on stderr.
++
++## Event format
++
++```json
++{"type": "submit",   "t": 0, "flow": 1, "size": 10, "prio": 3}
++{"type": "tick",     "t": 1}
++{"type": "capacity", "t": 0, "c": 2}
++```
++
++- All `t` are integers; duplicate times are legal. Input events must be
++  non-decreasing in `t` (otherwise `time_regression`).
++- Events at the same time are applied in the order: **submit, capacity,
++  tick**, then by ascending `flow` id, then by input order.
++- `capacity` may omit `t`; it then inherits the previous event's time
++  (or `0` if first). Default capacity before any `capacity` event is 1.
++
++## Scheduling semantics
++
++1. **Capacity**: `c` service units per tick; unused capacity does not
++   accumulate.
++2. **Weighted DRF**: each flow's weight is `max(1, prio)`. For every
++   service unit the eligible flow with the smallest `served / weight`
++   ratio is chosen (exact rational comparison); ties go to the smaller
++   flow id.
++3. **No intra-tick preemption**: a flow submitted at time `t` is not
++   eligible at a tick at time `t`; arrivals take effect at the next tick.
++4. **Finish**: a flow that receives its last unit at tick `t` gets
++   `finish_t = t` (zero-size flows finish at their submit time).
++5. **Starvation** (`W = 100`): a flow is listed in `starved` if it spends
++   more than 100 time units active without service, measured over the
++   gaps between its submit time, its own service times, and its finish
++   time (or the last tick for unfinished flows).
++
++## Errors (exit code 2, JSON on stderr)
++
++| code | condition |
++|---|---|
++| `negative_size` | `size < 0` |
++| `invalid_capacity` | `c <= 0` |
++| `time_regression` | event times decrease in input order |
++| `duplicate_flow` | a flow id is submitted twice |
++| `invalid_event` / `invalid_input` | malformed events / top-level JSON |
++| `invalid_json` / `input_unreadable` | unreadable or unparseable input file |
++
++## Sample run (real output)
++
++`events.json` (bundled): flows 1 and 2 (`prio 1`, size 3) at `t=0`,
++flow 3 (`prio 3`, size 2) at `t=2`, capacity 1, ticks `t=1..8`.
++
++```
++$ python -m fairq run events.json --out result.json --log log.txt
++$ echo $?
++0
++```
++
++Service sequence (from `result.json`): `1, 2, 3, 3, 1, 2, 1, 2` at
++ticks `1..8`; `finish_t`: flow 3 → 4, flow 1 → 7, flow 2 → 8;
++`starved`: `[]`. Note flow 3 arrives at `t=2` but is first served at
++`t=3` — no intra-tick preemption.
++
++`log.txt`:
++
++```
++submit t=0 flow=1 size=3 prio=1 weight=1
++submit t=0 flow=2 size=3 prio=1 weight=1
++capacity t=0 c=1
++tick t=1 serve flow=1 units=1
++submit t=2 flow=3 size=2 prio=3 weight=3
++tick t=2 serve flow=2 units=1
++tick t=3 serve flow=3 units=1
++tick t=4 serve flow=3 units=1
++finish t=4 flow=3
++tick t=5 serve flow=1 units=1
++tick t=6 serve flow=2 units=1
++tick t=7 serve flow=1 units=1
++finish t=7 flow=1
++tick t=8 serve flow=2 units=1
++finish t=8 flow=2
++```
++
++SHA-256 of the outputs (byte-identical across repeated runs):
++
++```
++5508bb9c7a8505d4b2f2e421da29cf0e0cc761154f43ec2ff36ce950b9f73f23  result.json
++8d1c082871251997c558a7bab0f2e1ab6e08a818ae04fb264d65bd82cdc28654  log.txt
++```
++
++Error example (real output):
++
++```
++$ echo '[{"type":"submit","t":0,"flow":1,"size":-2,"prio":1}]' > bad.json
++$ python -m fairq run bad.json
++{"code": "negative_size", "error": "event 0: size must be >= 0", "event_index": 0}
++$ echo $?
++2
++```
++
++## Tests
++
++```
++$ python -m unittest discover -s tests -v
++...
++Ran 13 tests in 2.328s
++
++OK
++```
++
++Coverage of the acceptance criteria:
++
++- **A** (`tests/test_fairq.py::TestAEqualWeightAlternation`): two
++  equal-weight flows alternate exactly `1,2,1,2,1,2` under capacity 1.
++- **B** (`TestBWeightedRatio`): prio 3 vs prio 1 under capacity 1 —
++  every aligned 4-tick window is exactly 3:1; 20 ticks give exactly
++  15:5. The first 10 ticks yield the deterministic 7:3 best integer
++  approximation (10 unit slots cannot express 3:1 = 7.5:2.5 exactly).
++- **C** (`TestCNoImmediatePreemption`): a long flow keeps the arrival
++  tick; the scheduler switches to the new flow at the next tick.
++- **D** (`tests/test_crosscheck.py`): 60 random scenarios (n ≤ 6 flows,
++  20 ticks, incl. tick deserts) cross-checked against an independently
++  written per-event reference simulator for `finish_t`, `starved`, and
++  the full per-tick service sequence.
++- **E** (`tests/test_cli.py`): 5 identical CLI runs produce
++  byte-identical `result.json` and `log.txt`; error cases exit 2 with
++  JSON on stderr.
++
++## Layout
++
++- `fairq/simulator.py` — validation + deterministic simulation core.
++- `fairq/cli.py`, `fairq/__main__.py` — CLI entry point.
++- `tests/` — unittest suite (acceptance criteria A–E).
++- `events.json` — bundled sample input.
+diff --git a/events.json b/events.json
+new file mode 100644
+index 0000000..b2713ec
+--- /dev/null
++++ b/events.json
+@@ -0,0 +1,14 @@
++[
++  {"type": "capacity", "t": 0, "c": 1},
++  {"type": "submit", "t": 0, "flow": 1, "size": 3, "prio": 1},
++  {"type": "submit", "t": 0, "flow": 2, "size": 3, "prio": 1},
++  {"type": "tick", "t": 1},
++  {"type": "submit", "t": 2, "flow": 3, "size": 2, "prio": 3},
++  {"type": "tick", "t": 2},
++  {"type": "tick", "t": 3},
++  {"type": "tick", "t": 4},
++  {"type": "tick", "t": 5},
++  {"type": "tick", "t": 6},
++  {"type": "tick", "t": 7},
++  {"type": "tick", "t": 8}
++]
+diff --git a/fairq/__init__.py b/fairq/__init__.py
+new file mode 100644
+index 0000000..eeadf55
+--- /dev/null
++++ b/fairq/__init__.py
+@@ -0,0 +1,11 @@
++"""fairq: deterministic fair-queueing simulator (weighted DRF)."""
++
++from .simulator import DEFAULT_CAPACITY, STARVE_WINDOW, SimError, simulate, validate_events
++
++__all__ = [
++    "DEFAULT_CAPACITY",
++    "STARVE_WINDOW",
++    "SimError",
++    "simulate",
++    "validate_events",
++]
+diff --git a/fairq/__main__.py b/fairq/__main__.py
+new file mode 100644
+index 0000000..dbdd066
+--- /dev/null
++++ b/fairq/__main__.py
+@@ -0,0 +1,6 @@
++import sys
++
++from .cli import main
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/fairq/__pycache__/__init__.cpython-314.pyc b/fairq/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..fe394ca
+Binary files /dev/null and b/fairq/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/fairq/__pycache__/__main__.cpython-314.pyc b/fairq/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..cef157c
+Binary files /dev/null and b/fairq/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/fairq/__pycache__/cli.cpython-314.pyc b/fairq/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..cf63bb7
+Binary files /dev/null and b/fairq/__pycache__/cli.cpython-314.pyc differ
+diff --git a/fairq/__pycache__/simulator.cpython-314.pyc b/fairq/__pycache__/simulator.cpython-314.pyc
+new file mode 100644
+index 0000000..34cb45e
+Binary files /dev/null and b/fairq/__pycache__/simulator.cpython-314.pyc differ
+diff --git a/fairq/cli.py b/fairq/cli.py
+new file mode 100644
+index 0000000..9cef6c0
+--- /dev/null
++++ b/fairq/cli.py
+@@ -0,0 +1,56 @@
++"""Command line interface: python -m fairq run events.json --out r.json --log l.txt"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import sys
++
++from .simulator import SimError, simulate
++
++
++def _emit_error(payload):
++    sys.stderr.write(json.dumps(payload, sort_keys=True) + "\n")
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(
++        prog="fairq",
++        description="Deterministic fair-queueing simulator (weighted DRF).",
++    )
++    sub = parser.add_subparsers(dest="command", required=True)
++    run = sub.add_parser("run", help="run a simulation over an events JSON file")
++    run.add_argument("input", help="path to the events JSON file")
++    run.add_argument("--out", help="write the result JSON here (default: stdout)")
++    run.add_argument("--log", help="write the deterministic service log here")
++    args = parser.parse_args(argv)
++
++    try:
++        with open(args.input, "r", encoding="utf-8") as fh:
++            raw = json.load(fh)
++    except OSError as exc:
++        _emit_error(
++            {"error": "cannot read %s: %s" % (args.input, exc.strerror or exc),
++             "code": "input_unreadable"}
++        )
++        return 2
++    except json.JSONDecodeError as exc:
++        _emit_error({"error": "invalid JSON: %s" % exc, "code": "invalid_json"})
++        return 2
++
++    try:
++        result, log_lines = simulate(raw)
++    except SimError as exc:
++        _emit_error(exc.to_dict())
++        return 2
++
++    text = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    if args.out:
++        with open(args.out, "w", encoding="utf-8") as fh:
++            fh.write(text)
++    else:
++        sys.stdout.write(text)
++    if args.log:
++        with open(args.log, "w", encoding="utf-8") as fh:
++            fh.write("\n".join(log_lines) + "\n")
++    return 0
+diff --git a/fairq/simulator.py b/fairq/simulator.py
+new file mode 100644
+index 0000000..4b018d5
+--- /dev/null
++++ b/fairq/simulator.py
+@@ -0,0 +1,224 @@
++"""Deterministic fair-queueing simulator with weighted DRF service.
++
++Semantics
++---------
++* Events: ``submit(t, flow, size, prio)``, ``tick(t)``, ``capacity(c)``.
++* Input events must be non-decreasing in ``t`` (duplicate times are legal).
++  Events at the same time are ordered: submit, then capacity, then tick;
++  ties are broken by flow id and finally by input order.
++* ``capacity(c)`` sets the number of service units available per tick.
++  Unused capacity does not accumulate. Default capacity is 1.
++* A flow's weight is ``max(1, prio)``.
++* At each tick, up to ``capacity`` units are served.  For every unit the
++  eligible flow with the smallest ``served / weight`` ratio is chosen
++  (weighted DRF); ties are broken by the smaller flow id.
++* A flow submitted at time ``t`` is *not* eligible at a tick at time ``t``;
++  arrivals only take effect at the next tick (no intra-tick preemption).
++* A flow that receives its last unit at tick ``t`` gets ``finish_t = t``.
++  A zero-size flow finishes immediately at its submit time.
++* Starvation: a flow is starved if it spends more than ``STARVE_WINDOW``
++  time units active without receiving service, measured between its submit
++  time, its own service times, and its finish time (or the last tick).
++"""
++
++from __future__ import annotations
++
++from fractions import Fraction
++
++STARVE_WINDOW = 100
++DEFAULT_CAPACITY = 1
++
++_EVENT_ORDER = {"submit": 0, "capacity": 1, "tick": 2}
++
++
++class SimError(Exception):
++    """Validation or simulation error, reported by the CLI as JSON."""
++
++    def __init__(self, code, message, index=None):
++        super().__init__(message)
++        self.code = code
++        self.message = message
++        self.index = index
++
++    def to_dict(self):
++        payload = {"error": self.message, "code": self.code}
++        if self.index is not None:
++            payload["event_index"] = self.index
++        return payload
++
++
++def _require_int(value, field, index):
++    if isinstance(value, bool) or not isinstance(value, int):
++        raise SimError(
++            "invalid_event",
++            "event %d: field %r must be an integer" % (index, field),
++            index,
++        )
++    return value
++
++
++def validate_events(raw):
++    """Validate the raw event list and return it in canonical order."""
++    if not isinstance(raw, list):
++        raise SimError("invalid_input", "top-level JSON value must be a list of events")
++    events = []
++    prev_t = None
++    for index, item in enumerate(raw):
++        if not isinstance(item, dict):
++            raise SimError("invalid_event", "event %d: must be an object" % index, index)
++        etype = item.get("type")
++        if etype not in _EVENT_ORDER:
++            raise SimError(
++                "invalid_event", "event %d: unknown type %r" % (index, etype), index
++            )
++        if "t" in item:
++            t = _require_int(item["t"], "t", index)
++        elif etype == "capacity":
++            t = prev_t if prev_t is not None else 0
++        else:
++            raise SimError("invalid_event", "event %d: missing field 't'" % index, index)
++        if prev_t is not None and t < prev_t:
++            raise SimError(
++                "time_regression",
++                "event %d: time moves backwards (%d -> %d)" % (index, prev_t, t),
++                index,
++            )
++        prev_t = t
++        ev = {"type": etype, "t": t, "index": index}
++        if etype == "submit":
++            flow = _require_int(item.get("flow"), "flow", index)
++            size = _require_int(item.get("size"), "size", index)
++            prio = _require_int(item.get("prio"), "prio", index)
++            if size < 0:
++                raise SimError(
++                    "negative_size", "event %d: size must be >= 0" % index, index
++                )
++            ev.update(flow=flow, size=size, prio=prio)
++        elif etype == "capacity":
++            c = _require_int(item.get("c"), "c", index)
++            if c <= 0:
++                raise SimError(
++                    "invalid_capacity", "event %d: capacity must be > 0" % index, index
++                )
++            ev["c"] = c
++        events.append(ev)
++    events.sort(
++        key=lambda e: (e["t"], _EVENT_ORDER[e["type"]], e.get("flow", 0), e["index"])
++    )
++    return events
++
++
++class _Flow:
++    def __init__(self, flow_id, prio, size, submit_t):
++        self.flow = flow_id
++        self.prio = prio
++        self.weight = max(1, prio)
++        self.size = size
++        self.remaining = size
++        self.served = 0
++        self.submit_t = submit_t
++        self.finish_t = None
++        self.ref_t = submit_t
++        self.starved = False
++
++    def note_service(self, t):
++        if t - self.ref_t > STARVE_WINDOW:
++            self.starved = True
++        self.ref_t = t
++
++    def to_dict(self):
++        return {
++            "flow": self.flow,
++            "prio": self.prio,
++            "weight": self.weight,
++            "size": self.size,
++            "submit_t": self.submit_t,
++            "served": self.served,
++            "remaining": self.remaining,
++            "finish_t": self.finish_t,
++            "starved": self.starved,
++        }
++
++
++def simulate(raw_events):
++    """Run the simulation; return ``(result_dict, log_lines)``."""
++    events = validate_events(raw_events)
++    flows = {}
++    capacity = DEFAULT_CAPACITY
++    service = []
++    log = []
++    tick_count = 0
++    last_tick_t = None
++
++    for ev in events:
++        t = ev["t"]
++        kind = ev["type"]
++        if kind == "submit":
++            fid = ev["flow"]
++            if fid in flows:
++                raise SimError(
++                    "duplicate_flow",
++                    "event %d: flow %d submitted twice" % (ev["index"], fid),
++                    ev["index"],
++                )
++            flow = _Flow(fid, ev["prio"], ev["size"], t)
++            flows[fid] = flow
++            log.append(
++                "submit t=%d flow=%d size=%d prio=%d weight=%d"
++                % (t, fid, flow.size, flow.prio, flow.weight)
++            )
++            if flow.size == 0:
++                flow.finish_t = t
++                log.append("finish t=%d flow=%d" % (t, fid))
++        elif kind == "capacity":
++            capacity = ev["c"]
++            log.append("capacity t=%d c=%d" % (t, capacity))
++        else:
++            tick_count += 1
++            last_tick_t = t
++            budget = capacity
++            units = {}
++            order = []
++            while budget > 0:
++                eligible = [
++                    f for f in flows.values() if f.remaining > 0 and f.submit_t < t
++                ]
++                if not eligible:
++                    break
++                eligible.sort(key=lambda f: (Fraction(f.served, f.weight), f.flow))
++                flow = eligible[0]
++                flow.served += 1
++                flow.remaining -= 1
++                flow.note_service(t)
++                budget -= 1
++                if flow.flow not in units:
++                    units[flow.flow] = 0
++                    order.append(flow.flow)
++                units[flow.flow] += 1
++                if flow.remaining == 0:
++                    flow.finish_t = t
++            for fid in order:
++                service.append({"t": t, "flow": fid, "units": units[fid]})
++                log.append("tick t=%d serve flow=%d units=%d" % (t, fid, units[fid]))
++            for fid in order:
++                if flows[fid].finish_t == t:
++                    log.append("finish t=%d flow=%d" % (t, fid))
++            if not order:
++                log.append("tick t=%d idle" % t)
++
++    for flow in flows.values():
++        if flow.finish_t is None and last_tick_t is not None:
++            if last_tick_t - flow.ref_t > STARVE_WINDOW:
++                flow.starved = True
++
++    starved_ids = sorted(f.flow for f in flows.values() if f.starved)
++    for fid in starved_ids:
++        log.append("starved flow=%d" % fid)
++
++    result = {
++        "flows": [f.to_dict() for f in sorted(flows.values(), key=lambda f: f.flow)],
++        "starved": starved_ids,
++        "service": service,
++        "ticks": tick_count,
++    }
++    return result, log
+diff --git a/log.txt b/log.txt
+new file mode 100644
+index 0000000..6a5af7b
+--- /dev/null
++++ b/log.txt
+@@ -0,0 +1,15 @@
++submit t=0 flow=1 size=3 prio=1 weight=1
++submit t=0 flow=2 size=3 prio=1 weight=1
++capacity t=0 c=1
++tick t=1 serve flow=1 units=1
++submit t=2 flow=3 size=2 prio=3 weight=3
++tick t=2 serve flow=2 units=1
++tick t=3 serve flow=3 units=1
++tick t=4 serve flow=3 units=1
++finish t=4 flow=3
++tick t=5 serve flow=1 units=1
++tick t=6 serve flow=2 units=1
++tick t=7 serve flow=1 units=1
++finish t=7 flow=1
++tick t=8 serve flow=2 units=1
++finish t=8 flow=2
+diff --git a/result.json b/result.json
+new file mode 100644
+index 0000000..04fa0dd
+--- /dev/null
++++ b/result.json
+@@ -0,0 +1,81 @@
++{
++  "flows": [
++    {
++      "finish_t": 7,
++      "flow": 1,
++      "prio": 1,
++      "remaining": 0,
++      "served": 3,
++      "size": 3,
++      "starved": false,
++      "submit_t": 0,
++      "weight": 1
++    },
++    {
++      "finish_t": 8,
++      "flow": 2,
++      "prio": 1,
++      "remaining": 0,
++      "served": 3,
++      "size": 3,
++      "starved": false,
++      "submit_t": 0,
++      "weight": 1
++    },
++    {
++      "finish_t": 4,
++      "flow": 3,
++      "prio": 3,
++      "remaining": 0,
++      "served": 2,
++      "size": 2,
++      "starved": false,
++      "submit_t": 2,
++      "weight": 3
++    }
++  ],
++  "service": [
++    {
++      "flow": 1,
++      "t": 1,
++      "units": 1
++    },
++    {
++      "flow": 2,
++      "t": 2,
++      "units": 1
++    },
++    {
++      "flow": 3,
++      "t": 3,
++      "units": 1
++    },
++    {
++      "flow": 3,
++      "t": 4,
++      "units": 1
++    },
++    {
++      "flow": 1,
++      "t": 5,
++      "units": 1
++    },
++    {
++      "flow": 2,
++      "t": 6,
++      "units": 1
++    },
++    {
++      "flow": 1,
++      "t": 7,
++      "units": 1
++    },
++    {
++      "flow": 2,
++      "t": 8,
++      "units": 1
++    }
++  ],
++  "starved": [],
++  "ticks": 8
++}
+diff --git a/tests/__pycache__/test_cli.cpython-314.pyc b/tests/__pycache__/test_cli.cpython-314.pyc
+new file mode 100644
+index 0000000..c4054cb
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_crosscheck.cpython-314.pyc b/tests/__pycache__/test_crosscheck.cpython-314.pyc
+new file mode 100644
+index 0000000..a0de300
+Binary files /dev/null and b/tests/__pycache__/test_crosscheck.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_fairq.cpython-314.pyc b/tests/__pycache__/test_fairq.cpython-314.pyc
+new file mode 100644
+index 0000000..ef4cc1b
+Binary files /dev/null and b/tests/__pycache__/test_fairq.cpython-314.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..30ac16b
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,112 @@
++"""Acceptance test E (byte-identical logs over 5 runs) plus CLI error tests."""
++
++import json
++import os
++import subprocess
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++REPO_ROOT = Path(__file__).resolve().parent.parent
++
++
++def run_cli(args):
++    return subprocess.run(
++        [sys.executable, "-m", "fairq"] + args,
++        cwd=REPO_ROOT,
++        capture_output=True,
++        text=True,
++    )
++
++
++class TestEDeterministicLogs(unittest.TestCase):
++    EVENTS = (
++        [
++            {"type": "capacity", "t": 0, "c": 2},
++            {"type": "submit", "t": 0, "flow": 1, "size": 6, "prio": 3},
++            {"type": "submit", "t": 0, "flow": 2, "size": 6, "prio": 1},
++        ]
++        + [{"type": "tick", "t": t} for t in range(1, 3)]
++        + [{"type": "submit", "t": 3, "flow": 3, "size": 4, "prio": 2}]
++        + [{"type": "tick", "t": t} for t in range(3, 9)]
++    )
++
++    def test_five_runs_byte_identical(self):
++        import tempfile
++
++        with tempfile.TemporaryDirectory() as td:
++            events_path = os.path.join(td, "events.json")
++            with open(events_path, "w", encoding="utf-8") as fh:
++                json.dump(self.EVENTS, fh)
++            outputs = []
++            for i in range(5):
++                out = os.path.join(td, "result%d.json" % i)
++                log = os.path.join(td, "log%d.txt" % i)
++                proc = run_cli(["run", events_path, "--out", out, "--log", log])
++                self.assertEqual(proc.returncode, 0, proc.stderr)
++                self.assertEqual(proc.stderr, "")
++                with open(out, "rb") as fh:
++                    out_bytes = fh.read()
++                with open(log, "rb") as fh:
++                    log_bytes = fh.read()
++                outputs.append((out_bytes, log_bytes))
++            for other in outputs[1:]:
++                self.assertEqual(other, outputs[0])
++
++
++class TestCliSample(unittest.TestCase):
++    def test_bundled_sample_runs(self):
++        with tempfile.TemporaryDirectory() as td:
++            out = os.path.join(td, "result.json")
++            log = os.path.join(td, "log.txt")
++            proc = run_cli(
++                ["run", "events.json", "--out", out, "--log", log]
++            )
++            self.assertEqual(proc.returncode, 0, proc.stderr)
++            result = json.loads(Path(out).read_text(encoding="utf-8"))
++            self.assertEqual(result["starved"], [])
++            self.assertTrue(Path(log).read_text(encoding="utf-8"))
++
++
++class TestCliErrors(unittest.TestCase):
++    def run_with_events(self, events):
++        import tempfile
++
++        with tempfile.TemporaryDirectory() as td:
++            events_path = os.path.join(td, "events.json")
++            with open(events_path, "w", encoding="utf-8") as fh:
++                json.dump(events, fh)
++            return run_cli(["run", events_path])
++
++    def check_error(self, events, code):
++        proc = self.run_with_events(events)
++        self.assertEqual(proc.returncode, 2)
++        payload = json.loads(proc.stderr)
++        self.assertEqual(payload["code"], code)
++        self.assertIn("error", payload)
++
++    def test_negative_size(self):
++        self.check_error(
++            [{"type": "submit", "t": 0, "flow": 1, "size": -1, "prio": 1}],
++            "negative_size",
++        )
++
++    def test_non_positive_capacity(self):
++        self.check_error([{"type": "capacity", "t": 0, "c": 0}], "invalid_capacity")
++
++    def test_time_regression(self):
++        self.check_error(
++            [{"type": "tick", "t": 5}, {"type": "tick", "t": 3}],
++            "time_regression",
++        )
++
++    def test_missing_input_file(self):
++        proc = run_cli(["run", "no-such-file.json"])
++        self.assertEqual(proc.returncode, 2)
++        payload = json.loads(proc.stderr)
++        self.assertEqual(payload["code"], "input_unreadable")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_crosscheck.py b/tests/test_crosscheck.py
+new file mode 100644
+index 0000000..7590a8e
+--- /dev/null
++++ b/tests/test_crosscheck.py
+@@ -0,0 +1,154 @@
++"""Acceptance test D: cross-check finish_t and starved against an
++independently written per-event reference simulator."""
++
++import random
++import unittest
++from collections import Counter, defaultdict
++from fractions import Fraction
++
++from fairq import simulate
++
++STARVE_WINDOW = 100
++
++
++def reference_simulate(events):
++    """Independent re-implementation used only by this test.
++
++    Returns (finish_times, starved_ids, units_per_tick_and_flow).
++    """
++    order = {"submit": 0, "capacity": 1, "tick": 2}
++    indexed = list(enumerate(events))
++    indexed.sort(
++        key=lambda p: (
++            p[1]["t"],
++            order[p[1]["type"]],
++            p[1].get("flow", 0),
++            p[0],
++        )
++    )
++    capacity = 1
++    flows = {}
++    finish = {}
++    served_times = defaultdict(list)
++    ticks = []
++    for _, ev in indexed:
++        t = ev["t"]
++        if ev["type"] == "submit":
++            flows[ev["flow"]] = {
++                "left": ev["size"],
++                "w": max(1, ev["prio"]),
++                "got": 0,
++                "born": t,
++            }
++            if ev["size"] == 0:
++                finish[ev["flow"]] = t
++        elif ev["type"] == "capacity":
++            capacity = ev["c"]
++        else:
++            ticks.append(t)
++            for _ in range(capacity):
++                ready = [
++                    fid
++                    for fid, st in flows.items()
++                    if st["left"] > 0 and st["born"] < t
++                ]
++                if not ready:
++                    break
++                pick = min(
++                    ready,
++                    key=lambda fid: (Fraction(flows[fid]["got"], flows[fid]["w"]), fid),
++                )
++                st = flows[pick]
++                st["got"] += 1
++                st["left"] -= 1
++                served_times[pick].append(t)
++                if st["left"] == 0:
++                    finish[pick] = t
++
++    starved = set()
++    last_t = ticks[-1] if ticks else None
++    for fid, st in flows.items():
++        marks = [st["born"]] + served_times[fid]
++        ends = served_times[fid] + [finish.get(fid, last_t)]
++        for a, b in zip(marks, ends):
++            if b is not None and b - a > STARVE_WINDOW:
++                starved.add(fid)
++
++    units = {}
++    for fid, times in served_times.items():
++        for t, n in Counter(times).items():
++            units[(t, fid)] = n
++    return finish, starved, units
++
++
++def make_scenario(rng):
++    """Random scenario: n<=6 flows, 20 ticks, non-decreasing input times."""
++    n = rng.randint(1, 6)
++    flow_ids = rng.sample(range(1, 20), n)
++    events = []
++    for fid in flow_ids:
++        events.append(
++            {
++                "type": "submit",
++                "t": rng.randint(0, 5),
++                "flow": fid,
++                "size": rng.randint(0, 8),
++                "prio": rng.randint(-1, 4),
++            }
++        )
++    if rng.random() < 0.5:
++        events.append(
++            {"type": "capacity", "t": rng.randint(0, 2), "c": rng.randint(1, 3)}
++        )
++    if rng.random() < 0.5:
++        tick_times = list(range(1, 21))
++    else:
++        # tick desert: forces starvation gaps beyond W=100
++        tick_times = list(range(1, 11)) + list(range(200, 210))
++    events += [{"type": "tick", "t": t} for t in tick_times]
++    # Legal input order: non-decreasing t, arbitrary order within same t.
++    by_t = defaultdict(list)
++    for ev in events:
++        by_t[ev["t"]].append(ev)
++    ordered = []
++    for t in sorted(by_t):
++        group = by_t[t]
++        rng.shuffle(group)
++        ordered.extend(group)
++    return ordered
++
++
++class TestDCrossCheck(unittest.TestCase):
++    def test_finish_times_and_starved_match_reference(self):
++        for seed in range(60):
++            rng = random.Random(seed)
++            events = make_scenario(rng)
++            with self.subTest(seed=seed):
++                result, _ = simulate(events)
++                exp_finish, exp_starved, exp_units = reference_simulate(events)
++
++                got_finish = {f["flow"]: f["finish_t"] for f in result["flows"]}
++                want_finish = {
++                    f["flow"]: exp_finish.get(f["flow"]) for f in result["flows"]
++                }
++                self.assertEqual(got_finish, want_finish)
++                self.assertEqual(set(result["starved"]), exp_starved)
++
++                got_units = {(s["t"], s["flow"]): s["units"] for s in result["service"]}
++                self.assertEqual(got_units, exp_units)
++
++    def test_starvation_actually_observed(self):
++        # Guard against a trivially-passing cross-check: at least one seed
++        # must produce a non-empty starved set in both simulators.
++        seen = False
++        for seed in range(60):
++            events = make_scenario(random.Random(seed))
++            result, _ = simulate(events)
++            if result["starved"]:
++                seen = True
++                break
++        self.assertTrue(seen, "no scenario produced a starved flow")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_fairq.py b/tests/test_fairq.py
+new file mode 100644
+index 0000000..2dcd711
+--- /dev/null
++++ b/tests/test_fairq.py
+@@ -0,0 +1,91 @@
++"""Acceptance tests A (alternation), B (weighted ratio), C (no preemption)."""
++
++import unittest
++
++from fairq import simulate
++
++
++def submit(t, flow, size, prio):
++    return {"type": "submit", "t": t, "flow": flow, "size": size, "prio": prio}
++
++
++def tick(t):
++    return {"type": "tick", "t": t}
++
++
++def service_sequence(result):
++    return [(s["t"], s["flow"], s["units"]) for s in result["service"]]
++
++
++def finishes(result):
++    return {f["flow"]: f["finish_t"] for f in result["flows"]}
++
++
++class TestAEqualWeightAlternation(unittest.TestCase):
++    """Two equal-weight flows must alternate exactly under capacity 1."""
++
++    def test_exact_service_sequence(self):
++        events = [submit(0, 1, 3, 1), submit(0, 2, 3, 1)]
++        events += [tick(t) for t in range(1, 7)]
++        result, _ = simulate(events)
++        self.assertEqual(
++            service_sequence(result),
++            [(1, 1, 1), (2, 2, 1), (3, 1, 1), (4, 2, 1), (5, 1, 1), (6, 2, 1)],
++        )
++        self.assertEqual(finishes(result), {1: 5, 2: 6})
++        self.assertEqual(result["starved"], [])
++
++
++class TestBWeightedRatio(unittest.TestCase):
++    """prio 3 vs prio 1 under capacity 1 must converge to a 3:1 service ratio."""
++
++    @classmethod
++    def setUpClass(cls):
++        events = [submit(0, 1, 100, 3), submit(0, 2, 100, 1)]
++        events += [tick(t) for t in range(1, 21)]
++        cls.result, _ = simulate(events)
++
++    def counts(self, lo, hi):
++        tally = {1: 0, 2: 0}
++        for s in self.result["service"]:
++            if lo <= s["t"] <= hi:
++                tally[s["flow"]] += s["units"]
++        return tally
++
++    def test_first_ten_ticks_best_integer_ratio(self):
++        # 10 unit slots cannot express 3:1 exactly (7.5:2.5); weighted DRF
++        # yields the deterministic 7:3 approximation.
++        self.assertEqual(self.counts(1, 10), {1: 7, 2: 3})
++
++    def test_every_aligned_four_tick_window_is_exactly_3_to_1(self):
++        for start in (1, 5, 9, 13, 17):
++            self.assertEqual(self.counts(start, start + 3), {1: 3, 2: 1})
++
++    def test_twenty_ticks_exact_ratio(self):
++        tally = self.counts(1, 20)
++        self.assertEqual(tally, {1: 15, 2: 5})
++        self.assertEqual(tally[1] / tally[2], 3.0)
++
++
++class TestCNoImmediatePreemption(unittest.TestCase):
++    """A high-prio arrival does not preempt the current tick, only the next."""
++
++    def test_switch_happens_next_tick(self):
++        events = [submit(0, 1, 10, 1)]
++        events += [tick(t) for t in range(1, 5)]
++        events.append(submit(5, 2, 2, 5))  # same t as the tick at t=5
++        events += [tick(t) for t in range(5, 11)]
++        result, _ = simulate(events)
++        seq = service_sequence(result)
++        by_t = {t: flow for t, flow, _ in seq}
++        # tick t=5: flow 2 is not eligible yet, flow 1 keeps the tick.
++        self.assertEqual(by_t[5], 1)
++        # next tick the scheduler switches to the new (deficit-minimal) flow.
++        self.assertEqual(by_t[6], 2)
++        self.assertEqual(by_t[7], 2)
++        self.assertEqual(by_t[8], 1)
++        self.assertEqual(finishes(result)[2], 7)
++
++
++if __name__ == "__main__":
++    unittest.main()

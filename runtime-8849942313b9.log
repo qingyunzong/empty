@@ -1,0 +1,5 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/cc4ffddc17e54948912bc3dc9e7cf817/judge/pair/attempt-001/demonstration-B/demonstration/probe_sequence.py
+逐单位应为: [1, 2, 1, 2]
+结果服务记录: [{'flow': 1, 't': 1, 'units': 2}, {'flow': 2, 't': 1, 'units': 2}]
+日志服务记录: ['tick t=1 serve flow=1 units=2', 'tick t=1 serve flow=2 units=2']
+复现：两种交付输出均只保留每流总量，丢失 tick 内交错顺序

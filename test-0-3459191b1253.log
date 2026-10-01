@@ -1,0 +1,15 @@
+test_alternating_service_sequence (test_fairq.TestAAlternation.test_alternating_service_sequence) ... ok
+test_weighted_ratio (test_fairq.TestBWeightedRatio.test_weighted_ratio) ... ok
+test_preemption_takes_effect_next_tick (test_fairq.TestCNoImmediatePreemption.test_preemption_takes_effect_next_tick) ... ok
+test_sample_events (test_fairq.TestCliSample.test_sample_events) ... ok
+test_random_small_cases (test_fairq.TestDCrossCheck.test_random_small_cases) ... ok
+test_random_small_cases_tight_window (test_fairq.TestDCrossCheck.test_random_small_cases_tight_window) ... ok
+test_five_runs_byte_identical (test_fairq.TestEDeterminism.test_five_runs_byte_identical) ... ok
+test_negative_size (test_fairq.TestErrors.test_negative_size) ... ok
+test_non_positive_capacity (test_fairq.TestErrors.test_non_positive_capacity) ... ok
+test_time_regression (test_fairq.TestErrors.test_time_regression) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.800s
+
+OK
