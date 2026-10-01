@@ -1,0 +1,9 @@
+# if (1 < 2) then push 7 else push 9 ; both arms leave one int
+CONST_INT 1
+CONST_INT 2
+CMP
+JZ 6
+CONST_INT 7
+JMP 7
+CONST_INT 9
+HALT
