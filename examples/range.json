@@ -1,0 +1,9 @@
+{
+  "variables": ["x"],
+  "init": {"x": 9},
+  "transitions": [
+    {"name": "overflow", "guard": "x >= 9", "assign": {"x": "x + 1"}},
+    {"name": "dec", "guard": "x > 0", "assign": {"x": "x - 1"}}
+  ],
+  "invariant": "x <= 9"
+}

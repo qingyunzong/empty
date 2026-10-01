@@ -1,0 +1,10 @@
+{
+  "variables": ["x"],
+  "init": {"x": 0},
+  "transitions": [
+    {"name": "s0", "guard": "x == 0", "assign": {"x": "1"}},
+    {"name": "s1", "guard": "x == 1", "assign": {"x": "2"}},
+    {"name": "s2", "guard": "x == 2", "assign": {"x": "0"}}
+  ],
+  "invariant": "x >= 0"
+}
