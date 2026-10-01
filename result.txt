@@ -1,0 +1,21 @@
+Test command: python3 -m unittest discover -v
+(note: 'python' is not on PATH in this environment; python3 is Python 3.14.4)
+Date: 2026-10-01 13:42:36 UTC
+
+test_broken_implication_records_raise (tests.test_explain.AcceptanceScenarios.test_broken_implication_records_raise) ... ok
+test_chain_three_variables_matches_naive_cut_enumeration (tests.test_explain.AcceptanceScenarios.test_chain_three_variables_matches_naive_cut_enumeration) ... ok
+test_level_zero_conflict_is_unsat (tests.test_explain.AcceptanceScenarios.test_level_zero_conflict_is_unsat) ... ok
+test_missing_conflict_state_raises (tests.test_explain.AcceptanceScenarios.test_missing_conflict_state_raises) ... ok
+test_multilevel_conflict_backjump_level (tests.test_explain.AcceptanceScenarios.test_multilevel_conflict_backjump_level) ... ok
+test_cli_broken_record_returns_nonzero (tests.test_explain.CliTests.test_cli_broken_record_returns_nonzero) ... ok
+test_cli_generate_outputs_clause_and_backjump_level (tests.test_explain.CliTests.test_cli_generate_outputs_clause_and_backjump_level) ... ok
+test_cli_level_zero_conflict (tests.test_explain.CliTests.test_cli_level_zero_conflict) ... ok
+test_cli_missing_conflict_returns_nonzero (tests.test_explain.CliTests.test_cli_missing_conflict_returns_nonzero) ... ok
+test_random_instances_match_naive_cut_enumeration (tests.test_explain.NaiveReferenceCrossCheck.test_random_instances_match_naive_cut_enumeration) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.675s
+
+OK
+
+Exit code: 0
