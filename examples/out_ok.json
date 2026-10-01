@@ -1,0 +1,39 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "svc-1",
+          "limit": 10,
+          "used": 5
+        },
+        {
+          "children": [],
+          "id": "svc-2",
+          "limit": null,
+          "used": 0
+        }
+      ],
+      "id": "team-a",
+      "limit": 40,
+      "used": 8
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "svc-3",
+          "limit": 8,
+          "used": 8
+        }
+      ],
+      "id": "team-b",
+      "limit": null,
+      "used": 0
+    }
+  ],
+  "id": "root",
+  "limit": 100,
+  "used": 12
+}

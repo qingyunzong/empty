@@ -1,0 +1,5 @@
+{"ops": [
+  {"op": "add", "path": ["root", "team-a", "svc-1"], "amount": 3},
+  {"op": "add", "path": ["root", "team-b", "svc-3"], "amount": 1},
+  {"op": "sub", "path": ["root", "team-a", "svc-2"], "amount": 99}
+]}
