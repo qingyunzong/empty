@@ -1,0 +1,19 @@
+{
+  "users": [
+    {"uid": 1, "name": "ada"},
+    {"uid": 2, "name": "bob"},
+    {"uid": null, "name": "ghost"}
+  ],
+  "orders": [
+    {"oid": 10, "user_id": 1, "total": 30},
+    {"oid": 11, "user_id": 1, "total": 50},
+    {"oid": 12, "user_id": null, "total": 99},
+    {"oid": 13, "user_id": 3, "total": 12}
+  ],
+  "items": [
+    {"order_id": 10, "sku": "a"},
+    {"order_id": 10, "sku": "b"},
+    {"order_id": 11, "sku": "c"},
+    {"order_id": null, "sku": "z"}
+  ]
+}
