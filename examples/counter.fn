@@ -1,0 +1,19 @@
+# make_counter: two functions sharing one boxed cell.
+let pair = fn(x, y) {
+  return fn(w) { if w == 0 { return x; } return y; };
+};
+let make_counter = fn() {
+  let count = 0;
+  let inc = fn() { count = count + 1; return count; };
+  let get = fn() { return count; };
+  return pair(inc, get);
+};
+let p = make_counter();
+let inc = p(0);
+let get = p(1);
+print(inc());
+print(inc());
+print(get());
+print(inc());
+print(get());
+return get();
