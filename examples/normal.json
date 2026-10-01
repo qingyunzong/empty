@@ -1,0 +1,11 @@
+{
+  "resources": {"cpu": 2, "mem": 4},
+  "ops": [
+    {"t": 0, "client": "alpha", "acquire": {"cpu": 1, "mem": 2}, "ttl": 3},
+    {"t": 0, "client": "beta", "acquire": {"cpu": 1}, "ttl": 2},
+    {"t": 1, "client": "gamma", "acquire": {"cpu": 2, "mem": 1}, "ttl": 2},
+    {"t": 1, "client": "beta", "release": ["cpu"]},
+    {"t": 4, "client": "delta", "acquire": {"mem": 4}, "ttl": 1},
+    {"t": 6, "client": "echo", "acquire": {"cpu": 1}, "ttl": 1}
+  ]
+}

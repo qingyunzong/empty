@@ -1,0 +1,6 @@
+{
+  "resources": {"r1": 1},
+  "ops": [
+    {"t": 0, "client": "a", "acquire": {"r1": 2}, "ttl": 5}
+  ]
+}
