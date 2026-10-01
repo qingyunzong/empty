@@ -1,0 +1,5 @@
+[
+  {"id": "render", "arrival": 0, "deadline": 4, "work": 2, "cost_per_tick": 3, "value": 50},
+  {"id": "backup", "arrival": 1, "deadline": 5, "work": 2, "cost_per_tick": 1, "value": 20},
+  {"id": "report", "arrival": 0, "deadline": 2, "work": 1, "cost_per_tick": 2, "value": 10}
+]
