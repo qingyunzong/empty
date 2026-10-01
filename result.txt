@@ -1,0 +1,26 @@
+$ python -m unittest discover -v
+
+test_backtrack_above_current_level_exits_nonzero (tests.test_cli.CliTest.test_backtrack_above_current_level_exits_nonzero) ... ok
+test_backtrack_negative_level_exits_nonzero (tests.test_cli.CliTest.test_backtrack_negative_level_exits_nonzero) ... ok
+test_missing_input_file_exits_nonzero (tests.test_cli.CliTest.test_missing_input_file_exits_nonzero) ... ok
+test_run_conflict_undoes_assignment (tests.test_cli.CliTest.test_run_conflict_undoes_assignment) ... ok
+test_run_unsat (tests.test_cli.CliTest.test_run_unsat) ... ok
+test_run_with_assignments (tests.test_cli.CliTest.test_run_with_assignments) ... ok
+test_run_with_backtrack (tests.test_cli.CliTest.test_run_with_backtrack) ... ok
+test_run_without_assignments (tests.test_cli.CliTest.test_run_without_assignments) ... ok
+test_unknown_variable_exits_nonzero (tests.test_cli.CliTest.test_unknown_variable_exits_nonzero) ... ok
+test_value_outside_domain_exits_nonzero (tests.test_cli.CliTest.test_value_outside_domain_exits_nonzero) ... ok
+test_assign_conflict_and_backtracks_match_reference (tests.test_solver.ChainConflictReferenceTest.test_assign_conflict_and_backtracks_match_reference) ... ok
+test_assign_unknown_variable (tests.test_solver.ErrorConventionTest.test_assign_unknown_variable) ... ok
+test_assign_value_outside_domain (tests.test_solver.ErrorConventionTest.test_assign_value_outside_domain) ... ok
+test_backtrack_above_current_level (tests.test_solver.ErrorConventionTest.test_backtrack_above_current_level) ... ok
+test_backtrack_negative_level (tests.test_solver.ErrorConventionTest.test_backtrack_negative_level) ... ok
+test_level_zero_propagation (tests.test_solver.InitialPropagationTest.test_level_zero_propagation) ... ok
+test_unsat_only_from_level_zero (tests.test_solver.InitialPropagationTest.test_unsat_only_from_level_zero) ... ok
+test_backtrack_from_level_3_to_level_1 (tests.test_solver.MultiLevelBacktrackTest.test_backtrack_from_level_3_to_level_1) ... ok
+test_trail_entries_equal_removals (tests.test_solver.TrailCountTest.test_trail_entries_equal_removals) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.721s
+
+OK
