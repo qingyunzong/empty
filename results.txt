@@ -1,0 +1,27 @@
+$ python3 -m unittest discover -s tests -v
+
+test_add_merges_overlapping_and_adjacent (test_ilog.TestBasicOps.test_add_merges_overlapping_and_adjacent) ... ok
+test_compact_goes_through_commit_flow (test_ilog.TestBasicOps.test_compact_goes_through_commit_flow) ... ok
+test_normal_commit_persists (test_ilog.TestBasicOps.test_normal_commit_persists) ... ok
+test_remove_splits_and_trims (test_ilog.TestBasicOps.test_remove_splits_and_trims) ... ok
+test_remove_then_compact_merges_adjacent_boundaries (test_ilog.TestBasicOps.test_remove_then_compact_merges_adjacent_boundaries) ... ok
+test_uncommitted_changes_stay_in_memory (test_ilog.TestBasicOps.test_uncommitted_changes_stay_in_memory) ... ok
+test_cli_add_compact_commit (test_ilog.TestCli.test_cli_add_compact_commit) ... ok
+test_cli_bad_interval_exit_2 (test_ilog.TestCli.test_cli_bad_interval_exit_2) ... ok
+test_cli_non_json_file_exit_2 (test_ilog.TestCli.test_cli_non_json_file_exit_2) ... ok
+test_cli_remove_and_compact (test_ilog.TestCli.test_cli_remove_and_compact) ... ok
+test_cli_without_commit_persists_nothing (test_ilog.TestCli.test_cli_without_commit_persists_nothing) ... ok
+test_bad_interval_rejected (test_ilog.TestErrors.test_bad_interval_rejected) ... ok
+test_malformed_intervals_in_file_raise_io (test_ilog.TestErrors.test_malformed_intervals_in_file_raise_io) ... ok
+test_non_json_main_file_raises_io (test_ilog.TestErrors.test_non_json_main_file_raises_io) ... ok
+test_permission_failure_raises_io (test_ilog.TestErrors.test_permission_failure_raises_io) ... ok
+test_corrupted_tmp_rolls_back (test_ilog.TestFaultInjection.test_corrupted_tmp_rolls_back) ... ok
+test_crash_after_marker_adopts_new_state (test_ilog.TestFaultInjection.test_crash_after_marker_adopts_new_state) ... ok
+test_crash_after_replace_is_idempotent (test_ilog.TestFaultInjection.test_crash_after_replace_is_idempotent) ... ok
+test_crash_after_tmp_write_keeps_old_state (test_ilog.TestFaultInjection.test_crash_after_tmp_write_keeps_old_state) ... ok
+test_no_half_committed_intervals (test_ilog.TestFaultInjection.test_no_half_committed_intervals) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.366s
+
+OK
