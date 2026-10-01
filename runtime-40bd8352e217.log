@@ -1,0 +1,11 @@
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-B/demonstration/probe.py consistent_snapshot
+new_snapshot_values=[1, 2]
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-B/demonstration/probe.py read_blocks
+read_waited_during_commit=True
+snapshot_read_after_commit=null
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-B/demonstration/probe.py null_dump
+dump_state={}
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-B/demonstration/probe.py missing_value
+missing_value_write={"ok": true}
+$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-B/demonstration/probe.py abort_after_conflict
+conflict=WRITE_CONFLICT abort=UNKNOWN_TXN retry_state={"x": 2}

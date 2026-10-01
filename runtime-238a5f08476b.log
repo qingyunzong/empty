@@ -1,0 +1,4 @@
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-A/demonstration/probe.py partial_snapshot
+{"check": "partial_snapshot", "errors": [], "final": {"x": 1, "y": 2}, "observed": {"x": 1, "y": null}, "reproduced": true}
+$ /home/delin/.local/bin/python3.11 -B /home/delin/.local/share/gsb-workbench/artifacts/bb65cf6e40bb4ee7b295f06c33492ac6/judge/pair/attempt-001/demonstration-A/demonstration/probe.py abort_after_conflict
+{"abort": "UNKNOWN_TXN", "check": "abort_after_conflict", "conflict": "WRITE_CONFLICT", "reproduced": true, "retry_state": {"key": 3}}

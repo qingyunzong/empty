@@ -1,0 +1,680 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..dd4841f
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,75 @@
++# si — 快照隔离事务引擎
++
++基于 MVCC 的快照隔离（Snapshot Isolation）键值事务引擎，纯 Python 标准库实现（兼容 3.11+），无第三方依赖。
++
++## 语义
++
++1. 事务 `begin` 时获取一致性快照，读永不阻塞，且读不到快照点之后提交的数据。
++2. 提交时若写集中任一键被其它事务在其快照点之后提交修改，整个事务以
++   `WRITE_CONFLICT` 失败且不产生任何效果（first-committer-wins）。
++3. 冲突检测基于键集合，不做值比较（两事务写相同值仍冲突）。
++4. 失败事务可安全 abort 并重试。
++
++## 布局
++
++- `si/engine.py` — MVCC 引擎：`begin` / `read` / `write` / `commit` / `abort`
++- `si/cli.py` — JSON 行协议 CLI（`python3 -m si`）
++- `tests/` — unittest 验收测试
++
++## CLI 协议
++
++每行一个 JSON 请求，每行一个 JSON 响应。事务命令带 `txn` 字段。
++
++```
++{"cmd": "begin",  "txn": "t1"}                          -> {"ok": true, "snapshot": N}
++{"cmd": "read",   "txn": "t1", "key": "x"}              -> {"ok": true, "value": V|null}
++{"cmd": "write",  "txn": "t1", "key": "x", "value": V}  -> {"ok": true}
++{"cmd": "commit", "txn": "t1"}                          -> {"ok": true} | {"error": "WRITE_CONFLICT"}
++{"cmd": "abort",  "txn": "t1"}                          -> {"ok": true}
++{"cmd": "dump"}                                         -> {"ok": true, "state": {...}}
++```
++
++错误码：`WRITE_CONFLICT`、`UNKNOWN_TXN`、`TXN_EXISTS`、`UNKNOWN_COMMAND`、
++`INVALID_COMMAND`、`INVALID_JSON`。
++
++## 测试
++
++```
++python3 -m unittest discover -s tests -v
++```
++
++覆盖验收标准：
++
++- a) `test_a_first_committer_wins_on_same_key` — 同键并发写，先提交者成功，后者 `WRITE_CONFLICT`
++- b) `test_b_disjoint_write_sets_both_commit` — 不相交写集两事务均成功
++- c) `test_c_write_skew_is_allowed` — 写偏序（A 读 x 写 y，B 读 y 写 x）在 SI 下允许，最终态 `{"x": 0, "y": 0}`
++- d) `test_d_failed_txn_retries_successfully` — 冲突失败后重试同键成功
++- e) `test_random_interleavings_match_reference_model` — 5 个随机种子 × 2000 步随机交错，
++  逐步比对读结果与提交/中止结果，最终库态与参考模型一致
++
++## 真实测试结果
++
++环境：Python 3.14.4（向下兼容 3.11 标准库），2026-10-01 实际运行：
++
++```
++$ python3 -m unittest discover -s tests -v
++test_error_codes (test_cli.TestCli.test_error_codes) ... ok
++test_happy_path (test_cli.TestCli.test_happy_path) ... ok
++test_retry_after_conflict_via_cli (test_cli.TestCli.test_retry_after_conflict_via_cli) ... ok
++test_write_conflict_error (test_cli.TestCli.test_write_conflict_error) ... ok
++test_a_first_committer_wins_on_same_key (test_engine.TestSnapshotIsolation.test_a_first_committer_wins_on_same_key) ... ok
++test_b_disjoint_write_sets_both_commit (test_engine.TestSnapshotIsolation.test_b_disjoint_write_sets_both_commit) ... ok
++test_c_write_skew_is_allowed (test_engine.TestSnapshotIsolation.test_c_write_skew_is_allowed) ... ok
++test_conflict_detection_is_key_based_not_value_based (test_engine.TestSnapshotIsolation.test_conflict_detection_is_key_based_not_value_based) ... ok
++test_d_failed_txn_retries_successfully (test_engine.TestSnapshotIsolation.test_d_failed_txn_retries_successfully) ... ok
++test_read_missing_key_returns_none (test_engine.TestSnapshotIsolation.test_read_missing_key_returns_none) ... ok
++test_read_only_txn_never_conflicts (test_engine.TestSnapshotIsolation.test_read_only_txn_never_conflicts) ... ok
++test_read_own_writes (test_engine.TestSnapshotIsolation.test_read_own_writes) ... ok
++test_snapshot_reads_never_see_later_commits (test_engine.TestSnapshotIsolation.test_snapshot_reads_never_see_later_commits) ... ok
++test_random_interleavings_match_reference_model (test_random_model.TestRandomInterleaving.test_random_interleavings_match_reference_model) ... ok
++
++----------------------------------------------------------------------
++Ran 14 tests in 0.064s
++
++OK
++```
+diff --git a/si/__init__.py b/si/__init__.py
+new file mode 100644
+index 0000000..8cd1366
+--- /dev/null
++++ b/si/__init__.py
+@@ -0,0 +1,5 @@
++"""Snapshot isolation transaction engine."""
++
++from .engine import Engine, Transaction, WriteConflict
++
++__all__ = ["Engine", "Transaction", "WriteConflict"]
+diff --git a/si/__main__.py b/si/__main__.py
+new file mode 100644
+index 0000000..9ae637f
+--- /dev/null
++++ b/si/__main__.py
+@@ -0,0 +1,4 @@
++from .cli import main
++
++if __name__ == "__main__":
++    main()
+diff --git a/si/__pycache__/__init__.cpython-314.pyc b/si/__pycache__/__init__.cpython-314.pyc
+new file mode 100644
+index 0000000..8fc642f
+Binary files /dev/null and b/si/__pycache__/__init__.cpython-314.pyc differ
+diff --git a/si/__pycache__/__main__.cpython-314.pyc b/si/__pycache__/__main__.cpython-314.pyc
+new file mode 100644
+index 0000000..5dd4027
+Binary files /dev/null and b/si/__pycache__/__main__.cpython-314.pyc differ
+diff --git a/si/__pycache__/cli.cpython-314.pyc b/si/__pycache__/cli.cpython-314.pyc
+new file mode 100644
+index 0000000..1439a06
+Binary files /dev/null and b/si/__pycache__/cli.cpython-314.pyc differ
+diff --git a/si/__pycache__/engine.cpython-314.pyc b/si/__pycache__/engine.cpython-314.pyc
+new file mode 100644
+index 0000000..077f9b7
+Binary files /dev/null and b/si/__pycache__/engine.cpython-314.pyc differ
+diff --git a/si/cli.py b/si/cli.py
+new file mode 100644
+index 0000000..fef5fa2
+--- /dev/null
++++ b/si/cli.py
+@@ -0,0 +1,92 @@
++"""JSON-lines CLI for the snapshot-isolation engine.
++
++Protocol: one JSON object per line on stdin, one JSON object per line on
++stdout. Every command carries a "cmd" field; transactional commands also
++carry a "txn" field identifying the transaction.
++
++Commands:
++  {"cmd": "begin",  "txn": "t1"}                      -> {"ok": true, "snapshot": N}
++  {"cmd": "read",   "txn": "t1", "key": "x"}          -> {"ok": true, "value": V|null}
++  {"cmd": "write",  "txn": "t1", "key": "x", "value": V} -> {"ok": true}
++  {"cmd": "commit", "txn": "t1"}                      -> {"ok": true} | {"error": "WRITE_CONFLICT"}
++  {"cmd": "abort",  "txn": "t1"}                      -> {"ok": true}
++  {"cmd": "dump"}                                     -> {"ok": true, "state": {...}}
++
++Errors are reported as {"error": CODE}, e.g. UNKNOWN_TXN, TXN_EXISTS,
++UNKNOWN_COMMAND, INVALID_COMMAND.
++"""
++
++from __future__ import annotations
++
++import json
++import sys
++
++from .engine import Engine, TransactionExists, UnknownTransaction, WriteConflict
++
++
++def handle(engine: Engine, request: dict) -> dict:
++    cmd = request.get("cmd")
++    if not isinstance(cmd, str):
++        return {"error": "INVALID_COMMAND"}
++    txn_id = request.get("txn")
++
++    try:
++        if cmd == "begin":
++            if txn_id is None:
++                return {"error": "INVALID_COMMAND"}
++            txn = engine.begin(str(txn_id))
++            return {"ok": True, "snapshot": txn.snapshot_ts}
++        if cmd == "dump":
++            return {"ok": True, "state": engine.snapshot_state()}
++        if txn_id is None:
++            return {"error": "INVALID_COMMAND"}
++        txn_id = str(txn_id)
++        if cmd == "read":
++            key = request.get("key")
++            if not isinstance(key, str):
++                return {"error": "INVALID_COMMAND"}
++            return {"ok": True, "value": engine.read(txn_id, key)}
++        if cmd == "write":
++            key = request.get("key")
++            if not isinstance(key, str) or "value" not in request:
++                return {"error": "INVALID_COMMAND"}
++            engine.write(txn_id, key, request["value"])
++            return {"ok": True}
++        if cmd == "commit":
++            engine.commit(txn_id)
++            return {"ok": True}
++        if cmd == "abort":
++            engine.abort(txn_id)
++            return {"ok": True}
++        return {"error": "UNKNOWN_COMMAND"}
++    except WriteConflict:
++        return {"error": "WRITE_CONFLICT"}
++    except UnknownTransaction:
++        return {"error": "UNKNOWN_TXN"}
++    except TransactionExists:
++        return {"error": "TXN_EXISTS"}
++
++
++def main(stream=None, out=None) -> None:
++    stream = stream if stream is not None else sys.stdin
++    out = out if out is not None else sys.stdout
++    engine = Engine()
++    for line in stream:
++        line = line.strip()
++        if not line:
++            continue
++        try:
++            request = json.loads(line)
++        except json.JSONDecodeError:
++            response = {"error": "INVALID_JSON"}
++        else:
++            if not isinstance(request, dict):
++                response = {"error": "INVALID_COMMAND"}
++            else:
++                response = handle(engine, request)
++        out.write(json.dumps(response) + "\n")
++        out.flush()
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/si/engine.py b/si/engine.py
+new file mode 100644
+index 0000000..1a6909f
+--- /dev/null
++++ b/si/engine.py
+@@ -0,0 +1,105 @@
++"""Snapshot-isolation (SI) transaction engine.
++
++Semantics:
++- A transaction takes a consistent snapshot at begin; reads never block.
++- At commit, if any key in the transaction's write set was committed by
++  another transaction after this transaction's snapshot point, the whole
++  commit fails with WRITE_CONFLICT and has no effect (first-committer-wins).
++- Conflict detection is based on key sets, not value comparison.
++- A failed transaction can be safely retried.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass, field
++
++
++class WriteConflict(Exception):
++    """Raised when a commit loses the first-committer-wins race."""
++
++
++class UnknownTransaction(Exception):
++    """Raised when operating on a transaction id that is not active."""
++
++
++class TransactionExists(Exception):
++    """Raised when beginning a transaction id that is already active."""
++
++
++@dataclass
++class Transaction:
++    txn_id: str
++    snapshot_ts: int
++    writes: dict = field(default_factory=dict)
++    reads: set = field(default_factory=set)
++
++
++class Engine:
++    """In-memory MVCC key-value store with snapshot isolation."""
++
++    def __init__(self) -> None:
++        self._clock = 0
++        # key -> list of (commit_ts, value), ordered by commit_ts ascending
++        self._data: dict[str, list[tuple[int, object]]] = {}
++        # committed history: list of (commit_ts, frozenset of written keys)
++        self._history: list[tuple[int, frozenset]] = []
++        self._active: dict[str, Transaction] = {}
++
++    def begin(self, txn_id: str) -> Transaction:
++        if txn_id in self._active:
++            raise TransactionExists(txn_id)
++        txn = Transaction(txn_id=txn_id, snapshot_ts=self._clock)
++        self._active[txn_id] = txn
++        return txn
++
++    def _get(self, txn_id: str) -> Transaction:
++        try:
++            return self._active[txn_id]
++        except KeyError:
++            raise UnknownTransaction(txn_id) from None
++
++    def read(self, txn_id: str, key: str):
++        txn = self._get(txn_id)
++        txn.reads.add(key)
++        if key in txn.writes:
++            return txn.writes[key]
++        versions = self._data.get(key)
++        if not versions:
++            return None
++        result = None
++        for ts, value in versions:
++            if ts <= txn.snapshot_ts:
++                result = value
++            else:
++                break
++        return result
++
++    def write(self, txn_id: str, key: str, value) -> None:
++        txn = self._get(txn_id)
++        txn.writes[key] = value
++
++    def commit(self, txn_id: str) -> int:
++        txn = self._get(txn_id)
++        try:
++            write_keys = frozenset(txn.writes)
++            if write_keys:
++                for ts, keys in self._history:
++                    if ts > txn.snapshot_ts and keys & write_keys:
++                        raise WriteConflict(txn_id)
++                self._clock += 1
++                commit_ts = self._clock
++                for key, value in txn.writes.items():
++                    self._data.setdefault(key, []).append((commit_ts, value))
++                self._history.append((commit_ts, write_keys))
++                return commit_ts
++            return txn.snapshot_ts
++        finally:
++            del self._active[txn_id]
++
++    def abort(self, txn_id: str) -> None:
++        self._get(txn_id)
++        del self._active[txn_id]
++
++    def snapshot_state(self) -> dict:
++        """Current committed state (latest version of each key)."""
++        return {key: versions[-1][1] for key, versions in self._data.items()}
+diff --git a/tests/__init__.py b/tests/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/__pycache__/test_cli.cpython-314.pyc b/tests/__pycache__/test_cli.cpython-314.pyc
+new file mode 100644
+index 0000000..4c82849
+Binary files /dev/null and b/tests/__pycache__/test_cli.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_engine.cpython-314.pyc b/tests/__pycache__/test_engine.cpython-314.pyc
+new file mode 100644
+index 0000000..dc6e318
+Binary files /dev/null and b/tests/__pycache__/test_engine.cpython-314.pyc differ
+diff --git a/tests/__pycache__/test_random_model.cpython-314.pyc b/tests/__pycache__/test_random_model.cpython-314.pyc
+new file mode 100644
+index 0000000..d0d0513
+Binary files /dev/null and b/tests/__pycache__/test_random_model.cpython-314.pyc differ
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+new file mode 100644
+index 0000000..885bd83
+--- /dev/null
++++ b/tests/test_cli.py
+@@ -0,0 +1,75 @@
++import io
++import json
++import unittest
++
++from si.cli import main
++
++
++def run_cli(lines):
++    out = io.StringIO()
++    main(stream=io.StringIO("\n".join(lines) + "\n"), out=out)
++    return [json.loads(line) for line in out.getvalue().splitlines()]
++
++
++class TestCli(unittest.TestCase):
++    def test_happy_path(self):
++        responses = run_cli([
++            json.dumps({"cmd": "begin", "txn": "t1"}),
++            json.dumps({"cmd": "write", "txn": "t1", "key": "x", "value": 42}),
++            json.dumps({"cmd": "read", "txn": "t1", "key": "x"}),
++            json.dumps({"cmd": "commit", "txn": "t1"}),
++            json.dumps({"cmd": "dump"}),
++        ])
++        self.assertTrue(responses[0]["ok"])
++        self.assertTrue(responses[1]["ok"])
++        self.assertEqual(responses[2], {"ok": True, "value": 42})
++        self.assertTrue(responses[3]["ok"])
++        self.assertEqual(responses[4], {"ok": True, "state": {"x": 42}})
++
++    def test_write_conflict_error(self):
++        responses = run_cli([
++            json.dumps({"cmd": "begin", "txn": "t1"}),
++            json.dumps({"cmd": "begin", "txn": "t2"}),
++            json.dumps({"cmd": "write", "txn": "t1", "key": "x", "value": 1}),
++            json.dumps({"cmd": "write", "txn": "t2", "key": "x", "value": 2}),
++            json.dumps({"cmd": "commit", "txn": "t1"}),
++            json.dumps({"cmd": "commit", "txn": "t2"}),
++        ])
++        self.assertEqual(responses[4], {"ok": True})
++        self.assertEqual(responses[5], {"error": "WRITE_CONFLICT"})
++
++    def test_error_codes(self):
++        responses = run_cli([
++            json.dumps({"cmd": "read", "txn": "ghost", "key": "x"}),
++            json.dumps({"cmd": "begin", "txn": "t1"}),
++            json.dumps({"cmd": "begin", "txn": "t1"}),
++            json.dumps({"cmd": "frobnicate", "txn": "t1"}),
++            "not json at all",
++            json.dumps({"cmd": "commit"}),
++        ])
++        self.assertEqual(responses[0], {"error": "UNKNOWN_TXN"})
++        self.assertEqual(responses[2], {"error": "TXN_EXISTS"})
++        self.assertEqual(responses[3], {"error": "UNKNOWN_COMMAND"})
++        self.assertEqual(responses[4], {"error": "INVALID_JSON"})
++        self.assertEqual(responses[5], {"error": "INVALID_COMMAND"})
++
++    def test_retry_after_conflict_via_cli(self):
++        responses = run_cli([
++            json.dumps({"cmd": "begin", "txn": "t1"}),
++            json.dumps({"cmd": "begin", "txn": "t2"}),
++            json.dumps({"cmd": "write", "txn": "t1", "key": "x", "value": 1}),
++            json.dumps({"cmd": "write", "txn": "t2", "key": "x", "value": 2}),
++            json.dumps({"cmd": "commit", "txn": "t1"}),
++            json.dumps({"cmd": "commit", "txn": "t2"}),
++            json.dumps({"cmd": "begin", "txn": "t3"}),
++            json.dumps({"cmd": "write", "txn": "t3", "key": "x", "value": 3}),
++            json.dumps({"cmd": "commit", "txn": "t3"}),
++            json.dumps({"cmd": "dump"}),
++        ])
++        self.assertEqual(responses[5], {"error": "WRITE_CONFLICT"})
++        self.assertEqual(responses[8], {"ok": True})
++        self.assertEqual(responses[9], {"ok": True, "state": {"x": 3}})
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_engine.py b/tests/test_engine.py
+new file mode 100644
+index 0000000..965011a
+--- /dev/null
++++ b/tests/test_engine.py
+@@ -0,0 +1,113 @@
++import unittest
++
++from si import Engine, WriteConflict
++
++
++class TestSnapshotIsolation(unittest.TestCase):
++    def setUp(self):
++        self.engine = Engine()
++
++    def test_a_first_committer_wins_on_same_key(self):
++        # (a) Two txns write the same key: first committer succeeds,
++        # second fails with WRITE_CONFLICT.
++        self.engine.begin("t1")
++        self.engine.begin("t2")
++        self.engine.write("t1", "x", 1)
++        self.engine.write("t2", "x", 2)
++        self.engine.commit("t1")
++        with self.assertRaises(WriteConflict):
++            self.engine.commit("t2")
++        # Failed commit has no effect.
++        self.assertEqual(self.engine.snapshot_state(), {"x": 1})
++
++    def test_b_disjoint_write_sets_both_commit(self):
++        # (b) Two txns writing disjoint key sets both succeed.
++        self.engine.begin("t1")
++        self.engine.begin("t2")
++        self.engine.write("t1", "x", 1)
++        self.engine.write("t2", "y", 2)
++        self.engine.commit("t1")
++        self.engine.commit("t2")
++        self.assertEqual(self.engine.snapshot_state(), {"x": 1, "y": 2})
++
++    def test_c_write_skew_is_allowed(self):
++        # (c) Write skew: A reads x writes y, B reads y writes x.
++        # Under SI this is allowed; both commits succeed.
++        self.engine.begin("seed")
++        self.engine.write("seed", "x", 100)
++        self.engine.write("seed", "y", 100)
++        self.engine.commit("seed")
++
++        self.engine.begin("A")
++        self.engine.begin("B")
++        self.assertEqual(self.engine.read("A", "x"), 100)
++        self.assertEqual(self.engine.read("B", "y"), 100)
++        self.engine.write("A", "y", 0)
++        self.engine.write("B", "x", 0)
++        self.engine.commit("A")
++        self.engine.commit("B")  # must NOT raise under SI
++        self.assertEqual(self.engine.snapshot_state(), {"x": 0, "y": 0})
++
++    def test_d_failed_txn_retries_successfully(self):
++        # (d) A txn that fails with WRITE_CONFLICT can abort and retry
++        # the same key successfully.
++        self.engine.begin("t1")
++        self.engine.begin("t2")
++        self.engine.write("t1", "x", 1)
++        self.engine.write("t2", "x", 2)
++        self.engine.commit("t1")
++        with self.assertRaises(WriteConflict):
++            self.engine.commit("t2")
++
++        self.engine.begin("t2-retry")
++        self.assertEqual(self.engine.read("t2-retry", "x"), 1)
++        self.engine.write("t2-retry", "x", 2)
++        self.engine.commit("t2-retry")
++        self.assertEqual(self.engine.snapshot_state(), {"x": 2})
++
++    def test_snapshot_reads_never_see_later_commits(self):
++        self.engine.begin("seed")
++        self.engine.write("seed", "x", 1)
++        self.engine.commit("seed")
++
++        self.engine.begin("reader")
++        self.engine.begin("writer")
++        self.engine.write("writer", "x", 2)
++        self.engine.commit("writer")
++        # Reader's snapshot predates writer's commit.
++        self.assertEqual(self.engine.read("reader", "x"), 1)
++        self.engine.commit("reader")
++
++    def test_read_own_writes(self):
++        self.engine.begin("t1")
++        self.engine.write("t1", "k", "v")
++        self.assertEqual(self.engine.read("t1", "k"), "v")
++        self.engine.abort("t1")
++        self.assertEqual(self.engine.snapshot_state(), {})
++
++    def test_read_missing_key_returns_none(self):
++        self.engine.begin("t1")
++        self.assertIsNone(self.engine.read("t1", "nope"))
++        self.engine.abort("t1")
++
++    def test_conflict_detection_is_key_based_not_value_based(self):
++        # Same value written by both txns still conflicts.
++        self.engine.begin("t1")
++        self.engine.begin("t2")
++        self.engine.write("t1", "x", 1)
++        self.engine.write("t2", "x", 1)
++        self.engine.commit("t1")
++        with self.assertRaises(WriteConflict):
++            self.engine.commit("t2")
++
++    def test_read_only_txn_never_conflicts(self):
++        self.engine.begin("t1")
++        self.engine.begin("t2")
++        self.engine.read("t1", "x")
++        self.engine.write("t2", "x", 1)
++        self.engine.commit("t2")
++        self.engine.commit("t1")  # read-only: no write set, no conflict
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_random_model.py b/tests/test_random_model.py
+new file mode 100644
+index 0000000..ff5ae38
+--- /dev/null
++++ b/tests/test_random_model.py
+@@ -0,0 +1,132 @@
++"""Randomized model-based test (acceptance criterion e).
++
++Drives the real engine and an independent in-test reference model through
++the same random interleaving of 2000 operations, then compares per-step
++read results, commit/abort outcomes, and the final database state.
++"""
++
++import random
++import unittest
++
++from si import Engine, WriteConflict
++
++
++class ModelTxn:
++    def __init__(self, snapshot, snapshot_seq):
++        self.snapshot = snapshot  # dict copy of committed state at begin
++        self.snapshot_seq = snapshot_seq
++        self.writes = {}
++
++
++class ReferenceModel:
++    """Independent SI model: commit-order serialization of committed writes."""
++
++    def __init__(self):
++        self.committed = {}          # key -> latest committed value
++        self.history = []            # list of (seq, keyset), seq increasing
++        self.seq = 0
++        self.txns = {}               # txn_id -> ModelTxn
++
++    def begin(self, txn_id):
++        assert txn_id not in self.txns
++        self.txns[txn_id] = ModelTxn(dict(self.committed), self.seq)
++
++    def read(self, txn_id, key):
++        txn = self.txns[txn_id]
++        if key in txn.writes:
++            return txn.writes[key]
++        return txn.snapshot.get(key)
++
++    def write(self, txn_id, key, value):
++        self.txns[txn_id].writes[key] = value
++
++    def commit(self, txn_id):
++        """Returns True if the commit succeeds, False on write conflict."""
++        txn = self.txns.pop(txn_id)
++        keys = set(txn.writes)
++        if keys:
++            for seq, committed_keys in self.history:
++                if seq > txn.snapshot_seq and committed_keys & keys:
++                    return False
++            self.seq += 1
++            self.committed.update(txn.writes)
++            self.history.append((self.seq, keys))
++        return True
++
++    def abort(self, txn_id):
++        self.txns.pop(txn_id)
++
++
++class TestRandomInterleaving(unittest.TestCase):
++    STEPS = 2000
++
++    def run_interleaving(self, seed):
++        rng = random.Random(seed)
++        engine = Engine()
++        model = ReferenceModel()
++        keys = [f"k{i}" for i in range(8)]
++        active = []  # txn ids active in both engine and model
++        next_id = 0
++
++        for step in range(self.STEPS):
++            op = rng.choice(["begin", "read", "write", "commit", "abort"])
++            if op == "begin" or not active:
++                txn_id = f"t{next_id}"
++                next_id += 1
++                engine.begin(txn_id)
++                model.begin(txn_id)
++                active.append(txn_id)
++                continue
++
++            txn_id = rng.choice(active)
++            if op == "read":
++                key = rng.choice(keys)
++                got = engine.read(txn_id, key)
++                want = model.read(txn_id, key)
++                self.assertEqual(
++                    got, want,
++                    f"seed={seed} step={step} read {txn_id}.{key}",
++                )
++            elif op == "write":
++                key = rng.choice(keys)
++                value = rng.randint(0, 99)
++                engine.write(txn_id, key, value)
++                model.write(txn_id, key, value)
++            elif op == "commit":
++                active.remove(txn_id)
++                want_ok = model.commit(txn_id)
++                if want_ok:
++                    engine.commit(txn_id)
++                else:
++                    with self.assertRaises(
++                        WriteConflict,
++                        msg=f"seed={seed} step={step} commit {txn_id}",
++                    ):
++                        engine.commit(txn_id)
++            else:  # abort
++                active.remove(txn_id)
++                engine.abort(txn_id)
++                model.abort(txn_id)
++
++        # Drain remaining active transactions with commits.
++        for txn_id in list(active):
++            want_ok = model.commit(txn_id)
++            if want_ok:
++                engine.commit(txn_id)
++            else:
++                with self.assertRaises(WriteConflict):
++                    engine.commit(txn_id)
++
++        self.assertEqual(
++            engine.snapshot_state(), model.committed,
++            f"final state mismatch for seed={seed}",
++        )
++
++    def test_random_interleavings_match_reference_model(self):
++        for seed in (1, 7, 42, 2024, 31337):
++            with self.subTest(seed=seed):
++                self.run_interleaving(seed)
++
++
++if __name__ == "__main__":
++    unittest.main()
