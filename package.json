@@ -1,0 +1,15 @@
+{
+  "name": "walstore",
+  "version": "1.0.0",
+  "description": "Auditable, replayable WAL-based measurement storage with CLI",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "walstore": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
