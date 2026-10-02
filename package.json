@@ -1,0 +1,9 @@
+{
+  "name": "quota-ledger",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Quota freeze/capture/release ledger with snapshot+delta blocks and certificates",
+  "scripts": {
+    "test": "node --test"
+  }
+}
