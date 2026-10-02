@@ -1,0 +1,10 @@
+{"type":"account","account":"A","packages":["P-STD"]}
+{"type":"account","account":"B"}
+{"type":"trade","id":"t1","account":"A","amount":900000}
+{"type":"trade","id":"t2","account":"A","amount":200000}
+{"type":"trade","id":"t3","account":"B","amount":2500000}
+{"type":"amend","id":"t2","newId":"t2b","amount":70000}
+{"type":"trade","id":"r1","account":"B","amount":-500000,"of":"t3"}
+{"type":"rules","version":"v2"}
+{"type":"cancel","id":"t2b"}
+{"type":"eod"}
