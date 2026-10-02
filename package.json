@@ -1,0 +1,12 @@
+{
+  "name": "dcdstore",
+  "version": "1.0.0",
+  "description": "Snapshot-isolated versioned key-value store with publish freeze and content-addressed certificates",
+  "type": "module",
+  "bin": {
+    "dcd": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
