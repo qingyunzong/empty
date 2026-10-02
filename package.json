@@ -1,0 +1,9 @@
+{
+  "name": "cert-store",
+  "version": "1.0.0",
+  "description": "Offline verifiable certificate segment store with inclusion/exclusion proofs",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
