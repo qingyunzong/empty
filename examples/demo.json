@@ -1,0 +1,12 @@
+{
+  "config": { "totalLimit": 1000, "dailyCaps": { "DINING": 600, "FUEL": 300 }, "periodMinutes": 60, "dayMinutes": 120 },
+  "ops": [
+    { "op": "freeze", "id": "A", "category": "DINING", "amount": 300, "start": 0, "end": 90 },
+    { "op": "freeze", "id": "B", "category": "DINING", "amount": 400, "start": 30, "end": 120 },
+    { "op": "freeze", "id": "B", "category": "DINING", "amount": 200, "start": 30, "end": 120 },
+    { "op": "unfreeze", "id": "A", "start": 40, "end": 60 },
+    { "op": "capture", "id": "B", "start": 30, "end": 50, "amount": 100, "at": 45 },
+    { "op": "freeze", "id": "C", "category": "FUEL", "amount": 300, "start": 60, "end": 150 },
+    { "op": "sweep", "at": 130 }
+  ]
+}
