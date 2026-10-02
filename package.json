@@ -1,0 +1,8 @@
+{
+  "name": "recon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-of-day reconciliation CLI (internal vs bank vs fee), stdlib only",
+  "bin": { "recon": "./recon.js" },
+  "scripts": { "test": "node --test" }
+}
