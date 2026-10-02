@@ -1,0 +1,13 @@
+{
+  "name": "causallint",
+  "version": "0.1.0",
+  "description": "Offline causal-serializability checker for batched operation histories",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "causallint": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

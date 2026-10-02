@@ -1,0 +1,3 @@
+{"invocation":"e1","response":"r1","node":"n1","prev":null,"realTime":[0,1],"op":"write","key":"x","value":1}
+{"invocation":"e2","response":"r2","node":"n2","prev":null,"realTime":[2,3],"op":"read","key":"x","value":2}
+{"op":"correct","corrects":"e2","replacement":{"op":"read","key":"x","value":1,"node":"n2","realTime":[2,3],"response":"r2"}}
