@@ -1,0 +1,10 @@
+{
+  "name": "offline-settlement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Replayable offline settlement workflow with JSONL event log and CLI",
+  "main": "src/settlement.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
