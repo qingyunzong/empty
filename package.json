@@ -1,0 +1,9 @@
+{
+  "name": "csv-settlement-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "离线结算目录双向同步 (组17): diff / plan / apply / resolve",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
