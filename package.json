@@ -1,0 +1,16 @@
+{
+  "name": "agv-scheduler",
+  "version": "0.1.0",
+  "description": "Offline replay of warehouse AGV scheduling events with leases, fencing epochs and crash recovery",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "agv": "bin/agv.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
