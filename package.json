@@ -1,0 +1,9 @@
+{
+  "name": "calib-lab",
+  "version": "1.0.0",
+  "description": "Metrology lab calibration certificate decision library and CLI",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
