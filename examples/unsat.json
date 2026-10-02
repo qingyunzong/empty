@@ -1,0 +1,64 @@
+{
+  "jobs": [
+    {
+      "id": "J0",
+      "due": 35,
+      "work": 5,
+      "energy": 1,
+      "mold": "B"
+    },
+    {
+      "id": "J1",
+      "due": 11,
+      "work": 4,
+      "energy": 3,
+      "mold": "B"
+    },
+    {
+      "id": "J2",
+      "due": 44,
+      "work": 2,
+      "energy": 4,
+      "mold": "C"
+    },
+    {
+      "id": "J3",
+      "due": 34,
+      "work": 1,
+      "energy": 2,
+      "mold": "A"
+    },
+    {
+      "id": "J4",
+      "due": 43,
+      "work": 2,
+      "energy": 4,
+      "mold": "C"
+    },
+    {
+      "id": "J5",
+      "due": 18,
+      "work": 1,
+      "energy": 4,
+      "mold": "A"
+    }
+  ],
+  "setup": [
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      3,
+      0,
+      5
+    ],
+    [
+      2,
+      1,
+      0
+    ]
+  ],
+  "energyBudget": 1
+}

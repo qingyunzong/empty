@@ -1,0 +1,13 @@
+{
+  "name": "mold-scheduler",
+  "version": "1.0.0",
+  "description": "Injection-molding night-shift offline scheduler: subset-DP with Pareto pruning, tied optima, incremental re-solve, undo/redo, minimal UNSAT certificates.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
