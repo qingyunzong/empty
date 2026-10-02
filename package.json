@@ -1,0 +1,9 @@
+{
+  "name": "dispatch",
+  "version": "0.1.0",
+  "description": "Offline dispatch scheduler: carriers to test tools under hard capacity budgets, with late metrology re-prioritization",
+  "type": "module",
+  "bin": { "dispatch": "bin/dispatch.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
