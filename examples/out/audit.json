@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "algorithm": "sha256-chain",
+  "genesis": "0000000000000000000000000000000000000000000000000000000000000000",
+  "decisions": 3,
+  "allows": 1,
+  "denies": 2,
+  "root": "a71807a24098ff97a5d695c906ce4123d3efe3afa2649dd6d52dae865eaee179",
+  "policyHash": "84af70d393bd92f1fe4d3dec4697845ec0178df0fe46ce8aa2ce0d70eb58766e",
+  "eventsHash": "644416be8515eb6c2e05e6d56f2d5dbfb9c13061a261f8dcf917a8f943e14711"
+}

@@ -1,0 +1,3 @@
+{"type":"authorize","id":"e1","role":"auditor","resource":"settlement:read","ts":50}
+{"type":"authorize","id":"e2","role":"auditor","resource":"settlement:read","ts":150}
+{"type":"authorize","id":"e3","role":"auditor","resource":"settlement:export","ts":50}

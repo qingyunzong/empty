@@ -1,0 +1,14 @@
+{
+  "name": "settlement-clearance",
+  "version": "1.0.0",
+  "description": "Settlement batch authorization review: role-DAG inheritance, conflict resolution, revocation and audit hashing",
+  "type": "commonjs",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

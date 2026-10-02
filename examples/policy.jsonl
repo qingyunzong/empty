@@ -1,0 +1,6 @@
+{"type":"inherit","role":"auditor","inherits":"analyst"}
+{"type":"inherit","role":"analyst","inherits":"viewer"}
+{"type":"rule","id":"r-read","role":"viewer","resource":"settlement:read","effect":"allow"}
+{"type":"rule","id":"r-export-allow","role":"analyst","resource":"settlement:export","effect":"allow"}
+{"type":"rule","id":"r-export-deny","role":"viewer","resource":"settlement:export","effect":"deny"}
+{"type":"revoke","role":"viewer","at":100}

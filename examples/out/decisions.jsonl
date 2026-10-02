@@ -1,0 +1,3 @@
+{"id":"e1","decision":"allow","rule":"r-read","path":["auditor","analyst","viewer"],"reason":"EXPLICIT_ALLOW","candidates":1,"hash":"3028f3dd5c3577fe283f1c61ceacfb1a872ce409edc86c2c4f8844196512d88a"}
+{"id":"e2","decision":"deny","rule":null,"path":[],"reason":"DEFAULT_DENY","candidates":0,"hash":"e1c449a45a9a5aaaabe1ebd37f946e9778584aef7764b3397c1c4893d98058b7"}
+{"id":"e3","decision":"deny","rule":"r-export-deny","path":["auditor","analyst","viewer"],"reason":"DENY_OVERRIDES_ALLOW","candidates":2,"hash":"a71807a24098ff97a5d695c906ce4123d3efe3afa2649dd6d52dae865eaee179"}
