@@ -1,0 +1,11 @@
+{
+  "name": "retort-interlock-verifier",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Offline verification of retort (sterilizer) control histories: interlock state machine, segmented persistent log, crash recovery",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node demo.js"
+  }
+}
