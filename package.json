@@ -1,0 +1,15 @@
+{
+  "name": "boiler-interlock-replay",
+  "version": "1.0.0",
+  "description": "Offline replay verifier for steam-boiler interlock trips (pressure+temperature combination proof)",
+  "type": "module",
+  "bin": {
+    "interlock": "bin/interlock.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
