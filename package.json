@@ -1,0 +1,16 @@
+{
+  "name": "settlement-migrate",
+  "version": "1.0.0",
+  "description": "Migrate legacy settlement instruction sets to the new format with a verifiable equivalence proof",
+  "type": "commonjs",
+  "main": "src/migrate.js",
+  "bin": {
+    "settlement-migrate": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
