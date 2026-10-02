@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 16261.669804
+  type: 'test'
+  ...
+# Subtest: test/fuzz.test.js
+ok 2 - test/fuzz.test.js
+  ---
+  duration_ms: 3021.780575
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 3 - test/ledger.test.js
+  ---
+  duration_ms: 2929.49469
+  type: 'test'
+  ...
+# Subtest: test/rng.test.js
+ok 4 - test/rng.test.js
+  ---
+  duration_ms: 3077.109944
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16473.573198
+
+# ==== REAL CLI VERIFICATION (v22.22.1) ====
+seed=42 steps=80 accounts=3
+ops=80 samples=199
+finalStateHash=e682cf95c6fdff8f3f34f862216533ff3f7a74c5f11effbe8f437ac2536a694d
+sampleHash=a2ea190b46e311a80bb36c2d681d828a317479a100790696edb5281bcf061c89
+out=run.json
+fuzz exit code: 0
+rerun exit code: 0
+ops=80
+finalStateHash=e682cf95c6fdff8f3f34f862216533ff3f7a74c5f11effbe8f437ac2536a694d
+sampleHash=a2ea190b46e311a80bb36c2d681d828a317479a100790696edb5281bcf061c89
+REPLAY_OK
+replay exit code: 0
+replay diff: 0 differences (run.json byte-identical to run-again.json)
+run.json sha256: 8d415a60025fb1c9f9af37df0f027a678eea884cd97d5b308e8e6cc150c72a70
+run-again.json sha256: 8d415a60025fb1c9f9af37df0f027a678eea884cd97d5b308e8e6cc150c72a70
+-- invalid input checks --
+INVALID_INPUT: seed must be an integer, got: abc
+bad seed exit: 1
+INVALID_INPUT: steps must be a non-negative integer, got: -1
+negative steps exit: 1
+INVALID_INPUT: unknown op type: explode
+unknown op exit: 1

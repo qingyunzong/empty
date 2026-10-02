@@ -1,0 +1,1938 @@
+{
+  "format": "paylimit-fuzz-run",
+  "version": 1,
+  "seed": 42,
+  "steps": 80,
+  "accounts": 3,
+  "initial": {
+    "accounts": [
+      {
+        "balance": 183,
+        "held": 0,
+        "frozen": false
+      },
+      {
+        "balance": 126,
+        "held": 0,
+        "frozen": false
+      },
+      {
+        "balance": 152,
+        "held": 0,
+        "frozen": true
+      }
+    ],
+    "reservations": {}
+  },
+  "frozenAccounts": [
+    2
+  ],
+  "ops": [
+    {
+      "seq": 0,
+      "id": "op-0",
+      "type": "reserve",
+      "account": 0,
+      "amount": 101,
+      "reservationId": "res-0",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 4,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 5,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 6,
+          "purpose": "amount",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "seq": 1,
+      "id": "op-1",
+      "type": "settle",
+      "reservationId": "res-0",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 7,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 8,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "id": "op-2",
+      "type": "settle",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 9,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 10,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "id": "op-3",
+      "type": "reserve",
+      "account": 1,
+      "amount": 21,
+      "reservationId": "res-3",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 11,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 12,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 13,
+          "purpose": "amount",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "id": "op-4",
+      "type": "reserve",
+      "account": 0,
+      "amount": 43,
+      "reservationId": "res-4",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 14,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 15,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 16,
+          "purpose": "amount",
+          "value": 42
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "id": "op-5",
+      "type": "cancel",
+      "reservationId": "res-3",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 17,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 18,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "id": "op-6",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 19,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 20,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "id": "op-7",
+      "type": "reserve",
+      "account": 0,
+      "amount": 49,
+      "reservationId": "res-7",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 21,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 22,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 23,
+          "purpose": "amount",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "id": "op-8",
+      "type": "reserve",
+      "account": 2,
+      "amount": 54,
+      "reservationId": "res-8",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 24,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 25,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 26,
+          "purpose": "amount",
+          "value": 53
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "id": "op-9",
+      "type": "cancel",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 27,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 28,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "id": "op-10",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 29,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 30,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "id": "op-11",
+      "type": "cancel",
+      "reservationId": "res-4",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 31,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 32,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "id": "op-12",
+      "type": "settle",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 33,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 34,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "id": "op-13",
+      "type": "reserve",
+      "account": 0,
+      "amount": 75,
+      "reservationId": "res-13",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 35,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 36,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 37,
+          "purpose": "amount",
+          "value": 74
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "id": "op-14",
+      "type": "cancel",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 38,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 39,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "id": "op-15",
+      "type": "settle",
+      "reservationId": "res-13",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 40,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 41,
+          "purpose": "reservationPick",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "id": "op-16",
+      "type": "settle",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 42,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 43,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "id": "op-17",
+      "type": "reserve",
+      "account": 1,
+      "amount": 50,
+      "reservationId": "res-17",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 44,
+          "purpose": "opKind",
+          "value": 0
+        },
+        {
+          "seq": 45,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 46,
+          "purpose": "amount",
+          "value": 49
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "id": "op-18",
+      "type": "reserve",
+      "account": 1,
+      "amount": 20,
+      "reservationId": "res-18",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 47,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 48,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 49,
+          "purpose": "amount",
+          "value": 19
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "id": "op-19",
+      "type": "reserve",
+      "account": 2,
+      "amount": 21,
+      "reservationId": "res-19",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 50,
+          "purpose": "opKind",
+          "value": 2
+        },
+        {
+          "seq": 51,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 52,
+          "purpose": "amount",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "id": "op-20",
+      "type": "reserve",
+      "account": 2,
+      "amount": 34,
+      "reservationId": "res-20",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 53,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 54,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 55,
+          "purpose": "amount",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "id": "op-21",
+      "type": "reserve",
+      "account": 1,
+      "amount": 80,
+      "reservationId": "res-21",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 56,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 57,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 58,
+          "purpose": "amount",
+          "value": 79
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "id": "op-22",
+      "type": "reserve",
+      "account": 2,
+      "amount": 81,
+      "reservationId": "res-22",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 59,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 60,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 61,
+          "purpose": "amount",
+          "value": 80
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "id": "op-23",
+      "type": "reserve",
+      "account": 2,
+      "amount": 21,
+      "reservationId": "res-23",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 62,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 63,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 64,
+          "purpose": "amount",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "id": "op-24",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 65,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 66,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "id": "op-25",
+      "type": "reserve",
+      "account": 1,
+      "amount": 12,
+      "reservationId": "res-25",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 67,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 68,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 69,
+          "purpose": "amount",
+          "value": 11
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "id": "op-26",
+      "type": "reserve",
+      "account": 1,
+      "amount": 85,
+      "reservationId": "res-26",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 70,
+          "purpose": "opKind",
+          "value": 2
+        },
+        {
+          "seq": 71,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 72,
+          "purpose": "amount",
+          "value": 84
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "id": "op-27",
+      "type": "reserve",
+      "account": 0,
+      "amount": 97,
+      "reservationId": "res-27",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 73,
+          "purpose": "opKind",
+          "value": 2
+        },
+        {
+          "seq": 74,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 75,
+          "purpose": "amount",
+          "value": 96
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "id": "op-28",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 76,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 77,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "id": "op-29",
+      "type": "settle",
+      "reservationId": "res-25",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 78,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 79,
+          "purpose": "reservationPick",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "id": "op-30",
+      "type": "reserve",
+      "account": 1,
+      "amount": 89,
+      "reservationId": "res-30",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 80,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 81,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 82,
+          "purpose": "amount",
+          "value": 88
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "id": "op-31",
+      "type": "settle",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 83,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 84,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "id": "op-32",
+      "type": "reserve",
+      "account": 0,
+      "amount": 87,
+      "reservationId": "res-32",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 85,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 86,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 87,
+          "purpose": "amount",
+          "value": 86
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "id": "op-33",
+      "type": "reserve",
+      "account": 2,
+      "amount": 100,
+      "reservationId": "res-33",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 88,
+          "purpose": "opKind",
+          "value": 2
+        },
+        {
+          "seq": 89,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 90,
+          "purpose": "amount",
+          "value": 99
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "id": "op-34",
+      "type": "reserve",
+      "account": 2,
+      "amount": 25,
+      "reservationId": "res-34",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 91,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 92,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 93,
+          "purpose": "amount",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "id": "op-35",
+      "type": "reserve",
+      "account": 2,
+      "amount": 85,
+      "reservationId": "res-35",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 94,
+          "purpose": "opKind",
+          "value": 0
+        },
+        {
+          "seq": 95,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 96,
+          "purpose": "amount",
+          "value": 84
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "id": "op-36",
+      "type": "settle",
+      "reservationId": "res-17",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 97,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 98,
+          "purpose": "reservationPick",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "seq": 37,
+      "id": "op-37",
+      "type": "cancel",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 99,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 100,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 38,
+      "id": "op-38",
+      "type": "settle",
+      "reservationId": "res-18",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 101,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 102,
+          "purpose": "reservationPick",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "seq": 39,
+      "id": "op-39",
+      "type": "cancel",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 103,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 104,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 40,
+      "id": "op-40",
+      "type": "cancel",
+      "reservationId": "res-18",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 105,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 106,
+          "purpose": "reservationPick",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "seq": 41,
+      "id": "op-41",
+      "type": "settle",
+      "reservationId": "res-25",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 107,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 108,
+          "purpose": "reservationPick",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "seq": 42,
+      "id": "op-42",
+      "type": "reserve",
+      "account": 0,
+      "amount": 71,
+      "reservationId": "res-42",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 109,
+          "purpose": "opKind",
+          "value": 2
+        },
+        {
+          "seq": 110,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 111,
+          "purpose": "amount",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "seq": 43,
+      "id": "op-43",
+      "type": "cancel",
+      "reservationId": "res-13",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 112,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 113,
+          "purpose": "reservationPick",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 44,
+      "id": "op-44",
+      "type": "reserve",
+      "account": 0,
+      "amount": 66,
+      "reservationId": "res-44",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 114,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 115,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 116,
+          "purpose": "amount",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "seq": 45,
+      "id": "op-45",
+      "type": "cancel",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 117,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 118,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 46,
+      "id": "op-46",
+      "type": "reserve",
+      "account": 2,
+      "amount": 48,
+      "reservationId": "res-46",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 119,
+          "purpose": "opKind",
+          "value": 0
+        },
+        {
+          "seq": 120,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 121,
+          "purpose": "amount",
+          "value": 47
+        }
+      ]
+    },
+    {
+      "seq": 47,
+      "id": "op-47",
+      "type": "settle",
+      "reservationId": "res-13",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 122,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 123,
+          "purpose": "reservationPick",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 48,
+      "id": "op-48",
+      "type": "cancel",
+      "reservationId": "res-17",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 124,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 125,
+          "purpose": "reservationPick",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "seq": 49,
+      "id": "op-49",
+      "type": "cancel",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 126,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 127,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 50,
+      "id": "op-50",
+      "type": "settle",
+      "reservationId": "res-18",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 128,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 129,
+          "purpose": "reservationPick",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "seq": 51,
+      "id": "op-51",
+      "type": "reserve",
+      "account": 2,
+      "amount": 27,
+      "reservationId": "res-51",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 130,
+          "purpose": "opKind",
+          "value": 0
+        },
+        {
+          "seq": 131,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 132,
+          "purpose": "amount",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "seq": 52,
+      "id": "op-52",
+      "type": "cancel",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 133,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 134,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 53,
+      "id": "op-53",
+      "type": "reserve",
+      "account": 0,
+      "amount": 30,
+      "reservationId": "res-53",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 135,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 136,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 137,
+          "purpose": "amount",
+          "value": 29
+        }
+      ]
+    },
+    {
+      "seq": 54,
+      "id": "op-54",
+      "type": "reserve",
+      "account": 2,
+      "amount": 49,
+      "reservationId": "res-54",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 138,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 139,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 140,
+          "purpose": "amount",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "seq": 55,
+      "id": "op-55",
+      "type": "reserve",
+      "account": 2,
+      "amount": 59,
+      "reservationId": "res-55",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 141,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 142,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 143,
+          "purpose": "amount",
+          "value": 58
+        }
+      ]
+    },
+    {
+      "seq": 56,
+      "id": "op-56",
+      "type": "reserve",
+      "account": 2,
+      "amount": 52,
+      "reservationId": "res-56",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 144,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 145,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 146,
+          "purpose": "amount",
+          "value": 51
+        }
+      ]
+    },
+    {
+      "seq": 57,
+      "id": "op-57",
+      "type": "settle",
+      "reservationId": "res-17",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 147,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 148,
+          "purpose": "reservationPick",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "seq": 58,
+      "id": "op-58",
+      "type": "reserve",
+      "account": 2,
+      "amount": 94,
+      "reservationId": "res-58",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 149,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 150,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 151,
+          "purpose": "amount",
+          "value": 93
+        }
+      ]
+    },
+    {
+      "seq": 59,
+      "id": "op-59",
+      "type": "cancel",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 152,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 153,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 60,
+      "id": "op-60",
+      "type": "reserve",
+      "account": 0,
+      "amount": 4,
+      "reservationId": "res-60",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 154,
+          "purpose": "opKind",
+          "value": 3
+        },
+        {
+          "seq": 155,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 156,
+          "purpose": "amount",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 61,
+      "id": "op-61",
+      "type": "cancel",
+      "reservationId": "res-4",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 157,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 158,
+          "purpose": "reservationPick",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "seq": 62,
+      "id": "op-62",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 159,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 160,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 63,
+      "id": "op-63",
+      "type": "reserve",
+      "account": 2,
+      "amount": 105,
+      "reservationId": "res-63",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 161,
+          "purpose": "opKind",
+          "value": 0
+        },
+        {
+          "seq": 162,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 163,
+          "purpose": "amount",
+          "value": 104
+        }
+      ]
+    },
+    {
+      "seq": 64,
+      "id": "op-64",
+      "type": "settle",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 164,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 165,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 65,
+      "id": "op-65",
+      "type": "reserve",
+      "account": 2,
+      "amount": 110,
+      "reservationId": "res-65",
+      "result": "rejected",
+      "reason": "ACCOUNT_FROZEN",
+      "samples": [
+        {
+          "seq": 166,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 167,
+          "purpose": "account",
+          "value": 2
+        },
+        {
+          "seq": 168,
+          "purpose": "amount",
+          "value": 109
+        }
+      ]
+    },
+    {
+      "seq": 66,
+      "id": "op-66",
+      "type": "settle",
+      "reservationId": "res-17",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 169,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 170,
+          "purpose": "reservationPick",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "seq": 67,
+      "id": "op-67",
+      "type": "settle",
+      "reservationId": "res-13",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 171,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 172,
+          "purpose": "reservationPick",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 68,
+      "id": "op-68",
+      "type": "cancel",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 173,
+          "purpose": "opKind",
+          "value": 9
+        },
+        {
+          "seq": 174,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 69,
+      "id": "op-69",
+      "type": "cancel",
+      "reservationId": "res-60",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 175,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 176,
+          "purpose": "reservationPick",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "seq": 70,
+      "id": "op-70",
+      "type": "cancel",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_SETTLED",
+      "samples": [
+        {
+          "seq": 177,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 178,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "seq": 71,
+      "id": "op-71",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 179,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 180,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 72,
+      "id": "op-72",
+      "type": "reserve",
+      "account": 0,
+      "amount": 86,
+      "reservationId": "res-72",
+      "result": "rejected",
+      "reason": "INSUFFICIENT_FUNDS",
+      "samples": [
+        {
+          "seq": 181,
+          "purpose": "opKind",
+          "value": 4
+        },
+        {
+          "seq": 182,
+          "purpose": "account",
+          "value": 0
+        },
+        {
+          "seq": 183,
+          "purpose": "amount",
+          "value": 85
+        }
+      ]
+    },
+    {
+      "seq": 73,
+      "id": "op-73",
+      "type": "settle",
+      "reservationId": "res-13",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 184,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 185,
+          "purpose": "reservationPick",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "seq": 74,
+      "id": "op-74",
+      "type": "settle",
+      "reservationId": "res-60",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 186,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 187,
+          "purpose": "reservationPick",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "seq": 75,
+      "id": "op-75",
+      "type": "settle",
+      "reservationId": "res-3",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:cancelled",
+      "samples": [
+        {
+          "seq": 188,
+          "purpose": "opKind",
+          "value": 6
+        },
+        {
+          "seq": 189,
+          "purpose": "reservationPick",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "seq": 76,
+      "id": "op-76",
+      "type": "reserve",
+      "account": 1,
+      "amount": 13,
+      "reservationId": "res-76",
+      "result": "applied",
+      "samples": [
+        {
+          "seq": 190,
+          "purpose": "opKind",
+          "value": 1
+        },
+        {
+          "seq": 191,
+          "purpose": "account",
+          "value": 1
+        },
+        {
+          "seq": 192,
+          "purpose": "amount",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "seq": 77,
+      "id": "op-77",
+      "type": "settle",
+      "reservationId": "res-17",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 193,
+          "purpose": "opKind",
+          "value": 7
+        },
+        {
+          "seq": 194,
+          "purpose": "reservationPick",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "seq": 78,
+      "id": "op-78",
+      "type": "cancel",
+      "reservationId": "res-60",
+      "result": "rejected",
+      "reason": "RACE_ALREADY_CANCELLED",
+      "samples": [
+        {
+          "seq": 195,
+          "purpose": "opKind",
+          "value": 8
+        },
+        {
+          "seq": 196,
+          "purpose": "reservationPick",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "seq": 79,
+      "id": "op-79",
+      "type": "settle",
+      "reservationId": "res-0",
+      "result": "rejected",
+      "reason": "RACE_NOT_OPEN:settled",
+      "samples": [
+        {
+          "seq": 197,
+          "purpose": "opKind",
+          "value": 5
+        },
+        {
+          "seq": 198,
+          "purpose": "reservationPick",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "finalState": {
+    "accounts": [
+      {
+        "balance": 7,
+        "held": 0,
+        "frozen": false
+      },
+      {
+        "balance": 44,
+        "held": 13,
+        "frozen": false
+      },
+      {
+        "balance": 152,
+        "held": 0,
+        "frozen": true
+      }
+    ],
+    "reservations": {
+      "res-0": {
+        "id": "res-0",
+        "account": 0,
+        "amount": 101,
+        "status": "settled"
+      },
+      "res-3": {
+        "id": "res-3",
+        "account": 1,
+        "amount": 21,
+        "status": "cancelled"
+      },
+      "res-4": {
+        "id": "res-4",
+        "account": 0,
+        "amount": 43,
+        "status": "cancelled"
+      },
+      "res-13": {
+        "id": "res-13",
+        "account": 0,
+        "amount": 75,
+        "status": "settled"
+      },
+      "res-17": {
+        "id": "res-17",
+        "account": 1,
+        "amount": 50,
+        "status": "settled"
+      },
+      "res-18": {
+        "id": "res-18",
+        "account": 1,
+        "amount": 20,
+        "status": "settled"
+      },
+      "res-25": {
+        "id": "res-25",
+        "account": 1,
+        "amount": 12,
+        "status": "settled"
+      },
+      "res-60": {
+        "id": "res-60",
+        "account": 0,
+        "amount": 4,
+        "status": "cancelled"
+      },
+      "res-76": {
+        "id": "res-76",
+        "account": 1,
+        "amount": 13,
+        "status": "open"
+      }
+    }
+  },
+  "finalStateHash": "e682cf95c6fdff8f3f34f862216533ff3f7a74c5f11effbe8f437ac2536a694d",
+  "sampleCount": 199,
+  "sampleHash": "a2ea190b46e311a80bb36c2d681d828a317479a100790696edb5281bcf061c89"
+}

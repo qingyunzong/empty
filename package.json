@@ -1,0 +1,15 @@
+{
+  "name": "paylimit-fuzz",
+  "version": "1.0.0",
+  "description": "Deterministic payment-limit stress fuzzer with byte-exact replay",
+  "type": "module",
+  "bin": {
+    "payfuzz": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
