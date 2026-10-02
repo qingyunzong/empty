@@ -1,0 +1,16 @@
+{
+  "name": "furnace-scheduler",
+  "version": "1.0.0",
+  "description": "Sintering campaign scheduler: finite-domain recipe CSP with resource profiles, budgets and snapshot/restore CLI",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "furnace": "bin/furnace.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
