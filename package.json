@@ -1,0 +1,16 @@
+{
+  "name": "tool-life",
+  "version": "1.0.0",
+  "description": "Tool remaining-life & part-risk engine for machining lines (offline, stdlib only)",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "bin": {
+    "tool": "bin/tool.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
