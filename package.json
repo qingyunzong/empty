@@ -1,0 +1,10 @@
+{
+  "name": "incremental-recompute",
+  "version": "1.0.0",
+  "description": "Incremental recomputation engine for experiment parameter scans",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
