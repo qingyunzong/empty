@@ -1,0 +1,10 @@
+{
+  "accounts": { "A": 100, "B": 0 },
+  "actors": {
+    "a": [
+      { "type": "reserve", "id": "t1", "from": "A", "to": "B", "amount": 10 },
+      { "type": "cancel", "id": "t1" },
+      { "type": "cancel", "id": "t1" }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+TAP version 13
+# Subtest: test/explore.test.js
+ok 1 - test/explore.test.js
+  ---
+  duration_ms: 5731.574928
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6444.787917
+exit code: 0
+
+# CLI output: node src/cli.js explore examples/safe.json (exit 0)
+{
+  "reachable": 9,
+  "violating": 0,
+  "counterexample": null,
+  "certificate": {
+    "algorithm": "exhaustive-interleaving-bfs",
+    "invariants": [
+      "CONSERVATION",
+      "HOLD_LE_BALANCE",
+      "NONNEGATIVE_FROZEN"
+    ],
+    "initialTotal": 100,
+    "reachableStates": 9,
+    "statesHash": "b906217f1f99c531b275c68b1288c8f844ff84d8f55e74ca2d11b3fbfc193ae0",
+    "finalStatesHash": "c5dc625da815cb9bc4b2816f379512b93f4d2b48f22e01f4583ebd190bdf818e"
+  }
+}
+
+# CLI output: node src/cli.js explore examples/unsafe.json (exit 0)
+{
+  "reachable": 21,
+  "violating": 2,
+  "counterexample": {
+    "sequence": [
+      "a#0",
+      "b#0"
+    ],
+    "steps": [
+      {
+        "label": "a#0",
+        "type": "reserve",
+        "id": "t1",
+        "from": "A",
+        "to": "B",
+        "amount": 80
+      },
+      {
+        "label": "b#0",
+        "type": "reserve",
+        "id": "t2",
+        "from": "A",
+        "to": "C",
+        "amount": 60
+      }
+    ],
+    "violations": [
+      {
+        "type": "HOLD_EXCEEDS_BALANCE",
+        "account": "A",
+        "frozen": 140,
+        "balance": 100
+      }
+    ],
+    "state": {
+      "balances": {
+        "A": 100,
+        "B": 0,
+        "C": 0
+      },
+      "frozen": {
+        "A": 140,
+        "B": 0,
+        "C": 0
+      },
+      "holds": {
+        "t1": {
+          "from": "A",
+          "to": "B",
+          "amount": 80,
+          "status": "pending"
+        },
+        "t2": {
+          "from": "A",
+          "to": "C",
+          "amount": 60,
+          "status": "pending"
+        }
+      },
+      "frozenAccounts": []
+    },
+    "stateHash": "dc64df74d50a7ab89fabcb489697347b119760e90d34af124fc1dda5ce3a1331",
+    "rejected": []
+  },
+  "certificate": null
+}
+
+# CLI output: node src/cli.js explore examples/invalid-duplicate-cancel.json
+INVALID_PLAN: duplicate cancel for transfer t1
+{"error":"INVALID_PLAN"}
+cli exit code (invalid plan): 1

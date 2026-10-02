@@ -1,0 +1,9 @@
+{
+  "name": "settlement-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline settlement state explorer: enumerates all order-preserving interleavings of two-phase transfers",
+  "scripts": {
+    "test": "node --test"
+  }
+}

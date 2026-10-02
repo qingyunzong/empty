@@ -1,0 +1,13 @@
+{
+  "accounts": { "A": 100, "B": 0, "C": 0 },
+  "actors": {
+    "p1": [
+      { "type": "reserve", "id": "t1", "from": "A", "to": "B", "amount": 30 },
+      { "type": "commit", "id": "t1" }
+    ],
+    "p2": [
+      { "type": "reserve", "id": "t2", "from": "A", "to": "C", "amount": 20 },
+      { "type": "commit", "id": "t2" }
+    ]
+  }
+}

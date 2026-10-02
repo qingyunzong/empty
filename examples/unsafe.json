@@ -1,0 +1,15 @@
+{
+  "accounts": { "A": 100, "B": 0, "C": 0 },
+  "actors": {
+    "a": [
+      { "type": "reserve", "id": "t1", "from": "A", "to": "B", "amount": 80 },
+      { "type": "cancel", "id": "t1" }
+    ],
+    "b": [
+      { "type": "reserve", "id": "t2", "from": "A", "to": "C", "amount": 60 }
+    ],
+    "c": [
+      { "type": "freeze", "account": "A" }
+    ]
+  }
+}
