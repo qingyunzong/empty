@@ -1,0 +1,9 @@
+{
+  "name": "incremental-template-materializer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental template materialization library and CLI (offline, stdlib-only)",
+  "bin": { "tmpl": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
