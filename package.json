@@ -1,0 +1,17 @@
+{
+  "name": "observatory-corrections",
+  "version": "1.0.0",
+  "description": "Append-only correction ledger: WAL-backed storage engine with secondary indexes, crash recovery and a CLI",
+  "type": "module",
+  "main": "src/store.js",
+  "bin": {
+    "obs": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
