@@ -1,0 +1,24 @@
+{
+  "tenants": {
+    "root": {},
+    "ops-group": { "parent": "root" },
+    "tenant-a": { "parent": "ops-group" },
+    "tenant-b": { "parent": "root" }
+  },
+  "tags": ["line-1", "line-2", "safety-public"],
+  "devices": {
+    "press-1": { "tags": ["line-1"] },
+    "turbine-7": { "tags": ["line-2", "safety-public"] }
+  },
+  "grants": [
+    { "id": "g1", "tenant": "ops-group", "tag": "line-1", "actions": ["read", "modify", "mark_false_positive"] },
+    { "id": "g2", "tenant": "tenant-b", "tag": "line-2", "actions": ["read"] }
+  ],
+  "denies": [
+    { "id": "d1", "tenant": "tenant-b", "tag": "line-2", "actions": ["modify"] }
+  ],
+  "exceptions": [
+    { "id": "x1", "event": "e3", "tenant": "tenant-b", "action": "read", "effect": "allow" }
+  ],
+  "revocations": []
+}

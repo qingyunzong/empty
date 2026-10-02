@@ -1,0 +1,4 @@
+{"id":"e1","ts":100,"device":"press-1","type":"fault"}
+{"id":"e2","ts":120,"device":"turbine-7","type":"shutdown"}
+{"id":"e3","ts":140,"device":"press-1","type":"fault"}
+{"id":"e4","ts":160,"type":"mark_false_positive","target":"e1","tenant":"tenant-a"}

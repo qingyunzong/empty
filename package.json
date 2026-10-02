@@ -1,0 +1,9 @@
+{
+  "name": "plc-event-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline gateway for PLC line events: per-tenant visibility, audit and false-positive marking",
+  "scripts": {
+    "test": "node --test"
+  }
+}
