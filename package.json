@@ -1,0 +1,15 @@
+{
+  "name": "agv-deadlock",
+  "version": "1.0.0",
+  "description": "Offline AGV intersection deadlock detector with reproducible wait-cycle certificates",
+  "type": "module",
+  "bin": {
+    "agv": "bin/agv.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
