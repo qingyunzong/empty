@@ -1,0 +1,9 @@
+{
+  "name": "bilateral-net-settlement",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bilateral trade net settlement with compressed positional index",
+  "scripts": {
+    "test": "node --test"
+  }
+}
