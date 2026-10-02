@@ -1,0 +1,8 @@
+{
+  "name": "evchain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Evidence-chain version repository and CLI (offline, stdlib only)",
+  "bin": { "evc": "evc.js" },
+  "scripts": { "test": "node --test" }
+}
