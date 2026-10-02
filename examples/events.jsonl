@@ -1,0 +1,7 @@
+{"type":"config","departments":{"root":[],"treasury":["root"],"trade_finance":["treasury"],"tf_ops":["trade_finance"],"compliance":["root"]},"people":{"alice":"tf_ops","bob":"tf_ops","carol":"trade_finance","dave":"treasury","erin":"compliance"}}
+{"type":"submit","request":"r1","by":"alice","dept":"tf_ops","amount":250000,"ts":1}
+{"type":"approve","request":"r1","by":"bob","ts":2}
+{"type":"freeze","request":"r1","by":"erin","reason":"sanctions screening","ts":3}
+{"type":"approve","request":"r1","by":"carol","ts":4}
+{"type":"unfreeze","request":"r1","by":"erin","ts":5}
+{"type":"revoke","request":"r1","by":"carol","target":"carol","ts":6}

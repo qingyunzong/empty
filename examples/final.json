@@ -1,0 +1,63 @@
+{
+  "requests": {
+    "r1": {
+      "state": "DISBURSED",
+      "submitter": "alice",
+      "dept": "tf_ops",
+      "amount": 250000,
+      "approvals": [
+        {
+          "by": "bob",
+          "ts": 2,
+          "held": false
+        },
+        {
+          "by": "carol",
+          "ts": 4,
+          "held": false
+        }
+      ],
+      "denials": [],
+      "revoked": [],
+      "frozen": false
+    }
+  },
+  "transitions": [
+    {
+      "request": "r1",
+      "from": "NONE",
+      "to": "PENDING",
+      "ts": 1,
+      "cause": "submit:alice"
+    },
+    {
+      "request": "r1",
+      "from": "PENDING",
+      "to": "FROZEN",
+      "ts": 3,
+      "cause": "freeze:erin"
+    },
+    {
+      "request": "r1",
+      "from": "FROZEN",
+      "to": "DISBURSED",
+      "ts": 5,
+      "cause": "unfreeze; held events now effective with original ts: approve:carol@4"
+    }
+  ],
+  "failures": [
+    {
+      "line": 7,
+      "code": "E_FINAL",
+      "reason": "request r1 is already DISBURSED; approvals can no longer be revoked",
+      "event": {
+        "type": "revoke",
+        "request": "r1",
+        "by": "carol",
+        "target": "carol",
+        "ts": 6
+      }
+    }
+  ],
+  "audit_hash": "9ff8c00ce901c8cd6b243f552990f592d5e7089124ae10067c05e49e2fadf97f"
+}
