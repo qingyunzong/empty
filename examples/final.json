@@ -1,0 +1,271 @@
+{
+  "requests": {
+    "R1": {
+      "state": "DISBURSED",
+      "dept": "trade-asia",
+      "submitter": "alice",
+      "amount": 50000,
+      "frozen": false,
+      "approvals": [
+        {
+          "approver": "bob",
+          "decision": "allow",
+          "ts": 12,
+          "effective": true
+        },
+        {
+          "approver": "dave",
+          "decision": "allow",
+          "ts": 100,
+          "effective": true
+        }
+      ]
+    }
+  },
+  "transitions": [
+    {
+      "seq": 0,
+      "ts": 0,
+      "event": {
+        "type": "add_dept",
+        "dept": "root"
+      },
+      "ok": true,
+      "hash": "a5e294be8364755465ea255c86798f1d964359e49a2faf9de52539f0e196697a"
+    },
+    {
+      "seq": 1,
+      "ts": 1,
+      "event": {
+        "type": "add_dept",
+        "dept": "trade",
+        "parents": [
+          "root"
+        ]
+      },
+      "ok": true,
+      "hash": "82cdbeec0244dd1a106dc207d27c6f107b6f2ac2fc1d2ef5954b95ef8650fe89"
+    },
+    {
+      "seq": 2,
+      "ts": 2,
+      "event": {
+        "type": "add_dept",
+        "dept": "trade-asia",
+        "parents": [
+          "trade"
+        ]
+      },
+      "ok": true,
+      "hash": "2346c32795fb19ff01904a4db122b619ce2d00093a16c25ebcdd16e3784bb7ce"
+    },
+    {
+      "seq": 3,
+      "ts": 3,
+      "event": {
+        "type": "add_dept",
+        "dept": "ops",
+        "parents": [
+          "root"
+        ]
+      },
+      "ok": true,
+      "hash": "de5096da6fe1b7d7f0834103b61f039d0a0459c2779ee345a73bc66fc41384f5"
+    },
+    {
+      "seq": 4,
+      "ts": 4,
+      "event": {
+        "type": "add_member",
+        "member": "alice",
+        "dept": "trade-asia"
+      },
+      "ok": true,
+      "hash": "88647f78c67435b00377b169890763774d5bf87a61dd4fa85001322dbeb39188"
+    },
+    {
+      "seq": 5,
+      "ts": 5,
+      "event": {
+        "type": "add_member",
+        "member": "bob",
+        "dept": "trade"
+      },
+      "ok": true,
+      "hash": "60e849d06a64d2e694966f031c5634206d8fbba8988085ac1b1cfcf0c299de12"
+    },
+    {
+      "seq": 6,
+      "ts": 6,
+      "event": {
+        "type": "add_member",
+        "member": "carol",
+        "dept": "root"
+      },
+      "ok": true,
+      "hash": "fc099f463f9ec407e98efad64c41b2d7752b046aca9c55d57ecaaa24a826f05e"
+    },
+    {
+      "seq": 7,
+      "ts": 7,
+      "event": {
+        "type": "add_member",
+        "member": "dave",
+        "dept": "trade-asia"
+      },
+      "ok": true,
+      "hash": "8db805e186240242baefc47b39178d02466f5f92cb1071c4393148858479c11b"
+    },
+    {
+      "seq": 8,
+      "ts": 8,
+      "event": {
+        "type": "add_member",
+        "member": "erin",
+        "dept": "ops"
+      },
+      "ok": true,
+      "hash": "348d14cadb877b012a24cc0615b5a2a052b67417c25f608a18042b60975812a8"
+    },
+    {
+      "seq": 9,
+      "ts": 9,
+      "event": {
+        "type": "add_member",
+        "member": "comply",
+        "dept": "root",
+        "role": "compliance"
+      },
+      "ok": true,
+      "hash": "f071b4d2ef40b5ff2078b15eae36946029b6d66a83a7e1771ba774525478d5c3"
+    },
+    {
+      "seq": 10,
+      "ts": 10,
+      "event": {
+        "type": "submit",
+        "request": "R1",
+        "submitter": "alice",
+        "dept": "trade-asia",
+        "amount": 50000
+      },
+      "ok": true,
+      "request": "R1",
+      "from": null,
+      "to": "PENDING",
+      "hash": "6afa61a640b26d2a6ce1f2889a91b82335f36e08ca18762ade658b1d95550a2f"
+    },
+    {
+      "seq": 11,
+      "ts": 11,
+      "event": {
+        "type": "approve",
+        "request": "R1",
+        "approver": "erin",
+        "decision": "allow"
+      },
+      "ok": false,
+      "error": "E_AUTHORITY",
+      "message": "approver erin (dept ops) has no authority over dept trade-asia",
+      "request": "R1",
+      "hash": "c393adbf71e99b362ba35f409861f9937b0da356ef30616ecb3828d6faeebe95"
+    },
+    {
+      "seq": 12,
+      "ts": 12,
+      "event": {
+        "type": "approve",
+        "request": "R1",
+        "approver": "bob",
+        "decision": "allow"
+      },
+      "ok": true,
+      "request": "R1",
+      "from": "PENDING",
+      "to": "PENDING",
+      "effective": true,
+      "hash": "25a74c9b42d0fcb312e4efc5028c61e15876d169d01e9b52beea47f41ae08e84"
+    },
+    {
+      "seq": 13,
+      "ts": 13,
+      "event": {
+        "type": "approve",
+        "request": "R1",
+        "approver": "bob",
+        "decision": "allow"
+      },
+      "ok": false,
+      "error": "E_DUPLICATE",
+      "message": "approver bob already approved request R1",
+      "request": "R1",
+      "hash": "2f0d55e1a673f7c2d9f7e47f772fbd60e4cd615a198ab26e687e1081665a2cab"
+    },
+    {
+      "seq": 14,
+      "ts": 14,
+      "event": {
+        "type": "freeze",
+        "request": "R1",
+        "by": "comply"
+      },
+      "ok": true,
+      "request": "R1",
+      "from": "PENDING",
+      "to": "PENDING",
+      "frozen": true,
+      "hash": "d41c75d46f273f62784052875b2d827a4c17ec04f07d5ec2135ddb2473d16c85"
+    },
+    {
+      "seq": 15,
+      "ts": 100,
+      "event": {
+        "type": "approve",
+        "request": "R1",
+        "approver": "dave",
+        "decision": "allow",
+        "ts": 100
+      },
+      "ok": true,
+      "request": "R1",
+      "from": "PENDING",
+      "to": "PENDING",
+      "effective": false,
+      "hash": "f1c00ec33428e7392d44a827e95d96001e56c71e05b0afc8615f6d22c70428c6"
+    },
+    {
+      "seq": 16,
+      "ts": 16,
+      "event": {
+        "type": "unfreeze",
+        "request": "R1",
+        "by": "comply"
+      },
+      "ok": true,
+      "request": "R1",
+      "from": "PENDING",
+      "to": "DISBURSED",
+      "frozen": false,
+      "activated": [
+        "dave"
+      ],
+      "hash": "d4cd76a158e1ca094b42e1dea8462064a8bccc152143a29733786989c63f4b31"
+    },
+    {
+      "seq": 17,
+      "ts": 17,
+      "event": {
+        "type": "revoke",
+        "request": "R1",
+        "approver": "bob",
+        "by": "carol"
+      },
+      "ok": false,
+      "error": "E_FINAL",
+      "message": "request R1 already disbursed; cannot revoke",
+      "request": "R1",
+      "hash": "db86b45370a55cced06b7a205c32650fa553f5f8dac769658afcbcde5dcda201"
+    }
+  ],
+  "auditHash": "db86b45370a55cced06b7a205c32650fa553f5f8dac769658afcbcde5dcda201"
+}
