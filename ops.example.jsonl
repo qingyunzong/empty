@@ -1,0 +1,5 @@
+{"op":"budget","merchantId":"m1","limit":100000,"period":"monthly"}
+{"op":"refund","refId":"r1","date":"2026-01-05","settleDays":1,"order":{"orderId":"o1","merchantId":"m1","discount":300,"lines":[{"lineId":"a","amount":1000,"taxRateBps":1000,"points":10},{"lineId":"b","amount":2000,"taxRateBps":1000,"points":20},{"lineId":"c","amount":3000,"taxRateBps":1000,"points":30}]},"lines":["a"]}
+{"op":"refund","refId":"r2","date":"2026-01-06","settleDays":30,"order":{"orderId":"o1","merchantId":"m1"},"lines":["b"]}
+{"op":"revoke","refId":"r2"}
+{"op":"revoke","refId":"r1","reverse":true}

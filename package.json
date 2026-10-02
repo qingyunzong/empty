@@ -1,0 +1,12 @@
+{
+  "name": "refund-ledger",
+  "version": "1.0.0",
+  "description": "Refund & revoke ledger with hierarchical rollback, merchant budgets and stable apportionment",
+  "type": "module",
+  "bin": {
+    "refund": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
