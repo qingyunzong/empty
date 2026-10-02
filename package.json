@@ -1,0 +1,16 @@
+{
+  "name": "fill-release",
+  "version": "1.0.0",
+  "description": "Offline batch release for beverage filling lines (weight/level/CIP/lab fusion)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "fill": "bin/fill.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
