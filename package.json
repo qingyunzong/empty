@@ -1,0 +1,17 @@
+{
+  "name": "mvcc-event-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-node MVCC event store with snapshot isolation, tombstones and secondary indexes (Node.js 22, stdlib only)",
+  "type": "module",
+  "exports": {
+    ".": "./src/store.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
