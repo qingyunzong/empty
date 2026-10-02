@@ -1,0 +1,13 @@
+{
+  "name": "maint-planner",
+  "version": "1.0.0",
+  "description": "Offline maintenance work-order planner (shifts x kits x downtime windows)",
+  "type": "module",
+  "main": "src/planner.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

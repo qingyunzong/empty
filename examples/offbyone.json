@@ -1,0 +1,13 @@
+{
+  "orders": [
+    { "id": "w1", "duration": 2, "window": [0, 3], "parts": ["seal"], "skill": "mech" },
+    { "id": "w2", "duration": 2, "window": [0, 3], "parts": ["seal"], "skill": "mech" }
+  ],
+  "techs": [
+    { "id": "t1", "shifts": [[0, 8]], "skills": ["mech"] },
+    { "id": "t2", "shifts": [[0, 8]], "skills": ["mech"] }
+  ],
+  "kits": [
+    { "id": "kit-seal", "qty": 1, "compatible": ["seal"] }
+  ]
+}

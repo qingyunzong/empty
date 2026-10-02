@@ -1,0 +1,22 @@
+{
+  "orders": [
+    { "id": "o1", "duration": 2, "window": [0, 4], "parts": ["pA"], "skill": "mech" },
+    { "id": "o2", "duration": 2, "window": [0, 4], "parts": ["pA"], "skill": "mech" },
+    { "id": "o3", "duration": 1, "window": [1, 5], "parts": ["pB"], "skill": "elec" },
+    { "id": "o4", "duration": 2, "window": [2, 6], "parts": ["pB"], "skill": "mech" },
+    { "id": "o5", "duration": 3, "window": [0, 8], "parts": [], "skill": "mech" },
+    { "id": "o6", "duration": 1, "window": [3, 6], "parts": ["pA"], "skill": "elec" },
+    { "id": "o7", "duration": 2, "window": [4, 8], "parts": ["pB"], "skill": "mech" },
+    { "id": "o8", "duration": 2, "window": [6, 10], "parts": ["pA"], "skill": "mech" },
+    { "id": "o9", "duration": 1, "window": [0, 10], "parts": [], "skill": "elec" }
+  ],
+  "techs": [
+    { "id": "T1", "shifts": [[0, 8]], "skills": ["mech", "elec"] },
+    { "id": "T2", "shifts": [[2, 10]], "skills": ["mech"] }
+  ],
+  "kits": [
+    { "id": "K1", "qty": 1, "compatible": ["pA"] },
+    { "id": "K2", "qty": 2, "compatible": ["pB"] },
+    { "id": "K3", "qty": 1, "compatible": ["pA", "pB"] }
+  ]
+}
