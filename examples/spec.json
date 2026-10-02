@@ -1,0 +1,16 @@
+{
+  "roles": {
+    "base": { "clearance": "internal" },
+    "analyst": { "parents": ["base"] }
+  },
+  "grants": [],
+  "units": {
+    "u1": { "level": "internal", "data": { "revenue": 100 } },
+    "u2": { "level": "secret", "data": { "revenue": 200, "salary": 42 } },
+    "agg": { "level": "internal", "sources": ["u1", "u2"] }
+  },
+  "masks": [
+    { "id": "m1", "unit": "u2", "field": "salary", "version": 1 }
+  ],
+  "request": { "role": "analyst", "unit": "agg", "masks": [{ "rule": "m1", "version": 1 }] }
+}
