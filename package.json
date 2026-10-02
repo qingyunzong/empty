@@ -1,0 +1,13 @@
+{
+  "name": "kv-merge",
+  "version": "0.1.0",
+  "description": "Local transactional KV store with causal WAL, log-segment merge, and serializability checking",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "kv-merge": "./cli.js"
+  },
+  "license": "MIT"
+}
