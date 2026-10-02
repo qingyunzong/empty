@@ -1,0 +1,12 @@
+{
+  "name": "obs-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Observatory night scheduler: interval scheduling with switch costs, PI fairness, incremental cloud corrections",
+  "bin": {
+    "obs": "bin/obs.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
