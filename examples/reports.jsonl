@@ -1,0 +1,2 @@
+{"id":"rpt-001","fields":{"downtime_minutes":42,"machine_id":"MX-12","root_cause":"bearing wear","recipe_ratio":"3:2:1","operator_name":"Zhang Wei","safety_code":"GB-4706"}}
+{"id":"rpt-002","fields":{"downtime_minutes":7,"machine_id":"MX-07","root_cause":"sensor drift","recipe_ratio":"1:1:4","operator_name":"Li Na","safety_code":"GB-4706"}}
