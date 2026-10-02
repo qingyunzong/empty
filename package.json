@@ -1,0 +1,8 @@
+{
+  "name": "archive-restore",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scientific archive restore scheduler: bandwidth+staging dual-resource scheduling, retention preemption, quota fairness, transactional undo, certificate chain evidence.",
+  "bin": { "archive": "lib/cli.js" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}
