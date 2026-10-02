@@ -1,0 +1,16 @@
+{
+  "name": "mes-interlock",
+  "version": "1.0.0",
+  "description": "Executable safety interlock policy interpreter for injection-molding MES",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "mes-interlock": "bin/mes-interlock.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

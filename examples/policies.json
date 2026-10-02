@@ -1,0 +1,34 @@
+{
+  "roles": {
+    "anyone": {},
+    "user": { "inherits": ["anyone"] },
+    "operator": { "inherits": ["user"] },
+    "supervisor": { "inherits": ["user"] }
+  },
+  "zones": {
+    "plant": {},
+    "line1": { "inherits": ["plant"] },
+    "cellA": { "inherits": ["line1"] },
+    "cellB": { "inherits": ["line1"] }
+  },
+  "subjects": {
+    "alice": { "roles": ["operator"] },
+    "bob": { "roles": ["supervisor"] },
+    "carol": { "roles": ["user"] }
+  },
+  "devices": {
+    "press1": { "zone": "cellA" },
+    "press2": { "zone": "cellB" }
+  },
+  "rules": [
+    { "id": "r-base-open", "effect": "allow", "action": "openMold", "role": "anyone", "zone": "plant" },
+    { "id": "r-deny-cellA", "effect": "deny", "action": "openMold", "role": "user", "zone": "cellA" },
+    { "id": "r-heat-allow", "effect": "allow", "action": "heatUp", "role": "operator", "zone": "line1" },
+    { "id": "r-heat-deny", "effect": "deny", "action": "heatUp", "role": "operator", "zone": "line1" },
+    { "id": "r-reset-window", "effect": "allow", "action": "resetEstop", "role": "operator", "zone": "cellA",
+      "window": { "start": "08:00", "end": "18:00" } },
+    { "id": "r-estop-ack", "effect": "allow", "action": "emergencyStop", "role": "operator", "zone": "cellA",
+      "revokeAt": "2026-03-01T00:00:00Z" },
+    { "id": "r-wild-deny", "effect": "deny", "action": "*", "role": "anyone", "zone": "plant" }
+  ]
+}

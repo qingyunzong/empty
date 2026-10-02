@@ -1,0 +1,7 @@
+{"id":"rq-001","subject":"alice","device":"press1","action":"openMold","time":"2026-01-05T10:00:00Z"}
+{"id":"rq-002","subject":"bob","device":"press2","action":"openMold","time":"2026-01-05T10:05:00Z"}
+{"id":"rq-003","subject":"alice","device":"press1","action":"heatUp","time":"2026-01-05T10:10:00Z"}
+{"id":"rq-004","subject":"alice","device":"press1","action":"resetEstop","time":"2026-01-05T10:15:00Z"}
+{"id":"rq-005","subject":"alice","device":"press1","action":"resetEstop","time":"2026-01-05T20:00:00Z"}
+{"id":"rq-006","subject":"alice","device":"press1","action":"emergencyStop","time":"2026-01-05T10:20:00Z"}
+{"id":"rq-007","subject":"carol","device":"press2","action":"heatUp","time":"2026-01-05T11:00:00Z"}
