@@ -1,0 +1,9 @@
+{
+  "name": "clearing-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clearing-house quota-freeze gateway: binary frames, virtual clock, WAL crash recovery",
+  "scripts": {
+    "test": "node --test"
+  }
+}
