@@ -1,0 +1,10 @@
+{
+  "batchId": "B-001",
+  "baseVersion": 1,
+  "requestId": "req-corr-2",
+  "corrections": [
+    { "op": "add", "accountId": "acc-alice", "amount": 250 },
+    { "op": "reverse", "entryId": "e3" },
+    { "op": "adjust", "entryId": "e2", "amount": -450 }
+  ]
+}

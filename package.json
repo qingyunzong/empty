@@ -1,0 +1,10 @@
+{
+  "name": "settlement-clearing",
+  "version": "1.0.0",
+  "description": "Batch settlement clearing ledger with versioned corrections and CLI",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

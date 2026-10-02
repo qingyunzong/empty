@@ -1,0 +1,9 @@
+{
+  "batchId": "B-001",
+  "requestId": "req-create-1",
+  "entries": [
+    { "accountId": "acc-alice", "amount": 1000 },
+    { "accountId": "acc-bob", "amount": -400 },
+    { "accountId": "acc-carol", "amount": -600 }
+  ]
+}
