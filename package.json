@@ -1,0 +1,13 @@
+{
+  "name": "logdb",
+  "version": "1.0.0",
+  "description": "Single-node JSONL device log store with WAL/segment/manifest storage, crash recovery and a bytecode-compiled query DSL",
+  "type": "module",
+  "main": "src/cli.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
