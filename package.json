@@ -1,0 +1,8 @@
+{
+  "name": "card-ledger",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Card transaction ledger: auth/capture/void/refund/chargeback state machine with incremental merchant stats",
+  "bin": { "card": "bin/card.js" },
+  "scripts": { "test": "node --test" }
+}
