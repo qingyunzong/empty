@@ -1,0 +1,16 @@
+{
+  "name": "stratified-audit-sampler",
+  "version": "1.0.0",
+  "description": "Deterministic stratified audit sampling with incremental re-sampling and verifiable certificates",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "audit-sample": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

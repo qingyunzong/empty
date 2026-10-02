@@ -1,0 +1,16 @@
+{
+  "seed": "audit-2026-Q3",
+  "version": 1,
+  "strata": [
+    { "id": "retail", "quota": 2 },
+    { "id": "wholesale", "quota": 1 }
+  ],
+  "ledger": [
+    { "id": "tx-1", "stratum": "retail", "version": 1, "source": "nodeA", "seq": 1, "amount": 120.5, "currency": "USD" },
+    { "id": "tx-2", "stratum": "retail", "version": 1, "source": "nodeA", "seq": 2, "amount": 88.0, "currency": "USD" },
+    { "id": "tx-3", "stratum": "retail", "version": 1, "source": "nodeB", "seq": 1, "amount": 41.25, "currency": "USD" },
+    { "id": "tx-4", "stratum": "wholesale", "version": 1, "source": "nodeA", "seq": 3, "amount": 9000.0, "currency": "USD" },
+    { "id": "tx-5", "stratum": "wholesale", "version": 1, "source": "nodeB", "seq": 2, "amount": 7300.0, "currency": "USD" }
+  ],
+  "revocations": []
+}
