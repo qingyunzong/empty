@@ -1,0 +1,6 @@
+{
+  "machines": ["M1"],
+  "jobs": [
+    { "id": "A", "release": 0, "duration": 2, "deadline": 5, "machines": ["M9"] }
+  ]
+}

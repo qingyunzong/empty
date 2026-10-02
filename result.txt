@@ -1,0 +1,239 @@
+================================================================
+$ node src/cli.js schedule examples/feasible.json --budget 1000
+----------------------------------------------------------------
+{
+  "status": "optimal",
+  "makespan": 7,
+  "totalSetup": 2,
+  "schedule": [
+    {
+      "machine": "M1",
+      "jobs": [
+        {
+          "job": "B",
+          "family": "y",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "job": "D",
+          "family": "z",
+          "start": 5,
+          "end": 7
+        }
+      ]
+    },
+    {
+      "machine": "M2",
+      "jobs": [
+        {
+          "job": "A",
+          "family": "x",
+          "start": 0,
+          "end": 3
+        },
+        {
+          "job": "C",
+          "family": "x",
+          "start": 3,
+          "end": 7
+        }
+      ]
+    }
+  ],
+  "branchesUsed": 29
+}
+[exit code: 0]
+
+================================================================
+$ node src/cli.js schedule examples/infeasible.json --budget 1000
+----------------------------------------------------------------
+{
+  "status": "infeasible",
+  "branchesUsed": 0,
+  "conflict": {
+    "jobs": [
+      {
+        "id": "J1",
+        "release": 0,
+        "deadline": 5,
+        "duration": 4,
+        "machines": [
+          "M1"
+        ],
+        "family": "p"
+      },
+      {
+        "id": "J2",
+        "release": 0,
+        "deadline": 5,
+        "duration": 4,
+        "machines": [
+          "M1"
+        ],
+        "family": "p"
+      }
+    ],
+    "machineConstraints": [
+      {
+        "machine": "M1",
+        "constraint": "no-overlap",
+        "setupTime": 1,
+        "detail": "jobs assigned to M1 must not overlap; a setup of 1 is required between adjacent jobs of different families"
+      }
+    ],
+    "constraints": [
+      "job J1: release=0 deadline=5 duration=4 machines=[M1] family=p",
+      "job J2: release=0 deadline=5 duration=4 machines=[M1] family=p",
+      "machine M1: non-overlap with setupTime=1 between different families"
+    ]
+  }
+}
+[exit code: 0]
+
+================================================================
+$ node src/cli.js schedule examples/feasible.json --budget 0
+----------------------------------------------------------------
+{
+  "status": "unknown",
+  "reason": "branch budget exhausted",
+  "branchesUsed": 0,
+  "pendingVariables": [
+    {
+      "job": "A",
+      "machineDomain": [
+        "M1",
+        "M2"
+      ],
+      "startDomain": [
+        0,
+        9
+      ]
+    },
+    {
+      "job": "B",
+      "machineDomain": [
+        "M1"
+      ],
+      "startDomain": [
+        1,
+        10
+      ]
+    },
+    {
+      "job": "C",
+      "machineDomain": [
+        "M2"
+      ],
+      "startDomain": [
+        0,
+        10
+      ]
+    },
+    {
+      "job": "D",
+      "machineDomain": [
+        "M1",
+        "M2"
+      ],
+      "startDomain": [
+        2,
+        8
+      ]
+    }
+  ]
+}
+[exit code: 0]
+
+================================================================
+$ node src/cli.js schedule examples/feasible.json --budget 100000
+----------------------------------------------------------------
+{
+  "status": "optimal",
+  "makespan": 7,
+  "totalSetup": 2,
+  "schedule": [
+    {
+      "machine": "M1",
+      "jobs": [
+        {
+          "job": "B",
+          "family": "y",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "job": "D",
+          "family": "z",
+          "start": 5,
+          "end": 7
+        }
+      ]
+    },
+    {
+      "machine": "M2",
+      "jobs": [
+        {
+          "job": "A",
+          "family": "x",
+          "start": 0,
+          "end": 3
+        },
+        {
+          "job": "C",
+          "family": "x",
+          "start": 3,
+          "end": 7
+        }
+      ]
+    }
+  ],
+  "branchesUsed": 29
+}
+[exit code: 0]
+
+================================================================
+$ node src/cli.js schedule examples/bad-noninteger.json
+----------------------------------------------------------------
+error: job "A": "release" must be an integer, got 0.5
+[exit code: 2]
+
+================================================================
+$ node src/cli.js schedule examples/bad-machine.json
+----------------------------------------------------------------
+error: job "A": undefined machine "M9"
+[exit code: 2]
+
+================================================================
+$ node src/cli.js schedule examples/missing.json
+----------------------------------------------------------------
+error: cannot read input file examples/missing.json: ENOENT: no such file or directory, open 'examples/missing.json'
+[exit code: 2]
+
+================================================================
+$ node --test
+----------------------------------------------------------------
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 5839.275257
+  type: 'test'
+  ...
+# Subtest: test/solver.test.js
+ok 2 - test/solver.test.js
+  ---
+  duration_ms: 1010.238402
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5966.645518
+[exit code: 0]
+

@@ -1,0 +1,13 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline parallel-machine scheduling library and CLI with a finite-domain constraint solver",
+  "main": "src/solver.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
