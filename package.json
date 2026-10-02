@@ -1,0 +1,10 @@
+{
+  "name": "risk-patch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Auditable, revertible, replayable account-limit/hold patches (diff/apply/revert)",
+  "main": "src/state.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
