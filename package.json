@@ -1,0 +1,11 @@
+{
+  "name": "offline-material-ledger",
+  "version": "1.0.0",
+  "description": "Offline material ledger: chunked append-only log with CRC32, savepoints, compensating rollback, idempotent events",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": { "mledger": "src/cli.js" }
+}
