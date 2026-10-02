@@ -1,0 +1,9 @@
+{
+  "name": "auditable-aggregation-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Auditable aggregation CLI with correction supersede, as-of queries and verifiable proofs",
+  "bin": { "audit": "./audit.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
