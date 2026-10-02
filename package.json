@@ -1,0 +1,9 @@
+{
+  "name": "settlement-compliance",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NFA-based settlement trace compliance library and CLI (stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}

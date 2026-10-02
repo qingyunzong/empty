@@ -1,0 +1,11 @@
+{
+  "dfaHash": "c2c4df751369a67c6009b3dfe6e8a6fa8d673408e4529b6ba0df80ccf8da61da",
+  "eventIds": [
+    "e1",
+    "e2",
+    "e3",
+    "e4"
+  ],
+  "finalState": 4,
+  "verdict": "accept"
+}
