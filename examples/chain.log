@@ -1,0 +1,5 @@
+# three-node causal chain
+note: correction chain observed by nodes a, b, c
+evt node=a clock=1 seq=1 op=commit key=alpha value=1
+evt node=b clock=2 seq=1 op=commit key=beta value=2
+evt node=c clock=3 seq=1 op=commit key=gamma value=3

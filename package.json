@@ -1,0 +1,10 @@
+{
+  "name": "arbiter",
+  "version": "1.0.0",
+  "description": "Multi-observer correction-history arbitration library and CLI (offline, stdlib only)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,5 @@
+# committed prefix, then a concurrent same-key divergence
+evt node=a clock=1 seq=1 op=commit key=prefix value=kept
+evt node=b clock=2 seq=1 op=commit key=temp value=20
+evt node=c clock=2 seq=1 op=commit key=temp value=99
+note: b and c disagree on temp with no causal order
