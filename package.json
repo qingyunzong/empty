@@ -1,0 +1,16 @@
+{
+  "name": "mvcc-event-store",
+  "version": "1.0.0",
+  "description": "Single-node MVCC event store with snapshot isolation, tombstones and secondary indexes, plus an offline JSON-lines CLI. Node.js 22, standard library only.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "mvcc-cli": "./cli.js"
+  }
+}
