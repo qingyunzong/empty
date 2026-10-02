@@ -1,0 +1,20 @@
+{
+  "states": ["received", "diagnosed", "repaired", "verified"],
+  "alphabet": ["inspect", "repair"],
+  "start": "received",
+  "risk": {
+    "received": "low",
+    "diagnosed": "low",
+    "repaired": "medium",
+    "verified": "low"
+  },
+  "transitions": {
+    "received": { "inspect": "diagnosed", "repair": "received" },
+    "diagnosed": { "inspect": "repaired", "repair": "diagnosed" },
+    "repaired": { "inspect": "verified", "repair": "repaired" },
+    "verified": { "inspect": "verified", "repair": "verified" }
+  },
+  "costs": {
+    "verified": 3
+  }
+}

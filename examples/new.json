@@ -1,0 +1,20 @@
+{
+  "states": ["intake", "triaged", "fixed", "confirmed"],
+  "alphabet": ["inspect", "repair"],
+  "start": "intake",
+  "risk": {
+    "intake": "low",
+    "triaged": "low",
+    "fixed": "medium",
+    "confirmed": "high"
+  },
+  "transitions": {
+    "intake": { "inspect": "triaged", "repair": "intake" },
+    "triaged": { "inspect": "fixed", "repair": "triaged" },
+    "fixed": { "inspect": "confirmed", "repair": "fixed" },
+    "confirmed": { "inspect": "confirmed", "repair": "confirmed" }
+  },
+  "costs": {
+    "confirmed": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "dfa-migration-verifier",
+  "version": "1.0.0",
+  "description": "Verify risk-level equivalence between old and new maintenance-workflow DFAs and plan minimal manual confirmations within budget.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
