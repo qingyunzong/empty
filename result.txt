@@ -1,0 +1,179 @@
+=== 场景1: split 后 merge，双向可达枚举 ===
+$ node src/cli.js --db /tmp/trace-scenario-db.json commit {"id":"tx-build","corrections":[
+ {"kind":"edge","old":null,"new":{"child":"B","parent":"A","quantity":2}},
+ {"kind":"edge","old":null,"new":{"child":"C","parent":"A","quantity":3}},
+ {"kind":"edge","old":null,"new":{"child":"D","parent":"B","quantity":1}},
+ {"kind":"edge","old":null,"new":{"child":"D","parent":"C","quantity":1}},
+ {"kind":"edge","old":null,"new":{"child":"E","parent":"D","quantity":5}}]}
+{"committed":"tx-build","version":1}
+--- 正向：E 的上游根集合 ---
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace E
+{
+  "lot": "E",
+  "version": 1,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "downstream": [
+    "E"
+  ],
+  "blockedRecords": [],
+  "inputHash": "8e1ba70907d3c921ce1dd98d93015d46f10c1431578c9e7ce285b1f8aafd9f97"
+}
+--- 逆向：A 的下游叶集合 ---
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace A
+{
+  "lot": "A",
+  "version": 1,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A"
+  ],
+  "downstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "blockedRecords": [],
+  "inputHash": "8e1ba70907d3c921ce1dd98d93015d46f10c1431578c9e7ce285b1f8aafd9f97"
+}
+
+=== 场景2: 上游 null 检验更正为 block，uninspected -> blocked ===
+$ node src/cli.js --db /tmp/trace-scenario-db.json commit {"id":"tx-null-insp","corrections":[
+ {"kind":"inspection","old":null,"new":{"lot":"A","result":null,"ts":1}}]}
+{"committed":"tx-null-insp","version":2}
+--- 更正前（A 仅 null 记录） ---
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace E
+{
+  "lot": "E",
+  "version": 2,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "downstream": [
+    "E"
+  ],
+  "blockedRecords": [],
+  "inputHash": "fa1f59064e4e41ae3da55bb2833e434a445433bd7a3826725c83881411619df3"
+}
+$ node src/cli.js --db /tmp/trace-scenario-db.json commit {"id":"tx-fix","corrections":[
+ {"kind":"inspection","old":{"lot":"A","result":null,"ts":1},"new":{"lot":"A","result":"block","ts":2}}]}
+{"committed":"tx-fix","version":3}
+--- 更正后（A 为 block） ---
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace E
+{
+  "lot": "E",
+  "version": 3,
+  "status": "blocked",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "downstream": [
+    "E"
+  ],
+  "blockedRecords": [
+    {
+      "lot": "A",
+      "result": "block",
+      "ts": 2
+    }
+  ],
+  "inputHash": "42e21ee6980be47248c63102965cb058753bf96c23e66b3324e2822f3a5c1592"
+}
+--- 撤销 tx-fix，恢复 uninspected ---
+$ node src/cli.js --db /tmp/trace-scenario-db.json undo tx-fix
+{"undone":"tx-fix","changed":true,"version":4}
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace E
+{
+  "lot": "E",
+  "version": 4,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "downstream": [
+    "E"
+  ],
+  "blockedRecords": [],
+  "inputHash": "fa1f59064e4e41ae3da55bb2833e434a445433bd7a3826725c83881411619df3"
+}
+
+=== 场景3: 撤销不存在事务报错；重复撤销幂等 ===
+$ node src/cli.js --db /tmp/trace-scenario-db.json undo no-such-tx
+error: transaction not found: no-such-tx
+$ node src/cli.js --db /tmp/trace-scenario-db.json undo tx-fix
+{"undone":"tx-fix","changed":false,"version":4}
+$ node src/cli.js --db /tmp/trace-scenario-db.json trace E
+{
+  "lot": "E",
+  "version": 4,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "E"
+  ],
+  "upstream": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "downstream": [
+    "E"
+  ],
+  "blockedRecords": [],
+  "inputHash": "fa1f59064e4e41ae3da55bb2833e434a445433bd7a3826725c83881411619df3"
+}
