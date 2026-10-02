@@ -1,0 +1,16 @@
+{
+  "name": "hash-ledger",
+  "version": "0.1.0",
+  "description": "Crash-safe hash-chained transaction ledger with anchored published prefixes",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "ledger": "bin/ledger.js"
+  },
+  "scripts": {
+    "test": "node --test --experimental-test-isolation=none"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
