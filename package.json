@@ -1,0 +1,11 @@
+{
+  "name": "margin-call-scheduler",
+  "version": "1.0.0",
+  "description": "Incremental margin-call scheduler with snapshot undo and constrained slot allocation",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}

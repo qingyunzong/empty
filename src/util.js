@@ -1,0 +1,16 @@
+import { createHash } from 'node:crypto';
+
+export function round6(value) {
+  return Math.round((value + Number.EPSILON) * 1e6) / 1e6;
+}
+
+export function canonical(value) {
+  if (value === null || typeof value !== 'object') return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
+  const keys = Object.keys(value).sort();
+  return `{${keys.map((k) => `${JSON.stringify(k)}:${canonical(value[k])}`).join(',')}}`;
+}
+
+export function sha256hex(text) {
+  return createHash('sha256').update(text).digest('hex');
+}

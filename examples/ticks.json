@@ -1,0 +1,10 @@
+{
+  "slots": 1,
+  "slotCapacity": 1,
+  "events": [
+    { "type": "tick", "symbol": "NQ", "version": 1, "price": 30 },
+    { "type": "tick", "symbol": "NQ", "version": 1, "price": 999 },
+    { "type": "tick", "symbol": "NQ", "version": 2, "price": 400 },
+    { "type": "undo", "symbol": "NQ", "version": 2 }
+  ]
+}

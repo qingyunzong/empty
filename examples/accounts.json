@@ -1,0 +1,7 @@
+{
+  "accounts": [
+    { "id": "low",  "priority": 1, "maintenanceLine": 100, "liquidationLine": 50, "deadlineSlot": 2, "cash": 0,   "positions": { "ES": 1 }, "initialMarks": { "ES": 60 } },
+    { "id": "high", "priority": 1, "maintenanceLine": 100, "liquidationLine": 50, "deadlineSlot": 2, "cash": 0,   "positions": { "NQ": 1 }, "initialMarks": { "NQ": 200 } },
+    { "id": "safe", "priority": 0, "maintenanceLine": 100, "liquidationLine": 50, "deadlineSlot": 2, "cash": 500, "positions": {} }
+  ]
+}
