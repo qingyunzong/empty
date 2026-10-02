@@ -1,0 +1,13 @@
+{
+  "name": "energy-scheduler",
+  "version": "1.0.0",
+  "description": "Factory peak-shifting energy scheduler: DSL -> bytecode -> VM, 15-min slot optimization",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "energy-sched": "bin/energy-sched.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
