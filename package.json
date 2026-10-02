@@ -1,0 +1,8 @@
+{
+  "name": "inspection-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline inspection planning library and CLI (finite-domain CSP)",
+  "bin": { "plan": "./plan.js" },
+  "scripts": { "test": "node --test" }
+}

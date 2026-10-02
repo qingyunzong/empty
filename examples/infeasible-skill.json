@@ -1,0 +1,11 @@
+{
+  "inspectors": [
+    { "id": "amy", "skills": ["electrical"] },
+    { "id": "bob", "skills": ["plumbing"] }
+  ],
+  "tasks": [
+    { "id": "t1", "skills": ["electrical"], "duration": 2, "window": { "start": 0, "end": 6 }, "zone": "Z1" },
+    { "id": "t5", "skills": ["thermal-imaging"], "duration": 1, "window": { "start": 0, "end": 4 }, "zone": "Z2" }
+  ],
+  "travel": { "Z1": { "Z2": 1 } }
+}
