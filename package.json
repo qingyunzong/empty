@@ -1,0 +1,13 @@
+{
+  "name": "redact-history",
+  "version": "1.0.0",
+  "private": true,
+  "description": "History-rewriting redaction library and CLI for scientific data repositories (offline, Node.js 22, stdlib only)",
+  "main": "src/redact.js",
+  "bin": {
+    "redact-history": "bin/redact-history.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
