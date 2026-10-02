@@ -1,0 +1,16 @@
+{
+  "name": "budget-freeze-settle",
+  "version": "1.0.0",
+  "description": "Budget freeze queue and batched settlement selection with a hash-chained block log",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "bin": {
+    "budget": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
