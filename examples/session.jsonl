@@ -1,0 +1,7 @@
+{"type":"defineZone","zone":"PLANT_A","rules":[{"atUtc":0,"offsetMinutes":480},{"atUtc":1767225600000,"offsetMinutes":540}]}
+{"type":"event","id":"e1","device":"pump-7","zone":"PLANT_A","state":"ON","local":"2026-01-01T08:00:01.000","version":1}
+{"type":"event","id":"e2","device":"pump-7","zone":"PLANT_A","state":"OFF","local":"2026-01-01T08:00:05.000","version":2}
+{"type":"event","id":"e3","device":"pump-7","zone":"PLANT_A","state":"ON","local":"2026-01-01T08:00:07.000","version":3}
+{"type":"query","device":"pump-7","from":1767225600000,"to":1767225610000,"period":{"start":1767225600000,"durationMs":3000,"end":1767225610000},"silence":[{"start":1767225606000,"end":1767225610000}]}
+{"type":"correct","id":"e2","action":"void","version":4,"observe":{"device":"pump-7","from":1767225600000,"to":1767225610000}}
+{"type":"replay","toVersion":3,"observe":{"device":"pump-7","from":1767225600000,"to":1767225610000}}
