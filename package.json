@@ -1,0 +1,8 @@
+{
+  "name": "audit-log-patcher",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "bin": { "audit": "bin/audit.js" },
+  "scripts": { "test": "node --test" }
+}
