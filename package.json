@@ -1,0 +1,14 @@
+{
+  "name": "netdsl",
+  "version": "1.0.0",
+  "description": "Cycle-explainable multilateral netting DSL, engine and CLI",
+  "type": "module",
+  "bin": {
+    "net": "./net.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
