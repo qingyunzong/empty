@@ -1,0 +1,10 @@
+{
+  "name": "audit-voucher-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Causal-merge audit voucher ledger library and CLI (Node.js standard library only)",
+  "main": "ledger.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
