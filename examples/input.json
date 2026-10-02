@@ -1,0 +1,29 @@
+{
+  "lines": [{ "id": "L1", "budgetPerShift": 1000 }],
+  "stations": [
+    { "id": "DIAG", "lineId": "L1", "capacityPerShift": 200 },
+    { "id": "REPAIR", "lineId": "L1", "capacityPerShift": 200 },
+    { "id": "RECHECK", "lineId": "L1", "capacityPerShift": 200 }
+  ],
+  "orders": [
+    {
+      "id": "W1",
+      "route": [
+        { "station": "DIAG", "minutes": 100 },
+        { "station": "REPAIR", "minutes": 100 },
+        { "station": "RECHECK", "minutes": 100 }
+      ]
+    },
+    {
+      "id": "W2",
+      "priority": "high",
+      "route": [
+        { "station": "DIAG", "minutes": 150 },
+        { "station": "REPAIR", "minutes": 150 },
+        { "station": "RECHECK", "minutes": 150 }
+      ]
+    },
+    { "id": "W3", "route": [{ "station": "DIAG", "minutes": 50 }] }
+  ],
+  "extraShifts": 1
+}

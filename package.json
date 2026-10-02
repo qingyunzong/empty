@@ -1,0 +1,16 @@
+{
+  "name": "rework-router",
+  "version": "1.0.0",
+  "description": "Offline quality-rework routing engine: atomic station allocation, rollback, preemption and aging queues",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "rework-router": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
