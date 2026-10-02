@@ -1,0 +1,13 @@
+{
+  "name": "evpack",
+  "version": "0.1.0",
+  "description": "Offline regulatory evidence pack validator and certificate issuer",
+  "type": "module",
+  "license": "UNLICENSED",
+  "bin": {
+    "evpack": "bin/evpack.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
