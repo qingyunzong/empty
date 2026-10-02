@@ -1,0 +1,9 @@
+{
+  "name": "devlog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local device log store with WAL/segment/manifest storage and a DSL query engine",
+  "scripts": {
+    "test": "node --test"
+  }
+}
