@@ -1,0 +1,17 @@
+{
+  "name": "audit-sampler",
+  "version": "1.0.0",
+  "description": "Stratified, deterministic, verifiable audit sampling with incremental resampling",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "src/sampler.js",
+  "bin": {
+    "audit-sample": "bin/audit-sample.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
