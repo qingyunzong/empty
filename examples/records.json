@@ -1,0 +1,8 @@
+[
+  { "id": "EV-001", "title": "Phishing email header", "status": "open",   "assignee": "alice", "severity": 4, "created": "2024-01-15", "verified": true },
+  { "id": "EV-002", "title": "Malware sandbox trace",  "status": "closed", "assignee": "bob",   "severity": 5, "created": "2024-02-03", "verified": true },
+  { "id": "EV-003", "title": "Suspicious login log",   "status": "open",   "assignee": "alice", "severity": 2, "created": "2024-02-20", "verified": false },
+  { "id": "EV-004", "title": "Ransomware note sample", "status": "open",   "assignee": "carol", "severity": 5, "created": "2024-03-01", "verified": false },
+  { "id": "EV-005", "title": "Phishing kit archive",   "status": "closed", "assignee": "bob",   "severity": 3, "created": "2024-03-12", "verified": true },
+  { "id": "EV-006", "title": "DNS tunneling capture",  "status": "open",   "assignee": "carol", "severity": 3, "created": "2024-04-08", "verified": true }
+]

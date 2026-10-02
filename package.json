@@ -1,0 +1,9 @@
+{
+  "name": "evq",
+  "version": "1.0.0",
+  "description": "Evidence record query library and CLI (offline, stdlib-only)",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  }
+}

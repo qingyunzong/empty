@@ -1,0 +1,127 @@
+run-record.txt — real execution record
+date: 2026-10-02T20:49:05Z
+node: v22.22.1
+cwd: /home/delin/.local/share/gsb-workbench/artifacts/e184a0a7a43a473e97f2c6910396193c/run/B/attempt-009/workspace
+
+================================================================
+1. Test suite: node --test
+================================================================
+$ node --test
+ok 1 - test/cli.test.js
+ok 2 - test/engine.test.js
+ok 3 - test/lexer.test.js
+ok 4 - test/parser.test.js
+ok 5 - test/typecheck.test.js
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6710.460826
+
+================================================================
+2. Acceptance 1: boolean combination query vs hand-filtered ids
+================================================================
+hand-filtered expectation: EV-001 EV-004 EV-005 EV-006
+$ node src/cli.js run --records examples/records.json --schema examples/schema.json --query '(status:open and severity>=3) or (title:phishing and not verified:false)' --state st.json
+hits: EV-001 EV-004 EV-005 EV-006
+instructions: 48
+certificate:
+{
+  "version": 1,
+  "query": "(status:open and severity>=3) or (title:phishing and not verified:false)",
+  "normalizedAst": "(or (and (cmp severity >= w\"3\") (match status w\"open\")) (and (match title w\"phishing\") (not (match verified w\"false\"))))",
+  "astHash": "dbb3e014d3491ba03244bdf4dee814881494b7fa44a8c7229d1a7e22f7b63ef6",
+  "schemaHash": "f6ea760e01c780ac002bccb337e55aed3438bfb3a930313c6ef0b9fec4eab808",
+  "budget": 10000,
+  "instructions": 48,
+  "hits": [
+    "EV-001",
+    "EV-004",
+    "EV-005",
+    "EV-006"
+  ]
+}
+exit=0
+
+================================================================
+3. Acceptance 2: compile-time errors (unknown field, string <)
+================================================================
+$ node src/cli.js run ... --query 'owner:alice'
+compile error: Unknown field 'owner'
+exit=2
+$ node src/cli.js run ... --query 'title < "abc"'
+compile error: Operator '<' cannot be applied to string field 'title'; ordering comparisons require a number or date field
+exit=2
+
+================================================================
+4. Acceptance 3: budget below required instruction count
+================================================================
+required instructions: 48; budget used: 47
+$ node src/cli.js run ... --budget 47 --state st.json
+stdout: 0 bytes (no hits printed)
+stderr: runtime error: Instruction budget 47 exceeded (needed more than 47)
+exit=1
+state unchanged: yes (state file byte-identical before/after)
+
+================================================================
+5. Versioning: second query, undo, redo
+================================================================
+$ node src/cli.js run ... --query 'verified:false'
+hits: EV-003 EV-004
+instructions: 6
+certificate:
+{
+  "version": 2,
+  "query": "verified:false",
+  "normalizedAst": "(match verified w\"false\")",
+  "astHash": "ceb15bdae38aad3696d3d8bc4b145cc35eab370dba8fcf1cbefeeaba3f903117",
+  "schemaHash": "f6ea760e01c780ac002bccb337e55aed3438bfb3a930313c6ef0b9fec4eab808",
+  "budget": 10000,
+  "instructions": 6,
+  "hits": [
+    "EV-003",
+    "EV-004"
+  ]
+}
+exit=0
+$ node src/cli.js undo --state st.json
+hits: EV-001 EV-004 EV-005 EV-006
+instructions: 48
+certificate:
+{
+  "version": 1,
+  "query": "(status:open and severity>=3) or (title:phishing and not verified:false)",
+  "normalizedAst": "(or (and (cmp severity >= w\"3\") (match status w\"open\")) (and (match title w\"phishing\") (not (match verified w\"false\"))))",
+  "astHash": "dbb3e014d3491ba03244bdf4dee814881494b7fa44a8c7229d1a7e22f7b63ef6",
+  "schemaHash": "f6ea760e01c780ac002bccb337e55aed3438bfb3a930313c6ef0b9fec4eab808",
+  "budget": 10000,
+  "instructions": 48,
+  "hits": [
+    "EV-001",
+    "EV-004",
+    "EV-005",
+    "EV-006"
+  ]
+}
+exit=0
+$ node src/cli.js redo --state st.json
+hits: EV-003 EV-004
+instructions: 6
+certificate:
+{
+  "version": 2,
+  "query": "verified:false",
+  "normalizedAst": "(match verified w\"false\")",
+  "astHash": "ceb15bdae38aad3696d3d8bc4b145cc35eab370dba8fcf1cbefeeaba3f903117",
+  "schemaHash": "f6ea760e01c780ac002bccb337e55aed3438bfb3a930313c6ef0b9fec4eab808",
+  "budget": 10000,
+  "instructions": 6,
+  "hits": [
+    "EV-003",
+    "EV-004"
+  ]
+}
+exit=0

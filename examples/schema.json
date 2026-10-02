@@ -1,0 +1,10 @@
+{
+  "fields": {
+    "title": "string",
+    "status": "string",
+    "assignee": "string",
+    "severity": "number",
+    "created": "date",
+    "verified": "boolean"
+  }
+}
