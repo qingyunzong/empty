@@ -1,0 +1,15 @@
+{
+  "name": "evpack",
+  "version": "0.1.0",
+  "description": "Offline regulatory evidence pack validator: restricted relational algebra claims, three-valued conclusions, incremental rule index, reviewable certificates",
+  "type": "module",
+  "bin": {
+    "evpack": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

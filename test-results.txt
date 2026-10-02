@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: test/acceptance.test.js
+ok 1 - test/acceptance.test.js
+  ---
+  duration_ms: 2762.79912
+  type: 'test'
+  ...
+# Subtest: test/algebra.test.js
+ok 2 - test/algebra.test.js
+  ---
+  duration_ms: 4001.766359
+  type: 'test'
+  ...
+# Subtest: test/cert.test.js
+ok 3 - test/cert.test.js
+  ---
+  duration_ms: 3782.33791
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 4 - test/cli.test.js
+  ---
+  duration_ms: 2808.208655
+  type: 'test'
+  ...
+# Subtest: test/diff.test.js
+ok 5 - test/diff.test.js
+  ---
+  duration_ms: 21330.612672
+  type: 'test'
+  ...
+# Subtest: test/helpers.mjs
+ok 6 - test/helpers.mjs
+  ---
+  duration_ms: 3279.684555
+  type: 'test'
+  ...
+# Subtest: test/reference.mjs
+ok 7 - test/reference.mjs
+  ---
+  duration_ms: 3962.913107
+  type: 'test'
+  ...
+# Subtest: test/store.test.js
+ok 8 - test/store.test.js
+  ---
+  duration_ms: 4312.1697
+  type: 'test'
+  ...
+# Subtest: test/verify.test.js
+ok 9 - test/verify.test.js
+  ---
+  duration_ms: 5779.318857
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21824.871728
