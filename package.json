@@ -1,0 +1,9 @@
+{
+  "name": "evlog",
+  "version": "0.1.0",
+  "description": "Offline append-only device event log with delta-encoded CRC32 blocks, corrections, tombstones and verifiable certificates",
+  "type": "module",
+  "bin": { "evlog": "bin/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
