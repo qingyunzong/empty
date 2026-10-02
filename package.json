@@ -1,0 +1,17 @@
+{
+  "name": "cold-recall",
+  "version": "1.0.0",
+  "description": "Cold-chain temperature anomaly recall analysis library and CLI",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "cold": "bin/cold.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
