@@ -1,0 +1,9 @@
+{
+  "name": "audit-tail-decoder",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Financial audit log with tail-incremental chunked decoding",
+  "scripts": {
+    "test": "node --test"
+  }
+}
