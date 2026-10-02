@@ -1,0 +1,16 @@
+{
+  "actors": [
+    {
+      "id": "alice",
+      "ops": [
+        { "op": "reserve", "batchId": "a1", "items": [{ "node": "eng", "amount": 60 }], "expect": "ok" }
+      ]
+    },
+    {
+      "id": "bob",
+      "ops": [
+        { "op": "reserve", "batchId": "b1", "items": [{ "node": "ops", "amount": 60 }], "expect": "ok" }
+      ]
+    }
+  ]
+}

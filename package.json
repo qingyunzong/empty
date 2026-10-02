@@ -1,0 +1,13 @@
+{
+  "name": "explree",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hierarchical budget freeze/rollback verification library and interleaving explorer CLI",
+  "main": "src/tree.js",
+  "bin": {
+    "explree": "bin/explree.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

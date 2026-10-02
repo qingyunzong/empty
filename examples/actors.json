@@ -1,0 +1,18 @@
+{
+  "actors": [
+    {
+      "id": "alice",
+      "ops": [
+        { "op": "reserve", "batchId": "a1", "items": [{ "node": "eng.gpu", "amount": 20 }] },
+        { "op": "settle", "batchId": "a1" }
+      ]
+    },
+    {
+      "id": "bob",
+      "ops": [
+        { "op": "reserve", "batchId": "b1", "items": [{ "node": "ops", "amount": 40 }] },
+        { "op": "cancel", "batchId": "b1" }
+      ]
+    }
+  ]
+}

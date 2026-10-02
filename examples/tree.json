@@ -1,0 +1,8 @@
+{
+  "nodes": [
+    { "id": "root", "parent": null, "capacity": 100 },
+    { "id": "eng", "parent": "root", "capacity": 60 },
+    { "id": "ops", "parent": "root", "capacity": 60 },
+    { "id": "eng.gpu", "parent": "eng", "capacity": 30 }
+  ]
+}
