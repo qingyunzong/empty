@@ -1,0 +1,10 @@
+{
+  "name": "alarm-window-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline sliding-window multi-pattern alarm engine with incremental correction",
+  "scripts": {
+    "test": "node --test"
+  }
+}
