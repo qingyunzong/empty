@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: acceptance 1: three periods across a shift offset switch
+ok 1 - acceptance 1: three periods across a shift offset switch
+  ---
+  duration_ms: 78.809905
+  type: 'test'
+  ...
+# Subtest: acceptance 2: retracted heartbeat raises an alarm that merges with the next one
+ok 2 - acceptance 2: retracted heartbeat raises an alarm that merges with the next one
+  ---
+  duration_ms: 29.196486
+  type: 'test'
+  ...
+# Subtest: acceptance 3: downtime boundary and OPEN interval, cross-checked with reference
+ok 3 - acceptance 3: downtime boundary and OPEN interval, cross-checked with reference
+  ---
+  duration_ms: 9.011709
+  type: 'test'
+  ...
+# Subtest: override correction moves a heartbeat and bumps the rule version
+ok 4 - override correction moves a heartbeat and bumps the rule version
+  ---
+  duration_ms: 5.876476
+  type: 'test'
+  ...
+# Subtest: error: zero period is rejected
+ok 5 - error: zero period is rejected
+  ---
+  duration_ms: 18.320349
+  type: 'test'
+  ...
+# Subtest: error: offset table gap is reported when a period boundary lands in it
+ok 6 - error: offset table gap is reported when a period boundary lands in it
+  ---
+  duration_ms: 2.84665
+  type: 'test'
+  ...
+# Subtest: error: event time inversion is rejected
+ok 7 - error: event time inversion is rejected
+  ---
+  duration_ms: 7.432307
+  type: 'test'
+  ...
+# Subtest: randomized cross-check: engine matches the per-period reference
+ok 8 - randomized cross-check: engine matches the per-period reference
+  ---
+  duration_ms: 310.327407
+  type: 'test'
+  ...
+# Subtest: cli: ndjson commands in, json lines out
+ok 9 - cli: ndjson commands in, json lines out
+  ---
+  duration_ms: 769.019241
+  type: 'test'
+  ...
+# Subtest: cli: invalid command produces an error line and exit code 1
+ok 10 - cli: invalid command produces an error line and exit code 1
+  ---
+  duration_ms: 710.106397
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2093.346304

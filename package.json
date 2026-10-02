@@ -1,0 +1,13 @@
+{
+  "name": "silence-alarm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Periodic silence (missing heartbeat) alarm detection library and CLI",
+  "main": "src/engine.js",
+  "bin": {
+    "silence-alarm": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
