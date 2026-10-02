@@ -1,0 +1,11 @@
+{
+  "name": "woindex",
+  "version": "1.0.0",
+  "description": "Offline positional inverted index with tombstones, batch undo and hash verification for work-order notes",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
