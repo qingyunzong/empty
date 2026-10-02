@@ -1,0 +1,13 @@
+{
+  "name": "cal-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Metrology lab calibration certificate engine (standard library only)",
+  "main": "src/lab.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
