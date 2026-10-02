@@ -1,0 +1,10 @@
+{
+  "name": "defect-responsibility",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact rational defect-area responsibility allocation across machine rectangles",
+  "main": "src/workspace.js",
+  "bin": { "defect-responsibility": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
