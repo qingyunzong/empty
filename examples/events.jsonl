@@ -1,0 +1,6 @@
+{"type":"account","budget":100,"quoteTtl":10,"worstRate":{"USD":2},"frozen":{"USD":5}}
+{"type":"payment","id":"p1","amount":10,"ccy":"USD","rate":null,"ts":1}
+{"type":"payment","id":"p2","amount":40,"ccy":"USD","rate":1.5,"ts":2}
+{"type":"quote","paymentId":"p1","rate":1.2,"ts":3}
+{"type":"freeze","paymentId":"p1","ts":4}
+{"type":"reverse","paymentId":"p1","ts":5}
