@@ -1,0 +1,9 @@
+{
+  "name": "events-authz-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline PLC event visibility gateway: tenant-group inheritance, tag grants, event exceptions, audit",
+  "scripts": {
+    "test": "node --test"
+  }
+}
