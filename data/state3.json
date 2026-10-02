@@ -1,0 +1,54 @@
+{
+  "batches": [
+    {
+      "batchId": "BCH1",
+      "layer": "channel",
+      "parentId": null,
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "active",
+      "bankConfirmed": false
+    },
+    {
+      "batchId": "BCL1",
+      "layer": "clearing",
+      "parentId": "BCH1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "active",
+      "bankConfirmed": false
+    },
+    {
+      "batchId": "BBK1",
+      "layer": "bank",
+      "parentId": "BCL1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "active",
+      "bankConfirmed": true
+    },
+    {
+      "batchId": "BBK2",
+      "layer": "bank",
+      "parentId": "BCL1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "active",
+      "bankConfirmed": false
+    }
+  ],
+  "adjustments": [],
+  "budgets": {},
+  "limits": {
+    "C1|2026-10-03": 10000
+  },
+  "journal": null
+}

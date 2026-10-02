@@ -1,0 +1,70 @@
+{
+  "batches": [
+    {
+      "batchId": "BCH1",
+      "layer": "channel",
+      "parentId": null,
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "rolled_back",
+      "bankConfirmed": false
+    },
+    {
+      "batchId": "BCL1",
+      "layer": "clearing",
+      "parentId": "BCH1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "rolled_back",
+      "bankConfirmed": false
+    },
+    {
+      "batchId": "BBK1",
+      "layer": "bank",
+      "parentId": "BCL1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "active",
+      "bankConfirmed": true
+    },
+    {
+      "batchId": "BBK2",
+      "layer": "bank",
+      "parentId": "BCL1",
+      "customerId": "C1",
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "amount": 20000,
+      "status": "rolled_back",
+      "bankConfirmed": false
+    }
+  ],
+  "adjustments": [
+    {
+      "id": "ADJ-BBK1",
+      "type": "reversal",
+      "ofBatchId": "BBK1",
+      "customerId": "C1",
+      "amount": -20000,
+      "currency": "CNY",
+      "date": "2026-10-03",
+      "createdAt": "2026-10-02T19:25:19.116Z"
+    }
+  ],
+  "budgets": {
+    "C1|2026-10-03": -80000
+  },
+  "limits": {
+    "C1|2026-10-03": 100000
+  },
+  "journal": {
+    "opId": "rollback:BBK2",
+    "phase": "done"
+  }
+}

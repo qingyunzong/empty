@@ -1,0 +1,4 @@
+recordId,batchId,parentId,customerId,amount,currency,timestamp,status
+CH1,BCH1,,C1,100.00,CNY,2026-10-03T10:00:00Z,
+CH2,BCH1,,C1,60.00,CNY,2026-10-03T10:01:00Z,
+CH3,BCH1,,C1,40.00,CNY,2026-10-03T10:01:30Z,
