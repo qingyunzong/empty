@@ -1,0 +1,9 @@
+{
+  "name": "provq",
+  "version": "0.1.0",
+  "description": "Query execution with lineage proofs and incremental re-verification",
+  "type": "module",
+  "bin": { "provq": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
