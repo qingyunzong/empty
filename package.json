@@ -1,0 +1,13 @@
+{
+  "name": "offline-alarm-engine",
+  "version": "1.0.0",
+  "description": "Offline device alarm derivation engine with proof certificates and a CLI",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

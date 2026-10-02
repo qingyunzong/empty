@@ -1,0 +1,6 @@
+[
+  { "cmd": "append", "fact": { "id": "e1", "type": "temperature", "value": 95 } },
+  { "cmd": "append", "fact": { "id": "e2", "type": "pressure", "value": 60 } },
+  { "cmd": "append", "fact": { "id": "e3", "type": "vibration", "value": 7 } },
+  { "cmd": "retract", "id": "e2" }
+]

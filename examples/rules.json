@@ -1,0 +1,23 @@
+[
+  {
+    "id": "r1",
+    "when": [{ "fact": { "type": "temperature", "value": { "$gte": 90 } } }],
+    "derive": { "alarm": "hot" }
+  },
+  {
+    "id": "r2",
+    "when": [
+      { "alarm": "hot" },
+      { "fact": { "type": "pressure", "value": { "$gte": 50 } } }
+    ],
+    "derive": { "alarm": "critical" }
+  },
+  {
+    "id": "r3",
+    "when": [
+      { "alarm": "critical" },
+      { "fact": { "type": "vibration", "value": { "$gte": 5 } } }
+    ],
+    "derive": { "alarm": "shutdown" }
+  }
+]
