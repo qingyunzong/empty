@@ -1,0 +1,19 @@
+{
+  "name": "param-sync",
+  "version": "1.0.0",
+  "description": "Offline parameter sync library and CLI for dispatch/feedback controllers",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "param-sync": "bin/param-sync.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
