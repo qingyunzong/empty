@@ -1,0 +1,10 @@
+{
+  "obligations": [
+    { "id": "o1", "from": "finA", "to": "finB", "amount": 120, "day": 1, "status": "confirmed" },
+    { "id": "o2", "from": "finB", "to": "finA", "amount": 80, "day": 2, "status": "confirmed" },
+    { "id": "o3", "from": "finB", "to": "finC", "amount": 150, "day": 1, "status": "confirmed" },
+    { "id": "o4", "from": "finC", "to": "finB", "amount": 50, "day": 3, "status": "confirmed" },
+    { "id": "o5", "from": "finC", "to": "finD", "amount": 90, "day": 0, "status": "confirmed" },
+    { "id": "o6", "from": "finD", "to": "finA", "amount": 70, "day": 2, "status": "confirmed" }
+  ]
+}

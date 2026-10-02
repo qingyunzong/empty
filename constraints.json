@@ -1,0 +1,8 @@
+{
+  "feeBps": 25,
+  "freezeBps": 10,
+  "freezeMarginBps": 50,
+  "timeBps": 3,
+  "maxFreeze": 600,
+  "dailyLimit": 500
+}
