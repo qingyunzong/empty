@@ -1,0 +1,13 @@
+{
+  "name": "budget-aware-rollback",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Budget-aware rollback planner and CLI for hierarchical experiment activities",
+  "main": "src/rollback.js",
+  "bin": {
+    "rollback": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
