@@ -1,0 +1,15 @@
+{
+  "name": "tool-life",
+  "version": "1.0.0",
+  "description": "Tool remaining-life estimation from spindle load with late QC risk correction",
+  "type": "module",
+  "bin": {
+    "tool": "bin/tool.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
