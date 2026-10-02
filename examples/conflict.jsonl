@@ -1,0 +1,6 @@
+{"type":"setRate","eid":"r1","pair":"USD/CNY","num":7,"den":1}
+{"type":"setRate","eid":"r2","pair":"CNY/EUR","num":1,"den":8}
+{"type":"setRate","eid":"r3","pair":"USD/EUR","num":9,"den":10}
+{"type":"addInvoice","eid":"i1","id":"A","ccy":"USD","num":100,"den":1}
+{"type":"addInvoice","eid":"i2","id":"B","ccy":"EUR","num":-87,"den":1}
+{"type":"addInvoice","eid":"i3","id":"C","ccy":"CNY","num":50,"den":1}

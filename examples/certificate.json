@@ -1,0 +1,32 @@
+{
+  "type": "RATE_CYCLE_CONFLICT",
+  "base": "CNY",
+  "nodes": [
+    "USD",
+    "CNY",
+    "EUR",
+    "USD"
+  ],
+  "steps": [
+    {
+      "eventId": "r1",
+      "pair": "USD/CNY",
+      "direction": "forward",
+      "rate": "7"
+    },
+    {
+      "eventId": "r2",
+      "pair": "CNY/EUR",
+      "direction": "forward",
+      "rate": "1/8"
+    },
+    {
+      "eventId": "r3",
+      "pair": "USD/EUR",
+      "direction": "inverse",
+      "rate": "9/10"
+    }
+  ],
+  "product": "35/36",
+  "historyHash": "3e8381a07981e3c7a3c2fd16b1f8f18bc45697cf106fa4c1af8420f49f4ad368"
+}

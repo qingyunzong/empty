@@ -1,0 +1,3 @@
+{"type":"setRate","eid":"r1","pair":"USD/CNY","num":7,"den":1}
+{"type":"addInvoice","eid":"i1","id":"A","ccy":"USD","num":100,"den":1}
+{"type":"addInvoice","eid":"i2","id":"B","ccy":"EUR","num":-50,"den":1}

@@ -1,0 +1,17 @@
+{
+  "name": "fx-net-settle",
+  "version": "1.0.0",
+  "description": "Exact rational multi-currency net settlement with auditable history",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "fx-settle": "bin/settle.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "settle": "node bin/settle.js settle",
+    "verify": "node bin/settle.js verify",
+    "hash": "node bin/settle.js hash",
+    "example": "bash examples/run.sh"
+  }
+}
