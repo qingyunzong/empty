@@ -1,0 +1,13 @@
+{
+  "totalAmount": 10000,
+  "searchBudget": 100000,
+  "costCenters": [
+    { "id": "ALPHA", "tiers": [10, 20, 30, 40], "minAmount": 0, "maxAmount": 4000 },
+    { "id": "BETA", "tiers": [20, 30, 40, 50], "minAmount": 1000, "maxAmount": 5000 },
+    { "id": "GAMMA", "tiers": [10, 30, 50], "minAmount": 0, "maxAmount": 6000 }
+  ],
+  "adjustments": [
+    { "id": "ADJ-1", "set": { "GAMMA": 30 } }
+  ],
+  "cancellations": []
+}
