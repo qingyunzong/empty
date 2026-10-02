@@ -1,0 +1,10 @@
+{
+  "name": "daybook",
+  "version": "1.0.0",
+  "description": "Settlement day-end rewrite with crash-safe recoverable storage",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
