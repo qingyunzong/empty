@@ -1,0 +1,8 @@
+{"op":"addNode","path":"group","limit":10000}
+{"op":"addNode","path":"group/east","limit":4000}
+{"op":"addNode","path":"group/east/sh","limit":1500}
+{"op":"reserve","path":"group/east/sh","amount":800,"holdId":"h1"}
+{"op":"reserve","path":"group/east","amount":1000,"holdId":"h2"}
+{"op":"commit","holdId":"h1"}
+{"op":"abort","holdId":"h2"}
+{"op":"subtreeExposure","path":"group"}
