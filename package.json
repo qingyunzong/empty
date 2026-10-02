@@ -1,0 +1,9 @@
+{
+  "name": "auditlog",
+  "version": "0.1.0",
+  "description": "Multi-tenant append-only audit log with quotas, aging fair scheduler, fsync commit points and hash-chain certificates",
+  "type": "module",
+  "bin": { "auditlog": "bin/auditlog.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
