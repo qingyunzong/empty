@@ -1,0 +1,9 @@
+{
+  "name": "weld-cell-mode-interpreter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Safety interpreter for robot welding cell mode switching (auto/teach/maintenance)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
