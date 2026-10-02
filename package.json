@@ -1,0 +1,13 @@
+{
+  "name": "causal-history",
+  "version": "1.0.0",
+  "description": "Exact rational causal-history determination library and CLI",
+  "type": "module",
+  "main": "src/history.js",
+  "bin": {
+    "causal-history": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
