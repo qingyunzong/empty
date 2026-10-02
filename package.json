@@ -1,0 +1,8 @@
+{
+  "name": "card-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "bin": { "card": "bin/card.js" },
+  "scripts": { "test": "node --test" }
+}
