@@ -1,0 +1,15 @@
+{
+  "name": "wx-correction-store",
+  "version": "0.1.0",
+  "description": "Nested-transaction key-value store with WAL, undo/redo and crash recovery, plus CLI",
+  "type": "module",
+  "bin": {
+    "wx": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
