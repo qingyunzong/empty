@@ -1,0 +1,9 @@
+{
+  "name": "refund-revoke",
+  "version": "1.0.0",
+  "description": "Refund & revoke library with hierarchical rollback, budgets and stable tie-break allocation",
+  "type": "module",
+  "bin": { "refund": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
