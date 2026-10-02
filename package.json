@@ -1,0 +1,16 @@
+{
+  "name": "htsp-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "High-throughput screening lab scheduler for 384-well plate reruns",
+  "bin": {
+    "labsched": "bin/labsched.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
