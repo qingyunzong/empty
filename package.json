@@ -1,0 +1,10 @@
+{
+  "name": "mes-offline-cache",
+  "version": "1.0.0",
+  "private": true,
+  "description": "注塑机 MES 离线缓存事件包:去重/乱序重组/迟到更正/gap 与 NAK/质量追溯证书",
+  "main": "lib.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

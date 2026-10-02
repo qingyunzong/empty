@@ -1,0 +1,8 @@
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":2,"ts":2000,"kind":"produce","qty":50,"hash":"h-b"}
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":1,"ts":1000,"kind":"produce","qty":100,"hash":"h-a"}
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":2,"ts":2000,"kind":"produce","qty":50,"hash":"h-b"}
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":4,"ts":4000,"kind":"consume","qty":30,"hash":"h-d"}
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":5,"ts":4500,"kind":"seal","qty":0,"hash":"h-e"}
+{"lot":"L002","mold":"M2","station":"INJ-02","seq":1,"ts":4800,"kind":"produce","qty":10,"hash":"h-f"}
+{"lot":"L002","mold":"M2","station":"INJ-02","seq":3,"ts":4900,"kind":"consume","qty":5,"hash":"h-g"}
+{"lot":"L001","mold":"M1","station":"INJ-01","seq":2,"ts":2000,"kind":"produce","qty":60,"hash":"h-b2"}
