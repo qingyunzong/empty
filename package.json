@@ -1,0 +1,15 @@
+{
+  "name": "qcert",
+  "version": "1.0.0",
+  "description": "Offline sampling-inspection rule DSL, bytecode VM and certificate audit chain",
+  "type": "module",
+  "bin": {
+    "qcert": "bin/qcert.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

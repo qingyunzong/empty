@@ -1,0 +1,7 @@
+# one JSON object per line
+{"type":"batch","size":100}
+{"type":"sample","id":"S1","defects":0,"severity":"minor"}
+{"type":"sample","id":"S2","defects":1,"severity":"major"}
+{"type":"sample","id":"S3","defects":0,"severity":"minor"}
+{"type":"sample","id":"S4","defects":0,"severity":"minor"}
+{"type":"sample","id":"S5","defects":0,"severity":"minor"}
