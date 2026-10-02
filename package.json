@@ -1,0 +1,16 @@
+{
+  "name": "molding-scheduler",
+  "version": "1.0.0",
+  "description": "Offline injection-molding shop scheduler on discrete time slots (library + CLI)",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "molding-schedule": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

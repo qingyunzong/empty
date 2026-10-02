@@ -1,0 +1,782 @@
+{
+  "seed": 20261003,
+  "cases": 60,
+  "feasible": 37,
+  "infeasible": 23,
+  "optimalWithPreemptions": 11,
+  "mismatches": 0,
+  "elapsedMs": 5210,
+  "results": [
+    {
+      "case": 0,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 1,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 2,
+      "orders": 5,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 3,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 4,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 5,
+      "orders": 1,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 6,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 7,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 4
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 4,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 8,
+      "orders": 2,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 9,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 10,
+      "orders": 5,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 11,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 6
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 6,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 12,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 13,
+      "orders": 3,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 14,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 15,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 16,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 8
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 8,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 17,
+      "orders": 1,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 18,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 19,
+      "orders": 1,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 20,
+      "orders": 1,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 21,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 22,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 23,
+      "orders": 5,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 1
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 1,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 24,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 25,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 26,
+      "orders": 5,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 27,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 28,
+      "orders": 4,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 10
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 10,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 29,
+      "orders": 3,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 16
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 16,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 30,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 31,
+      "orders": 3,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 32,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 33,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 2
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 2,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 34,
+      "orders": 1,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 35,
+      "orders": 5,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 36,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 37,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 38,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 39,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 40,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 41,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 42,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 43,
+      "orders": 1,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 44,
+      "orders": 4,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 45,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 46,
+      "orders": 1,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 47,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 11
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 11,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 48,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 1
+      }
+    },
+    {
+      "case": 49,
+      "orders": 3,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 50,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 51,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 2
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 2,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 52,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 53,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 54,
+      "orders": 2,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 55,
+      "orders": 3,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 56,
+      "orders": 4,
+      "machines": 2,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 57,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": true,
+        "tardiness": 0
+      },
+      "solver": {
+        "status": "optimal",
+        "tardiness": 0,
+        "preemptions": 0
+      }
+    },
+    {
+      "case": 58,
+      "orders": 4,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    },
+    {
+      "case": 59,
+      "orders": 6,
+      "machines": 1,
+      "bruteForce": {
+        "feasible": false
+      },
+      "solver": {
+        "status": "infeasible"
+      }
+    }
+  ]
+}

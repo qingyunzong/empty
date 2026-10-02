@@ -1,0 +1,11 @@
+{
+  "machines": [{ "id": "M1" }, { "id": "M2" }],
+  "shifts": [
+    { "id": "S1", "start": 0, "end": 12, "quotas": { "A": 5, "B": 5 } }
+  ],
+  "orders": [
+    { "id": "B1", "release": 0, "duration": 4, "deadline": 8, "family": "B", "priority": "low", "machines": ["M1"] },
+    { "id": "C1", "release": 2, "duration": 3, "deadline": 5, "family": "A", "priority": "critical", "machines": ["M1"] },
+    { "id": "D1", "release": 0, "duration": 2, "deadline": 10, "family": "A", "priority": "low", "machines": ["M2"] }
+  ]
+}

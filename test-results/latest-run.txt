@@ -1,0 +1,12 @@
+✔ test/acceptance.test.js (2647.185954ms)
+✔ test/bruteforce.test.js (8259.868705ms)
+✔ test/cli.test.js (25992.574079ms)
+✔ test/verify.test.js (6718.378225ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26652.369151
