@@ -1,0 +1,9 @@
+{
+  "fee_bps": 25,
+  "fixed_fee": 30,
+  "freeze_bps": 150,
+  "max_total_fee": 500,
+  "max_days": 3,
+  "max_total_freeze": 2000,
+  "max_daily_amount": 30000
+}
