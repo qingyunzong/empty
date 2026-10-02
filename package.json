@@ -1,0 +1,16 @@
+{
+  "name": "fill-release",
+  "version": "1.0.0",
+  "description": "Offline batch release for a beverage filling line: combines fill weight/volume, CIP cleaning windows and lab results into batch status with safe lab-retraction rollback.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "fill": "bin/fill.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
