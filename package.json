@@ -1,0 +1,11 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline scheduling library + CLI with MVCC, snapshot isolation, material budget secondary index and deterministic plan selection",
+  "type": "commonjs",
+  "main": "src/scheduler.js",
+  "bin": { "scheduler": "cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
