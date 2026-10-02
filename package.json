@@ -1,0 +1,10 @@
+{
+  "name": "press-scheduler",
+  "version": "1.0.0",
+  "description": "Offline single-machine press-shop scheduling library and CLI with exact rational arithmetic",
+  "type": "module",
+  "bin": { "press-schedule": "./cli.js" },
+  "scripts": { "test": "node --test" },
+  "license": "UNLICENSED",
+  "private": true
+}
