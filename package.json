@@ -1,0 +1,13 @@
+{
+  "name": "mes-interlock-interpreter",
+  "version": "1.0.0",
+  "description": "Safety interlock policy interpreter for injection-molding MES (allow/deny with auditable evidence)",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

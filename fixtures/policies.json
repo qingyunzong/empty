@@ -1,0 +1,62 @@
+{
+  "roles": {
+    "worker": {},
+    "operator": { "inherits": ["worker"] },
+    "lead": { "inherits": ["operator"] },
+    "temp": { "inherits": ["worker"] }
+  },
+  "zones": {
+    "hall": {},
+    "cell-a": { "inherits": ["hall"] },
+    "cell-b": { "inherits": ["hall"] },
+    "corner-a": { "inherits": ["cell-a"] }
+  },
+  "subjects": {
+    "alice": { "roles": ["operator"] },
+    "bob": { "roles": ["temp"] },
+    "carol": { "roles": ["lead"] },
+    "dave": { "roles": ["operator"] }
+  },
+  "devices": {
+    "press-1": { "zone": "cell-a" },
+    "press-2": { "zone": "cell-b" },
+    "oven-1": { "zone": "corner-a" },
+    "mixer-1": { "zone": "hall" }
+  },
+  "rules": [
+    { "id": "base-open-allow", "action": "open_mold", "effect": "allow", "role": "worker" },
+    { "id": "cella-open-deny", "action": "open_mold", "effect": "deny", "zone": "cell-a" },
+    { "id": "cellb-open-deny", "action": "open_mold", "effect": "deny", "zone": "cell-b" },
+    {
+      "id": "old-open-allow",
+      "action": "open_mold",
+      "effect": "allow",
+      "role": "operator",
+      "zone": "cell-a",
+      "revokeAt": "2026-09-15T00:00:00Z"
+    },
+    { "id": "heat-allow-operator", "action": "heat_up", "effect": "allow", "role": "operator" },
+    { "id": "hall-heat-deny", "action": "heat_up", "effect": "deny", "zone": "hall" },
+    {
+      "id": "night-heat-allow",
+      "action": "heat_up",
+      "effect": "allow",
+      "role": "operator",
+      "zone": "cell-a",
+      "window": { "start": "2026-10-01T00:00:00Z", "end": "2026-10-01T06:00:00Z" }
+    },
+    { "id": "estop-allow-lead", "action": "reset_estop", "effect": "allow", "role": "lead" },
+    { "id": "estop-deny-hall", "action": "reset_estop", "effect": "deny", "zone": "hall" },
+    {
+      "id": "estop-retro-permit",
+      "action": "reset_estop",
+      "effect": "allow",
+      "role": "lead",
+      "zone": "cell-a",
+      "retroactive": true,
+      "revokeAt": "2026-09-20T00:00:00Z"
+    },
+    { "id": "conflict-allow", "action": "heat_up", "effect": "allow", "role": "lead", "zone": "corner-a" },
+    { "id": "conflict-deny", "action": "heat_up", "effect": "deny", "role": "lead", "zone": "corner-a" }
+  ]
+}
