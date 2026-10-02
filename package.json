@@ -1,0 +1,10 @@
+{
+  "name": "custody-chain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Append-only hash-chained audit log for biological sample chain of custody",
+  "scripts": {
+    "test": "node --test"
+  }
+}
