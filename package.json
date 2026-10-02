@@ -1,0 +1,13 @@
+{
+  "name": "reconcile-matcher",
+  "version": "1.0.0",
+  "description": "Bank/ledger reconciliation matching library and CLI (stdlib only)",
+  "type": "module",
+  "main": "src/reconcile.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
