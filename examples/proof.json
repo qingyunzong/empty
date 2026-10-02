@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "perAccountDelta": {},
+  "conservation": {
+    "ok": true,
+    "accounts": [
+      "alice"
+    ],
+    "residual": {
+      "alice": {
+        "net": 0,
+        "freeze": 0
+      }
+    }
+  },
+  "forbiddenOps": []
+}

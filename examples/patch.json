@@ -1,0 +1,10 @@
+{
+  "ops": [
+    { "op": "split", "id": "a", "parts": [
+      { "id": "a1", "debit": 6, "credit": 4, "freeze": 2 },
+      { "id": "a2", "debit": 4, "credit": 0, "freeze": 0 }
+    ] },
+    { "op": "merge", "ids": ["a1", "b"], "newId": "ab" },
+    { "op": "restate", "id": "c", "fields": { "memo": "reg-filing-7" } }
+  ]
+}

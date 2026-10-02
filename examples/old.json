@@ -1,0 +1,5 @@
+[
+  { "id": "a", "account": "alice", "debit": 10, "credit": 4, "freeze": 2, "state": "PENDING", "currency": "USD" },
+  { "id": "b", "account": "alice", "debit": 3, "credit": 1, "freeze": 0, "state": "PENDING", "currency": "USD" },
+  { "id": "c", "account": "bob", "debit": 7, "credit": 7, "freeze": 5, "state": "SETTLED", "currency": "USD" }
+]

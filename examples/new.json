@@ -1,0 +1,32 @@
+[
+  {
+    "id": "c",
+    "account": "bob",
+    "debit": 7,
+    "credit": 7,
+    "freeze": 5,
+    "state": "SETTLED",
+    "currency": "USD",
+    "memo": "reg-filing-7"
+  },
+  {
+    "id": "a2",
+    "account": "alice",
+    "debit": 4,
+    "credit": 0,
+    "freeze": 0,
+    "state": "PENDING",
+    "currency": "USD",
+    "memo": ""
+  },
+  {
+    "id": "ab",
+    "account": "alice",
+    "debit": 9,
+    "credit": 5,
+    "freeze": 2,
+    "state": "PENDING",
+    "currency": "USD",
+    "memo": ""
+  }
+]
