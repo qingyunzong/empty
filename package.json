@@ -1,0 +1,13 @@
+{
+  "name": "flowshop-planner",
+  "version": "1.0.0",
+  "description": "Offline flow-network planner for orders, machine slots and changeovers with incremental corrections, undo and bottleneck certificates",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "flowshop": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
