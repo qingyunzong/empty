@@ -1,0 +1,9 @@
+{
+  "name": "plan-sync",
+  "version": "1.0.0",
+  "description": "Offline schedule replication for factory terminals: JSONL change log, vector clocks, snapshot+manifest persistence, deterministic conflict merge.",
+  "type": "module",
+  "bin": { "plan-sync": "bin/plan-sync.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
