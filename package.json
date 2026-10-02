@@ -1,0 +1,15 @@
+{
+  "name": "mach-sched",
+  "version": "0.1.0",
+  "description": "Machining job-shop scheduler: finite-domain CP solver with tool-life and fixture-mutex propagation, hierarchical rollback for operation replacement, and a CLI.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "mach-sched": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
