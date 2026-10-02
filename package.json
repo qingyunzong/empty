@@ -1,0 +1,13 @@
+{
+  "name": "dq-rules",
+  "version": "0.1.0",
+  "description": "Rule-based scientific data quality checking, repair planning, and versioned concurrent history merging",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "dq": "bin/dq.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
