@@ -1,0 +1,13 @@
+{
+  "name": "recipe-terminal",
+  "version": "1.0.0",
+  "description": "Offline terminal for fine-chemical recipe version management with approval-chain enforcement",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "recipe-terminal": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
