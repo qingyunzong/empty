@@ -1,0 +1,13 @@
+{
+  "name": "oee-tracker",
+  "version": "1.0.0",
+  "description": "Incremental device-state session and shift OEE metrics engine with offline CLI",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

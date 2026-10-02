@@ -1,0 +1,7 @@
+[
+  { "op": "append", "event": { "id": "e", "start": "2026-01-01T00:00:00Z", "end": "2026-01-01T01:00:00Z", "state": "RUN" } },
+  { "op": "delete", "id": "d" },
+  { "op": "correct", "id": "b", "event": { "start": "2026-01-01T03:00:00Z", "end": "2026-01-01T09:00:00Z", "state": "FAIL" } },
+  { "op": "undo" },
+  { "op": "redo" }
+]
