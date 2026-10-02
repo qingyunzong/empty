@@ -1,0 +1,7 @@
+# Credit-account risk event log: rule -> fork -> branch trigger -> merge (deny-first)
+{"ts":1,"seq":1,"op":"rule","id":"R-MARGIN","group":"G-MARGIN"}
+{"ts":2,"seq":1,"op":"join","account":"default","group":"G-MARGIN"}
+{"ts":3,"seq":1,"op":"fork","branch":"main","branches":["desk-a","desk-b"]}
+{"ts":4,"seq":1,"op":"trigger","rule":"R-MARGIN","branch":"desk-a"}
+{"ts":5,"seq":1,"op":"merge","branch":"main","sources":["desk-a","desk-b"]}
+{"ts":6,"seq":1,"op":"revoke","rule":"R-MARGIN"}

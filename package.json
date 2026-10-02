@@ -1,0 +1,13 @@
+{
+  "name": "credit-freeze-hist",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline historical credit-account freeze decisions over branching event logs (library + CLI)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
