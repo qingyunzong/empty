@@ -1,0 +1,17 @@
+# Two batches over a lossy link: reorder + duplicate + drop + CRC error + split,
+# recovered by timeout retransmission, then settled.
+{"op":"account","id":"PAYER","balance":100000}
+{"op":"account","id":"PAYEE","balance":0}
+{"op":"submit","batchId":1,"lines":[{"lineNo":1,"from":"PAYER","to":"PAYEE","amount":100},{"lineNo":2,"from":"PAYER","to":"PAYEE","amount":200},{"lineNo":3,"from":"PAYER","to":"PAYEE","amount":300}]}
+{"op":"submit","batchId":2,"lines":[{"lineNo":1,"from":"PAYER","to":"PAYEE","amount":50},{"lineNo":2,"from":"PAYER","to":"PAYEE","amount":60}]}
+{"op":"send","batchId":1}
+{"op":"send","batchId":2}
+{"op":"link","action":"swap","i":0,"j":4}
+{"op":"link","action":"dup","index":2}
+{"op":"link","action":"corrupt","index":1}
+{"op":"link","action":"split","index":4,"at":9}
+{"op":"deliver","count":"all"}
+{"op":"tick","ms":1500}
+{"op":"deliver","count":"all"}
+{"op":"settle_batch","batchId":1}
+{"op":"settle_batch","batchId":2}

@@ -1,0 +1,10 @@
+{
+  "name": "xsettle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-border batch settlement library and CLI: length-prefixed framed protocol with retransmit/dedup/reassembly, credit freeze, hash-chained audit certificate",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
