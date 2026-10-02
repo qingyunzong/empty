@@ -1,0 +1,5 @@
+{"seq":0,"t":0,"op":{"op":"refund","key":"k1","order":"o1","amount":40,"riskTag":"high","paid":100}}
+{"seq":1,"t":10,"op":{"op":"refund","key":"k3","order":"o1","amount":40,"riskTag":"high","paid":100}}
+{"seq":2,"t":10,"op":{"op":"refund","key":"k2","order":"o1","amount":40,"riskTag":"high","paid":100}}
+{"seq":3,"t":20,"op":{"op":"approve","key":"k1"}}
+{"seq":4,"t":30,"op":{"op":"tick","to":110}}
