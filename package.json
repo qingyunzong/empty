@@ -1,0 +1,10 @@
+{
+  "name": "replan",
+  "version": "0.1.0",
+  "description": "Reproducible experiment planner: DAG validation, budget-constrained optimal task selection, checkpoints and resume",
+  "type": "module",
+  "private": true,
+  "bin": { "replan": "bin/replan.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
