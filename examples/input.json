@@ -1,0 +1,10 @@
+{
+  "variables": { "a": "m", "t": "s", "m": "kg" },
+  "commands": [
+    { "op": "correct", "formula": "v=a/t" },
+    { "op": "correct", "formula": "v=a/t+m" },
+    { "op": "correct", "formula": "v=a*t" },
+    { "op": "undo" },
+    { "op": "redo" }
+  ]
+}

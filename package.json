@@ -1,0 +1,9 @@
+{
+  "name": "dimformula",
+  "version": "1.0.0",
+  "description": "Dimensional formula correction library and CLI (offline, stdlib only)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
