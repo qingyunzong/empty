@@ -1,0 +1,13 @@
+{
+  "name": "settlement-graph",
+  "version": "1.0.0",
+  "description": "Event-sourced settlement directed graph with append-only audit log and checkpoints",
+  "type": "module",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

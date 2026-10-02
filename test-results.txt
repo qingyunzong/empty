@@ -1,0 +1,23 @@
+TAP version 13
+# Subtest: test/scc.test.js
+ok 1 - test/scc.test.js
+  ---
+  duration_ms: 2031.066778
+  type: 'test'
+  ...
+# Subtest: test/store.test.js
+ok 2 - test/store.test.js
+  ---
+  duration_ms: 31588.864346
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 32002.466284
+0
