@@ -1,0 +1,9 @@
+{
+  "name": "mvrepo",
+  "version": "0.1.0",
+  "description": "Offline version-graph store with linearizability checking for materialized views",
+  "type": "module",
+  "bin": { "mvrepo": "./cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
