@@ -1,0 +1,13 @@
+{
+  "name": "visionline-rework",
+  "version": "1.0.0",
+  "description": "Packaging-line vision camera event stream balancer",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

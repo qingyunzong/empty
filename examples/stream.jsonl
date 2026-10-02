@@ -1,0 +1,13 @@
+{"type":"inspect","id":"cam-001"}
+{"type":"reject","id":"cam-001"}
+{"type":"reject","id":"cam-001"}
+{"type":"rework_start","id":"cam-001"}
+{"type":"inspect","id":"cam-002"}
+{"type":"accept","id":"cam-002"}
+{"type":"shutdown"}
+{"type":"rework_done","id":"cam-001"}
+{"type":"inspect","id":"cam-003"}
+{"type":"restart"}
+{"type":"reject","id":"cam-003"}
+{"type":"void_inspect","id":"cam-003"}
+{"type":"reject","id":"ghost"}
