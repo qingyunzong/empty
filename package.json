@@ -1,0 +1,9 @@
+{
+  "name": "bytedelta",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chunked manifest diff/apply/certify tool for offline replication packages",
+  "scripts": {
+    "test": "node --test"
+  }
+}
