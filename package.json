@@ -1,0 +1,11 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "description": "Offline scheduling change library and CLI (stdlib only)",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": { "sched": "bin/sched.js" }
+}
