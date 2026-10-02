@@ -1,0 +1,9 @@
+{
+  "name": "splitpay",
+  "version": "1.0.0",
+  "description": "Multi-channel payment collection and splitting ledger with CLI",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" },
+  "bin": { "splitpay": "src/cli.js" }
+}
