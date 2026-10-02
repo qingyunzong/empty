@@ -1,0 +1,13 @@
+{
+  "name": "tombstone-ledger",
+  "version": "1.0.0",
+  "description": "Causal tombstone ledger for trade cancel/restore with merge, stdlib only",
+  "type": "module",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
