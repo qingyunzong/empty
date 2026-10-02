@@ -1,0 +1,10 @@
+{
+  "name": "wxblk",
+  "version": "1.0.0",
+  "description": "Append-only weather-observation block stream with corrections, undo, offline verification and time-windowed decoding",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
