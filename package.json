@@ -1,0 +1,10 @@
+{
+  "name": "sensor-calibration-chain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental maintenance of sensor observation calibration chains",
+  "scripts": {
+    "test": "node --test"
+  }
+}
