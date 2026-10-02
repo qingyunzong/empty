@@ -1,0 +1,18 @@
+Command: python3 -m unittest -v test_minigit
+Python:  Python 3.14.4
+Date:    2026-10-02 18:56:05 UTC
+======================================================================
+test_commit_multiple_paths_and_message (test_minigit.TestCommitAndLog.test_commit_multiple_paths_and_message) ... ok
+test_no_change_keeps_refs_and_object_ids (test_minigit.TestFilterIdentity.test_no_change_keeps_refs_and_object_ids) ... ok
+test_abort_clears_staging_and_keeps_history (test_minigit.TestFilterStaging.test_abort_clears_staging_and_keeps_history) ... ok
+test_fail_after_objects_then_rerun (test_minigit.TestFilterStaging.test_fail_after_objects_then_rerun) ... ok
+test_message_regex_replacement (test_minigit.TestFilterStripPrefix.test_message_regex_replacement) ... ok
+test_strip_prefix_across_commits (test_minigit.TestFilterStripPrefix.test_strip_prefix_across_commits) ... ok
+test_invalid_regex_exits_2 (test_minigit.TestInvalidRegex.test_invalid_regex_exits_2) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 45.289s
+
+OK
+======================================================================
+Exit code: 0
