@@ -1,0 +1,51 @@
+{
+  "shifts": 4,
+  "lines": [
+    { "id": "L1", "budgetPerShift": 1000 }
+  ],
+  "stations": [
+    { "id": "DIAG", "lineId": "L1", "capacityPerShift": [0, 0, 50, 50] },
+    { "id": "REP",  "lineId": "L1", "capacityPerShift": [0, 0, 50, 50] },
+    { "id": "INSP", "lineId": "L1", "capacityPerShift": [0, 0, 50, 50] }
+  ],
+  "orders": [
+    {
+      "id": "WO-OLD",
+      "priority": "normal",
+      "arrivalShift": 0,
+      "route": [
+        { "station": "DIAG", "minutes": 50 },
+        { "station": "REP",  "minutes": 50 },
+        { "station": "INSP", "minutes": 50 }
+      ]
+    },
+    {
+      "id": "WO-YOUNG",
+      "priority": "normal",
+      "arrivalShift": 1,
+      "route": [
+        { "station": "DIAG", "minutes": 50 },
+        { "station": "REP",  "minutes": 50 },
+        { "station": "INSP", "minutes": 50 }
+      ]
+    },
+    {
+      "id": "WO-HOT",
+      "priority": "high",
+      "arrivalShift": 2,
+      "route": [
+        { "station": "DIAG", "minutes": 50 },
+        { "station": "REP",  "minutes": 50 },
+        { "station": "INSP", "minutes": 50 }
+      ]
+    },
+    {
+      "id": "WO-BAD",
+      "priority": "normal",
+      "arrivalShift": 0,
+      "route": [
+        { "station": "DIAG", "minutes": -20 }
+      ]
+    }
+  ]
+}
