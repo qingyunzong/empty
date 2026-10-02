@@ -1,0 +1,10 @@
+{
+  "name": "evidence-claim-validator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental validation of scientific evidence claims over merged Lamport-clock histories",
+  "main": "src/core.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
