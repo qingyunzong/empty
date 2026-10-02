@@ -1,0 +1,39 @@
+{
+  "stations": [
+    {
+      "id": "ALPHA",
+      "link": "DOWNLINK-1",
+      "battery": 6,
+      "windows": [
+        {"id": "A-W1", "start": 0, "end": 2, "cost": 1, "locked": true},
+        {"id": "A-W2", "start": 2, "end": 4, "cost": 1},
+        {"id": "A-W3", "start": 4, "end": 6, "cost": 2},
+        {"id": "A-W4", "start": 6, "end": 8, "cost": 1}
+      ]
+    },
+    {
+      "id": "BRAVO",
+      "link": "DOWNLINK-1",
+      "battery": 4,
+      "windows": [
+        {"id": "B-W1", "start": 0, "end": 2, "cost": 1},
+        {"id": "B-W2", "start": 2, "end": 4, "cost": 1},
+        {"id": "B-W3", "start": 4, "end": 6, "cost": 1}
+      ]
+    },
+    {
+      "id": "CHARLIE",
+      "link": "DOWNLINK-2",
+      "battery": 3,
+      "windows": [
+        {"id": "C-W1", "start": 1, "end": 3, "cost": 1},
+        {"id": "C-W2", "start": 5, "end": 7, "cost": 1}
+      ]
+    }
+  ],
+  "contracts": [
+    {"id": "CT-A", "station": "ALPHA", "min": 2, "floor": 1, "period": 8, "quota": 3},
+    {"id": "CT-B", "station": "BRAVO", "min": 2, "floor": 1, "period": 8, "quota": 3},
+    {"id": "CT-C", "station": "CHARLIE", "min": 3, "floor": 0, "period": 8, "quota": 2}
+  ]
+}

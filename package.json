@@ -1,0 +1,15 @@
+{
+  "name": "calplan",
+  "version": "1.0.0",
+  "description": "Calibration window scheduler for earth-observation sensor networks",
+  "type": "module",
+  "bin": {
+    "calplan": "bin/calplan.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
