@@ -1,0 +1,13 @@
+{"type":"node","id":"m1","balance":1000,"rule":{"liable":true}}
+{"type":"node","id":"s1","parent":"m1","balance":200}
+{"type":"node","id":"t1","parent":"s1","balance":50}
+{"type":"node","id":"t2","parent":"s1","balance":80}
+{"type":"node","id":"s2","parent":"m1","balance":0,"rule":{"liable":false}}
+{"type":"node","id":"t3","parent":"s2","balance":30,"rule":{"liable":true}}
+{"type":"chargeback","id":"cb1","node":"t1","amount":150}
+{"type":"chargeback","id":"cb2","node":"t2","amount":120}
+{"type":"reverse","id":"rv1","chargeback":"cb1"}
+{"type":"reverse","id":"rv2","chargeback":"cb2"}
+{"type":"reverse","id":"rv3","chargeback":"cb1"}
+{"type":"route","id":"rt1","amount":40}
+{"type":"chargeback","id":"cb3","candidates":["t1","t2","t3"],"amount":40}

@@ -1,0 +1,401 @@
+{
+  "results": [
+    {
+      "type": "node",
+      "id": "m1",
+      "code": "OK"
+    },
+    {
+      "type": "node",
+      "id": "s1",
+      "code": "OK"
+    },
+    {
+      "type": "node",
+      "id": "t1",
+      "code": "OK"
+    },
+    {
+      "type": "node",
+      "id": "t2",
+      "code": "OK"
+    },
+    {
+      "type": "node",
+      "id": "s2",
+      "code": "OK"
+    },
+    {
+      "type": "node",
+      "id": "t3",
+      "code": "OK"
+    },
+    {
+      "type": "chargeback",
+      "id": "cb1",
+      "code": "OK",
+      "start": "t1",
+      "amount": 150,
+      "covered": 150,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t1",
+          "amount": 50,
+          "balanceBefore": 50,
+          "balanceAfter": 0
+        },
+        {
+          "node": "s1",
+          "amount": 100,
+          "balanceBefore": 200,
+          "balanceAfter": 100
+        }
+      ],
+      "restored": {
+        "code": "OK",
+        "by": "rv3"
+      }
+    },
+    {
+      "type": "chargeback",
+      "id": "cb2",
+      "code": "OK",
+      "start": "t2",
+      "amount": 120,
+      "covered": 120,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t2",
+          "amount": 80,
+          "balanceBefore": 80,
+          "balanceAfter": 0
+        },
+        {
+          "node": "s1",
+          "amount": 40,
+          "balanceBefore": 100,
+          "balanceAfter": 60
+        }
+      ],
+      "restored": {
+        "code": "OK",
+        "by": "rv2"
+      }
+    },
+    {
+      "type": "reverse",
+      "id": "rv1",
+      "code": "E_RESTORE",
+      "chargeback": "cb1",
+      "drift": [
+        {
+          "node": "s1",
+          "expected": 100,
+          "actual": 60
+        }
+      ]
+    },
+    {
+      "type": "reverse",
+      "id": "rv2",
+      "code": "OK",
+      "chargeback": "cb2",
+      "steps": [
+        {
+          "node": "s1",
+          "amount": 40,
+          "balanceBefore": 60,
+          "balanceAfter": 100
+        },
+        {
+          "node": "t2",
+          "amount": 80,
+          "balanceBefore": 0,
+          "balanceAfter": 80
+        }
+      ]
+    },
+    {
+      "type": "reverse",
+      "id": "rv3",
+      "code": "OK",
+      "chargeback": "cb1",
+      "steps": [
+        {
+          "node": "s1",
+          "amount": 100,
+          "balanceBefore": 100,
+          "balanceAfter": 200
+        },
+        {
+          "node": "t1",
+          "amount": 50,
+          "balanceBefore": 0,
+          "balanceAfter": 50
+        }
+      ]
+    },
+    {
+      "type": "route",
+      "id": "rt1",
+      "code": "OK",
+      "chosen": {
+        "start": "m1",
+        "depth": 0,
+        "amount": 40,
+        "covered": 40,
+        "uncovered": 0,
+        "steps": [
+          {
+            "node": "m1",
+            "amount": 40
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "start": "m1",
+          "depth": 0,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "m1",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "start": "s1",
+          "depth": 1,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "s1",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "start": "s2",
+          "depth": 1,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "m1",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "start": "t1",
+          "depth": 2,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "t1",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "start": "t2",
+          "depth": 2,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "t2",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "start": "t3",
+          "depth": 2,
+          "amount": 40,
+          "covered": 40,
+          "uncovered": 0,
+          "steps": [
+            {
+              "node": "t3",
+              "amount": 30
+            },
+            {
+              "node": "m1",
+              "amount": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "chargeback",
+      "id": "cb3",
+      "code": "OK",
+      "start": "t1",
+      "amount": 40,
+      "covered": 40,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t1",
+          "amount": 40,
+          "balanceBefore": 50,
+          "balanceAfter": 10
+        }
+      ],
+      "restored": null
+    }
+  ],
+  "balances": {
+    "m1": 1000,
+    "s1": 200,
+    "t1": 10,
+    "t2": 80,
+    "s2": 0,
+    "t3": 30
+  },
+  "audit": [
+    {
+      "seq": 1,
+      "type": "chargeback",
+      "id": "cb1",
+      "code": "OK",
+      "start": "t1",
+      "amount": 150,
+      "covered": 150,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t1",
+          "amount": 50,
+          "balanceBefore": 50,
+          "balanceAfter": 0
+        },
+        {
+          "node": "s1",
+          "amount": 100,
+          "balanceBefore": 200,
+          "balanceAfter": 100
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "type": "chargeback",
+      "id": "cb2",
+      "code": "OK",
+      "start": "t2",
+      "amount": 120,
+      "covered": 120,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t2",
+          "amount": 80,
+          "balanceBefore": 80,
+          "balanceAfter": 0
+        },
+        {
+          "node": "s1",
+          "amount": 40,
+          "balanceBefore": 100,
+          "balanceAfter": 60
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "type": "restore",
+      "id": "rv1",
+      "chargeback": "cb1",
+      "code": "E_RESTORE",
+      "drift": [
+        {
+          "node": "s1",
+          "expected": 100,
+          "actual": 60
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "type": "restore",
+      "id": "rv2",
+      "chargeback": "cb2",
+      "code": "OK",
+      "steps": [
+        {
+          "node": "s1",
+          "amount": 40,
+          "balanceBefore": 60,
+          "balanceAfter": 100
+        },
+        {
+          "node": "t2",
+          "amount": 80,
+          "balanceBefore": 0,
+          "balanceAfter": 80
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "type": "restore",
+      "id": "rv3",
+      "chargeback": "cb1",
+      "code": "OK",
+      "steps": [
+        {
+          "node": "s1",
+          "amount": 100,
+          "balanceBefore": 100,
+          "balanceAfter": 200
+        },
+        {
+          "node": "t1",
+          "amount": 50,
+          "balanceBefore": 0,
+          "balanceAfter": 50
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "type": "route",
+      "id": "rt1",
+      "root": null,
+      "amount": 40,
+      "chosen": "m1"
+    },
+    {
+      "seq": 7,
+      "type": "chargeback",
+      "id": "cb3",
+      "code": "OK",
+      "start": "t1",
+      "amount": 40,
+      "covered": 40,
+      "uncovered": 0,
+      "steps": [
+        {
+          "node": "t1",
+          "amount": 40,
+          "balanceBefore": 50,
+          "balanceAfter": 10
+        }
+      ]
+    }
+  ]
+}
