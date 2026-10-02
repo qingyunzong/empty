@@ -1,0 +1,10 @@
+{
+  "name": "agv-chain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline AGV task-chain reconstruction, root-cause analysis and certificate export (Node.js stdlib only)",
+  "main": "src/chain.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

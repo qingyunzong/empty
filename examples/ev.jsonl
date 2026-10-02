@@ -1,0 +1,11 @@
+{"type":"ASSIGN","job":"A","leg":0,"seq":1,"causes":[],"ts":100}
+{"type":"PICK","job":"A","leg":0,"seq":2,"causes":[],"ts":200}
+{"type":"DROP","job":"A","leg":0,"seq":3,"causes":[],"ts":300}
+{"type":"ASSIGN","job":"B","leg":0,"seq":1,"causes":[{"job":"A","leg":0}],"ts":400}
+{"type":"PICK","job":"B","leg":0,"seq":2,"causes":[],"ts":500}
+{"type":"FAIL","job":"B","leg":0,"seq":3,"causes":["A:0"],"ts":600}
+{"type":"RETRY","job":"B","leg":1,"seq":4,"causes":[],"ts":700}
+{"type":"PICK","job":"B","leg":1,"seq":5,"causes":[],"ts":800}
+{"type":"DROP","job":"B","leg":1,"seq":6,"causes":[],"ts":900}
+{"type":"ASSIGN","job":"C","leg":0,"seq":1,"causes":[],"ts":1000}
+{"type":"PICK","job":"C","leg":0,"seq":2,"causes":[],"ts":1100}
