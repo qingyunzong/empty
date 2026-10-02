@@ -1,0 +1,16 @@
+{
+  "name": "lineage-recompute",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lineage-aware recompute scheduler for derived research datasets",
+  "main": "src/index.js",
+  "bin": {
+    "lineage": "bin/lineage.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
