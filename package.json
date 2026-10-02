@@ -1,0 +1,16 @@
+{
+  "name": "repro-dag",
+  "version": "1.0.0",
+  "description": "Experiment reproduction manager: causal DAG with content-addressed run cache, hash-chain evidence certificates, precise invalidation and tombstone GC.",
+  "type": "module",
+  "main": "src/dag.js",
+  "bin": {
+    "repro-dag": "bin/repro-dag.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
