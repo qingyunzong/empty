@@ -1,0 +1,9 @@
+{
+  "name": "payhold-linearize",
+  "version": "0.1.0",
+  "description": "Linearizability checker for payment hold lifecycle histories (hold/capture/cancel/audit)",
+  "type": "module",
+  "bin": { "linearize": "bin/linearize.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}

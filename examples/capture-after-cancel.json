@@ -1,0 +1,10 @@
+{
+  "operations": [
+    { "id": "h1", "op": "hold", "invoke": 0, "respond": 2, "clock": 1, "version": 1,
+      "amount": 100, "deadline": 50, "response": { "ok": true, "holdId": "H1" } },
+    { "id": "x1", "op": "cancel", "holdId": "H1", "invoke": 3, "respond": 5, "clock": 2, "version": 1,
+      "response": { "ok": true, "released": 100 } },
+    { "id": "c1", "op": "capture", "holdId": "H1", "invoke": 6, "respond": 8, "clock": 3, "version": 1,
+      "amount": 50, "response": { "ok": true, "totalCaptured": 50 } }
+  ]
+}
