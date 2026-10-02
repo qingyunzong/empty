@@ -1,0 +1,13 @@
+{
+  "name": "packline-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline sync of packaging-line vision terminal events: correction chains, SCRAP terminal state, traceability export with incremental content hash",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.2"
+  }
+}
