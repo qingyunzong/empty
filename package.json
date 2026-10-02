@@ -1,0 +1,15 @@
+{
+  "name": "obs-corrections",
+  "version": "1.0.0",
+  "description": "Append-only observatory correction ledger with WAL, secondary indexes and crash recovery",
+  "type": "commonjs",
+  "bin": {
+    "obs-corrections": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.2"
+  }
+}
