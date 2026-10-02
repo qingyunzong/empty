@@ -1,0 +1,5 @@
+{"id":"e1","time":"2026-01-01T00:00:00Z","device":"sensor-1","type":"temp","value":85}
+{"id":"e2","time":"2026-01-01T00:06:00Z","device":"sensor-1","type":"temp","value":86}
+{"id":"e3","time":"2026-01-01T00:08:00Z","device":"sensor-1","type":"temp","value":70}
+{"id":"e4","time":"2026-01-01T00:09:00Z","device":"sensor-1","type":"current","value":12}
+{"id":"e5","time":"2026-01-01T00:11:00Z","device":"sensor-1","type":"current","value":8}

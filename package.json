@@ -1,0 +1,11 @@
+{
+  "name": "sensor-alert-replay",
+  "version": "1.0.0",
+  "description": "Offline sensor JSONL replay with a rule DSL, bytecode VM and correction-consistent alerts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "run": "node src/cli.js run"
+  }
+}
