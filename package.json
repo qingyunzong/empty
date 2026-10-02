@@ -1,0 +1,12 @@
+{
+  "name": "food-lot-traceability",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline lot genealogy tracing with incremental recomputation and certificate revocation chains",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
