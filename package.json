@@ -1,0 +1,9 @@
+{
+  "name": "settlement-invariant-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal-counterexample search and proof certificates for settlement approval invariants",
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "threshold": 100,
+  "subjects": ["alice", "bob", "carol", "dave"],
+  "roles": {
+    "clerk": []
+  },
+  "assignments": {
+    "alice": ["clerk"],
+    "bob": ["clerk"]
+  },
+  "rules": [
+    { "id": "allow-submit", "effect": "allow", "role": "clerk", "action": "submit" },
+    { "id": "allow-approve", "effect": "allow", "role": "clerk", "action": "approve" },
+    { "id": "deny-self-approve", "effect": "deny", "role": "clerk", "action": "approve", "self": true }
+  ],
+  "invariant": { "role": "clerk" }
+}
