@@ -1,0 +1,16 @@
+{
+  "name": "cnc-feed-planner",
+  "version": "1.0.0",
+  "description": "Offline CNC feed planning with exact rational polynomial integration and quantized slot output",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "cnc-feed": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
