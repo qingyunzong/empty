@@ -1,0 +1,11 @@
+{
+  "name": "causal-event-analyzer",
+  "version": "0.1.0",
+  "description": "Offline causal analysis of delayed/out-of-order device event logs (vector clocks + time windows + backtracking search)",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
