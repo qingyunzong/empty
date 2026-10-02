@@ -1,0 +1,50 @@
+TAP version 13
+# Subtest: test/budget.test.js
+ok 1 - test/budget.test.js
+  ---
+  duration_ms: 1083.113343
+  type: 'test'
+  ...
+# Subtest: test/enumerator.test.js
+ok 2 - test/enumerator.test.js
+  ---
+  duration_ms: 1100.32253
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1264.105878
+exit_code=0
+# --- per-file detail ---
+# test/budget.test.js: exit=0 pass=10 fail=0
+# test/enumerator.test.js: exit=0 pass=6 fail=0
+# --- safety certificate (node bin/explree.js examples/tree.json examples/actors.json) ---
+{
+  "status": "SAFE",
+  "order": "lexicographic-by-actor-id",
+  "treeHash": "a92cb184d529ceedbfc05b74f6925cd83eaa5f4d84645bf2f99647f9d7e1cb6a",
+  "actorsHash": "fc5f5901b11f65d53b8ba31514a349280a2b5661082b8ae3606d541789cdb652",
+  "interleavings": 30,
+  "stepsExecuted": 150,
+  "distinctFinalStates": 1,
+  "finalStateHashes": [
+    "2da749af92a9a5413e1c8535bb8436b16ec9837700cbf2c96f31cb978bc1bcf7"
+  ],
+  "rejectionsSeen": [
+    "INVALID_BATCH"
+  ],
+  "invariants": [
+    "held>=0",
+    "used>=0",
+    "subtree(held+used)<=limit",
+    "aggregates-consistent"
+  ],
+  "certificateHash": "f3962c2b6a03850098720eac62c8ea8f3644885297fed4ddbb8bd3167887987f"
+}
+cli_exit_code=0

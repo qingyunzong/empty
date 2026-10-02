@@ -1,0 +1,24 @@
+{
+  "actors": [
+    {
+      "id": "A",
+      "ops": [
+        { "op": "reserve", "batch": "bA", "holds": [{ "node": "a", "amount": 10 }] },
+        { "op": "settle", "batch": "bA" }
+      ]
+    },
+    {
+      "id": "B",
+      "ops": [
+        { "op": "reserve", "batch": "bB", "holds": [{ "node": "b", "amount": 20 }] },
+        { "op": "cancel", "batch": "bB" }
+      ]
+    },
+    {
+      "id": "C",
+      "ops": [
+        { "op": "reserve", "batch": "bC", "holds": [{ "node": "a", "amount": 1000 }] }
+      ]
+    }
+  ]
+}

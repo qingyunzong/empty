@@ -1,0 +1,16 @@
+{
+  "name": "explree",
+  "version": "1.0.0",
+  "description": "Hierarchical budget hold/rollback engine with an interleaving safety explorer",
+  "type": "commonjs",
+  "main": "src/tree.js",
+  "bin": {
+    "explree": "bin/explree.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

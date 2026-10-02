@@ -1,0 +1,7 @@
+{
+  "nodes": [
+    { "id": "root", "parent": null, "limit": 100 },
+    { "id": "a", "parent": "root", "limit": 60 },
+    { "id": "b", "parent": "root", "limit": 60 }
+  ]
+}
