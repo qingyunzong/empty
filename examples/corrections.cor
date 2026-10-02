@@ -1,0 +1,7 @@
+#!correction
+map total = price * qty
+map price = price * 2
+clamp price 0 100
+filter qty > 0
+if qty >= 4 then bonus = qty * 10
+#!end

@@ -1,0 +1,13 @@
+{
+  "name": "obs-stream-corrector",
+  "version": "1.0.0",
+  "description": "Observation-stream correction library and CLI: lexer, bytecode compiler, batched VM with checkpoint/rollback and crash recovery",
+  "type": "module",
+  "main": "src/runner.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
