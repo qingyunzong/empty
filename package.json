@@ -1,0 +1,11 @@
+{
+  "name": "qctl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Quality quarantine control library and CLI",
+  "type": "commonjs",
+  "bin": { "qctl": "bin/qctl.js" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
