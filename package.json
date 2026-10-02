@@ -1,0 +1,10 @@
+{
+  "name": "exp-dsl",
+  "version": "0.1.0",
+  "description": "Incremental parser for experiment parameters and raw observations",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

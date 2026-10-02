@@ -1,0 +1,130 @@
+# Run Record
+date: 2026-10-02T21:34:22Z
+node: v22.22.1
+cwd: /home/delin/.local/share/gsb-workbench/artifacts/a1a0fdd858a34155aba85b99c113e151/run/A/attempt-007/workspace
+
+## $ node --test
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 791.112609
+  type: 'test'
+  ...
+# Subtest: test/lexer.test.js
+ok 2 - test/lexer.test.js
+  ---
+  duration_ms: 337.835288
+  type: 'test'
+  ...
+# Subtest: test/parser.test.js
+ok 3 - test/parser.test.js
+  ---
+  duration_ms: 344.923293
+  type: 'test'
+  ...
+# Subtest: test/snapshot.test.js
+ok 4 - test/snapshot.test.js
+  ---
+  duration_ms: 341.570595
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 817.703148
+
+exit=0
+
+## $ node cli.js resolve examples/nested.dsl rate --scope outer.mid.inner
+{
+  "name": "rate",
+  "value": 4,
+  "definedIn": "root.outer.mid.inner",
+  "chain": [
+    {
+      "scope": "inner",
+      "path": "root.outer.mid.inner",
+      "hasBinding": true
+    },
+    {
+      "scope": "mid",
+      "path": "root.outer.mid",
+      "hasBinding": true
+    },
+    {
+      "scope": "outer",
+      "path": "root.outer",
+      "hasBinding": true
+    },
+    {
+      "scope": "root",
+      "path": "root",
+      "hasBinding": false
+    }
+  ]
+}
+exit=0
+
+## $ node cli.js correct /tmp/small.dsl a 5   (small.dsl: let a = 1; let b = a + 1; let c = b * 10;)
+{
+  "parentVersion": 1,
+  "version": 2,
+  "corrected": {
+    "name": "a",
+    "value": 5,
+    "definedIn": "root",
+    "chain": [
+      {
+        "scope": "root",
+        "path": "root",
+        "hasBinding": true
+      }
+    ]
+  },
+  "visible": {
+    "a": {
+      "value": 5,
+      "definedIn": "root"
+    },
+    "b": {
+      "value": 6,
+      "definedIn": "root"
+    },
+    "c": {
+      "value": 60,
+      "definedIn": "root"
+    }
+  },
+  "parentVisible": {
+    "a": {
+      "value": 1,
+      "definedIn": "root"
+    },
+    "b": {
+      "value": 2,
+      "definedIn": "root"
+    },
+    "c": {
+      "value": 20,
+      "definedIn": "root"
+    }
+  }
+}
+exit=0
+
+## error cases (exit code 1)
+### override of undefined binding
+error: override of undefined binding 'nope' in scope 'root.e'
+exit=1
+### unterminated raw observation
+error: unterminated raw observation starting at 1:9
+exit=1
+### unknown name
+error: unknown name 'ghost' referenced from scope 'root'
+exit=1
