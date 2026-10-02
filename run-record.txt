@@ -1,0 +1,103 @@
+run-record.txt — real stdout / stderr / exit codes
+recorded: 2026-10-02T18:34:20Z (UTC)
+node: v22.22.1
+
+=== node --test (full test suite) ===
+$ node --test
+--- stdout ---
+TAP version 13
+# Subtest: test/formula.test.js
+ok 1 - test/formula.test.js
+  ---
+  duration_ms: 2728.1174
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2922.816849
+--- stderr ---
+
+--- exit code: 0 ---
+
+=== acceptance 1: def, correct v=a/2[t], undo, redo, certify ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+def v = a/3[t]
+correct v = a/2[t]
+certify v
+undo v
+certify v
+redo v
+certify v
+--- stdout ---
+{"ok":true,"op":"def","name":"v","version":1}
+{"ok":true,"op":"correct","name":"v","version":2}
+{"ok":true,"op":"certify","name":"v","version":2,"sha256":"df0e26059675a577faec2658c3f8b03460e50f88d49ee74043985abe288dacb3"}
+{"ok":true,"op":"undo","name":"v","version":1}
+{"ok":true,"op":"certify","name":"v","version":1,"sha256":"8f2644e4f50db3095fe6f5d0a1abebbc4bf077e6787ae4a818b22492eb12d610"}
+{"ok":true,"op":"redo","name":"v","version":2}
+{"ok":true,"op":"certify","name":"v","version":2,"sha256":"df0e26059675a577faec2658c3f8b03460e50f88d49ee74043985abe288dacb3"}
+--- stderr ---
+--- exit code: 0 ---
+
+=== acceptance 1b: new correction after undo clears redo branch ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+def v = a/3[t]
+correct v = a/2[t]
+undo v
+correct v = a/4[t]
+redo v
+--- stdout ---
+{"ok":true,"op":"def","name":"v","version":1}
+{"ok":true,"op":"correct","name":"v","version":2}
+{"ok":true,"op":"undo","name":"v","version":1}
+{"ok":true,"op":"correct","name":"v","version":2}
+--- stderr ---
+error: state: formula "v" has nothing to redo
+--- exit code: 1 ---
+
+=== acceptance 3a: unclosed unit fragment -> error, exit 1, no partial version ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+def u = a/2[t
+--- stdout ---
+--- stderr ---
+error: lex: unclosed unit fragment at offset 3
+--- exit code: 1 ---
+
+=== acceptance 3b: redo on empty redo stack -> error, exit 1, state unchanged ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+def w = x+1
+redo w
+--- stdout ---
+{"ok":true,"op":"def","name":"w","version":1}
+--- stderr ---
+error: state: formula "w" has nothing to redo
+--- exit code: 1 ---
+
+=== unknown name error ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+certify nope
+--- stdout ---
+--- stderr ---
+error: name: unknown formula "nope"
+--- exit code: 1 ---
+
+=== type error: unknown function ===
+$ printf '%s' '<stdin shown below>' | node cli.js
+--- stdin ---
+def f = nosuch(1)
+--- stdout ---
+--- stderr ---
+error: type: unknown function "nosuch"
+--- exit code: 1 ---
+
