@@ -1,0 +1,8 @@
+{
+  "name": "microscope-scheduler",
+  "version": "1.0.0",
+  "description": "显微成像中心扫描批调度：通道互斥、物镜切换成本、配额与防抖动优先、维护迁移、代际回滚",
+  "type": "module",
+  "bin": { "micro": "bin/micro.js" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}
