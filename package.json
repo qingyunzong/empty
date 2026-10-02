@@ -1,0 +1,16 @@
+{
+  "name": "layered-settlement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Layered settlement chunk log with checkpoint/index recovery (reserve/freeze/pay/revert)",
+  "main": "src/index.js",
+  "bin": {
+    "settle": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
