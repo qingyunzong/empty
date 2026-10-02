@@ -1,0 +1,16 @@
+{
+  "name": "obs-correction",
+  "version": "1.0.0",
+  "description": "Observation stream correction library and CLI: lexes correction scripts, compiles them to bytecode, and runs a checkpoint/rollback batch VM.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "obs-correct": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

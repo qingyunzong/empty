@@ -1,0 +1,13 @@
+# Observation stream correction script.
+# amount = price * qty; clamp score into [0, 100]; drop inactive records;
+# add a bonus of 5 to large amounts; per = amount / qty.
+#!correction main
+mul amount price qty
+clamp score 0 100
+filter status == "active"
+if amount > 50 goto big
+jmp done
+label big
+add amount amount 5
+label done
+div per amount qty

@@ -1,0 +1,7 @@
+[
+  { "id": "a", "price": 10, "qty": 2, "score": 150, "status": "active" },
+  { "id": "b", "price": 5, "qty": 4, "score": -20, "status": "active" },
+  { "id": "c", "price": 7, "qty": 3, "score": 50, "status": "inactive" },
+  { "id": "d", "price": 100, "qty": 1, "score": 80, "status": "active" },
+  { "id": "e", "price": 3, "qty": 10, "score": 95, "status": "active" }
+]
