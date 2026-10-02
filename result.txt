@@ -1,0 +1,41 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 6193.906779
+  type: 'test'
+  ...
+# Subtest: test/fork.test.js
+ok 2 - test/fork.test.js
+  ---
+  duration_ms: 6666.926997
+  type: 'test'
+  ...
+# Subtest: test/permutation.test.js
+ok 3 - test/permutation.test.js
+  ---
+  duration_ms: 8288.659276
+  type: 'test'
+  ...
+# Subtest: test/range.test.js
+ok 4 - test/range.test.js
+  ---
+  duration_ms: 5723.181935
+  type: 'test'
+  ...
+# Subtest: test/truncation.test.js
+ok 5 - test/truncation.test.js
+  ---
+  duration_ms: 5665.507293
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9015.043707
+0

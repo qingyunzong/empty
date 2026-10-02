@@ -1,0 +1,13 @@
+{
+  "name": "txlog-replay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chunked transaction log with post-execution cancel, hash-chained blocks, CRC32, sparse index and replay CLI",
+  "main": "cli.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
