@@ -1,0 +1,5 @@
+{"type":"payment","order":"o1","amount":1000,"seq":1,"ts":0}
+{"type":"refund","key":"k1","order":"o1","amount":100,"riskTag":"high","seq":2,"ts":10}
+{"type":"refund","key":"k1","order":"o1","amount":100,"riskTag":"high","seq":3,"ts":20}
+{"type":"refund","key":"k1","order":"o1","amount":100,"riskTag":"high","seq":2,"ts":10}
+{"type":"approve","key":"k1","seq":4,"ts":30}

@@ -1,0 +1,10 @@
+{
+  "name": "refund-risk-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Merchant refund risk-control service and CLI (Node.js stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}

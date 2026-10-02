@@ -1,0 +1,8 @@
+{"type":"payment","order":"o1","amount":5000,"seq":1,"ts":0}
+{"type":"refund","key":"ka","order":"o1","amount":600,"riskTag":"high","seq":2,"ts":0}
+{"type":"approve","key":"ka","seq":3,"ts":1}
+{"type":"refund","key":"kc","order":"o1","amount":600,"riskTag":"high","seq":4,"ts":2}
+{"type":"refund","key":"kb","order":"o1","amount":600,"riskTag":"high","seq":5,"ts":2}
+{"type":"reverse","key":"ka","seq":6,"ts":3}
+{"type":"approve","key":"kb","seq":7,"ts":4}
+{"type":"payment","order":"o2","amount":1,"seq":8,"ts":40000}

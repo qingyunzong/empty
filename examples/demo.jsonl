@@ -1,0 +1,11 @@
+{"type":"payment","order":"o1","amount":2000,"seq":1,"ts":0}
+{"type":"payment","order":"o2","amount":500,"seq":2,"ts":0}
+{"type":"refund","key":"r1","order":"o1","amount":700,"riskTag":"high","seq":3,"ts":100}
+{"type":"refund","key":"r2","order":"o1","amount":500,"riskTag":"high","seq":4,"ts":200}
+{"type":"refund","key":"r3","order":"o2","amount":400,"riskTag":"high","seq":5,"ts":300}
+{"type":"approve","key":"r1","seq":6,"ts":400}
+{"type":"reverse","key":"r1","seq":7,"ts":500}
+{"type":"approve","key":"r2","seq":8,"ts":600}
+{"type":"reject","key":"r3","seq":9,"ts":700}
+{"type":"refund","key":"r1","order":"o1","amount":700,"riskTag":"high","seq":10,"ts":800}
+{"type":"refund","key":"r4","order":"o2","amount":600,"riskTag":"low","seq":11,"ts":900}
