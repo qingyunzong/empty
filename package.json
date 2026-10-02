@@ -1,0 +1,9 @@
+{
+  "name": "settlement-index",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Persistent positional index for merchant settlement vouchers",
+  "main": "src/store.js",
+  "bin": { "settle-idx": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
