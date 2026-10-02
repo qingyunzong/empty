@@ -1,0 +1,8 @@
+{
+  "name": "auditdb",
+  "version": "0.1.0",
+  "description": "Bitemporal audit ledger: append-only corrections, tombstones, asOf queries",
+  "type": "module",
+  "bin": { "auditdb": "bin/auditdb.js" },
+  "scripts": { "test": "node --test" }
+}
