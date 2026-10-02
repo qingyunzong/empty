@@ -1,0 +1,12 @@
+{
+  "currentDay": 2,
+  "entries": [
+    { "id": "e1", "txnId": "txn:1001", "account": "acct:alice", "dc": "debit", "amount": "250.00", "status": "SETTLED", "day": 1 },
+    { "id": "e2", "txnId": "txn:1001", "account": "acct:revenue", "dc": "credit", "amount": "250.00", "status": "SETTLED", "day": 1 },
+    { "id": "e3", "txnId": "txn:1002", "account": "acct:bob", "dc": "debit", "amount": "80.00", "status": "LOCKED", "day": 0 },
+    { "id": "e4", "txnId": "txn:1002", "account": "acct:revenue", "dc": "credit", "amount": "80.00", "status": "LOCKED", "day": 0 },
+    { "id": "e5", "txnId": "txn:1003", "account": "acct:carol", "dc": "debit", "amount": "42.50", "status": "PENDING", "day": 2 },
+    { "id": "e6", "txnId": "txn:1003", "account": "acct:revenue", "dc": "credit", "amount": "42.50", "status": "PENDING", "day": 2 }
+  ],
+  "revocations": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "rev",
+  "version": "0.1.0",
+  "description": "Revocation DSL, bytecode VM and WAL-based recovery for payment ledger rollback",
+  "type": "module",
+  "bin": {
+    "rev": "bin/rev.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

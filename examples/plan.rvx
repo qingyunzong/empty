@@ -1,0 +1,12 @@
+# Revocation plan: roll back a batch of posted transactions.
+# - SETTLED  -> reversed with paired debit/credit mirror entries
+# - LOCKED (cross-day) -> compensated, originals stay on the books
+# - PENDING  -> marked CANCEL_REQUESTED (never treated as failure)
+param rev_id = "rev-2026-0001";
+param operator = "ops";
+
+for tx in txns(txn:1001, txn:1002, txn:1003) {
+  when tx.status == SETTLED or tx.status == PENDING or tx.status == LOCKED {
+    revoke tx;
+  }
+}
