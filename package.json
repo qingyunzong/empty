@@ -1,0 +1,10 @@
+{
+  "name": "offline-credit-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline account credit ledger with holds, payments, snapshot transactions and secondary indexes",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
