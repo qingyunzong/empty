@@ -1,0 +1,16 @@
+{
+  "name": "demand-audit",
+  "version": "0.1.0",
+  "description": "Offline 15-minute demand peak audit: meter/tariff/shed event replay with retractions",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "demand": "bin/demand.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
