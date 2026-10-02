@@ -1,0 +1,16 @@
+{
+  "name": "history-redact",
+  "version": "1.0.0",
+  "description": "Offline history-redaction rewriter for a scientific data warehouse (library + CLI)",
+  "type": "module",
+  "main": "src/redact.js",
+  "bin": {
+    "history-redact": "bin/history-redact.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
