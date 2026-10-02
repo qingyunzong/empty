@@ -1,0 +1,13 @@
+{
+  "name": "smt-frame-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMT machine binary inspection-frame gateway: reassembly, verifiable quality certs",
+  "main": "lib/gateway.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
