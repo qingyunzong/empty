@@ -1,0 +1,9 @@
+{
+  "name": "xborder-settlement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-border batch settlement over a lossy length-prefixed frame link",
+  "scripts": {
+    "test": "node --test"
+  }
+}

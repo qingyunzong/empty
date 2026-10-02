@@ -1,0 +1,5 @@
+{"op":"init","limit":"1000000.00","currencies":["USD","EUR","CNY"],"rtoMs":500}
+{"op":"submit","batch":1,"timeoutMs":5000,"lines":[{"lineNo":1,"amount":"100.00","currency":"USD","direction":"pay"},{"lineNo":2,"amount":"200.00","currency":"EUR","direction":"pay"},{"lineNo":3,"amount":"50.00","currency":"CNY","direction":"receive"}]}
+{"op":"pump","order":["1:3","1:1","1:2"],"drop":["1:2"],"dup":["1:1"]}
+{"op":"tick","ms":500}
+{"op":"pump"}

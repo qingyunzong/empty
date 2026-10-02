@@ -1,0 +1,2 @@
+{"op":"init","limit":"100.00"}
+{"op":"submit","batch":1,"timeoutMs":5000,"lines":[{"lineNo":1,"amount":"200.00","currency":"USD","direction":"pay"}]}

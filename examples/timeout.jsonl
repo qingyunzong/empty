@@ -1,0 +1,4 @@
+{"op":"init","rtoMs":200}
+{"op":"submit","batch":1,"timeoutMs":1000,"lines":[{"lineNo":1,"amount":"100.00","currency":"USD","direction":"pay"},{"lineNo":2,"amount":"200.00","currency":"USD","direction":"pay"}]}
+{"op":"pump","drop":["1:2"]}
+{"op":"tick","ms":1000}
