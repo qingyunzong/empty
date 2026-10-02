@@ -1,0 +1,10 @@
+{
+  "name": "cost-allocation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline shared-cost allocation library and CLI (Node.js 22, stdlib only)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
