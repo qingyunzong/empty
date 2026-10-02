@@ -1,0 +1,13 @@
+{
+  "name": "plc-linearizability",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Append-only PLC event log, deterministic replayer and offline linearizability verifier",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
