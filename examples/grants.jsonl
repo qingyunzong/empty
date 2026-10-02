@@ -1,0 +1,3 @@
+{"id":"G1","kind":"grant","subject":"agv-1","zone":"Z-COLD","from":0,"to":100,"clock":{"node":"ops","counter":1},"parents":[]}
+{"id":"G2","kind":"grant","subject":"agv-1","aisle":"A-R-1","from":0,"to":100,"clock":{"node":"ops","counter":2},"parents":["G1"]}
+{"id":"R1","kind":"revoke","target":"G2","at":50,"clock":{"node":"ops","counter":3},"parents":["G2"]}

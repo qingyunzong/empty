@@ -1,0 +1,3 @@
+{"id":"T1","subject":"agv-1","type":"normal","priority":5,"target":{"aisle":"A-R-1"},"time":10,"completeTime":80,"clock":{"node":"agv-1","counter":4},"parents":["G2"]}
+{"id":"T2","subject":"agv-1","type":"normal","priority":5,"target":{"aisle":"A-R-1"},"time":60,"completeTime":70,"clock":{"node":"agv-1","counter":5},"parents":["R1"]}
+{"id":"T3","subject":"agv-1","type":"rescue","priority":1,"target":{"shelf":"S-R-1"},"time":90,"completeTime":95,"authorizers":["alice","bob"],"clock":{"node":"agv-1","counter":6},"parents":["R1"]}
