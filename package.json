@@ -1,0 +1,10 @@
+{
+  "name": "multilateral-netting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multilateral netting settlement library and CLI (Node.js standard library only)",
+  "main": "src/netting.js",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
