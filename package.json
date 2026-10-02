@@ -1,0 +1,10 @@
+{
+  "name": "qcl",
+  "version": "0.1.0",
+  "description": "Offline quality closed-loop management: defects, rework, re-inspection, scrap with crash-provable recovery",
+  "type": "module",
+  "private": true,
+  "bin": { "qcl": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
