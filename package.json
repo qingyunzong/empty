@@ -1,0 +1,10 @@
+{
+  "name": "exp-rebase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Rebase library and CLI for experiment script histories (offline, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
