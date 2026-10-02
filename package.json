@@ -1,0 +1,13 @@
+{
+  "name": "offline-alarm-engine",
+  "version": "1.0.0",
+  "description": "Offline device event-stream alarm derivation engine with incremental invalidation and a batch CLI",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

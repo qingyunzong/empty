@@ -1,0 +1,13 @@
+[
+  { "id": "r1", "alarm": "hot", "when": [{ "type": "temperature", "op": ">=", "value": 90 }] },
+  {
+    "id": "r2",
+    "alarm": "hot-pressurized",
+    "when": [{ "alarm": "hot" }, { "type": "pressure", "op": ">=", "value": 100 }]
+  },
+  {
+    "id": "r3",
+    "alarm": "critical",
+    "when": [{ "alarm": "hot-pressurized" }, { "type": "vibration", "op": ">=", "value": 5 }]
+  }
+]

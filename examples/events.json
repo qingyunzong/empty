@@ -1,0 +1,8 @@
+[
+  { "op": "append", "event": { "id": "e1", "seq": 1, "type": "temperature", "value": 95 } },
+  { "op": "append", "event": { "id": "e2", "seq": 2, "type": "pressure", "value": 120 } },
+  { "op": "append", "event": { "id": "e3", "seq": 3, "type": "vibration", "value": 7 } },
+  { "op": "append", "event": { "id": "e4", "seq": 4, "type": "temperature", "value": 91 } },
+  { "op": "retract", "id": "e1" },
+  { "op": "undo" }
+]
