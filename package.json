@@ -1,0 +1,10 @@
+{
+  "name": "weld-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Weld-shop PLC frame gateway for the offline work-order ledger",
+  "main": "src/processor.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
