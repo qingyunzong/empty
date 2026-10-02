@@ -1,0 +1,10 @@
+{
+  "name": "lab-validity-engine",
+  "version": "1.0.0",
+  "description": "Incremental experiment-validity maintenance driven by reagent batch corrections",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
