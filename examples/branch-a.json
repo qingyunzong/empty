@@ -1,0 +1,9 @@
+{
+  "author": "sensor-hub",
+  "sourceLevel": 3,
+  "vectorClock": { "sensor-hub": 2, "field-observer": 1 },
+  "changes": {
+    "value": { "old": 10, "new": 12 },
+    "quality": { "old": "raw", "new": "calibrated" }
+  }
+}

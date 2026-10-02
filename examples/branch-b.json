@@ -1,0 +1,9 @@
+{
+  "author": "field-observer",
+  "sourceLevel": 1,
+  "vectorClock": { "field-observer": 1 },
+  "changes": {
+    "value": { "old": 10, "new": 99 },
+    "reviewed": { "old": false, "new": true }
+  }
+}

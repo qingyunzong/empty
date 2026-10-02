@@ -1,0 +1,13 @@
+{
+  "name": "observer-merge",
+  "version": "1.0.0",
+  "description": "Deterministic three-way branch merge for concurrent observer edits",
+  "type": "module",
+  "main": "src/merge.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "merged",
+  "decisions": [
+    {
+      "field": "value",
+      "decision": "a",
+      "reason": "higher-source-level",
+      "value": 12
+    },
+    {
+      "field": "quality",
+      "decision": "a",
+      "reason": "only-a-changed",
+      "value": "calibrated"
+    },
+    {
+      "field": "reviewed",
+      "decision": "b",
+      "reason": "only-b-changed",
+      "value": true
+    }
+  ]
+}
