@@ -1,0 +1,16 @@
+{
+  "name": "clearing-daycut",
+  "version": "1.0.0",
+  "description": "Clearing-house settlement day-cut library and CLI (Node.js 22, stdlib only)",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "clearing": "./bin/clearing.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

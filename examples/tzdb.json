@@ -1,0 +1,28 @@
+{
+  "version": "2024a",
+  "zones": {
+    "America/New_York": {
+      "segments": [
+        { "utcStart": "2024-01-01T00:00Z", "offsetMinutes": -300 },
+        { "utcStart": "2024-03-10T07:00Z", "offsetMinutes": -240 },
+        { "utcStart": "2024-11-03T06:00Z", "offsetMinutes": -300 },
+        { "utcStart": "2025-03-09T07:00Z", "offsetMinutes": -240 },
+        { "utcStart": "2025-11-02T06:00Z", "offsetMinutes": -300 }
+      ]
+    },
+    "Europe/London": {
+      "segments": [
+        { "utcStart": "2024-01-01T00:00Z", "offsetMinutes": 0 },
+        { "utcStart": "2024-03-31T01:00Z", "offsetMinutes": 60 },
+        { "utcStart": "2024-10-27T01:00Z", "offsetMinutes": 0 },
+        { "utcStart": "2025-03-30T01:00Z", "offsetMinutes": 60 },
+        { "utcStart": "2025-10-26T01:00Z", "offsetMinutes": 0 }
+      ]
+    },
+    "Asia/Shanghai": {
+      "segments": [
+        { "utcStart": "2024-01-01T00:00Z", "offsetMinutes": 480 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[
+  { "id": "ny-1", "seq": 1, "account": "ACME", "calendar": "US-NY", "type": "post", "amount": 100000, "currency": "USD", "localTime": "2024-06-10T11:00" },
+  { "id": "lon-1", "seq": 2, "account": "ACME", "calendar": "GB-LON", "type": "post", "amount": 100000, "currency": "GBP", "localTime": "2024-06-10T16:00" },
+  { "id": "sha-1", "seq": 3, "account": "ACME", "calendar": "CN-SHA", "type": "post", "amount": 100000, "currency": "CNY", "localTime": "2024-06-10T23:00" },
+  { "id": "ny-2", "seq": 4, "account": "ACME", "calendar": "US-NY", "type": "post", "amount": 2500, "currency": "USD", "localTime": "2024-06-11T09:30" },
+  { "id": "ny-2r", "seq": 5, "account": "ACME", "calendar": "US-NY", "type": "reversal", "amount": -2500, "currency": "USD", "localTime": "2024-06-11T10:15", "ref": "ny-2" }
+]
