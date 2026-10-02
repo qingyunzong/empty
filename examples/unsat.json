@@ -1,0 +1,14 @@
+{
+  "toolLife": 10,
+  "calInterval": 5,
+  "budget": 1,
+  "costs": {
+    "changeTool": { "time": 1, "cost": 1 },
+    "calibrate": { "time": 3, "cost": 1 }
+  },
+  "ops": [
+    { "id": "c1", "duration": 4, "wear": 0 },
+    { "id": "c2", "duration": 4, "wear": 0 },
+    { "id": "c3", "duration": 4, "wear": 0 }
+  ]
+}

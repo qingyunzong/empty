@@ -1,0 +1,20 @@
+{
+  "toolLife": 6,
+  "calInterval": 10,
+  "budget": 4,
+  "costs": {
+    "changeTool": { "time": 2, "cost": 1 },
+    "calibrate": { "time": 3, "cost": 1 }
+  },
+  "initial": { "toolWear": 0, "calDue": 10 },
+  "ops": [
+    { "id": "o1", "duration": 3, "wear": 2 },
+    { "id": "o2", "duration": 3, "wear": 2 },
+    { "id": "o3", "duration": 2, "wear": 3 },
+    { "id": "o4", "duration": 4, "wear": 1 },
+    { "id": "o5", "duration": 2, "wear": 2 },
+    { "id": "o6", "duration": 3, "wear": 3 },
+    { "id": "o7", "duration": 2, "wear": 1 },
+    { "id": "o8", "duration": 3, "wear": 2 }
+  ]
+}

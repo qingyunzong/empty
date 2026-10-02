@@ -1,0 +1,10 @@
+{
+  "name": "cnc-offline-planner",
+  "version": "1.0.0",
+  "description": "CNC 产线离线刀具更换与量具校准规划器：最小化停机，输出 plan 或最小不可行证书",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
