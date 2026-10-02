@@ -1,0 +1,10 @@
+{
+  "name": "met-observation-corrections",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Correction workflow for meteorological observations: undo/redo, compression, audit trail",
+  "main": "src/correction-log.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
