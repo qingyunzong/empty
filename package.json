@@ -1,0 +1,12 @@
+{
+  "name": "je",
+  "version": "1.0.0",
+  "description": "Journal-entry DSL compiler, bytecode VM and WAL-backed ledger store",
+  "type": "module",
+  "bin": {
+    "je": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,21 @@
+// Chart of periods and posting templates for the financial mid-platform.
+period "2025-01"
+period "2025-02"
+
+// Generic two-leg transfer between template accounts.
+template transfer(from, to, amount) {
+  debit from $amount
+  credit to $amount
+  balance debit == credit
+}
+
+// Cash sale: gross receipt, revenue net of fee, fee accrual.
+template sale(gross, fee) {
+  debit cash $gross
+  credit revenue $gross - $fee
+  credit fees $fee
+}
+
+batch B1 { period "2025-01" allow transfer, sale }
+batch B2 { period "2025-01" allow transfer }
+batch B3 { period "2025-02" allow transfer, sale }

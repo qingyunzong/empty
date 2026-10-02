@@ -1,0 +1,26 @@
+{
+  "batches": [
+    {
+      "id": "B1",
+      "period": "2025-01",
+      "events": [
+        { "template": "transfer", "args": { "from": "cash", "to": "ar", "amount": 100 } },
+        { "template": "sale", "args": { "gross": 200, "fee": 10 } }
+      ]
+    },
+    {
+      "id": "B2",
+      "period": "2025-01",
+      "events": [
+        { "template": "transfer", "args": { "from": "ar", "to": "cash", "amount": 60 } }
+      ]
+    },
+    {
+      "id": "B3",
+      "period": "2025-02",
+      "events": [
+        { "template": "transfer", "args": { "from": "cash", "to": "supplies", "amount": 30 } }
+      ]
+    }
+  ]
+}
