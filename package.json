@@ -1,0 +1,15 @@
+{
+  "name": "machining-scheduler",
+  "version": "0.1.0",
+  "description": "Finite-domain machining scheduling library and CLI (machine/slot/tool assignment with tool-life and fixture-mutex propagation)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "mps": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

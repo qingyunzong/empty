@@ -1,0 +1,17 @@
+{
+  "machines": ["M1", "M2"],
+  "tools": [
+    { "id": "T1", "life": 90 },
+    { "id": "T2", "life": 120 }
+  ],
+  "fixtures": ["F1", "F2"],
+  "horizon": 12,
+  "slotMinutes": 10,
+  "dueSlot": 8,
+  "operations": [
+    { "id": "op1", "machines": ["M1", "M2"], "minutes": 40, "fixture": "F1", "tools": ["T1", "T2"] },
+    { "id": "op2", "machines": ["M1"], "minutes": 30, "fixture": "F2", "tools": ["T1"] },
+    { "id": "op3", "machines": ["M2"], "minutes": 50, "fixture": "F1", "tools": ["T2"] },
+    { "id": "op4", "machines": ["M1", "M2"], "minutes": 20, "fixture": "F2" }
+  ]
+}
