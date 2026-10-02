@@ -1,0 +1,9 @@
+{
+  "name": "settle-audit",
+  "version": "1.0.0",
+  "description": "Offline verifiable settlement audit log: MVCC store, hash-chained certificates, append-only WAL",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "settle-audit": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
