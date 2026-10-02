@@ -1,0 +1,14 @@
+# Alias scoping demo: InnerAlias is visible inside the block and its
+# children only; TopAlias is visible everywhere after its declaration.
+evidence A
+evidence B
+rule R
+alias TopAlias = A & B
+{
+  alias InnerAlias = TopAlias |> R
+  claim InnerClaim = InnerAlias requires A
+  {
+    claim DeepClaim = InnerAlias & A
+  }
+}
+claim OuterClaim = TopAlias |> R

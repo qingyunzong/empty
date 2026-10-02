@@ -1,0 +1,10 @@
+{
+  "name": "evidence-chain",
+  "version": "1.0.0",
+  "description": "Evidence citation-chain verification library and CLI (offline, stdlib only)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

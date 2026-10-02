@@ -1,0 +1,129 @@
+# run-record.txt
+# Recorded: 2026-10-02T16:33:08Z (UTC)
+# Environment: v22.22.1, offline, standard library only (node:crypto / node:test)
+
+## Command: node --test
+# Exit code: 0
+
+```
+TAP version 13
+# Subtest: test/chain.test.js
+ok 1 - test/chain.test.js
+  ---
+  duration_ms: 1764.435946
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2025.461942
+```
+
+## Per-test detail: node test/chain.test.js
+# Exit code: 0
+
+```
+ok 1 - acceptance 1: three-evidence chain verifies, transitive deps match manual enumeration
+ok 2 - acceptance 2: revoking middle evidence E2 invalidates C2 and C3, C1 stays valid
+ok 3 - undo restores revoked evidence; new operation clears redo
+ok 4 - acceptance 3a: alias escaping its scope is rejected
+ok 5 - acceptance 3b: tampered signature is rejected
+ok 6 - acceptance 3c: CLI exits 1 on scope escape and on tampered signature
+ok 7 - CLI verify prints JSON verdict with exit 0; --revoke marks downstream claims invalid
+ok 8 - nested scopes: aliases visible in own block and children, duplicates rejected
+ok 9 - static types: rule misuse and requires typing are rejected
+ok 10 - parent-link tampering breaks the certificate chain
+ok 11 - cli smoke: certify writes a verifiable document
+```
+
+## Acceptance checks (real CLI runs)
+
+```
+$ node cli.js verify examples/chain.ev --key secret-key
+{
+  "valid": true,
+  "revoked": [],
+  "claims": {
+    "C1": {
+      "valid": true,
+      "deps": [
+        "E1"
+      ],
+      "revokedDeps": []
+    },
+    "C2": {
+      "valid": true,
+      "deps": [
+        "E1",
+        "E2"
+      ],
+      "revokedDeps": []
+    },
+    "C3": {
+      "valid": true,
+      "deps": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "revokedDeps": []
+    }
+  }
+}
+exit=0
+
+$ node cli.js verify examples/chain.ev --key secret-key --revoke E2
+{
+  "valid": false,
+  "revoked": [
+    "E2"
+  ],
+  "claims": {
+    "C1": {
+      "valid": true,
+      "deps": [
+        "E1"
+      ],
+      "revokedDeps": []
+    },
+    "C2": {
+      "valid": false,
+      "deps": [
+        "E1",
+        "E2"
+      ],
+      "revokedDeps": [
+        "E2"
+      ]
+    },
+    "C3": {
+      "valid": false,
+      "deps": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "revokedDeps": [
+        "E2"
+      ]
+    }
+  }
+}
+exit=1
+
+$ node cli.js verify examples/bad-scope.ev --key secret-key
+error: unknown identifier 'InnerAlias' (not declared in any visible scope)
+exit=1
+
+$ node cli.js certify examples/chain.ev --key secret-key --out /tmp/doc.json
+exit=0
+$ # tamper one certificate signature, then verify-cert
+$ node cli.js verify-cert /tmp/tampered.json --key secret-key
+error: invalid certificate signature for commit 'C1'
+exit=1
+```

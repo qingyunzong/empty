@@ -1,0 +1,8 @@
+# Invalid: InnerAlias escapes its block scope.
+evidence A
+rule R
+{
+  alias InnerAlias = A
+  claim Ok = InnerAlias |> R
+}
+claim Bad = InnerAlias |> R
