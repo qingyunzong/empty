@@ -1,0 +1,10 @@
+{
+  "name": "batch-allocator",
+  "version": "0.1.0",
+  "description": "Offline inventory batch allocation library and CLI (finite-domain solver, atomic state commits)",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
