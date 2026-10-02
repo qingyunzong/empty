@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "base": "CNY",
+  "snapshots": {
+    "fx-2024Q1": {
+      "EUR": "7.8",
+      "USD": "7.1"
+    }
+  },
+  "vouchers": [
+    {
+      "id": "JV-001",
+      "lamport": 1,
+      "snapshot": null,
+      "reverses": null,
+      "postings": [
+        {
+          "account": "cash",
+          "currency": "CNY",
+          "amount": "1000"
+        },
+        {
+          "account": "revenue",
+          "currency": "CNY",
+          "amount": "-1000"
+        }
+      ],
+      "hash": "e945ebacda534e7eeb9a1378251a436a9502ae36c5cab14981951829dec7d40d"
+    },
+    {
+      "id": "JV-001B",
+      "lamport": 1,
+      "snapshot": null,
+      "reverses": null,
+      "postings": [
+        {
+          "account": "cash",
+          "currency": "CNY",
+          "amount": "50"
+        },
+        {
+          "account": "revenue",
+          "currency": "CNY",
+          "amount": "-50"
+        }
+      ],
+      "hash": "9161316c48c9b893971e4d7696d4521a0a9afbf34124f7963796e33c427019a3"
+    },
+    {
+      "id": "JV-002",
+      "lamport": 2,
+      "snapshot": "fx-2024Q1",
+      "reverses": null,
+      "postings": [
+        {
+          "account": "cash",
+          "currency": "USD",
+          "amount": "100"
+        },
+        {
+          "account": "revenue",
+          "currency": "USD",
+          "amount": "-100"
+        }
+      ],
+      "hash": "ee0a23b86801e1de2e006e21e5eba961cb3260447ea2be676f942ecbad3be9c5"
+    },
+    {
+      "id": "JV-003",
+      "lamport": 3,
+      "snapshot": null,
+      "reverses": null,
+      "postings": [
+        {
+          "account": "cash",
+          "currency": "CNY",
+          "amount": "-200"
+        },
+        {
+          "account": "expense",
+          "currency": "CNY",
+          "amount": "200"
+        }
+      ],
+      "hash": "d97cb96fedff06e0235cbbb9fa85b19ce9cca63ac521d9b833d0f0e1fa1854c3"
+    },
+    {
+      "id": "JV-004-REV",
+      "lamport": 4,
+      "snapshot": "fx-2024Q1",
+      "reverses": "JV-002",
+      "postings": [
+        {
+          "account": "cash",
+          "currency": "USD",
+          "amount": "-100"
+        },
+        {
+          "account": "revenue",
+          "currency": "USD",
+          "amount": "100"
+        }
+      ],
+      "hash": "f16238237c1073ef0be1c8422d7c0a5662336a9a2da833d69ce258a5dc7075b1"
+    }
+  ],
+  "reversed": [
+    "JV-002"
+  ],
+  "invalidated": [
+    "JV-003"
+  ],
+  "balances": {
+    "cash": "850",
+    "revenue": "-1050",
+    "expense": "200"
+  },
+  "chainTip": "bae9a5f9f0ea1d43a7d8023b10127a91274748dc97a543e69eec7b63a9544abb",
+  "root": "f16eeb9c793d061e10dc30a81d6e64a6710ae666393b59b2d6c84e5ea991bfa5",
+  "checksum": "3e1d8523be07bc4de7118519125cb6272429db41fae47f877bccb7c490c74ab4"
+}

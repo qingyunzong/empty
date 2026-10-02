@@ -1,0 +1,9 @@
+{"op":"config","base":"CNY"}
+{"op":"snapshot","id":"fx-2024Q1","rates":{"USD":"7.1","EUR":"7.8"}}
+{"op":"voucher","id":"JV-001","lamport":1,"postings":[{"account":"cash","amount":"1000","currency":"CNY"},{"account":"revenue","amount":"-1000","currency":"CNY"}]}
+{"op":"voucher","id":"JV-002","lamport":2,"snapshot":"fx-2024Q1","postings":[{"account":"cash","amount":"100","currency":"USD"},{"account":"revenue","amount":"-100","currency":"USD"}]}
+{"op":"voucher","id":"JV-003","lamport":3,"postings":[{"account":"expense","amount":"200","currency":"CNY"},{"account":"cash","amount":"-200","currency":"CNY"}]}
+{"op":"voucher","id":"JV-001B","lamport":1,"postings":[{"account":"cash","amount":"50","currency":"CNY"},{"account":"revenue","amount":"-50","currency":"CNY"}]}
+{"op":"reverse","id":"JV-004-REV","target":"JV-002"}
+{"op":"certify","path":"examples/cert.json"}
+{"op":"verify","path":"examples/cert.json"}
