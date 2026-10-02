@@ -1,0 +1,9 @@
+{
+  "name": "workorder-vcs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline versioned maintenance work-order store with Lamport clocks, branch/merge, undo and phrase index",
+  "scripts": {
+    "test": "node --test"
+  }
+}
