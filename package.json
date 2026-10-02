@@ -1,0 +1,9 @@
+{
+  "name": "obs-store",
+  "version": "0.1.0",
+  "description": "Offline CSV/JSONL observation store with corrections, tombstones, vector clocks and CRDT-style merge",
+  "type": "module",
+  "bin": { "obs": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
