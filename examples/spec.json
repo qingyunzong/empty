@@ -1,0 +1,19 @@
+{
+  "levels": ["public", "internal", "confidential", "secret"],
+  "roles": {
+    "viewer": { "clearance": "public", "inherits": [] },
+    "analyst": { "clearance": "internal", "inherits": ["viewer"] },
+    "controller": { "clearance": "confidential", "inherits": ["analyst"] }
+  },
+  "units": {
+    "revenue_q3": { "level": "public", "version": 1, "fields": { "amount": 1200000, "count": 42 } },
+    "payroll_q3": { "level": "confidential", "version": 3, "fields": { "amount": 800000, "salary_detail": 800000 } },
+    "opex_q3": { "level": "internal", "version": 1, "fields": { "amount": 300000 } },
+    "fin_summary_q3": { "aggregate": true, "sources": ["revenue_q3", "payroll_q3", "opex_q3"] }
+  },
+  "grants": [],
+  "masks": [
+    { "id": "mask-payroll-v3", "unit": "payroll_q3", "field": "salary_detail", "version": 3, "roles": ["analyst"] }
+  ],
+  "request": { "unit": "fin_summary_q3", "role": "analyst" }
+}
