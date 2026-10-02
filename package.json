@@ -1,0 +1,8 @@
+{
+  "name": "offline-planner",
+  "version": "1.0.0",
+  "description": "Offline scheduling DSL with transactions, WAL persistence and crash recovery",
+  "type": "module",
+  "bin": { "plan": "bin/plan.js" },
+  "scripts": { "test": "node --test" }
+}
