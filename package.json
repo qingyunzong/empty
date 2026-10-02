@@ -1,0 +1,10 @@
+{
+  "name": "evidence-guard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-guard rule library and CLI: typed experiment scripts compiled to stack bytecode with transactional rollback and crash recovery.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
