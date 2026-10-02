@@ -1,0 +1,13 @@
+{
+  "name": "defect-allocation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Defect-region responsibility allocation over rational rectangles (offline, exact fractions)",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "defect-alloc": "./cli.js"
+  }
+}
