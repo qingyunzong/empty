@@ -1,0 +1,10 @@
+{
+  "name": "equip-award",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline equipment combination selection under process/cert/budget constraints",
+  "main": "src/lib.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

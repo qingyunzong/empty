@@ -1,0 +1,20 @@
+{
+  "order": [
+    { "order": "O1", "process": "P1" },
+    { "order": "O1", "process": "P2" }
+  ],
+  "machines": [
+    { "machine": "M1", "process": "P1", "cert_expiry": "2027-01-01" },
+    { "machine": "M1", "process": "P2", "cert_expiry": "2027-01-01" },
+    { "machine": "M2", "process": "P1", "cert_expiry": "2027-01-01" },
+    { "machine": "M3", "process": "P2", "cert_expiry": "2027-01-01" },
+    { "machine": "M4", "process": "P1", "cert_expiry": null }
+  ],
+  "costs": [
+    { "machine": "M1", "shift_cost": 18 },
+    { "machine": "M2", "shift_cost": 6 },
+    { "machine": "M3", "shift_cost": 6 },
+    { "machine": "M4", "shift_cost": 1 }
+  ],
+  "budget": 20
+}
