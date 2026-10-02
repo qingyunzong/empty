@@ -1,0 +1,16 @@
+{
+  "name": "planline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline production planning store and CLI for a single industrial PC",
+  "main": "src/store.js",
+  "bin": {
+    "plan": "bin/plan.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
