@@ -1,0 +1,13 @@
+{
+  "name": "kiln-scheduler",
+  "version": "0.1.0",
+  "description": "Sintering campaign scheduler: recipe matrix selection and furnace-run scheduling with resource propagation and backtracking.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
