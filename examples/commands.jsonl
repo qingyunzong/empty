@@ -1,0 +1,9 @@
+{"tick":0,"cmd":"set_input","signal":"door_closed","value":true}
+{"tick":1,"cmd":"set_input","signal":"product_present","value":true}
+{"tick":2,"cmd":"set_output","signal":"motor","value":true}
+{"tick":3,"cmd":"start_timer","signal":"fill_timer","ms":0}
+{"tick":4,"cmd":"advance","ms":600}
+{"tick":5,"cmd":"set_output","signal":"heater","value":true}
+{"tick":6,"cmd":"set_input","signal":"filler.jammed","value":true}
+{"tick":7,"cmd":"undo"}
+{"tick":8,"cmd":"redo"}

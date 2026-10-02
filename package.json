@@ -1,0 +1,13 @@
+{
+  "name": "interlock-sim",
+  "version": "1.0.0",
+  "description": "Offline interlock control simulator: DSL -> bytecode -> tick-based VM",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
