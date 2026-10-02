@@ -1,0 +1,16 @@
+{
+  "name": "release-manifest-incremental-build",
+  "version": "0.1.0",
+  "description": "Incremental build engine and CLI for research dataset release manifests",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "manifest-build": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
