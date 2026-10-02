@@ -1,0 +1,10 @@
+{
+  "name": "maint-sync",
+  "version": "0.1.0",
+  "description": "Offline-first maintenance work-order sync: event sourcing, vector clocks, checkpoint recovery",
+  "type": "module",
+  "bin": { "maint-sync": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "license": "UNLICENSED",
+  "private": true
+}
