@@ -1,0 +1,8 @@
+{
+  "name": "lineage-graph",
+  "version": "1.0.0",
+  "description": "Food factory lineage graph library, query DSL and CLI",
+  "type": "module",
+  "bin": { "lineage": "bin/lineage.js" },
+  "scripts": { "test": "node --test" }
+}

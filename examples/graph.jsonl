@@ -1,0 +1,12 @@
+{"op":"add","id":"LOT-2025-0001","type":"raw_material","props":{"name":"Flour","date":"2025-01-05","supplier":"MillCo","quantity":100}}
+{"op":"add","id":"LOT-2025-0002","type":"raw_material","props":{"name":"Sugar","date":"2025-01-06","quantity":50}}
+{"op":"add","id":"LOT-2025-0003","type":"intermediate","props":{"name":"Dough A","date":"2025-01-10"}}
+{"op":"add","id":"LOT-2025-0004","type":"intermediate","props":{"name":"Dough B","date":"2025-01-11"}}
+{"op":"add","id":"LOT-2025-0005","type":"product","props":{"name":"Bread","date":"2025-01-15"}}
+{"op":"begin"}
+{"op":"link","from":"LOT-2025-0001","to":"LOT-2025-0003"}
+{"op":"link","from":"LOT-2025-0001","to":"LOT-2025-0004"}
+{"op":"link","from":"LOT-2025-0002","to":"LOT-2025-0004"}
+{"op":"link","from":"LOT-2025-0003","to":"LOT-2025-0005"}
+{"op":"link","from":"LOT-2025-0004","to":"LOT-2025-0005"}
+{"op":"commit"}
