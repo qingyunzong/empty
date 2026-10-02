@@ -1,0 +1,41 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 85990.959484
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 2 - test/helpers.js
+  ---
+  duration_ms: 2383.338098
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 3 - test/ledger.test.js
+  ---
+  duration_ms: 2588.962464
+  type: 'test'
+  ...
+# Subtest: test/recover.test.js
+ok 4 - test/recover.test.js
+  ---
+  duration_ms: 2266.861485
+  type: 'test'
+  ...
+# Subtest: test/selection.test.js
+ok 5 - test/selection.test.js
+  ---
+  duration_ms: 4895.156602
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 86218.984183
+0
