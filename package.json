@@ -1,0 +1,16 @@
+{
+  "name": "ebr-chain",
+  "version": "1.0.0",
+  "description": "Offline aseptic-filling electronic batch record aggregation with sha256 hash chains, vector causality and tombstone revocations",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "ebr-chain": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
