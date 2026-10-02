@@ -1,0 +1,7 @@
+{
+  "base": "USD",
+  "versions": [
+    { "version": 1, "rates": { "EUR": "1.10", "GBP": "1.25" } },
+    { "version": 2, "rates": { "EUR": "1.20" } }
+  ]
+}

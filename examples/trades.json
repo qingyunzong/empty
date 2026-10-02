@@ -1,0 +1,11 @@
+{
+  "ratesVersion": 2,
+  "windowCapacity": "10000",
+  "limits": { "A": "500", "B": "500", "C": "500", "D": "500" },
+  "trades": [
+    { "id": "t1", "from": "A", "to": "B", "currency": "USD", "amount": "100" },
+    { "id": "t2", "from": "B", "to": "C", "currency": "EUR", "amount": "50" },
+    { "id": "t3", "from": "C", "to": "A", "currency": "GBP", "amount": "48" },
+    { "id": "t4", "from": "A", "to": "D", "currency": "USD", "amount": "25" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "netclear",
+  "version": "1.0.0",
+  "description": "Multi-currency bilateral payment netting with frozen-capacity and clearing-window constraints",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "bin": { "netclear": "cli.js" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
