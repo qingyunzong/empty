@@ -1,0 +1,10 @@
+{
+  "name": "archive-repair",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inspect, plan and apply repairs for chunked archives (offline, stdlib only).",
+  "main": "lib/archive.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
