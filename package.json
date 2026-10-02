@@ -1,0 +1,9 @@
+{
+  "name": "dairy-lineage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dairy factory quality traceability: lineage graph, impact analysis, WAL-backed undo/redo",
+  "scripts": {
+    "test": "node --test"
+  }
+}
