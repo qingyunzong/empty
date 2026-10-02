@@ -1,0 +1,10 @@
+{
+  "name": "satsched",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Satellite ground-station science downlink scheduler (stdlib only)",
+  "main": "src/scheduler.js",
+  "bin": { "satsched": "src/cli.js" },
+  "scripts": { "test": "node --test test/*.test.js" },
+  "engines": { "node": ">=22" }
+}
