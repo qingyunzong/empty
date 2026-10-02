@@ -1,0 +1,15 @@
+{
+  "name": "demand-audit",
+  "version": "1.0.0",
+  "description": "15-minute demand peak audit: estimated meter retraction, tariff replay, optimal shed proof",
+  "type": "module",
+  "bin": {
+    "demand": "bin/demand.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
