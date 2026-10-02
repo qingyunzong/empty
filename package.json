@@ -1,0 +1,13 @@
+{
+  "name": "settlement-batch-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Settlement batch audit: invariant checking and minimal counterexample shrinking",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

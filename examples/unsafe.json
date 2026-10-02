@@ -1,0 +1,12 @@
+{
+  "limits": { "cash": 100 },
+  "commands": [
+    { "op": "post", "id": "p1", "account": "cash", "amount": 10 },
+    { "op": "post", "id": "p2", "account": "cash", "amount": 20 },
+    { "op": "freeze", "account": "cash", "amount": 5 },
+    { "op": "cancel", "postId": "p1" },
+    { "op": "post", "id": "p3", "account": "other", "amount": 40 },
+    { "op": "freeze", "account": "cash", "amount": 95 },
+    { "op": "post", "id": "p4", "account": "other", "amount": 1 }
+  ]
+}
