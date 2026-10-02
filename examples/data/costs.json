@@ -1,0 +1,6 @@
+[
+  { "machine": "M1", "shift_cost": 8 },
+  { "machine": "M2", "shift_cost": 3 },
+  { "machine": "M3", "shift_cost": 1 },
+  { "machine": "M4", "shift_cost": 4 }
+]

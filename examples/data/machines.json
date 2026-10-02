@@ -1,0 +1,7 @@
+[
+  { "machine": "M1", "process": "P1", "cert_expiry": "2027-01-01" },
+  { "machine": "M1", "process": "P2", "cert_expiry": "2027-01-01" },
+  { "machine": "M2", "process": "P1", "cert_expiry": "2027-01-01" },
+  { "machine": "M3", "process": "P2", "cert_expiry": null },
+  { "machine": "M4", "process": "P2", "cert_expiry": "2027-01-01" }
+]
