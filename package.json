@@ -1,0 +1,17 @@
+{
+  "name": "obs3merge",
+  "version": "1.0.0",
+  "description": "Three-way merge library and CLI for scientific observation datasets",
+  "type": "module",
+  "main": "src/merge.js",
+  "bin": {
+    "obs3merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

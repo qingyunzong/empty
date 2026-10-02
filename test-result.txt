@@ -1,0 +1,30 @@
+command: node --test
+date: 2026-10-02T13:28:45Z
+exit code: 0
+test files passed: 2, failed: 0
+individual tests passed: 19, failed: 0
+----------------------------------------------------------------
+full output:
+
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 20963.862687
+  type: 'test'
+  ...
+# Subtest: test/merge.test.js
+ok 2 - test/merge.test.js
+  ---
+  duration_ms: 3335.852822
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21771.495268
