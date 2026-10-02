@@ -1,0 +1,10 @@
+{
+  "name": "sample-prep",
+  "inputs": ["sample"],
+  "steps": [
+    { "id": "weigh",    "op": "weigh",    "requires": ["sample"],           "produces": ["weighed"] },
+    { "id": "dilute",   "op": "dilute",   "requires": ["weighed"],          "produces": ["diluted"] },
+    { "id": "mix",      "op": "mix",      "requires": ["weighed"],          "produces": ["mixed"] },
+    { "id": "incubate", "op": "incubate", "requires": ["diluted", "mixed"], "produces": ["incubated"], "timeout": 60000 }
+  ]
+}
