@@ -1,0 +1,9 @@
+{
+  "name": "dispatch",
+  "version": "1.0.0",
+  "description": "Offline dispatch solver for packaging/test fab: carriers to tool windows under hard capacity budgets, with late metrology re-prioritization.",
+  "type": "module",
+  "bin": { "dispatch": "bin/dispatch.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
