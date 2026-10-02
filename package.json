@@ -1,0 +1,13 @@
+{
+  "name": "batch-alloc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline inventory batch allocation library and CLI (finite-domain solver, atomic state persistence)",
+  "main": "src/allocator.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
