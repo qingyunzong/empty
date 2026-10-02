@@ -1,0 +1,15 @@
+{
+  "name": "wx-archive",
+  "version": "0.1.0",
+  "description": "Append-only bitemporal weather observation archive with quality-weighted window aggregation and selective undo",
+  "type": "module",
+  "bin": {
+    "wxa": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
