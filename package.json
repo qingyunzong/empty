@@ -1,0 +1,10 @@
+{
+  "name": "experiment-history-rebase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rebase library and CLI for experiment script histories (offline, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
