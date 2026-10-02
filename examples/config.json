@@ -1,0 +1,15 @@
+{
+  "species": {
+    "FES": { "morph": "grass" },
+    "POA": { "morph": "grass" },
+    "ROS": { "morph": "shrub" },
+    "FES2": { "morph": "grass" }
+  },
+  "plots": {
+    "Q1": { "area": 10, "morphs": ["grass", "shrub"] },
+    "Q2": { "area": 4, "morphs": ["grass"] }
+  },
+  "tiers": [0, 1, 2, 3],
+  "tierWeights": { "0": 0, "1": 1, "2": 2, "3": 4 },
+  "capacityPerArea": 1
+}

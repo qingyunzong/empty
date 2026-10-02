@@ -1,0 +1,9 @@
+{
+  "name": "eco-merge",
+  "version": "0.1.0",
+  "description": "Merge offline quadrat-sampling histories from multiple tablets; detect concurrent-write conflicts and causal cycles.",
+  "type": "module",
+  "bin": { "eco-merge": "bin/eco-merge.js" },
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}

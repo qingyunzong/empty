@@ -1,0 +1,5 @@
+{"op":"set_count","device":"B","time":1,"plot":"Q2","species":"POA","tier":1}
+{"op":"sync","device":"B","time":2,"session":"s2"}
+{"op":"set_count","device":"B","time":3,"plot":"Q1","species":"FES","tier":2}
+{"op":"sync","device":"B","time":4,"session":"s1"}
+{"op":"set_count","device":"B","time":5,"plot":"Q2","species":"FES","tier":2}

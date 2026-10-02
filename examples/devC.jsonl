@@ -1,0 +1,2 @@
+{"op":"set_count","device":"C","time":1,"plot":"Q2","species":"POA","tier":2}
+{"op":"sync","device":"C","time":2,"session":"bc-1"}
