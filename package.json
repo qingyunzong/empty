@@ -1,0 +1,12 @@
+{
+  "name": "offline-job-planner",
+  "version": "1.0.0",
+  "description": "Offline job filtering and top-k selection with fielded positional index",
+  "type": "module",
+  "bin": {
+    "planner": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
