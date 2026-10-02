@@ -1,0 +1,13 @@
+{
+  "name": "meta-evidence-rank",
+  "version": "1.0.0",
+  "description": "Incremental maintenance of meta-analysis evidence rankings",
+  "type": "module",
+  "main": "src/evidence.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
