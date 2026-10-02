@@ -1,0 +1,10 @@
+{
+  "name": "rework-line",
+  "version": "0.1.0",
+  "description": "Rework bench decision engine: rework / scrap / concession with dual stock+budget constraints and auditable ledger",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
