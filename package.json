@@ -1,0 +1,8 @@
+{
+  "name": "tank-scheduler",
+  "version": "1.0.0",
+  "description": "Offline batch-tank scheduling library and CLI (finite-domain CSP)",
+  "type": "module",
+  "bin": { "tank-sched": "./cli.js" },
+  "scripts": { "test": "node --test" }
+}
