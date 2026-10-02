@@ -1,0 +1,12 @@
+{
+  "name": "ledger",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Append-only ledger with compensating-entry reversal, crash-safe persistence and sparse-index balance queries",
+  "bin": {
+    "ledger": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
