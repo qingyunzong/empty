@@ -1,0 +1,12 @@
+{
+  "name": "limit",
+  "version": "1.0.0",
+  "description": "Pre-authorization credit limit library and CLI (freeze/capture/release/extend)",
+  "type": "module",
+  "bin": {
+    "limit": "bin/limit.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
