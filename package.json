@@ -1,0 +1,9 @@
+{
+  "name": "pressline-oee",
+  "version": "0.1.0",
+  "description": "Offline OEE downtime attribution for stamping lines: interval algebra, priority/threshold classifier, replayable fault injection, minimal counterexamples.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" }
+}

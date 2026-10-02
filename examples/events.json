@@ -1,0 +1,7 @@
+[
+  { "id": "run-1", "type": "run", "start": 0, "end": 3600000 },
+  { "id": "co-1", "type": "changeover", "start": 3600000, "end": 5400000 },
+  { "id": "run-2", "type": "run", "start": 5400000, "end": 7200000 },
+  { "id": "flt-1", "type": "fault", "start": 6000000, "end": 6600000 },
+  { "id": "idle-1", "type": "idle", "start": 7200000, "end": 7230000 }
+]
