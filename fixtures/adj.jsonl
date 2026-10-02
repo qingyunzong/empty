@@ -1,0 +1,3 @@
+{"explicitId":"TXN-200","valueDate":"2026-09-29","account":"ACC-4","ccy":"USD","amount":510.00}
+{"explicitId":"TXN-300","valueDate":"2026-09-29","account":"ACC-5","ccy":"EUR","amount":901.20}
+{"link":{"bank":"TXN-100","core":"TXN-100"},"valueDate":"2026-09-28","account":"ACC-1","ccy":"USD","amount":100.002}
