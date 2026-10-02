@@ -1,0 +1,15 @@
+{
+  "capacity": 10,
+  "agingLimit": 2,
+  "institutions": {
+    "A": { "quota": 7 },
+    "B": { "quota": 6 }
+  },
+  "batches": [
+    { "id": "a1", "institution": "A", "priority": 3, "amount": 9 },
+    { "id": "a2", "institution": "A", "priority": 1, "amount": 5 },
+    { "id": "g1a", "institution": "B", "priority": 2, "amount": 3, "group": "g1" },
+    { "id": "g1b", "institution": "B", "priority": 2, "amount": 3, "group": "g1" },
+    { "id": "b2", "institution": "B", "priority": 0, "amount": 8 }
+  ]
+}

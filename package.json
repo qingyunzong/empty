@@ -1,0 +1,13 @@
+{
+  "name": "clearing-window",
+  "version": "1.0.0",
+  "description": "Windowed clearing scheduler: atomic groups, preemption, fair aging, crash-safe file commits",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
