@@ -1,0 +1,10 @@
+{
+  "name": "moldplan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline injection-molding scheduler with causal clocks, undo certificates and atomic commits",
+  "bin": { "moldplan": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
