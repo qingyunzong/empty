@@ -1,0 +1,1719 @@
+{
+  "format": "payfuzz-run/1",
+  "seed": 42,
+  "steps": 80,
+  "accounts": 3,
+  "initialState": {
+    "accounts": [
+      {
+        "id": "A0",
+        "balance": 300,
+        "held": 0,
+        "frozen": false
+      },
+      {
+        "id": "A1",
+        "balance": 300,
+        "held": 0,
+        "frozen": false
+      },
+      {
+        "id": "A2",
+        "balance": 300,
+        "held": 0,
+        "frozen": false
+      }
+    ]
+  },
+  "ops": [
+    {
+      "seq": 0,
+      "opId": "op-0",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 55
+      },
+      "rng": [
+        2581720956,
+        1925393290,
+        3661312704
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H0"
+      }
+    },
+    {
+      "seq": 1,
+      "opId": "op-1",
+      "op": {
+        "type": "cancel",
+        "holdId": "H0"
+      },
+      "rng": [
+        2876485805,
+        750819978
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H0",
+        "amount": 55
+      }
+    },
+    {
+      "seq": 2,
+      "opId": "op-2",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 108
+      },
+      "rng": [
+        2261697747,
+        1173505300,
+        2683257857
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H1"
+      }
+    },
+    {
+      "seq": 3,
+      "opId": "op-3",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 16
+      },
+      "rng": [
+        3717185310,
+        2028586305,
+        1073414265
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H2"
+      }
+    },
+    {
+      "seq": 4,
+      "opId": "op-4",
+      "op": {
+        "type": "settle",
+        "holdId": "H3"
+      },
+      "rng": [
+        3788413843,
+        3202918453
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 5,
+      "opId": "op-5",
+      "op": {
+        "type": "cancel",
+        "holdId": "H3"
+      },
+      "rng": [
+        1318561460,
+        847198783
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 6,
+      "opId": "op-6",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 90
+      },
+      "rng": [
+        2150616774,
+        2948976162,
+        2622596789
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H3"
+      }
+    },
+    {
+      "seq": 7,
+      "opId": "op-7",
+      "op": {
+        "type": "settle",
+        "holdId": "H4"
+      },
+      "rng": [
+        16505353,
+        2021992966
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 8,
+      "opId": "op-8",
+      "op": {
+        "type": "settle",
+        "holdId": "H4"
+      },
+      "rng": [
+        3596336860,
+        219942124
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 9,
+      "opId": "op-9",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 84
+      },
+      "rng": [
+        2544012168,
+        135454488,
+        1146567233
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H4"
+      }
+    },
+    {
+      "seq": 10,
+      "opId": "op-10",
+      "op": {
+        "type": "cancel",
+        "holdId": "H6"
+      },
+      "rng": [
+        265349060,
+        797528213
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 11,
+      "opId": "op-11",
+      "op": {
+        "type": "cancel",
+        "holdId": "H6"
+      },
+      "rng": [
+        3365309999,
+        2277774085
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 12,
+      "opId": "op-12",
+      "op": {
+        "type": "cancel",
+        "holdId": "H4"
+      },
+      "rng": [
+        116495015,
+        743051824
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H4",
+        "amount": 84
+      }
+    },
+    {
+      "seq": 13,
+      "opId": "op-13",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 58
+      },
+      "rng": [
+        3619317939,
+        2094826994,
+        3474727257
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H5"
+      }
+    },
+    {
+      "seq": 14,
+      "opId": "op-14",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 49
+      },
+      "rng": [
+        1372077750,
+        1932287441,
+        160800198
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H6"
+      }
+    },
+    {
+      "seq": 15,
+      "opId": "op-15",
+      "op": {
+        "type": "cancel",
+        "holdId": "H0"
+      },
+      "rng": [
+        220730114,
+        2390577849
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 16,
+      "opId": "op-16",
+      "op": {
+        "type": "settle",
+        "holdId": "H6"
+      },
+      "rng": [
+        2562933742,
+        1053017205
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H6",
+        "amount": 49
+      }
+    },
+    {
+      "seq": 17,
+      "opId": "op-17",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 51
+      },
+      "rng": [
+        2773236351,
+        899840697,
+        1304079350
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H7"
+      }
+    },
+    {
+      "seq": 18,
+      "opId": "op-18",
+      "op": {
+        "type": "cancel",
+        "holdId": "H5"
+      },
+      "rng": [
+        3172354640,
+        3688135315
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H5",
+        "amount": 58
+      }
+    },
+    {
+      "seq": 19,
+      "opId": "op-19",
+      "op": {
+        "type": "settle",
+        "holdId": "H3"
+      },
+      "rng": [
+        2181827449,
+        876989793
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H3",
+        "amount": 90
+      }
+    },
+    {
+      "seq": 20,
+      "opId": "op-20",
+      "op": {
+        "type": "settle",
+        "holdId": "H9"
+      },
+      "rng": [
+        1220659696,
+        1258389499
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 21,
+      "opId": "op-21",
+      "op": {
+        "type": "settle",
+        "holdId": "H3"
+      },
+      "rng": [
+        320810992,
+        2834076233
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 22,
+      "opId": "op-22",
+      "op": {
+        "type": "cancel",
+        "holdId": "H4"
+      },
+      "rng": [
+        2923880300,
+        2976790794
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 23,
+      "opId": "op-23",
+      "op": {
+        "type": "cancel",
+        "holdId": "H3"
+      },
+      "rng": [
+        3985042028,
+        377819793
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 24,
+      "opId": "op-24",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 80
+      },
+      "rng": [
+        4053312021,
+        1851721450,
+        4047124279
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H8"
+      }
+    },
+    {
+      "seq": 25,
+      "opId": "op-25",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 111
+      },
+      "rng": [
+        589692171,
+        476497268,
+        68044760
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H9"
+      }
+    },
+    {
+      "seq": 26,
+      "opId": "op-26",
+      "op": {
+        "type": "settle",
+        "holdId": "H11"
+      },
+      "rng": [
+        1548102433,
+        2068982459
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 27,
+      "opId": "op-27",
+      "op": {
+        "type": "cancel",
+        "holdId": "H8"
+      },
+      "rng": [
+        2628185060,
+        3863572076
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H8",
+        "amount": 80
+      }
+    },
+    {
+      "seq": 28,
+      "opId": "op-28",
+      "op": {
+        "type": "settle",
+        "holdId": "H9"
+      },
+      "rng": [
+        333213895,
+        3090649941
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H9",
+        "amount": 111
+      }
+    },
+    {
+      "seq": 29,
+      "opId": "op-29",
+      "op": {
+        "type": "settle",
+        "holdId": "H11"
+      },
+      "rng": [
+        4015226335,
+        1195080971
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 30,
+      "opId": "op-30",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 25
+      },
+      "rng": [
+        3034761162,
+        771473704,
+        2234741724
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H10"
+      }
+    },
+    {
+      "seq": 31,
+      "opId": "op-31",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 127
+      },
+      "rng": [
+        3529998222,
+        517941159,
+        4276235376
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H11"
+      }
+    },
+    {
+      "seq": 32,
+      "opId": "op-32",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 46
+      },
+      "rng": [
+        2417208516,
+        3934706147,
+        1863974445
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H12"
+      }
+    },
+    {
+      "seq": 33,
+      "opId": "op-33",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 2
+      },
+      "rng": [
+        2484436821,
+        1447241123,
+        2560827451
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H13"
+      }
+    },
+    {
+      "seq": 34,
+      "opId": "op-34",
+      "op": {
+        "type": "settle",
+        "holdId": "H4"
+      },
+      "rng": [
+        1387093168,
+        3132809236
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 35,
+      "opId": "op-35",
+      "op": {
+        "type": "settle",
+        "holdId": "H4"
+      },
+      "rng": [
+        1267911619,
+        1931716244
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 36,
+      "opId": "op-36",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 83
+      },
+      "rng": [
+        3621197601,
+        2985282326,
+        4269246832
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H14"
+      }
+    },
+    {
+      "seq": 37,
+      "opId": "op-37",
+      "op": {
+        "type": "cancel",
+        "holdId": "H13"
+      },
+      "rng": [
+        3823371857,
+        1854959739
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H13",
+        "amount": 2
+      }
+    },
+    {
+      "seq": 38,
+      "opId": "op-38",
+      "op": {
+        "type": "cancel",
+        "holdId": "H6"
+      },
+      "rng": [
+        2341672574,
+        1271007590
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 39,
+      "opId": "op-39",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 72
+      },
+      "rng": [
+        433265304,
+        2992396110,
+        1345637321
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 40,
+      "opId": "op-40",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 74
+      },
+      "rng": [
+        3375597684,
+        3885981145,
+        402186523
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H15"
+      }
+    },
+    {
+      "seq": 41,
+      "opId": "op-41",
+      "op": {
+        "type": "settle",
+        "holdId": "H1"
+      },
+      "rng": [
+        2041792228,
+        3530251837
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H1",
+        "amount": 108
+      }
+    },
+    {
+      "seq": 42,
+      "opId": "op-42",
+      "op": {
+        "type": "settle",
+        "holdId": "H16"
+      },
+      "rng": [
+        558256765,
+        4177914046
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 43,
+      "opId": "op-43",
+      "op": {
+        "type": "settle",
+        "holdId": "H14"
+      },
+      "rng": [
+        766200028,
+        3046977158
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H14",
+        "amount": 83
+      }
+    },
+    {
+      "seq": 44,
+      "opId": "op-44",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 6
+      },
+      "rng": [
+        3005150949,
+        958559950,
+        1773228455
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H16"
+      }
+    },
+    {
+      "seq": 45,
+      "opId": "op-45",
+      "op": {
+        "type": "settle",
+        "holdId": "H5"
+      },
+      "rng": [
+        701958571,
+        2811770732
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 46,
+      "opId": "op-46",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 40
+      },
+      "rng": [
+        1442813325,
+        888861190,
+        2701119489
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H17"
+      }
+    },
+    {
+      "seq": 47,
+      "opId": "op-47",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 73
+      },
+      "rng": [
+        3809115726,
+        1401782681,
+        3403449372
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 48,
+      "opId": "op-48",
+      "op": {
+        "type": "cancel",
+        "holdId": "H9"
+      },
+      "rng": [
+        1687689305,
+        564327789
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 49,
+      "opId": "op-49",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 21
+      },
+      "rng": [
+        3709572657,
+        1587894030,
+        40915520
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 50,
+      "opId": "op-50",
+      "op": {
+        "type": "cancel",
+        "holdId": "H6"
+      },
+      "rng": [
+        3167205167,
+        2728437326
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 51,
+      "opId": "op-51",
+      "op": {
+        "type": "settle",
+        "holdId": "H18"
+      },
+      "rng": [
+        3762062167,
+        3900536738
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 52,
+      "opId": "op-52",
+      "op": {
+        "type": "settle",
+        "holdId": "H8"
+      },
+      "rng": [
+        897599980,
+        2593870548
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 53,
+      "opId": "op-53",
+      "op": {
+        "type": "settle",
+        "holdId": "H17"
+      },
+      "rng": [
+        2101280302,
+        790374677
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H17",
+        "amount": 40
+      }
+    },
+    {
+      "seq": 54,
+      "opId": "op-54",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 126
+      },
+      "rng": [
+        203899554,
+        3030321860,
+        3042425825
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 55,
+      "opId": "op-55",
+      "op": {
+        "type": "cancel",
+        "holdId": "H9"
+      },
+      "rng": [
+        1251949106,
+        1183197709
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 56,
+      "opId": "op-56",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 25
+      },
+      "rng": [
+        1445685459,
+        125012741,
+        948738624
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 57,
+      "opId": "op-57",
+      "op": {
+        "type": "cancel",
+        "holdId": "H4"
+      },
+      "rng": [
+        4267136909,
+        2458231684
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 58,
+      "opId": "op-58",
+      "op": {
+        "type": "cancel",
+        "holdId": "H8"
+      },
+      "rng": [
+        4245851204,
+        703799808
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 59,
+      "opId": "op-59",
+      "op": {
+        "type": "settle",
+        "holdId": "H19"
+      },
+      "rng": [
+        733726723,
+        2409322679
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_found"
+      }
+    },
+    {
+      "seq": 60,
+      "opId": "op-60",
+      "op": {
+        "type": "settle",
+        "holdId": "H1"
+      },
+      "rng": [
+        1256293858,
+        1695036041
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 61,
+      "opId": "op-61",
+      "op": {
+        "type": "cancel",
+        "holdId": "H11"
+      },
+      "rng": [
+        1865780420,
+        1796823411
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H11",
+        "amount": 127
+      }
+    },
+    {
+      "seq": 62,
+      "opId": "op-62",
+      "op": {
+        "type": "cancel",
+        "holdId": "H13"
+      },
+      "rng": [
+        2946935075,
+        1711602813
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 63,
+      "opId": "op-63",
+      "op": {
+        "type": "reserve",
+        "account": "A2",
+        "amount": 34
+      },
+      "rng": [
+        1443627843,
+        3846750521,
+        1405814733
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 64,
+      "opId": "op-64",
+      "op": {
+        "type": "cancel",
+        "holdId": "H9"
+      },
+      "rng": [
+        2127136448,
+        2623665949
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 65,
+      "opId": "op-65",
+      "op": {
+        "type": "settle",
+        "holdId": "H17"
+      },
+      "rng": [
+        2346607243,
+        2531015397
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 66,
+      "opId": "op-66",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 123
+      },
+      "rng": [
+        1011065403,
+        1397434648,
+        1283251322
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 67,
+      "opId": "op-67",
+      "op": {
+        "type": "cancel",
+        "holdId": "H5"
+      },
+      "rng": [
+        1376818985,
+        2874603105
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 68,
+      "opId": "op-68",
+      "op": {
+        "type": "settle",
+        "holdId": "H13"
+      },
+      "rng": [
+        948720820,
+        727157693
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 69,
+      "opId": "op-69",
+      "op": {
+        "type": "cancel",
+        "holdId": "H16"
+      },
+      "rng": [
+        2984942984,
+        1349583676
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H16",
+        "amount": 6
+      }
+    },
+    {
+      "seq": 70,
+      "opId": "op-70",
+      "op": {
+        "type": "settle",
+        "holdId": "H4"
+      },
+      "rng": [
+        536493664,
+        1347738444
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 71,
+      "opId": "op-71",
+      "op": {
+        "type": "cancel",
+        "holdId": "H9"
+      },
+      "rng": [
+        182171513,
+        2480497549
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 72,
+      "opId": "op-72",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 108
+      },
+      "rng": [
+        892012035,
+        2068173204,
+        1631787257
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H18"
+      }
+    },
+    {
+      "seq": 73,
+      "opId": "op-73",
+      "op": {
+        "type": "cancel",
+        "holdId": "H16"
+      },
+      "rng": [
+        3058230803,
+        3919707199
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 74,
+      "opId": "op-74",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 38
+      },
+      "rng": [
+        3486222969,
+        1887046818,
+        662036887
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 75,
+      "opId": "op-75",
+      "op": {
+        "type": "reserve",
+        "account": "A0",
+        "amount": 118
+      },
+      "rng": [
+        3726443988,
+        2257757880,
+        3609384717
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "seq": 76,
+      "opId": "op-76",
+      "op": {
+        "type": "cancel",
+        "holdId": "H7"
+      },
+      "rng": [
+        3841874081,
+        1933176784
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H7",
+        "amount": 51
+      }
+    },
+    {
+      "seq": 77,
+      "opId": "op-77",
+      "op": {
+        "type": "reserve",
+        "account": "A1",
+        "amount": 7
+      },
+      "rng": [
+        629624772,
+        2657486005,
+        3468583506
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H19"
+      }
+    },
+    {
+      "seq": 78,
+      "opId": "op-78",
+      "op": {
+        "type": "settle",
+        "holdId": "H7"
+      },
+      "rng": [
+        895112659,
+        1673506567
+      ],
+      "result": {
+        "status": "rejected",
+        "reason": "hold_not_open"
+      }
+    },
+    {
+      "seq": 79,
+      "opId": "op-79",
+      "op": {
+        "type": "settle",
+        "holdId": "H12"
+      },
+      "rng": [
+        2343600991,
+        4228356826
+      ],
+      "result": {
+        "status": "ok",
+        "holdId": "H12",
+        "amount": 46
+      }
+    }
+  ],
+  "randomSamples": [
+    2581720956,
+    1925393290,
+    3661312704,
+    2876485805,
+    750819978,
+    2261697747,
+    1173505300,
+    2683257857,
+    3717185310,
+    2028586305,
+    1073414265,
+    3788413843,
+    3202918453,
+    1318561460,
+    847198783,
+    2150616774,
+    2948976162,
+    2622596789,
+    16505353,
+    2021992966,
+    3596336860,
+    219942124,
+    2544012168,
+    135454488,
+    1146567233,
+    265349060,
+    797528213,
+    3365309999,
+    2277774085,
+    116495015,
+    743051824,
+    3619317939,
+    2094826994,
+    3474727257,
+    1372077750,
+    1932287441,
+    160800198,
+    220730114,
+    2390577849,
+    2562933742,
+    1053017205,
+    2773236351,
+    899840697,
+    1304079350,
+    3172354640,
+    3688135315,
+    2181827449,
+    876989793,
+    1220659696,
+    1258389499,
+    320810992,
+    2834076233,
+    2923880300,
+    2976790794,
+    3985042028,
+    377819793,
+    4053312021,
+    1851721450,
+    4047124279,
+    589692171,
+    476497268,
+    68044760,
+    1548102433,
+    2068982459,
+    2628185060,
+    3863572076,
+    333213895,
+    3090649941,
+    4015226335,
+    1195080971,
+    3034761162,
+    771473704,
+    2234741724,
+    3529998222,
+    517941159,
+    4276235376,
+    2417208516,
+    3934706147,
+    1863974445,
+    2484436821,
+    1447241123,
+    2560827451,
+    1387093168,
+    3132809236,
+    1267911619,
+    1931716244,
+    3621197601,
+    2985282326,
+    4269246832,
+    3823371857,
+    1854959739,
+    2341672574,
+    1271007590,
+    433265304,
+    2992396110,
+    1345637321,
+    3375597684,
+    3885981145,
+    402186523,
+    2041792228,
+    3530251837,
+    558256765,
+    4177914046,
+    766200028,
+    3046977158,
+    3005150949,
+    958559950,
+    1773228455,
+    701958571,
+    2811770732,
+    1442813325,
+    888861190,
+    2701119489,
+    3809115726,
+    1401782681,
+    3403449372,
+    1687689305,
+    564327789,
+    3709572657,
+    1587894030,
+    40915520,
+    3167205167,
+    2728437326,
+    3762062167,
+    3900536738,
+    897599980,
+    2593870548,
+    2101280302,
+    790374677,
+    203899554,
+    3030321860,
+    3042425825,
+    1251949106,
+    1183197709,
+    1445685459,
+    125012741,
+    948738624,
+    4267136909,
+    2458231684,
+    4245851204,
+    703799808,
+    733726723,
+    2409322679,
+    1256293858,
+    1695036041,
+    1865780420,
+    1796823411,
+    2946935075,
+    1711602813,
+    1443627843,
+    3846750521,
+    1405814733,
+    2127136448,
+    2623665949,
+    2346607243,
+    2531015397,
+    1011065403,
+    1397434648,
+    1283251322,
+    1376818985,
+    2874603105,
+    948720820,
+    727157693,
+    2984942984,
+    1349583676,
+    536493664,
+    1347738444,
+    182171513,
+    2480497549,
+    892012035,
+    2068173204,
+    1631787257,
+    3058230803,
+    3919707199,
+    3486222969,
+    1887046818,
+    662036887,
+    3726443988,
+    2257757880,
+    3609384717,
+    3841874081,
+    1933176784,
+    629624772,
+    2657486005,
+    3468583506,
+    895112659,
+    1673506567,
+    2343600991,
+    4228356826
+  ],
+  "finalState": {
+    "accounts": [
+      {
+        "id": "A0",
+        "balance": 210,
+        "held": 124,
+        "frozen": false
+      },
+      {
+        "id": "A1",
+        "balance": 152,
+        "held": 106,
+        "frozen": false
+      },
+      {
+        "id": "A2",
+        "balance": 11,
+        "held": 0,
+        "frozen": false
+      }
+    ],
+    "holds": [
+      {
+        "id": "H0",
+        "account": "A1",
+        "amount": 55,
+        "state": "cancelled"
+      },
+      {
+        "id": "H1",
+        "account": "A1",
+        "amount": 108,
+        "state": "settled"
+      },
+      {
+        "id": "H2",
+        "account": "A0",
+        "amount": 16,
+        "state": "open"
+      },
+      {
+        "id": "H3",
+        "account": "A0",
+        "amount": 90,
+        "state": "settled"
+      },
+      {
+        "id": "H4",
+        "account": "A0",
+        "amount": 84,
+        "state": "cancelled"
+      },
+      {
+        "id": "H5",
+        "account": "A2",
+        "amount": 58,
+        "state": "cancelled"
+      },
+      {
+        "id": "H6",
+        "account": "A2",
+        "amount": 49,
+        "state": "settled"
+      },
+      {
+        "id": "H7",
+        "account": "A0",
+        "amount": 51,
+        "state": "cancelled"
+      },
+      {
+        "id": "H8",
+        "account": "A1",
+        "amount": 80,
+        "state": "cancelled"
+      },
+      {
+        "id": "H9",
+        "account": "A2",
+        "amount": 111,
+        "state": "settled"
+      },
+      {
+        "id": "H10",
+        "account": "A1",
+        "amount": 25,
+        "state": "open"
+      },
+      {
+        "id": "H11",
+        "account": "A0",
+        "amount": 127,
+        "state": "cancelled"
+      },
+      {
+        "id": "H12",
+        "account": "A2",
+        "amount": 46,
+        "state": "settled"
+      },
+      {
+        "id": "H13",
+        "account": "A2",
+        "amount": 2,
+        "state": "cancelled"
+      },
+      {
+        "id": "H14",
+        "account": "A2",
+        "amount": 83,
+        "state": "settled"
+      },
+      {
+        "id": "H15",
+        "account": "A1",
+        "amount": 74,
+        "state": "open"
+      },
+      {
+        "id": "H16",
+        "account": "A1",
+        "amount": 6,
+        "state": "cancelled"
+      },
+      {
+        "id": "H17",
+        "account": "A1",
+        "amount": 40,
+        "state": "settled"
+      },
+      {
+        "id": "H18",
+        "account": "A0",
+        "amount": 108,
+        "state": "open"
+      },
+      {
+        "id": "H19",
+        "account": "A1",
+        "amount": 7,
+        "state": "open"
+      }
+    ]
+  },
+  "stateHash": "2038eba4438e84097757437a60ea6f42120e4f84282543306645cca43c049c56"
+}

@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 24223.512198
+  type: 'test'
+  ...
+# Subtest: test/enumerator.test.js
+ok 2 - test/enumerator.test.js
+  ---
+  duration_ms: 4276.485955
+  type: 'test'
+  ...
+# Subtest: test/fuzz.test.js
+ok 3 - test/fuzz.test.js
+  ---
+  duration_ms: 3190.184274
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 4 - test/ledger.test.js
+  ---
+  duration_ms: 3908.558129
+  type: 'test'
+  ...
+# Subtest: test/prng.test.js
+ok 5 - test/prng.test.js
+  ---
+  duration_ms: 3651.508305
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24386.481966

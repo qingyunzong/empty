@@ -1,0 +1,1 @@
+{"seed":42,"steps":80,"accounts":3,"ops":80,"rejected":45,"randomSamples":189,"stateHash":"2038eba4438e84097757437a60ea6f42120e4f84282543306645cca43c049c56"}

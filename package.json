@@ -1,0 +1,9 @@
+{
+  "name": "payfuzz",
+  "version": "0.1.0",
+  "description": "Deterministic payment-limit fuzzing library and CLI (reserve/settle/cancel) with byte-exact replay",
+  "type": "module",
+  "bin": { "payfuzz": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
