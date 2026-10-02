@@ -1,0 +1,9 @@
+{
+  "name": "causal-settlement-ledger",
+  "version": "1.0.0",
+  "description": "Single-machine causal settlement ledger with vector clocks, hash chaining and finality certificates (Node.js stdlib only).",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
