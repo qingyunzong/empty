@@ -1,0 +1,16 @@
+{
+  "name": "curing-furnace-planner",
+  "version": "1.0.0",
+  "description": "Offline curing-furnace batch scheduler with rolling replan, preemption and quota management",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "furnace-plan": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "freezeTime": 60,
+  "addOrders": [
+    { "id": "u1", "recipe": "A", "qty": 6, "due": 150, "priority": "urgent" }
+  ],
+  "cancelOrders": ["o2"]
+}

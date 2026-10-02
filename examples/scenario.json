@@ -1,0 +1,21 @@
+{
+  "config": {
+    "capacity": 10,
+    "runDuration": 60,
+    "cleanoutTime": 30,
+    "dayLength": 480,
+    "slotDuration": 15,
+    "compensationSlots": 2
+  },
+  "recipes": [
+    { "id": "A", "family": "F1", "dailyQuota": 14 },
+    { "id": "B", "family": "F1", "dailyQuota": 20 },
+    { "id": "C", "family": "F2", "dailyQuota": 12 }
+  ],
+  "orders": [
+    { "id": "o1", "recipe": "A", "qty": 8, "due": 200 },
+    { "id": "o2", "recipe": "B", "qty": 6, "due": 300 },
+    { "id": "o3", "recipe": "C", "qty": 10, "due": 500 },
+    { "id": "o4", "recipe": "A", "qty": 8, "due": 100, "toolingPrepared": true }
+  ]
+}
