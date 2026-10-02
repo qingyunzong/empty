@@ -1,0 +1,9 @@
+{
+  "name": "maint-sync",
+  "version": "0.1.0",
+  "description": "Offline-first maintenance work-order sync: event sourcing, vector clocks, checkpoints, audit",
+  "type": "module",
+  "bin": { "maint-sync": "bin/maint-sync.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
