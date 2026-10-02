@@ -1,0 +1,10 @@
+{
+  "name": "rework-station",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rework station decision engine: rework / scrap / concession with stock, budget and audit ledger",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
