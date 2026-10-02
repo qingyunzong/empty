@@ -1,0 +1,9 @@
+{
+  "name": "maint-sched",
+  "version": "1.0.0",
+  "private": true,
+  "description": "设备周期维护与事件预留库与CLI（精确有理数、事务、undo/redo、抖动冲突判定）",
+  "scripts": {
+    "test": "node --test"
+  }
+}
