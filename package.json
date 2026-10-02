@@ -1,0 +1,15 @@
+{
+  "name": "rundiff",
+  "version": "0.1.0",
+  "description": "Locate minimal dataset/parameter differences between two experiment runs and generate replayable diff queries.",
+  "type": "module",
+  "bin": {
+    "rundiff": "bin/rundiff.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
