@@ -1,0 +1,14 @@
+{
+  "tx_id": "tx-001",
+  "tx_time": "2024-03-10T01:00:00Z",
+  "events": [
+    {
+      "id": "e-001",
+      "equipment": "pump-7",
+      "valid_time": "2024-03-10T00:00:00Z",
+      "state": "up",
+      "tx_id": "tx-001",
+      "tx_time": "2024-03-10T01:00:00Z"
+    }
+  ]
+}

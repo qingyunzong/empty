@@ -1,0 +1,14 @@
+{
+  "tx_id": "tx-102",
+  "tx_time": "2024-05-05T00:00:00Z",
+  "events": [
+    {
+      "id": "e-102",
+      "equipment": "valve-3",
+      "valid_time": "2024-05-01T00:00:00Z",
+      "state": "down",
+      "tx_id": "tx-102",
+      "tx_time": "2024-05-05T00:00:00Z"
+    }
+  ]
+}

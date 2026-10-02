@@ -1,0 +1,14 @@
+{
+  "name": "bitemporal-equipment-audit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Append-only bitemporal (valid_time / tx_time) equipment state audit log with daily up/down counts, undo, crash recovery and a full-scan reference implementation.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "scenarios": "bash scripts/run-scenarios.sh"
+  }
+}

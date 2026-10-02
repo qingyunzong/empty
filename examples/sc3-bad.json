@@ -1,0 +1,30 @@
+{
+  "tx_id": "tx-202",
+  "tx_time": "2024-06-04T00:00:00Z",
+  "events": [
+    {
+      "id": "e-203",
+      "equipment": "motor-1",
+      "valid_time": "2024-06-03T00:00:00Z",
+      "state": "up",
+      "tx_id": "tx-202",
+      "tx_time": "2024-06-04T00:00:00Z"
+    },
+    {
+      "id": "e-204",
+      "equipment": "motor-1",
+      "valid_time": "2024-06-03T12:00:00Z",
+      "state": "broken",
+      "tx_id": "tx-202",
+      "tx_time": "2024-06-04T00:00:00Z"
+    },
+    {
+      "id": "e-205",
+      "equipment": "motor-1",
+      "valid_time": "2024-02-30T09:00:00Z",
+      "state": "down",
+      "tx_id": "tx-202",
+      "tx_time": "2024-06-04T00:00:00Z"
+    }
+  ]
+}

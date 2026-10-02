@@ -1,0 +1,124 @@
+Bitemporal equipment-state audit - CLI acceptance scenarios
+generated: 2026-10-02T19:31:23Z | node v22.22.1 | append-only log, corrections never overwrite
+
+================================================================
+Scenario 1: retroactive correction of a past valid_time
+  tx-001 records pump-7=up @2024-03-10; tx-002 later says it was
+  actually down. The current view must flip to down, while an AS OF
+  query at the old tx_time must still answer up.
+================================================================
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 append examples/sc1-tx1.json
+COMMIT tx_id=tx-001 events=1
+DELTA equipment=pump-7 date=2024-03-10 up=+1 down=+0
+HASH b4da752ad663a53b44a6dbc95c97975b5ddcb4a87e03e831ea4221549159bae7
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 asof pump-7 2024-03-10T00:00:00Z 2024-03-10T02:00:00Z
+STATE equipment=pump-7 valid_time=2024-03-10T00:00:00Z tx_time=2024-03-10T02:00:00Z state=up
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 append examples/sc1-tx2.json
+COMMIT tx_id=tx-002 events=1
+DELTA equipment=pump-7 date=2024-03-10 up=-1 down=+1
+HASH 9ffe7c40414c3b1d51e132f0779aa2489ae65838cd6b5df4148fdafa298d53ed
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 asof pump-7 2024-03-10T00:00:00Z
+STATE equipment=pump-7 valid_time=2024-03-10T00:00:00Z tx_time=CURRENT state=down
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 asof pump-7 2024-03-10T00:00:00Z 2024-03-10T02:00:00Z
+STATE equipment=pump-7 valid_time=2024-03-10T00:00:00Z tx_time=2024-03-10T02:00:00Z state=up
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 counts
+COUNT equipment=pump-7 date=2024-03-10 up=0 down=1
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s1 verify
+VERIFY OK records=2 (incremental counts == full-scan reference)
+(exit=0)
+
+================================================================
+Scenario 2: out-of-order tx_time
+  tx-101 (tx_time 2024-05-10, up) commits first; tx-102 (tx_time
+  2024-05-05, down) arrives second but carries the EARLIER tx_time.
+  Visibility follows transaction time, not arrival order: current
+  view stays up; a view between the two tx_times sees down.
+================================================================
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 append examples/sc2-txA.json
+COMMIT tx_id=tx-101 events=1
+DELTA equipment=valve-3 date=2024-05-01 up=+1 down=+0
+HASH 9744bc92fbca81dfc6950cb1efa5a3ee28b48a40c33fb098884894eea3530bec
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 append examples/sc2-txB.json
+COMMIT tx_id=tx-102 events=1
+DELTA (none)
+HASH 830c73ba95e1df1b0dce3e0eba18b93004224b5d7aad29779e59dce93a2de1e1
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 asof valve-3 2024-05-01T00:00:00Z
+STATE equipment=valve-3 valid_time=2024-05-01T00:00:00Z tx_time=CURRENT state=up
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 asof valve-3 2024-05-01T00:00:00Z 2024-05-07T00:00:00Z
+STATE equipment=valve-3 valid_time=2024-05-01T00:00:00Z tx_time=2024-05-07T00:00:00Z state=down
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 asof valve-3 2024-05-01T00:00:00Z 2024-05-04T00:00:00Z
+STATE equipment=valve-3 valid_time=2024-05-01T00:00:00Z tx_time=2024-05-04T00:00:00Z state=NONE
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 counts
+COUNT equipment=valve-3 date=2024-05-01 up=1 down=0
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s2 verify
+VERIFY OK records=2 (incremental counts == full-scan reference)
+(exit=0)
+
+================================================================
+Scenario 3: invalid batch rolls back atomically
+  tx-202 contains one valid event plus a bad state and an impossible
+  date (2024-02-30). The whole batch must be rejected: counts and
+  hash identical before and after.
+================================================================
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 append examples/sc3-tx1.json
+COMMIT tx_id=tx-201 events=2
+DELTA equipment=motor-1 date=2024-06-01 up=+1 down=+0
+DELTA equipment=motor-1 date=2024-06-02 up=+0 down=+1
+HASH 546ab186c7d047480f148dde79e25d768ffacd3ac64335c4e573f5bbc0f988f4
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 counts
+COUNT equipment=motor-1 date=2024-06-01 up=1 down=0
+COUNT equipment=motor-1 date=2024-06-02 up=0 down=1
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 hash
+HASH 546ab186c7d047480f148dde79e25d768ffacd3ac64335c4e573f5bbc0f988f4
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 append examples/sc3-bad.json
+REJECT tx_id=tx-202
+PROBLEM events[1].state: expected "up" or "down", got "broken"
+PROBLEM events[2].valid_time: invalid timestamp "2024-02-30T09:00:00Z"
+HASH 546ab186c7d047480f148dde79e25d768ffacd3ac64335c4e573f5bbc0f988f4
+(exit=1)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 counts
+COUNT equipment=motor-1 date=2024-06-01 up=1 down=0
+COUNT equipment=motor-1 date=2024-06-02 up=0 down=1
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 hash
+HASH 546ab186c7d047480f148dde79e25d768ffacd3ac64335c4e573f5bbc0f988f4
+(exit=0)
+
+$ node cli.js --data /tmp/tmp.JlRQ1Ol79p/s3 verify
+VERIFY OK records=1 (incremental counts == full-scan reference)
+(exit=0)
