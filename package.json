@@ -1,0 +1,9 @@
+{
+  "name": "recon",
+  "version": "1.0.0",
+  "description": "Three-way bank/core/adjustment reconciliation (offline, stdlib only)",
+  "type": "module",
+  "bin": { "recon": "bin/recon.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
