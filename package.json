@@ -1,0 +1,16 @@
+{
+  "name": "tank-scheduler",
+  "version": "0.1.0",
+  "description": "Offline finite-domain tank scheduling library and CLI",
+  "type": "module",
+  "main": "src/scheduler.js",
+  "bin": {
+    "tank-sched": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
