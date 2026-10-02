@@ -1,0 +1,9 @@
+{
+  "name": "audit-chain",
+  "version": "1.0.0",
+  "description": "Minimal patch tooling for settlement event logs with verifiable certificates",
+  "main": "src/index.js",
+  "bin": { "audit": "audit.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}

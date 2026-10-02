@@ -1,0 +1,37 @@
+# node --test full run (2026-10-02T13:34:24Z, node v22.22.1)
+
+## test/verify.test.js
+ok 1 - verify: valid log passes with exit 0 and prints root
+ok 2 - verify: tampered hash is rejected with exit 9
+ok 3 - verify: broken prevHash linkage is rejected with exit 9
+ok 4 - verify: tampered body (hash not recomputed) is rejected with exit 9
+ok 5 - verify: seq gap is rejected with exit 9
+ok 6 - verify: invalid JSON line is rejected with exit 9
+
+## test/patch-check.test.js
+ok 1 - patch: replaceBody + void, then verify and check pass
+ok 2 - patch: broken-chain input is rejected with exit 9 and writes nothing
+ok 3 - patch: fix.json attempting prevHash modification exits 10
+ok 4 - patch: unknown op and duplicate seq are rejected with exit 1
+ok 5 - check: tampered cert change record exits 11 and locates first seq
+ok 6 - check: tampered cert unchangedRanges exits 11
+ok 7 - check: tampered cert newRoot exits 11
+ok 8 - check: silently modified unchanged event exits 11 locating first seq
+ok 9 - check: new log with extra events (seq set changed) exits 10
+ok 10 - check: broken-chain new log exits 9 (not 11)
+
+## test/recover.test.js
+ok 1 - recover: crash after writing new.tmp -> OLD, old log authoritative, tmp cleanup advised
+ok 2 - recover: crash after writing cert.tmp -> OLD (commit point not reached)
+ok 3 - recover: crash between the two renames -> MIXED, rollback instruction, exit 2
+ok 4 - recover: completed patch -> NEW, and check confirms consistency
+ok 5 - recover: both finals present but cert does not match new log -> MIXED exit 2
+
+## test/enumerate.test.js
+ok 1 - enumerate all 2^10 fix sets for seq<=10: changedSeqs/unchangedRanges match and cert checks out
+
+## node --test (whole suite)
+# tests 5
+# pass 5
+# fail 0
+# duration_ms 21118.035501
