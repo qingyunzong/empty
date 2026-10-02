@@ -1,0 +1,81 @@
+command: node --test
+exit code: 0
+date: 2026-10-02T22:27:42Z
+
+== summary ==
+TAP version 13
+# Subtest: test/patcher.test.js
+ok 1 - test/patcher.test.js
+  ---
+  duration_ms: 41794.89951
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 41982.136646
+
+== per-test detail (node test/patcher.test.js) ==
+TAP version 13
+# Subtest: full commit applies all ops and leaves no journal or temp files
+ok 1 - full commit applies all ops and leaves no journal or temp files
+  ---
+  duration_ms: 1486.964517
+  type: 'test'
+  ...
+# Subtest: crash at every failure point recovers to a deterministic state
+ok 2 - crash at every failure point recovers to a deterministic state
+  ---
+  duration_ms: 9219.665457
+  type: 'test'
+  ...
+# Subtest: rolled-back state is byte-identical to the pre-commit state
+ok 3 - rolled-back state is byte-identical to the pre-commit state
+  ---
+  duration_ms: 1389.019953
+  type: 'test'
+  ...
+# Subtest: dangerous op with explicit inverse rolls back via that inverse
+ok 4 - dangerous op with explicit inverse rolls back via that inverse
+  ---
+  duration_ms: 1750.17721
+  type: 'test'
+  ...
+# Subtest: dangerous op with inverse commits cleanly when there is no crash
+ok 5 - dangerous op with inverse commits cleanly when there is no crash
+  ---
+  duration_ms: 902.192936
+  type: 'test'
+  ...
+# Subtest: illegal patches are rejected with exit code 1 and touch nothing on disk
+ok 6 - illegal patches are rejected with exit code 1 and touch nothing on disk
+  ---
+  duration_ms: 9658.556535
+  type: 'test'
+  ...
+# Subtest: recover without a journal is a no-op with exit code 0
+ok 7 - recover without a journal is a no-op with exit code 0
+  ---
+  duration_ms: 1121.875436
+  type: 'test'
+  ...
+# Subtest: apply auto-recovers a leftover journal before committing a new patch
+ok 8 - apply auto-recovers a leftover journal before committing a new patch
+  ---
+  duration_ms: 2230.226737
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28031.231296

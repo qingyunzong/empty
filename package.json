@@ -1,0 +1,10 @@
+{
+  "name": "evidence-patcher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Transactional patch library and CLI for evidence packages (WAL, crash recovery)",
+  "main": "src/patcher.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
