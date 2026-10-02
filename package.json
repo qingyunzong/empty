@@ -1,0 +1,10 @@
+{
+  "name": "plate-qc-incremental",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental QC computation for microplate experiments (stdlib only)",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
