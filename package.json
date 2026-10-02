@@ -1,0 +1,12 @@
+{
+  "name": "offline-planner",
+  "version": "0.1.0",
+  "description": "Offline injection-molding shop scheduler with causal op log, undo/restore and audit certificates",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": { "plan": "./cli.js" }
+}
