@@ -1,0 +1,15 @@
+{
+  "name": "wal-ledger",
+  "version": "1.0.0",
+  "description": "Offline payment settlement library with WAL, CRC32-framed records and crash recovery",
+  "type": "module",
+  "bin": {
+    "ledger": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
