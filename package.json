@@ -1,0 +1,11 @@
+{
+  "name": "budget-reserve",
+  "version": "1.0.0",
+  "description": "Offline budget-package reservation allocator for reimbursement batches",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
