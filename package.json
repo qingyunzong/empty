@@ -1,0 +1,10 @@
+{
+  "name": "credit-hold-ledger",
+  "version": "1.0.0",
+  "description": "Payment credit authorization holds with event sourcing, deterministic replay and crash recovery",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
