@@ -1,0 +1,12 @@
+{
+  "name": "maintenance-scheduler",
+  "version": "1.0.0",
+  "description": "Optimal maintenance scheduling on a DAG with 2 interchangeable crews, budget/parts constraints, incremental re-optimization with undo/redo, and an offline CLI.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  },
+  "license": "MIT"
+}

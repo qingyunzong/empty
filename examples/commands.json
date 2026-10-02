@@ -1,0 +1,9 @@
+[
+  { "op": "repriceMode", "task": "C", "mode": 1, "cost": 12 },
+  { "op": "setBudget", "budget": 14 },
+  { "op": "addTask", "task": { "id": "E", "deps": ["D"], "modes": [ { "duration": 2, "cost": 3 } ] } },
+  { "op": "undo" },
+  { "op": "undo" },
+  { "op": "redo" },
+  { "op": "removeTask", "id": "C" }
+]

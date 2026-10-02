@@ -1,0 +1,118 @@
+# maintenance-scheduler acceptance results
+# recorded by test/cli.test.js under node v22.22.1
+# each block shows the real exit code, stdout and stderr of a CLI run
+
+== case: valid-run ==
+command: node src/cli.js maintenance /tmp/maint-cli-RMrBws/input.json /tmp/maint-cli-RMrBws/commands.json -o /tmp/maint-cli-RMrBws/out.json
+exit code: 0
+--- stdout ---
+step 0 [initial] optimal downtime=13 cost=28 sequence=A,C,B,D
+step 1 [setBudget] optimal downtime=25 cost=14 sequence=A,C,B,D
+step 2 [undo] optimal downtime=13 cost=28 sequence=A,C,B,D
+step 3 [redo] optimal downtime=25 cost=14 sequence=A,C,B,D
+wrote /tmp/maint-cli-RMrBws/out.json
+--- stderr ---
+
+
+== case: budget-cut ==
+command: node src/cli.js maintenance /tmp/maint-cli-S3Kol9/input.json /tmp/maint-cli-S3Kol9/commands.json -o /tmp/maint-cli-S3Kol9/out.json
+exit code: 0
+--- stdout ---
+step 0 [initial] optimal downtime=6 cost=30 sequence=A,B,C
+step 1 [setBudget] optimal downtime=24 cost=6 sequence=A,B,C
+wrote /tmp/maint-cli-S3Kol9/out.json
+--- stderr ---
+
+
+== case: cyclic-dag ==
+command: node src/cli.js maintenance /tmp/maint-cli-9au0bq/input.json /tmp/maint-cli-9au0bq/commands.json
+exit code: 1
+--- stdout ---
+
+--- stderr ---
+{"error":{"code":"CYCLIC_DAG","message":"dependency cycle detected: A -> B -> A","details":{"cycle":["A","B","A"]}}}
+
+== case: negative-budget ==
+command: node src/cli.js maintenance /tmp/maint-cli-Eokbv1/input.json /tmp/maint-cli-Eokbv1/commands.json
+exit code: 1
+--- stdout ---
+
+--- stderr ---
+{"error":{"code":"NEGATIVE_BUDGET","message":"budget must be non-negative, got -3","details":{"budget":-3}}}
+
+== case: unknown-part ==
+command: node src/cli.js maintenance /tmp/maint-cli-2kxS4N/input.json /tmp/maint-cli-2kxS4N/commands.json
+exit code: 1
+--- stdout ---
+
+--- stderr ---
+{"error":{"code":"UNKNOWN_PART","message":"task \"A\" mode 0: unknown spare part \"flux\"","details":{"part":"flux"}}}
+
+== case: command-error-in-band ==
+command: node src/cli.js maintenance /tmp/maint-cli-tPhSRK/input.json /tmp/maint-cli-tPhSRK/commands.json -o /tmp/maint-cli-tPhSRK/out.json
+exit code: 0
+--- stdout ---
+step 0 [initial] optimal downtime=13 cost=28 sequence=A,C,B,D
+step 1 [addTask] error UNKNOWN_PART: task "E" mode 0: unknown spare part "ghost"
+step 2 [setBudget] optimal downtime=13 cost=28 sequence=A,C,B,D
+wrote /tmp/maint-cli-tPhSRK/out.json
+--- stderr ---
+
+
+== case: usage-error ==
+command: node src/cli.js maintenance
+exit code: 2
+--- stdout ---
+
+--- stderr ---
+expected input.json and commands.json
+usage: node src/cli.js maintenance <input.json> <commands.json> [-o out.json]
+
+input.json:    { "budget": int>=0, "crews"?: 2, "parts"?: {id: qty},
+               "tasks": [{ "id", "deps"?: [], "modes": [{duration, cost, parts?}] }] }
+commands.json: [ {op:"addTask", task}, {op:"removeTask", id},
+               {op:"updateMode", task, mode, patch:{duration?,cost?,parts?}},
+               {op:"repriceMode", task, mode, cost},
+               {op:"setBudget", budget}, {op:"undo"}, {op:"redo"} ]
+
+== case: node --test ==
+command: node --test
+exit code: 0
+--- stdout ---
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 7146.230834
+  type: 'test'
+  ...
+# Subtest: test/errors.test.js
+ok 2 - test/errors.test.js
+  ---
+  duration_ms: 1422.802024
+  type: 'test'
+  ...
+# Subtest: test/incremental.test.js
+ok 3 - test/incremental.test.js
+  ---
+  duration_ms: 1192.469551
+  type: 'test'
+  ...
+# Subtest: test/solver.test.js
+ok 4 - test/solver.test.js
+  ---
+  duration_ms: 3565.620589
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7410.401418
+--- stderr ---
+
+

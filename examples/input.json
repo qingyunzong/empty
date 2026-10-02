@@ -1,0 +1,22 @@
+{
+  "budget": 30,
+  "crews": 2,
+  "parts": { "valve": 2, "filter": 1 },
+  "tasks": [
+    { "id": "A", "deps": [], "modes": [
+      { "duration": 4, "cost": 3, "parts": { "valve": 1 } },
+      { "duration": 2, "cost": 8, "parts": { "valve": 1 } }
+    ] },
+    { "id": "B", "deps": ["A"], "modes": [
+      { "duration": 3, "cost": 4 },
+      { "duration": 1, "cost": 9, "parts": { "filter": 1 } }
+    ] },
+    { "id": "C", "deps": [], "modes": [
+      { "duration": 5, "cost": 2 },
+      { "duration": 3, "cost": 6 }
+    ] },
+    { "id": "D", "deps": ["B", "C"], "modes": [
+      { "duration": 2, "cost": 5, "parts": { "valve": 1 } }
+    ] }
+  ]
+}
