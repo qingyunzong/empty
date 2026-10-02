@@ -1,0 +1,9 @@
+{
+  "template": "Hello, {{ name | upper }}! You have {{ items | length }} item(s): {{ items | join(' + ') }}.",
+  "variables": {
+    "items": ["apple", "pear"]
+  },
+  "patches": [
+    { "op": "set", "name": "name", "value": "world" }
+  ]
+}
