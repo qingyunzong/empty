@@ -1,0 +1,13 @@
+{
+  "name": "bilateral-net-settlement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilateral trade net settlement with compressed positional index (Node.js 22 stdlib only)",
+  "main": "src/system.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
