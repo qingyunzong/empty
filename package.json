@@ -1,0 +1,10 @@
+{
+  "name": "lineage-merge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Concurrency detection and merge library + CLI for distributed experimental lineage",
+  "main": "lib/merge.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
