@@ -1,0 +1,9 @@
+{
+  "name": "wo-index",
+  "version": "1.0.0",
+  "description": "Offline positional inverted index for maintenance work-order notes",
+  "type": "module",
+  "bin": { "wo": "bin/wo.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
