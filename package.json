@@ -1,0 +1,14 @@
+{
+  "name": "factory-schedule-judge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline discrete-factory schedule judge: compiles regex rule sets to incremental DFA checkers with layered undo/redo.",
+  "type": "commonjs",
+  "main": "src/rulelib.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

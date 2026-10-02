@@ -1,0 +1,5 @@
+{"op":"add","id":"r1","kind":"red","pattern":"FF"}
+{"op":"add","id":"r2","kind":"red","pattern":"SA"}
+{"op":"add","id":"y1","kind":"yellow","pattern":"A(B|C)"}
+{"op":"undo"}
+{"op":"add","id":"y2","kind":"yellow","pattern":"AB|AC"}
