@@ -1,0 +1,13 @@
+{
+  "name": "downtime-policy-gate",
+  "version": "1.0.0",
+  "description": "Policy gate for factory downtime root-cause reports: per-audience field views, revocation, leak audit",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

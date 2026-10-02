@@ -1,0 +1,40 @@
+{
+  "classifications": {
+    "operational": { "minLevel": "org" },
+    "personal": { "minLevel": "role", "boundary": "null" },
+    "recipe": { "minLevel": "individual" },
+    "regulatory": { "minLevel": "org", "forced": true }
+  },
+  "fields": {
+    "line_id": { "classification": "operational" },
+    "downtime_minutes": { "classification": "operational" },
+    "root_cause": { "classification": "operational" },
+    "mix_ratio": { "classification": "recipe" },
+    "temperature_profile": { "classification": "recipe" },
+    "operator_name": { "classification": "personal" },
+    "operator_id": { "classification": "personal" },
+    "safety_interlock_status": { "classification": "regulatory" }
+  },
+  "principals": {
+    "factory": { "kind": "org" },
+    "supplier": { "kind": "org" },
+    "hq": { "kind": "org" },
+    "operator": { "kind": "role", "org": "factory" },
+    "alice": { "kind": "individual", "role": "operator" }
+  },
+  "grants": {
+    "org": {
+      "factory": ["line_id", "downtime_minutes", "root_cause", "operator_name", "operator_id"],
+      "supplier": ["line_id", "downtime_minutes"],
+      "hq": ["line_id", "downtime_minutes", "root_cause", "mix_ratio"]
+    },
+    "role": {
+      "operator": ["line_id", "downtime_minutes", "root_cause", "operator_name"]
+    },
+    "individual": {
+      "alice": ["mix_ratio"]
+    }
+  },
+  "audiences": ["operator", "supplier", "hq"],
+  "joint": ["supplier", "hq"]
+}

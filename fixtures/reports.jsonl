@@ -1,0 +1,2 @@
+{"id":"r-001","fields":{"line_id":"L3","downtime_minutes":47,"root_cause":"bearing wear","mix_ratio":{"polymer":0.62,"filler":0.38},"temperature_profile":[180,185,182],"operator_name":"Wei Zhang","operator_id":"E-4471","safety_interlock_status":"OK"}}
+{"id":"r-002","fields":{"line_id":"L1","downtime_minutes":12,"root_cause":"sensor drift","mix_ratio":{"polymer":0.5,"filler":0.5},"temperature_profile":[170],"operator_name":null,"operator_id":null,"safety_interlock_status":"TRIPPED"}}
