@@ -1,0 +1,10 @@
+{
+  "name": "evpack",
+  "version": "1.0.0",
+  "description": "Offline-verifiable research evidence packs: hash-chained blocks, Merkle inclusion proofs, epoch-barriered membership, anti-entropy sync.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "bin": { "evpack": "bin/evpack.js" },
+  "scripts": { "test": "node --test" }
+}
