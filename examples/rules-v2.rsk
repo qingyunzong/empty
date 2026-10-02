@@ -1,0 +1,8 @@
+# Hot update, effective 2026-06-01. Old events still replay under version 1.
+version 2
+valid_from 2026-06-01T00:00:00Z
+
+rule g_base level global {
+  deny when amount > 5000CNY
+  review when count > 5
+}

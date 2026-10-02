@@ -1,0 +1,4 @@
+{"id":"e1","ts":"2026-03-01T10:00:00Z","merchant":"M1001","channel":"payx","ip":"10.1.2.3","amount":9000,"currency":"CNY","count":2}
+{"id":"e2","ts":"2026-03-01T11:00:00Z","merchant":"M2002","channel":"payx","ip":"8.8.8.8","amount":8500,"currency":"CNY","count":1}
+{"id":"e3","ts":"2026-07-01T09:00:00Z","merchant":"M1001","channel":"web","ip":"10.0.0.5","amount":6000,"currency":"CNY","count":1}
+{"id":"e4","ts":"2026-03-01T12:00:00Z","merchant":"M1001","channel":"payx","ip":"10.1.1.1","amount":500,"currency":"CNY","count":20,"review":"pending"}

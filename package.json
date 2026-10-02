@@ -1,0 +1,8 @@
+{
+  "name": "riskdsl",
+  "version": "0.1.0",
+  "description": "Payment risk-control rule DSL: lexer, Pratt parser, static types, scoped overrides, bytecode VM, versioned replay",
+  "type": "module",
+  "bin": { "risk": "bin/risk.js" },
+  "scripts": { "test": "node --test" }
+}

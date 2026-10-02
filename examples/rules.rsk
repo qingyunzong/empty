@@ -1,0 +1,19 @@
+# Baseline rule set, version 1.
+version 1
+valid_from 2026-01-01T00:00:00Z
+
+rule g_base level global {
+  deny when amount > 10000CNY
+  review when count > 10
+}
+
+rule c_payx level channel match channel payx {
+  deny when amount > 8000CNY
+  review when not ip in 10.0.0.0/8
+}
+
+rule m_vip level merchant match merchant M1001 {
+  # Explicitly relaxes the outer deny thresholds; recorded in the override log.
+  override deny when amount > 12000CNY
+  allow when merchant in /M10\d+/
+}
