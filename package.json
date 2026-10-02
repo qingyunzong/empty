@@ -1,0 +1,13 @@
+{
+  "name": "settle-net",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multilateral settlement netting with correction chunks",
+  "type": "commonjs",
+  "bin": {
+    "settle": "bin/settle.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
