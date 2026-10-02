@@ -1,0 +1,10 @@
+{
+  "name": "refund-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Order refund library and CLI: proportional split, freeze/post/cancel ledger, JSONL history",
+  "scripts": {
+    "test": "node --test"
+  }
+}

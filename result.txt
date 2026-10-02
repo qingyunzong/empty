@@ -1,0 +1,29 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 1190.399582
+  type: 'test'
+  ...
+# Subtest: test/enumerator.test.js
+ok 2 - test/enumerator.test.js
+  ---
+  duration_ms: 2075.695037
+  type: 'test'
+  ...
+# Subtest: test/refund.test.js
+ok 3 - test/refund.test.js
+  ---
+  duration_ms: 1489.958534
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2390.880581
+EXIT_CODE=0
