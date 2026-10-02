@@ -1,0 +1,23 @@
+{
+  "accounts": {
+    "A": { "balance": 100, "creditLimit": 1000 },
+    "B": { "balance": 0, "creditLimit": 1000 },
+    "C": { "balance": 100, "creditLimit": 1000 },
+    "D": { "balance": 0, "creditLimit": 1000 },
+    "E": { "balance": 100, "creditLimit": 1000 },
+    "F": { "balance": 0, "creditLimit": 1000 }
+  },
+  "txs": [
+    { "tx": "t1", "legs": [ { "acct": "A", "amount": -10 }, { "acct": "B", "amount": 10 } ] },
+    { "tx": "t2", "legs": [ { "acct": "C", "amount": -20 }, { "acct": "D", "amount": 20 } ] },
+    { "tx": "t3", "legs": [ { "acct": "E", "amount": -30 }, { "acct": "F", "amount": 30 } ] }
+  ],
+  "prepareTimeout": 80,
+  "retryInterval": 10,
+  "faults": [
+    { "node": "P@A", "tx": "t1", "point": "after-prepare-log", "restartDelay": 5 },
+    { "node": "P@C", "tx": "t2", "point": "after-commit-log", "restartDelay": 5 },
+    { "node": "P@E", "tx": "t3", "point": "after-apply-before-ack", "restartDelay": 5 },
+    { "node": "COORD", "tx": "t2", "point": "after-decision-log", "restartDelay": 5 }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "accounts": {
+    "A": { "balance": 100, "creditLimit": 1000 },
+    "B": { "balance": 0, "creditLimit": 1000 }
+  },
+  "txs": [
+    { "tx": "t1", "legs": [ { "acct": "A", "amount": -30 }, { "acct": "B", "amount": 30 } ] }
+  ],
+  "prepareTimeout": 60,
+  "retryInterval": 10,
+  "network": {
+    "fragmentSize": 20,
+    "reorder": true,
+    "seed": 7,
+    "faults": [
+      { "msgIndex": 0, "action": "drop", "times": 1 },
+      { "phase": "vote", "action": "dup" }
+    ]
+  }
+}

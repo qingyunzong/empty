@@ -1,0 +1,9 @@
+{
+  "accounts": {
+    "A": { "balance": 100, "creditLimit": 1000 },
+    "B": { "balance": 0, "creditLimit": 30 }
+  },
+  "txs": [
+    { "tx": "t1", "legs": [ { "acct": "A", "amount": -40 }, { "acct": "B", "amount": 40 } ] }
+  ]
+}

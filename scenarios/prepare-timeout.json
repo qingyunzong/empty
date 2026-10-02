@@ -1,0 +1,19 @@
+{
+  "accounts": {
+    "A": { "balance": 100, "creditLimit": 1000 },
+    "B": { "balance": 0, "creditLimit": 1000 }
+  },
+  "txs": [
+    { "tx": "t1", "legs": [ { "acct": "A", "amount": -40 }, { "acct": "B", "amount": 40 } ] }
+  ],
+  "prepareTimeout": 50,
+  "retryInterval": 10,
+  "maxTime": 300,
+  "network": {
+    "faults": [
+      { "from": "P@B", "phase": "vote", "action": "drop" },
+      { "to": "P@B", "phase": "abort", "action": "drop" }
+    ]
+  },
+  "ops": [ { "op": "pending" }, { "op": "status", "tx": "t1" } ]
+}
