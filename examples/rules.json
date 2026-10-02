@@ -1,0 +1,5 @@
+[
+  { "id": "temp-range", "type": "range", "var": "temperature", "min": 0, "max": 5 },
+  { "id": "pressure-min", "type": "range", "var": "pressure", "min": 3, "max": 10, "dependsOn": ["temp-range"] },
+  { "id": "tp-balance", "type": "leq", "a": "pressure", "b": "temperature", "dependsOn": ["pressure-min"] }
+]

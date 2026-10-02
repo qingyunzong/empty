@@ -1,0 +1,15 @@
+{
+  "name": "dq-rules",
+  "version": "1.0.0",
+  "description": "Rule-based data quality checking, repair, planning, versioned merge and replay for scientific datasets",
+  "type": "module",
+  "bin": {
+    "dq": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
