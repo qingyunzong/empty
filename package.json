@@ -1,0 +1,15 @@
+{
+  "name": "settlement-rollback",
+  "version": "1.0.0",
+  "private": true,
+  "description": "结算快照与层级回滚：savepoint、批次依赖树、孤儿冲正、边界校验（Node.js 22，仅标准库）",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node bin/cli.js demo",
+    "check": "node bin/cli.js check --seeds 100"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
