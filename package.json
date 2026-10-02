@@ -1,0 +1,10 @@
+{
+  "name": "margin-call",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Margin call (保证金追缴) library and CLI with crash recovery, cancellation and idempotency",
+  "scripts": {
+    "test": "node --test"
+  }
+}
