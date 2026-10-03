@@ -1,0 +1,9 @@
+{
+  "name": "offline-correction-history",
+  "version": "1.0.0",
+  "private": true,
+  "description": "离线更正历史：事件图 DAG 合并库与 CLI（仅标准库）",
+  "scripts": {
+    "test": "node --test"
+  }
+}
