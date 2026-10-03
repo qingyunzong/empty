@@ -1,0 +1,10 @@
+{
+  "name": "cdc-snapshot-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Content-defined-chunking snapshot store with crash-safe commit protocol (Node.js stdlib only)",
+  "main": "snapshot.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
