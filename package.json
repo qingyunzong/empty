@@ -1,0 +1,10 @@
+{
+  "name": "budget-mvcc",
+  "version": "1.0.0",
+  "description": "MVCC transactional budget store with WAL persistence and CLI",
+  "type": "commonjs",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
