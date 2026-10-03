@@ -1,0 +1,13 @@
+{
+  "name": "vd-settlement",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Multi-currency value-date settlement pairing engine with replayable proofs",
+  "bin": {
+    "vdsettle": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
