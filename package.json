@@ -1,0 +1,9 @@
+{
+  "name": "trade-replay",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Chunked trade ledger with cancel replay, hash chain, CRC32 and sparse index",
+  "scripts": {
+    "test": "node --test"
+  }
+}
