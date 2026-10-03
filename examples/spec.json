@@ -1,0 +1,12 @@
+{
+  "variables": { "a": "m", "t": "s", "m": "kg" },
+  "commands": [
+    { "op": "correct", "formula": "v=a/t" },
+    { "op": "correct", "formula": "bad=v+m" },
+    { "op": "status" },
+    { "op": "correct", "formula": "f=m*a/t/t" },
+    { "op": "undo" },
+    { "op": "redo" },
+    { "op": "enumerate" }
+  ]
+}

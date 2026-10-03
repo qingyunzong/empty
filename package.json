@@ -1,0 +1,11 @@
+{
+  "name": "dimcheck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dimensional-checking formula correction library and CLI (offline, stdlib only)",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
