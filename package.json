@@ -1,0 +1,15 @@
+{
+  "name": "offline-planner",
+  "version": "1.0.0",
+  "description": "Offline production planning library and CLI (calendar-aware machine scheduling)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "offline-planner": "./cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
