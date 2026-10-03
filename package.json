@@ -1,0 +1,15 @@
+{
+  "name": "settlement-judge",
+  "version": "1.0.0",
+  "description": "End-of-day clearing: decide whether a command history admits a serializable schedule",
+  "type": "module",
+  "bin": {
+    "judge": "./bin/judge.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

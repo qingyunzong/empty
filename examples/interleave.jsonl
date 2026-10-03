@@ -1,0 +1,4 @@
+{"opId":"f1","session":"s1","start":0,"end":2,"action":"FREEZE","account":"A","amount":50,"balance":100}
+{"opId":"d1","session":"s2","start":1,"end":3,"action":"DEBIT","account":"A","amount":30}
+{"opId":"r1","session":"s1","start":2,"end":4,"action":"RELEASE","account":"A","amount":10}
+{"opId":"t1","session":"s3","start":3,"end":5,"action":"SETTLE","account":"A","amount":10,"depends":["f1"]}

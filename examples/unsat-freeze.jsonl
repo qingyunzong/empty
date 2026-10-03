@@ -1,0 +1,2 @@
+{"opId":"f1","session":"s1","start":0,"end":4,"action":"FREEZE","account":"A","amount":6,"balance":10}
+{"opId":"f2","session":"s2","start":1,"end":5,"action":"FREEZE","account":"A","amount":6}
