@@ -1,0 +1,16 @@
+{
+  "name": "quota-freeze",
+  "version": "1.0.0",
+  "description": "Hierarchical quota freeze requests with compressed positional index",
+  "type": "module",
+  "main": "src/store.js",
+  "bin": {
+    "quota": "bin/quota.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
