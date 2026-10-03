@@ -1,0 +1,252 @@
+TAP version 13
+# Subtest: test/brute.test.js
+ok 1 - test/brute.test.js
+  ---
+  duration_ms: 1499.073293
+  type: 'test'
+  ...
+# Subtest: test/checker.test.js
+ok 2 - test/checker.test.js
+  ---
+  duration_ms: 1161.859438
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 3 - test/cli.test.js
+  ---
+  duration_ms: 901.340082
+  type: 'test'
+  ...
+# Subtest: test/model.test.js
+ok 4 - test/model.test.js
+  ---
+  duration_ms: 970.665646
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1605.349686
+EXIT_CODE=0
+
+=== per-test detail (node --test --test-reporter=spec) ===
+✔ test/brute.test.js (1093.562517ms)
+✔ test/checker.test.js (815.898141ms)
+✔ test/cli.test.js (744.07605ms)
+✔ test/model.test.js (921.829719ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1138.560541
+SPEC_EXIT_CODE=0
+
+=== inner subtests + witness diagnostics (node test/*.test.js) ===
+# Subtest: test/model.test.js
+ok 1 - test/model.test.js
+# pass 1
+# fail 0
+# Subtest: test/checker.test.js
+ok 1 - test/checker.test.js
+# pass 1
+# fail 0
+# Subtest: test/brute.test.js
+ok 1 - test/brute.test.js
+# pass 1
+# fail 0
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+# pass 1
+# fail 0
+
+=== individual subtests (node <file>) ===
+--- test/model.test.js
+# Subtest: rejects non-array history
+ok 1 - rejects non-array history
+# Subtest: rejects negative amount as INVALID_HISTORY
+ok 2 - rejects negative amount as INVALID_HISTORY
+# Subtest: rejects time inversion as INVALID_HISTORY
+ok 3 - rejects time inversion as INVALID_HISTORY
+# Subtest: rejects duplicate opId (duplicate response) as INVALID_HISTORY
+ok 4 - rejects duplicate opId (duplicate response) as INVALID_HISTORY
+# Subtest: rejects read without observed balance/frozen
+ok 5 - rejects read without observed balance/frozen
+# Subtest: zero amount reserve succeeds and holds nothing
+ok 6 - zero amount reserve succeeds and holds nothing
+# Subtest: zero amount reservation can be committed and cancelled exactly once
+ok 7 - zero amount reservation can be committed and cancelled exactly once
+# Subtest: commit/cancel of unknown reserveId is a failed op, not an error
+ok 8 - commit/cancel of unknown reserveId is a failed op, not an error
+# Subtest: reserve fails when funds are insufficient
+ok 9 - reserve fails when funds are insufficient
+# Subtest: cancel returns funds to balance; commit releases the hold
+ok 10 - cancel returns funds to balance; commit releases the hold
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 248.717094
+exit=0
+--- test/checker.test.js
+# Subtest: overlapping reads may observe old and new values; witness is produced
+ok 1 - overlapping reads may observe old and new values; witness is produced
+# Subtest: a single overlapping read may legitimately see the OLD value
+ok 2 - a single overlapping read may legitimately see the OLD value
+# Subtest: a single overlapping read may legitimately see the NEW value
+ok 3 - a single overlapping read may legitimately see the NEW value
+# Subtest: an overlapping read can NEVER see a torn/impossible value
+ok 4 - an overlapping read can NEVER see a torn/impossible value
+# Subtest: commit succeeding after a completed cancel is NOT linearizable
+ok 5 - commit succeeding after a completed cancel is NOT linearizable
+# Subtest: commit after cancel IS linearizable when commit fails
+ok 6 - commit after cancel IS linearizable when commit fails
+# Subtest: zero amount full cycle is linearizable and reads observe no drift
+ok 7 - zero amount full cycle is linearizable and reads observe no drift
+# Subtest: unknown reserveId commit must be recorded as fail
+ok 8 - unknown reserveId commit must be recorded as fail
+# Subtest: double successful commit of the same reservation is impossible
+ok 9 - double successful commit of the same reservation is impossible
+# Subtest: real-time order is enforced: read after completed reserve must see the hold
+ok 10 - real-time order is enforced: read after completed reserve must see the hold
+# Subtest: empty history is trivially linearizable
+ok 11 - empty history is trivially linearizable
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 217.694184
+exit=0
+--- test/brute.test.js
+# Subtest: main checker agrees with brute-force enumerator on <=6 ops (seeded random)
+ok 1 - main checker agrees with brute-force enumerator on <=6 ops (seeded random)
+# Subtest: exhaustive small hand-built cases agree with brute force
+ok 2 - exhaustive small hand-built cases agree with brute force
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1506.476816
+exit=0
+--- test/cli.test.js
+# Subtest: check overlapping-reads: exit 0, linearizable true, witness printed
+ok 1 - check overlapping-reads: exit 0, linearizable true, witness printed
+# Subtest: check cancel-then-commit: exit 0, linearizable false with reason
+ok 2 - check cancel-then-commit: exit 0, linearizable false with reason
+# Subtest: check invalid negative amount: exit 1 with INVALID_HISTORY
+ok 3 - check invalid negative amount: exit 1 with INVALID_HISTORY
+# Subtest: check time inversion: exit 1 with INVALID_HISTORY
+ok 4 - check time inversion: exit 1 with INVALID_HISTORY
+# Subtest: check duplicate opId (duplicate response): exit 1 with INVALID_HISTORY
+ok 5 - check duplicate opId (duplicate response): exit 1 with INVALID_HISTORY
+# Subtest: check unparseable file: exit 1 with INVALID_HISTORY
+ok 6 - check unparseable file: exit 1 with INVALID_HISTORY
+# Subtest: check zero-amount cycle: exit 0, linearizable true
+ok 7 - check zero-amount cycle: exit 0, linearizable true
+# Subtest: usage error: exit 2
+ok 8 - usage error: exit 2
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 178.523304
+exit=0
+
+=== CLI witness evidence ===
+--- node cli.js check examples/overlapping-reads.json --initial-balance 100
+{
+  "linearizable": true,
+  "witness": [
+    {
+      "opId": "read-old",
+      "client": "c2",
+      "type": "read",
+      "account": "a",
+      "linearizationPoint": 1
+    },
+    {
+      "opId": "res1",
+      "client": "c1",
+      "type": "reserve",
+      "account": "a",
+      "linearizationPoint": 2
+    },
+    {
+      "opId": "read-new",
+      "client": "c3",
+      "type": "read",
+      "account": "a",
+      "linearizationPoint": 6
+    }
+  ],
+  "order": [
+    "read-old",
+    "res1",
+    "read-new"
+  ],
+  "statesExplored": 4
+}
+exit=0
+--- node cli.js check examples/cancel-then-commit.json --initial-balance 100
+{
+  "linearizable": false,
+  "reason": "no sequential ordering of the 3 operation(s) respects the real-time order and the reserve/commit/cancel/read semantics (explored 3 state(s))",
+  "statesExplored": 3
+}
+exit=0
+--- node cli.js check examples/zero-amount-cycle.json --initial-balance 100
+{
+  "linearizable": true,
+  "witness": [
+    {
+      "opId": "res0",
+      "client": "c1",
+      "type": "reserve",
+      "account": "a",
+      "linearizationPoint": 0
+    },
+    {
+      "opId": "com0",
+      "client": "c1",
+      "type": "commit",
+      "account": "a",
+      "linearizationPoint": 2
+    },
+    {
+      "opId": "read0",
+      "client": "c2",
+      "type": "read",
+      "account": "a",
+      "linearizationPoint": 4
+    }
+  ],
+  "order": [
+    "res0",
+    "com0",
+    "read0"
+  ],
+  "statesExplored": 3
+}
+exit=0
+--- node cli.js check examples/invalid-negative.json
+INVALID_HISTORY: op[0]: "amount" must be a non-negative number
+exit=1

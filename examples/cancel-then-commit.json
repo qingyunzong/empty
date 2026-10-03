@@ -1,0 +1,5 @@
+[
+  { "client": "c1", "opId": "res1", "invocationTime": 0, "responseTime": 1, "type": "reserve", "account": "a", "amount": 30, "reserveId": "r1", "status": "ok" },
+  { "client": "c2", "opId": "can1", "invocationTime": 2, "responseTime": 3, "type": "cancel", "account": "a", "reserveId": "r1", "status": "ok" },
+  { "client": "c3", "opId": "com1", "invocationTime": 4, "responseTime": 5, "type": "commit", "account": "a", "reserveId": "r1", "status": "ok" }
+]

@@ -1,0 +1,9 @@
+{
+  "name": "txn-linearizability-checker",
+  "version": "1.0.0",
+  "description": "Linearizability checker for reserve/commit/cancel/read transaction histories",
+  "type": "module",
+  "bin": { "txn-check": "./cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
