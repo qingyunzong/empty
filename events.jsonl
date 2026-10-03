@@ -1,0 +1,5 @@
+{"lot":"L1","mold":"M1","station":"S1","seq":1,"ts":1000,"kind":"produce","qty":100,"hash":"h1"}
+{"lot":"L1","mold":"M1","station":"S1","seq":2,"ts":1100,"kind":"split","qty":60,"hash":"h2","parents":[1]}
+{"lot":"L1","mold":"M1","station":"S1","seq":3,"ts":1200,"kind":"split","qty":40,"hash":"h3","parents":[1]}
+{"lot":"L1","mold":"M1","station":"S1","seq":2,"ts":1100,"kind":"split","qty":60,"hash":"h2","parents":[1]}
+{"lot":"L1","mold":"M1","station":"S1","seq":5,"ts":1400,"kind":"merge","qty":100,"hash":"h5","parents":[2,3]}
