@@ -1,0 +1,15 @@
+{
+  "name": "boiler-interlock-replay",
+  "version": "1.0.0",
+  "description": "Offline replay of boiler pressure/temperature interlock events with watermark, late-data recompute and crash recovery",
+  "type": "module",
+  "bin": {
+    "interlock": "bin/interlock.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
