@@ -1,0 +1,9 @@
+{
+  "config": { "pool": 100, "agingK": 2, "preemptWindow": 1, "cards": { "gold": 1000 } },
+  "events": [
+    { "slot": 0, "type": "auth", "id": "A", "card": "gold", "amount": 100, "priority": 5, "expiry": 8 },
+    { "slot": 0, "type": "auth", "id": "W", "card": "gold", "amount": 60, "priority": 1, "expiry": 30 },
+    { "slot": 1, "type": "auth", "id": "B", "card": "gold", "amount": 60, "priority": 1, "expiry": 30 },
+    { "slot": 2, "type": "auth", "id": "C", "card": "gold", "amount": 60, "priority": 1, "expiry": 30 }
+  ]
+}

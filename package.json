@@ -1,0 +1,12 @@
+{
+  "name": "preauth-pool",
+  "version": "0.1.0",
+  "description": "Bank card preauthorization pool: freeze, capture, expiry release, fair preemption, verifiable no-overauth certificates",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  }
+}

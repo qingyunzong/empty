@@ -1,0 +1,9 @@
+{
+  "config": { "pool": 100, "agingK": 2, "preemptWindow": 2, "cards": { "gold": 50 } },
+  "events": [
+    { "slot": 0, "type": "auth", "id": "X", "card": "gold", "amount": 10, "priority": 1, "expiry": 2 },
+    { "slot": 0, "type": "auth", "id": "Y", "card": "gold", "amount": 10, "priority": 1, "expiry": 2 },
+    { "slot": 2, "type": "capture", "id": "X", "amount": 10 },
+    { "slot": 3, "type": "capture", "id": "Y", "amount": 10 }
+  ]
+}
