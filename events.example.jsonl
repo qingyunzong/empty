@@ -1,0 +1,7 @@
+{"upsert":{"id":"e1","ts":1,"sym":"A"}}
+{"upsert":{"id":"e2","ts":2,"sym":"B"}}
+{"upsert":{"id":"e3","ts":3,"sym":"C"}}
+{"upsert":{"id":"e0","ts":0,"sym":"B"}}
+{"setWindow":{"n":3}}
+{"retract":{"id":"e2"}}
+{"upsert":{"id":"e3","ts":3,"sym":"B"}}

@@ -1,0 +1,13 @@
+{
+  "name": "alarm-gateway",
+  "version": "1.0.0",
+  "description": "Offline alarm-pattern matching gateway over a bounded sliding event window",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

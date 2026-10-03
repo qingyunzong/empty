@@ -1,0 +1,5 @@
+[
+  { "id": "sub-AB", "type": "substring", "value": "AB" },
+  { "id": "wild-A?C", "type": "wildcard", "value": "A?C" },
+  { "id": "re-Bplus", "type": "regex", "value": "B+" }
+]
