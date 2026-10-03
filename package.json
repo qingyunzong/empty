@@ -1,0 +1,16 @@
+{
+  "name": "mold-sched",
+  "version": "1.0.0",
+  "description": "Offline injection-molding shop scheduler on discrete time slots (exact solver + verifiable certificate)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "mold-sched": "bin/mold-sched.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
