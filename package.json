@@ -1,0 +1,13 @@
+{
+  "name": "weld-cell-mode-interpreter",
+  "version": "1.0.0",
+  "description": "Robot welding cell mode interpreter (auto/teach/maintenance) for safety PLC verdicts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
