@@ -1,0 +1,16 @@
+{
+  "name": "pack-quarantine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Merge vision defects, barcodes and audits into a quarantine list with crash-safe recovery",
+  "type": "module",
+  "bin": {
+    "pack": "bin/pack.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
