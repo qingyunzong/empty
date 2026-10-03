@@ -1,0 +1,11 @@
+{"type":"TRIGGER","eventId":"e1","version":1,"op":"UPSERT","channel":"alpha","ts":5000,"charge":10}
+{"type":"TRIGGER","eventId":"e2","version":1,"op":"UPSERT","channel":"beta","ts":1000,"charge":50}
+{"type":"TRIGGER","eventId":"e3","version":1,"op":"UPSERT","channel":"gamma","ts":4000,"charge":200}
+{"type":"TRIGGER","eventId":"e4","version":1,"op":"UPSERT","channel":"delta","ts":500,"charge":1000}
+{"type":"TRIGGER","eventId":"e2","version":1,"op":"UPSERT","channel":"beta","ts":1000,"charge":999}
+{"type":"TRIGGER","eventId":"ghost","version":1,"op":"RETRACT"}
+{"type":"TRIGGER","eventId":"e5","version":1,"op":"UPSERT","channel":"beta","ts":2000,"charge":-1}
+{"type":"TRIGGER","eventId":"e4","version":2,"op":"RETRACT"}
+{"type":"WATERMARK","ts":600000}
+{"type":"TRIGGER","eventId":"e1","version":2,"op":"RETRACT"}
+{"type":"TRIGGER","eventId":"e6","version":1,"op":"UPSERT","channel":"omega","ts":3000,"charge":7}

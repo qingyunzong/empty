@@ -1,0 +1,13 @@
+{
+  "name": "trigger-ranker",
+  "version": "1.0.0",
+  "description": "Event-time tumbling-window top-3 channel charge ranker",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
