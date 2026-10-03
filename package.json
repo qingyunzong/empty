@@ -1,0 +1,9 @@
+{
+  "name": "autoclave-offline-verify",
+  "version": "1.0.0",
+  "description": "Offline verification of autoclave (sterilizer) control histories: interlock checks, segmented command log, crash recovery",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
