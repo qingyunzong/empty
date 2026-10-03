@@ -1,0 +1,16 @@
+{
+  "name": "evidence-pack-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Evidence-pack verification worker scheduler with quotas, anti-starvation, revocation trees and auditable digests",
+  "main": "src/engine.js",
+  "bin": {
+    "evpack": "bin/evpack.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
