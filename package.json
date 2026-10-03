@@ -1,0 +1,14 @@
+{
+  "name": "maintenance-scheduler",
+  "version": "1.0.0",
+  "description": "Optimal maintenance scheduling on a task DAG with modes, budget, spare parts and 2 interchangeable crews. Incremental undo/redo CLI.",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

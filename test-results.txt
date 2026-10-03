@@ -1,0 +1,57 @@
+# test-results.txt
+# Recorded: 2026-10-03T02:15:59Z
+# Command: node --test
+# Node: v22.22.1
+
+===== STDOUT =====
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 39558.243531
+  type: 'test'
+  ...
+# Subtest: test/errors.test.js
+ok 2 - test/errors.test.js
+  ---
+  duration_ms: 6543.083146
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 3 - test/helpers.js
+  ---
+  duration_ms: 5153.854529
+  type: 'test'
+  ...
+# Subtest: test/incremental.test.js
+ok 4 - test/incremental.test.js
+  ---
+  duration_ms: 3032.083016
+  type: 'test'
+  ...
+# Subtest: test/reference.js
+ok 5 - test/reference.js
+  ---
+  duration_ms: 4758.309689
+  type: 'test'
+  ...
+# Subtest: test/solver.test.js
+ok 6 - test/solver.test.js
+  ---
+  duration_ms: 6438.988758
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40064.798584
+
+===== STDERR =====
+
+===== EXIT CODE =====
+0

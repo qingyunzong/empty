@@ -1,0 +1,18 @@
+[
+  { "type": "setBudget", "budget": 90 },
+  { "type": "updateModeCost", "taskId": "pump-overhaul", "modeId": "refurb", "cost": 15 },
+  { "type": "setBudget", "budget": 220 },
+  { "type": "undo" },
+  { "type": "undo" },
+  { "type": "redo" },
+  {
+    "type": "addTask",
+    "task": {
+      "id": "flush-lines",
+      "deps": ["pump-overhaul"],
+      "downtime": 1,
+      "modes": [{ "id": "std", "duration": 2, "cost": 10 }]
+    }
+  },
+  { "type": "removeTask", "taskId": "flush-lines" }
+]

@@ -1,0 +1,43 @@
+{
+  "budget": 220,
+  "crews": 2,
+  "parts": { "pump": 1, "seal": 2 },
+  "tasks": [
+    {
+      "id": "inspect",
+      "downtime": 3,
+      "modes": [
+        { "id": "manual", "duration": 2, "cost": 20 },
+        { "id": "drone", "duration": 1, "cost": 60 }
+      ]
+    },
+    {
+      "id": "pump-overhaul",
+      "deps": ["inspect"],
+      "downtime": 8,
+      "deferPenalty": 40,
+      "modes": [
+        { "id": "oem", "duration": 4, "cost": 120, "parts": { "pump": 1 } },
+        { "id": "refurb", "duration": 7, "cost": 45, "parts": { "seal": 1 } }
+      ]
+    },
+    {
+      "id": "seal-replace",
+      "deps": ["inspect"],
+      "downtime": 4,
+      "deferPenalty": 25,
+      "modes": [
+        { "id": "std", "duration": 3, "cost": 30, "parts": { "seal": 1 } }
+      ]
+    },
+    {
+      "id": "recalibrate",
+      "deps": ["pump-overhaul", "seal-replace"],
+      "downtime": 2,
+      "modes": [
+        { "id": "field", "duration": 2, "cost": 25 },
+        { "id": "lab", "duration": 1, "cost": 70 }
+      ]
+    }
+  ]
+}
