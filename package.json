@@ -1,0 +1,12 @@
+{
+  "name": "recipe-optimizer",
+  "version": "1.0.0",
+  "description": "DSL + bytecode VM for cost-optimal ingredient mix planning",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "recipe": "src/cli.js"
+  }
+}
