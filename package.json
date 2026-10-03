@@ -1,0 +1,13 @@
+{
+  "name": "trade-cancel-saga",
+  "version": "1.0.0",
+  "description": "Trade execution and compensating cancellation saga with CLI",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
