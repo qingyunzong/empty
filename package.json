@@ -1,0 +1,9 @@
+{
+  "name": "charge-leaderboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Event-time tumbling-window top-3 charge leaderboard with incremental corrections",
+  "scripts": {
+    "test": "node --test"
+  }
+}
