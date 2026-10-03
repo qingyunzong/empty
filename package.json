@@ -1,0 +1,9 @@
+{
+  "name": "mic-scheduler",
+  "version": "1.0.0",
+  "description": "显微成像中心扫描批调度库与 CLI(通道互斥/物镜切换/配额公平/维护迁移/代际回滚)",
+  "type": "module",
+  "bin": { "mic": "src/cli.js" },
+  "scripts": { "test": "node --test test/*.test.js" },
+  "engines": { "node": ">=22" }
+}
