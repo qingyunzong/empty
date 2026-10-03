@@ -1,0 +1,13 @@
+{"op":"observe","id":"fault-7","ts":1712300001,"node":"press-3"}
+{"op":"observe","id":"temp-spike","ts":1712300002,"node":"press-3"}
+{"op":"observe","id":"alarm-a","ts":1712300003,"node":"cell-a"}
+{"op":"observe","id":"alarm-b","ts":1712300003,"node":"cell-b"}
+{"op":"checkpoint"}
+{"op":"link","a":"fault-7","b":"temp-spike","kind":"causes"}
+{"op":"link","a":"temp-spike","b":"alarm-a","kind":"causes"}
+{"op":"query","a":"fault-7","b":"alarm-a"}
+{"op":"query","a":"alarm-a","b":"alarm-b"}
+{"op":"query","a":"alarm-b","b":"fault-7"}
+{"op":"scc"}
+{"op":"rollback","k":1}
+{"op":"query","a":"fault-7","b":"alarm-a"}
