@@ -1,0 +1,89 @@
+$ node --test
+TAP version 13
+# Subtest: test/rollback.test.js
+ok 1 - test/rollback.test.js
+  ---
+  duration_ms: 5891.193059
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6408.475656
+
+$ node test/rollback.test.js (per-test TAP detail)
+TAP version 13
+# Subtest: exact budget: plan feasible, commit rolls back descendants-first, certificate verifies
+ok 1 - exact budget: plan feasible, commit rolls back descendants-first, certificate verifies
+  ---
+  duration_ms: 53.269081
+  type: 'test'
+  ...
+# Subtest: insufficient budget: exit code 2, infeasible.json written, state untouched
+ok 2 - insufficient budget: exit code 2, infeasible.json written, state untouched
+  ---
+  duration_ms: 23.357991
+  type: 'test'
+  ...
+# Subtest: tie between minimum-cost sets: lexicographically smallest concatenated paths win
+ok 3 - tie between minimum-cost sets: lexicographically smallest concatenated paths win
+  ---
+  duration_ms: 20.253746
+  type: 'test'
+  ...
+# Subtest: shared nodes are charged once; rolled-back nodes are never charged again
+ok 4 - shared nodes are charged once; rolled-back nodes are never charged again
+  ---
+  duration_ms: 10.780542
+  type: 'test'
+  ...
+# Subtest: execution order rolls back active descendants before their ancestors
+ok 5 - execution order rolls back active descendants before their ancestors
+  ---
+  duration_ms: 4.410203
+  type: 'test'
+  ...
+# Subtest: library selection matches brute-force enumeration over all node subsets
+ok 6 - library selection matches brute-force enumeration over all node subsets
+  ---
+  duration_ms: 1085.718218
+  type: 'test'
+  ...
+# Subtest: verify rejects a tampered certificate and a mutated state
+ok 7 - verify rejects a tampered certificate and a mutated state
+  ---
+  duration_ms: 16.209409
+  type: 'test'
+  ...
+# Subtest: certificate verifies against the in-memory state after commit
+ok 8 - certificate verifies against the in-memory state after commit
+  ---
+  duration_ms: 6.283127
+  type: 'test'
+  ...
+# Subtest: already rolled-back target with no active descendants yields an empty, free plan
+ok 9 - already rolled-back target with no active descendants yields an empty, free plan
+  ---
+  duration_ms: 7.338836
+  type: 'test'
+  ...
+# Subtest: invalid state files are rejected
+ok 10 - invalid state files are rejected
+  ---
+  duration_ms: 25.102564
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1470.363523

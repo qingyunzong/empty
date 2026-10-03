@@ -1,0 +1,13 @@
+{
+  "name": "budget-aware-rollback",
+  "version": "1.0.0",
+  "description": "Budget-aware rollback planner for hierarchical experiment activities (tree of project/experiment/step nodes).",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
