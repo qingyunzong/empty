@@ -1,0 +1,9 @@
+{
+  "name": "xborder",
+  "version": "0.1.0",
+  "description": "Cross-border settlement quota engine and CLI (stdlib only)",
+  "type": "module",
+  "bin": { "xborder": "./bin/xborder.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
