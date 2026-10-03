@@ -1,0 +1,15 @@
+{
+  "states": ["n_idle", "n_check", "n_fix", "n_closed"],
+  "alphabet": ["open", "ok", "fail"],
+  "start": "n_idle",
+  "transitions": {
+    "n_idle":   { "open": "n_check",  "ok": "n_idle",   "fail": "n_idle" },
+    "n_check":  { "open": "n_check",  "ok": "n_fix",    "fail": "n_closed" },
+    "n_fix":    { "open": "n_fix",    "ok": "n_closed", "fail": "n_check" },
+    "n_closed": { "open": "n_closed", "ok": "n_closed", "fail": "n_closed" }
+  },
+  "risk": { "n_idle": "low", "n_check": "medium", "n_fix": "medium", "n_closed": "low" },
+  "tasks": [
+    { "id": "confirm-fix", "cost": 3, "covers": ["fix"] }
+  ]
+}

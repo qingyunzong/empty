@@ -1,0 +1,13 @@
+{
+  "name": "dfa-migration-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Equivalence check and migration planning for work-order state machines (DFA product automaton)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

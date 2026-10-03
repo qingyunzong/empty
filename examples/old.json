@@ -1,0 +1,12 @@
+{
+  "states": ["idle", "check", "fix", "closed"],
+  "alphabet": ["open", "ok", "fail"],
+  "start": "idle",
+  "transitions": {
+    "idle":   { "open": "check",  "ok": "idle",   "fail": "idle" },
+    "check":  { "open": "check",  "ok": "fix",    "fail": "closed" },
+    "fix":    { "open": "fix",    "ok": "closed", "fail": "check" },
+    "closed": { "open": "closed", "ok": "closed", "fail": "closed" }
+  },
+  "risk": { "idle": "low", "check": "medium", "fix": "high", "closed": "low" }
+}
