@@ -1,0 +1,3 @@
+[
+  {"op": "correct", "table": "inventory", "record": {"component": "ZZZ", "qty": 5}}
+]

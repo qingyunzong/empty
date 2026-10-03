@@ -1,0 +1,4 @@
+[
+  {"op": "insert", "table": "work_order", "record": {"id": "WO1", "product": "X", "qty": 3}},
+  {"op": "insert", "table": "bom", "record": {"parent": "X", "component": "M", "usage": 2}}
+]

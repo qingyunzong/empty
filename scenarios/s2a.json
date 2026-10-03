@@ -1,0 +1,6 @@
+[
+  {"op": "insert", "table": "work_order", "record": {"id": "WO9", "product": "X", "qty": 2}},
+  {"op": "insert", "table": "bom", "record": {"parent": "X", "component": "M", "usage": 2}},
+  {"op": "insert", "table": "bom", "record": {"parent": "M", "component": "P", "usage": 4}},
+  {"op": "insert", "table": "inventory", "record": {"component": "P", "qty": null}}
+]

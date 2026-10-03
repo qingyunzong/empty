@@ -1,0 +1,396 @@
+================================================================
+$ node --test
+exit_code: 0
+--- stdout ---
+TAP version 13
+# Subtest: test/mrp.test.js
+ok 1 - test/mrp.test.js
+  ---
+  duration_ms: 3108.924349
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3333.168166
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s1.json --data /tmp/mrp-s1.HSL0uK
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 11
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js paths --data /tmp/mrp-s1.HSL0uK
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "count": 3,
+  "reference_gross": {
+    "M": 19,
+    "N": 2,
+    "P": 80,
+    "Q": 400
+  },
+  "paths": [
+    {
+      "order": "WO1",
+      "product": "Q",
+      "qty": 20,
+      "edges": [
+        {
+          "parent": "X",
+          "component": "N",
+          "usage": 1,
+          "qty": 2
+        },
+        {
+          "parent": "N",
+          "component": "P",
+          "usage": 2,
+          "qty": 4
+        },
+        {
+          "parent": "P",
+          "component": "Q",
+          "usage": 5,
+          "qty": 20
+        }
+      ]
+    },
+    {
+      "order": "WO1",
+      "product": "Q",
+      "qty": 80,
+      "edges": [
+        {
+          "parent": "X",
+          "component": "M",
+          "usage": 2,
+          "qty": 4
+        },
+        {
+          "parent": "M",
+          "component": "P",
+          "usage": 4,
+          "qty": 16
+        },
+        {
+          "parent": "P",
+          "component": "Q",
+          "usage": 5,
+          "qty": 80
+        }
+      ]
+    },
+    {
+      "order": "WO2",
+      "product": "Q",
+      "qty": 300,
+      "edges": [
+        {
+          "parent": "Y",
+          "component": "M",
+          "usage": 3,
+          "qty": 15
+        },
+        {
+          "parent": "M",
+          "component": "P",
+          "usage": 4,
+          "qty": 60
+        },
+        {
+          "parent": "P",
+          "component": "Q",
+          "usage": 5,
+          "qty": 300
+        }
+      ]
+    }
+  ]
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s1.HSL0uK
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "snapshot_version": 1,
+  "gross": {
+    "M": 19,
+    "N": 2,
+    "P": 80,
+    "Q": 400
+  },
+  "net": {
+    "M": 9,
+    "N": null,
+    "P": null,
+    "Q": 0
+  },
+  "reference_gross": {
+    "M": 19,
+    "N": 2,
+    "P": 80,
+    "Q": 400
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": 9,
+      "delta": null
+    },
+    "N": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    },
+    "P": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    },
+    "Q": {
+      "previous": null,
+      "current": 0,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:15c52d9456dcb3c491c9f030fd6dcc4eaa83da46184d939b64b8113c5ec34d4d"
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s2a.json --data /tmp/mrp-s2.hK9YmK
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 4
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s2.hK9YmK
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "snapshot_version": 1,
+  "gross": {
+    "M": 4,
+    "P": 16
+  },
+  "net": {
+    "M": null,
+    "P": null
+  },
+  "reference_gross": {
+    "M": 4,
+    "P": 16
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    },
+    "P": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:f4d5a7852b93ad903e2c1ae253d4a0b11c19439a8060ab791b0ee02678ced19c"
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s2b.json --data /tmp/mrp-s2.hK9YmK
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 2,
+  "applied": 1
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s2.hK9YmK
+exit_code: 0
+--- stdout ---
+{
+  "version": 2,
+  "recovered": false,
+  "snapshot_version": 2,
+  "gross": {
+    "M": 4,
+    "P": 16
+  },
+  "net": {
+    "M": null,
+    "P": 16
+  },
+  "reference_gross": {
+    "M": 4,
+    "P": 16
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    },
+    "P": {
+      "previous": null,
+      "current": 16,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:7b391d6635291946b26a6429d1082286dc513a9efa3bf2364793b673a89f8a1b"
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s2bad.json --data /tmp/mrp-s2.hK9YmK
+exit_code: 1
+--- stdout ---
+{"error":"correct unknown key on inventory: [\"ZZZ\"]"}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s2.hK9YmK
+exit_code: 0
+--- stdout ---
+{
+  "version": 2,
+  "recovered": false,
+  "snapshot_version": 2,
+  "gross": {
+    "M": 4,
+    "P": 16
+  },
+  "net": {
+    "M": null,
+    "P": 16
+  },
+  "reference_gross": {
+    "M": 4,
+    "P": 16
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    },
+    "P": {
+      "previous": null,
+      "current": 16,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:7b391d6635291946b26a6429d1082286dc513a9efa3bf2364793b673a89f8a1b"
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s3a.json --data /tmp/mrp-s3.RshFDK
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 2
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s3b.json --data /tmp/mrp-s3.RshFDK --fail before_append
+exit_code: 1
+--- stdout ---
+{"error":"injected failure before_append: transaction aborted before log append"}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s3.RshFDK
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "snapshot_version": 1,
+  "gross": {
+    "M": 6
+  },
+  "net": {
+    "M": null
+  },
+  "reference_gross": {
+    "M": 6
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": null,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:a958f2df64a78826160c9527fcd201c2ab896b4a9813ad86d50bb3829563077e"
+}
+--- stderr ---
+
+================================================================
+$ node src/cli.js apply scenarios/s3b.json --data /tmp/mrp-s3.RshFDK --fail after_append
+exit_code: 1
+--- stdout ---
+{"error":"injected failure after_append: log appended, snapshot missing"}
+--- stderr ---
+
+================================================================
+$ node src/cli.js query --data /tmp/mrp-s3.RshFDK
+exit_code: 0
+--- stdout ---
+{
+  "version": 2,
+  "recovered": true,
+  "snapshot_version": 1,
+  "gross": {
+    "M": 6
+  },
+  "net": {
+    "M": 5
+  },
+  "reference_gross": {
+    "M": 6
+  },
+  "delta": {
+    "M": {
+      "previous": null,
+      "current": 5,
+      "delta": null
+    }
+  },
+  "certificate": "sha256:3a515cc70d329af3dff04c36e9561c913f9751537a21fac724515cfdc802ecca"
+}
+--- stderr ---
+

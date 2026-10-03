@@ -1,0 +1,10 @@
+{
+  "name": "mrp-net-requirements",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline single-machine net-requirement accounting for discrete manufacturing work orders",
+  "scripts": {
+    "test": "node --test"
+  }
+}

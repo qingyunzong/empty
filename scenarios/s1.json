@@ -1,0 +1,13 @@
+[
+  {"op": "insert", "table": "work_order", "record": {"id": "WO1", "product": "X", "qty": 2}},
+  {"op": "insert", "table": "work_order", "record": {"id": "WO2", "product": "Y", "qty": 5}},
+  {"op": "insert", "table": "bom", "record": {"parent": "X", "component": "M", "usage": 2}},
+  {"op": "insert", "table": "bom", "record": {"parent": "X", "component": "N", "usage": 1}},
+  {"op": "insert", "table": "bom", "record": {"parent": "Y", "component": "M", "usage": 3}},
+  {"op": "insert", "table": "bom", "record": {"parent": "M", "component": "P", "usage": 4}},
+  {"op": "insert", "table": "bom", "record": {"parent": "N", "component": "P", "usage": 2}},
+  {"op": "insert", "table": "bom", "record": {"parent": "P", "component": "Q", "usage": 5}},
+  {"op": "insert", "table": "inventory", "record": {"component": "M", "qty": 10}},
+  {"op": "insert", "table": "inventory", "record": {"component": "P", "qty": null}},
+  {"op": "insert", "table": "inventory", "record": {"component": "Q", "qty": 500}}
+]
