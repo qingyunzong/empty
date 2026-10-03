@@ -1,0 +1,9 @@
+{"type":"package","id":"std","version":1,"tiers":[{"upTo":100000,"rate":0.001},{"upTo":null,"rate":0.0008}],"minFee":5,"rebates":[{"minTurnover":200000,"percent":10}]}
+{"type":"package","id":"promo","version":1,"tiers":[{"upTo":null,"rate":0.0009}],"minFee":8}
+{"type":"trade","id":"t1","account":"A","amount":120000}
+{"type":"trade","id":"t2","account":"B","amount":30000}
+{"type":"trade","id":"t3","account":"A","amount":90000}
+{"type":"amend","id":"t2","amount":45000}
+{"type":"reversal","id":"r1","ref":"t1","amount":-20000}
+{"type":"cancel","id":"t3"}
+{"type":"package","id":"std","version":2,"tiers":[{"upTo":100000,"rate":0.0011},{"upTo":null,"rate":0.0007}],"minFee":5,"rebates":[{"minTurnover":200000,"percent":10}]}
