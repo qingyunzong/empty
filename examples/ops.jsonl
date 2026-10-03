@@ -1,0 +1,5 @@
+{"idemKey":"a1","type":"auth","amount":200,"seq":1,"ts":1000}
+{"idemKey":"c1","type":"capture","ref":"a1","amount":120,"seq":2,"ts":1010}
+{"idemKey":"c1","type":"capture","ref":"a1","amount":120,"seq":2,"ts":1010}
+{"idemKey":"r1","type":"refund","ref":"c1","amount":20,"seq":3,"ts":1020}
+{"idemKey":"x1","type":"reversal","ref":"c1","amount":100,"seq":4,"ts":1030}

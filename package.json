@@ -1,0 +1,9 @@
+{
+  "name": "card-reversal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Card transaction auth/capture/void/refund/reversal engine with WAL crash recovery and linearizability certificate (Node.js stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}

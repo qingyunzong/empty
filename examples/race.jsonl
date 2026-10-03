@@ -1,0 +1,2 @@
+{"idemKey":"a1","type":"auth","amount":300,"seq":1,"ts":100,"ttl":50}
+{"idemKey":"c1","type":"capture","ref":"a1","amount":300,"seq":2,"ts":200}
