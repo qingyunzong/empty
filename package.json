@@ -1,0 +1,12 @@
+{
+  "name": "escrow-fold",
+  "version": "0.1.0",
+  "description": "Custody escrow freeze ledger over correctable/revocable trade executions",
+  "type": "module",
+  "bin": {
+    "escrow": "bin/escrow.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
