@@ -1,0 +1,15 @@
+{
+  "name": "settlement-batch-audit",
+  "version": "1.0.0",
+  "description": "Settlement batch audit library and CLI: invariant checking and minimal counterexample shrinking",
+  "type": "module",
+  "bin": {
+    "shrink": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "limits": { "A": 1000 },
+  "commands": [
+    { "op": "post", "id": "p1", "account": "A", "amount": 100 },
+    { "op": "freeze", "account": "A", "amount": 50 },
+    { "op": "cancel", "postId": "p1" },
+    { "op": "post", "id": "p2", "account": "A", "amount": 200 }
+  ]
+}
