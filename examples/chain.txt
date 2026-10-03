@@ -1,0 +1,10 @@
+# Acceptance 1: a chain built from three pieces of evidence.
+# C3 transitively depends on E1, E2 and E3.
+evidence E1
+evidence E2
+evidence E3
+rule R1
+rule R2
+claim C1 = E1 |> R1
+claim C2 = C1 requires E2
+claim C3 = C2 requires E3

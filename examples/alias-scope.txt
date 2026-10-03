@@ -1,0 +1,9 @@
+# Acceptance 3a: alias X is only visible inside its block.
+# Using it after the block closes must be rejected (exit code 1).
+evidence E1
+rule R1
+{
+  alias X = E1
+  claim C1 = X |> R1
+}
+claim C2 = X |> R1
