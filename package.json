@@ -1,0 +1,16 @@
+{
+  "name": "audit-ledger",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tamper-evident financial voucher ledger: hash chain + dependency graph with deterministic recompute",
+  "main": "src/ledger.js",
+  "bin": {
+    "audit-ledger": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
