@@ -1,0 +1,9 @@
+{
+  "name": "event-trace",
+  "version": "0.1.0",
+  "description": "Offline-first event traceability for edge gateways: PLC alarms + QC scans, exactly-once sync, explainable lot locks.",
+  "type": "module",
+  "bin": { "event-trace": "bin/event-trace.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
