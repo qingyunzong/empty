@@ -1,0 +1,8 @@
+{
+  "name": "batch-lineage",
+  "version": "0.1.0",
+  "description": "Batch genealogy DAG with time-sliced queries, corrective edges, text index and verifiable certificates",
+  "type": "module",
+  "bin": { "batch-lineage": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
