@@ -1,0 +1,16 @@
+{
+  "name": "factoring-invoice-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline factoring invoice library with credit freezing and slop-based memo association clusters",
+  "main": "src/store.js",
+  "bin": {
+    "factoring-cli": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
