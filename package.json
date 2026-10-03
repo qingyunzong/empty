@@ -1,0 +1,8 @@
+{
+  "name": "tradehist",
+  "version": "1.0.0",
+  "description": "Trade correction/cancellation history chunk store with causal versioning",
+  "type": "module",
+  "bin": { "tradehist": "./cli.js" },
+  "scripts": { "test": "node --test" }
+}
