@@ -1,0 +1,8 @@
+{
+  "name": "settlement-audit-store",
+  "version": "1.0.0",
+  "description": "Chunked settlement audit log library and CLI (stdlib only)",
+  "type": "module",
+  "bin": { "audit-store": "cli.js" },
+  "scripts": { "test": "node --test" }
+}
