@@ -1,0 +1,10 @@
+{
+  "name": "tooling-life-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "工装寿命预约库及 CLI：保养周期 + 工厂日历 + 强制重置区间下的工单调度",
+  "scripts": {
+    "test": "node --test"
+  }
+}
