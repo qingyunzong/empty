@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "contractHash": "c12b7e0da89b131d1a708f3d780920242db529ede37d15b4761638ec6037065d",
+  "ordersHash": "e6d6e576a34e65d9b50e32fcfa6227acd11ae8701574debd905cb14270b0da0c",
+  "orders": [
+    {
+      "id": "o1",
+      "class": "A",
+      "op": "subscribe",
+      "fee": "120.00",
+      "feeCents": "12000",
+      "allocations": [
+        {
+          "total": "12000",
+          "components": {
+            "ta": "7200",
+            "channel": "4800"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ],
+      "tiers": [
+        {
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm0",
+              "type": "money",
+              "value": "12000"
+            }
+          ],
+          "chosen": "12000",
+          "ties": [
+            "arm0"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "pc": 10,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "in": "120000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "12000"
+        },
+        {
+          "step": 1,
+          "pc": 34,
+          "op": "TIER",
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm0",
+              "type": "money",
+              "value": "12000"
+            }
+          ],
+          "chosen": "12000",
+          "ties": [
+            "arm0"
+          ]
+        },
+        {
+          "step": 2,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "ta",
+          "in": "72000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "7200"
+        },
+        {
+          "step": 3,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "channel",
+          "in": "48000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "4800"
+        },
+        {
+          "step": 4,
+          "pc": 43,
+          "op": "ALLOC",
+          "total": "12000",
+          "components": {
+            "ta": "7200",
+            "channel": "4800"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "class": "A",
+      "op": "subscribe",
+      "fee": "5.00",
+      "feeCents": "500",
+      "allocations": [
+        {
+          "total": "500",
+          "components": {
+            "ta": "300",
+            "channel": "200"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ],
+      "tiers": [
+        {
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm0",
+              "type": "money",
+              "value": "12"
+            }
+          ],
+          "chosen": "12",
+          "ties": [
+            "arm0"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "pc": 10,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "in": "120000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "12"
+        },
+        {
+          "step": 1,
+          "pc": 34,
+          "op": "TIER",
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm0",
+              "type": "money",
+              "value": "12"
+            }
+          ],
+          "chosen": "12",
+          "ties": [
+            "arm0"
+          ]
+        },
+        {
+          "step": 2,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "ta",
+          "in": "3000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "300"
+        },
+        {
+          "step": 3,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "channel",
+          "in": "2000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "200"
+        },
+        {
+          "step": 4,
+          "pc": 43,
+          "op": "ALLOC",
+          "total": "500",
+          "components": {
+            "ta": "300",
+            "channel": "200"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "class": "A",
+      "op": "subscribe",
+      "fee": "25000.00",
+      "feeCents": "2500000",
+      "allocations": [
+        {
+          "total": "2500000",
+          "components": {
+            "ta": "1500000",
+            "channel": "1000000"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ],
+      "tiers": [
+        {
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm1",
+              "type": "money",
+              "value": "2500000"
+            }
+          ],
+          "chosen": "2500000",
+          "ties": [
+            "arm1"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "pc": 23,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "in": "25000000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "2500000"
+        },
+        {
+          "step": 1,
+          "pc": 34,
+          "op": "TIER",
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm1",
+              "type": "money",
+              "value": "2500000"
+            }
+          ],
+          "chosen": "2500000",
+          "ties": [
+            "arm1"
+          ]
+        },
+        {
+          "step": 2,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "ta",
+          "in": "15000000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "1500000"
+        },
+        {
+          "step": 3,
+          "pc": 43,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "channel",
+          "in": "10000000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "1000000"
+        },
+        {
+          "step": 4,
+          "pc": 43,
+          "op": "ALLOC",
+          "total": "2500000",
+          "components": {
+            "ta": "1500000",
+            "channel": "1000000"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "class": "A",
+      "op": "redeem",
+      "fee": "6.15",
+      "feeCents": "615",
+      "allocations": [
+        {
+          "total": "615",
+          "components": {
+            "ta": "369",
+            "channel": "246"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ],
+      "tiers": [
+        {
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm1",
+              "type": "bps",
+              "value": "50"
+            }
+          ],
+          "chosen": "50",
+          "ties": [
+            "arm1"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "pc": 29,
+          "op": "TIER",
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm1",
+              "type": "bps",
+              "value": "50"
+            }
+          ],
+          "chosen": "50",
+          "ties": [
+            "arm1"
+          ]
+        },
+        {
+          "step": 1,
+          "pc": 34,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "in": "6150000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "615"
+        },
+        {
+          "step": 2,
+          "pc": 41,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "ta",
+          "in": "3690000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "369"
+        },
+        {
+          "step": 3,
+          "pc": 41,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "channel",
+          "in": "2460000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "246"
+        },
+        {
+          "step": 4,
+          "pc": 41,
+          "op": "ALLOC",
+          "total": "615",
+          "components": {
+            "ta": "369",
+            "channel": "246"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "class": "A",
+      "op": "redeem",
+      "fee": "1.00",
+      "feeCents": "100",
+      "allocations": [
+        {
+          "total": "100",
+          "components": {
+            "ta": "60",
+            "channel": "40"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ],
+      "tiers": [
+        {
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm2",
+              "type": "bps",
+              "value": "10"
+            }
+          ],
+          "chosen": "10",
+          "ties": [
+            "arm2"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "pc": 29,
+          "op": "TIER",
+          "id": 0,
+          "matches": [
+            {
+              "arm": "arm2",
+              "type": "bps",
+              "value": "10"
+            }
+          ],
+          "chosen": "10",
+          "ties": [
+            "arm2"
+          ]
+        },
+        {
+          "step": 1,
+          "pc": 34,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "in": "1000000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "100"
+        },
+        {
+          "step": 2,
+          "pc": 41,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "ta",
+          "in": "600000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "60"
+        },
+        {
+          "step": 3,
+          "pc": 41,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "account": "channel",
+          "in": "400000",
+          "scale": "10000",
+          "rem": "0",
+          "out": "40"
+        },
+        {
+          "step": 4,
+          "pc": 41,
+          "op": "ALLOC",
+          "total": "100",
+          "components": {
+            "ta": "60",
+            "channel": "40"
+          },
+          "residual": {
+            "account": "TA_POOL",
+            "amount": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

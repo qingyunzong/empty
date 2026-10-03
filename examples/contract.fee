@@ -1,0 +1,42 @@
+# 某股票型基金 TA 费用合同（示例）
+currency CNY;
+rounding HALF_EVEN;
+
+param ta_share = 6000bps;      # TA 留存 60%
+param channel_share = 4000bps; # 渠道分成 40%
+
+class A {
+  param min_sub_fee = 5.00;
+  param min_red_fee = 1.00;
+
+  fee subscribe(amount: money) -> money {
+    let gross = tier on amount {
+      it < 1000000.00 -> amount * 120bps,
+      it >= 1000000.00 and it < 5000000.00 -> amount * 100bps,
+      it >= 5000000.00 -> amount * 80bps
+    };
+    let total = max(gross, min_sub_fee);
+    allocate total {
+      ta: ta_share;
+      channel: channel_share;
+      residual -> "TA_POOL";
+    }
+    return total;
+  }
+
+  fee redeem(shares: units, nav: money, held_days: units) -> money {
+    let amount = shares * nav;
+    let rate = tier on held_days {
+      it < 7   -> 150bps,
+      it >= 7 and it < 365 -> 50bps,
+      it >= 365 -> 10bps
+    };
+    let total = max(amount * rate, min_red_fee);
+    allocate total {
+      ta: ta_share;
+      channel: channel_share;
+      residual -> "TA_POOL";
+    }
+    return total;
+  }
+}

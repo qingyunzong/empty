@@ -1,0 +1,9 @@
+{
+  "orders": [
+    { "id": "o1", "class": "A", "op": "subscribe", "args": { "amount": "10000.00" } },
+    { "id": "o2", "class": "A", "op": "subscribe", "args": { "amount": "10.00" } },
+    { "id": "o3", "class": "A", "op": "subscribe", "args": { "amount": "2500000.00" }, "params": { "min_sub_fee": "3.00" } },
+    { "id": "o4", "class": "A", "op": "redeem", "args": { "shares": "1000", "nav": "1.23", "held_days": "30" } },
+    { "id": "o5", "class": "A", "op": "redeem", "args": { "shares": "500", "nav": "2.00", "held_days": "400" } }
+  ]
+}

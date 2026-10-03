@@ -1,0 +1,15 @@
+{
+  "name": "fee-dsl",
+  "version": "1.0.0",
+  "description": "Fund TA fee DSL: tiered subscription/redemption fees with verifiable rounding certificates",
+  "type": "module",
+  "bin": {
+    "fee": "bin/fee.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
