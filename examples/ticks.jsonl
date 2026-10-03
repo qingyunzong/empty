@@ -1,0 +1,10 @@
+{"seq":1,"text":"deposit 2026-10-03 CNE000000001 qty 100000 cash 10000000"}
+{"seq":2,"text":"deposit 2026-10-03 CND000000001 qty 50000 cash 5000000"}
+{"seq":3,"text":"trade A v1 2026-10-03 buy 1000 CNE000000001 @ 10 gross fee 30"}
+{"seq":4,"text":"trade B v1 2026-10-03 sell 200 CNE000000001 @ 10.5 gross fee qty * price * 0.0003"}
+{"seq":5,"text":"trade C v1 2026-10-03 buy 100 CND000000001 @ 99.5 net accrued 0.25 fee 5"}
+{"seq":6,"text":"amend A v2 2026-10-03 buy 1500 CNE000000001 @ 10.5 gross fee 40"}
+{"seq":7,"text":"cancel A v2 2026-10-03"}
+{"seq":8,"text":"cancel C v9 2026-10-03"}
+{"seq":9,"text":"amend C v9 2026-10-03 buy 100 CND000000001 @ 99.75 net accrued 0.25 fee 5"}
+{"seq":3,"text":"trade A v1 2026-10-03 buy 1000 CNE000000001 @ 10 gross fee 30"}

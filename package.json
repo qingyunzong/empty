@@ -1,0 +1,16 @@
+{
+  "name": "escrow-fold",
+  "version": "1.0.0",
+  "description": "Custody freeze ledger with correctable/revocable trade reports: correction DSL -> bytecode -> VM",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "escrow": "bin/escrow.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
