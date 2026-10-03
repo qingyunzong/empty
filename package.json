@@ -1,0 +1,13 @@
+{
+  "name": "lab-validity",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental experiment-validity maintenance driven by reagent batch corrections",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "lab-validity": "src/cli.js"
+  }
+}
