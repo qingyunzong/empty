@@ -1,0 +1,8 @@
+{
+  "name": "day-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-of-day batch ledger with crash-safe commit and deterministic recovery",
+  "bin": { "day": "bin/day.js" },
+  "scripts": { "test": "node --test" }
+}
