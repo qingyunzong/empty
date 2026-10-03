@@ -1,0 +1,16 @@
+{
+  "name": "pay-ledger",
+  "version": "1.0.0",
+  "description": "Single-node payment ledger: authorize/capture/reverse with logical-clock linearization, idempotency and a verifiable hash chain.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "pay-ledger": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
