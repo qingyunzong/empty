@@ -1,0 +1,10 @@
+{
+  "name": "pallet-transfer-db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline single-node QC batch transfer store: MVCC + WAL + unique (palletId,lotId) index + snapshot isolation",
+  "type": "commonjs",
+  "engines": { "node": ">=22" },
+  "bin": { "pallet-transfer": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
