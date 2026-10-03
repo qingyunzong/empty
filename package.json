@@ -1,0 +1,10 @@
+{
+  "name": "eod-reconcile",
+  "version": "0.1.0",
+  "description": "End-of-day reconciliation: ledger vs settlement snapshot diffs, constrained repair scheduling, undo/restore, conflict-domain history",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "bin": { "eod-reconcile": "bin/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
