@@ -1,0 +1,8 @@
+{
+  "name": "plan-sync",
+  "version": "0.1.0",
+  "description": "Offline two-terminal factory schedule synchronization with JSONL change log, vector clocks, snapshot+manifest persistence and deterministic conflict merge.",
+  "type": "module",
+  "bin": { "plan-sync": "bin/plan-sync.js" },
+  "scripts": { "test": "node --test" }
+}
