@@ -1,0 +1,13 @@
+{
+  "name": "recon-recompute",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Layered (day/mch/txn) reconciliation recompute with rollback and audit trail",
+  "main": "recon.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
