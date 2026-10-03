@@ -1,0 +1,16 @@
+{
+  "name": "credit-network",
+  "version": "1.0.0",
+  "description": "Trusted-credit network: accounts as nodes, directed capacity-limited credit edges, freeze/release via max-flow with min-cut certificates.",
+  "type": "module",
+  "main": "lib/network.js",
+  "bin": {
+    "credit-net": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
