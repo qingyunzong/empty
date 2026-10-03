@@ -1,0 +1,13 @@
+{
+  "name": "repair-order-repo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline repair work-order version store with apply/undo/redo and three-way merge",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
