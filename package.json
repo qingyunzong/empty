@@ -1,0 +1,10 @@
+{
+  "name": "evidence-claims",
+  "version": "0.1.0",
+  "description": "Incremental validation of research evidence claims with Lamport-ordered histories",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

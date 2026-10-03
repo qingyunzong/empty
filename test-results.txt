@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: test/certificate.test.js
+ok 1 - test/certificate.test.js
+  ---
+  duration_ms: 4283.104823
+  type: 'test'
+  ...
+# Subtest: test/claims.test.js
+ok 2 - test/claims.test.js
+  ---
+  duration_ms: 3685.932497
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 3 - test/cli.test.js
+  ---
+  duration_ms: 2016.990725
+  type: 'test'
+  ...
+# Subtest: test/errors.test.js
+ok 4 - test/errors.test.js
+  ---
+  duration_ms: 1758.937826
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 5 - test/helpers.js
+  ---
+  duration_ms: 1045.838246
+  type: 'test'
+  ...
+# Subtest: test/incremental.test.js
+ok 6 - test/incremental.test.js
+  ---
+  duration_ms: 5996.575652
+  type: 'test'
+  ...
+# Subtest: test/order.test.js
+ok 7 - test/order.test.js
+  ---
+  duration_ms: 2085.155624
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6362.185596
