@@ -1,0 +1,13 @@
+{
+  "name": "cert-payment-auth",
+  "version": "1.0.0",
+  "description": "Certificate-chain payment authorization library and CLI (stdlib only)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

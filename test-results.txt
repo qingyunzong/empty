@@ -1,0 +1,53 @@
+TAP version 13
+# Subtest: test/chain.test.js
+ok 1 - test/chain.test.js
+  ---
+  duration_ms: 2257.801621
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 4818.065419
+  type: 'test'
+  ...
+# Subtest: test/enumerate.test.js
+ok 3 - test/enumerate.test.js
+  ---
+  duration_ms: 4240.378537
+  type: 'test'
+  ...
+# Subtest: test/errors.test.js
+ok 4 - test/errors.test.js
+  ---
+  duration_ms: 969.129544
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 5 - test/helpers.js
+  ---
+  duration_ms: 1347.335512
+  type: 'test'
+  ...
+# Subtest: test/revoke-restore.test.js
+ok 6 - test/revoke-restore.test.js
+  ---
+  duration_ms: 3657.338597
+  type: 'test'
+  ...
+# Subtest: test/tamper.test.js
+ok 7 - test/tamper.test.js
+  ---
+  duration_ms: 3352.878835
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5026.220571
+0
