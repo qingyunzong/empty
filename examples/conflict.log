@@ -1,0 +1,5 @@
+note: two observers write different values to the same key concurrently
+n1 1 commit prefix = keep
+n1 2 commit color = red
+n2 5 commit color = blue
+n3 9 commit tail = t after n1@1

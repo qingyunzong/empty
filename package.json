@@ -1,0 +1,10 @@
+{
+  "name": "obs-adjudicator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-observer correction-history adjudicator: happens-before ordering, conflict certificates, deterministic replay",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  }
+}

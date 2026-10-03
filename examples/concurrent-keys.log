@@ -1,0 +1,4 @@
+note: three concurrent events on different keys, deterministic tie-break by key name
+n1 1 commit zebra = z
+n2 2 commit apple = a
+n3 3 commit mango = m

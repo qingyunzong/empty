@@ -1,0 +1,4 @@
+note: three observers form a causal chain n1 -> n2 -> n3
+n1 1 commit alpha = a
+n2 3 commit beta = b after n1@1
+n3 7 commit gamma = g after n2@3
