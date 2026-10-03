@@ -1,0 +1,12 @@
+{
+  "name": "preauth-pool",
+  "version": "0.1.0",
+  "description": "Bank card preauthorization pool: freeze/capture/expire, fair preemption, verifiable no-overcommit certificates",
+  "type": "module",
+  "bin": {
+    "preauth": "bin/preauth.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
