@@ -1,0 +1,22 @@
+# 银行授信额度策略示例
+customer C1001;
+note_whitelist /^REQ-[0-9]{4}$/;
+
+bucket loan limit 1000000;
+bucket card limit 200000;
+
+validity 2026-01-01 to 2026-12-31;
+
+let max_single = 300000;
+
+scope branch {
+  cap loan 800000;
+  guard freeze when amount <= max_single;
+  scope region {
+    cap loan 500000;
+    scope manager {
+      cap loan 400000;
+      guard freeze unless frozen("loan") >= 350000;
+    }
+  }
+}

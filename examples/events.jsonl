@@ -1,0 +1,10 @@
+{"id":"e1","ts":"2026-10-01T09:00:00Z","type":"freeze","bucket":"loan","amount":200000,"note":"REQ-0001","until":"2026-11-01","scope":"branch.region.manager"}
+{"id":"e2","ts":"2026-10-01T09:00:00Z","type":"freeze","bucket":"loan","amount":200000,"note":"REQ-0002","until":"2026-11-01","scope":"branch.region.manager"}
+{"id":"e3","ts":"2026-10-01T10:00:00Z","type":"freeze","bucket":"loan","amount":100000,"note":"REQ-0003","until":"2026-10-20","scope":"branch.region"}
+{"id":"e4","ts":"2026-10-02T08:30:00Z","type":"draw","bucket":"loan","ref":"REQ-0001","amount":50000}
+{"id":"e5","ts":"2026-10-02T09:00:00Z","type":"unfreeze","bucket":"loan","ref":"REQ-0001","amount":200000}
+{"id":"e6","ts":"2026-10-03T09:00:00Z","type":"debit","bucket":"card","amount":5000,"scope":"branch"}
+{"id":"e7","ts":"2026-10-21T00:00:00Z","type":"draw","bucket":"loan","ref":"REQ-0003","amount":1000}
+{"id":"e8","ts":"2026-10-22T09:00:00Z","type":"unfreeze","bucket":"loan","ref":"REQ-0003","amount":100000}
+{"id":"e9","ts":"2026-10-23T09:00:00Z","type":"freeze","bucket":"loan","amount":-5,"note":"REQ-0009","until":"2026-12-01"}
+{"id":"e10","ts":"2026-10-23T10:00:00Z","type":"freeze","bucket":"loan","amount":1000,"note":"BADNOTE","until":"2026-12-01"}

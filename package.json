@@ -1,0 +1,15 @@
+{
+  "name": "quota-dsl",
+  "version": "0.1.0",
+  "description": "Bank credit-quota freeze DSL: lexer, Pratt parser, static types, nested approval scopes, bytecode VM with event sourcing",
+  "type": "module",
+  "bin": {
+    "quota": "./bin/quota.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
