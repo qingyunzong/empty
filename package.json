@@ -1,0 +1,9 @@
+{
+  "name": "pallet-xfer",
+  "version": "1.0.0",
+  "description": "Offline batch transfer store with MVCC, WAL and snapshot isolation",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "pallet-xfer": "cli.js" },
+  "scripts": { "test": "node --test" }
+}
