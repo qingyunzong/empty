@@ -1,0 +1,12 @@
+{
+  "name": "wxa",
+  "version": "1.0.0",
+  "description": "Weather observation archive with late corrections, batch undo and quality-weighted window aggregation",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "wxa": "./bin/wxa.js"
+  }
+}
