@@ -1,0 +1,10 @@
+{
+  "name": "provdb",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Query execution with provenance proofs and incremental re-verification",
+  "engines": { "node": ">=22" },
+  "bin": { "prov": "./src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
