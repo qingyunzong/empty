@@ -1,0 +1,10 @@
+{
+  "name": "settle-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline chunked settlement log with CRC32 integrity and tail index",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
