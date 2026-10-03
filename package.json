@@ -1,0 +1,16 @@
+{
+  "name": "offline-planner",
+  "version": "1.0.0",
+  "description": "Offline production planning with MVCC, snapshot isolation and a predicate secondary index",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "planner": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
