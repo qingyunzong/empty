@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: test/acceptance.test.js
+ok 1 - test/acceptance.test.js
+  ---
+  duration_ms: 1752.450231
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 2717.674551
+  type: 'test'
+  ...
+# Subtest: test/scc-crosscheck.test.js
+ok 3 - test/scc-crosscheck.test.js
+  ---
+  duration_ms: 3470.663455
+  type: 'test'
+  ...
+# Subtest: test/trust-graph.test.js
+ok 4 - test/trust-graph.test.js
+  ---
+  duration_ms: 3000.892317
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4012.698706
+0

@@ -1,0 +1,21 @@
+{
+  "name": "ledger-trust-graph",
+  "version": "1.0.0",
+  "description": "Directed trust-edge graph across ledgers with SCC reconciliation zones, snapshots and rollback",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "ledger-trust": "src/cli.js"
+  },
+  "exports": {
+    ".": "./src/trust-graph.js",
+    "./scc": "./src/scc.js",
+    "./scc-enumeration": "./src/scc-enumeration.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
