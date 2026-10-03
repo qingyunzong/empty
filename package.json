@@ -1,0 +1,8 @@
+{
+  "name": "quota-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Quota freeze/capture/release ledger with snapshots, deltas and certificates",
+  "bin": { "quota-ledger": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
