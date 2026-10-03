@@ -1,0 +1,16 @@
+{
+  "name": "payment-channel-network",
+  "version": "1.0.0",
+  "description": "Payment channel network: batch payment cancellation with bridge certificates (stdlib only)",
+  "main": "index.js",
+  "bin": {
+    "pcn": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
