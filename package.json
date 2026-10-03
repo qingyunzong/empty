@@ -1,0 +1,12 @@
+{
+  "name": "recipe-optimizer",
+  "version": "1.0.0",
+  "description": "Auditable ingredient-mix optimizer: DSL -> typed AST -> bytecode VM -> exact rational solver",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "optimize": "node src/cli.js optimize",
+    "verify": "node src/cli.js verify"
+  }
+}
