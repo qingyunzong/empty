@@ -1,0 +1,9 @@
+{
+  "name": "clinical-audit-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clinical sample audit: reviewer slot allocation with risk/deadline ordering, department quotas, preemption credits, appeals and auditable certificates.",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
