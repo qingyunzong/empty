@@ -1,0 +1,9 @@
+{
+  "name": "omics-evidence-chain",
+  "version": "1.0.0",
+  "description": "Chain-of-custody evidence audit for clinical omics core facility",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
