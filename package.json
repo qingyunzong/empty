@@ -1,0 +1,10 @@
+{
+  "name": "recon-match",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bank/ledger reconciliation matching library and CLI (stdlib only)",
+  "main": "src/recon.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
