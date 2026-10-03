@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "rulesPath": "/home/delin/.local/share/gsb-workbench/artifacts/dbee9b347b6245369dd015cd00136cac/run/A/attempt-016/workspace/examples/rules.ndjson",
+  "txPath": "/home/delin/.local/share/gsb-workbench/artifacts/dbee9b347b6245369dd015cd00136cac/run/A/attempt-016/workspace/examples/tx.ndjson",
+  "rulesOffset": 5,
+  "txOffset": 5,
+  "lastRuleTime": 1700086400000,
+  "lastTxTime": 1700090000000,
+  "seq": 5,
+  "updatedAt": "2026-10-03T16:32:44.803Z"
+}

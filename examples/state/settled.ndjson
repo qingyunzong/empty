@@ -1,0 +1,5 @@
+{"seq":1,"txId":"t-001","time":1700010000000,"amount":100000,"rateBps":120,"ruleId":"std-2025","fee":1200,"tied":["std-2025"],"backfill":false}
+{"seq":2,"txId":"t-002","time":1700040000000,"amount":250000,"rateBps":80,"ruleId":"promo-b","fee":2000,"tied":["promo-b","promo-a"],"backfill":false}
+{"seq":3,"txId":"t-003","time":1700055000000,"amount":80000,"rateBps":80,"ruleId":"promo-a","fee":640,"tied":["promo-a"],"backfill":false}
+{"seq":4,"txId":"t-004","time":1700090000000,"amount":120000,"rateBps":150,"ruleId":"std-2026","fee":1800,"tied":["std-2026"],"backfill":false}
+{"seq":5,"txId":"t-002","time":1700040000000,"amount":300000,"rateBps":80,"ruleId":"promo-b","fee":2400,"tied":["promo-b","promo-a"],"backfill":true}

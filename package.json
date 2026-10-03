@@ -1,0 +1,8 @@
+{
+  "name": "fee-settlement",
+  "version": "0.1.0",
+  "description": "Deterministic fee settlement engine with rule versioning, change-capture checkpoints and interval replay",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}

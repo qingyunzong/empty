@@ -1,0 +1,5 @@
+{"op":"add","ruleId":"std-2025","validFrom":1700000000000,"validTo":1700086400000,"rateBps":120,"priority":0}
+{"op":"add","ruleId":"promo-a","validFrom":1700030000000,"validTo":1700060000000,"rateBps":80,"priority":1}
+{"op":"add","ruleId":"promo-b","validFrom":1700030000000,"validTo":1700060000000,"rateBps":80,"priority":2}
+{"op":"revoke","ruleId":"promo-b","at":1700050000000}
+{"op":"add","ruleId":"std-2026","validFrom":1700086400000,"validTo":null,"rateBps":150,"priority":0}
