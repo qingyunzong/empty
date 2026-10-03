@@ -1,0 +1,11 @@
+✔ test/cli.test.js (3798.304918ms)
+✔ test/margin.test.js (5056.244319ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5513.754195
+0
