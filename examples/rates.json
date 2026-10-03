@@ -1,0 +1,13 @@
+{
+  "base": "USD",
+  "versions": [
+    {
+      "version": 1,
+      "rates": { "USD": 1000000, "EUR": 1100000, "JPY": 9000 }
+    },
+    {
+      "version": 2,
+      "rates": { "USD": 1000000, "EUR": 1200000, "JPY": 9000 }
+    }
+  ]
+}

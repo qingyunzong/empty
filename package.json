@@ -1,0 +1,11 @@
+{
+  "name": "netclear",
+  "version": "1.0.0",
+  "description": "Multi-currency bilateral payment netting with frozen limits, window capacity, versioned FX rates and reversible incremental recompute",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node cli.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "trades": [
+    { "id": "t1", "from": "alice", "to": "bob", "ccy": "EUR", "amount": 1000 },
+    { "id": "t2", "from": "bob", "to": "carol", "ccy": "EUR", "amount": 1000 },
+    { "id": "t3", "from": "carol", "to": "alice", "ccy": "USD", "amount": 1500 },
+    { "id": "t4", "from": "dave", "to": "erin", "ccy": "JPY", "amount": 100000 }
+  ],
+  "limits": { "alice": 500, "bob": 500, "carol": 500, "dave": 1000, "erin": 1000 },
+  "capacity": 100000
+}
