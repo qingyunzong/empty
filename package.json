@@ -1,0 +1,12 @@
+{
+  "name": "offline-planner",
+  "version": "1.0.0",
+  "description": "Offline job filtering and top-k selection for planners (std-lib only)",
+  "type": "module",
+  "bin": {
+    "planner": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
