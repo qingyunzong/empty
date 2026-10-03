@@ -1,0 +1,15 @@
+{
+  "name": "trade-lin-checker",
+  "version": "1.0.0",
+  "description": "Linearizability checker for trading reservation histories (reserve/commit/cancel/read)",
+  "type": "module",
+  "bin": {
+    "trade-lin-check": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

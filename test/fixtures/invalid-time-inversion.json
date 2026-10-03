@@ -1,0 +1,4 @@
+[
+  { "client": "c1", "opId": "res1", "invocationTime": 10, "responseTime": 5,
+    "type": "reserve", "account": "alice", "amount": 50, "reserveId": "r1", "ok": true }
+]

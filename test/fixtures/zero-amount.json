@@ -1,0 +1,9 @@
+[
+  { "client": "c1", "opId": "res0", "invocationTime": 0, "responseTime": 5,
+    "type": "reserve", "account": "alice", "amount": 0, "reserveId": "r0", "ok": true },
+  { "client": "c1", "opId": "com0", "invocationTime": 6, "responseTime": 9,
+    "type": "commit", "account": "alice", "reserveId": "r0", "ok": true },
+  { "client": "c2", "opId": "read0", "invocationTime": 10, "responseTime": 12,
+    "type": "read", "account": "alice", "ok": true,
+    "result": { "balance": 1000, "frozen": 0 } }
+]

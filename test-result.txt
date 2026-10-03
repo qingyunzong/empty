@@ -1,0 +1,54 @@
+TAP version 13
+# Subtest: test/checker.test.js
+ok 1 - test/checker.test.js
+  ---
+  duration_ms: 336.275511
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 2180.643192
+  type: 'test'
+  ...
+# Subtest: test/enumerator.test.js
+ok 3 - test/enumerator.test.js
+  ---
+  duration_ms: 372.836554
+  type: 'test'
+  ...
+# Subtest: test/validate.test.js
+ok 4 - test/validate.test.js
+  ---
+  duration_ms: 282.252122
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2219.757959
+exit code: 0
+# --- witness (acceptance 1: overlapping reads, linearizable) ---
+{
+  "linearizable": true,
+  "witness": [
+    "read-old",
+    "res1",
+    "read-new"
+  ],
+  "linearizationPoints": [
+    1,
+    1,
+    5
+  ]
+}
+# --- conflict (acceptance 2: commit after responded cancel) ---
+{
+  "linearizable": false,
+  "conflict": "no valid linearization; deepest contradiction: after [res1, can1], op \"com1\" (commit r1) cannot be placed anywhere: recorded ok=true but reservation \"r1\" already cancelled"
+}

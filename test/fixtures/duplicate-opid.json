@@ -1,0 +1,6 @@
+[
+  { "client": "c1", "opId": "res1", "invocationTime": 0, "responseTime": 5,
+    "type": "reserve", "account": "alice", "amount": 50, "reserveId": "r1", "ok": true },
+  { "client": "c1", "opId": "res1", "invocationTime": 6, "responseTime": 9,
+    "type": "reserve", "account": "alice", "amount": 50, "reserveId": "r2", "ok": true }
+]

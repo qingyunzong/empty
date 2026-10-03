@@ -1,0 +1,6 @@
+[
+  { "client": "c1", "opId": "comX", "invocationTime": 0, "responseTime": 5,
+    "type": "commit", "account": "alice", "reserveId": "nope", "ok": false },
+  { "client": "c2", "opId": "canX", "invocationTime": 6, "responseTime": 9,
+    "type": "cancel", "account": "alice", "reserveId": "nope", "ok": false }
+]
