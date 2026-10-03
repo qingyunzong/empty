@@ -1,0 +1,13 @@
+{
+  "name": "quota-freeze-ledger",
+  "version": "1.0.0",
+  "description": "Deterministic quota freeze/confirm/cancel approval ledger with serializable replay",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
