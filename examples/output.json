@@ -1,0 +1,182 @@
+{
+  "status": "PARTIAL",
+  "results": [
+    {
+      "idempotencyKey": "cancel-tx-1001",
+      "transactionId": "tx-1001",
+      "replayed": false,
+      "status": "PARTIAL",
+      "sequence": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "settle",
+          "type": "settle",
+          "account": "A",
+          "amount": 110,
+          "batchId": "b1",
+          "mode": "delete"
+        }
+      ],
+      "pending": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "freeze",
+          "type": "freeze",
+          "account": "A",
+          "amount": 100,
+          "recoverable": true
+        },
+        {
+          "transactionId": "tx-1001",
+          "stageId": "fee",
+          "type": "fee",
+          "account": "A",
+          "amount": 10,
+          "recoverable": true
+        },
+        {
+          "transactionId": "tx-1001",
+          "stageId": "trade",
+          "type": "trade",
+          "account": "A",
+          "amount": 100,
+          "recoverable": true
+        }
+      ],
+      "conflicts": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "freeze",
+          "type": "freeze",
+          "account": "A",
+          "amount": 100,
+          "reason": "INSUFFICIENT_QUOTA",
+          "infeasibleBatches": [
+            {
+              "batchId": "b1",
+              "account": "A",
+              "remaining": 40,
+              "required": 100
+            }
+          ],
+          "path": [
+            "freeze",
+            "fee",
+            "trade"
+          ]
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "cancel-tx-1001",
+      "transactionId": "tx-1001",
+      "replayed": true,
+      "status": "PARTIAL",
+      "sequence": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "settle",
+          "type": "settle",
+          "account": "A",
+          "amount": 110,
+          "batchId": "b1",
+          "mode": "delete"
+        }
+      ],
+      "pending": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "freeze",
+          "type": "freeze",
+          "account": "A",
+          "amount": 100,
+          "recoverable": true
+        },
+        {
+          "transactionId": "tx-1001",
+          "stageId": "fee",
+          "type": "fee",
+          "account": "A",
+          "amount": 10,
+          "recoverable": true
+        },
+        {
+          "transactionId": "tx-1001",
+          "stageId": "trade",
+          "type": "trade",
+          "account": "A",
+          "amount": 100,
+          "recoverable": true
+        }
+      ],
+      "conflicts": [
+        {
+          "transactionId": "tx-1001",
+          "stageId": "freeze",
+          "type": "freeze",
+          "account": "A",
+          "amount": 100,
+          "reason": "INSUFFICIENT_QUOTA",
+          "infeasibleBatches": [
+            {
+              "batchId": "b1",
+              "account": "A",
+              "remaining": 40,
+              "required": 100
+            }
+          ],
+          "path": [
+            "freeze",
+            "fee",
+            "trade"
+          ]
+        }
+      ]
+    }
+  ],
+  "state": {
+    "sequence": [
+      {
+        "seq": 1,
+        "transactionId": "tx-1001",
+        "stageId": "settle",
+        "type": "settle",
+        "account": "A",
+        "amount": 110,
+        "batchId": "b1",
+        "mode": "delete"
+      }
+    ],
+    "remainingQuotas": {
+      "b1": {
+        "A": 40
+      }
+    },
+    "pending": [
+      {
+        "transactionId": "tx-1001",
+        "stageId": "freeze",
+        "type": "freeze",
+        "account": "A",
+        "amount": 100,
+        "recoverable": true
+      },
+      {
+        "transactionId": "tx-1001",
+        "stageId": "fee",
+        "type": "fee",
+        "account": "A",
+        "amount": 10,
+        "recoverable": true
+      },
+      {
+        "transactionId": "tx-1001",
+        "stageId": "trade",
+        "type": "trade",
+        "account": "A",
+        "amount": 100,
+        "recoverable": true
+      }
+    ]
+  }
+}

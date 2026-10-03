@@ -1,0 +1,20 @@
+{
+  "transactions": [
+    {
+      "id": "tx-1001",
+      "stages": [
+        { "id": "trade", "type": "trade", "account": "A", "amount": 100 },
+        { "id": "fee", "type": "fee", "account": "A", "amount": 10, "dependsOn": ["trade"] },
+        { "id": "freeze", "type": "freeze", "account": "A", "amount": 100, "status": "reconciled", "dependsOn": ["fee"] },
+        { "id": "settle", "type": "settle", "account": "A", "amount": 110, "dependsOn": ["freeze"] }
+      ]
+    }
+  ],
+  "batches": [
+    { "id": "b1", "domains": ["trade", "fee", "freeze", "settle"], "quotas": { "A": 150 } }
+  ],
+  "requests": [
+    { "idempotencyKey": "cancel-tx-1001", "transactionId": "tx-1001" },
+    { "idempotencyKey": "cancel-tx-1001", "transactionId": "tx-1001" }
+  ]
+}

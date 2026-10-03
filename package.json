@@ -1,0 +1,14 @@
+{
+  "name": "txn-cancel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline library and CLI for four-stage transaction cancellation with reverse compensation",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
