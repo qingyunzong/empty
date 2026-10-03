@@ -1,0 +1,13 @@
+{
+  "name": "coldchain-cert",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline cold-chain vaccine compliance certificates",
+  "main": "lib/core.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
