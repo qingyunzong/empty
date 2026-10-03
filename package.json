@@ -1,0 +1,13 @@
+{
+  "name": "hts-plate-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "384-well plate rerun scheduler for high-throughput screening labs",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
