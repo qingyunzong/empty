@@ -1,0 +1,9 @@
+{
+  "name": "rev",
+  "version": "0.1.0",
+  "description": "Reversal DSL + bytecode VM with WAL crash recovery for payment ledgers",
+  "type": "module",
+  "bin": { "rev": "bin/rev.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
