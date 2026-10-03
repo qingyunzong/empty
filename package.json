@@ -1,0 +1,12 @@
+{
+  "name": "settlement-scheduler",
+  "version": "0.1.0",
+  "description": "Periodic settlement task scheduler with dependency-graph diffing, versioned calendars and crash-safe persistence",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
