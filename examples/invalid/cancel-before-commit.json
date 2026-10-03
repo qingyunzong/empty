@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    { "id": "A", "balance": 100 },
+    { "id": "B", "balance": 0 }
+  ],
+  "actors": [
+    {
+      "id": "alice",
+      "steps": [
+        { "id": "r1", "type": "reserve", "transfer": "t1", "from": "A", "to": "B", "amount": 10 },
+        { "id": "x1", "type": "cancel", "transfer": "t1" },
+        { "id": "c1", "type": "commit", "transfer": "t1" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: test/cli.test.mjs
+ok 1 - test/cli.test.mjs
+  ---
+  duration_ms: 3924.77241
+  type: 'test'
+  ...
+# Subtest: test/explore.test.mjs
+ok 2 - test/explore.test.mjs
+  ---
+  duration_ms: 1776.999193
+  type: 'test'
+  ...
+# Subtest: test/helpers.mjs
+ok 3 - test/helpers.mjs
+  ---
+  duration_ms: 2034.113424
+  type: 'test'
+  ...
+# Subtest: test/plan.test.mjs
+ok 4 - test/plan.test.mjs
+  ---
+  duration_ms: 1896.806881
+  type: 'test'
+  ...
+# Subtest: test/state.test.mjs
+ok 5 - test/state.test.mjs
+  ---
+  duration_ms: 1961.44648
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4308.223328
+EXIT_CODE=0
+
+=== CLI: node src/cli.js explore examples/safe.json ===
+{
+  "reachable": 9,
+  "interleavings": 6,
+  "violating": 0,
+  "violatingStates": 0,
+  "counterexample": null,
+  "certificate": {
+    "type": "SAFE_CERTIFICATE",
+    "hashAlgorithm": "sha256",
+    "planHash": "0a2205f251a27cdaf23d189026103a2f708a0845fc9b8e0b1212a968d5ab5c55",
+    "reachable": 9,
+    "interleavings": 6,
+    "terminalStates": 1,
+    "finalStateHashes": [
+      "5f4249ffedabb35cf0a9fded645432fbffe48dad28a114b6e353e2e739c01041"
+    ],
+    "finalStateHash": "5f4249ffedabb35cf0a9fded645432fbffe48dad28a114b6e353e2e739c01041"
+  }
+}
+exit=0
+
+=== CLI: node src/cli.js explore examples/racy.json ===
+{
+  "reachable": 196,
+  "interleavings": 180,
+  "violating": 66,
+  "violatingStates": 16,
+  "counterexample": {
+    "sequence": [
+      "r1",
+      "r2"
+    ],
+    "violations": [
+      {
+        "type": "HOLD_EXCEEDS_AVAILABLE",
+        "account": "A",
+        "frozen": 120,
+        "balance": 100
+      }
+    ],
+    "state": {
+      "balances": {
+        "A": 100,
+        "B": 0,
+        "C": 0
+      },
+      "frozen": {
+        "A": 120,
+        "B": 0,
+        "C": 0
+      },
+      "holds": {
+        "t1": {
+          "from": "A",
+          "to": "B",
+          "amount": 60
+        },
+        "t2": {
+          "from": "A",
+          "to": "C",
+          "amount": 60
+        }
+      },
+      "frozenAccounts": [],
+      "rejected": []
+    }
+  },
+  "certificate": null
+}
+exit=0
+
+=== CLI: node src/cli.js explore examples/invalid/duplicate-id.json ===
+invalid plan: duplicate step id: s1
+{"error":"INVALID_PLAN"}
+exit=1

@@ -1,0 +1,23 @@
+{
+  "accounts": [
+    { "id": "A", "balance": 1000 },
+    { "id": "B", "balance": 0 },
+    { "id": "C", "balance": 0 }
+  ],
+  "actors": [
+    {
+      "id": "alice",
+      "steps": [
+        { "id": "r1", "type": "reserve", "transfer": "t1", "from": "A", "to": "B", "amount": 100 },
+        { "id": "c1", "type": "commit", "transfer": "t1" }
+      ]
+    },
+    {
+      "id": "bob",
+      "steps": [
+        { "id": "r2", "type": "reserve", "transfer": "t2", "from": "A", "to": "C", "amount": 50 },
+        { "id": "c2", "type": "commit", "transfer": "t2" }
+      ]
+    }
+  ]
+}

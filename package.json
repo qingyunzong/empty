@@ -1,0 +1,13 @@
+{
+  "name": "settlement-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline settlement state explorer: enumerates all order-preserving interleavings of two-phase transfers and cancel requests, proves quota safety or emits a reproducible certificate.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
