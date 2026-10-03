@@ -1,0 +1,12 @@
+{
+  "name": "plc-segstore",
+  "version": "0.1.0",
+  "description": "PLC event segment store with crash recovery, stdlib only",
+  "type": "module",
+  "bin": {
+    "plc": "bin/plc.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
