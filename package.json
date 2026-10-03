@@ -1,0 +1,11 @@
+{
+  "name": "qinspect",
+  "version": "1.0.0",
+  "description": "Exact rational quality-inspection engine: interval measurements, quadratic correction maps, convex tolerance polygons.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
