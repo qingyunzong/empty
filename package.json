@@ -1,0 +1,10 @@
+{
+  "name": "clearing-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clearing-house quota freeze gateway: binary frames, virtual clock, append-only log, deterministic recovery",
+  "scripts": {
+    "test": "node --test",
+    "examples": "node tools/mkframes.js"
+  }
+}
