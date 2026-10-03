@@ -1,0 +1,39 @@
+{
+  "name": "orbital-demo",
+  "floor": 1,
+  "stations": [
+    {
+      "id": "alpha",
+      "link": "down-1",
+      "battery": 9,
+      "windows": [
+        { "id": "a1", "start": 0, "end": 2, "energy": 3 },
+        { "id": "a2", "start": 2, "end": 4, "energy": 3 },
+        { "id": "a3", "start": 4, "end": 6, "energy": 3 }
+      ]
+    },
+    {
+      "id": "beta",
+      "link": "down-1",
+      "battery": 6,
+      "windows": [
+        { "id": "b1", "start": 1, "end": 3, "energy": 3 },
+        { "id": "b2", "start": 3, "end": 5, "energy": 3 }
+      ]
+    },
+    {
+      "id": "gamma",
+      "link": "down-2",
+      "battery": 6,
+      "windows": [
+        { "id": "g1", "start": 0, "end": 2, "energy": 3, "locked": true },
+        { "id": "g2", "start": 2, "end": 4, "energy": 3 }
+      ]
+    }
+  ],
+  "contracts": [
+    { "id": "C-alpha", "station": "alpha", "min": 2 },
+    { "id": "C-beta", "station": "beta", "min": 1 },
+    { "id": "C-gamma", "station": "gamma", "min": 2, "period": 4, "quota": 1 }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "calsched",
+  "version": "1.0.0",
+  "description": "Earth-observation calibration window scheduler with mutex links, contract fairness and Merkle-certified plans",
+  "type": "commonjs",
+  "bin": {
+    "calsched": "bin/calsched.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
