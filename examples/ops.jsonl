@@ -1,0 +1,8 @@
+{"op":"config","totalLimit":1000,"categoryLimits":{"travel":300,"food":200}}
+{"ts":1,"id":"f1","op":"freeze","start":100,"end":300}
+{"ts":2,"id":"f2","op":"freeze","start":250,"end":400}
+{"ts":3,"id":"u1","op":"unfreeze","start":150,"end":250}
+{"ts":4,"id":"d1","op":"debit","amount":250,"scope":"travel"}
+{"ts":5,"id":"d2","op":"debit","amount":100,"scope":"travel"}
+{"ts":6,"id":"b","op":"debit","amount":400,"scope":"food"}
+{"ts":6,"id":"a","op":"debit","amount":400,"scope":"food"}
