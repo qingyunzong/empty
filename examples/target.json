@@ -1,0 +1,6 @@
+{
+  "accounts": {
+    "a1": { "limit": 1000, "used": 200, "holds": [{ "hid": "h1", "amount": 100, "tag": "review" }] },
+    "a2": { "limit": 450, "used": 0, "holds": [{ "hid": "h9", "amount": 50, "tag": "audit" }] }
+  }
+}

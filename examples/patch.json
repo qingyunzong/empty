@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "fromHash": "b35f80097f8f7cfaf18ddcd157397756396063fd5169f42aac0b7010e84c18a2",
+  "toHash": "e7a842e04b93492558f48d3ea997facf386be8142cbce9195e3fa24a4ed6ac79",
+  "ops": [
+    {
+      "op": "changeTag",
+      "account": "a1",
+      "hid": "h1",
+      "tag": "review",
+      "prevTag": "fraud"
+    },
+    {
+      "op": "setLimit",
+      "account": "a2",
+      "limit": 450,
+      "prevLimit": 500
+    },
+    {
+      "op": "addHold",
+      "account": "a2",
+      "hold": {
+        "hid": "h9",
+        "amount": 50,
+        "tag": "audit"
+      }
+    }
+  ],
+  "sha256": "2ed736d27536c04e63579b385311c7d3e0445b39fac8641f14ef3155de708fc9"
+}
