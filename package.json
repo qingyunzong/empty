@@ -1,0 +1,14 @@
+{
+  "name": "recipe-tag-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-line recipe tag engine: dependency graph, incremental recompute, invalidation, undo/redo, deterministic certificates. Offline CLI included.",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

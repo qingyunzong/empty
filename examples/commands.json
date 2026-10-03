@@ -1,0 +1,12 @@
+{
+  "commands": [
+    { "op": "upsert", "name": "length", "type": "const", "value": 12 },
+    { "op": "upsert", "name": "width", "type": "const", "value": 4 },
+    { "op": "upsert", "name": "area", "type": "formula", "expr": "length * width" },
+    { "op": "upsert", "name": "half", "type": "formula", "expr": "area / 2" },
+    { "op": "set", "name": "width", "value": 5 },
+    { "op": "upsert", "name": "ratio", "type": "formula", "expr": "area / (width - 5)" },
+    { "op": "set", "name": "width", "value": 6 },
+    { "op": "commit" }
+  ]
+}
