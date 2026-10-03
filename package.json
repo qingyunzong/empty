@@ -1,0 +1,13 @@
+{
+  "name": "buoy-profiler",
+  "version": "1.0.0",
+  "description": "Ocean buoy profile sessionizer: UPSERT/RETRACT/WATERMARK with inversion and missing-depth analytics",
+  "type": "commonjs",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
