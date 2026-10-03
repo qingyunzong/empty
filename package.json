@@ -1,0 +1,8 @@
+{
+  "name": "dataset-release-manifest",
+  "version": "0.1.0",
+  "description": "Incremental build library and CLI for research dataset release manifests",
+  "type": "module",
+  "bin": { "manifest": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}

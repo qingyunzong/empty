@@ -1,0 +1,28 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 1263.924727
+  type: 'test'
+  ...
+# Subtest: test/manifest.test.js
+ok 2 - test/manifest.test.js
+  ---
+  duration_ms: 1303.19543
+  type: 'test'
+  ...
+# Subtest: test/reference.test.js
+ok 3 - test/reference.test.js
+  ---
+  duration_ms: 4478.061954
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4713.829371
