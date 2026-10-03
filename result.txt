@@ -1,0 +1,316 @@
+=== node --test ===
+exit_code: 0
+--- stdout ---
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 992.51368
+  type: 'test'
+  ...
+# Subtest: test/fixtures.js
+ok 2 - test/fixtures.js
+  ---
+  duration_ms: 520.867855
+  type: 'test'
+  ...
+# Subtest: test/mrp.test.js
+ok 3 - test/mrp.test.js
+  ---
+  duration_ms: 825.307864
+  type: 'test'
+  ...
+# Subtest: test/store.test.js
+ok 4 - test/store.test.js
+  ---
+  duration_ms: 849.977942
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1122.594638
+--- stderr ---
+
+=== scenario 1: apply work orders + BOM + inventory ===
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 12,
+  "hash": "sha256:4f53f3bdf6736b84070cee0d8b40537a451167fc1e2b9f23cd39514db629f3a5"
+}
+--- stderr ---
+
+=== scenario 1: query net requirements (shared multi-level components) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "gross": {
+    "A": 12,
+    "B": 5,
+    "C": 56,
+    "D": 112
+  },
+  "inventory": {
+    "A": 4,
+    "B": 10,
+    "C": null,
+    "D": 100
+  },
+  "net": {
+    "A": 8,
+    "B": -5,
+    "C": null,
+    "D": 12
+  },
+  "delta": {
+    "components": {
+      "A": {
+        "from": 0,
+        "to": 8,
+        "delta": 8
+      },
+      "B": {
+        "from": 0,
+        "to": -5,
+        "delta": -5
+      },
+      "C": {
+        "from": 0,
+        "to": null,
+        "delta": null
+      },
+      "D": {
+        "from": 0,
+        "to": 12,
+        "delta": 12
+      }
+    },
+    "positive": {
+      "A": 8,
+      "D": 12
+    },
+    "negative": {
+      "B": -5
+    }
+  },
+  "hash": "sha256:4f53f3bdf6736b84070cee0d8b40537a451167fc1e2b9f23cd39514db629f3a5"
+}
+--- stderr ---
+
+=== scenario 2: apply setup (inventory qty null = unknown) ===
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 3,
+  "hash": "sha256:f068477e45809c04fb1f779171522169d17fa944446581b008050c92541e787a"
+}
+--- stderr ---
+
+=== scenario 2: query (net must be null, not 0) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "gross": {
+    "C9": 5
+  },
+  "inventory": {
+    "C9": null
+  },
+  "net": {
+    "C9": null
+  },
+  "delta": {
+    "components": {
+      "C9": {
+        "from": 0,
+        "to": null,
+        "delta": null
+      }
+    },
+    "positive": {},
+    "negative": {}
+  },
+  "hash": "sha256:f068477e45809c04fb1f779171522169d17fa944446581b008050c92541e787a"
+}
+--- stderr ---
+
+=== scenario 2: correct inventory null -> 0 ===
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 2,
+  "applied": 1,
+  "hash": "sha256:d9101511ad255b4332db6a02fc6b83333e885b5f4fb746343d1f443993071dec"
+}
+--- stderr ---
+
+=== scenario 2: query (net becomes definite shortage) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 2,
+  "recovered": false,
+  "gross": {
+    "C9": 5
+  },
+  "inventory": {
+    "C9": 0
+  },
+  "net": {
+    "C9": 5
+  },
+  "delta": {
+    "components": {
+      "C9": {
+        "from": null,
+        "to": 5,
+        "delta": null
+      }
+    },
+    "positive": {},
+    "negative": {}
+  },
+  "hash": "sha256:d9101511ad255b4332db6a02fc6b83333e885b5f4fb746343d1f443993071dec"
+}
+--- stderr ---
+
+=== scenario 2: correct unknown key (must fail, exit 1) ===
+exit_code: 1
+--- stdout ---
+{"error":"correct: unknown key for inventory: NOPE"}
+--- stderr ---
+
+=== scenario 3: apply setup ===
+exit_code: 0
+--- stdout ---
+{
+  "ok": true,
+  "version": 1,
+  "applied": 3,
+  "hash": "sha256:9ca3185b207c16d1d4ec65acae5087b461ef8d2d58f2ae9a9a3cc593f92ccc81"
+}
+--- stderr ---
+
+=== scenario 3: query baseline (v1) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "gross": {
+    "C1": 6
+  },
+  "inventory": {
+    "C1": 1
+  },
+  "net": {
+    "C1": 5
+  },
+  "delta": {
+    "components": {
+      "C1": {
+        "from": 0,
+        "to": 5,
+        "delta": 5
+      }
+    },
+    "positive": {
+      "C1": 5
+    },
+    "negative": {}
+  },
+  "hash": "sha256:9ca3185b207c16d1d4ec65acae5087b461ef8d2d58f2ae9a9a3cc593f92ccc81"
+}
+--- stderr ---
+
+=== scenario 3: apply --fail before_append (exit 1, no effect) ===
+exit_code: 1
+--- stdout ---
+{"error":"simulated crash: before_append (no effect persisted)"}
+--- stderr ---
+
+=== scenario 3: query after before_append crash (still v1) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 1,
+  "recovered": false,
+  "gross": {
+    "C1": 6
+  },
+  "inventory": {
+    "C1": 1
+  },
+  "net": {
+    "C1": 5
+  },
+  "delta": {
+    "components": {
+      "C1": {
+        "from": 0,
+        "to": 5,
+        "delta": 5
+      }
+    },
+    "positive": {
+      "C1": 5
+    },
+    "negative": {}
+  },
+  "hash": "sha256:9ca3185b207c16d1d4ec65acae5087b461ef8d2d58f2ae9a9a3cc593f92ccc81"
+}
+--- stderr ---
+
+=== scenario 3: apply --fail after_append (exit 1, log persisted, snapshot stale) ===
+exit_code: 1
+--- stdout ---
+{"error":"simulated crash: after_append (log persisted, snapshot missing)"}
+--- stderr ---
+
+=== scenario 3: query after restart (replay recovery to v2) ===
+exit_code: 0
+--- stdout ---
+{
+  "version": 2,
+  "recovered": true,
+  "gross": {
+    "C1": 6
+  },
+  "inventory": {
+    "C1": 10
+  },
+  "net": {
+    "C1": -4
+  },
+  "delta": {
+    "components": {
+      "C1": {
+        "from": 5,
+        "to": -4,
+        "delta": -9
+      }
+    },
+    "positive": {},
+    "negative": {
+      "C1": -9
+    }
+  },
+  "hash": "sha256:3aa9fb786f748093ffc45eadb1b840f52f4c72665643e6669866bdb4c048033a"
+}
+--- stderr ---
+

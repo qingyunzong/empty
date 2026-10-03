@@ -1,0 +1,9 @@
+{
+  "name": "mrp-netreq",
+  "version": "1.0.0",
+  "description": "Offline single-node discrete manufacturing work-order net requirements engine",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
