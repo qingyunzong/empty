@@ -1,0 +1,12 @@
+{
+  "name": "restate",
+  "version": "1.0.0",
+  "description": "监管报表重述：更正分录的报表项目与期间选择、勾稽配平与分层发布回滚",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

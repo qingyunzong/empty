@@ -1,0 +1,21 @@
+{
+  "items": [
+    { "id": "cash", "side": "asset", "domain": [-100, 100] },
+    { "id": "ar", "side": "asset", "domain": [-100, 100] },
+    { "id": "ap", "side": "liability", "domain": [-100, 100] },
+    { "id": "equity", "side": "equity", "domain": [-100, 100] }
+  ],
+  "balances": { "cash": 100, "ar": 50, "ap": 100, "equity": 40 },
+  "periods": [
+    { "id": "2024Q4", "status": "closed" },
+    { "id": "2025Q1", "status": "open" }
+  ],
+  "formulas": [
+    { "id": "bs", "lhs": ["cash", "ar"], "rhs": ["ap", "equity"] }
+  ],
+  "layers": [
+    { "id": "L1", "formulas": ["bs"], "reserve": 100 },
+    { "id": "L2", "formulas": ["bs"], "reserve": 50 }
+  ],
+  "budget": 100000
+}
