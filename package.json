@@ -1,0 +1,10 @@
+{
+  "name": "quality-trace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Quality traceability library and CLI: finite-domain propagation + backtracking over production genealogies, with transactional undo/redo.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

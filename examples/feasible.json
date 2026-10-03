@@ -1,0 +1,9 @@
+{
+  "budget": 10000,
+  "batches": [
+    { "id": "M1", "kind": "material", "quantity": 40, "expiry": "2026-06-01", "status": "released" },
+    { "id": "M2", "kind": "material", "quantity": 30, "expiry": "2026-05-01", "status": "released" },
+    { "id": "P1", "kind": "production", "line": "L1", "start": "2026-02-01", "end": "2026-02-03",
+      "outputQty": 45, "loss": 5, "expiry": "2026-04-01", "candidates": ["M1", "M2"] }
+  ]
+}
