@@ -1,0 +1,13 @@
+{
+  "name": "offline-capacity-planner",
+  "version": "1.0.0",
+  "description": "Offline production planning with MVCC, snapshot isolation and predicate index",
+  "type": "module",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
