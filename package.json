@@ -1,0 +1,9 @@
+{
+  "name": "payment-workflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Crash-safe scheduled payment workflow with event-sourced recovery and CLI",
+  "scripts": {
+    "test": "node --test"
+  }
+}
