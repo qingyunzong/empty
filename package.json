@@ -1,0 +1,9 @@
+{
+  "name": "evidence-store",
+  "version": "1.0.0",
+  "description": "Transactional tamper-evident evidence store with hash-chain commit certificates",
+  "type": "module",
+  "bin": { "evidence": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
