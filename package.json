@@ -1,0 +1,12 @@
+{
+  "name": "maint-history",
+  "version": "0.1.0",
+  "description": "Offline versioned work-order store with Lamport causality, phrase index, undo and merge",
+  "type": "module",
+  "bin": {
+    "maint": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
