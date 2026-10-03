@@ -1,0 +1,9 @@
+{
+  "config": { "slots": 2, "capacityPerSlot": 1 },
+  "instructions": [
+    { "id": "L", "institution": "I2", "amount": 100, "priority": 1, "arrivalSlot": 2, "deadlineSlot": 2 },
+    { "id": "D", "institution": "I0", "amount": 90, "priority": 1, "deadlineSlot": 1 },
+    { "id": "H", "institution": "I1", "amount": 10, "priority": 5, "deadlineSlot": 2, "dependencies": ["D"] }
+  ],
+  "undo": ["H"]
+}

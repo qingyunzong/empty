@@ -1,0 +1,8 @@
+{
+  "config": { "slots": 2, "capacityPerSlot": 1, "quotas": { "X": 1, "Y": 1 }, "agingRate": 0 },
+  "instructions": [
+    { "id": "x1", "institution": "X", "amount": 100, "priority": 1, "deadlineSlot": 2 },
+    { "id": "x2", "institution": "X", "amount": 90, "priority": 1, "deadlineSlot": 2 },
+    { "id": "y1", "institution": "Y", "amount": 80, "priority": 1, "deadlineSlot": 2 }
+  ]
+}

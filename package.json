@@ -1,0 +1,15 @@
+{
+  "name": "clearsync",
+  "version": "0.1.0",
+  "description": "Deterministic clearing-channel scheduler for cross-institution payment instructions",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "clearsync": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
