@@ -1,0 +1,10 @@
+{
+  "name": "tx-cancel-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline transaction cancellation engine: 4-stage reverse compensation with batch-domain placement",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

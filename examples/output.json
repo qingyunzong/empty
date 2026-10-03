@@ -1,0 +1,410 @@
+{
+  "results": [
+    {
+      "idempotencyKey": "req-1",
+      "transactionId": "tx-normal",
+      "status": "COMPLETED",
+      "reason": null,
+      "sequence": [
+        {
+          "stageId": "tx-normal-settlement",
+          "kind": "settlement",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-freeze",
+          "kind": "freeze",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-fee",
+          "kind": "fee",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-trade",
+          "kind": "trade",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        }
+      ],
+      "pending": [],
+      "conflictPath": null,
+      "compensated": [
+        "tx-normal-settlement",
+        "tx-normal-freeze",
+        "tx-normal-fee",
+        "tx-normal-trade"
+      ],
+      "replayed": false
+    },
+    {
+      "idempotencyKey": "req-2",
+      "transactionId": "tx-reconciled",
+      "status": "COMPLETED",
+      "reason": null,
+      "sequence": [
+        {
+          "stageId": "tx-reconciled-settlement",
+          "kind": "settlement",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-reconciled-freeze",
+          "kind": "freeze",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "reversal"
+        },
+        {
+          "stageId": "tx-reconciled-fee",
+          "kind": "fee",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-reconciled-trade",
+          "kind": "trade",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        }
+      ],
+      "pending": [],
+      "conflictPath": null,
+      "compensated": [
+        "tx-reconciled-settlement",
+        "tx-reconciled-freeze",
+        "tx-reconciled-fee",
+        "tx-reconciled-trade"
+      ],
+      "replayed": false
+    },
+    {
+      "idempotencyKey": "req-3",
+      "transactionId": "tx-tight-quota",
+      "status": "PARTIAL",
+      "reason": null,
+      "sequence": [
+        {
+          "stageId": "tx-tight-quota-settlement",
+          "kind": "settlement",
+          "account": "B",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-tight-quota-freeze",
+          "kind": "freeze",
+          "account": "B",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-tight-quota-fee",
+          "kind": "fee",
+          "account": "B",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        }
+      ],
+      "pending": [
+        "tx-tight-quota-trade"
+      ],
+      "conflictPath": [
+        "tx-tight-quota-trade"
+      ],
+      "compensated": [
+        "tx-tight-quota-settlement",
+        "tx-tight-quota-freeze",
+        "tx-tight-quota-fee"
+      ],
+      "replayed": false
+    },
+    {
+      "idempotencyKey": "req-4",
+      "transactionId": "tx-tight-quota",
+      "status": "COMPLETED",
+      "reason": null,
+      "sequence": [
+        {
+          "stageId": "tx-tight-quota-trade",
+          "kind": "trade",
+          "account": "B",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        }
+      ],
+      "pending": [],
+      "conflictPath": null,
+      "compensated": [
+        "tx-tight-quota-settlement",
+        "tx-tight-quota-freeze",
+        "tx-tight-quota-fee",
+        "tx-tight-quota-trade"
+      ],
+      "replayed": false
+    },
+    {
+      "idempotencyKey": "req-1",
+      "transactionId": "tx-normal",
+      "status": "COMPLETED",
+      "reason": null,
+      "sequence": [
+        {
+          "stageId": "tx-normal-settlement",
+          "kind": "settlement",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-freeze",
+          "kind": "freeze",
+          "account": "A",
+          "amount": 100,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-fee",
+          "kind": "fee",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        },
+        {
+          "stageId": "tx-normal-trade",
+          "kind": "trade",
+          "account": "A",
+          "amount": 50,
+          "batchId": "batch-main",
+          "action": "delete"
+        }
+      ],
+      "pending": [],
+      "conflictPath": null,
+      "compensated": [
+        "tx-normal-settlement",
+        "tx-normal-freeze",
+        "tx-normal-fee",
+        "tx-normal-trade"
+      ],
+      "replayed": true
+    }
+  ],
+  "state": {
+    "transactions": [
+      {
+        "id": "tx-normal",
+        "compensated": [
+          "tx-normal-settlement",
+          "tx-normal-freeze",
+          "tx-normal-fee",
+          "tx-normal-trade"
+        ],
+        "pending": [],
+        "sequence": [
+          {
+            "stageId": "tx-normal-settlement",
+            "kind": "settlement",
+            "account": "A",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-normal-freeze",
+            "kind": "freeze",
+            "account": "A",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-normal-fee",
+            "kind": "fee",
+            "account": "A",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-normal-trade",
+            "kind": "trade",
+            "account": "A",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          }
+        ],
+        "stages": [
+          {
+            "id": "tx-normal-trade",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-normal-fee",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-normal-freeze",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-normal-settlement",
+            "status": "compensated"
+          }
+        ]
+      },
+      {
+        "id": "tx-reconciled",
+        "compensated": [
+          "tx-reconciled-settlement",
+          "tx-reconciled-freeze",
+          "tx-reconciled-fee",
+          "tx-reconciled-trade"
+        ],
+        "pending": [],
+        "sequence": [
+          {
+            "stageId": "tx-reconciled-settlement",
+            "kind": "settlement",
+            "account": "A",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-reconciled-freeze",
+            "kind": "freeze",
+            "account": "A",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "reversal"
+          },
+          {
+            "stageId": "tx-reconciled-fee",
+            "kind": "fee",
+            "account": "A",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-reconciled-trade",
+            "kind": "trade",
+            "account": "A",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          }
+        ],
+        "stages": [
+          {
+            "id": "tx-reconciled-trade",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-reconciled-fee",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-reconciled-freeze",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-reconciled-settlement",
+            "status": "compensated"
+          }
+        ]
+      },
+      {
+        "id": "tx-tight-quota",
+        "compensated": [
+          "tx-tight-quota-settlement",
+          "tx-tight-quota-freeze",
+          "tx-tight-quota-fee",
+          "tx-tight-quota-trade"
+        ],
+        "pending": [],
+        "sequence": [
+          {
+            "stageId": "tx-tight-quota-settlement",
+            "kind": "settlement",
+            "account": "B",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-tight-quota-freeze",
+            "kind": "freeze",
+            "account": "B",
+            "amount": 100,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-tight-quota-fee",
+            "kind": "fee",
+            "account": "B",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          },
+          {
+            "stageId": "tx-tight-quota-trade",
+            "kind": "trade",
+            "account": "B",
+            "amount": 50,
+            "batchId": "batch-main",
+            "action": "delete"
+          }
+        ],
+        "stages": [
+          {
+            "id": "tx-tight-quota-trade",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-tight-quota-fee",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-tight-quota-freeze",
+            "status": "compensated"
+          },
+          {
+            "id": "tx-tight-quota-settlement",
+            "status": "compensated"
+          }
+        ]
+      }
+    ]
+  }
+}

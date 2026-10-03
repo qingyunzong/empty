@@ -1,0 +1,41 @@
+{
+  "transactions": [
+    {
+      "id": "tx-normal",
+      "stages": [
+        { "id": "tx-normal-trade", "kind": "trade", "account": "A", "amount": 50, "status": "posted", "dependsOn": ["tx-normal-fee"] },
+        { "id": "tx-normal-fee", "kind": "fee", "account": "A", "amount": 50, "status": "posted", "dependsOn": ["tx-normal-freeze"] },
+        { "id": "tx-normal-freeze", "kind": "freeze", "account": "A", "amount": 100, "status": "posted", "dependsOn": ["tx-normal-settlement"] },
+        { "id": "tx-normal-settlement", "kind": "settlement", "account": "A", "amount": 100, "status": "posted", "dependsOn": [] }
+      ]
+    },
+    {
+      "id": "tx-reconciled",
+      "stages": [
+        { "id": "tx-reconciled-trade", "kind": "trade", "account": "A", "amount": 50, "status": "posted", "dependsOn": ["tx-reconciled-fee"] },
+        { "id": "tx-reconciled-fee", "kind": "fee", "account": "A", "amount": 50, "status": "posted", "dependsOn": ["tx-reconciled-freeze"] },
+        { "id": "tx-reconciled-freeze", "kind": "freeze", "account": "A", "amount": 100, "status": "reconciled", "dependsOn": ["tx-reconciled-settlement"] },
+        { "id": "tx-reconciled-settlement", "kind": "settlement", "account": "A", "amount": 100, "status": "posted", "dependsOn": [] }
+      ]
+    },
+    {
+      "id": "tx-tight-quota",
+      "stages": [
+        { "id": "tx-tight-quota-trade", "kind": "trade", "account": "B", "amount": 50, "status": "posted", "dependsOn": ["tx-tight-quota-fee"] },
+        { "id": "tx-tight-quota-fee", "kind": "fee", "account": "B", "amount": 50, "status": "posted", "dependsOn": ["tx-tight-quota-freeze"] },
+        { "id": "tx-tight-quota-freeze", "kind": "freeze", "account": "B", "amount": 100, "status": "posted", "dependsOn": ["tx-tight-quota-settlement"] },
+        { "id": "tx-tight-quota-settlement", "kind": "settlement", "account": "B", "amount": 100, "status": "posted", "dependsOn": [] }
+      ]
+    }
+  ],
+  "batches": [
+    { "id": "batch-main", "domains": ["trade", "fee", "freeze", "settlement"], "recoverable": { "A": 1000, "B": 250 } }
+  ],
+  "requests": [
+    { "idempotencyKey": "req-1", "transactionId": "tx-normal" },
+    { "idempotencyKey": "req-2", "transactionId": "tx-reconciled" },
+    { "idempotencyKey": "req-3", "transactionId": "tx-tight-quota" },
+    { "idempotencyKey": "req-4", "transactionId": "tx-tight-quota" },
+    { "idempotencyKey": "req-1", "transactionId": "tx-normal" }
+  ]
+}
