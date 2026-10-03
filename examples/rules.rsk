@@ -1,0 +1,59 @@
+// 支付风控规则示例：商户 / 渠道 / 全局三级，内层只能收紧。
+version "v1" since "2024-01-01T00:00:00Z" {
+  scope global {
+    threshold max_amount: money = 10000.00;
+    threshold max_count: count = 100;
+    whitelist vip = /^VIP[0-9]{4}$/;
+
+    rule g_amount {
+      when event.amount > max_amount then deny
+    }
+    rule g_count {
+      when event.count > max_count then review
+    }
+    rule g_office_ip {
+      when event.ip in 10.0.0.0/8 and event.amount in 0.01..100.00 then allow
+    }
+
+    scope channel("alipay") {
+      override threshold max_amount: money = 5000.00;
+
+      rule a_amount {
+        when event.amount > max_amount then deny
+      }
+      rule a_review_band {
+        when event.amount in 3000.00..5000.00 and not (event.merchant in vip) then review
+      }
+
+      scope merchant("MCH000001") {
+        override threshold max_amount: money = 2000.00;
+
+        rule m_amount {
+          when event.amount > max_amount then deny
+        }
+      }
+    }
+  }
+}
+
+version "v2" since "2024-06-01T00:00:00Z" {
+  scope global {
+    threshold max_amount: money = 8000.00;
+    threshold max_count: count = 100;
+
+    rule g_amount {
+      when event.amount > max_amount then deny
+    }
+    rule g_count {
+      when event.count > max_count then review
+    }
+
+    scope channel("alipay") {
+      override threshold max_amount: money = 3000.00;
+
+      rule a_amount {
+        when event.amount > max_amount then deny
+      }
+    }
+  }
+}

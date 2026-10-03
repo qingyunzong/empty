@@ -1,0 +1,11 @@
+{
+  "name": "riskdsl",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "risk": "bin/risk.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
