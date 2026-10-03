@@ -1,0 +1,12 @@
+{
+  "name": "alert-store",
+  "version": "0.1.0",
+  "description": "Offline device alert store: chunked CRC32 segments, atomic manifest, cursor replay",
+  "type": "module",
+  "bin": {
+    "alert-store": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
