@@ -1,0 +1,13 @@
+{
+  "name": "exp-planner",
+  "version": "1.0.0",
+  "description": "Reproducible experiment task planning library and CLI (offline, standard library only)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "exp-plan": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
