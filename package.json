@@ -1,0 +1,16 @@
+{
+  "name": "layered-settlement",
+  "version": "1.0.0",
+  "description": "Layered settlement chunk store (reserve/freeze/pay/revert) with checkpoint and index recovery",
+  "type": "commonjs",
+  "main": "src/store.js",
+  "bin": {
+    "settle": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
