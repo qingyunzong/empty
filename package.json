@@ -1,0 +1,10 @@
+{
+  "name": "biobank-store",
+  "version": "1.0.0",
+  "description": "Embedded biobank sample store with WAL, transactions and secondary indexes",
+  "main": "src/store.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
