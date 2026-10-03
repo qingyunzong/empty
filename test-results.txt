@@ -1,0 +1,43 @@
+# python3.11 -m unittest discover -s tests -v
+# 2026-10-03 08:39:35 UTC  python Python 3.11.16
+
+test_checkpoint_file_roundtrip (test_budget_resume.TestOneUnitResume.test_checkpoint_file_roundtrip) ... ok
+test_repeated_one_unit_budget_in_process (test_budget_resume.TestOneUnitResume.test_repeated_one_unit_budget_in_process) ... ok
+test_resume_in_new_process_via_cli (test_budget_resume.TestOneUnitResume.test_resume_in_new_process_via_cli) ... ok
+test_zero_budget_then_resume (test_budget_resume.TestOneUnitResume.test_zero_budget_then_resume) ... ok
+test_cache_survives_checkpoint_roundtrip (test_cache.TestCacheKeyCollision.test_cache_survives_checkpoint_roundtrip) ... ok
+test_same_vars_same_domains_different_table (test_cache.TestCacheKeyCollision.test_same_vars_same_domains_different_table) ... ok
+test_similar_subproblems_do_not_collide (test_cache.TestCacheKeyCollision.test_similar_subproblems_do_not_collide) ... ok
+test_entry_carries_domains_and_version (test_cache.TestCacheReuse.test_entry_carries_domains_and_version) ... ok
+test_revoked_constraint_invalidates_dependent_entries (test_cache.TestCacheReuse.test_revoked_constraint_invalidates_dependent_entries) ... ok
+test_second_solver_hits_cache (test_cache.TestCacheReuse.test_second_solver_hits_cache) ... ok
+test_stale_entry_rejected_after_content_change (test_cache.TestCacheReuse.test_stale_entry_rejected_after_content_change) ... ok
+test_unaffected_entries_survive_constraint_change (test_cache.TestCacheReuse.test_unaffected_entries_survive_constraint_change) ... ok
+test_cli_verify_accepts_and_rejects (test_certificate.TestCertificates.test_cli_verify_accepts_and_rejects) ... ok
+test_complete_certificate_verifies (test_certificate.TestCertificates.test_complete_certificate_verifies) ... ok
+test_duplicated_branch_rejected (test_certificate.TestCertificates.test_duplicated_branch_rejected) ... ok
+test_paused_certificate_verifies_and_bounds_hold (test_certificate.TestCertificates.test_paused_certificate_verifies_and_bounds_hold) ... ok
+test_paused_mid_propagation_certificate_verifies (test_certificate.TestCertificates.test_paused_mid_propagation_certificate_verifies) ... ok
+test_removed_branch_rejected (test_certificate.TestCertificates.test_removed_branch_rejected) ... ok
+test_tampered_bounds_rejected (test_certificate.TestCertificates.test_tampered_bounds_rejected) ... ok
+test_tampered_confirmed_solution_rejected (test_certificate.TestCertificates.test_tampered_confirmed_solution_rejected) ... ok
+test_tampered_digest_rejected (test_certificate.TestCertificates.test_tampered_digest_rejected) ... ok
+test_tampered_domain_rejected (test_certificate.TestCertificates.test_tampered_domain_rejected) ... ok
+test_tampered_leaf_ub_rejected (test_certificate.TestCertificates.test_tampered_leaf_ub_rejected) ... ok
+test_tampered_solved_count_rejected (test_certificate.TestCertificates.test_tampered_solved_count_rejected) ... ok
+test_addition_decreases_count (test_components.TestComponents.test_addition_decreases_count) ... ok
+test_independent_components_multiply (test_components.TestComponents.test_independent_components_multiply) ... ok
+test_merge_and_resplit (test_components.TestComponents.test_merge_and_resplit) ... ok
+test_revocation_increases_count (test_components.TestComponents.test_revocation_increases_count) ... ok
+test_matches_brute_force_unlimited (test_solver.TestBoundsAtEveryPause.test_matches_brute_force_unlimited) ... ok
+test_seven_variable_problems (test_solver.TestBoundsAtEveryPause.test_seven_variable_problems) ... ok
+test_small_problems_one_unit_budget (test_solver.TestBoundsAtEveryPause.test_small_problems_one_unit_budget) ... ok
+test_budget_exhaustion_never_claims_unsat (test_solver.TestBudgetEdges.test_budget_exhaustion_never_claims_unsat) ... ok
+test_budget_zero (test_solver.TestBudgetEdges.test_budget_zero) ... ok
+test_deterministic_search (test_solver.TestBudgetEdges.test_deterministic_search) ... ok
+test_exact_completion (test_solver.TestBudgetEdges.test_exact_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 28.181s
+
+OK

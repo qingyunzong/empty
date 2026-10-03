@@ -1,0 +1,17 @@
+{
+  "variables": {
+    "shift_mon": [0, 1, 2],
+    "shift_tue": [0, 1, 2],
+    "shift_wed": [0, 1, 2],
+    "oncall_a": [0, 1],
+    "oncall_b": [0, 1]
+  },
+  "constraints": [
+    {"id": "no_repeat_mon_tue", "scope": ["shift_mon", "shift_tue"],
+     "tuples": [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]]},
+    {"id": "no_repeat_tue_wed", "scope": ["shift_tue", "shift_wed"],
+     "tuples": [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]]},
+    {"id": "oncall_parity", "scope": ["oncall_a", "oncall_b"],
+     "tuples": [[0, 1], [1, 0]]}
+  ]
+}
