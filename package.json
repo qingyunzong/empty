@@ -1,0 +1,8 @@
+{
+  "name": "maintpack",
+  "version": "1.0.0",
+  "description": "Offline device maintenance package selection library and CLI",
+  "type": "module",
+  "bin": { "maintpack": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
