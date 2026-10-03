@@ -1,0 +1,13 @@
+{
+  "name": "chargeback-evidence-store",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Append-only chargeback evidence store with positional text index, phrase and unordered-near search, revision history, revocation tombstones and query certificates.",
+  "main": "src/store.js",
+  "bin": {
+    "evidence": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
