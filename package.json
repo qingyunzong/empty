@@ -1,0 +1,16 @@
+{
+  "name": "quota-freeze",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hierarchical quota freeze requests with compressed positional phrase index",
+  "main": "src/store.js",
+  "bin": {
+    "quota-freeze": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
