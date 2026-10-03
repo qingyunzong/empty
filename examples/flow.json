@@ -1,0 +1,13 @@
+{
+  "name": "settlement-trajectory",
+  "states": ["draft", "reviewed", "cleared", "archived"],
+  "roles": ["经办", "复核", "清算", "归档"],
+  "start": "draft",
+  "accept": ["archived"],
+  "transitions": [
+    { "from": "draft", "role": "经办", "to": "reviewed" },
+    { "from": "reviewed", "role": "复核", "to": "cleared" },
+    { "from": "cleared", "role": "清算", "to": "archived" },
+    { "from": "archived", "role": "归档", "to": "archived" }
+  ]
+}

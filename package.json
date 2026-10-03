@@ -1,0 +1,13 @@
+{
+  "name": "settlement-compliance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Settlement trajectory compliance library and CLI (NFA -> minimized DFA judging, incremental re-judging, verifiable proofs)",
+  "main": "src/judge.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
