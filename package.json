@@ -1,0 +1,13 @@
+{
+  "name": "smt-frame-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reassembles SMT machine binary detection frames and issues verifiable quality certificates",
+  "main": "lib/gateway.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
