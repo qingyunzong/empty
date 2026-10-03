@@ -1,0 +1,8 @@
+{
+  "name": "ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hash-chained transaction ledger with published-prefix protection and crash-safe commits",
+  "bin": { "ledger": "./cli.js" },
+  "scripts": { "test": "node --test" }
+}
