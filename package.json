@@ -1,0 +1,9 @@
+{
+  "name": "alert-store",
+  "version": "0.1.0",
+  "description": "Offline device alert storage with chunked CRC32 segments, ring overwrite and cursor replay",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "alert-store": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
