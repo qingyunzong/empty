@@ -1,0 +1,10 @@
+{
+  "name": "conveyor-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Conveyor line monitoring: dynamic bridges & articulation points with a crash-safe JSONL WAL",
+  "scripts": {
+    "test": "node --test"
+  }
+}
