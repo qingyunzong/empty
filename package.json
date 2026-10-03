@@ -1,0 +1,12 @@
+{
+  "name": "wx-merge",
+  "version": "1.0.0",
+  "description": "Offline merge of multi-station weather correction streams (CRDT-style, stdlib only)",
+  "type": "module",
+  "bin": {
+    "wx-merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
