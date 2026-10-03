@@ -1,0 +1,16 @@
+{
+  "name": "settle-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-node offline netting/settlement library and CLI with verifiable certificates",
+  "main": "src/engine.js",
+  "bin": {
+    "settle": "bin/settle.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
