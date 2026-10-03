@@ -1,0 +1,16 @@
+{
+  "name": "budget-settlement",
+  "version": "1.0.0",
+  "description": "Offline budget settlement library and CLI with snapshot isolation and predicate conflict detection",
+  "type": "module",
+  "main": "src/db.js",
+  "bin": {
+    "budget": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
