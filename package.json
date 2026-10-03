@@ -1,0 +1,8 @@
+{
+  "name": "alarm-manual-retrieval",
+  "version": "1.0.0",
+  "description": "Offline inverted-index retrieval for control-room alarm manuals",
+  "type": "module",
+  "bin": { "alarm-idx": "./cli.js" },
+  "scripts": { "test": "node --test" }
+}
