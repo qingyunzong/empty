@@ -1,0 +1,10 @@
+{
+  "name": "batch-trace",
+  "version": "1.0.0",
+  "description": "Discrete manufacturing batch quality traceability library and CLI",
+  "type": "commonjs",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
