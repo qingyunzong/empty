@@ -1,0 +1,10 @@
+{
+  "name": "tx-ledger",
+  "version": "1.0.0",
+  "description": "Transfer / reversal / freeze ledger with causal audit chain",
+  "type": "module",
+  "private": true,
+  "bin": { "tx": "bin/tx.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
