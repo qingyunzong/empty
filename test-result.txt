@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: test/acceptance.test.js
+ok 1 - test/acceptance.test.js
+  ---
+  duration_ms: 37401.357168
+  type: 'test'
+  ...
+# Subtest: test/model.test.js
+ok 2 - test/model.test.js
+  ---
+  duration_ms: 49307.854705
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49541.162571
+EXIT_CODE=0
+=== scenario 1: reserve, crash afterAppend (exit 42), restart, commit ===
+crash exit code: 42
+recovery report: {"truncated":false,"offset":null,"line":null,"reason":null,"validEvents":1,"headHash":"4b1f5fb26eae51e874a09781afef9c76183fa120f08be99d8f15609ff3aab885"}
+held after restart: 40
+final state: {"limit":100,"held":25,"committed":15,"available":60,"frozen":false}
+head hash: 8ede3f50bbc675c0ed2fb35bcb28c7b23c8c694723a2cb3a69f93dbc82fecdff
+=== scenario 2: crash beforeAppend, retry, duplicate eventId ===
+crash exit code: 1
+file bytes after beforeAppend crash: 0
+duplicate retry exit code: 2 (no-op)
+held (single deduction): 30
+recovery report: {"truncated":false,"offset":null,"line":null,"reason":null,"validEvents":1,"headHash":"baf4ee67e3be776d5521721359b481f20d0c4c6f8fa0e9a8347fed3af819bfcb"}
+head hash: baf4ee67e3be776d5521721359b481f20d0c4c6f8fa0e9a8347fed3af819bfcb
+=== scenario 3: tamper last line, restart truncates ===
+recovery report: {"truncated":true,"offset":224,"line":2,"reason":"invalid JSON","validEvents":1,"headHash":"869e0adb1f5e2fc43ec556fca23055fd31a018188bd6be8b0f7f8e41a2efc07c"}
+held after truncation: 10
+head hash: 869e0adb1f5e2fc43ec556fca23055fd31a018188bd6be8b0f7f8e41a2efc07c

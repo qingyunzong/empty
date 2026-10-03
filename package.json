@@ -1,0 +1,13 @@
+{
+  "name": "crash-ledger",
+  "version": "1.0.0",
+  "description": "Crash-safe quota freeze ledger with hash-chained JSON Lines event log",
+  "type": "commonjs",
+  "main": "ledger.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
