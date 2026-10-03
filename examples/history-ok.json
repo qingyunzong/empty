@@ -1,0 +1,7 @@
+{
+  "history": [
+    { "id": "A", "op": "reserve", "order": "o1", "invoke": 1, "response": 4, "result": "ok" },
+    { "id": "B", "op": "reserve", "order": "o2", "invoke": 2, "response": 3, "result": "fail" },
+    { "id": "C", "op": "release", "order": "o1", "invoke": 5, "response": 6, "result": "ok" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "limitd",
+  "version": "0.1.0",
+  "description": "Reservation-limit DSL and linearizability checker for concurrent order-reservation histories",
+  "type": "module",
+  "bin": { "limit": "bin/limit.js" },
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+# 交易前置下单限额预留示例
+# 账户级容量 + 策略级子限额（子限额之和不得超过账户容量）
+account acct {
+  capacity 10;
+  # 策略级子限额
+  strategy alpha { limit 6; }
+  strategy beta  { limit 4; }
+  # 容量约束表达式（Pratt 解析，编译为字节码由 VM 求值）
+  invariant alpha.used + beta.used <= capacity;
+}
+
+order o1 { account acct; strategy alpha; amount 6; }
+order o2 { account acct; strategy alpha; amount 6; }
+order o3 { account acct; strategy beta;  amount 4; }
