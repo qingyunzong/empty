@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: test-utils.js
+ok 1 - test-utils.js
+  ---
+  duration_ms: 3617.114553
+  type: 'test'
+  ...
+# Subtest: test/crash.test.js
+ok 2 - test/crash.test.js
+  ---
+  duration_ms: 26120.463333
+  type: 'test'
+  ...
+# Subtest: test/deadlock.test.js
+ok 3 - test/deadlock.test.js
+  ---
+  duration_ms: 3366.09646
+  type: 'test'
+  ...
+# Subtest: test/index.test.js
+ok 4 - test/index.test.js
+  ---
+  duration_ms: 2806.991415
+  type: 'test'
+  ...
+# Subtest: test/mvcc.test.js
+ok 5 - test/mvcc.test.js
+  ---
+  duration_ms: 3059.088646
+  type: 'test'
+  ...
+# Subtest: test/timeout.test.js
+ok 6 - test/timeout.test.js
+  ---
+  duration_ms: 4130.496593
+  type: 'test'
+  ...
+# Subtest: test/waitgraph.test.js
+ok 7 - test/waitgraph.test.js
+  ---
+  duration_ms: 2555.616172
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27361.401918

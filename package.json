@@ -1,0 +1,9 @@
+{
+  "name": "freeze-db",
+  "version": "1.0.0",
+  "description": "Offline multi-account quota freeze library and CLI (Node.js 22, stdlib only)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
