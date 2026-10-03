@@ -1,0 +1,6 @@
+{
+  "ops": [
+    {"t": 0, "type": "MEASURE", "tool": "T1", "wear": 50, "seq": 1},
+    {"t": 1, "type": "MEASURE", "tool": "T1", "wear": 40, "seq": 2}
+  ]
+}

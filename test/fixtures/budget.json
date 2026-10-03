@@ -1,0 +1,8 @@
+{
+  "ops": [
+    {"t": 0, "type": "MEASURE", "tool": "T1", "wear": 90, "seq": 1},
+    {"t": 1, "type": "CHANGE", "tool": "T1", "new": "T2", "seq": 2},
+    {"t": 2, "type": "MEASURE", "tool": "T2", "wear": 5, "seq": 3},
+    {"t": 3, "type": "CHANGE", "tool": "T2", "new": "T3", "seq": 4}
+  ]
+}

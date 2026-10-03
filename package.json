@@ -1,0 +1,10 @@
+{
+  "name": "cnc-tool-life",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "CNC tool-life service over an unreliable link (dedup, reorder, retransmit), stdlib only",
+  "scripts": {
+    "test": "node --test"
+  }
+}
