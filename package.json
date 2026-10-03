@@ -1,0 +1,16 @@
+{
+  "name": "ebr-chain",
+  "version": "1.0.0",
+  "description": "Offline sha256-chained electronic batch record (EBR) aggregation: steps, deviations, tombstone revocations, membership generations, verifiable certificate.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "ebr": "bin/ebr.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
