@@ -1,0 +1,13 @@
+{
+  "name": "offline-pay-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline payment settlement library and CLI with WAL (CRC32-framed, commit protocol, crash recovery)",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
