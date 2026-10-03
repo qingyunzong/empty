@@ -1,0 +1,17 @@
+{
+  "config": {
+    "sitePowerKw": 50,
+    "piles": [{ "id": "P1", "powerKw": 50 }],
+    "tenants": [{ "id": "T1", "dailyMinutes": 300 }],
+    "vehicles": [
+      { "id": "V1", "tenantId": "T1", "powerKw": 50 },
+      { "id": "V2", "tenantId": "T1", "powerKw": 50 },
+      { "id": "V3", "tenantId": "T1", "powerKw": 50 }
+    ]
+  },
+  "events": [
+    { "seq": 3, "ts": 25, "type": "request", "vehicleId": "V3", "minutes": 30 },
+    { "seq": 1, "ts": 0, "type": "request", "vehicleId": "V1", "minutes": 60 },
+    { "seq": 2, "ts": 20, "type": "emergency", "vehicleId": "V2", "minutes": 30 }
+  ]
+}

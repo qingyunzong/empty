@@ -1,0 +1,13 @@
+{
+  "name": "agv-fleet-charging",
+  "version": "1.0.0",
+  "description": "Offline AGV fleet charging scheduler with preemption, quotas, cut-off settlement and reversal certificates",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "bin": { "agv-fleet": "./cli.js" },
+  "scripts": {
+    "test": "node --test",
+    "example": "node cli.js run examples/scenario.json"
+  }
+}

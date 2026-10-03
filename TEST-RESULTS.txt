@@ -1,0 +1,28 @@
+# node --test 执行记录
+# 日期: 2026-10-03T19:28:36Z
+# Node: v22.22.1
+
+## node --test（整体）
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1884.10507
+
+## test/engine.test.js
+ok 1 - 乱序申请/释放最终归并正确
+ok 2 - 紧急抢占保留已充电量并按老化重排等待队列
+ok 3 - cutoff 前迟到事件触发重算并生成冲正证书
+ok 4 - cutoff 后迟到事件被拒且已定结果不变
+ok 5 - 超额功率、重复事件、未知车辆报错
+ok 6 - 租户每日充电分钟上限阻止超额调度
+ok 7 - 不超过 6 个事件时枚举全部合法到达顺序核对归并一致
+
+## test/cli.test.js
+ok 1 - CLI run: 乱序事件场景输出时间线/配额/冲正/拒绝
+ok 2 - CLI run: 结算场景产生冲正证书并拒绝 cutoff 后迟到事件
+ok 3 - CLI enumerate: 全排列归并一致
