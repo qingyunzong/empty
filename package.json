@@ -1,0 +1,15 @@
+{
+  "name": "hierarchical-settlement-revocation",
+  "version": "1.0.0",
+  "description": "Offline hierarchical settlement revocation library and CLI with WAL-based crash recovery",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "settle": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
