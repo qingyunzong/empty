@@ -1,0 +1,13 @@
+{
+  "name": "clearing-netting",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental multilateral netting engine with audit certificates",
+  "bin": {
+    "clearing": "bin/clearing.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
