@@ -1,0 +1,15 @@
+{
+  "name": "limit",
+  "version": "1.0.0",
+  "description": "Pre-authorization credit limit ledger with TTL expiry, plus linearizability checker CLI",
+  "type": "module",
+  "bin": {
+    "limit": "bin/limit.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

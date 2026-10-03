@@ -1,0 +1,5 @@
+{"op":"open","acc":"a","creditLimit":1000}
+{"op":"freeze","authId":"au1","acc":"a","amount":500,"ttl":5000,"time":0}
+{"op":"capture","authId":"au1","amount":200,"time":100}
+{"op":"capture","authId":"au1","amount":200,"time":200}
+{"op":"release","authId":"au1","time":300}
