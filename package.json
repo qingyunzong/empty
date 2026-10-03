@@ -1,0 +1,10 @@
+{
+  "name": "sensor-windows",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Event-time sliding window aggregation over out-of-order sensor samples",
+  "scripts": {
+    "test": "node --test"
+  }
+}
