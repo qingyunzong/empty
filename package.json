@@ -1,0 +1,8 @@
+{
+  "name": "cnc-pack",
+  "version": "0.1.0",
+  "description": "Offline CNC program package library and CLI (G-code blocks with CRC32, resumable decoding)",
+  "type": "module",
+  "bin": { "cnc": "bin/cnc.js" },
+  "scripts": { "test": "node --test" }
+}
