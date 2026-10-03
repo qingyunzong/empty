@@ -1,0 +1,9 @@
+{"periodId":"P1","acct":"A","logicalTs":10,"branchSeq":1,"late":false,"kind":"post","id":"e1","amount":10000,"seq":1}
+{"periodId":"P1","acct":"B","logicalTs":20,"branchSeq":1,"late":false,"kind":"post","id":"e2","amount":25000,"seq":2}
+{"periodId":"P1","acct":"A","logicalTs":30,"branchSeq":2,"late":false,"kind":"post","id":"e3","amount":5000,"seq":3}
+{"periodId":"P1","acct":"A","logicalTs":40,"branchSeq":3,"late":false,"kind":"post","id":"e4","amount":-1500,"seq":4}
+{"periodId":"P1","acct":"B","logicalTs":50,"branchSeq":2,"late":false,"kind":"reversal","id":"e5:rev","of":"e2","by":"e5","amount":-25000,"seq":5}
+{"periodId":"P1","acct":"B","logicalTs":50,"branchSeq":2,"late":false,"kind":"replacement","id":"e5","of":"e2","amount":24000,"seq":6}
+{"periodId":"P1","acct":"C","logicalTs":60,"branchSeq":1,"late":false,"kind":"post","id":"e6","amount":7000,"seq":7}
+{"periodId":"P2","acct":"A","logicalTs":80,"branchSeq":4,"late":true,"kind":"post","id":"e7","amount":300,"seq":8}
+{"periodId":"P2","acct":"C","logicalTs":110,"branchSeq":2,"late":false,"kind":"post","id":"e8","amount":1250,"seq":9}

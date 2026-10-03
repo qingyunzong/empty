@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "periodId": "P2",
+  "cutoff": null,
+  "initialBalances": {
+    "A": 13500,
+    "B": 24000,
+    "C": 7000
+  },
+  "balances": {
+    "A": 13800,
+    "B": 24000,
+    "C": 8250
+  },
+  "log": [
+    {
+      "periodId": "P2",
+      "acct": "A",
+      "logicalTs": 80,
+      "branchSeq": 4,
+      "late": true,
+      "kind": "post",
+      "id": "e7",
+      "amount": 300,
+      "seq": 8
+    },
+    {
+      "periodId": "P2",
+      "acct": "C",
+      "logicalTs": 110,
+      "branchSeq": 2,
+      "late": false,
+      "kind": "post",
+      "id": "e8",
+      "amount": 1250,
+      "seq": 9
+    }
+  ],
+  "leaves": [
+    "8093a77baabfe9e64357dfe39217149f636aecab3c5cfd2f54e2d6e9ad0e4263",
+    "fb11877a26e04e96b2c071c3d708d1c03e3768da77e303f9cf84f728811365ba"
+  ],
+  "root": "bc10315802c7304cc3abc4043624652c3c3d03e0bff1243c0e0ee9255736f6a6",
+  "verifyCommand": "node verify.js examples/demo.state/cert-P2.json"
+}

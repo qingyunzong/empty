@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "periodId": "P1",
+  "cutoff": 100,
+  "initialBalances": {},
+  "balances": {
+    "A": 13500,
+    "B": 24000,
+    "C": 7000
+  },
+  "log": [
+    {
+      "periodId": "P1",
+      "acct": "A",
+      "logicalTs": 10,
+      "branchSeq": 1,
+      "late": false,
+      "kind": "post",
+      "id": "e1",
+      "amount": 10000,
+      "seq": 1
+    },
+    {
+      "periodId": "P1",
+      "acct": "B",
+      "logicalTs": 20,
+      "branchSeq": 1,
+      "late": false,
+      "kind": "post",
+      "id": "e2",
+      "amount": 25000,
+      "seq": 2
+    },
+    {
+      "periodId": "P1",
+      "acct": "A",
+      "logicalTs": 30,
+      "branchSeq": 2,
+      "late": false,
+      "kind": "post",
+      "id": "e3",
+      "amount": 5000,
+      "seq": 3
+    },
+    {
+      "periodId": "P1",
+      "acct": "A",
+      "logicalTs": 40,
+      "branchSeq": 3,
+      "late": false,
+      "kind": "post",
+      "id": "e4",
+      "amount": -1500,
+      "seq": 4
+    },
+    {
+      "periodId": "P1",
+      "acct": "B",
+      "logicalTs": 50,
+      "branchSeq": 2,
+      "late": false,
+      "kind": "reversal",
+      "id": "e5:rev",
+      "of": "e2",
+      "by": "e5",
+      "amount": -25000,
+      "seq": 5
+    },
+    {
+      "periodId": "P1",
+      "acct": "B",
+      "logicalTs": 50,
+      "branchSeq": 2,
+      "late": false,
+      "kind": "replacement",
+      "id": "e5",
+      "of": "e2",
+      "amount": 24000,
+      "seq": 6
+    },
+    {
+      "periodId": "P1",
+      "acct": "C",
+      "logicalTs": 60,
+      "branchSeq": 1,
+      "late": false,
+      "kind": "post",
+      "id": "e6",
+      "amount": 7000,
+      "seq": 7
+    }
+  ],
+  "leaves": [
+    "dec30ac0f1505d872d81267c23a17edb9e6d65245dc4398850aa78e96583c344",
+    "11f54d0616c1992e907d97addcb9edf1d17f28f7b9a23c5b5f303a935cccc487",
+    "60e48a5143462d7f349f6cdc550bf97a7347269bcbed4038577f0be25f5bcebb",
+    "82a9380b00222cc4dff833d5e4b76092f6cd6066f62f5496d8b1280311f488cf",
+    "384ab5b22739b0ec23ba2ec8df776c2053d5155159f2459d64cd9334ec8658e4",
+    "4755f62b991bccf22dda4b10a29516b487838995681df043905b94aab4c9b1a9",
+    "b9714980c5312ba075b1b66d06a330b747237d336c91b2e9adfbeb34e69e488f"
+  ],
+  "root": "45202d9a1ffdcdcd695ecb302eebe797657e56472b34c11788afd29b153bdfaf",
+  "verifyCommand": "node verify.js examples/demo.state/cert-P1.json"
+}
