@@ -1,0 +1,10 @@
+{
+  "name": "redflush-lp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exact rational LP checker for invoice red-flush (credit note) cancellation",
+  "scripts": {
+    "test": "node --test"
+  }
+}
