@@ -1,0 +1,10 @@
+{
+  "name": "recipe-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline fine-chemical recipe version & approval-chain feed interpreter",
+  "scripts": {
+    "test": "node --test"
+  }
+}
