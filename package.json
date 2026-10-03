@@ -1,0 +1,10 @@
+{
+  "name": "settlement-clearing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Batch settlement clearing library and CLI (event-sourced, JSONL persistence)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
