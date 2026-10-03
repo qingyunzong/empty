@@ -1,0 +1,12 @@
+{
+  "name": "batch-genealogy",
+  "version": "1.0.0",
+  "description": "Batch genealogy DAG with phrase index, incremental corrections and verifiable certificates",
+  "type": "module",
+  "bin": {
+    "genealogy": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
