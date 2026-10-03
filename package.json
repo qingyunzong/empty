@@ -1,0 +1,9 @@
+{
+  "name": "settlement-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline settlement ledger with MVCC, WAL, checkpoints and crash recovery",
+  "scripts": {
+    "test": "node --test"
+  }
+}
