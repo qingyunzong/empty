@@ -1,0 +1,10 @@
+{
+  "name": "device-window-stats",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-machine offline device up/down window statistics with late-event corrections and crash-safe append-only log",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  }
+}

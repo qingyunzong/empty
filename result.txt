@@ -1,0 +1,137 @@
+# scenario-1
+
+## append up@2000
+$ node cli.js append --dir /tmp/wstats-s1-KzplV9 --event {"id":"e1","device":"A","ts":2000,"state":"up"}
+exit code: 0
+--- stdout ---
+appended 1 event(s) to /tmp/wstats-s1-KzplV9
+--- stderr ---
+(empty)
+
+## query before late event
+$ node cli.js query --dir /tmp/wstats-s1-KzplV9 --device A --from 0 --to 3600
+exit code: 0
+--- stdout ---
+{"device":"A","window":0,"uptime":null,"downtime":null,"unknown":900,"version":1}
+{"device":"A","window":900,"uptime":null,"downtime":null,"unknown":900,"version":1}
+{"device":"A","window":1800,"uptime":700,"downtime":0,"unknown":200,"version":1}
+{"device":"A","window":2700,"uptime":900,"downtime":0,"unknown":0,"version":1}
+--- stderr ---
+(empty)
+
+## append late down@1500
+$ node cli.js append --dir /tmp/wstats-s1-KzplV9 --event {"id":"e2","device":"A","ts":1500,"state":"down"}
+exit code: 0
+--- stdout ---
+appended 1 event(s) to /tmp/wstats-s1-KzplV9
+RETRACT device=A window=900 uptime=null downtime=null unknown=900 version=1
+CORRECT device=A window=900 uptime=0 downtime=300 unknown=600 version=2
+RETRACT device=A window=1800 uptime=700 downtime=0 unknown=200 version=1
+CORRECT device=A window=1800 uptime=700 downtime=200 unknown=0 version=2
+--- stderr ---
+(empty)
+
+## query after correction
+$ node cli.js query --dir /tmp/wstats-s1-KzplV9 --device A --from 0 --to 3600
+exit code: 0
+--- stdout ---
+{"device":"A","window":0,"uptime":null,"downtime":null,"unknown":900,"version":1}
+{"device":"A","window":900,"uptime":0,"downtime":300,"unknown":600,"version":2}
+{"device":"A","window":1800,"uptime":700,"downtime":200,"unknown":0,"version":2}
+{"device":"A","window":2700,"uptime":900,"downtime":0,"unknown":0,"version":1}
+--- stderr ---
+(empty)
+
+# scenario-2
+
+## append first event up@5000
+$ node cli.js append --dir /tmp/wstats-s2-1hYZp4 --event {"id":"e1","device":"B","ts":5000,"state":"up"}
+exit code: 0
+--- stdout ---
+appended 1 event(s) to /tmp/wstats-s2-1hYZp4
+--- stderr ---
+(empty)
+
+## query windows before first event
+$ node cli.js query --dir /tmp/wstats-s2-1hYZp4 --device B --from 0 --to 2700
+exit code: 0
+--- stdout ---
+{"device":"B","window":0,"uptime":null,"downtime":null,"unknown":900,"version":1}
+{"device":"B","window":900,"uptime":null,"downtime":null,"unknown":900,"version":1}
+{"device":"B","window":1800,"uptime":null,"downtime":null,"unknown":900,"version":1}
+--- stderr ---
+(empty)
+
+# scenario-3
+
+## append e1 up@100
+$ node cli.js append --dir /tmp/wstats-s3-c9zRfS --event {"id":"e1","device":"C","ts":100,"state":"up"}
+exit code: 0
+--- stdout ---
+appended 1 event(s) to /tmp/wstats-s3-c9zRfS
+--- stderr ---
+(empty)
+
+## query publishes v1
+$ node cli.js query --dir /tmp/wstats-s3-c9zRfS --device C --from 0 --to 1800
+exit code: 0
+--- stdout ---
+{"device":"C","window":0,"uptime":800,"downtime":0,"unknown":100,"version":1}
+{"device":"C","window":900,"uptime":900,"downtime":0,"unknown":0,"version":1}
+--- stderr ---
+(empty)
+
+## append e2 down@400 (crash after append)
+$ node cli.js append --dir /tmp/wstats-s3-c9zRfS --event {"id":"e2","device":"C","ts":400,"state":"down"} --fail-after-append
+exit code: 2
+--- stdout ---
+(empty)
+--- stderr ---
+fault injected: crash after append, before index update; restart must replay the log
+
+## query after crash-after-append (recovery)
+$ node cli.js query --dir /tmp/wstats-s3-c9zRfS --device C --from 0 --to 1800
+exit code: 0
+--- stdout ---
+{"device":"C","window":0,"uptime":300,"downtime":500,"unknown":100,"version":2}
+{"device":"C","window":900,"uptime":0,"downtime":900,"unknown":0,"version":2}
+--- stderr ---
+RETRACT device=C window=0 uptime=800 downtime=0 unknown=100 version=1
+CORRECT device=C window=0 uptime=300 downtime=500 unknown=100 version=2
+RETRACT device=C window=900 uptime=900 downtime=0 unknown=0 version=1
+CORRECT device=C window=900 uptime=0 downtime=900 unknown=0 version=2
+
+## append e3 up@700 (crash before append)
+$ node cli.js append --dir /tmp/wstats-s3-c9zRfS --event {"id":"e3","device":"C","ts":700,"state":"up"} --fail-before-append
+exit code: 3
+--- stdout ---
+(empty)
+--- stderr ---
+fault injected: crash before append; batch discarded, log untouched
+
+## query after crash-before-append (unchanged)
+$ node cli.js query --dir /tmp/wstats-s3-c9zRfS --device C --from 0 --to 1800
+exit code: 0
+--- stdout ---
+{"device":"C","window":0,"uptime":300,"downtime":500,"unknown":100,"version":2}
+{"device":"C","window":900,"uptime":0,"downtime":900,"unknown":0,"version":2}
+--- stderr ---
+(empty)
+
+## compact log
+$ node cli.js compact --dir /tmp/wstats-s3-c9zRfS
+exit code: 0
+--- stdout ---
+compacted: batches=2 events_before=2 events_after=2
+--- stderr ---
+(empty)
+
+## query after compact (consistent)
+$ node cli.js query --dir /tmp/wstats-s3-c9zRfS --device C --from 0 --to 1800
+exit code: 0
+--- stdout ---
+{"device":"C","window":0,"uptime":300,"downtime":500,"unknown":100,"version":2}
+{"device":"C","window":900,"uptime":0,"downtime":900,"unknown":0,"version":2}
+--- stderr ---
+(empty)
+
