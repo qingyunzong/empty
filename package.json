@@ -1,0 +1,16 @@
+{
+  "name": "mold-plan",
+  "version": "1.0.0",
+  "description": "Offline injection-molding shop scheduler: molds, calendars, budgets, hierarchical rollback, crash recovery, two-terminal sync",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "mold-plan": "./bin/mold-plan.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
