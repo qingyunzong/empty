@@ -1,0 +1,15 @@
+{
+  "name": "devlog-wal",
+  "version": "1.0.0",
+  "description": "Append-only WAL event store (device start/stop, alarm, counter events) with CRC32 frames, crash recovery and secondary index. Stdlib only.",
+  "type": "module",
+  "bin": {
+    "devlog": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
