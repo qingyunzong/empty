@@ -1,0 +1,8 @@
+{
+  "name": "observatory-replica",
+  "version": "1.0.0",
+  "description": "Replicated membership + quorum read/write log for observatory station networks",
+  "type": "module",
+  "bin": { "replica": "bin/replica.js" },
+  "scripts": { "test": "node --test" }
+}
