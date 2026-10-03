@@ -1,0 +1,4 @@
+[
+  {"id": "e5", "device": "pump-1", "ts": 3000, "state": "down", "node": "A", "clock": {"A": 3, "B": 1, "C": 1}},
+  {"id": "e6", "device": "pump-1", "ts": 3400, "state": "up",   "node": "A", "clock": {"A": 4, "B": 1, "C": 1}}
+]

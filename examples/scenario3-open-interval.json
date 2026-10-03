@@ -1,0 +1,3 @@
+[
+  {"id": "s1", "device": "sensor-3", "ts": 500, "state": "down", "node": "N1", "clock": {"N1": 1}}
+]

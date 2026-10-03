@@ -1,0 +1,15 @@
+{
+  "name": "downtime-tracker",
+  "version": "1.0.0",
+  "description": "Offline causal-ordering downtime/availability tracker for multi-device up/down histories",
+  "type": "module",
+  "bin": {
+    "downtime": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
