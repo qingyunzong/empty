@@ -1,0 +1,9 @@
+{
+  "name": "factory-schedule-rule-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline discrete-factory schedule checker: regex red/yellow rules compiled to incremental DFA deciders with layered undo/redo",
+  "scripts": {
+    "test": "node --test"
+  }
+}
