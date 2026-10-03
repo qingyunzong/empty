@@ -1,0 +1,13 @@
+{
+  "name": "mvcc-store",
+  "version": "1.0.0",
+  "description": "MVCC key-value store with snapshot isolation, named snapshots, WAL persistence and GC",
+  "type": "module",
+  "bin": {
+    "mvcc": "bin/mvcc.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
