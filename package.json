@@ -1,0 +1,9 @@
+{
+  "name": "clearing-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Offline multi-window clearing engine with auditable integer fills",
+  "scripts": {
+    "test": "node --test"
+  }
+}
