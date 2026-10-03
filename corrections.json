@@ -1,0 +1,5 @@
+[
+  { "id": "FIX-1", "timestamp": 1700000000, "reason": "SENSOR_DRIFT", "author": "liu", "observationId": "station-01-temp", "after": 12.8 },
+  { "id": "FIX-2", "timestamp": 1700000100, "reason": "TRANSCRIPTION", "author": "wang", "observationId": "station-01-temp", "after": 12.6 },
+  { "id": "FIX-3", "timestamp": 1700000200, "reason": "CALIBRATION", "author": "liu", "observationId": "station-02-temp", "after": 10.1 }
+]

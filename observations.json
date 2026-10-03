@@ -1,0 +1,5 @@
+[
+  { "id": "station-01-temp", "value": 12.5 },
+  { "id": "station-01-humidity", "value": 63 },
+  { "id": "station-02-temp", "value": 9.8 }
+]

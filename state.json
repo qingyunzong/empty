@@ -1,0 +1,17 @@
+{
+  "observations": [
+    {
+      "id": "station-01-humidity",
+      "value": 63
+    },
+    {
+      "id": "station-01-temp",
+      "value": 12.6
+    },
+    {
+      "id": "station-02-temp",
+      "value": 10.1
+    }
+  ],
+  "stateHash": "f8722d65561506ee6b6c2448e22a04c6ae46e2f21210bd64bf8e351d3f45615c"
+}

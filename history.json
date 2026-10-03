@@ -1,0 +1,71 @@
+{
+  "cursor": 2,
+  "entries": [
+    {
+      "seq": 4,
+      "id": "C4",
+      "timestamp": 1700000100,
+      "reasons": [
+        "SENSOR_DRIFT",
+        "TRANSCRIPTION"
+      ],
+      "authors": [
+        "liu",
+        "wang"
+      ],
+      "changes": [
+        {
+          "observationId": "station-01-temp",
+          "before": 12.5,
+          "after": 12.6
+        }
+      ],
+      "mergedFrom": [
+        "FIX-1",
+        "FIX-2"
+      ]
+    },
+    {
+      "seq": 3,
+      "id": "FIX-3",
+      "timestamp": 1700000200,
+      "reasons": [
+        "CALIBRATION"
+      ],
+      "authors": [
+        "liu"
+      ],
+      "changes": [
+        {
+          "observationId": "station-02-temp",
+          "before": 9.8,
+          "after": 10.1
+        }
+      ],
+      "mergedFrom": null
+    }
+  ],
+  "undone": [],
+  "compactions": [
+    {
+      "id": "C4",
+      "mergedIds": [
+        "FIX-1",
+        "FIX-2"
+      ],
+      "mergedSeqs": [
+        1,
+        2
+      ],
+      "range": [
+        1,
+        2
+      ]
+    }
+  ],
+  "idMap": {
+    "FIX-1": "C4",
+    "FIX-2": "C4"
+  },
+  "stateHash": "f8722d65561506ee6b6c2448e22a04c6ae46e2f21210bd64bf8e351d3f45615c"
+}
