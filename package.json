@@ -1,0 +1,9 @@
+{
+  "name": "incremental-spc",
+  "version": "1.0.0",
+  "description": "Incremental SPC (Western Electric rules) with correction/invalidation, fault injection and replay",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
