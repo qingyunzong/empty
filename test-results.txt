@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 2458.992091
+  type: 'test'
+  ...
+# Subtest: test/edge-cases.test.js
+ok 2 - test/edge-cases.test.js
+  ---
+  duration_ms: 2246.298699
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 3 - test/helpers.js
+  ---
+  duration_ms: 2002.164016
+  type: 'test'
+  ...
+# Subtest: test/incremental-vs-reference.test.js
+ok 4 - test/incremental-vs-reference.test.js
+  ---
+  duration_ms: 6542.741386
+  type: 'test'
+  ...
+# Subtest: test/move-invalidation.test.js
+ok 5 - test/move-invalidation.test.js
+  ---
+  duration_ms: 2749.32732
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6794.224678
