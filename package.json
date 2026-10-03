@@ -1,0 +1,10 @@
+{
+  "name": "frozen-ledger",
+  "version": "1.0.0",
+  "description": "Persistent frozen-hold ledger with WAL, crash recovery and idempotent replay (Node.js 22, stdlib only)",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "exports": { ".": "./src/ledger.js" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}
