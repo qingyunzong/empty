@@ -1,0 +1,16 @@
+{
+  "name": "settlement-ledger",
+  "version": "1.0.0",
+  "description": "Causal event ledger for settlement account membership changes",
+  "type": "commonjs",
+  "main": "src/ledger.js",
+  "bin": {
+    "settle": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
