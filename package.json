@@ -1,0 +1,14 @@
+{
+  "name": "kitting-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kitting allocation engine: FEFO reservation, material substitution DAG, incremental commands with undo/redo, shortage certificates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "record-results": "bash scripts/record-results.sh"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

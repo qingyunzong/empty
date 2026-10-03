@@ -1,0 +1,13 @@
+{
+  "now": "2026-01-01",
+  "substitutes": [["M1", "M2"]],
+  "batches": [
+    { "id": "B1", "material": "M1", "qty": 5, "expiry": "2026-02-01", "status": "OK" },
+    { "id": "B2", "material": "M1", "qty": 5, "expiry": "2026-03-01", "status": "OK" },
+    { "id": "B3", "material": "M2", "qty": 5, "expiry": "2026-04-01", "status": "OK" }
+  ],
+  "orders": [
+    { "id": "O1", "due": "2026-01-10", "lines": [{ "line": 1, "material": "M1", "qty": 6 }] },
+    { "id": "O2", "due": "2026-01-20", "lines": [{ "line": 1, "material": "M1", "qty": 6 }] }
+  ]
+}

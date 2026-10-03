@@ -1,0 +1,6 @@
+[
+  { "op": "freezeBatch", "batchId": "B1" },
+  { "op": "consumeBatch", "batchId": "B2", "qty": 99 },
+  { "op": "undo" },
+  { "op": "redo" }
+]
