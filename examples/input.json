@@ -1,0 +1,8 @@
+{
+  "rulesHash": "sha256:cbf82cba8b16ae3dd6af61d2de29c9baea83f9a6b008a1194cf864b87f5aa4b1",
+  "flows": [
+    { "id": "t-001", "amount": "1000.00", "date": "2024-01-15" },
+    { "id": "t-002", "amount": "120.50", "date": "2024-01-16" },
+    { "id": "t-003", "amount": "99.99", "date": "2024-02-29" }
+  ]
+}

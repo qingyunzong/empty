@@ -1,0 +1,22 @@
+# Settlement rules: fee, VAT and netting.
+# fee: 0.15% of the amount, minimum 0.50
+# tax: 6% VAT on the fee
+# net: amount minus fee minus tax
+
+param fee_rate: rate = 0.0015r
+param vat_rate: rate = 0.06r
+
+let min_fee: money = 0.50
+
+rule fee(amount: money, day: date) -> money {
+  let raw: money = amount * fee_rate
+  if raw < min_fee { min_fee } else { raw }
+}
+
+rule tax(amount: money, day: date) -> money {
+  fee(amount, day) * vat_rate
+}
+
+rule net(amount: money, day: date) -> money {
+  amount - fee(amount, day) - tax(amount, day)
+}

@@ -1,0 +1,16 @@
+{
+  "name": "settle-dsl",
+  "version": "0.1.0",
+  "description": "Auditable settlement DSL: fee / VAT / netting rules compiled to bytecode and executed on a stack VM, with replayable certificates.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "settle": "bin/settle.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
