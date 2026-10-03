@@ -1,0 +1,9 @@
+{
+  "name": "evidence-chain",
+  "version": "0.1.0",
+  "description": "Evidence chain system: facts, sources, derived conclusions with reversible revoke/restore, WAL + snapshot persistence",
+  "type": "module",
+  "bin": { "evidence": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
