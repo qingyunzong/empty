@@ -1,0 +1,17 @@
+{
+  "name": "tri-merge",
+  "version": "1.0.0",
+  "description": "Three-way merge for scientific observation datasets (offline, zero-dependency)",
+  "type": "module",
+  "main": "src/merge.js",
+  "bin": {
+    "tri-merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

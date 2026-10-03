@@ -1,0 +1,54 @@
+# tri-merge test results
+# command: node --test
+# date: 2026-10-03T15:30:22Z
+# node: v22.22.1
+
+exit_code: 0
+pass: 2
+fail: 0
+
+--- full output: node --test ---
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 7152.566959
+  type: 'test'
+  ...
+# Subtest: test/merge.test.js
+ok 2 - test/merge.test.js
+  ---
+  duration_ms: 880.861825
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7226.034063
+
+--- per-test detail (each file run directly) ---
+
+## node test/merge.test.js
+ok 1 - independent modifications on different fields auto-merge
+ok 2 - same field changed to different values conflicts
+ok 3 - edge cases: empty datasets and identical modifications
+ok 4 - record-level classification: both-deleted, modify-vs-delete, both-added
+ok 5 - field-level enumeration: all 8 base/left/right presence states
+ok 6 - certificate is deterministic SHA-256 of canonical state
+# tests 6
+# pass 6
+# fail 0
+
+## node test/cli.test.js
+ok 1 - clean merge: exit 0, merged.json + certificate.json, hash matches
+ok 2 - conflicting merge: exit 2, only conflicts.json, no partial merge
+ok 3 - usage and I/O errors exit 1
+ok 4 - certificate is reproducible across runs
+# tests 4
+# pass 4
+# fail 0
