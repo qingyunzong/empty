@@ -1,0 +1,10 @@
+{
+  "name": "asrs-dispatcher-sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AS/RS stacker-crane task dispatcher simulator (offline, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
