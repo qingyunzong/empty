@@ -1,0 +1,9 @@
+{"type":"UPSERT","sensorId":"s1","sampleId":"a","ts":1700000000000,"temp":20.1}
+{"type":"UPSERT","sensorId":"s1","sampleId":"b","ts":1700000030000,"temp":20.4}
+{"type":"UPSERT","sensorId":"s1","sampleId":"c","ts":1700000090000,"temp":19.9}
+{"type":"UPSERT","sensorId":"s1","sampleId":"d","ts":1700000060000,"temp":31.7}
+{"type":"WATERMARK","ts":1700000200000}
+{"type":"UPSERT","sensorId":"s1","sampleId":"e","ts":1700000010000,"temp":20.0}
+{"type":"RETRACT","sensorId":"s1","sampleId":"d"}
+{"type":"RETRACT","sensorId":"s1","sampleId":"ghost"}
+{"type":"WATERMARK","ts":1700001000000}

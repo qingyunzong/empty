@@ -1,0 +1,13 @@
+{
+  "name": "sensor-window-aggregator",
+  "version": "1.0.0",
+  "description": "Event-time sliding-window median/MAD outlier aggregation over out-of-order sensor streams",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
