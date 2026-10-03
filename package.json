@@ -1,0 +1,16 @@
+{
+  "name": "trust-ledger",
+  "version": "1.0.0",
+  "description": "Directed trust edges between ledgers with SCC reconciliation zones, snapshots and rollback",
+  "type": "module",
+  "main": "src/ledger.js",
+  "bin": {
+    "trust-ledger": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
