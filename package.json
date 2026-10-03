@@ -1,0 +1,16 @@
+{
+  "name": "qinspect",
+  "version": "1.0.0",
+  "description": "Exact rational-arithmetic quality inspection library and CLI for machined parts",
+  "type": "module",
+  "main": "src/inspector.js",
+  "bin": {
+    "qinspect": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
