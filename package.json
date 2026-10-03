@@ -1,0 +1,9 @@
+{
+  "name": "auditlog",
+  "version": "0.1.0",
+  "description": "Multi-tenant audit append log with quotas, fair scheduling, crash recovery and hash-chain verification",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "auditlog": "bin/auditlog.js" },
+  "scripts": { "test": "node --test" }
+}
