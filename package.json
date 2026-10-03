@@ -1,0 +1,10 @@
+{
+  "name": "sampling-rule-merge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline three-way merge of inspection sampling rules with semantic conflict detection",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
