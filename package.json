@@ -1,0 +1,10 @@
+{
+  "name": "fx-settlement",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-currency settlement pairing by value-date queues with replayable proof",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
