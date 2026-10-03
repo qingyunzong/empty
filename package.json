@@ -1,0 +1,10 @@
+{
+  "name": "dag-recall-trace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Event-DAG recall tracing: incremental influence cone with replayable certificates",
+  "main": "lib.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

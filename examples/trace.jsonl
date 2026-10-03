@@ -1,0 +1,8 @@
+{"edge":{"from":"mix","to":"ferment","ver":1}}
+{"edge":{"from":"ferment","to":"bake","ver":1}}
+{"edge":{"from":"bake","to":"pack","ver":1}}
+{"edge":{"from":"ferment","to":"pack","ver":2}}
+{"markBad":{"node":"ferment"}}
+{"query":{"node":"pack"}}
+{"delEdge":{"from":"ferment","to":"pack"}}
+{"query":{"node":"pack"}}
