@@ -1,0 +1,7 @@
+[
+  {"id": "RM-MILK-01", "type": "raw_material", "production_start": "2026-01-10T00:00:00Z", "production_end": "2026-01-10T06:00:00Z"},
+  {"id": "RM-SUGAR-02", "type": "raw_material", "production_start": "2026-01-10T00:00:00Z", "production_end": "2026-01-10T06:00:00Z"},
+  {"id": "BATCH-MIX-11", "type": "intermediate", "production_start": "2026-01-11T08:00:00Z", "production_end": "2026-01-11T12:00:00Z"},
+  {"id": "FG-YOGURT-21", "type": "finished_good", "production_start": "2026-01-12T08:00:00Z", "production_end": "2026-01-12T16:00:00Z"},
+  {"id": "FG-DRINK-22", "type": "finished_good", "production_start": "2026-01-12T08:00:00Z", "production_end": "2026-01-12T16:00:00Z"}
+]

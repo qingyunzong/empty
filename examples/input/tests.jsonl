@@ -1,0 +1,3 @@
+{"id": "TEST-MICRO-1", "lot": "RM-MILK-01", "result": "fail"}
+{"id": "TEST-MICRO-2", "lot": "RM-SUGAR-02", "result": "pass"}
+{"id": "TEST-CIP-1", "lot": "BATCH-MIX-11", "result": "pass"}

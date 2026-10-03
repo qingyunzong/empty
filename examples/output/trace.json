@@ -1,0 +1,31 @@
+{
+  "finished_goods": {
+    "FG-YOGURT-21": {
+      "status": "PASS",
+      "certificate_hash": "ade8728cef58ed75e65c12ad0651dd09fc5136c9e0e815dae94401e6c01281df"
+    },
+    "FG-DRINK-22": {
+      "status": "PASS",
+      "certificate_hash": "717e1d3db4bac430f9a9f4c935ffa03373d663e20c25f99b16e2c765f4aa63c5"
+    }
+  },
+  "lots": {
+    "RM-MILK-01": {
+      "status": "UNKNOWN"
+    },
+    "RM-SUGAR-02": {
+      "status": "PASS"
+    },
+    "BATCH-MIX-11": {
+      "status": "PASS"
+    },
+    "FG-YOGURT-21": {
+      "status": "PASS"
+    },
+    "FG-DRINK-22": {
+      "status": "PASS"
+    }
+  },
+  "corrections_applied": 2,
+  "corrections_rejected": 0
+}

@@ -1,0 +1,13 @@
+{
+  "name": "food-lot-traceability",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental lineage tracing from finished goods to raw material lots, cleaning/inspection records",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,2 @@
+{"type": "revoke_test", "test_id": "TEST-MICRO-1"}
+{"type": "update_edge", "from": "RM-SUGAR-02", "to": "BATCH-MIX-11", "valid_from": "2026-01-09T00:00:00Z", "valid_to": "2026-01-13T00:00:00Z"}
