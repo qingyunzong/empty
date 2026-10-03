@@ -1,0 +1,9 @@
+{
+  "name": "budget-mvcc",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "MVCC transactional budget store with WAL, snapshot isolation and a CLI",
+  "scripts": {
+    "test": "node --test"
+  }
+}
