@@ -1,0 +1,13 @@
+{
+  "name": "fill-cancel-join",
+  "version": "1.0.0",
+  "private": true,
+  "description": "10-second windowed join of trade and cancel streams with watermarks, merkle proofs and orphan reporting",
+  "main": "lib/join.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
