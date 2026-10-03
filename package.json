@@ -1,0 +1,9 @@
+{
+  "name": "qc-records",
+  "version": "1.0.0",
+  "description": "Offline inspection record store with delta-encoded chunks, CRC32, append-only compensations",
+  "type": "module",
+  "bin": { "qc": "bin/qc.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
