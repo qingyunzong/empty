@@ -1,0 +1,10 @@
+{
+  "name": "offline-credit-ledger",
+  "version": "1.0.0",
+  "description": "Offline account credit/quota ledger with transactional holds, payments and secondary indexes",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
