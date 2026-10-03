@@ -1,0 +1,13 @@
+{
+  "name": "causal-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-machine causal settlement ledger with vector clocks and hash chaining",
+  "main": "lib/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
