@@ -1,0 +1,12 @@
+{
+  "name": "repro-dag-planner",
+  "version": "0.1.0",
+  "description": "Reproducible experiment DAG planner with verifiable certificates",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
