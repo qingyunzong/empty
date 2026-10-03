@@ -1,0 +1,275 @@
+===== 1. node --test =====
+$ node --test
+TAP version 13
+# Subtest: test/schedule.test.js
+ok 1 - test/schedule.test.js
+  ---
+  duration_ms: 2900.475111
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3155.803807
+exit code: 0
+
+===== 2. feasible instance, ample budget =====
+$ node src/cli.js schedule examples/feasible.json --budget 1000
+{
+  "status": "optimal",
+  "objective": {
+    "makespan": 7,
+    "totalSetup": 0
+  },
+  "schedule": {
+    "M1": [
+      {
+        "job": "A",
+        "family": "F1",
+        "start": 0,
+        "end": 3,
+        "setupBefore": 0
+      },
+      {
+        "job": "C",
+        "family": "F1",
+        "start": 3,
+        "end": 7,
+        "setupBefore": 0
+      }
+    ],
+    "M2": [
+      {
+        "job": "B",
+        "family": "F2",
+        "start": 1,
+        "end": 3,
+        "setupBefore": 0
+      }
+    ]
+  },
+  "branchesUsed": 324
+}
+exit code: 0
+
+===== 3. deadline conflict instance -> unsat + conflict proof =====
+$ node src/cli.js schedule examples/conflict.json --budget 1000
+{
+  "status": "unsat",
+  "conflict": {
+    "jobs": [
+      {
+        "id": "J1",
+        "release": 0,
+        "deadline": 4,
+        "duration": 3,
+        "machines": [
+          "M1"
+        ],
+        "family": "default"
+      },
+      {
+        "id": "J2",
+        "release": 0,
+        "deadline": 5,
+        "duration": 3,
+        "machines": [
+          "M1"
+        ],
+        "family": "default"
+      }
+    ],
+    "machineConstraints": [
+      "machine M1: jobs must not overlap; changeover 0 between different families"
+    ]
+  },
+  "branchesUsed": 0
+}
+exit code: 0
+
+===== 4. tiny budget -> unknown with pending variables =====
+$ node src/cli.js schedule examples/pigeonhole.json --budget 0
+{
+  "status": "unknown",
+  "reason": "budget exhausted",
+  "pendingVariables": [
+    {
+      "job": "J1",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "J1",
+      "variable": "start",
+      "domain": [
+        0,
+        2
+      ]
+    },
+    {
+      "job": "J2",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "J2",
+      "variable": "start",
+      "domain": [
+        0,
+        2
+      ]
+    },
+    {
+      "job": "J3",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "J3",
+      "variable": "start",
+      "domain": [
+        0,
+        2
+      ]
+    }
+  ],
+  "branchesUsed": 0
+}
+exit code: 0
+
+===== 5. same instance, larger budget -> solved (unsat, proven) =====
+$ node src/cli.js schedule examples/pigeonhole.json --budget 1000
+{
+  "status": "unsat",
+  "conflict": {
+    "jobs": [
+      {
+        "id": "J1",
+        "release": 0,
+        "deadline": 5,
+        "duration": 3,
+        "machines": [
+          "M1",
+          "M2"
+        ],
+        "family": "default"
+      },
+      {
+        "id": "J2",
+        "release": 0,
+        "deadline": 5,
+        "duration": 3,
+        "machines": [
+          "M1",
+          "M2"
+        ],
+        "family": "default"
+      },
+      {
+        "id": "J3",
+        "release": 0,
+        "deadline": 5,
+        "duration": 3,
+        "machines": [
+          "M1",
+          "M2"
+        ],
+        "family": "default"
+      }
+    ],
+    "machineConstraints": [
+      "machine M1: jobs must not overlap; changeover 0 between different families",
+      "machine M2: jobs must not overlap; changeover 0 between different families"
+    ]
+  },
+  "branchesUsed": 10
+}
+exit code: 0
+
+===== 6. feasible instance, tiny then larger budget =====
+$ node src/cli.js schedule examples/feasible.json --budget 0
+{
+  "status": "unknown",
+  "reason": "budget exhausted",
+  "pendingVariables": [
+    {
+      "job": "A",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "A",
+      "variable": "start",
+      "domain": [
+        0,
+        9
+      ]
+    },
+    {
+      "job": "B",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "B",
+      "variable": "start",
+      "domain": [
+        1,
+        10
+      ]
+    },
+    {
+      "job": "C",
+      "variable": "machine",
+      "domain": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "job": "C",
+      "variable": "start",
+      "domain": [
+        0,
+        8
+      ]
+    }
+  ],
+  "branchesUsed": 0
+}
+exit code: 0
+
+===== 7. missing input file -> exit 2 =====
+$ node src/cli.js schedule examples/missing.json --budget 1000
+error: cannot read input file: examples/missing.json
+exit code: 2
+
+===== 8. non-integer time -> exit 2 =====
+$ node src/cli.js schedule examples/non-integer.json
+error: job A: release must be an integer (got 0.5)
+exit code: 2
+
+===== 9. undefined machine -> exit 2 =====
+$ node src/cli.js schedule examples/bad-machine.json
+error: job A: undefined machine "M9"
+exit code: 2

@@ -1,0 +1,9 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline parallel-machine scheduling with tooling families (CSP solver + CLI)",
+  "scripts": {
+    "test": "node --test"
+  }
+}

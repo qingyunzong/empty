@@ -1,0 +1,8 @@
+{
+  "machines": ["M1"],
+  "setupTime": 0,
+  "jobs": [
+    { "id": "J1", "release": 0, "deadline": 4, "duration": 3, "machines": ["M1"] },
+    { "id": "J2", "release": 0, "deadline": 5, "duration": 3, "machines": ["M1"] }
+  ]
+}
