@@ -1,0 +1,10 @@
+{
+  "name": "shift-planner",
+  "version": "0.1.0",
+  "description": "Injection-molding night-shift replanner: event-time streaming scheduler with watermarks, corrections and tied-optimum enumeration.",
+  "type": "module",
+  "bin": { "plan": "bin/plan.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" },
+  "license": "MIT"
+}
