@@ -1,0 +1,9 @@
+{
+  "name": "delta-pack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chunked manifest / delta package / certified apply for offline replication",
+  "scripts": {
+    "test": "node --test"
+  }
+}
