@@ -1,0 +1,6 @@
+{"type":"init","balances":{"accA":100,"accB":50}}
+{"opId":"c1","session":"s1","start":1,"end":4,"action":"FREEZE","account":"accA","amount":30,"depends":[]}
+{"opId":"c2","session":"s2","start":2,"end":5,"action":"FREEZE","account":"accB","amount":20,"depends":[]}
+{"opId":"c3","session":"s1","start":3,"end":6,"action":"SETTLE","account":"accA","amount":30,"depends":["c1"]}
+{"opId":"c4","session":"s2","start":4,"end":7,"action":"RELEASE","account":"accB","amount":20,"depends":["c2"]}
+{"opId":"c5","session":null,"start":5,"end":8,"action":"DEBIT","account":"accA","amount":60,"depends":[]}

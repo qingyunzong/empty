@@ -1,0 +1,14 @@
+{
+  "name": "serializability-judge",
+  "version": "1.0.0",
+  "description": "Judges whether an interleaved command history admits a serializable schedule",
+  "type": "commonjs",
+  "bin": {
+    "judge": "./judge"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

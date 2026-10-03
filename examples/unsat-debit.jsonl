@@ -1,0 +1,3 @@
+{"type":"init","balances":{"accA":40}}
+{"opId":"c1","session":"s1","start":1,"end":3,"action":"FREEZE","account":"accA","amount":25,"depends":[]}
+{"opId":"c2","session":null,"start":2,"end":4,"action":"DEBIT","account":"accA","amount":20,"depends":[]}

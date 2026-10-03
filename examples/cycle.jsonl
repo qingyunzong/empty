@@ -1,0 +1,2 @@
+{"opId":"a","session":"s1","start":1,"end":2,"action":"DEBIT","account":"accA","amount":1,"depends":["b"]}
+{"opId":"b","session":"s2","start":1,"end":2,"action":"DEBIT","account":"accA","amount":1,"depends":["a"]}
