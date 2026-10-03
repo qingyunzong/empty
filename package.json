@@ -1,0 +1,9 @@
+{
+  "name": "maint-scheduler",
+  "version": "1.0.0",
+  "description": "Periodic maintenance events and reservation scheduling with exact rational arithmetic",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

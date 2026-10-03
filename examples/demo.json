@@ -1,0 +1,16 @@
+{
+  "horizon": "6",
+  "ops": [
+    { "op": "addRule", "id": "maint", "phase": "1", "period": "2", "duration": "1/2" },
+    { "op": "addRule", "id": "jittery", "phase": "3", "period": "4", "duration": "1/2", "jitter": ["-1/4", "1/4"] },
+    { "op": "addReservation", "id": "low", "start": "0", "end": "5/4", "priority": 1 },
+    { "op": "addReservation", "id": "high", "start": "2", "end": "5/2", "priority": 10 },
+    { "op": "addReservation", "id": "maybe", "start": "0", "end": "13/4", "priority": 5 },
+    { "op": "check" },
+    { "op": "override", "high": "high", "low": "low", "permit": true },
+    { "op": "check" },
+    { "op": "undo" },
+    { "op": "check" },
+    { "op": "enumerate" }
+  ]
+}
