@@ -1,0 +1,40 @@
+{
+  "tables": {
+    "users": {
+      "rowCount": 1000,
+      "columns": {
+        "id": { "distinct": 100, "selectivity": 0.01 },
+        "name": { "distinct": 1000, "selectivity": 0.001 },
+        "age": { "distinct": 80, "selectivity": 0.0125 }
+      },
+      "indexes": ["id"]
+    },
+    "orders": {
+      "rowCount": 1000,
+      "columns": {
+        "id": { "distinct": 10, "selectivity": 0.1 },
+        "user_id": { "distinct": 100, "selectivity": 0.01 },
+        "status": { "distinct": 3, "selectivity": 0.33 },
+        "amount": { "distinct": 500, "selectivity": 0.002 }
+      },
+      "indexes": []
+    },
+    "items": {
+      "rowCount": 1000,
+      "columns": {
+        "id": { "distinct": 1000, "selectivity": 0.001 },
+        "order_id": { "distinct": 10, "selectivity": 0.1 },
+        "sku": { "distinct": 200, "selectivity": 0.005 }
+      },
+      "indexes": []
+    },
+    "profiles": {
+      "rowCount": 500,
+      "columns": {
+        "user_id": { "distinct": 500, "selectivity": 0.002 },
+        "city": { "distinct": 20, "selectivity": 0.05 }
+      },
+      "indexes": []
+    }
+  }
+}

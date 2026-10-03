@@ -1,0 +1,10 @@
+{
+  "from": "orders",
+  "groupBy": {
+    "keys": ["orders.status"],
+    "aggregates": [
+      { "fn": "count", "col": "*", "as": "c" },
+      { "fn": "sum", "col": "c", "as": "s" }
+    ]
+  }
+}

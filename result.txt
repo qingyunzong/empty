@@ -1,0 +1,291 @@
+================================================================
+SCENARIO 1: stats change crosses the join-order threshold
+  -> plan changes, results identical (hash delta: unchanged)
+================================================================
+
+$ node src/cli.js explain --db examples/demo --query examples/q1.json
+{
+  "plan": {
+    "op": "join",
+    "type": "inner",
+    "conds": [
+      {
+        "left": "orders.id",
+        "right": "items.order_id"
+      }
+    ],
+    "left": {
+      "op": "join",
+      "type": "inner",
+      "conds": [
+        {
+          "left": "users.id",
+          "right": "orders.user_id"
+        }
+      ],
+      "left": {
+        "op": "scan",
+        "table": "orders"
+      },
+      "right": {
+        "op": "scan",
+        "table": "users"
+      }
+    },
+    "right": {
+      "op": "scan",
+      "table": "items"
+    }
+  },
+  "planString": "join_inner(orders.id=items.order_id,join_inner(users.id=orders.user_id,scan(orders),scan(users)),scan(items))",
+  "cost": 1010030,
+  "estimatedRows": 1000000,
+  "candidates": 12
+}
+
+$ node src/cli.js execute --db examples/demo --query examples/q1.json
+{
+  "rows": [
+    {
+      "orders.id": 10,
+      "orders.user_id": 1,
+      "orders.status": "paid",
+      "orders.amount": 100,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30,
+      "items.id": 100,
+      "items.order_id": 10,
+      "items.sku": "x"
+    },
+    {
+      "orders.id": 10,
+      "orders.user_id": 1,
+      "orders.status": "paid",
+      "orders.amount": 100,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30,
+      "items.id": 101,
+      "items.order_id": 10,
+      "items.sku": "y"
+    },
+    {
+      "orders.id": 11,
+      "orders.user_id": 1,
+      "orders.status": "open",
+      "orders.amount": 50,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30,
+      "items.id": 102,
+      "items.order_id": 11,
+      "items.sku": "x"
+    },
+    {
+      "orders.id": 12,
+      "orders.user_id": 2,
+      "orders.status": "paid",
+      "orders.amount": 70,
+      "users.id": 2,
+      "users.name": "bob",
+      "users.age": 40,
+      "items.id": 103,
+      "items.order_id": 12,
+      "items.sku": "z"
+    },
+    {
+      "orders.id": 13,
+      "orders.user_id": 3,
+      "orders.status": "paid",
+      "orders.amount": 30,
+      "users.id": 3,
+      "users.name": "carol",
+      "users.age": null,
+      "items.id": 104,
+      "items.order_id": 13,
+      "items.sku": "x"
+    }
+  ],
+  "rowCount": 5,
+  "hash": "003eb988ab538171c735cbac48ed854bf5713f92d1bf6b9099775cfb7842c9f2",
+  "planString": "join_inner(orders.id=items.order_id,join_inner(users.id=orders.user_id,scan(orders),scan(users)),scan(items))",
+  "cost": 1010030,
+  "candidates": 12
+}
+
+$ node src/cli.js update-stats --db examples/demo --table orders --stats examples/stats-orders.json
+{
+  "table": "orders",
+  "applied": {
+    "columns": {
+      "id": {
+        "distinct": 10000
+      }
+    }
+  },
+  "invalidated": [
+    {
+      "queryHash": "dfb24249d38fc865aed25a360ccd2ef2b3a452c44c064301480a02af62ad67b7",
+      "tables": [
+        "items",
+        "orders",
+        "users"
+      ],
+      "oldPlan": "join_inner(orders.id=items.order_id,join_inner(users.id=orders.user_id,scan(orders),scan(users)),scan(items))",
+      "oldCost": 1010030,
+      "newPlan": "join_inner(users.id=orders.user_id,join_inner(orders.id=items.order_id,scan(items),scan(orders)),scan(users))",
+      "newCost": 1130,
+      "planChanged": true,
+      "oldHash": "003eb988ab538171c735cbac48ed854bf5713f92d1bf6b9099775cfb7842c9f2",
+      "newHash": "003eb988ab538171c735cbac48ed854bf5713f92d1bf6b9099775cfb7842c9f2",
+      "hashChanged": false
+    }
+  ],
+  "unaffected": 0
+}
+
+$ node src/cli.js execute --db examples/demo --query examples/q1.json   (re-execute after stats update)
+{
+  "rows": [
+    {
+      "items.id": 100,
+      "items.order_id": 10,
+      "items.sku": "x",
+      "orders.id": 10,
+      "orders.user_id": 1,
+      "orders.status": "paid",
+      "orders.amount": 100,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30
+    },
+    {
+      "items.id": 101,
+      "items.order_id": 10,
+      "items.sku": "y",
+      "orders.id": 10,
+      "orders.user_id": 1,
+      "orders.status": "paid",
+      "orders.amount": 100,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30
+    },
+    {
+      "items.id": 102,
+      "items.order_id": 11,
+      "items.sku": "x",
+      "orders.id": 11,
+      "orders.user_id": 1,
+      "orders.status": "open",
+      "orders.amount": 50,
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30
+    },
+    {
+      "items.id": 103,
+      "items.order_id": 12,
+      "items.sku": "z",
+      "orders.id": 12,
+      "orders.user_id": 2,
+      "orders.status": "paid",
+      "orders.amount": 70,
+      "users.id": 2,
+      "users.name": "bob",
+      "users.age": 40
+    },
+    {
+      "items.id": 104,
+      "items.order_id": 13,
+      "items.sku": "x",
+      "orders.id": 13,
+      "orders.user_id": 3,
+      "orders.status": "paid",
+      "orders.amount": 30,
+      "users.id": 3,
+      "users.name": "carol",
+      "users.age": null
+    }
+  ],
+  "rowCount": 5,
+  "hash": "003eb988ab538171c735cbac48ed854bf5713f92d1bf6b9099775cfb7842c9f2",
+  "planString": "join_inner(users.id=orders.user_id,join_inner(orders.id=items.order_id,scan(items),scan(orders)),scan(users))",
+  "cost": 1130,
+  "candidates": 12
+}
+
+
+================================================================
+SCENARIO 2: left join whose padded column is referenced by a
+  predicate must NOT be reordered/rewritten into an inner join
+================================================================
+
+$ node src/cli.js explain --db examples/demo --query examples/q2.json
+{
+  "plan": {
+    "op": "filter",
+    "predicates": [
+      {
+        "col": "profiles.city",
+        "op": "=",
+        "value": "BJ"
+      }
+    ],
+    "input": {
+      "op": "join",
+      "type": "left",
+      "conds": [
+        {
+          "left": "users.id",
+          "right": "profiles.user_id"
+        }
+      ],
+      "left": {
+        "op": "scan",
+        "table": "users"
+      },
+      "right": {
+        "op": "scan",
+        "table": "profiles"
+      }
+    }
+  },
+  "planString": "filter(profiles.city=\"BJ\",join_left(users.id=profiles.user_id,scan(users),scan(profiles)))",
+  "cost": 1015,
+  "estimatedRows": 50,
+  "candidates": 2
+}
+
+$ node src/cli.js execute --db examples/demo --query examples/q2.json
+{
+  "rows": [
+    {
+      "users.id": 1,
+      "users.name": "alice",
+      "users.age": 30,
+      "profiles.user_id": 1,
+      "profiles.city": "BJ"
+    }
+  ],
+  "rowCount": 1,
+  "hash": "8a198f612918ba29aa2810b4a9074f754dc9ec74edade7757a7b13a5d5066c85",
+  "planString": "filter(profiles.city=\"BJ\",join_left(users.id=profiles.user_id,scan(users),scan(profiles)))",
+  "cost": 1015,
+  "candidates": 2
+}
+
+
+================================================================
+SCENARIO 3: invalid queries return errors
+  (unknown column / nested aggregate)
+================================================================
+
+$ node src/cli.js explain --db examples/demo --query examples/q3a.json
+{"error":"unknown column: users.nope"}
+exit code: 1
+
+$ node src/cli.js explain --db examples/demo --query examples/q3b.json
+{"error":"nested aggregate is not allowed: s references aggregate c"}
+exit code: 1

@@ -1,0 +1,8 @@
+[
+  { "id": 10, "user_id": 1, "status": "paid", "amount": 100 },
+  { "id": 11, "user_id": 1, "status": "open", "amount": 50 },
+  { "id": 12, "user_id": 2, "status": "paid", "amount": 70 },
+  { "id": 13, "user_id": 3, "status": "paid", "amount": 30 },
+  { "id": 14, "user_id": null, "status": "open", "amount": 20 },
+  { "id": 15, "user_id": 99, "status": "paid", "amount": 10 }
+]

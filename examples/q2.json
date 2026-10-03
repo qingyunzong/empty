@@ -1,0 +1,9 @@
+{
+  "from": "users",
+  "joins": [
+    { "type": "left", "table": "profiles", "on": { "left": "users.id", "right": "profiles.user_id" } }
+  ],
+  "where": [
+    { "col": "profiles.city", "op": "=", "value": "BJ" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "from": "users",
+  "joins": [
+    { "type": "inner", "table": "orders", "on": { "left": "users.id", "right": "orders.user_id" } },
+    { "type": "inner", "table": "items", "on": { "left": "orders.id", "right": "items.order_id" } }
+  ]
+}

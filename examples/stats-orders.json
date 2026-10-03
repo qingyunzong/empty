@@ -1,0 +1,5 @@
+{
+  "columns": {
+    "id": { "distinct": 10000 }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "from": "users",
+  "where": [
+    { "col": "users.nope", "op": "=", "value": 1 }
+  ]
+}

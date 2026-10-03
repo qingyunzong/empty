@@ -1,0 +1,124 @@
+{
+  "entries": {
+    "dfb24249d38fc865aed25a360ccd2ef2b3a452c44c064301480a02af62ad67b7": {
+      "query": {
+        "from": "users",
+        "joins": [
+          {
+            "type": "inner",
+            "table": "orders",
+            "on": {
+              "left": "users.id",
+              "right": "orders.user_id"
+            }
+          },
+          {
+            "type": "inner",
+            "table": "items",
+            "on": {
+              "left": "orders.id",
+              "right": "items.order_id"
+            }
+          }
+        ]
+      },
+      "tables": [
+        "items",
+        "orders",
+        "users"
+      ],
+      "plan": {
+        "op": "join",
+        "type": "inner",
+        "conds": [
+          {
+            "left": "users.id",
+            "right": "orders.user_id"
+          }
+        ],
+        "left": {
+          "op": "join",
+          "type": "inner",
+          "conds": [
+            {
+              "left": "orders.id",
+              "right": "items.order_id"
+            }
+          ],
+          "left": {
+            "op": "scan",
+            "table": "items"
+          },
+          "right": {
+            "op": "scan",
+            "table": "orders"
+          }
+        },
+        "right": {
+          "op": "scan",
+          "table": "users"
+        }
+      },
+      "planString": "join_inner(users.id=orders.user_id,join_inner(orders.id=items.order_id,scan(items),scan(orders)),scan(users))",
+      "cost": 1130,
+      "resultHash": "003eb988ab538171c735cbac48ed854bf5713f92d1bf6b9099775cfb7842c9f2"
+    },
+    "784f30cd0b0d20c49ac22d27e08eccf5484389979e2e957f32e2d44a5bfd7385": {
+      "query": {
+        "from": "users",
+        "joins": [
+          {
+            "type": "left",
+            "table": "profiles",
+            "on": {
+              "left": "users.id",
+              "right": "profiles.user_id"
+            }
+          }
+        ],
+        "where": [
+          {
+            "col": "profiles.city",
+            "op": "=",
+            "value": "BJ"
+          }
+        ]
+      },
+      "tables": [
+        "profiles",
+        "users"
+      ],
+      "plan": {
+        "op": "filter",
+        "predicates": [
+          {
+            "col": "profiles.city",
+            "op": "=",
+            "value": "BJ"
+          }
+        ],
+        "input": {
+          "op": "join",
+          "type": "left",
+          "conds": [
+            {
+              "left": "users.id",
+              "right": "profiles.user_id"
+            }
+          ],
+          "left": {
+            "op": "scan",
+            "table": "users"
+          },
+          "right": {
+            "op": "scan",
+            "table": "profiles"
+          }
+        }
+      },
+      "planString": "filter(profiles.city=\"BJ\",join_left(users.id=profiles.user_id,scan(users),scan(profiles)))",
+      "cost": 1015,
+      "resultHash": "8a198f612918ba29aa2810b4a9074f754dc9ec74edade7757a7b13a5d5066c85"
+    }
+  }
+}
