@@ -1,0 +1,13 @@
+{
+  "name": "clearing-circulation",
+  "version": "1.0.0",
+  "description": "Feasible circulation with lower/upper bounds for financial clearing networks, with event-sourced undo/redo and an NDJSON CLI.",
+  "main": "index.js",
+  "bin": {
+    "clearing-circulation": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

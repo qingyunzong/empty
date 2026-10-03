@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: test/circulation.test.js
+ok 1 - test/circulation.test.js
+  ---
+  duration_ms: 1099.972377
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 924.795985
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 3 - test/helpers.js
+  ---
+  duration_ms: 474.029922
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 4 - test/ledger.test.js
+  ---
+  duration_ms: 902.949238
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1170.194695
+0
