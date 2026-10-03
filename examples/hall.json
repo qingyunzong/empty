@@ -1,0 +1,27 @@
+{
+  "constraints": [
+    {
+      "scope": [
+        "a",
+        "b",
+        "c"
+      ],
+      "type": "alldifferent"
+    }
+  ],
+  "variables": {
+    "a": [
+      1,
+      2
+    ],
+    "b": [
+      1,
+      2
+    ],
+    "c": [
+      1,
+      2,
+      3
+    ]
+  }
+}
