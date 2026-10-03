@@ -1,0 +1,13 @@
+{
+  "name": "device-status-calendar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "设备状态日历库及 CLI：时区周期班次、版本化并发命令、层级事务回滚",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
