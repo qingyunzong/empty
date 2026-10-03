@@ -1,0 +1,16 @@
+[
+  {"op":"define","batch":"A","kind":"input"},
+  {"op":"define","batch":"B","kind":"input"},
+  {"op":"define","batch":"C","kind":"input"},
+  {"op":"define","batch":"P","kind":"output"},
+  {"op":"define","batch":"Q","kind":"output"},
+  {"op":"transform","output":"P","inputs":["A","B"]},
+  {"op":"transform","output":"Q","inputs":["P","C"]},
+  {"op":"hold","batch":"A"},
+  {"op":"query","batch":"Q"},
+  {"op":"release","batch":"A"},
+  {"op":"query","batch":"Q"},
+  {"op":"ship","batch":"Q"},
+  {"op":"hold","batch":"A"},
+  {"op":"query","batch":"Q"}
+]

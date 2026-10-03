@@ -1,0 +1,14 @@
+{
+  "name": "batch-genealogy-trace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental batch genealogy tracing: hold/release/ship propagation, versioned diffs, deterministic certificates",
+  "main": "src/genealogy.js",
+  "scripts": {
+    "test": "node --test",
+    "trace": "node src/cli.js trace"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
