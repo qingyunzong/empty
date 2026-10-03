@@ -1,0 +1,94 @@
+{
+  "ops": [
+    {
+      "id": "r0",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 0,
+      "response": 1,
+      "result": "ok"
+    },
+    {
+      "id": "r1",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 1,
+      "response": 2,
+      "result": "ok"
+    },
+    {
+      "id": "r2",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 2,
+      "response": 3,
+      "result": "ok"
+    },
+    {
+      "id": "r3",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 3,
+      "response": 4,
+      "result": "ok"
+    },
+    {
+      "id": "r4",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 4,
+      "response": 5,
+      "result": "ok"
+    },
+    {
+      "id": "r5",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 5,
+      "response": 6,
+      "result": "ok"
+    },
+    {
+      "id": "r6",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 6,
+      "response": 7,
+      "result": "ok"
+    },
+    {
+      "id": "r7",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 7,
+      "response": 8,
+      "result": "ok"
+    },
+    {
+      "id": "r8",
+      "kind": "reserve",
+      "account": "A",
+      "strategy": "s1",
+      "amount": 1,
+      "invoke": 8,
+      "response": 9,
+      "result": "ok"
+    }
+  ]
+}

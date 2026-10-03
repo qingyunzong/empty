@@ -1,0 +1,7 @@
+{
+  "ops": [
+    { "id": "r1", "kind": "reserve", "account": "A", "strategy": "s1", "amount": 50, "invoke": 0, "response": 2, "result": "ok" },
+    { "id": "r2", "kind": "reserve", "account": "A", "strategy": "s1", "amount": 50, "invoke": 3, "response": 5, "result": "ok" },
+    { "id": "r3", "kind": "reserve", "account": "A", "strategy": "s1", "amount": 50, "invoke": 6, "response": 8, "result": "ok" }
+  ]
+}

@@ -1,0 +1,8 @@
+// Account-level limit with strategy-level sub-limits.
+account A {
+  capacity 100
+  strategy s1 { quota 60 }
+  strategy s2 { quota 40 }
+  constraint used(s1) + used(s2) <= capacity
+  order o1 { strategy s1 amount 30 clock 1 }
+}

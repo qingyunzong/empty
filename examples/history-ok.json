@@ -1,0 +1,8 @@
+{
+  "ops": [
+    { "id": "r1", "kind": "reserve", "account": "A", "strategy": "s1", "amount": 30, "invoke": 0, "response": 4, "result": "ok", "clock": 1 },
+    { "id": "r2", "kind": "reserve", "account": "A", "strategy": "s2", "amount": 40, "invoke": 1, "response": 5, "result": "ok", "clock": 2 },
+    { "id": "c1", "kind": "confirm", "target": "r1", "invoke": 6, "response": 7, "result": "ok" },
+    { "id": "x1", "kind": "release", "target": "r2", "invoke": 8, "response": 9, "result": "ok" }
+  ]
+}
