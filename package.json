@@ -1,0 +1,9 @@
+{
+  "name": "je",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Journal-entry DSL: compile business events into balanced, crash-safe batch postings",
+  "bin": { "je": "bin/je.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=20" }
+}

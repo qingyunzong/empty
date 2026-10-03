@@ -1,0 +1,5 @@
+[
+  { "type": "sale", "amount": 100.00 },
+  { "type": "sale", "amount": 20.50 },
+  { "type": "sale", "amount": 0.50 }
+]

@@ -1,0 +1,18 @@
+// Chart of accounts
+account 1001 "Cash";
+account 2001 "Revenue";
+
+period 2025-01 open;
+period 2024-12 closed;
+
+// Template: fee account is scoped to batches that instantiate it.
+template fee(rate) {
+  account FEE "Fee Payable";
+  post dr 1001 (event.amount * rate) cr FEE (event.amount * rate);
+}
+
+batch SALE in 2025-01 on sale {
+  post dr 1001 event.amount cr 2001 event.amount;
+  use fee(0.01);
+  balance dr == cr;
+}
