@@ -1,0 +1,64 @@
+{
+  "tables": {
+    "txn": [
+      {
+        "version": "txn-v1",
+        "zones": {
+          "Merchant/Shanghai": {
+            "transitions": [{ "utc": "2020-01-01T00:00:00Z", "offsetMinutes": 480 }],
+            "leapMap": { "2016-12-31T23:59:60Z": "2017-01-01T00:00:00Z" }
+          }
+        }
+      }
+    ],
+    "settlement": [
+      {
+        "version": "stl-v1",
+        "zones": {
+          "Merchant/Shanghai": {
+            "transitions": [{ "utc": "2020-01-01T00:00:00Z", "offsetMinutes": 480 }]
+          }
+        }
+      },
+      {
+        "version": "stl-v2",
+        "zones": {
+          "Merchant/Shanghai": {
+            "transitions": [
+              { "utc": "2020-01-01T00:00:00Z", "offsetMinutes": 480 },
+              { "utc": "2024-06-01T00:00:00Z", "offsetMinutes": 420 }
+            ]
+          }
+        }
+      }
+    ],
+    "fee": [
+      {
+        "version": "fee-v1",
+        "zones": {
+          "Merchant/Shanghai": {
+            "transitions": [{ "utc": "2020-01-01T00:00:00Z", "offsetMinutes": 480 }]
+          }
+        }
+      }
+    ]
+  },
+  "zone": "Merchant/Shanghai",
+  "policy": "strict",
+  "pinned": { "txn": "txn-v1", "settlement": "stl-v1", "fee": "fee-v1" },
+  "rates": [
+    { "id": "r-mar", "startLocal": "2024-03-01T00:00:00", "endLocal": "2024-04-01T00:00:00", "rate": "0.010", "fx": "7.10" },
+    { "id": "r-apr", "startLocal": "2024-04-01T00:00:00", "endLocal": "2024-05-01T00:00:00", "rate": "0.020", "fx": "7.20" }
+  ],
+  "transactions": [
+    { "id": "t1", "utc": "2024-03-10T15:30:00Z", "amount": "100.00" },
+    { "id": "t2", "utc": "2024-03-10T16:30:00Z", "amount": "200.00" },
+    { "id": "t3", "utc": "2024-04-02T08:00:00Z", "amount": "50.00" }
+  ],
+  "settlements": [
+    { "day": "2024-03-10", "amount": "709.00" },
+    { "day": "2024-03-11", "amount": "1418.05" },
+    { "day": "2024-04-02", "amount": "359.00" }
+  ],
+  "corrections": []
+}

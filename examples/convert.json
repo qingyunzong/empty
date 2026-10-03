@@ -1,0 +1,26 @@
+{
+  "tables": {
+    "txn": [
+      {
+        "version": "dst-v1",
+        "zones": {
+          "Merchant/EU": {
+            "transitions": [
+              { "utc": "2024-01-01T00:00:00Z", "offsetMinutes": 60 },
+              { "utc": "2024-03-31T01:00:00Z", "offsetMinutes": 120 },
+              { "utc": "2024-10-27T01:00:00Z", "offsetMinutes": 60 }
+            ]
+          }
+        }
+      }
+    ],
+    "settlement": [],
+    "fee": []
+  },
+  "conversions": [
+    { "kind": "utc2local", "purpose": "txn", "version": "dst-v1", "zone": "Merchant/EU", "utc": "2024-10-27T00:30:00Z" },
+    { "kind": "local2utc", "purpose": "txn", "version": "dst-v1", "zone": "Merchant/EU", "local": "2024-10-27T02:30:00", "policy": "earlier" },
+    { "kind": "local2utc", "purpose": "txn", "version": "dst-v1", "zone": "Merchant/EU", "local": "2024-10-27T02:30:00", "policy": "later" },
+    { "kind": "local2utc", "purpose": "txn", "version": "dst-v1", "zone": "Merchant/EU", "local": "2024-03-31T02:30:00", "policy": "later" }
+  ]
+}
