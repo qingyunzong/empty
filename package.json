@@ -1,0 +1,8 @@
+{
+  "name": "obsnet-replica",
+  "version": "1.0.0",
+  "description": "Observation-station replica network: epoch membership, quorum reads/writes, anti-entropy repair",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" }
+}
