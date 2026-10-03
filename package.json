@@ -1,0 +1,9 @@
+{
+  "name": "nightshift-gate",
+  "version": "1.0.0",
+  "description": "Offline night-shift gate interpreter for discrete assembly scheduling",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
