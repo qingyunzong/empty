@@ -1,0 +1,251 @@
+{
+  "account": {
+    "totalLimit": 100,
+    "categoryLimits": {
+      "food": 50
+    }
+  },
+  "steps": [
+    {
+      "index": 0,
+      "ts": 1,
+      "id": "f-01",
+      "op": "freeze",
+      "scope": "10-40",
+      "amount": 30,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 10,
+      "spent": 0,
+      "frozen": [
+        [
+          10,
+          40
+        ]
+      ],
+      "frozenTotal": 30,
+      "audit": "03731fed722db0df92db6cfc86d737b46d81a2bb8cfdf8495f6022271d25c81c"
+    },
+    {
+      "index": 1,
+      "ts": 2,
+      "id": "f-02",
+      "op": "freeze",
+      "scope": "30-60",
+      "amount": 30,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 10,
+      "spent": 0,
+      "frozen": [
+        [
+          10,
+          60
+        ]
+      ],
+      "frozenTotal": 50,
+      "audit": "c782ec6e6987f821fa293efeeca33b4c7adf19d44d656e48553c8e392c4ab0cc"
+    },
+    {
+      "index": 2,
+      "ts": 3,
+      "id": "u-01",
+      "op": "unfreeze",
+      "scope": "20-50",
+      "amount": 30,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 10,
+      "spent": 0,
+      "frozen": [
+        [
+          10,
+          20
+        ],
+        [
+          50,
+          60
+        ]
+      ],
+      "frozenTotal": 20,
+      "audit": "cd342bfb8f638af3de8ae148c7f9f74796a19602ed6249bcac7587d63662c7a2"
+    },
+    {
+      "index": 3,
+      "ts": 4,
+      "id": "u-02",
+      "op": "unfreeze",
+      "scope": "10-20",
+      "amount": 10,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 50,
+      "spent": 0,
+      "frozen": [
+        [
+          50,
+          60
+        ]
+      ],
+      "frozenTotal": 10,
+      "audit": "9e258b82fe14161d6601747726513ce6dc2d5fa3b376eb76dc5817725a6e2716"
+    },
+    {
+      "index": 4,
+      "ts": 5,
+      "id": "u-03",
+      "op": "unfreeze",
+      "scope": "50-60",
+      "amount": 10,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 100,
+      "spent": 0,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "bc65f6fa103a13a2fee6d93aee10e0efef72aa6e7af4592c620ac3192edc3eed"
+    },
+    {
+      "index": 5,
+      "ts": 6,
+      "id": "d-01",
+      "op": "debit",
+      "scope": "food",
+      "amount": 40,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 60,
+      "spent": 40,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "198105d2fb7f899a354dc5f364097633b6b4300994cd5ae2c4a3f3bb3d52b41e"
+    },
+    {
+      "index": 6,
+      "ts": 7,
+      "id": "d-02",
+      "op": "debit",
+      "scope": "food",
+      "amount": 20,
+      "ok": false,
+      "code": "E_LIMIT",
+      "reason": "category-limit: 'food' 40+20 > 50",
+      "available": 60,
+      "spent": 40,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "eb3ab56e69eae68cb7d6e6a87332da34cbe0ea18f5435ab1a7751c8dae2c51d2"
+    },
+    {
+      "index": 7,
+      "ts": 8,
+      "id": "d-a",
+      "op": "debit",
+      "scope": "other",
+      "amount": 60,
+      "ok": true,
+      "code": null,
+      "reason": null,
+      "available": 0,
+      "spent": 100,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "9ef70796b94c897139de02f907a44df5f3f75785bf0843b79bf175559b19648e"
+    },
+    {
+      "index": 8,
+      "ts": 8,
+      "id": "d-b",
+      "op": "debit",
+      "scope": "other",
+      "amount": 60,
+      "ok": false,
+      "code": "E_LIMIT",
+      "reason": "total-limit: 100+60 > 100",
+      "available": 0,
+      "spent": 100,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "ef40639aab8d0614aa3eeded25ff59dbe2fc009dcaf53677efaa8562cc7d9f4a"
+    },
+    {
+      "index": 9,
+      "ts": 8,
+      "id": "d-c",
+      "op": "debit",
+      "scope": "other",
+      "amount": 60,
+      "ok": false,
+      "code": "E_LIMIT",
+      "reason": "total-limit: 100+60 > 100",
+      "available": 0,
+      "spent": 100,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "da3789536b7b70e13664d31f15824c9ac493b4ae0ac6aa7ac114e92d745974c0"
+    },
+    {
+      "index": 10,
+      "ts": 9,
+      "id": "d-a",
+      "op": "debit",
+      "scope": "other",
+      "amount": 60,
+      "ok": false,
+      "code": "E_DUP",
+      "reason": "duplicate request id 'd-a'",
+      "available": 0,
+      "spent": 100,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "d2c74986a952808ef68086ec3037ef728f08eb0e42daf7d6c7aa1e5e09f05f2c"
+    },
+    {
+      "index": 11,
+      "ts": 10,
+      "id": "u-04",
+      "op": "unfreeze",
+      "scope": "5-15",
+      "amount": 10,
+      "ok": false,
+      "code": "E_RANGE",
+      "reason": "range [5, 15] is not fully frozen",
+      "available": 0,
+      "spent": 100,
+      "frozen": [],
+      "frozenTotal": 0,
+      "audit": "28abdd1a306d5f4215f3c660aa58cd011cd64028452c0378eb7a1fd9b84f6652"
+    }
+  ],
+  "final": {
+    "available": 0,
+    "spent": 100,
+    "spentByCat": {
+      "food": 40,
+      "other": 60
+    },
+    "frozen": [],
+    "frozenTotal": 0
+  },
+  "auditChain": [
+    "03731fed722db0df92db6cfc86d737b46d81a2bb8cfdf8495f6022271d25c81c",
+    "c782ec6e6987f821fa293efeeca33b4c7adf19d44d656e48553c8e392c4ab0cc",
+    "cd342bfb8f638af3de8ae148c7f9f74796a19602ed6249bcac7587d63662c7a2",
+    "9e258b82fe14161d6601747726513ce6dc2d5fa3b376eb76dc5817725a6e2716",
+    "bc65f6fa103a13a2fee6d93aee10e0efef72aa6e7af4592c620ac3192edc3eed",
+    "198105d2fb7f899a354dc5f364097633b6b4300994cd5ae2c4a3f3bb3d52b41e",
+    "eb3ab56e69eae68cb7d6e6a87332da34cbe0ea18f5435ab1a7751c8dae2c51d2",
+    "9ef70796b94c897139de02f907a44df5f3f75785bf0843b79bf175559b19648e",
+    "ef40639aab8d0614aa3eeded25ff59dbe2fc009dcaf53677efaa8562cc7d9f4a",
+    "da3789536b7b70e13664d31f15824c9ac493b4ae0ac6aa7ac114e92d745974c0",
+    "d2c74986a952808ef68086ec3037ef728f08eb0e42daf7d6c7aa1e5e09f05f2c",
+    "28abdd1a306d5f4215f3c660aa58cd011cd64028452c0378eb7a1fd9b84f6652"
+  ],
+  "auditValid": true
+}

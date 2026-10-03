@@ -1,0 +1,13 @@
+{"op":"config","totalLimit":100,"categoryLimits":{"food":50}}
+{"ts":1,"id":"f-01","op":"freeze","amount":30,"scope":"10-40"}
+{"ts":2,"id":"f-02","op":"freeze","amount":30,"scope":"30-60"}
+{"ts":3,"id":"u-01","op":"unfreeze","amount":30,"scope":"20-50"}
+{"ts":4,"id":"u-02","op":"unfreeze","amount":10,"scope":"10-20"}
+{"ts":5,"id":"u-03","op":"unfreeze","amount":10,"scope":"50-60"}
+{"ts":6,"id":"d-01","op":"debit","amount":40,"scope":"food"}
+{"ts":7,"id":"d-02","op":"debit","amount":20,"scope":"food"}
+{"ts":8,"id":"d-c","op":"debit","amount":60,"scope":"other"}
+{"ts":8,"id":"d-a","op":"debit","amount":60,"scope":"other"}
+{"ts":8,"id":"d-b","op":"debit","amount":60,"scope":"other"}
+{"ts":9,"id":"d-a","op":"debit","amount":60,"scope":"other"}
+{"ts":10,"id":"u-04","op":"unfreeze","amount":10,"scope":"5-15"}
