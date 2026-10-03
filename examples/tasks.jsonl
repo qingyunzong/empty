@@ -1,0 +1,4 @@
+{"id":"T1","priority":5,"target":{"zone":"Z-COLD","aisle":"A-2","shelf":"S-20","x":40,"y":30},"occupyUntil":620,"dispatch":{"event":"d1","lamport":4,"parents":["e2"],"time":100}}
+{"id":"T2","priority":5,"target":{"zone":"Z-COLD","aisle":"A-2"},"dispatch":{"event":"d2","lamport":5,"parents":["e3"],"time":550}}
+{"id":"T3","kind":"rescue","priority":100,"target":{"zone":"Z-RES","aisle":"A-1","shelf":"S-10","x":10,"y":10},"dispatch":{"event":"d3","lamport":6,"parents":["e3"],"time":560},"dualAuth":["alice","bob"]}
+{"id":"T4","priority":1,"subject":"agv-7","target":{"zone":"Z-CHG","aisle":"A-3","shelf":"S-30"},"dispatch":{"event":"d4","lamport":7,"parents":["e3"],"time":570}}

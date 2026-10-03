@@ -1,0 +1,10 @@
+{
+  "name": "coldstore-agv-scheduler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline cold-storage AGV scheduler with auditable safety policy",
+  "scripts": {
+    "test": "node --test"
+  }
+}
