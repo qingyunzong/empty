@@ -1,0 +1,9 @@
+{
+  "name": "corp-actions",
+  "version": "0.1.0",
+  "description": "Corporate actions DSL, compiler and settlement VM (dividends, splits, tenders) with reversal/restatement ledger",
+  "type": "module",
+  "bin": { "corp": "bin/corp.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=20" }
+}

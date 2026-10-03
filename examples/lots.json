@@ -1,0 +1,8 @@
+{
+  "cash": "1000",
+  "lots": [
+    { "id": "L1", "security": "AAPL", "qty": "100", "date": "2024-01-05" },
+    { "id": "L2", "security": "AAPL", "qty": "60", "date": "2024-03-11" },
+    { "id": "L3", "security": "MSFT", "qty": "40", "date": "2024-02-01" }
+  ]
+}

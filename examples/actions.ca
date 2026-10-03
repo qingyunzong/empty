@@ -1,0 +1,12 @@
+# 公司行动结算示例：拆股 -> 分红 -> 卖出 -> 撤回 -> 重述
+action S1 { security AAPL kind split ratio 1/2 exdate 2024-06-10 version 1 }
+action D1 { security AAPL kind dividend cash $2.5 exdate 2024-06-10 version 2 }
+action T1 { security MSFT kind tender cash $380 + $20/4 exdate 2024-08-01 version 1 }
+
+apply D1            # 同证券同除权日：按公告版本排序，S1(v1) 先于 D1(v2) 生效
+apply S1
+apply T1
+
+sell AAPL 150 on 2024-06-20
+reverse S1          # 冲正生成反向公司行动 S1#rev1，已卖出部分记应付
+restate S1 { ratio 1/4 version 2 }   # 重述：仅允许除权日不提前、版本递增
