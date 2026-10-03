@@ -1,0 +1,9 @@
+{
+  "name": "clearing-scan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "清算报文风险扫描库与 CLI（Aho-Corasick + 正则子集 DFA，增量更正，可验证审计证书）",
+  "scripts": {
+    "test": "node --test"
+  }
+}
