@@ -1,0 +1,10 @@
+{
+  "name": "walstore",
+  "version": "1.0.0",
+  "description": "WAL-centric auditable measurement store with replay, checkpoint, audit and crash-injection",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "walstore": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
