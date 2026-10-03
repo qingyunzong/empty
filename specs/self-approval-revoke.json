@@ -1,0 +1,19 @@
+{
+  "subjects": ["alice", "bob"],
+  "amounts": [0, 1, 50, 100, 101],
+  "bound": 6,
+  "policy": {
+    "roles": {
+      "clerk": {}
+    },
+    "subjectRoles": {
+      "alice": ["clerk"],
+      "bob": ["clerk"]
+    },
+    "rules": [
+      { "id": "r1", "effect": "allow", "role": "clerk", "action": "submit" },
+      { "id": "r2", "effect": "allow", "role": "clerk", "action": "approve", "revocable": true }
+    ]
+  },
+  "invariant": { "type": "no_self_approval_over_threshold", "threshold": 100 }
+}
