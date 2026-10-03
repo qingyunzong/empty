@@ -1,0 +1,13 @@
+{
+  "name": "flight-track-matcher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Match ground observations to flight plans with watermark-based publication",
+  "main": "src/tracker.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
