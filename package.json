@@ -1,0 +1,16 @@
+{
+  "name": "oven-control",
+  "version": "1.0.0",
+  "description": "Exact rational oven temperature control instruction library and CLI",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "oven": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
