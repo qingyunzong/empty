@@ -1,0 +1,21 @@
+{
+  "name": "settlement-graph",
+  "version": "1.0.0",
+  "description": "Institution settlement directed graph with append-only audit log, checkpoints and hash-chain verification",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./graph": "./src/graph.js",
+    "./store": "./src/store.js"
+  },
+  "bin": {
+    "settlement-graph": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
