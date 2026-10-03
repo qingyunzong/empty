@@ -1,0 +1,10 @@
+{
+  "name": "recon-repair",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "End-of-day reconciliation: diff classification, constrained repair scheduling, undo/restore, conflict-domain history",
+  "engines": { "node": ">=22" },
+  "bin": { "recon": "bin/recon.js" },
+  "scripts": { "test": "node --test" }
+}
