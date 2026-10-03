@@ -1,0 +1,13 @@
+{
+  "name": "quota-freeze-model-checker",
+  "version": "1.0.0",
+  "description": "Randomized state-verification library and CLI for a quota freeze/debit two-phase task model",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
