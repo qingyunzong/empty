@@ -1,0 +1,13 @@
+{
+  "name": "quota-freeze-approval",
+  "version": "1.0.0",
+  "description": "Deterministic quota freeze/confirm/cancel approval engine with serializable replay and CLI",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
