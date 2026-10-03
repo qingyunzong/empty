@@ -1,0 +1,9 @@
+{
+  "name": "wallet-holds",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Wallet fund holds with optimistic rev control, positional memo index and incremental compaction. Node 22 stdlib only.",
+  "bin": { "wallet": "bin/wallet.js" },
+  "scripts": { "test": "node --test" }
+}
