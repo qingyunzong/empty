@@ -1,0 +1,12 @@
+{
+  "name": "recon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Financial reconciliation: internal ledger vs bank receipts, incremental difference clusters",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "recon": "bin/recon.js"
+  }
+}
