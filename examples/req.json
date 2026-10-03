@@ -1,0 +1,26 @@
+{
+  "config": { "noiseThreshold": 2.0, "calibQualityThreshold": 0.5 },
+  "state": {
+    "nights": ["2026-02-03"],
+    "frames": [
+      { "frameId": "f1", "night": "2026-02-01", "instrument": "camA", "metrics": { "noise": 1.2 } },
+      { "frameId": "f2", "night": "2026-02-01", "instrument": "camA", "metrics": { "noise": 2.5 } },
+      { "frameId": "f3", "night": "2026-02-02", "instrument": "camB", "metrics": { "noise": 0.8 } }
+    ],
+    "calibrations": [
+      { "kind": "dark", "night": "2026-02-01", "instrument": "camA", "version": 1, "quality": 0.9 },
+      { "kind": "flat", "night": "2026-02-01", "instrument": "camA", "version": 1, "quality": 0.9 },
+      { "kind": "dark", "night": "2026-02-02", "instrument": "camB", "version": 1, "quality": 0.9 },
+      { "kind": "flat", "night": "2026-02-02", "instrument": "camB", "version": 1, "quality": 0.9 }
+    ],
+    "weather": [
+      { "night": "2026-02-01", "state": "clear" },
+      { "night": "2026-02-02", "state": "clear" }
+    ]
+  },
+  "transactions": [
+    { "id": "txn-1", "budget": 10, "ops": [{ "op": "setWeather", "night": "2026-02-01", "state": "degraded" }] },
+    { "id": "txn-2", "budget": 10, "ops": [{ "op": "upsertCalibration", "calibration": { "kind": "dark", "night": "2026-02-02", "instrument": "camB", "version": 2, "quality": 0.2 } }] },
+    { "id": "txn-3", "budget": 2, "ops": [{ "op": "setWeather", "night": "2026-02-02", "state": "blocked" }] }
+  ]
+}
