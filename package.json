@@ -1,0 +1,13 @@
+{
+  "name": "tx-history-chunks",
+  "version": "1.0.0",
+  "description": "Transaction correction/cancellation history chunk store with causal versioning",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
