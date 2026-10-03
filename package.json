@@ -1,0 +1,13 @@
+{
+  "name": "kvx",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local transactional KV store with causal WAL, offline log merge and serializability checking",
+  "type": "commonjs",
+  "bin": {
+    "kvx": "bin/kvx.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
