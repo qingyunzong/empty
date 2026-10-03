@@ -1,0 +1,16 @@
+{
+  "name": "quota-freeze",
+  "version": "1.0.0",
+  "description": "Offline multi-account quota freezing library and CLI (Node.js 22, stdlib only)",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "quota": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
