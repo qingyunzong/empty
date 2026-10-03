@@ -1,0 +1,13 @@
+{
+  "name": "audit-interval-service",
+  "version": "1.0.0",
+  "description": "Audit interval set service: interval registration, set algebra, tamper-evident certificates and reverse patches",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "audit-intervals": "./cli.js"
+  }
+}
