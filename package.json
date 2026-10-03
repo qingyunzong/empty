@@ -1,0 +1,10 @@
+{
+  "name": "plc-linearizability",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Append-only PLC event log, replayer and offline linearizability verifier (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
