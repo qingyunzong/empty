@@ -1,0 +1,20 @@
+{
+  "families": { "ready-meal": 1, "bakery": 2, "infant-formula": 3 },
+  "versions": [
+    {
+      "version": 1,
+      "rules": [
+        { "id": "R1", "severity": 1, "action": "release" },
+        { "id": "R2", "severity": 2, "action": "hold" },
+        { "id": "R3", "severity": 3, "action": "hold" }
+      ]
+    },
+    {
+      "version": 2,
+      "rules": [
+        { "id": "R4", "severity": 2, "action": "release" },
+        { "id": "R5", "severity": 3, "action": "recall" }
+      ]
+    }
+  ]
+}

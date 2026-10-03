@@ -1,0 +1,2 @@
+{"type":"test","testId":"T1","lotId":"L001","defect":"label-misprint","severity":2}
+{"type":"test","testId":"T2","lotId":"L002","defect":"seal-ok","severity":1}

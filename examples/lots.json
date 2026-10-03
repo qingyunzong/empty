@@ -1,0 +1,6 @@
+{
+  "lots": [
+    { "lotId": "L001", "productFamily": "ready-meal" },
+    { "lotId": "L002", "productFamily": "infant-formula" }
+  ]
+}
