@@ -1,0 +1,15 @@
+{
+  "materials": [],
+  "batches": [
+    {
+      "id": "P2",
+      "line": "L2",
+      "start": "2026-01-01T06:00:00Z",
+      "end": "2026-01-01T08:00:00Z",
+      "output": 5,
+      "loss": 0,
+      "expiry": "2026-06-01",
+      "candidates": ["P1"]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "genealogy-trace",
+  "version": "0.1.0",
+  "description": "Quality traceability library and CLI: finite-domain propagation plus backtracking over batch genealogies, with transactional undo/redo.",
+  "type": "module",
+  "bin": {
+    "trace": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

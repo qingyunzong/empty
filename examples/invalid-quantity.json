@@ -1,0 +1,6 @@
+{
+  "materials": [
+    { "id": "M1", "quantity": -5, "expiry": "2026-12-01" }
+  ],
+  "batches": []
+}

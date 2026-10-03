@@ -1,0 +1,18 @@
+{
+  "materials": [
+    { "id": "M1", "quantity": 8, "expiry": "2026-12-01" },
+    { "id": "M2", "quantity": 8, "expiry": "2026-12-01" }
+  ],
+  "batches": [
+    {
+      "id": "P1",
+      "line": "L1",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-01-01T04:00:00Z",
+      "output": 10,
+      "loss": 2,
+      "expiry": "2026-06-01",
+      "candidates": ["M1", "M2"]
+    }
+  ]
+}
