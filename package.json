@@ -1,0 +1,13 @@
+{
+  "name": "event-causal-history",
+  "version": "1.0.0",
+  "description": "Device event causal history determination library and CLI with exact rational quadratic clock correction",
+  "type": "module",
+  "main": "src/history.js",
+  "bin": {
+    "event-history": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
