@@ -1,0 +1,45 @@
+{
+  "as_of": "2024-08-01",
+  "usable_instruments": [
+    "TW-001",
+    "TW-002",
+    "GB-001"
+  ],
+  "instruments": [
+    {
+      "id": "TW-001",
+      "type": "torque_wrench",
+      "usable": true,
+      "cert": "C-TW1-A",
+      "valid_until": "2025-01-10"
+    },
+    {
+      "id": "TW-002",
+      "type": "torque_wrench",
+      "usable": true,
+      "cert": "C-TW2-A",
+      "valid_until": "2025-02-28"
+    },
+    {
+      "id": "GB-001",
+      "type": "gauge_block",
+      "usable": true,
+      "cert": "C-GB1-B",
+      "valid_until": "2024-12-20"
+    }
+  ],
+  "work_orders": [
+    {
+      "id": "WO-1001",
+      "status": "retest_required"
+    },
+    {
+      "id": "WO-1002",
+      "status": "illegal"
+    },
+    {
+      "id": "WO-1003",
+      "status": "ok"
+    }
+  ]
+}

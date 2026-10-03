@@ -1,0 +1,6 @@
+{"event":"issue","cert":"C-TW1-A","instrument":"TW-001","institution":"NIM","level":1,"issued":"2024-01-10"}
+{"event":"issue","cert":"C-TW2-A","instrument":"TW-002","institution":"NIM","level":1,"issued":"2024-02-29","valid_months":12}
+{"event":"issue","cert":"C-GB1-A","instrument":"GB-001","institution":"CMA","level":1,"issued":"2024-01-01"}
+{"event":"issue","cert":"C-GB1-B","instrument":"GB-001","institution":"CMA","level":2,"issued":"2024-06-20"}
+{"event":"revoke","cert":"C-GB1-A","date":"2024-06-01"}
+{"event":"restore","cert":"C-GB1-A","by":"C-GB1-B","date":"2024-07-01"}

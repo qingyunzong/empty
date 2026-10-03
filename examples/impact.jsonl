@@ -1,0 +1,8 @@
+{"type":"measurement","work_order":"WO-1001","measurement":"M1","instrument":"TW-001","date":"2024-03-01","status":"qualified","certs":["C-TW1-A"]}
+{"type":"measurement","work_order":"WO-1001","measurement":"M2","instrument":"GB-001","date":"2024-03-05","status":"pending_retest","certs":["C-GB1-A"]}
+{"type":"measurement","work_order":"WO-1002","measurement":"M3","instrument":"GB-001","date":"2024-06-15","status":"invalid","reason":"no_valid_certificate"}
+{"type":"measurement","work_order":"WO-1003","measurement":"M4","instrument":"TW-002","date":"2024-02-29","status":"qualified","certs":["C-TW2-A"]}
+{"type":"measurement","work_order":"WO-1003","measurement":"M5","instrument":"GB-001","date":"2024-07-15","status":"qualified","certs":["C-GB1-B"]}
+{"type":"work_order","id":"WO-1001","status":"retest_required"}
+{"type":"work_order","id":"WO-1002","status":"illegal"}
+{"type":"work_order","id":"WO-1003","status":"ok"}

@@ -1,0 +1,12 @@
+{
+  "trusted_institutions": ["NIM", "CMA"],
+  "instrument_types": {
+    "torque_wrench": { "calibration_interval_months": 12 },
+    "gauge_block": { "calibration_interval_months": 6 }
+  },
+  "instruments": [
+    { "id": "TW-001", "type": "torque_wrench" },
+    { "id": "TW-002", "type": "torque_wrench" },
+    { "id": "GB-001", "type": "gauge_block" }
+  ]
+}

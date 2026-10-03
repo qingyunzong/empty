@@ -1,0 +1,10 @@
+{
+  "name": "metrology-calibration",
+  "version": "1.0.0",
+  "description": "Calibration status engine for torque wrenches and gauge blocks (stdlib only)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
