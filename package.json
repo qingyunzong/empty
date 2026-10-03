@@ -1,0 +1,10 @@
+{
+  "name": "batch-lineage",
+  "version": "1.0.0",
+  "description": "Manufacturing batch lineage ledger: split/merge genealogy, weight conservation, QC status, WAL atomic commit, nested savepoints, SHA256 lineage certificates",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" },
+  "bin": { "batch-lineage": "src/cli.js" }
+}
