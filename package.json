@@ -1,0 +1,13 @@
+{
+  "name": "lot-release-certifier",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline batch release certification for food factory QA",
+  "main": "src/core.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

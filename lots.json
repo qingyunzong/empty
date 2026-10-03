@@ -1,0 +1,12 @@
+{
+  "families": {
+    "dairy": { "risk": 2 },
+    "bakery": { "risk": 1 },
+    "canning": { "risk": 0 }
+  },
+  "lots": [
+    { "lotId": "L-1001", "productFamily": "dairy", "quantity": 500 },
+    { "lotId": "L-1002", "productFamily": "bakery", "quantity": 1200 },
+    { "lotId": "L-1003", "productFamily": "canning", "quantity": 800 }
+  ]
+}

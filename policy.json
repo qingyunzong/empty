@@ -1,0 +1,11 @@
+{
+  "policyId": "qa-release-policy",
+  "versions": [1, 2],
+  "rules": [
+    { "id": "r-release-1", "severity": 1, "action": "release", "effectiveFrom": "2026-01-01T00:00:00Z", "version": 1 },
+    { "id": "r-hold-2a", "severity": 2, "action": "hold", "effectiveFrom": "2026-01-01T00:00:00Z", "version": 1 },
+    { "id": "r-release-2b", "severity": 2, "action": "release", "effectiveFrom": "2026-03-01T00:00:00Z", "version": 2 },
+    { "id": "r-hold-3", "severity": 3, "action": "hold", "effectiveFrom": "2026-01-01T00:00:00Z", "version": 1 },
+    { "id": "r-recall-3", "severity": 3, "action": "recall", "effectiveFrom": "2026-04-01T00:00:00Z", "version": 2 }
+  ]
+}

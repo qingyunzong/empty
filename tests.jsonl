@@ -1,0 +1,3 @@
+{"type":"test","testId":"T-001","lotId":"L-1001","defects":[{"code":"LABEL","severity":1}],"ts":"2026-09-01T08:00:00Z"}
+{"type":"test","testId":"T-002","lotId":"L-1002","defects":[],"ts":"2026-09-01T09:00:00Z"}
+{"type":"test","testId":"T-003","lotId":"L-1003","defects":[{"code":"SEAM","severity":2}],"ts":"2026-09-02T08:00:00Z"}
