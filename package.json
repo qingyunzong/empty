@@ -1,0 +1,12 @@
+{
+  "name": "audit-tail-ledger",
+  "version": "1.0.0",
+  "description": "Financial audit ledger with tail-window incremental chunk decoding",
+  "type": "module",
+  "bin": {
+    "audit-ledger": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
