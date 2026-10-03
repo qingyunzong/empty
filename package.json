@@ -1,0 +1,13 @@
+{
+  "name": "repro-planner",
+  "version": "0.1.0",
+  "description": "Reproducible experiment DAG planner with verifiable certificates",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "repro": "bin/repro.js"
+  }
+}
