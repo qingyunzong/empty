@@ -1,0 +1,18 @@
+{
+  "starveThreshold": 3,
+  "tenants": [
+    { "id": "root", "parent": null, "capacity": 100 },
+    { "id": "len", "parent": "root", "guarantee": 20 },
+    { "id": "b", "parent": "root", "guarantee": 0 }
+  ],
+  "orders": [
+    { "id": "l0", "tenant": "len", "units": 4, "priority": 1, "submit": 0 },
+    { "id": "b1", "tenant": "b", "units": 10, "priority": 1, "submit": 0 },
+    { "id": "l_big", "tenant": "len", "units": 18, "priority": 1, "submit": 1 },
+    { "id": "b2", "tenant": "b", "units": 6, "priority": 1, "submit": 4 }
+  ],
+  "commands": [
+    { "cmd": "tick", "time": 0 },
+    { "cmd": "tick", "time": 5 }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tenants": [
+    { "id": "root", "parent": null, "capacity": 10 },
+    { "id": "a", "parent": "root", "guarantee": -3 }
+  ],
+  "orders": [],
+  "commands": []
+}

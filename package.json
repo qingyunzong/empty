@@ -1,0 +1,17 @@
+{
+  "name": "tenant-slot-scheduler",
+  "version": "1.0.0",
+  "description": "Multi-tenant production slot allocation with quota lending, preemption and starvation floor. Node.js 22, standard library only.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "tenant-sched": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

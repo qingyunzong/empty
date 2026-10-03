@@ -1,0 +1,14 @@
+{
+  "starveThreshold": 3,
+  "tenants": [
+    { "id": "root", "parent": null, "capacity": 100 },
+    { "id": "alpha", "parent": "root", "guarantee": 30 },
+    { "id": "beta", "parent": "root", "guarantee": 10 }
+  ],
+  "orders": [
+    { "id": "b1", "tenant": "beta", "units": 25, "priority": 1, "submit": 0 }
+  ],
+  "commands": [
+    { "cmd": "tick", "time": 0 }
+  ]
+}
