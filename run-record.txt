@@ -1,0 +1,104 @@
+==============================================================
+run-record.txt — 真实运行记录
+date:    2026-10-03 12:28:11 CST
+node:    v22.22.1
+cwd:     /home/delin/.local/share/gsb-workbench/artifacts/0173e93dace247a68ea587cf116fc0de/run/B/attempt-011/workspace
+==============================================================
+
+--------------------------------------------------------------
+CASE: acceptance 1: correct v=a/2[t] then undo/redo, certificates
+$ printf '%s' <stdin> | node cli.js
+--- stdin ---
+def v = a/2
+correct v = a/2[t]
+certify v
+undo v
+certify v
+redo v
+certify v
+--- stdout ---
+{"ok":true,"name":"v","version":1}
+{"ok":true,"name":"v","version":2}
+{"ok":true,"name":"v","version":2,"sha256":"fb539d141084e8b51d32d8cf9a0e65a645117269cc87e28dc3a57405beb55298"}
+{"ok":true,"name":"v","version":1}
+{"ok":true,"name":"v","version":1,"sha256":"95228aaaf916e4161133160d228398e4010a48f6c0f893c7288464983f85c646"}
+{"ok":true,"name":"v","version":2}
+{"ok":true,"name":"v","version":2,"sha256":"fb539d141084e8b51d32d8cf9a0e65a645117269cc87e28dc3a57405beb55298"}
+--- stderr ---
+--- exit code: 0 ---
+
+--------------------------------------------------------------
+CASE: acceptance 1b: new correction after undo clears redo branch
+$ printf '%s' <stdin> | node cli.js
+--- stdin ---
+def v = a/2
+correct v = a/2[t]
+undo v
+correct v = a/2[m/s]
+redo v
+--- stdout ---
+{"ok":true,"name":"v","version":1}
+{"ok":true,"name":"v","version":2}
+{"ok":true,"name":"v","version":1}
+{"ok":true,"name":"v","version":2}
+--- stderr ---
+error: state error: 'v' has nothing to redo
+--- exit code: 1 ---
+
+--------------------------------------------------------------
+CASE: acceptance 3a: unclosed unit fragment -> error on stderr, exit 1
+$ printf '%s' <stdin> | node cli.js
+--- stdin ---
+def x = a+1
+correct x = a/2[m/s
+certify x
+--- stdout ---
+{"ok":true,"name":"x","version":1}
+--- stderr ---
+error: lex error: unclosed unit fragment at offset 3
+--- exit code: 1 ---
+
+--------------------------------------------------------------
+CASE: acceptance 3b: redo on empty stack -> error on stderr, exit 1
+$ printf '%s' <stdin> | node cli.js
+--- stdin ---
+def x = a+1
+redo x
+--- stdout ---
+{"ok":true,"name":"x","version":1}
+--- stderr ---
+error: state error: 'x' has nothing to redo
+--- exit code: 1 ---
+
+--------------------------------------------------------------
+CASE: unknown name -> error on stderr, exit 1
+$ printf '%s' <stdin> | node cli.js
+--- stdin ---
+certify ghost
+--- stdout ---
+--- stderr ---
+error: unknown name: 'ghost' is not defined
+--- exit code: 1 ---
+
+--------------------------------------------------------------
+CASE: node --test
+$ node --test
+--- stdout ---
+TAP version 13
+# Subtest: test/formula.test.js
+ok 1 - test/formula.test.js
+  ---
+  duration_ms: 1984.10249
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2306.716639
+--- stderr ---
+--- exit code: 0 ---
