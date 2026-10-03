@@ -1,0 +1,24 @@
+$ node --test
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 1101.891146
+  type: 'test'
+  ...
+# Subtest: test/freeze.test.js
+ok 2 - test/freeze.test.js
+  ---
+  duration_ms: 1308.193682
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1471.894034
+exit code: 0
