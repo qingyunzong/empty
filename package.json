@@ -1,0 +1,9 @@
+{
+  "name": "accrual-cert",
+  "version": "1.0.0",
+  "description": "Daily interest accrual with piecewise-polynomial rational rates and verifiable recomputation certificates",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
