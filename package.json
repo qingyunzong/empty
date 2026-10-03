@@ -1,0 +1,15 @@
+{
+  "name": "mold-sched",
+  "version": "0.1.0",
+  "description": "Offline night-shift injection-molding scheduler: exact lexicographic (makespan, energy, tardiness) sequencing with UNSAT certificates, incremental re-solve and undo/redo.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "mold-sched": "cli.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

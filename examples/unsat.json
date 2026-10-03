@@ -1,0 +1,9 @@
+{
+  "jobs": [
+    { "id": "a", "due": 10, "work": 2, "energy": 10, "mold": "M" },
+    { "id": "b", "due": 20, "work": 3, "energy": 10, "mold": "M" },
+    { "id": "c", "due": 30, "work": 1, "energy": 10, "mold": "M" }
+  ],
+  "setup": { "M": {} },
+  "energyBudget": 25
+}

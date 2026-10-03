@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    { "id": "order-101", "due": 8,  "work": 3, "energy": 4, "mold": "A" },
+    { "id": "order-102", "due": 10, "work": 2, "energy": 5, "mold": "B" },
+    { "id": "order-103", "due": 14, "work": 4, "energy": 3, "mold": "C" },
+    { "id": "order-104", "due": 18, "work": 2, "energy": 2, "mold": "A" },
+    { "id": "order-105", "due": 22, "work": 3, "energy": 6, "mold": "B" },
+    { "id": "order-106", "due": 30, "work": 5, "energy": 4, "mold": "C" }
+  ],
+  "setup": {
+    "A": { "B": 2, "C": 3 },
+    "B": { "A": 2, "C": 1 },
+    "C": { "A": 4, "B": 2 }
+  },
+  "energyBudget": 60
+}
