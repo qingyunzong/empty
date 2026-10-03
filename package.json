@@ -1,0 +1,9 @@
+{
+  "name": "gs-sched",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Satellite ground-station downlink scheduler (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
