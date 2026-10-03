@@ -1,0 +1,40 @@
+command: node --test
+exit_code: 0
+date: 2026-10-03T10:34:29Z
+
+=== summary ===
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59629.649318
+
+=== subtests (node test/evidence.test.js, exit_code: 0) ===
+ok 1 - full commit: all ops applied, journal committed, outputs present
+ok 2 - crash at every op then recover: rollback when all ops invertible
+ok 3 - crash at every op then recover: roll forward when an applied op lacks inverse
+ok 4 - restart auto-recovers from journal before next apply
+ok 5 - unknown op type is rejected with exit 1 and nothing is persisted
+ok 6 - dangerous op without inverse is rejected with exit 1 and nothing is persisted
+ok 7 - conditional version mismatch is rejected with exit 1 and nothing is persisted
+
+=== full TAP output (node --test) ===
+TAP version 13
+# Subtest: test/evidence.test.js
+ok 1 - test/evidence.test.js
+  ---
+  duration_ms: 59443.633835
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59629.649318
