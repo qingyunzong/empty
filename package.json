@@ -1,0 +1,15 @@
+{
+  "name": "energy-scheduler",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shiftable-load energy scheduling DSL, bytecode compiler, VM and CLI",
+  "bin": {
+    "energy": "bin/energy.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
