@@ -1,0 +1,13 @@
+{
+  "name": "safezone",
+  "version": "1.0.0",
+  "description": "Exact rational-arithmetic convex safety-zone library and CLI for a robot cell",
+  "type": "module",
+  "main": "src/safezone.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
