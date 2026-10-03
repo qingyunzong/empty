@@ -1,0 +1,10 @@
+{
+  "name": "trade-order-saga",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Trade order placement with parallel risk-control and account-freeze branches, event-sourced on JSONL",
+  "scripts": {
+    "test": "node --test"
+  }
+}
