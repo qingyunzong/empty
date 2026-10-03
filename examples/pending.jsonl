@@ -1,0 +1,2 @@
+{"id":"e1","node":"n1","prev":null,"invocation":1,"response":2,"realTime":1,"op":"write","key":"x","value":1}
+{"id":"e2","node":"n2","prev":null,"invocation":3,"response":null,"realTime":3,"op":"read","key":"x","value":1}

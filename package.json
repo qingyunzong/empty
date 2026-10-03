@@ -1,0 +1,9 @@
+{
+  "name": "linck",
+  "version": "1.0.0",
+  "description": "Offline linearizability checker for causal operation histories",
+  "type": "module",
+  "bin": { "linck": "bin/linck.js" },
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
