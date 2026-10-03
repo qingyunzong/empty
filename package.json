@@ -1,0 +1,16 @@
+{
+  "name": "payment-reversal",
+  "version": "1.0.0",
+  "description": "Dependency-graph-driven payment reversal propagation library and NDJSON CLI",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "payment-reversal": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
