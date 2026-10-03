@@ -1,0 +1,8 @@
+{"type":"charge","batch":"RM-CITRIC-001","material":"citric acid"}
+{"type":"charge","batch":"RM-SYRUP-002","material":"glucose syrup"}
+{"type":"inspect","id":"QC-1001","batch":"RM-CITRIC-001","status":"fail"}
+{"type":"mix","inputs":["RM-CITRIC-001","RM-SYRUP-002"],"output":"WIP-BASE-010"}
+{"type":"split","input":"WIP-BASE-010","outputs":["FG-DRINK-101","FG-DRINK-102"]}
+{"type":"charge","batch":"RM-PECTIN-003","material":"pectin"}
+{"type":"inspect","id":"QC-1002","batch":"RM-PECTIN-003","status":"under-review"}
+{"type":"split","input":"RM-PECTIN-003","outputs":["FG-JAM-201"]}

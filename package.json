@@ -1,0 +1,10 @@
+{
+  "name": "food-trace",
+  "version": "1.0.0",
+  "description": "Offline batch genealogy (DAG) traceability and recall certificates for food/chemical plants",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "bin": { "trace": "bin/trace.js" },
+  "scripts": { "test": "node --test" }
+}
