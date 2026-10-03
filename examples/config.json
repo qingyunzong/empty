@@ -1,0 +1,8 @@
+{
+  "window": 50,
+  "accounts": {
+    "A": { "cash": 100000, "sec": 0 },
+    "B": { "cash": 0, "sec": 500 },
+    "C": { "cash": 5000, "sec": 0 }
+  }
+}

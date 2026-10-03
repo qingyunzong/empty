@@ -1,0 +1,14 @@
+{"op":"new","clOrdId":"B1","side":"buy","qty":100,"price":1000,"acct":"A","seq":1,"ts":1,"crc":"3ee56448"}
+{"op":"new","clOrdId":"S1","side":"sell","qty":60,"price":990,"acct":"B","seq":2,"ts":2,"crc":"4c2ce6a2"}
+{"op":"match","clOrdId":"M1","seq":3,"ts":3,"crc":"59211f5c"}
+{"op":"amend","clOrdId":"AM1","origId":"B1","qty":30,"seq":4,"ts":4,"crc":"c5d17c76"}
+{"op":"amend","clOrdId":"AM2","origId":"B1","qty":80,"seq":5,"ts":5,"crc":"3488d0c0"}
+{"op":"new","clOrdId":"S2","side":"sell","qty":50,"price":1010,"acct":"B","seq":6,"ts":6,"crc":"e90b437c"}
+{"op":"new","clOrdId":"B2","side":"buy","qty":50,"price":1010,"acct":"C","seq":7,"ts":7,"crc":"2ed5aea9"}
+{"op":"match","clOrdId":"M2","seq":8,"ts":8,"crc":"2ba86139"}
+{"op":"cancel","clOrdId":"CX1","origId":"B2","seq":9,"ts":9,"crc":"44d9a5d6"}
+{"op":"settle","clOrdId":"ST1","origId":"T1","seq":10,"ts":10,"crc":"86718a7d"}
+{"op":"fail","clOrdId":"F1","origId":"T1","seq":11,"ts":11,"crc":"e9b7f3a2"}
+{"op":"new","clOrdId":"S3","side":"sell","qty":10,"price":900,"acct":"B","seq":12,"ts":12,"crc":"4dcf3652"}
+{"op":"match","clOrdId":"M3","seq":13,"ts":13,"crc":"eeca5de2"}
+{"op":"match","clOrdId":"M4","seq":14,"ts":60,"crc":"a2a9f104"}
