@@ -1,0 +1,17 @@
+TAP version 13
+# Subtest: test/settlement.test.js
+ok 1 - test/settlement.test.js
+  ---
+  duration_ms: 4459.746543
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4826.637907
+EXIT_CODE=0
