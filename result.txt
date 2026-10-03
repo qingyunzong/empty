@@ -1,0 +1,141 @@
+# CLI 验收场景真实输出与退出码
+# 运行环境: v22.22.1, 日期: 2026-10-03T13:51:30Z
+
+======================================================================
+场景 1: 因果乱序事件 -> 与因果排序一致的确定结果 (status=ok)
+======================================================================
+$ node src/cli.js ingest --db /tmp/uptime-scen-17888/scen1.json --file examples/scenario1-events.json
+{
+  "accepted": [
+    "s1-e3",
+    "s1-e1",
+    "s1-e4",
+    "s1-e2"
+  ],
+  "duplicates": [],
+  "corrections": [
+    {
+      "version": 2,
+      "eventId": "s1-e1",
+      "device": "A",
+      "reason": "late-event"
+    },
+    {
+      "version": 4,
+      "eventId": "s1-e2",
+      "device": "A",
+      "reason": "late-event"
+    }
+  ],
+  "version": 4
+}
+exit code: 0
+
+$ node src/cli.js query --db /tmp/uptime-scen-17888/scen1.json --watermark 50
+{
+  "watermark": 50,
+  "devices": {
+    "A": {
+      "status": "ok",
+      "intervals": [
+        {
+          "start": 10,
+          "end": 20
+        },
+        {
+          "start": 30,
+          "end": 40
+        }
+      ],
+      "downtime": 20,
+      "availability": 0.5,
+      "linearizations": 1
+    }
+  },
+  "version": 4
+}
+exit code: 0
+
+======================================================================
+场景 2: 同设备并发 toggle -> ambiguous + 最小/最大停机时长
+======================================================================
+$ node src/cli.js ingest --db /tmp/uptime-scen-17888/scen2.json --file examples/scenario2-events.json
+{
+  "accepted": [
+    "s2-e1",
+    "s2-e2"
+  ],
+  "duplicates": [],
+  "corrections": [],
+  "version": 2
+}
+exit code: 0
+
+$ node src/cli.js query --db /tmp/uptime-scen-17888/scen2.json --watermark 20
+{
+  "watermark": 20,
+  "devices": {
+    "B": {
+      "status": "ambiguous",
+      "intervals": [
+        {
+          "start": 10,
+          "end": 12
+        }
+      ],
+      "downtime": null,
+      "minDowntime": 2,
+      "maxDowntime": 10,
+      "nullDowntimePossible": false,
+      "availability": null,
+      "minAvailability": 0,
+      "maxAvailability": 0.8,
+      "linearizations": 2,
+      "truncated": false
+    }
+  },
+  "version": 2
+}
+exit code: 0
+
+======================================================================
+场景 3: 缺失 end 且未到水位线 -> 相关时长为 null
+======================================================================
+$ node src/cli.js ingest --db /tmp/uptime-scen-17888/scen3.json --file examples/scenario3-events.json
+{
+  "accepted": [
+    "s3-e1"
+  ],
+  "duplicates": [],
+  "corrections": [],
+  "version": 1
+}
+exit code: 0
+
+$ node src/cli.js query --db /tmp/uptime-scen-17888/scen3.json   (无水位线)
+{
+  "watermark": null,
+  "devices": {
+    "C": {
+      "status": "ok",
+      "intervals": [
+        {
+          "start": 5,
+          "end": null
+        }
+      ],
+      "downtime": null,
+      "availability": null,
+      "linearizations": 1
+    }
+  },
+  "version": 1
+}
+exit code: 0
+
+======================================================================
+附加: schema 错误退出码 1
+======================================================================
+$ node src/cli.js ingest --db /tmp/uptime-scen-17888/bad.json --file examples/bad-events.json
+schema error: event[0]: state must be "up" or "down"
+exit code: 1

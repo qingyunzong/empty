@@ -1,0 +1,6 @@
+[
+  { "id": "s1-e3", "device": "A", "ts": 30, "state": "down", "node": "n1", "clock": { "n1": 2, "n2": 1 } },
+  { "id": "s1-e1", "device": "A", "ts": 10, "state": "down", "node": "n1", "clock": { "n1": 1 } },
+  { "id": "s1-e4", "device": "A", "ts": 40, "state": "up",   "node": "n2", "clock": { "n1": 2, "n2": 2 } },
+  { "id": "s1-e2", "device": "A", "ts": 20, "state": "up",   "node": "n2", "clock": { "n1": 1, "n2": 1 } }
+]

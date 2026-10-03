@@ -1,0 +1,3 @@
+[
+  { "id": "bad-1", "device": "A", "ts": 10, "state": "sideways", "node": "n1", "clock": { "n1": 1 } }
+]

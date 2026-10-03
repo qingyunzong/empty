@@ -1,0 +1,16 @@
+{
+  "name": "device-uptime-causal",
+  "version": "1.0.0",
+  "description": "Offline single-machine judgment of multi-device up/down history with causal (vector-clock) ordering",
+  "type": "module",
+  "main": "src/analyze.js",
+  "bin": {
+    "uptime": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
