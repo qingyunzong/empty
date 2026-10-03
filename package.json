@@ -1,0 +1,8 @@
+{
+  "name": "event-merger",
+  "version": "0.1.0",
+  "description": "Three-way event archive merger with history branches, causal dependency tracking and verifiable topology certificates",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" }
+}
