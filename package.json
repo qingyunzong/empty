@@ -1,0 +1,14 @@
+{
+  "name": "obs-store",
+  "version": "0.1.0",
+  "description": "Embedded transactional MVCC store with WAL for observation records",
+  "type": "commonjs",
+  "main": "src/store.js",
+  "bin": {
+    "obs-store": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
