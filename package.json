@@ -1,0 +1,15 @@
+{
+  "name": "freeze-ledger",
+  "version": "1.0.0",
+  "description": "Chunked transaction log for quota freeze tickets with crash recovery",
+  "type": "module",
+  "bin": {
+    "freeze-ledger": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
