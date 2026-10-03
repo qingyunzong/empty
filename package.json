@@ -1,0 +1,15 @@
+{
+  "name": "obs-store",
+  "version": "0.1.0",
+  "description": "Offline observation import store with vector clocks, tombstones and CRDT-style merge",
+  "type": "module",
+  "bin": {
+    "obs": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
