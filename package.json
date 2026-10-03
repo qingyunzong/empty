@@ -1,0 +1,12 @@
+{
+  "name": "audit-trail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Append-only audit trail with binary frame protocol, hash chain, checkpoints and transactional undo",
+  "main": "cli.js",
+  "scripts": {
+    "test": "node --test",
+    "gen-frames": "node examples/gen-frames.js"
+  },
+  "engines": { "node": ">=22" }
+}
