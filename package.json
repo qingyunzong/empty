@@ -1,0 +1,16 @@
+{
+  "name": "lot-genealogy-trace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "批次谱系正向/逆向追溯库与CLI（离线单机，仅Node.js标准库）",
+  "main": "lib/genealogy.js",
+  "bin": {
+    "lot-trace": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

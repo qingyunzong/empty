@@ -1,0 +1,160 @@
+=== node --test ===
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2474.192866
+
+=== 场景1: split(A->B,C) 后 merge(B,C->D)，双向可达枚举 ===
+$ node bin/cli.js init --state demo-state.json
+{
+  "ok": true,
+  "state": "demo-state.json",
+  "version": 0
+}
+$ node bin/cli.js commit --tx <4条谱系边: B<-A, C<-A, D<-B, D<-C>
+{
+  "ok": true,
+  "committed": "e1",
+  "version": 1
+}
+{
+  "ok": true,
+  "committed": "e2",
+  "version": 2
+}
+{
+  "ok": true,
+  "committed": "e3",
+  "version": 3
+}
+{
+  "ok": true,
+  "committed": "e4",
+  "version": 4
+}
+$ node bin/cli.js trace --lot D   # 逆向追溯：根集合roots
+{
+  "lot": "D",
+  "version": 4,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [],
+  "inputHash": "e4693b2b23785a54407797358b8d3c6cc844c5e7149d516c257e03aa08ff0c23"
+}
+$ node bin/cli.js trace --lot A   # 正向追溯：叶集合leaves
+{
+  "lot": "A",
+  "version": 4,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [],
+  "inputHash": "e4693b2b23785a54407797358b8d3c6cc844c5e7149d516c257e03aa08ff0c23"
+}
+
+=== 场景2: 上游A的null检验更正为block，uninspected -> blocked ===
+$ node bin/cli.js commit --tx '{A检验 result:null}'
+{
+  "ok": true,
+  "committed": "i1",
+  "version": 5
+}
+$ node bin/cli.js trace --lot D   # null不隐式合格 -> uninspected
+{
+  "lot": "D",
+  "version": 5,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [],
+  "inputHash": "6e1ac158e29910b8f5b6b45aafd15ad800af51fb5880d7b3cc9c818c007cb54c"
+}
+$ node bin/cli.js commit --tx '{更正: null -> block}'
+{
+  "ok": true,
+  "committed": "i2",
+  "version": 6
+}
+$ node bin/cli.js trace --lot D   # -> blocked，阻塞记录含新检验
+{
+  "lot": "D",
+  "version": 6,
+  "status": "blocked",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [
+    {
+      "lot": "A",
+      "result": "block",
+      "ts": 2
+    }
+  ],
+  "inputHash": "38fc8bba5a4c5239124bb70c4299d19d5b3f9e061c75c935ed3a7e598058e49c"
+}
+
+=== 场景3: 撤销 ===
+$ node bin/cli.js undo --tx-id i2   # 撤销更正，恢复uninspected
+{
+  "ok": true,
+  "undone": "i2",
+  "changed": true,
+  "version": 7
+}
+{
+  "lot": "D",
+  "version": 7,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [],
+  "inputHash": "6e1ac158e29910b8f5b6b45aafd15ad800af51fb5880d7b3cc9c818c007cb54c"
+}
+$ node bin/cli.js undo --tx-id i2   # 重复撤销：changed=false，状态不变
+{
+  "ok": true,
+  "undone": "i2",
+  "changed": false,
+  "version": 7
+}
+{
+  "lot": "D",
+  "version": 7,
+  "status": "uninspected",
+  "roots": [
+    "A"
+  ],
+  "leaves": [
+    "D"
+  ],
+  "blockedRecords": [],
+  "inputHash": "6e1ac158e29910b8f5b6b45aafd15ad800af51fb5880d7b3cc9c818c007cb54c"
+}
+$ node bin/cli.js undo --tx-id nope   # 撤销不存在事务：报错
+error: transaction not found: nope
+exit=1
