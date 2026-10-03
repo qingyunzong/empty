@@ -1,0 +1,9 @@
+{
+  "name": "quota-freeze-replica",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Causal quota-freeze replica library and CLI (Node.js stdlib only)",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
