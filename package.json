@@ -1,0 +1,13 @@
+{
+  "name": "trace-view",
+  "version": "0.1.0",
+  "description": "Batch lineage traceability views as DFAs: minimization, equivalence certificates, layered crash-safe imports",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

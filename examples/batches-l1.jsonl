@@ -1,0 +1,5 @@
+{"meta":"start","start":"raw-milk"}
+{"batch":"raw-milk","defects":[],"on":{"merge":"blend-vat"}}
+{"batch":"culture-a","defects":["d-lacto"],"on":{"merge":"blend-vat"}}
+{"batch":"blend-vat","parents":["raw-milk","culture-a"],"defects":[],"on":{"test":"qc-hold","ship":"blend-vat"}}
+{"batch":"qc-hold","parents":["blend-vat"],"defects":[],"pending":true,"on":{"test":"blend-vat"}}

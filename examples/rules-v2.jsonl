@@ -1,0 +1,3 @@
+{"batch":"t0","defects":[],"on":{"merge":"t1"}}
+{"batch":"t1","parents":["t0"],"defects":[],"on":{"test":"t2"}}
+{"batch":"t2","parents":["t1"],"defects":[],"on":{"ship":"t2"}}
