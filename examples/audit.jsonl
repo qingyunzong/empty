@@ -1,0 +1,9 @@
+{"cmd":"loadPack","name":"plc-core","version":1,"alphabet":["a","b","c"],"danger":"(a|b|c)*abb(a|b|c)*"}
+{"cmd":"setFilter","regex":"~((a|b|c)*bb(a|b|c)*)"}
+{"cmd":"check"}
+{"cmd":"loadPack","name":"plc-core","version":2,"alphabet":["a","b","c"],"danger":"a(b|c)*a"}
+{"cmd":"setFilter","regex":"~((a|b|c)*bb(a|b|c)*)"}
+{"cmd":"check"}
+{"cmd":"rollback","name":"plc-core","version":1}
+{"cmd":"setFilter","regex":"(a|b|c)* & ~((a|b|c)*abb(a|b|c)*)"}
+{"cmd":"check"}
