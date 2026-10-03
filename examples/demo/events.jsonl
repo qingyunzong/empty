@@ -1,0 +1,13 @@
+{"type":"assign","task_id":"t1"}
+{"type":"assign","task_id":"t2"}
+{"type":"assign","task_id":"t3"}
+{"type":"start","task_id":"t2"}
+{"type":"block_aisle","aisle":"B"}
+{"type":"start","task_id":"t3"}
+{"type":"finish","task_id":"t2"}
+{"type":"finish","task_id":"t3"}
+{"type":"unblock_aisle","aisle":"B"}
+{"type":"start","task_id":"t1"}
+{"type":"cancel","task_id":"t1"}
+{"type":"safe_point","task_id":"t1"}
+{"type":"cancel","task_id":"t2"}

@@ -1,0 +1,33 @@
+# node --test 真实运行结果 (2026-10-03T02:38:21Z, node v22.22.1)
+
+✔ 验收1: 3任务2巷道枚举事件交错, 任何时刻无两任务同货位 (7411.892ms)
+✔ 验收2: started 任务 cancel 未到 safe_point 前不得释放目标位 (12.728965ms)
+✔ 验收3: block/unblock 中两个 finish 汇合, 顺序可复现 (22.31047ms)
+✔ 验收4: cancel 已 done 记 INVALID_STATE 但不中断后续事件 (2.010793ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7653.374407
+
+✔ 状态机主流程 created->assigned->started->done (21.635372ms)
+✔ 非法跃迁记 INVALID_STATE 且不改变状态 (2.931437ms)
+✔ 重复 cancel (未 started) 幂等返回同一结果 (2.142736ms)
+✔ 带 id 事件幂等去重 (2.008991ms)
+✔ move 任务 started 取消: safe_point 后补偿回源位 (6.656658ms)
+✔ assign 目标位被占记 SLOT_OCCUPIED (3.537055ms)
+✔ 阻塞巷道 finish 排队, unblock 按优先级/到达序/task_id 放行 (9.633975ms)
+✔ 优先级与到达序均平局时按 task_id (4.218854ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.457526
+
+node --test 总退出码: 0 (tests 12, pass 12, fail 0)

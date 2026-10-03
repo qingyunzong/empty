@@ -1,0 +1,7 @@
+{
+  "tasks": [
+    { "task_id": "t1", "type": "inbound", "item": "sku-1", "to": "A-01", "priority": 1 },
+    { "task_id": "t2", "type": "move", "item": "sku-2", "from": "A-02", "to": "B-01", "priority": 2 },
+    { "task_id": "t3", "type": "outbound", "item": "sku-3", "from": "B-02", "priority": 1 }
+  ]
+}

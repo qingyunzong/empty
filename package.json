@@ -1,0 +1,10 @@
+{
+  "name": "stacker-crane-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "立体库堆垛机任务调度模拟器 (Node.js 22, 仅标准库)",
+  "main": "src/simulator.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
