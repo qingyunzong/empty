@@ -1,0 +1,16 @@
+{
+  "name": "devlog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline append-only device event log with delta-encoded CRC32 blocks, corrections, tombstones and verifiable certificates",
+  "type": "commonjs",
+  "bin": {
+    "devlog": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
