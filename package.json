@@ -1,0 +1,10 @@
+{
+  "name": "device-event-merger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Device on/off event merging library and CLI with explicit timezone offset tables",
+  "scripts": {
+    "test": "node --test"
+  }
+}
