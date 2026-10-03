@@ -1,0 +1,13 @@
+{
+  "name": "meteo-corrections",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental correction engine for meteorological observation time series",
+  "main": "src/timeseries.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
