@@ -1,0 +1,12 @@
+{
+  "name": "recon-minimize",
+  "version": "1.0.0",
+  "description": "Financial reconciliation diff locator and minimizer (Node.js stdlib only)",
+  "type": "module",
+  "bin": {
+    "recon-minimize": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
