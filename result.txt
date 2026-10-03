@@ -1,0 +1,29 @@
+test_delete_success (tests.test_dynamic_csp.TestCLI.test_delete_success) ... ok
+test_delete_unknown_constraint_id (tests.test_dynamic_csp.TestCLI.test_delete_unknown_constraint_id) ... ok
+test_invalid_problem_file (tests.test_dynamic_csp.TestCLI.test_invalid_problem_file) ... ok
+test_negative_constraint_id (tests.test_dynamic_csp.TestCLI.test_negative_constraint_id) ... ok
+test_chain_restoration (tests.test_dynamic_csp.TestCascadedRestoration.test_chain_restoration) ... ok
+test_mutually_supporting_values_restore_together (tests.test_dynamic_csp.TestCascadedRestoration.test_mutually_supporting_values_restore_together) ... ok
+test_domains_unchanged_and_nothing_restored (tests.test_dynamic_csp.TestDeleteInactiveConstraint.test_domains_unchanged_and_nothing_restored) ... ok
+test_domains_restore_to_initial (tests.test_dynamic_csp.TestDeleteLastConstraint.test_domains_restore_to_initial) ... ok
+test_delete_one_of_two_constraints (tests.test_dynamic_csp.TestDeleteMatchesNaiveReference.test_delete_one_of_two_constraints) ... ok
+test_delete_other_constraint (tests.test_dynamic_csp.TestDeleteMatchesNaiveReference.test_delete_other_constraint) ... ok
+test_library_raises_and_state_unchanged (tests.test_dynamic_csp.TestDeleteUnknownConstraint.test_library_raises_and_state_unchanged) ... ok
+test_forbidden_type (tests.test_dynamic_csp.TestForbiddenConstraints.test_forbidden_type) ... ok
+test_initial_ac3 (tests.test_dynamic_csp.TestInitialPropagation.test_initial_ac3) ... ok
+test_removal_reasons_recorded (tests.test_dynamic_csp.TestInitialPropagation.test_removal_reasons_recorded) ... ok
+test_rejects_bad_tuple_arity (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_bad_tuple_arity) ... ok
+test_rejects_duplicate_constraint_id (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_duplicate_constraint_id) ... ok
+test_rejects_empty_variables (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_empty_variables) ... ok
+test_rejects_negative_constraint_id (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_negative_constraint_id) ... ok
+test_rejects_non_object (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_non_object) ... ok
+test_rejects_unknown_variable_in_scope (tests.test_dynamic_csp.TestInvalidProblems.test_rejects_unknown_variable_in_scope) ... ok
+test_random_problems_match_naive_reference (tests.test_dynamic_csp.TestRandomizedAgainstNaive.test_random_problems_match_naive_reference) ... ok
+test_other_constraint_still_supports_removal (tests.test_dynamic_csp.TestSharedSupport.test_other_constraint_still_supports_removal) ... ok
+test_inconsistent_problem_becomes_consistent (tests.test_dynamic_csp.TestWipeoutRecovery.test_inconsistent_problem_becomes_consistent) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.953s
+
+OK
+exit=0

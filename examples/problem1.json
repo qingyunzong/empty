@@ -1,0 +1,7 @@
+{
+  "variables": {"x": [1, 2, 3], "y": [1, 2, 3], "z": [1, 2, 3]},
+  "constraints": [
+    {"id": 0, "scope": ["x", "y"], "type": "allowed", "tuples": [[1, 1], [2, 2]]},
+    {"id": 1, "scope": ["y", "z"], "type": "allowed", "tuples": [[1, 1], [2, 2], [3, 3]]}
+  ]
+}
