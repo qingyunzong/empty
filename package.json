@@ -1,0 +1,9 @@
+{
+  "name": "expdsl",
+  "version": "0.1.0",
+  "description": "Incremental parser for experiment parameters and raw observations",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

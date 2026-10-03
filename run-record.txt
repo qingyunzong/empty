@@ -1,0 +1,140 @@
+# run-record
+date: 2026-10-03T03:21:07Z
+node: v22.22.1
+
+## node --test
+TAP version 13
+# Subtest: test/dsl.test.js
+ok 1 - test/dsl.test.js
+  ---
+  duration_ms: 947.884068
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1035.940864
+
+## CLI smoke (real invocations)
+$ node cli.js parse examples/small.dsl --store /tmp/clitest2/store.json
+snapshot v3
+scope <root> (path: <root>)
+  a = 1  [let, defined in <root>]
+  b = 2  [let, defined in <root>]
+scope cfg (path: <root> / cfg)
+  a = 10  [let, defined in cfg]
+  b = 2  [let, defined in <root>]
+  c = 20  [let, defined in cfg]
+exit=0
+$ node cli.js resolve examples/nested.dsl x --in outer/mid/inner
+x = 3  [let, defined in mid]
+scope chain (innermost first):
+  inner
+  mid  <-- resolved here
+  outer
+  <root>
+exit=0
+$ node cli.js correct /tmp/clitest2/store.json 1 a 5
+snapshot v4
+scope <root> (path: <root>)
+  a = 1  [let, defined in <root>]
+  b = 2  [let, defined in <root>]
+scope cfg (path: <root> / cfg)
+  a = 5  [corrected, defined in cfg]
+  b = 2  [let, defined in <root>]
+  c = 10  [let, defined in cfg]
+exit=0
+$ node cli.js resolve /tmp/clitest2/store.json@1 a --in cfg  (parent snapshot)
+a = 10  [let, defined in cfg]
+scope chain (innermost first):
+  cfg  <-- resolved here
+  <root>
+exit=0
+$ node cli.js resolve examples/nested.dsl nope
+error: unknown name 'nope'
+exit=1
+$ node cli.js correct /tmp/clitest2/store.json 1 nope 3
+error: cannot correct undefined binding 'nope'
+exit=1
+$ node cli.js parse /tmp/clitest2/bad.dsl  (unclosed backtick)
+error: unclosed raw observation (backtick) opened at 1:9
+exit=1
+$ node cli.js parse /tmp/clitest2/ovr.dsl  (override of undefined binding)
+error: override 'nope' has no existing binding to correct
+exit=1
+
+## node --test --test-reporter=spec (subtest detail)
+✔ test/dsl.test.js (1592.181302ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1666.477363
+
+## node test/dsl.test.js (individual subtests)
+TAP version 13
+# Subtest: lexer: raw observations keep parens and \# literally; comments stripped
+ok 1 - lexer: raw observations keep parens and \# literally; comments stripped
+  ---
+  duration_ms: 56.669502
+  type: 'test'
+  ...
+# Subtest: lexer: unclosed raw observation is an error
+ok 2 - lexer: unclosed raw observation is an error
+  ---
+  duration_ms: 12.12181
+  type: 'test'
+  ...
+# Subtest: parser: Pratt precedence and parentheses
+ok 3 - parser: Pratt precedence and parentheses
+  ---
+  duration_ms: 40.049428
+  type: 'test'
+  ...
+# Subtest: acceptance 1: three-level nesting resolves to nearest scope with full chain
+ok 4 - acceptance 1: three-level nesting resolves to nearest scope with full chain
+  ---
+  duration_ms: 41.671976
+  type: 'test'
+  ...
+# Subtest: acceptance 2: override of undefined binding fails; snapshot untouched
+ok 5 - acceptance 2: override of undefined binding fails; snapshot untouched
+  ---
+  duration_ms: 23.679188
+  type: 'test'
+  ...
+# Subtest: acceptance 3: incremental correct; parent and child coexist with manual table
+ok 6 - acceptance 3: incremental correct; parent and child coexist with manual table
+  ---
+  duration_ms: 18.965306
+  type: 'test'
+  ...
+# Subtest: unknown name is an error
+ok 7 - unknown name is an error
+  ---
+  duration_ms: 18.287916
+  type: 'test'
+  ...
+# Subtest: CLI: parse/resolve/correct exit codes and output
+ok 8 - CLI: parse/resolve/correct exit codes and output
+  ---
+  duration_ms: 91.866139
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 852.777572
