@@ -1,0 +1,16 @@
+{
+  "name": "trace-certify",
+  "version": "0.1.0",
+  "description": "Auditable bolt-tightening certification: joins torque curves, station calibration and barcode lots into versioned certificates.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "trace": "bin/trace.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
