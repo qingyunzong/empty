@@ -1,0 +1,9 @@
+{
+  "name": "offline-planner",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Offline scheduling planner: change-log positional index + budget-coupled undo/redo",
+  "scripts": {
+    "test": "node --test"
+  }
+}
