@@ -1,0 +1,9 @@
+{
+  "orders": [
+    { "id": "O1", "duration": 30, "window": [100, 50], "parts": [], "skill": "mech" }
+  ],
+  "techs": [
+    { "id": "T1", "shifts": [[0, 480]], "skills": ["mech"] }
+  ],
+  "kits": []
+}

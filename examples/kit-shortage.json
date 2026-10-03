@@ -1,0 +1,13 @@
+{
+  "orders": [
+    { "id": "O1", "duration": 60, "window": [0, 60], "parts": ["pA"], "skill": "mech" },
+    { "id": "O2", "duration": 60, "window": [0, 60], "parts": ["pA"], "skill": "mech" }
+  ],
+  "techs": [
+    { "id": "T1", "shifts": [[0, 600]], "skills": ["mech"] },
+    { "id": "T2", "shifts": [[0, 600]], "skills": ["mech"] }
+  ],
+  "kits": [
+    { "id": "KA", "qty": 1, "compatible": ["pA"] }
+  ]
+}

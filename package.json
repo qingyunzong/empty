@@ -1,0 +1,9 @@
+{
+  "name": "maintenance-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline maintenance work-order planner: tech shifts, part kits and downtime windows",
+  "scripts": {
+    "test": "node --test"
+  }
+}

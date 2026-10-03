@@ -1,0 +1,152 @@
+{
+  "orders": [
+    {
+      "id": "O1",
+      "duration": 60,
+      "window": [
+        0,
+        60
+      ],
+      "parts": [
+        "pA"
+      ],
+      "skill": "mech"
+    },
+    {
+      "id": "O2",
+      "duration": 60,
+      "window": [
+        60,
+        120
+      ],
+      "parts": [
+        "pA"
+      ],
+      "skill": "mech"
+    },
+    {
+      "id": "O3",
+      "duration": 30,
+      "window": [
+        0,
+        60
+      ],
+      "parts": [
+        "pB"
+      ],
+      "skill": "mech"
+    },
+    {
+      "id": "O4",
+      "duration": 30,
+      "window": [
+        60,
+        105
+      ],
+      "parts": [
+        "pB"
+      ],
+      "skill": "elec"
+    },
+    {
+      "id": "O5",
+      "duration": 45,
+      "window": [
+        120,
+        180
+      ],
+      "parts": [
+        "pA"
+      ],
+      "skill": "elec"
+    },
+    {
+      "id": "O6",
+      "duration": 60,
+      "window": [
+        120,
+        210
+      ],
+      "parts": [],
+      "skill": "mech"
+    },
+    {
+      "id": "O7",
+      "duration": 30,
+      "window": [
+        150,
+        210
+      ],
+      "parts": [
+        "pB"
+      ],
+      "skill": "elec"
+    },
+    {
+      "id": "O8",
+      "duration": 30,
+      "window": [
+        180,
+        240
+      ],
+      "parts": [
+        "pA"
+      ],
+      "skill": "mech"
+    },
+    {
+      "id": "O9",
+      "duration": 45,
+      "window": [
+        180,
+        240
+      ],
+      "parts": [],
+      "skill": "elec"
+    }
+  ],
+  "techs": [
+    {
+      "id": "T1",
+      "shifts": [
+        [
+          0,
+          240
+        ]
+      ],
+      "skills": [
+        "mech"
+      ]
+    },
+    {
+      "id": "T2",
+      "shifts": [
+        [
+          0,
+          240
+        ]
+      ],
+      "skills": [
+        "mech",
+        "elec"
+      ]
+    }
+  ],
+  "kits": [
+    {
+      "id": "KA",
+      "qty": 1,
+      "compatible": [
+        "pA"
+      ]
+    },
+    {
+      "id": "KB",
+      "qty": 1,
+      "compatible": [
+        "pB"
+      ]
+    }
+  ],
+  "timeStep": 15
+}
