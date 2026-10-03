@@ -1,0 +1,15 @@
+{
+  "name": "chain-guarantee",
+  "version": "1.0.0",
+  "description": "Chained guarantee (保函) ledger with capacity freezing, terms position index and audit certificates",
+  "type": "module",
+  "bin": {
+    "chain-guarantee": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
