@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 495.099967
+  type: 'test'
+  ...
+# Subtest: test/enumerate.test.js
+ok 2 - test/enumerate.test.js
+  ---
+  duration_ms: 616.688444
+  type: 'test'
+  ...
+# Subtest: test/generate.test.js
+ok 3 - test/generate.test.js
+  ---
+  duration_ms: 193.479771
+  type: 'test'
+  ...
+# Subtest: test/model.test.js
+ok 4 - test/model.test.js
+  ---
+  duration_ms: 200.178421
+  type: 'test'
+  ...
+# Subtest: test/prng.test.js
+ok 5 - test/prng.test.js
+  ---
+  duration_ms: 187.191435
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 637.862456
+# ---
+# recorded-run: node --test 2>&1 | tee test-result.txt
+# exit-code: 0
+# pass: 5
+# fail: 0
+# log-sha256: 0baab27cfce9ea7bf3f01924ef18d0b53cec884cc86ac05e1d0a7943cc41b359

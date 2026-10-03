@@ -1,0 +1,12 @@
+{
+  "name": "quota-freeze-model",
+  "version": "1.0.0",
+  "description": "Randomized state-verification library and CLI for a quota freeze model (freeze/unfreeze/debit/cancelDebit).",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
