@@ -1,0 +1,15 @@
+{
+  "name": "order-event-store",
+  "version": "1.0.0",
+  "description": "Order event stream store with positional text index, tombstone deletes, segment merge and budget-limited trade refunds",
+  "type": "module",
+  "bin": {
+    "order-store": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
