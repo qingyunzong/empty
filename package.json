@@ -1,0 +1,9 @@
+{
+  "name": "settlement-audit-sampler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Audit sampling library and CLI: settlement-flow regex automata, log checking, edit-distance repairs, spec equivalence",
+  "scripts": {
+    "test": "node --test"
+  }
+}
