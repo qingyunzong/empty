@@ -1,0 +1,9 @@
+{
+  "name": "qcert",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Offline segmented certificate store with hash-chained manifest and inclusion/exclusion proofs",
+  "scripts": {
+    "test": "node --test"
+  }
+}
