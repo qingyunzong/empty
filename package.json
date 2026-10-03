@@ -1,0 +1,13 @@
+{
+  "name": "repair-order-vcs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline repair work-order version library and CLI (Node.js 22, standard library only)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
