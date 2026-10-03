@@ -1,0 +1,8 @@
+{
+  "name": "safe-zone",
+  "version": "1.0.0",
+  "description": "Convex polygon safety zone with exact rational arithmetic (library + CLI)",
+  "type": "module",
+  "bin": { "safe-zone": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
