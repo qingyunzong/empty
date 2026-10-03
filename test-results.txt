@@ -1,0 +1,544 @@
+recall-trace test results
+node: v22.22.1
+date: 2026-10-03T06:01:11.523Z
+
+=== interval set operations ===
+{
+  "union": [
+    {
+      "start": 0,
+      "end": 20
+    }
+  ],
+  "intersect": [
+    {
+      "start": 3,
+      "end": 5
+    },
+    {
+      "start": 10,
+      "end": 12
+    }
+  ],
+  "subtract": [
+    {
+      "start": 0,
+      "end": 3
+    },
+    {
+      "start": 12,
+      "end": 20
+    }
+  ],
+  "touchOverlap": false,
+  "crossOneMs": [
+    {
+      "start": 5,
+      "end": 6
+    }
+  ]
+}
+
+=== acceptance 1: converging genealogy query (observe UTC 2000-3000) ===
+{
+  "snapshot": "s1",
+  "component": "A",
+  "observeUtc": {
+    "start": 2000,
+    "end": 3000
+  },
+  "affected": [
+    {
+      "product": "P1",
+      "productionUtc": {
+        "start": 1030,
+        "end": 1040
+      },
+      "shelfLifeWindowUtc": {
+        "start": 1040,
+        "end": 1090
+      },
+      "packagingWindowUtc": {
+        "start": 1040,
+        "end": 1050
+      },
+      "withinShelfLife": false,
+      "hitIntervalUtc": [],
+      "inPackagingSeal": false,
+      "packagingHitIntervalUtc": [],
+      "certificates": [
+        {
+          "snapshot": "s1",
+          "path": [
+            {
+              "recordId": "r1",
+              "version": 1,
+              "inputs": [
+                "A",
+                "B"
+              ],
+              "output": "I1"
+            },
+            {
+              "recordId": "r2",
+              "version": 1,
+              "inputs": [
+                "I1",
+                "C"
+              ],
+              "output": "I2"
+            },
+            {
+              "recordId": "r3",
+              "version": 1,
+              "inputs": [
+                "I2",
+                "D"
+              ],
+              "output": "P1"
+            }
+          ],
+          "digest": "6ae5401f34b510a07c8bf0ed"
+        }
+      ]
+    },
+    {
+      "product": "P2",
+      "productionUtc": {
+        "start": 1030,
+        "end": 1040
+      },
+      "shelfLifeWindowUtc": {
+        "start": 1040,
+        "end": 6040
+      },
+      "packagingWindowUtc": {
+        "start": 1040,
+        "end": 3040
+      },
+      "withinShelfLife": true,
+      "hitIntervalUtc": [
+        {
+          "start": 2000,
+          "end": 3000
+        }
+      ],
+      "inPackagingSeal": true,
+      "packagingHitIntervalUtc": [
+        {
+          "start": 2000,
+          "end": 3000
+        }
+      ],
+      "certificates": [
+        {
+          "snapshot": "s1",
+          "path": [
+            {
+              "recordId": "r1",
+              "version": 1,
+              "inputs": [
+                "A",
+                "B"
+              ],
+              "output": "I1"
+            },
+            {
+              "recordId": "r2",
+              "version": 1,
+              "inputs": [
+                "I1",
+                "C"
+              ],
+              "output": "I2"
+            },
+            {
+              "recordId": "r4",
+              "version": 1,
+              "inputs": [
+                "I2",
+                "E"
+              ],
+              "output": "P2"
+            }
+          ],
+          "digest": "a139b67e99e31f7a54512a1d"
+        }
+      ]
+    }
+  ]
+}
+
+=== acceptance 2: endpoint touch vs 1ms crossing ===
+{
+  "shelfWindowUtc": [
+    1010,
+    1110
+  ],
+  "touchObserve": [
+    900,
+    1010
+  ],
+  "touchHit": [],
+  "crossObserve": [
+    900,
+    1011
+  ],
+  "crossHit": [
+    {
+      "start": 1010,
+      "end": 1011
+    }
+  ]
+}
+
+=== acceptance 3: rollback coexistence + reference algorithm ===
+{
+  "s1": {
+    "products": [
+      "P"
+    ],
+    "paths": [
+      "r1>r3",
+      "r2>r3"
+    ]
+  },
+  "s2": {
+    "products": [
+      "P"
+    ],
+    "paths": [
+      "r1>r3"
+    ]
+  },
+  "reference": {
+    "s1": [
+      [
+        "P",
+        [
+          "r1>r3",
+          "r2>r3"
+        ]
+      ]
+    ],
+    "s2": [
+      [
+        "P",
+        [
+          "r1>r3"
+        ]
+      ]
+    ]
+  },
+  "s1StableAfterRollback": true
+}
+
+=== error cases ===
+{
+  "unknownSnapshot": "ERR_UNKNOWN_SNAPSHOT",
+  "reversedInterval": "ERR_INTERVAL_REVERSED",
+  "negativeShelfLife": "ERR_NEGATIVE_SHELF_LIFE",
+  "unknownRollbackSnapshot": "ERR_UNKNOWN_SNAPSHOT",
+  "correctUnknownRecord": "ERR_UNKNOWN_RECORD"
+}
+
+=== cli end-to-end (examples/recall-demo.json) ===
+{
+  "results": [
+    {
+      "type": "batch",
+      "id": "A",
+      "status": "ok"
+    },
+    {
+      "type": "batch",
+      "id": "B",
+      "status": "ok"
+    },
+    {
+      "type": "batch",
+      "id": "I1",
+      "status": "ok"
+    },
+    {
+      "type": "batch",
+      "id": "P1",
+      "status": "ok"
+    },
+    {
+      "type": "batch",
+      "id": "P2",
+      "status": "ok"
+    },
+    {
+      "type": "record",
+      "id": "r1",
+      "status": "ok",
+      "version": 1
+    },
+    {
+      "type": "record",
+      "id": "r2",
+      "status": "ok",
+      "version": 1
+    },
+    {
+      "type": "record",
+      "id": "r3",
+      "status": "ok",
+      "version": 1
+    },
+    {
+      "type": "snapshot",
+      "name": "s1",
+      "status": "ok"
+    },
+    {
+      "type": "query",
+      "id": "q1",
+      "snapshot": "s1",
+      "component": "A",
+      "observeUtc": {
+        "start": 2000,
+        "end": 3000
+      },
+      "affected": [
+        {
+          "product": "P1",
+          "productionUtc": {
+            "start": 1020,
+            "end": 1030
+          },
+          "shelfLifeWindowUtc": {
+            "start": 1030,
+            "end": 1080
+          },
+          "packagingWindowUtc": {
+            "start": 1030,
+            "end": 1040
+          },
+          "withinShelfLife": false,
+          "hitIntervalUtc": [],
+          "inPackagingSeal": false,
+          "packagingHitIntervalUtc": [],
+          "certificates": [
+            {
+              "snapshot": "s1",
+              "path": [
+                {
+                  "recordId": "r1",
+                  "version": 1,
+                  "inputs": [
+                    "A",
+                    "B"
+                  ],
+                  "output": "I1"
+                },
+                {
+                  "recordId": "r2",
+                  "version": 1,
+                  "inputs": [
+                    "I1"
+                  ],
+                  "output": "P1"
+                }
+              ],
+              "digest": "bf5d34887978a20676efb718"
+            }
+          ]
+        },
+        {
+          "product": "P2",
+          "productionUtc": {
+            "start": 1020,
+            "end": 1030
+          },
+          "shelfLifeWindowUtc": {
+            "start": 1030,
+            "end": 6030
+          },
+          "packagingWindowUtc": {
+            "start": 1030,
+            "end": 3030
+          },
+          "withinShelfLife": true,
+          "hitIntervalUtc": [
+            {
+              "start": 2000,
+              "end": 3000
+            }
+          ],
+          "inPackagingSeal": true,
+          "packagingHitIntervalUtc": [
+            {
+              "start": 2000,
+              "end": 3000
+            }
+          ],
+          "certificates": [
+            {
+              "snapshot": "s1",
+              "path": [
+                {
+                  "recordId": "r1",
+                  "version": 1,
+                  "inputs": [
+                    "A",
+                    "B"
+                  ],
+                  "output": "I1"
+                },
+                {
+                  "recordId": "r3",
+                  "version": 1,
+                  "inputs": [
+                    "I1"
+                  ],
+                  "output": "P2"
+                }
+              ],
+              "digest": "6306a6f3cc49148ea82c6802"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "query",
+      "id": "q2",
+      "snapshot": "s1",
+      "component": "A",
+      "observeUtc": {
+        "start": 1025,
+        "end": 1035
+      },
+      "affected": [
+        {
+          "product": "P1",
+          "productionUtc": {
+            "start": 1020,
+            "end": 1030
+          },
+          "shelfLifeWindowUtc": {
+            "start": 1030,
+            "end": 1080
+          },
+          "packagingWindowUtc": {
+            "start": 1030,
+            "end": 1040
+          },
+          "withinShelfLife": true,
+          "hitIntervalUtc": [
+            {
+              "start": 1030,
+              "end": 1035
+            }
+          ],
+          "inPackagingSeal": true,
+          "packagingHitIntervalUtc": [
+            {
+              "start": 1030,
+              "end": 1035
+            }
+          ],
+          "certificates": [
+            {
+              "snapshot": "s1",
+              "path": [
+                {
+                  "recordId": "r1",
+                  "version": 1,
+                  "inputs": [
+                    "A",
+                    "B"
+                  ],
+                  "output": "I1"
+                },
+                {
+                  "recordId": "r2",
+                  "version": 1,
+                  "inputs": [
+                    "I1"
+                  ],
+                  "output": "P1"
+                }
+              ],
+              "digest": "bf5d34887978a20676efb718"
+            }
+          ]
+        },
+        {
+          "product": "P2",
+          "productionUtc": {
+            "start": 1020,
+            "end": 1030
+          },
+          "shelfLifeWindowUtc": {
+            "start": 1030,
+            "end": 6030
+          },
+          "packagingWindowUtc": {
+            "start": 1030,
+            "end": 3030
+          },
+          "withinShelfLife": true,
+          "hitIntervalUtc": [
+            {
+              "start": 1030,
+              "end": 1035
+            }
+          ],
+          "inPackagingSeal": true,
+          "packagingHitIntervalUtc": [
+            {
+              "start": 1030,
+              "end": 1035
+            }
+          ],
+          "certificates": [
+            {
+              "snapshot": "s1",
+              "path": [
+                {
+                  "recordId": "r1",
+                  "version": 1,
+                  "inputs": [
+                    "A",
+                    "B"
+                  ],
+                  "output": "I1"
+                },
+                {
+                  "recordId": "r3",
+                  "version": 1,
+                  "inputs": [
+                    "I1"
+                  ],
+                  "output": "P2"
+                }
+              ],
+              "digest": "6306a6f3cc49148ea82c6802"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "query",
+      "id": "q3",
+      "error": {
+        "code": "ERR_UNKNOWN_SNAPSHOT",
+        "message": "unknown snapshot: nope"
+      }
+    },
+    {
+      "type": "query",
+      "id": "q4",
+      "error": {
+        "code": "ERR_INTERVAL_REVERSED",
+        "message": "observation interval reversed: [50, 40)"
+      }
+    }
+  ]
+}
+

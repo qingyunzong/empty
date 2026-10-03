@@ -1,0 +1,18 @@
+{
+  "conversion": [{ "local": 0, "utc": 1000 }],
+  "ops": [
+    { "op": "batch", "id": "A", "localStart": 0, "localEnd": 10, "shelfLife": 100, "packaging": 10 },
+    { "op": "batch", "id": "B", "localStart": 0, "localEnd": 10, "shelfLife": 100, "packaging": 10 },
+    { "op": "batch", "id": "I1", "localStart": 10, "localEnd": 20, "shelfLife": 1000, "packaging": 50 },
+    { "op": "batch", "id": "P1", "localStart": 20, "localEnd": 30, "shelfLife": 50, "packaging": 10 },
+    { "op": "batch", "id": "P2", "localStart": 20, "localEnd": 30, "shelfLife": 5000, "packaging": 2000 },
+    { "op": "record", "id": "r1", "inputs": ["A", "B"], "output": "I1" },
+    { "op": "record", "id": "r2", "inputs": ["I1"], "output": "P1" },
+    { "op": "record", "id": "r3", "inputs": ["I1"], "output": "P2" },
+    { "op": "snapshot", "name": "s1" },
+    { "op": "query", "id": "q1", "snapshot": "s1", "component": "A", "observeStart": 2000, "observeEnd": 3000 },
+    { "op": "query", "id": "q2", "snapshot": "s1", "component": "A", "observeStart": 1025, "observeEnd": 1035 },
+    { "op": "query", "id": "q3", "snapshot": "nope", "component": "A", "observeStart": 0, "observeEnd": 1 },
+    { "op": "query", "id": "q4", "snapshot": "s1", "component": "A", "observeStart": 50, "observeEnd": 40 }
+  ]
+}
