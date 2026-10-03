@@ -1,0 +1,15 @@
+{
+  "name": "crash-ledger",
+  "version": "1.0.0",
+  "description": "Crash-safe hold/freeze ledger with hash-chained JSONL event log",
+  "type": "module",
+  "bin": {
+    "ledger": "bin/ledger.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
