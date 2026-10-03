@@ -1,0 +1,8 @@
+{"event":"WELD_START","seq":0,"orderId":"ORD-1001","weldId":"W-01"}
+{"event":"RETRANSMIT_REQUEST","from":1,"to":1,"attempt":1,"tick":2}
+{"event":"WELD_END","seq":1,"orderId":"ORD-1001","weldId":"W-01"}
+{"event":"WELD_START","seq":2,"orderId":"ORD-1002","weldId":"W-02"}
+{"event":"DUPLICATE_DROPPED","seq":1}
+{"event":"WELD_END","seq":3,"orderId":"ORD-1002","weldId":"W-02"}
+{"event":"WELD_END_REVERSED","seq":4,"orderId":"ORD-1002","targetSeq":3}
+{"certificate":{"ok":true,"frames":6,"delivered":5,"duplicates":1,"reordered":1,"retransmitRequests":1,"events":5,"digest":"8a46f17e"}}
