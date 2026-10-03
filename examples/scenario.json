@@ -1,0 +1,19 @@
+{
+  "config": {
+    "sitePowerKw": 60,
+    "cutoffTs": 100,
+    "chargers": [{ "id": "C1", "maxPowerKw": 60 }],
+    "tenants": { "T1": { "dailyMinutesCap": 500 } },
+    "vehicles": {
+      "V1": { "tenantId": "T1" },
+      "V2": { "tenantId": "T1" },
+      "V3": { "tenantId": "T1" }
+    }
+  },
+  "events": [
+    { "eventId": "e3", "vehicleId": "V3", "seq": 1, "ts": 15, "type": "charge_request", "minutes": 20, "powerKw": 50, "arrivalTs": 1 },
+    { "eventId": "e1", "vehicleId": "V1", "seq": 1, "ts": 0, "type": "charge_request", "minutes": 60, "powerKw": 50, "arrivalTs": 2 },
+    { "eventId": "e2", "vehicleId": "V2", "seq": 1, "ts": 10, "type": "charge_request", "minutes": 30, "powerKw": 50, "priority": "emergency", "arrivalTs": 3 },
+    { "eventId": "e4", "vehicleId": "V1", "seq": 2, "ts": 200, "type": "charge_release", "arrivalTs": 150 }
+  ]
+}

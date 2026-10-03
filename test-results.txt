@@ -1,0 +1,46 @@
+# node --test full run
+# Subtest: test/engine.test.js
+ok 1 - test/engine.test.js
+# Subtest: test/fleet.test.js
+ok 2 - test/fleet.test.js
+# Subtest: test/permute.test.js
+ok 3 - test/permute.test.js
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4192.214806
+
+# === test/engine.test.js (node test/engine.test.js)
+ok 1 - site power quota is never exceeded
+ok 2 - charger mutual exclusion: segments on one charger never overlap
+ok 3 - tenant daily minutes cap is enforced, remainder stays unscheduled
+ok 4 - release stops charging and frees the slot for the waiting queue
+ok 5 - release without an active or pending charge is rejected by the engine
+# tests 5
+# pass 5
+# fail 0
+
+# === test/fleet.test.js (node test/fleet.test.js)
+ok 1 - out-of-order request/release events merge to the same final result
+ok 2 - emergency preempts, keeps charged energy, and aging reorders the queue
+ok 3 - late event before cutoff recomputes and issues a reversal certificate
+ok 4 - event arriving after cutoff is rejected and settled bills do not change
+ok 5 - excess power, duplicate events and unknown vehicles are rejected
+ok 6 - recomputation keeps tenant quota, charger exclusion and completed records consistent
+# tests 6
+# pass 6
+# fail 0
+
+# === test/permute.test.js (node test/permute.test.js)
+ok 1 - permutations generator yields n! distinct orderings
+ok 2 - 6 events (requests + releases): all 720 legal arrival orders converge
+ok 3 - 5 events with emergency preemption: all 120 arrival orders converge
+ok 4 - enumeration refuses more than 6 events
+# tests 4
+# pass 4
+# fail 0
+

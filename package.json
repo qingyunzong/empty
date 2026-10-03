@@ -1,0 +1,15 @@
+{
+  "name": "agv-charge-scheduler",
+  "version": "1.0.0",
+  "description": "Offline AGV fleet charging scheduler with preemption, aging, out-of-order event merge and settlement cutoff",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "agv-charge": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
