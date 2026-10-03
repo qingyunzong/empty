@@ -1,0 +1,9 @@
+{
+  "name": "lakeq",
+  "version": "0.1.0",
+  "description": "Single-node query optimizer playground: logical plans, rewrite rules with equivalence certificates, physical hash/nested operators, three-valued HAVING.",
+  "type": "module",
+  "bin": { "lakeq": "bin/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}

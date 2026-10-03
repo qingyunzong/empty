@@ -1,0 +1,7 @@
+[
+  {"id": 10, "uid": 1, "amount": 100, "status": "paid"},
+  {"id": 11, "uid": 1, "amount": null, "status": "paid"},
+  {"id": 12, "uid": null, "amount": 50, "status": "open"},
+  {"id": 13, "uid": 3, "amount": 70, "status": "paid"},
+  {"id": 14, "uid": 3, "amount": 70, "status": "void"}
+]
