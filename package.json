@@ -1,0 +1,16 @@
+{
+  "name": "snapstore",
+  "version": "1.0.0",
+  "description": "Snapshot-isolated KV store with immutable published versions and content-addressed certificates",
+  "type": "module",
+  "main": "src/store.js",
+  "bin": {
+    "snapstore": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
