@@ -1,0 +1,14 @@
+{
+  "name": "visionline-rework",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Packaging-line vision camera event stream: balances good/defective/rework stock with idempotent verdicts, void compensation and shutdown/restart merge.",
+  "main": "src/machine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
