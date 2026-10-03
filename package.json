@@ -1,0 +1,11 @@
+{
+  "name": "line-side-buffer-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Discrete-event simulation of assembly line-side buffers with violation certificates",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
