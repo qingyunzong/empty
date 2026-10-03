@@ -1,0 +1,10 @@
+{
+  "name": "linearizable-payment-history",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline linearizability solver for out-of-order payment refund/cancel/unfreeze requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
