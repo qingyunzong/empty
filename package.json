@@ -1,0 +1,9 @@
+{
+  "name": "alarm-manual-search",
+  "version": "1.0.0",
+  "description": "Offline alarm-manual retrieval: phrase + proximity search over a compressed positional index with tombstone deletes and compaction certificates.",
+  "type": "module",
+  "bin": { "alarm-search": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
