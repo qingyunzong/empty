@@ -1,0 +1,10 @@
+{
+  "name": "order-cancel-causal-sm",
+  "version": "1.0.0",
+  "description": "Causal state machine for order cancel/match with conflict resolution, stdlib only",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
