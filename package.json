@@ -1,0 +1,16 @@
+{
+  "name": "alarm-ack-mvcc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline batch alarm acknowledgement with MVCC, snapshot isolation, predicate index and undo log",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "alarm-cli": "src/cli.js"
+  }
+}
