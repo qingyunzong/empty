@@ -1,0 +1,16 @@
+{
+  "name": "clearing-merge",
+  "version": "1.0.0",
+  "description": "Three-way merge of clearing settlement batch files (base/left/right) with auditable conflict certificates",
+  "type": "commonjs",
+  "main": "lib/merge.js",
+  "bin": {
+    "clearing-merge": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

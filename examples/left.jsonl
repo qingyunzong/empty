@@ -1,0 +1,3 @@
+{"id":1,"account":"ACC-001","amount":1250,"ccy":"USD","seq":1,"status":"LOCKED"}
+{"id":2,"account":"ACC-002","amount":3000,"ccy":"USD","seq":2,"status":"DRAFT"}
+{"id":3,"account":"ACC-003","amount":560,"ccy":"EUR","seq":3,"status":"DRAFT"}

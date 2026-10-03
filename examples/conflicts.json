@@ -1,0 +1,82 @@
+[
+  {
+    "id": 2,
+    "rule": "R1",
+    "base": {
+      "id": 2,
+      "account": "ACC-002",
+      "amount": 3400,
+      "ccy": "USD",
+      "seq": 2,
+      "status": "DRAFT"
+    },
+    "left": {
+      "id": 2,
+      "account": "ACC-002",
+      "amount": 3000,
+      "ccy": "USD",
+      "seq": 2,
+      "status": "DRAFT"
+    },
+    "right": {
+      "id": 2,
+      "account": "ACC-002",
+      "amount": 3600,
+      "ccy": "USD",
+      "seq": 2,
+      "status": "DRAFT"
+    },
+    "sha256": "d551b5cefdf1b46edcb9c64bc185b7bdafea2503300e22d6605df0ebd4358af6"
+  },
+  {
+    "id": 3,
+    "rule": "R4",
+    "base": {
+      "id": 3,
+      "account": "ACC-003",
+      "amount": 560,
+      "ccy": "EUR",
+      "seq": 3,
+      "status": "LOCKED"
+    },
+    "left": {
+      "id": 3,
+      "account": "ACC-003",
+      "amount": 560,
+      "ccy": "EUR",
+      "seq": 3,
+      "status": "DRAFT"
+    },
+    "right": {
+      "id": 3,
+      "account": "ACC-003",
+      "amount": 560,
+      "ccy": "EUR",
+      "seq": 3,
+      "status": "LOCKED"
+    },
+    "sha256": "b52f181b0477f3e2879c7ffd985180fa335fa360d5cbb0d701f4b4a084db1238"
+  },
+  {
+    "id": 4,
+    "rule": "R5",
+    "base": {
+      "id": 4,
+      "account": "ACC-004",
+      "amount": 780,
+      "ccy": "USD",
+      "seq": 4,
+      "status": "DRAFT"
+    },
+    "left": null,
+    "right": {
+      "id": 4,
+      "account": "ACC-004",
+      "amount": 780,
+      "ccy": "JPY",
+      "seq": 4,
+      "status": "DRAFT"
+    },
+    "sha256": "570bf2595a566e97df95900250225823851375cbb3c9d04d5bf1ca0f91f47b04"
+  }
+]
