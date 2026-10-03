@@ -1,0 +1,9 @@
+{
+  "name": "clearing-scan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clearing message scanning library and CLI (Aho-Corasick + regex DFA, incremental patch, audit proofs)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
