@@ -1,0 +1,214 @@
+# Acceptance run
+date: 2026-10-03T02:16:58.651Z
+node: v22.22.1
+
+## Test suite: node --test
+$ node --test
+exit code: 0
+summary:
+# Subtest: test/acceptance.test.js
+# Subtest: test/cli.test.js
+# Subtest: test/engine.test.js
+# Subtest: test/solver.test.js
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20019.866885
+
+## Scenario 1: tight capacity, multiple optima, lexicographic tie-break
+
+### schedule scenario1-tie.json
+$ node src/cli.js schedule --file examples/scenario1-tie.json
+exit code: 0
+stdout:
+{
+  "schedule": {
+    "status": "optimal",
+    "lmax": 0,
+    "assignments": [
+      {
+        "id": "a",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      },
+      {
+        "id": "b",
+        "line": "L1",
+        "start": 2,
+        "end": 4,
+        "lateness": 0
+      }
+    ]
+  },
+  "undoDepth": 0,
+  "redoDepth": 0
+}
+
+## Scenario 2: due conflict proven infeasible with minimum subset
+
+### schedule scenario2-infeasible.json
+$ node src/cli.js schedule --file examples/scenario2-infeasible.json
+exit code: 0
+stdout:
+{
+  "schedule": {
+    "status": "infeasible",
+    "certificate": {
+      "method": "exhaustive-enumeration",
+      "assignmentsExamined": 0,
+      "minInfeasibleSubset": [
+        {
+          "type": "task",
+          "id": "x"
+        },
+        {
+          "type": "task",
+          "id": "y"
+        }
+      ]
+    }
+  },
+  "undoDepth": 0,
+  "redoDepth": 0
+}
+
+## Scenario 3: undo of a capacity cut restores the original optimum
+
+### schedule scenario3-undo.json (baseline)
+$ node src/cli.js schedule --file examples/scenario3-undo.json --state /tmp/accept-state-GTCgT2/state.json
+exit code: 0
+stdout:
+{
+  "schedule": {
+    "status": "optimal",
+    "lmax": -2,
+    "assignments": [
+      {
+        "id": "a",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      },
+      {
+        "id": "b",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      }
+    ]
+  },
+  "undoDepth": 0,
+  "redoDepth": 0
+}
+
+### apply capacity cut
+$ node src/cli.js apply --state /tmp/accept-state-GTCgT2/state.json --op {"op":"setCapacity","capacity":{"L1":[{"start":0,"end":4,"capacity":1}]}}
+exit code: 0
+stdout:
+{
+  "label": "set capacity",
+  "schedule": {
+    "status": "optimal",
+    "lmax": 0,
+    "assignments": [
+      {
+        "id": "a",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      },
+      {
+        "id": "b",
+        "line": "L1",
+        "start": 2,
+        "end": 4,
+        "lateness": 0
+      }
+    ]
+  },
+  "affected": [
+    "b"
+  ],
+  "localRepairSufficient": false,
+  "undoDepth": 1,
+  "redoDepth": 0
+}
+
+### undo capacity cut
+$ node src/cli.js undo --state /tmp/accept-state-GTCgT2/state.json
+exit code: 0
+stdout:
+{
+  "undone": "set capacity",
+  "label": "set capacity",
+  "schedule": {
+    "status": "optimal",
+    "lmax": -2,
+    "assignments": [
+      {
+        "id": "a",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      },
+      {
+        "id": "b",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      }
+    ]
+  },
+  "affected": [
+    "b"
+  ],
+  "localRepairSufficient": false,
+  "undoDepth": 0,
+  "redoDepth": 1
+}
+
+### redo capacity cut
+$ node src/cli.js redo --state /tmp/accept-state-GTCgT2/state.json
+exit code: 0
+stdout:
+{
+  "redone": "set capacity",
+  "label": "set capacity",
+  "schedule": {
+    "status": "optimal",
+    "lmax": 0,
+    "assignments": [
+      {
+        "id": "a",
+        "line": "L1",
+        "start": 0,
+        "end": 2,
+        "lateness": -2
+      },
+      {
+        "id": "b",
+        "line": "L1",
+        "start": 2,
+        "end": 4,
+        "lateness": 0
+      }
+    ]
+  },
+  "affected": [
+    "b"
+  ],
+  "localRepairSufficient": false,
+  "undoDepth": 1,
+  "redoDepth": 0
+}

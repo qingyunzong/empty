@@ -1,0 +1,7 @@
+{
+  "tasks": [
+    { "id": "a", "line": "L1", "duration": 2, "due": 4 },
+    { "id": "b", "line": "L1", "duration": 2, "due": 4 }
+  ],
+  "capacity": { "L1": [{ "start": 0, "end": 4, "capacity": 1 }] }
+}

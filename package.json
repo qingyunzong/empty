@@ -1,0 +1,17 @@
+{
+  "name": "provable-workshop-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline single-machine-workshop scheduler with provable optimality (minimize max lateness, lexicographic tie-break) and infeasibility certificates.",
+  "main": "src/index.js",
+  "bin": {
+    "scheduler": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
