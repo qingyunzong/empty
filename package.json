@@ -1,0 +1,16 @@
+{
+  "name": "agv-scheduler",
+  "version": "1.0.0",
+  "description": "Offline replay scheduler for warehouse AGV task assignment safety (leases, fencing epochs, causal claims, crash recovery)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "agv": "bin/agv.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
