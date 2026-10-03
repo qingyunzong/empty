@@ -1,0 +1,9 @@
+{
+  "name": "settle-risk-index",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline settlement account library with an online-built unique (riskFlag, account) secondary index",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" }
+}
