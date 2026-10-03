@@ -1,0 +1,7 @@
+{"type":"rule","id":"r-p1","scope":"product","productId":"p1","tiers":[{"upTo":999,"rateBps":100},{"upTo":null,"rateBps":150}]}
+{"type":"rule","id":"r-p2","scope":"product","productId":"p2","tiers":[{"upTo":null,"rateBps":100}]}
+{"type":"charge","id":"c1","merchantId":"m1","productId":"p1","period":"2026-01","amount":600}
+{"type":"charge","id":"c2","merchantId":"m1","productId":"p2","period":"2026-01","amount":400}
+{"type":"snapshot","id":"snap-2026-01-m1","merchantId":"m1","period":"2026-01"}
+{"type":"correct","id":"x1","linksTo":"c1","amount":550}
+{"type":"charge","id":"c3","merchantId":"m1","productId":"p1","period":"2026-01","amount":50}
