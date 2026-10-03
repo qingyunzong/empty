@@ -1,0 +1,9 @@
+{
+  "name": "lot-genealogy",
+  "version": "0.1.0",
+  "description": "Offline lot genealogy DAG with sync, proofs and crash-safe persistence",
+  "type": "module",
+  "bin": { "lot-genealogy": "bin/lot-genealogy.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
