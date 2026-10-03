@@ -1,0 +1,10 @@
+{
+  "budget": 6,
+  "targets": ["report.out"],
+  "tasks": [
+    { "name": "t1", "cost": 2, "produces": [{ "name": "raw.data", "type": "dataset" }] },
+    { "name": "t2", "cost": 2, "produces": [{ "name": "alt.data", "type": "dataset" }] },
+    { "name": "t3", "cost": 2, "produces": [{ "name": "report.out", "type": "file" }], "requires": "dataset:raw.data" },
+    { "name": "t4", "cost": 2, "produces": [{ "name": "report.out", "type": "file" }], "requires": "alt.data" }
+  ]
+}

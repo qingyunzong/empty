@@ -1,0 +1,13 @@
+{
+  "name": "repro-planner",
+  "version": "1.0.0",
+  "description": "Reproducible experiment task planning library and CLI (offline, stdlib only)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
