@@ -1,0 +1,10 @@
+{
+  "name": "mvcc-scheduler",
+  "version": "1.0.0",
+  "description": "Offline scheduling library with MVCC, snapshot isolation and deterministic plan selection",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
