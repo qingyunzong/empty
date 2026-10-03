@@ -1,0 +1,110 @@
+# Test results (node v22.22.1, 2026-10-03T07:48:30Z)
+# Command: node --test
+
+TAP version 13
+# Subtest: test/merge.test.js
+ok 1 - test/merge.test.js
+  ---
+  duration_ms: 4120.79755
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4241.847785
+
+# Per-test detail (node test/merge.test.js)
+
+TAP version 13
+# Subtest: auto win: higher source level overrides lower level
+ok 1 - auto win: higher source level overrides lower level
+  ---
+  duration_ms: 41.831199
+  type: 'test'
+  ...
+# Subtest: auto win: same level, newer vector timestamp wins
+ok 2 - auto win: same level, newer vector timestamp wins
+  ---
+  duration_ms: 3.412997
+  type: 'test'
+  ...
+# Subtest: auto win: concurrent clocks fall back to author lexicographic order
+ok 3 - auto win: concurrent clocks fall back to author lexicographic order
+  ---
+  duration_ms: 7.171777
+  type: 'test'
+  ...
+# Subtest: identical changes on both sides merge without conflict
+ok 4 - identical changes on both sides merge without conflict
+  ---
+  duration_ms: 1.889019
+  type: 'test'
+  ...
+# Subtest: same timestamp with different values is a conflict with certificate
+ok 5 - same timestamp with different values is a conflict with certificate
+  ---
+  duration_ms: 4.516237
+  type: 'test'
+  ...
+# Subtest: both sides setting reviewed to different booleans is always a conflict
+ok 6 - both sides setting reviewed to different booleans is always a conflict
+  ---
+  duration_ms: 1.098635
+  type: 'test'
+  ...
+# Subtest: stale write: edit whose old value mismatches base loses
+ok 7 - stale write: edit whose old value mismatches base loses
+  ---
+  duration_ms: 1.728698
+  type: 'test'
+  ...
+# Subtest: stale write on an unmodified field keeps base
+ok 8 - stale write on an unmodified field keeps base
+  ---
+  duration_ms: 1.433577
+  type: 'test'
+  ...
+# Subtest: untouched fields stay at base value
+ok 9 - untouched fields stay at base value
+  ---
+  duration_ms: 11.208814
+  type: 'test'
+  ...
+# Subtest: enumeration: all value combinations for numeric field (3x4x4=48 cases)
+ok 10 - enumeration: all value combinations for numeric field (3x4x4=48 cases)
+  ---
+  duration_ms: 15.366165
+  type: 'test'
+  ...
+# Subtest: enumeration: all value combinations for reviewed (2x3x3=18 cases, divergence conflicts)
+ok 11 - enumeration: all value combinations for reviewed (2x3x3=18 cases, divergence conflicts)
+  ---
+  duration_ms: 13.991042
+  type: 'test'
+  ...
+# Subtest: CLI: successful merge writes merged.json and decision-log.json, exit 0
+ok 12 - CLI: successful merge writes merged.json and decision-log.json, exit 0
+  ---
+  duration_ms: 848.020242
+  type: 'test'
+  ...
+# Subtest: CLI: conflict writes certificate and exits with code 2
+ok 13 - CLI: conflict writes certificate and exits with code 2
+  ---
+  duration_ms: 699.065103
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1766.160855
