@@ -1,0 +1,9 @@
+{
+  "name": "asrs-wave-planner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline wave planner for automated storage/retrieval systems: battery-budgeted shuttle task assignment with hierarchical rollback and causal lane-occupancy verification.",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test" }
+}
