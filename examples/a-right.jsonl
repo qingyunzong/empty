@@ -1,0 +1,4 @@
+{"id":"e1","account":"A1","amount":100,"direction":"debit","currency":"USD","rel":"r1"}
+{"id":"e3","account":"A1","amount":50,"direction":"debit","currency":"EUR","rel":"r2"}
+{"id":"e2","account":"A2","amount":100,"direction":"credit","currency":"USD","rel":"r1"}
+{"id":"e4","account":"A2","amount":50,"direction":"credit","currency":"EUR","rel":"r2"}

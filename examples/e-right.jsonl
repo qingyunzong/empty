@@ -1,0 +1,10 @@
+{"id":"e1","account":"A1","amount":100,"direction":"debit","currency":"USD","rel":"r1"}
+{"id":"e2","account":"A2","amount":100,"direction":"credit","currency":"USD","rel":"r1"}
+{"id":"e3","account":"A1","amount":50,"direction":"debit","currency":"EUR","rel":"r2"}
+{"id":"e4","account":"A2","amount":50,"direction":"credit","currency":"EUR","rel":"r2"}
+{"id":"x0","account":"A1","amount":10,"direction":"debit","currency":"USD","rel":"rx0"}
+{"id":"x1","account":"A2","amount":20,"direction":"debit","currency":"USD","rel":"rx1"}
+{"id":"x2","account":"A1","amount":30,"direction":"debit","currency":"USD","rel":"rx2"}
+{"id":"x3","account":"A2","amount":40,"direction":"debit","currency":"USD","rel":"rx3"}
+{"id":"x4","account":"A1","amount":50,"direction":"debit","currency":"USD","rel":"rx4"}
+{"id":"x5","account":"A2","amount":60,"direction":"debit","currency":"USD","rel":"rx5"}

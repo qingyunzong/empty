@@ -1,0 +1,10 @@
+{
+  "name": "ledger-recon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reconciliation diff library and CLI: automata-based joint acceptability, minimal repair scripts, verifiable certificates",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
