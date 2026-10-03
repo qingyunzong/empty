@@ -1,0 +1,112 @@
+{
+  "conflicts": [
+    {
+      "id": "tx-shared-1",
+      "amounts": [
+        169,
+        175
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-10",
+      "amounts": [
+        509,
+        534
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-13",
+      "amounts": [
+        109,
+        157
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-15",
+      "amounts": [
+        642,
+        650
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-19",
+      "amounts": [
+        213,
+        221
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-5",
+      "amounts": [
+        865,
+        902
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-6",
+      "amounts": [
+        284,
+        290
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-7",
+      "amounts": [
+        679,
+        689
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    },
+    {
+      "id": "tx-shared-9",
+      "amounts": [
+        613,
+        661
+      ],
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "concurrent": true
+    }
+  ]
+}
