@@ -1,0 +1,16 @@
+{
+  "name": "clearing-windows",
+  "version": "0.1.0",
+  "description": "Clearing window scheduler with atomic groups, preemption, fair aging and crash-safe commit log",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "clearing": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

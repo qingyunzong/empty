@@ -1,0 +1,13 @@
+{
+  "capacity": 100,
+  "agingLimit": 1,
+  "agingBonus": 1,
+  "institutions": { "alpha": { "quota": 70 }, "beta": { "quota": 60 } },
+  "batches": [
+    { "id": "a1", "institution": "alpha", "amount": 40, "priority": 3, "group": "g1" },
+    { "id": "a2", "institution": "beta", "amount": 30, "priority": 3, "group": "g1" },
+    { "id": "b1", "institution": "alpha", "amount": 50, "priority": 9 },
+    { "id": "b2", "institution": "beta", "amount": 80, "priority": 2, "splittable": true },
+    { "id": "b3", "institution": "alpha", "amount": 20, "priority": 1 }
+  ]
+}
