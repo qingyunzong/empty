@@ -1,0 +1,4 @@
+{"id":"e1","account":"a1","amount":100,"category":"food","valid":true,"corrects":null}
+{"id":"e2","account":"a2","amount":250,"category":"travel","valid":true,"corrects":null}
+{"id":"e3","account":"a1","amount":150,"category":"food","valid":true,"corrects":"e1"}
+{"id":"e4","account":"a3","amount":80,"category":"food","valid":false,"corrects":null}
