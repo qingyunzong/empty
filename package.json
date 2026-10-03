@@ -1,0 +1,13 @@
+{
+  "name": "plc-segment-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Segmented on-disk PLC event log with dictionary/delta-varint encoding, tombstones, compaction and crash recovery",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
