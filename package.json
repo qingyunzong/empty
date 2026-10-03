@@ -1,0 +1,16 @@
+{
+  "name": "hierarchical-settlement",
+  "version": "1.0.0",
+  "description": "Offline hierarchical settlement revocation library and CLI (Node.js 22, stdlib only)",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "settle": "src/cli.js"
+  }
+}
