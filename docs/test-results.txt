@@ -1,0 +1,197 @@
+# node --test run recorded at 2026-10-03T20:50:02Z (node v22.22.1)
+
+## node --test test/acceptance.test.js
+TAP version 13
+# Subtest: acceptance: mixed runs and quota feasibility
+    # Subtest: mixes compatible orders in one run and respects daily quotas
+    ok 1 - mixes compatible orders in one run and respects daily quotas
+      ---
+      duration_ms: 33.565238
+      type: 'test'
+      ...
+    1..1
+ok 1 - acceptance: mixed runs and quota feasibility
+  ---
+  duration_ms: 41.366988
+  type: 'suite'
+  ...
+# Subtest: acceptance: urgent preemption at batch boundary, remainder continues
+    # Subtest: urgent order takes the next run; unloaded remainder requeues, ages, and continues
+    ok 1 - urgent order takes the next run; unloaded remainder requeues, ages, and continues
+      ---
+      duration_ms: 19.43155
+      type: 'test'
+      ...
+    1..1
+ok 2 - acceptance: urgent preemption at batch boundary, remainder continues
+  ---
+  duration_ms: 21.084478
+  type: 'suite'
+  ...
+# Subtest: acceptance: canceling a prepared order costs compensation, history stays
+    # Subtest: compensation is charged and frozen runs are unchanged
+    ok 1 - compensation is charged and frozen runs are unchanged
+      ---
+      duration_ms: 5.7602
+      type: 'test'
+      ...
+    # Subtest: released quota lets a waiting order move into the freed slot
+    ok 2 - released quota lets a waiting order move into the freed slot
+      ---
+      duration_ms: 4.814767
+      type: 'test'
+      ...
+    # Subtest: canceling a fully frozen order is rejected
+    ok 3 - canceling a fully frozen order is rejected
+      ---
+      duration_ms: 4.216763
+      type: 'test'
+      ...
+    1..3
+ok 3 - acceptance: canceling a prepared order costs compensation, history stays
+  ---
+  duration_ms: 16.29012
+  type: 'suite'
+  ...
+# Subtest: acceptance: infeasible inputs fail
+    # Subtest: rejects a batch larger than furnace capacity
+    ok 1 - rejects a batch larger than furnace capacity
+      ---
+      duration_ms: 1.353582
+      type: 'test'
+      ...
+    # Subtest: rejects a recipe group the furnace does not support
+    ok 2 - rejects a recipe group the furnace does not support
+      ---
+      duration_ms: 2.207611
+      type: 'test'
+      ...
+    # Subtest: rejects unknown recipes and duplicate ids
+    ok 3 - rejects unknown recipes and duplicate ids
+      ---
+      duration_ms: 2.083331
+      type: 'test'
+      ...
+    1..3
+ok 4 - acceptance: infeasible inputs fail
+  ---
+  duration_ms: 7.988115
+  type: 'suite'
+  ...
+1..4
+# tests 8
+# suites 4
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 253.197169
+
+## node --test test/cli.test.js
+TAP version 13
+# Subtest: CLI end-to-end
+    # Subtest: plan writes state, replan applies events and reports a diff
+    ok 1 - plan writes state, replan applies events and reports a diff
+      ---
+      duration_ms: 25.492892
+      type: 'test'
+      ...
+    # Subtest: exits with code 2 on infeasible input
+    ok 2 - exits with code 2 on infeasible input
+      ---
+      duration_ms: 3.099289
+      type: 'test'
+      ...
+    # Subtest: verify compares greedy against exhaustive enumeration
+    ok 3 - verify compares greedy against exhaustive enumeration
+      ---
+      duration_ms: 11.566336
+      type: 'test'
+      ...
+    # Subtest: rejects bad usage with exit code 1
+    ok 4 - rejects bad usage with exit code 1
+      ---
+      duration_ms: 1.930808
+      type: 'test'
+      ...
+    1..4
+ok 1 - CLI end-to-end
+  ---
+  duration_ms: 50.910856
+  type: 'suite'
+  ...
+1..1
+# tests 4
+# suites 1
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 128.464418
+
+## node --test test/enumerate.test.js
+TAP version 13
+# Subtest: enumeration cross-check (<= 5 work orders)
+    # Subtest: greedy matches exhaustive optimum: single group, capacity forces two runs
+    ok 1 - greedy matches exhaustive optimum: single group, capacity forces two runs
+      ---
+      duration_ms: 52.889592
+      type: 'test'
+      ...
+    # Subtest: greedy matches exhaustive optimum: two groups, cleaning trade-off
+    ok 2 - greedy matches exhaustive optimum: two groups, cleaning trade-off
+      ---
+      duration_ms: 10.533522
+      type: 'test'
+      ...
+    # Subtest: greedy matches exhaustive optimum: daily quota forces a day shift
+    ok 3 - greedy matches exhaustive optimum: daily quota forces a day shift
+      ---
+      duration_ms: 3.683342
+      type: 'test'
+      ...
+    # Subtest: greedy matches exhaustive optimum: five orders across two groups
+    ok 4 - greedy matches exhaustive optimum: five orders across two groups
+      ---
+      duration_ms: 14.912047
+      type: 'test'
+      ...
+    # Subtest: greedy matches exhaustive optimum: urgent first, mixed batch sizes
+    ok 5 - greedy matches exhaustive optimum: urgent first, mixed batch sizes
+      ---
+      duration_ms: 14.289406
+      type: 'test'
+      ...
+    # Subtest: enumerator finds the true optimum on a hand-computable case
+    ok 6 - enumerator finds the true optimum on a hand-computable case
+      ---
+      duration_ms: 1.380629
+      type: 'test'
+      ...
+    1..6
+ok 1 - enumeration cross-check (<= 5 work orders)
+  ---
+  duration_ms: 145.044622
+  type: 'suite'
+  ...
+1..1
+# tests 6
+# suites 1
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 310.116303
+
+## summary (node --test)
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2790.418764

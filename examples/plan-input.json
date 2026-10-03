@@ -1,0 +1,21 @@
+{
+  "config": {
+    "capacity": 10,
+    "runTime": 4,
+    "cleanTime": 2,
+    "dayLength": 24,
+    "compensationSlots": 3,
+    "agingRate": 1,
+    "supportedGroups": ["A", "B"],
+    "recipes": {
+      "R1": { "group": "A", "dailyQuota": 12 },
+      "R2": { "group": "A", "dailyQuota": 6 },
+      "R3": { "group": "B", "dailyQuota": 10 }
+    }
+  },
+  "orders": [
+    { "id": "W1", "recipe": "R1", "batches": 2, "batchSize": 3, "due": 30 },
+    { "id": "W2", "recipe": "R2", "batches": 1, "batchSize": 3, "due": 10 },
+    { "id": "W3", "recipe": "R3", "batches": 1, "batchSize": 5, "due": 40 }
+  ]
+}

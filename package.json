@@ -1,0 +1,15 @@
+{
+  "name": "furnace-batch-planner",
+  "version": "1.0.0",
+  "description": "Offline furnace batch scheduling library and CLI (Node.js 22, standard library only)",
+  "type": "module",
+  "bin": {
+    "furnace-plan": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

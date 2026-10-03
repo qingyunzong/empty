@@ -1,0 +1,8 @@
+{
+  "now": 4,
+  "freezeHorizon": 4,
+  "add": [
+    { "id": "U1", "recipe": "R1", "batches": 1, "batchSize": 4, "due": 12, "priority": "urgent" }
+  ],
+  "cancel": ["W3"]
+}
