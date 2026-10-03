@@ -1,0 +1,8 @@
+{
+  "name": "settle",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "bin": { "settle": "bin/settle.js" },
+  "scripts": { "test": "node --test" }
+}
