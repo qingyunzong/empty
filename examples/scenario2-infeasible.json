@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    { "id": "a", "line": "L1", "duration": 2, "release": 0, "due": 2 },
+    { "id": "b", "line": "L1", "duration": 2, "release": 0, "due": 2 },
+    { "id": "c", "line": "L2", "duration": 1, "release": null, "due": null },
+    { "id": "d", "line": "L2", "duration": 1, "release": null, "due": null }
+  ],
+  "precedence": [["c", "d"]],
+  "capacity": {}
+}

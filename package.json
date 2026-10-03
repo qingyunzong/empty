@@ -1,0 +1,13 @@
+{
+  "name": "line-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline single-machine multi-line slot scheduler with provable optimality, infeasibility certificates and undo/redo",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
