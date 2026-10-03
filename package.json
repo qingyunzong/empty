@@ -1,0 +1,13 @@
+{
+  "name": "qms-lite",
+  "version": "1.0.0",
+  "description": "Single-node offline quality judgment store: WAL, idempotent ingest, hash-chained certificates",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
