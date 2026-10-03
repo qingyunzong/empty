@@ -1,0 +1,13 @@
+{
+  "name": "quota-freeze-replica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eventually consistent quota-freeze replica library and CLI (Node.js standard library only)",
+  "main": "replica.js",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
