@@ -1,0 +1,16 @@
+{
+  "name": "snapdiff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Normalized snapshots, relational diffs and minimal explanation sets for experiment runs",
+  "type": "commonjs",
+  "bin": {
+    "snapdiff": "bin/snapdiff.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

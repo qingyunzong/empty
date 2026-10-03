@@ -1,0 +1,273 @@
+=== test/cli.test.js ===
+TAP version 13
+# Subtest: snap writes snapshot and index; diff exit codes reflect status
+ok 1 - snap writes snapshot and index; diff exit codes reflect status
+  ---
+  duration_ms: 158.048801
+  type: 'test'
+  ...
+# Subtest: minexplain exits 0 on a unique minimal explanation
+ok 2 - minexplain exits 0 on a unique minimal explanation
+  ---
+  duration_ms: 30.023086
+  type: 'test'
+  ...
+# Subtest: E_NO_KEY (exit 10) when a table has no primary key
+ok 3 - E_NO_KEY (exit 10) when a table has no primary key
+  ---
+  duration_ms: 8.184313
+  type: 'test'
+  ...
+# Subtest: E_TOL (exit 11) on invalid tolerance spec
+ok 4 - E_TOL (exit 11) on invalid tolerance spec
+  ---
+  duration_ms: 6.514766
+  type: 'test'
+  ...
+# Subtest: E_SNAP (exit 13) on missing params.json and on corrupt snapshot
+ok 5 - E_SNAP (exit 13) on missing params.json and on corrupt snapshot
+  ---
+  duration_ms: 11.679381
+  type: 'test'
+  ...
+# Subtest: unknown command prints usage with exit 2
+ok 6 - unknown command prints usage with exit 2
+  ---
+  duration_ms: 2.814661
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 351.035599
+
+=== test/csv.test.js ===
+TAP version 13
+# Subtest: parses quoted fields, escaped quotes and CRLF
+ok 1 - parses quoted fields, escaped quotes and CRLF
+  ---
+  duration_ms: 28.180067
+  type: 'test'
+  ...
+# Subtest: empty fields and trailing newline
+ok 2 - empty fields and trailing newline
+  ---
+  duration_ms: 3.217889
+  type: 'test'
+  ...
+# Subtest: parseTable splits header from rows
+ok 3 - parseTable splits header from rows
+  ---
+  duration_ms: 1.430167
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 180.351045
+
+=== test/diff.test.js ===
+TAP version 13
+# Subtest: symmetric diff: only_a / only_b / changed rows by primary key
+ok 1 - symmetric diff: only_a / only_b / changed rows by primary key
+  ---
+  duration_ms: 87.350428
+  type: 'test'
+  ...
+# Subtest: float boundary: |a-b| == abs tolerance is equal, one ulp more is different
+ok 2 - float boundary: |a-b| == abs tolerance is equal, one ulp more is different
+  ---
+  duration_ms: 19.858684
+  type: 'test'
+  ...
+# Subtest: numeric mismatch without tolerance is undecided, not inconsistent
+ok 3 - numeric mismatch without tolerance is undecided, not inconsistent
+  ---
+  duration_ms: 59.718924
+  type: 'test'
+  ...
+# Subtest: NULL vs NULL is equal; NULL vs value is different
+ok 4 - NULL vs NULL is equal; NULL vs value is different
+  ---
+  duration_ms: 21.611622
+  type: 'test'
+  ...
+# Subtest: missing column is distinct from NULL in diff output
+ok 5 - missing column is distinct from NULL in diff output
+  ---
+  duration_ms: 7.88952
+  type: 'test'
+  ...
+# Subtest: conflicting tolerances between snapshots raise E_TOL (exit 11)
+ok 6 - conflicting tolerances between snapshots raise E_TOL (exit 11)
+  ---
+  duration_ms: 17.258896
+  type: 'test'
+  ...
+# Subtest: param diff distinguishes missing key from explicit null
+ok 7 - param diff distinguishes missing key from explicit null
+  ---
+  duration_ms: 16.723507
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 337.621148
+
+=== test/minexplain.test.js ===
+TAP version 13
+# Subtest: unique minimal explanation excludes non-covering params
+ok 1 - unique minimal explanation excludes non-covering params
+  ---
+  duration_ms: 82.987913
+  type: 'test'
+  ...
+# Subtest: tied minimal explanations are all listed and flagged ambiguous
+ok 2 - tied minimal explanations are all listed and flagged ambiguous
+  ---
+  duration_ms: 56.83009
+  type: 'test'
+  ...
+# Subtest: 200 differing rows: minimal explanation matches exhaustive subset search
+ok 3 - 200 differing rows: minimal explanation matches exhaustive subset search
+  ---
+  duration_ms: 102.683735
+  type: 'test'
+  ...
+# Subtest: foreign-key refs propagate coverage transitively
+ok 4 - foreign-key refs propagate coverage transitively
+  ---
+  duration_ms: 7.125239
+  type: 'test'
+  ...
+# Subtest: rows unreachable from any changed param are reported unexplained
+ok 5 - rows unreachable from any changed param are reported unexplained
+  ---
+  duration_ms: 6.75693
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 351.384705
+
+=== test/patch.test.js ===
+TAP version 13
+# Subtest: patch applies a param change and updates snapshot + index
+ok 1 - patch applies a param change and updates snapshot + index
+  ---
+  duration_ms: 159.180901
+  type: 'test'
+  ...
+# Subtest: undo restores the previous param value from journal history
+ok 2 - undo restores the previous param value from journal history
+  ---
+  duration_ms: 19.93396
+  type: 'test'
+  ...
+# Subtest: crash after patch before index update: recheck replays the journal
+ok 3 - crash after patch before index update: recheck replays the journal
+  ---
+  duration_ms: 51.813656
+  type: 'test'
+  ...
+# Subtest: patch refuses to run on top of a pending journal (E_SNAP)
+ok 4 - patch refuses to run on top of a pending journal (E_SNAP)
+  ---
+  duration_ms: 35.725817
+  type: 'test'
+  ...
+# Subtest: undo of a patched param followed by recheck makes runs param-equal
+ok 5 - undo of a patched param followed by recheck makes runs param-equal
+  ---
+  duration_ms: 23.678446
+  type: 'test'
+  ...
+# Subtest: recheck pair recomputes only tables affected by the patch (incremental)
+ok 6 - recheck pair recomputes only tables affected by the patch (incremental)
+  ---
+  duration_ms: 61.701596
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 475.124463
+
+=== test/snapshot.test.js ===
+TAP version 13
+# Subtest: row order in CSV does not affect the normalized snapshot hash
+ok 1 - row order in CSV does not affect the normalized snapshot hash
+  ---
+  duration_ms: 31.427932
+  type: 'test'
+  ...
+# Subtest: floats are canonicalized and quantized by abs tolerance in row hashes
+ok 2 - floats are canonicalized and quantized by abs tolerance in row hashes
+  ---
+  duration_ms: 13.278305
+  type: 'test'
+  ...
+# Subtest: NULL literal and missing cell are distinct in the snapshot
+ok 3 - NULL literal and missing cell are distinct in the snapshot
+  ---
+  duration_ms: 5.558172
+  type: 'test'
+  ...
+# Subtest: missing primary key declaration raises E_NO_KEY
+ok 4 - missing primary key declaration raises E_NO_KEY
+  ---
+  duration_ms: 9.553072
+  type: 'test'
+  ...
+# Subtest: invalid tolerance raises E_TOL
+ok 5 - invalid tolerance raises E_TOL
+  ---
+  duration_ms: 2.797558
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 139.457651
+
+=== summary (node --test) ===
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1883.937819
