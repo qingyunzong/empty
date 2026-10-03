@@ -1,0 +1,9 @@
+{
+  "name": "biobank-freezer-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic freezer-rack allocation for biobank sample tubes (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
