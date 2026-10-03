@@ -1,0 +1,24 @@
+{
+  "ops": [
+    {"op": "add_node", "node": "a"},
+    {"op": "add_node", "node": "b"},
+    {"op": "run"},
+    {"op": "put", "node": "a", "key": "k", "value": "old", "delay": 2},
+    {"op": "advance", "steps": 2},
+    {"op": "run"},
+    {"op": "delete", "node": "b", "key": "k"},
+    {"op": "run"},
+    {"op": "retire", "node": "a"},
+    {"op": "run"},
+    {"op": "rejoin", "node": "a"},
+    {"op": "run"},
+    {"op": "put", "node": "a", "key": "k", "value": "fresh"},
+    {"op": "run"},
+    {"op": "read", "node": "b", "key": "k"},
+    {"op": "snapshot", "node": "b", "name": "b0"},
+    {"op": "restore", "node": "b", "name": "b0"},
+    {"op": "resync", "node": "b"},
+    {"op": "run"},
+    {"op": "read", "node": "b", "key": "k"}
+  ]
+}

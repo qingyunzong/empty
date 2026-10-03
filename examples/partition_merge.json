@@ -1,0 +1,26 @@
+{
+  "ops": [
+    {"op": "add_node", "node": "a"},
+    {"op": "add_node", "node": "b"},
+    {"op": "add_node", "node": "c"},
+    {"op": "run"},
+    {"op": "partition", "a": "a", "b": "b"},
+    {"op": "put", "node": "a", "key": "doc", "value": "draft-a"},
+    {"op": "put", "node": "b", "key": "doc", "value": "draft-b"},
+    {"op": "run"},
+    {"op": "read", "node": "a", "key": "doc"},
+    {"op": "read", "node": "b", "key": "doc"},
+    {"op": "heal", "a": "a", "b": "b"},
+    {"op": "run"},
+    {"op": "read", "node": "a", "key": "doc"},
+    {"op": "read", "node": "c", "key": "doc"},
+    {"op": "delete", "node": "c", "key": "doc"},
+    {"op": "run"},
+    {"op": "read", "node": "a", "key": "doc"},
+    {"op": "ack", "node": "a"},
+    {"op": "ack", "node": "b"},
+    {"op": "ack", "node": "c"},
+    {"op": "run"},
+    {"op": "gc", "node": "a"}
+  ]
+}
