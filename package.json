@@ -1,0 +1,12 @@
+{
+  "name": "qrec",
+  "version": "0.1.0",
+  "description": "Offline inspection record store: delta-encoded chunks with CRC32, append-only compensations, atomic manifest commits",
+  "type": "module",
+  "bin": {
+    "qrec": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
