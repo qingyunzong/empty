@@ -1,0 +1,13 @@
+{
+  "name": "evidence-verify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Constraint scheduler and verifiable audit trail for evidence verification workers",
+  "main": "src/cli.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
