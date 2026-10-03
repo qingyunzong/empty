@@ -1,0 +1,9 @@
+{
+  "name": "batch-lineage",
+  "version": "1.0.0",
+  "description": "Manufacturing batch genealogy with WAL atomic commit, nested savepoints and SHA256 lineage certificates",
+  "type": "module",
+  "bin": { "batch-lineage": "bin/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
