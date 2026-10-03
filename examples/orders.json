@@ -1,0 +1,7 @@
+{
+  "orders": [
+    { "id": "A001", "type": "subscription", "amount": "100.00", "shares": "99.50" },
+    { "id": "A002", "type": "subscription", "amount": "2000000.00" },
+    { "id": "A003", "type": "subscription", "amount": "12345.6789", "overrides": { "rate": "20bps" } }
+  ]
+}

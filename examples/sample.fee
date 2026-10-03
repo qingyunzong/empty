@@ -1,0 +1,14 @@
+# 申购费合同示例：份额类别默认参数 + 分层费率
+contract "EquityFund-A" {
+  defaults {
+    rate = 25bps
+    floor = 1.00 CNY
+  }
+  rounding HALF_EVEN
+  residual to TAIL_ACCOUNT
+  fee = {
+    tier on [0.00 CNY, 1000000.00 CNY) fee = rate min floor
+    tier on [1000000.00 CNY, 5000000.00 CNY) fee = 15bps
+    tier on [5000000.00 CNY, ) fee = 10bps max 5000.00 CNY
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "contractFile": "sample.fee",
+  "certificates": [
+    {
+      "version": 1,
+      "contract": {
+        "name": "EquityFund-A",
+        "sha256": "e21bd6ee418db24d76b3606d265570d6015b5ed836f26047548d1a27c32d2763"
+      },
+      "order": {
+        "id": "A001",
+        "type": "subscription",
+        "amount": "100",
+        "shares": "99.5",
+        "overrides": {}
+      },
+      "matchedTiers": [
+        0
+      ],
+      "candidates": [
+        {
+          "tier": 0,
+          "exactFee": "1"
+        }
+      ],
+      "ties": [
+        0
+      ],
+      "exactFee": "1",
+      "totalFee": "1.00",
+      "residual": "0",
+      "residualAccount": "TAIL_ACCOUNT",
+      "steps": [
+        {
+          "pc": 8,
+          "op": "MATCH",
+          "tier": 0
+        },
+        {
+          "pc": 24,
+          "op": "SELECT_MIN",
+          "candidates": [
+            {
+              "tier": 0,
+              "exactFee": "1"
+            }
+          ],
+          "selected": 0,
+          "ties": [
+            0
+          ]
+        },
+        {
+          "pc": 25,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "scale": 2,
+          "input": "1",
+          "output": "1",
+          "remainder": "0"
+        },
+        {
+          "pc": 26,
+          "op": "CONSERVE",
+          "total": "1",
+          "residual": "0",
+          "residualAccount": "TAIL_ACCOUNT",
+          "identity": "total + residual == exactFee",
+          "identityHolds": true
+        }
+      ],
+      "conservation": {
+        "identity": "totalFee + residual == exactFee",
+        "totalFee": "1.00",
+        "residual": "0",
+        "exactFee": "1"
+      }
+    },
+    {
+      "version": 1,
+      "contract": {
+        "name": "EquityFund-A",
+        "sha256": "e21bd6ee418db24d76b3606d265570d6015b5ed836f26047548d1a27c32d2763"
+      },
+      "order": {
+        "id": "A002",
+        "type": "subscription",
+        "amount": "2000000",
+        "overrides": {}
+      },
+      "matchedTiers": [
+        1
+      ],
+      "candidates": [
+        {
+          "tier": 1,
+          "exactFee": "3000"
+        }
+      ],
+      "ties": [
+        1
+      ],
+      "exactFee": "3000",
+      "totalFee": "3000.00",
+      "residual": "0",
+      "residualAccount": "TAIL_ACCOUNT",
+      "steps": [
+        {
+          "pc": 17,
+          "op": "MATCH",
+          "tier": 1
+        },
+        {
+          "pc": 24,
+          "op": "SELECT_MIN",
+          "candidates": [
+            {
+              "tier": 1,
+              "exactFee": "3000"
+            }
+          ],
+          "selected": 1,
+          "ties": [
+            1
+          ]
+        },
+        {
+          "pc": 25,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "scale": 2,
+          "input": "3000",
+          "output": "3000",
+          "remainder": "0"
+        },
+        {
+          "pc": 26,
+          "op": "CONSERVE",
+          "total": "3000",
+          "residual": "0",
+          "residualAccount": "TAIL_ACCOUNT",
+          "identity": "total + residual == exactFee",
+          "identityHolds": true
+        }
+      ],
+      "conservation": {
+        "identity": "totalFee + residual == exactFee",
+        "totalFee": "3000.00",
+        "residual": "0",
+        "exactFee": "3000"
+      }
+    },
+    {
+      "version": 1,
+      "contract": {
+        "name": "EquityFund-A",
+        "sha256": "e21bd6ee418db24d76b3606d265570d6015b5ed836f26047548d1a27c32d2763"
+      },
+      "order": {
+        "id": "A003",
+        "type": "subscription",
+        "amount": "12345.6789",
+        "overrides": {
+          "rate": "20 bps"
+        }
+      },
+      "matchedTiers": [
+        0
+      ],
+      "candidates": [
+        {
+          "tier": 0,
+          "exactFee": "24.6913578"
+        }
+      ],
+      "ties": [
+        0
+      ],
+      "exactFee": "24.6913578",
+      "totalFee": "24.69",
+      "residual": "0.0013578",
+      "residualAccount": "TAIL_ACCOUNT",
+      "steps": [
+        {
+          "pc": 8,
+          "op": "MATCH",
+          "tier": 0
+        },
+        {
+          "pc": 24,
+          "op": "SELECT_MIN",
+          "candidates": [
+            {
+              "tier": 0,
+              "exactFee": "24.6913578"
+            }
+          ],
+          "selected": 0,
+          "ties": [
+            0
+          ]
+        },
+        {
+          "pc": 25,
+          "op": "ROUND",
+          "mode": "HALF_EVEN",
+          "scale": 2,
+          "input": "24.6913578",
+          "output": "24.69",
+          "remainder": "0.0013578"
+        },
+        {
+          "pc": 26,
+          "op": "CONSERVE",
+          "total": "24.69",
+          "residual": "0.0013578",
+          "residualAccount": "TAIL_ACCOUNT",
+          "identity": "total + residual == exactFee",
+          "identityHolds": true
+        }
+      ],
+      "conservation": {
+        "identity": "totalFee + residual == exactFee",
+        "totalFee": "24.69",
+        "residual": "0.0013578",
+        "exactFee": "24.6913578"
+      }
+    }
+  ]
+}
