@@ -1,0 +1,23 @@
+{
+  "config": { "threshold": 10 },
+  "state": {
+    "frames": [
+      { "id": "f1", "night": "2026-10-01", "instrument": "camA", "signal": 20 },
+      { "id": "f2", "night": "2026-10-01", "instrument": "camA", "signal": 4 },
+      { "id": "g1", "night": "2026-10-02", "instrument": "camB", "signal": 15 }
+    ],
+    "calibrations": {
+      "camA": { "dark": 0, "flat": 1 },
+      "camB": { "dark": 5, "flat": 1 }
+    },
+    "weather": {
+      "2026-10-01": { "status": "clear", "attenuation": 1 },
+      "2026-10-02": { "status": "degraded", "attenuation": 0.5 }
+    }
+  },
+  "transactions": [
+    { "op": { "type": "setWeather", "night": "2026-10-01", "status": "blocked" }, "budget": 10 },
+    { "op": { "type": "setCalibration", "instrument": "camA", "dark": 2, "flat": 1.5 }, "budget": 10 },
+    { "op": { "type": "regroup", "frameId": "g1", "night": "2026-10-01" }, "budget": 2 }
+  ]
+}

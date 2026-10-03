@@ -1,0 +1,10 @@
+{
+  "name": "night-qc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental quality control for astronomical night observations",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
