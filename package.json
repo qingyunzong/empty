@@ -1,0 +1,9 @@
+{
+  "name": "obs-scheduler",
+  "version": "1.0.0",
+  "description": "Observatory night scheduler: interval scheduling with switch costs, PI fairness, cloud corrections, checkpoint recovery",
+  "type": "module",
+  "bin": { "obs-sched": "bin/obs-sched.js" },
+  "scripts": { "test": "node --test test/*.test.js" },
+  "engines": { "node": ">=22" }
+}
