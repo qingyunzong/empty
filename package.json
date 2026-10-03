@@ -1,0 +1,12 @@
+{
+  "name": "press-shop-scheduler",
+  "version": "0.1.0",
+  "description": "Offline single-machine stamping-shop scheduler with exact rational arithmetic",
+  "type": "module",
+  "bin": {
+    "press-sched": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
