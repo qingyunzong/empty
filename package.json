@@ -1,0 +1,10 @@
+{
+  "name": "misstatement-bound",
+  "version": "0.1.0",
+  "description": "Exact rational interval propagation for audit misstatement bounds",
+  "type": "module",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
