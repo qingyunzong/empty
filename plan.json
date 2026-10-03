@@ -1,0 +1,8 @@
+{
+  "doses": [
+    { "pump_id": "PAC-1", "slot": 0, "dose": 120, "start": 0, "end": 60 },
+    { "pump_id": "PAC-1", "slot": 1, "dose": 130, "start": 60, "end": 120 },
+    { "pump_id": "PAM-1", "slot": 2, "dose": 12, "start": 0, "end": 120 },
+    { "pump_id": "PAC-1", "slot": 3, "dose": 110, "start": 120, "end": 180 }
+  ]
+}

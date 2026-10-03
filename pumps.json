@@ -1,0 +1,6 @@
+{
+  "pumps": [
+    { "pump_id": "PAC-1", "max_dose": 500 },
+    { "pump_id": "PAM-1", "max_dose": 100 }
+  ]
+}
