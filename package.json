@@ -1,0 +1,13 @@
+{
+  "name": "sentinel-replay",
+  "version": "1.0.0",
+  "description": "Offline sensor JSONL replay with incremental alerting rules",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

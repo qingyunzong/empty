@@ -1,0 +1,6 @@
+{"id":"e1","time":0,"device":"dev-1","type":"temp","value":75}
+{"id":"e2","time":60000,"device":"dev-1","type":"temp","value":85}
+{"id":"e3","time":120000,"device":"dev-1","type":"temp","value":86}
+{"id":"e4","time":600000,"device":"dev-1","type":"temp","value":70}
+{"id":"e5","time":30000,"device":"dev-2","type":"current","value":12}
+{"id":"e6","time":200000,"device":"dev-2","type":"current","value":5}
