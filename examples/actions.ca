@@ -1,0 +1,8 @@
+# ACME 1-for-2 split, withdrawn, then restated for post-ex lots
+action a1: ACME split 1/2 ex 2024-03-01 v1
+reverse a1 ex 2024-03-05 v2
+restated a1: ACME split 1/4 ex 2024-03-10 v3
+# dividend paid on the post-restatement position
+action d1: ACME dividend $0.50 * 2 ex 2024-04-01 v1
+# tender a quarter of holdings at $12.50
+action t1: ACME tender $12.50 for 1/4 ex 2024-05-01 v1

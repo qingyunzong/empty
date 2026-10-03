@@ -1,0 +1,7 @@
+{
+  "cash": 1000,
+  "lots": [
+    { "id": "L1", "security": "ACME", "quantity": 100, "acquired": "2024-01-15" },
+    { "id": "L2", "security": "ACME", "quantity": 50, "acquired": "2024-03-03" }
+  ]
+}
