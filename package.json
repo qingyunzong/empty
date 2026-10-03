@@ -1,0 +1,13 @@
+{
+  "name": "kvstore",
+  "version": "1.0.0",
+  "description": "Embedded transactional key-value store with MVCC snapshot isolation and WAL crash recovery",
+  "main": "src/store.js",
+  "bin": {
+    "kvstore": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
