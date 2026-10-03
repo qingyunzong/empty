@@ -1,0 +1,3 @@
+{"type":"init","pattern":"arm fire"}
+{"type":"batch","events":[{"id":"a1","type":"fire"},{"id":"a2","type":"arm"}]}
+{"type":"status"}

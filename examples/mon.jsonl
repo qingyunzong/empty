@@ -1,0 +1,11 @@
+{"type":"init","pattern":"arm fire"}
+{"type":"batch","events":[{"id":"e1","type":"arm"}]}
+{"type":"status"}
+{"type":"batch","events":[{"id":"e2","type":"fire"}]}
+{"type":"status"}
+{"type":"checkpoint"}
+{"type":"batch","events":[{"id":"e3","type":"reset"}]}
+{"type":"crash"}
+{"type":"status"}
+{"type":"batch","events":[{"id":"a1","type":"fire"},{"id":"a2","type":"arm"}]}
+{"type":"status"}
