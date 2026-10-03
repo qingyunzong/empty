@@ -1,0 +1,9 @@
+{
+  "name": "audit-voucher-ledger",
+  "version": "1.0.0",
+  "description": "Causal-merge audit voucher ledger with CLI (Node.js stdlib only)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
