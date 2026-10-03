@@ -1,0 +1,10 @@
+{
+  "name": "metrology-calibration",
+  "version": "1.0.0",
+  "description": "Calibration status tracking for torque wrenches and gauge blocks",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
