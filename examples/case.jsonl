@@ -1,0 +1,13 @@
+{"op":"add_node","id":"m1","balance":100,"rule":"self"}
+{"op":"add_node","id":"s1","parent":"m1","balance":40,"rule":"self"}
+{"op":"add_node","id":"t1","parent":"s1","balance":30,"rule":"self"}
+{"op":"add_node","id":"t2","parent":"s1","balance":20,"rule":"parent"}
+{"op":"chargeback","id":"cb1","node":"t1","amount":90}
+{"op":"adjust","node":"s1","delta":15}
+{"op":"reverse","chargeback":"cb1"}
+{"op":"adjust","node":"s1","delta":-15}
+{"op":"reverse","chargeback":"cb1"}
+{"op":"chargeback","id":"cb2","node":"t2","amount":15}
+{"op":"reverse","chargeback":"cb2"}
+{"op":"enumerate","amount":50}
+{"op":"chargeback","id":"cb3","node":"t1","amount":500}

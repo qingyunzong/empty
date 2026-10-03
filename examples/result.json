@@ -1,0 +1,235 @@
+[
+  {
+    "line": 1,
+    "op": "add_node",
+    "ok": true,
+    "id": "m1",
+    "depth": 0
+  },
+  {
+    "line": 2,
+    "op": "add_node",
+    "ok": true,
+    "id": "s1",
+    "depth": 1
+  },
+  {
+    "line": 3,
+    "op": "add_node",
+    "ok": true,
+    "id": "t1",
+    "depth": 2
+  },
+  {
+    "line": 4,
+    "op": "add_node",
+    "ok": true,
+    "id": "t2",
+    "depth": 2
+  },
+  {
+    "line": 5,
+    "op": "chargeback",
+    "ok": true,
+    "id": "cb1",
+    "status": "settled",
+    "code": null,
+    "covered": 90,
+    "uncovered": 0,
+    "steps": [
+      {
+        "node": "t1",
+        "amount": 30,
+        "balanceAfter": 0
+      },
+      {
+        "node": "s1",
+        "amount": 40,
+        "balanceAfter": 0
+      },
+      {
+        "node": "m1",
+        "amount": 20,
+        "balanceAfter": 80
+      }
+    ]
+  },
+  {
+    "line": 6,
+    "op": "adjust",
+    "ok": true,
+    "node": "s1",
+    "balance": 15
+  },
+  {
+    "line": 7,
+    "op": "reverse",
+    "ok": false,
+    "id": "cb1",
+    "status": "settled",
+    "code": "E_RESTORE",
+    "failedNode": "s1",
+    "expected": 0,
+    "actual": 15,
+    "restored": []
+  },
+  {
+    "line": 8,
+    "op": "adjust",
+    "ok": true,
+    "node": "s1",
+    "balance": 0
+  },
+  {
+    "line": 9,
+    "op": "reverse",
+    "ok": true,
+    "id": "cb1",
+    "status": "reversed",
+    "code": null,
+    "restored": [
+      {
+        "node": "m1",
+        "amount": 20,
+        "balanceAfter": 100
+      },
+      {
+        "node": "s1",
+        "amount": 40,
+        "balanceAfter": 40
+      },
+      {
+        "node": "t1",
+        "amount": 30,
+        "balanceAfter": 30
+      }
+    ]
+  },
+  {
+    "line": 10,
+    "op": "chargeback",
+    "ok": true,
+    "id": "cb2",
+    "status": "settled",
+    "code": null,
+    "covered": 15,
+    "uncovered": 0,
+    "steps": [
+      {
+        "node": "s1",
+        "amount": 15,
+        "balanceAfter": 25
+      }
+    ]
+  },
+  {
+    "line": 11,
+    "op": "reverse",
+    "ok": true,
+    "id": "cb2",
+    "status": "reversed",
+    "code": null,
+    "restored": [
+      {
+        "node": "s1",
+        "amount": 15,
+        "balanceAfter": 40
+      }
+    ]
+  },
+  {
+    "line": 12,
+    "op": "enumerate",
+    "ok": true,
+    "amount": 50,
+    "paths": [
+      {
+        "node": "m1",
+        "depth": 0,
+        "covered": 50,
+        "uncovered": 0,
+        "steps": [
+          {
+            "node": "m1",
+            "amount": 50
+          }
+        ]
+      },
+      {
+        "node": "s1",
+        "depth": 1,
+        "covered": 50,
+        "uncovered": 0,
+        "steps": [
+          {
+            "node": "s1",
+            "amount": 40
+          },
+          {
+            "node": "m1",
+            "amount": 10
+          }
+        ]
+      },
+      {
+        "node": "t1",
+        "depth": 2,
+        "covered": 50,
+        "uncovered": 0,
+        "steps": [
+          {
+            "node": "t1",
+            "amount": 30
+          },
+          {
+            "node": "s1",
+            "amount": 20
+          }
+        ]
+      },
+      {
+        "node": "t2",
+        "depth": 2,
+        "covered": 50,
+        "uncovered": 0,
+        "steps": [
+          {
+            "node": "s1",
+            "amount": 40
+          },
+          {
+            "node": "m1",
+            "amount": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "line": 13,
+    "op": "chargeback",
+    "ok": false,
+    "id": "cb3",
+    "status": "partial",
+    "code": "E_INSUFFICIENT",
+    "covered": 170,
+    "uncovered": 330,
+    "steps": [
+      {
+        "node": "t1",
+        "amount": 30,
+        "balanceAfter": 0
+      },
+      {
+        "node": "s1",
+        "amount": 40,
+        "balanceAfter": 0
+      },
+      {
+        "node": "m1",
+        "amount": 100,
+        "balanceAfter": 0
+      }
+    ]
+  }
+]
