@@ -1,0 +1,9 @@
+{
+  "name": "tx-undo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "txundo": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}

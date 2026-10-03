@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    { "id": "R", "parentId": null, "amount": 5, "reason": "root node", "state": "active" },
+    { "id": "A", "parentId": "R", "amount": 10, "reason": "foo x bar refund", "state": "active" },
+    { "id": "B", "parentId": "R", "amount": 20, "reason": "nothing relevant", "state": "active" },
+    { "id": "C", "parentId": "A", "amount": 30, "reason": "bar then foo later", "state": "active" },
+    { "id": "D", "parentId": "A", "amount": 40, "reason": "foo bar again", "state": "active" }
+  ]
+}
