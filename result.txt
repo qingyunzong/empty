@@ -1,0 +1,11 @@
+✔ test/cli.test.js (246.594218ms)
+✔ test/replica.test.js (242.044546ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 271.268803
+0
