@@ -1,0 +1,2 @@
+{"type":"add_obs","id":"o1","star":"A","night":0,"coord":0,"mag":0,"cred":0}
+{"type":"retract_obs","id":"ghost"}

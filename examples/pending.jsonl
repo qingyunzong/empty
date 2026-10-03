@@ -1,0 +1,4 @@
+{"type":"add_obs","id":"o1","star":"A","night":0,"coord":[0,1],"mag":0,"cred":0}
+{"type":"add_obs","id":"o2","star":"B","night":0,"coord":[0,1],"mag":1,"cred":1}
+{"type":"solve","prop_budget":100,"back_budget":0}
+{"type":"solve","prop_budget":100,"back_budget":4}

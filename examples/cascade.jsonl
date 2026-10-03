@@ -1,0 +1,10 @@
+{"type":"add_obs","id":"o1","star":"A","night":0,"coord":0,"mag":0,"cred":0}
+{"type":"add_obs","id":"o2","star":"B","night":0,"coord":2,"mag":1,"cred":1}
+{"type":"add_obs","id":"o3","star":"C","night":1,"coord":[1,2],"mag":0,"cred":0}
+{"type":"checkpoint","name":"before-fix"}
+{"type":"correct_obs","id":"o3","coord":[0,1]}
+{"type":"solve"}
+{"type":"correct_obs","id":"o3","coord":2}
+{"type":"solve"}
+{"type":"undo_to","name":"before-fix"}
+{"type":"solve"}

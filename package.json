@@ -1,0 +1,10 @@
+{
+  "name": "starcats",
+  "version": "0.1.0",
+  "description": "Incremental, replayable star-catalog maintenance over a JSONL event stream",
+  "type": "module",
+  "license": "MIT",
+  "bin": { "starcats": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
