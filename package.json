@@ -1,0 +1,13 @@
+{
+  "name": "incremental-derive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental maintenance of derived values over a dependency graph, with CLI",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
