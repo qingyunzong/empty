@@ -1,0 +1,10 @@
+[
+  { "id": "EV-001", "title": "Phishing email from unknown sender", "source": "email", "severity": 3, "date": "2024-01-15", "resolved": false, "notes": "contains suspicious link" },
+  { "id": "EV-002", "title": "Malware sample quarantined", "source": "endpoint", "severity": 5, "date": "2024-02-03", "resolved": true, "notes": "trojan detected in downloads" },
+  { "id": "EV-003", "title": "Suspicious login attempt", "source": "auth", "severity": 2, "date": "2024-02-10", "resolved": false, "notes": "failed login from foreign ip" },
+  { "id": "EV-004", "title": "Data exfiltration alert", "source": "network", "severity": 5, "date": "2024-03-01", "resolved": false, "notes": "large upload to external host" },
+  { "id": "EV-005", "title": "Phishing link clicked", "source": "email", "severity": 4, "date": "2024-03-05", "resolved": true, "notes": "user clicked phishing link" },
+  { "id": "EV-006", "title": "Ransomware note found", "source": "endpoint", "severity": 5, "date": "2024-03-20", "resolved": false, "notes": "files encrypted, ransom demanded" },
+  { "id": "EV-007", "title": "Port scan detected", "source": "network", "severity": 1, "date": "2024-01-25", "resolved": true, "notes": "scan from internal host" },
+  { "id": "EV-008", "title": "Email attachment blocked", "source": "email", "severity": 2, "date": "2024-02-14", "resolved": false, "notes": "executable attachment blocked" }
+]

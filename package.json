@@ -1,0 +1,10 @@
+{
+  "name": "evidence-query",
+  "version": "1.0.0",
+  "description": "Evidence record query library and CLI with bytecode VM, budgets, versioning and plan certificates",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "fields": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "source": { "type": "string" },
+    "severity": { "type": "number" },
+    "date": { "type": "date" },
+    "resolved": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

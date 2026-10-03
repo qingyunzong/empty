@@ -1,0 +1,263 @@
+run-record: evidence-query
+date: 2026-10-03T07:35:12Z
+node: v22.22.1
+cwd: /home/delin/.local/share/gsb-workbench/artifacts/e184a0a7a43a473e97f2c6910396193c/run/A/attempt-012/workspace
+
+=== 1. node --test ===
+TAP version 13
+# Subtest: test/checker.test.js
+ok 1 - test/checker.test.js
+  ---
+  duration_ms: 2347.851583
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 1622.830326
+  type: 'test'
+  ...
+# Subtest: test/engine.test.js
+ok 3 - test/engine.test.js
+  ---
+  duration_ms: 2272.457799
+  type: 'test'
+  ...
+# Subtest: test/lexer.test.js
+ok 4 - test/lexer.test.js
+  ---
+  duration_ms: 3068.474044
+  type: 'test'
+  ...
+# Subtest: test/parser.test.js
+ok 5 - test/parser.test.js
+  ---
+  duration_ms: 2097.157971
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4261.851463
+
+=== 2. CLI: boolean combination query ===
+{
+  "hits": [
+    "EV-001",
+    "EV-005"
+  ],
+  "instructions": 56,
+  "certificate": {
+    "version": 1,
+    "query": "source:email and severity >= 3",
+    "ast": {
+      "left": {
+        "field": "source",
+        "match": "word",
+        "type": "field",
+        "value": "email"
+      },
+      "op": "and",
+      "right": {
+        "field": "severity",
+        "op": ">=",
+        "type": "compare",
+        "value": 3
+      },
+      "type": "binary"
+    },
+    "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+    "budget": 10000,
+    "instructions": 56,
+    "recordCount": 8,
+    "hits": [
+      "EV-001",
+      "EV-005"
+    ]
+  }
+}
+exit=0
+
+=== 3. CLI: unknown field (compile-time error) ===
+SCHEMA: unknown field 'nosuchfield'
+exit=1
+
+=== 4. CLI: string field with < (compile-time error) ===
+TYPE: operator '<' requires a number or date field, but 'title' has type 'string'
+exit=1
+
+=== 5. CLI: budget below enumeration cost ===
+{
+  "hits": [
+    "EV-001",
+    "EV-005",
+    "EV-008"
+  ],
+  "instructions": 24,
+  "certificate": {
+    "version": 1,
+    "query": "source:email",
+    "ast": {
+      "field": "source",
+      "match": "word",
+      "type": "field",
+      "value": "email"
+    },
+    "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+    "budget": 10000,
+    "instructions": 24,
+    "recordCount": 8,
+    "hits": [
+      "EV-001",
+      "EV-005",
+      "EV-008"
+    ]
+  }
+}
+exit=0
+--- state file after successful query ---
+{
+  "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+  "versions": [
+    {
+      "version": 1,
+      "query": "source:email",
+      "ast": {
+        "field": "source",
+        "match": "word",
+        "type": "field",
+        "value": "email"
+      },
+      "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+      "budget": 10000,
+      "instructions": 24,
+      "recordCount": 8,
+      "hits": [
+        "EV-001",
+        "EV-005",
+        "EV-008"
+      ]
+    }
+  ],
+  "cursor": 0
+}
+--- retry with budget 23 (needs 24 instructions) ---
+BUDGET: instruction budget exceeded: 23 executed, budget is 23
+exit=1
+--- state file after failed query (must be unchanged) ---
+{
+  "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+  "versions": [
+    {
+      "version": 1,
+      "query": "source:email",
+      "ast": {
+        "field": "source",
+        "match": "word",
+        "type": "field",
+        "value": "email"
+      },
+      "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+      "budget": 10000,
+      "instructions": 24,
+      "recordCount": 8,
+      "hits": [
+        "EV-001",
+        "EV-005",
+        "EV-008"
+      ]
+    }
+  ],
+  "cursor": 0
+}
+
+=== 6. CLI: undo / redo via state file ===
+{
+  "hits": [
+    "EV-002",
+    "EV-004",
+    "EV-006"
+  ],
+  "instructions": 24,
+  "certificate": {
+    "version": 2,
+    "query": "severity >= 5",
+    "ast": {
+      "field": "severity",
+      "op": ">=",
+      "type": "compare",
+      "value": 5
+    },
+    "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+    "budget": 10000,
+    "instructions": 24,
+    "recordCount": 8,
+    "hits": [
+      "EV-002",
+      "EV-004",
+      "EV-006"
+    ]
+  }
+}
+exit=0
+{
+  "hits": [
+    "EV-001",
+    "EV-005",
+    "EV-008"
+  ],
+  "instructions": 24,
+  "certificate": {
+    "version": 1,
+    "query": "source:email",
+    "ast": {
+      "field": "source",
+      "match": "word",
+      "type": "field",
+      "value": "email"
+    },
+    "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+    "budget": 10000,
+    "instructions": 24,
+    "recordCount": 8,
+    "hits": [
+      "EV-001",
+      "EV-005",
+      "EV-008"
+    ]
+  }
+}
+exit=0
+{
+  "hits": [
+    "EV-002",
+    "EV-004",
+    "EV-006"
+  ],
+  "instructions": 24,
+  "certificate": {
+    "version": 2,
+    "query": "severity >= 5",
+    "ast": {
+      "field": "severity",
+      "op": ">=",
+      "type": "compare",
+      "value": 5
+    },
+    "schemaHash": "ab5480201052d5c9e9e3fd1c56d9c1208a98d0e8c672c44b3e69071ff283f5c9",
+    "budget": 10000,
+    "instructions": 24,
+    "recordCount": 8,
+    "hits": [
+      "EV-002",
+      "EV-004",
+      "EV-006"
+    ]
+  }
+}
+exit=0
