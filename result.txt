@@ -1,0 +1,29 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 2925.245724
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 2 - test/ledger.test.js
+  ---
+  duration_ms: 4277.029716
+  type: 'test'
+  ...
+# Subtest: test/split.test.js
+ok 3 - test/split.test.js
+  ---
+  duration_ms: 2855.69617
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4531.844782
+exit code: 0

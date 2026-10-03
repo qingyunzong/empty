@@ -1,0 +1,11 @@
+{
+  "name": "splitpay",
+  "version": "1.0.0",
+  "description": "Multi-channel payment split ledger with compensation and crash recovery",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test",
+    "cli": "node cli.js"
+  },
+  "license": "MIT"
+}
