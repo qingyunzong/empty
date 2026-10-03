@@ -1,0 +1,56 @@
+test_degenerate_hulls_pass (test_checker.TestCheckerAccepts.test_degenerate_hulls_pass) ... ok
+test_valid_hull_passes (test_checker.TestCheckerAccepts.test_valid_hull_passes) ... ok
+test_clockwise_order_rejected (test_checker.TestCheckerRejects.test_clockwise_order_rejected) ... ok
+test_collinear_triple_rejected (test_checker.TestCheckerRejects.test_collinear_triple_rejected) ... ok
+test_forged_vertex_id (test_checker.TestCheckerRejects.test_forged_vertex_id) ... ok
+test_interior_point_claimed_as_vertex (test_checker.TestCheckerRejects.test_interior_point_claimed_as_vertex) ... ok
+test_missing_vertex (test_checker.TestCheckerRejects.test_missing_vertex) ... ok
+test_tampered_evidence (test_checker.TestCheckerRejects.test_tampered_evidence) ... ok
+test_wrong_representative_id (test_checker.TestCheckerRejects.test_wrong_representative_id) ... ok
+test_session (test_cli.TestCli.test_session) ... ok
+test_delete_extreme_point_bridging_chains (test_core.TestBridgeExtremeDeletion.test_delete_extreme_point_bridging_chains) ... ok
+test_all_collinear_keeps_only_endpoints (test_core.TestDegenerate.test_all_collinear_keeps_only_endpoints) ... ok
+test_collinear_edge_interiors_excluded (test_core.TestDegenerate.test_collinear_edge_interiors_excluded) ... ok
+test_empty (test_core.TestDegenerate.test_empty) ... ok
+test_single_point (test_core.TestDegenerate.test_single_point) ... ok
+test_two_points (test_core.TestDegenerate.test_two_points) ... ok
+test_delete_missing_rejected (test_core.TestDuplicates.test_delete_missing_rejected) ... ok
+test_duplicate_id_rejected (test_core.TestDuplicates.test_duplicate_id_rejected) ... ok
+test_non_string_id_rejected (test_core.TestDuplicates.test_non_string_id_rejected) ... ok
+test_same_coordinate_multiple_ids (test_core.TestDuplicates.test_same_coordinate_multiple_ids) ... ok
+test_ccw_order_and_canonical_start (test_core.TestEvidence.test_ccw_order_and_canonical_start) ... ok
+test_square_half_planes (test_core.TestEvidence.test_square_half_planes) ... ok
+test_float_coordinates_rejected (test_core.TestExactness.test_float_coordinates_rejected) ... ok
+test_large_denominators (test_core.TestExactness.test_large_denominators) ... ok
+test_lowest_terms_output (test_core.TestExactness.test_lowest_terms_output) ... ok
+test_near_identical_fractions (test_core.TestExactness.test_near_identical_fractions) ... ok
+test_random_trials (test_fuzz.TestFuzz.test_random_trials) ... ok
+test_long_update_sequence_visits_few_nodes (test_locality.TestLocality.test_long_update_sequence_visits_few_nodes) ... ok
+test_visits_do_not_scale_linearly (test_locality.TestLocality.test_visits_do_not_scale_linearly) ... ok
+test_deep_nesting (test_persistence.TestNestedSnapshots.test_deep_nesting) ... ok
+test_push_pop_nesting (test_persistence.TestNestedSnapshots.test_push_pop_nesting) ... ok
+test_rollback_then_fork (test_persistence.TestNestedSnapshots.test_rollback_then_fork) ... ok
+test_snapshot_isolation (test_persistence.TestNestedSnapshots.test_snapshot_isolation) ... ok
+test_load_rejects_bad_format (test_persistence.TestSaveLoad.test_load_rejects_bad_format) ... ok
+test_roundtrip (test_persistence.TestSaveLoad.test_roundtrip) ... ok
+test_save_of_historical_version (test_persistence.TestSaveLoad.test_save_of_historical_version) ... ok
+test_classification (test_queries.TestContainsPoint.test_classification) ... ok
+test_fractional_direction (test_queries.TestExtreme.test_fractional_direction) ... ok
+test_tie_breaks_by_id_at_same_coordinate (test_queries.TestExtreme.test_tie_breaks_by_id_at_same_coordinate) ... ok
+test_tie_breaks_by_perpendicular_then_id (test_queries.TestExtreme.test_tie_breaks_by_perpendicular_then_id) ... ok
+test_unique_extreme (test_queries.TestExtreme.test_unique_extreme) ... ok
+test_zero_direction_rejected (test_queries.TestExtreme.test_zero_direction_rejected) ... ok
+test_basic_tangents (test_queries.TestTangent.test_basic_tangents) ... ok
+test_tangent_from_axis (test_queries.TestTangent.test_tangent_from_axis) ... ok
+test_tangent_requires_exterior_point (test_queries.TestTangent.test_tangent_requires_exterior_point) ... ok
+test_tangent_requires_nondegenerate_hull (test_queries.TestTangent.test_tangent_requires_nondegenerate_hull) ... ok
+test_tangent_tie_picks_nearest_vertex (test_queries.TestTangent.test_tangent_tie_picks_nearest_vertex) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 31.304s
+
+OK
+
+locality: n=1490 updates=800 avg_nodes=49.1 max_nodes=115 log2(n)=10.5 avg_chain_steps=511.4
+
+scaling: n=400 -> 71.0 visits, n=3200 -> 104.5 visits
