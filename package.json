@@ -1,0 +1,10 @@
+{
+  "name": "incremental-recompute",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental recomputation of experiment parameter sweeps with transactional, budgeted updates",
+  "scripts": {
+    "test": "node --test"
+  }
+}
