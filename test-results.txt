@@ -1,0 +1,62 @@
+# node --test (v22.22.1, 2026-10-03T19:32:11Z)
+
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 2365.436104
+  type: 'test'
+  ...
+# Subtest: test/geometry.test.js
+ok 2 - test/geometry.test.js
+  ---
+  duration_ms: 2289.895201
+  type: 'test'
+  ...
+# Subtest: test/tracker.test.js
+ok 3 - test/tracker.test.js
+  ---
+  duration_ms: 3395.857351
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4127.583297
+
+## test/cli.test.js (per-test detail)
+ok 1 - cli tracks reads JSONL events and writes JSONL actions to stdout
+ok 2 - cli supports --out for writing actions to a file
+ok 3 - cli reports malformed JSON lines as MALFORMED errors
+ok 4 - cli exits non-zero with usage on bad arguments
+
+## test/geometry.test.js (per-test detail)
+ok 1 - strictly interior point is INSIDE
+ok 2 - exterior point is OUTSIDE
+ok 3 - point on an edge counts as inside (EDGE)
+ok 4 - vertex counts as inside (EDGE)
+ok 5 - even-odd rule on a concave polygon
+ok 6 - even-odd rule with a hole-like self-touching shape
+
+## test/tracker.test.js (per-test detail)
+ok 1 - observation inside a plan window and polygon matches with certificate
+ok 2 - acceptance: late-arriving plan matches a previously unmatched observation
+ok 3 - acceptance: polygon shrink un-matches a boundary observation and cascades WITHDRAW
+ok 4 - acceptance: overlapping plans select the lexicographically smallest flightId
+ok 5 - lexicographic choice is stable when a smaller-id plan arrives later
+ok 6 - observation outside the time window does not match
+ok 7 - unmatched observation is published as UNMATCHED at watermark > ts + 5
+ok 8 - retracting a plan cascades WITHDRAW and re-matches to the next plan
+ok 9 - retracting the only matching plan leaves the observation unmatched
+ok 10 - modification after publication is rejected with LATE
+ok 11 - lower or equal version is rejected with STALE_VERSION
+ok 12 - polygon with fewer than 3 vertices is INVALID_POLYGON
+ok 13 - non-numeric coordinates are MALFORMED
+ok 14 - retracting an unknown flightId is UNKNOWN_RETRACT
+ok 15 - out-of-order observations before the watermark all get matched
+

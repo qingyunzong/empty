@@ -1,0 +1,13 @@
+{
+  "name": "flight-tracker",
+  "version": "1.0.0",
+  "description": "Flight plan / ground observation matching engine with watermark-based publication",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,9 @@
+{"type":"GROUND_OBSERVATION","obsId":"obs-1","ts":10,"x":5,"y":5}
+{"type":"GROUND_OBSERVATION","obsId":"obs-2","ts":11,"x":5,"y":0}
+{"type":"GROUND_OBSERVATION","obsId":"obs-3","ts":12,"x":50,"y":50}
+{"type":"FLIGHT_PLAN","flightId":"beta","start":0,"end":100,"polygon":[[0,0],[10,0],[10,10],[0,10]],"version":1}
+{"type":"FLIGHT_PLAN","flightId":"alpha","start":0,"end":100,"polygon":[[0,0],[10,0],[10,10],[0,10]],"version":1}
+{"type":"FLIGHT_PLAN","flightId":"alpha","start":0,"end":100,"polygon":[[2,2],[8,2],[8,8],[2,8]],"version":2}
+{"type":"WATERMARK","ts":17}
+{"type":"FLIGHT_PLAN","flightId":"alpha","start":0,"end":100,"polygon":[[0,0],[10,0],[10,10],[0,10]],"version":3}
+{"type":"RETRACT","flightId":"ghost"}
