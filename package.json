@@ -1,0 +1,16 @@
+{
+  "name": "chargeback-evidence-store",
+  "version": "1.0.0",
+  "description": "Evidence retrieval store for payment chargeback cases (offline, Node.js 22 stdlib)",
+  "type": "module",
+  "main": "src/store.js",
+  "bin": {
+    "evidence": "bin/evidence.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
