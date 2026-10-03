@@ -1,0 +1,12 @@
+{
+  "accounts": [{ "id": "A", "limit": 100 }],
+  "batches": [
+    { "id": "B1", "start": "2026-10-03T00:00:00Z", "end": "2026-10-03T01:00:00Z" },
+    { "id": "B2", "start": "2026-10-03T02:00:00Z", "end": "2026-10-03T03:00:00Z" }
+  ],
+  "transactions": [
+    { "id": "T1", "account": "A", "amount": 50 },
+    { "id": "T2", "account": "A", "amount": 50, "failures": ["B1"] },
+    { "id": "T3", "account": "A", "amount": 50 }
+  ]
+}
