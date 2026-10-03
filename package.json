@@ -1,0 +1,9 @@
+{
+  "name": "offline-scheduler",
+  "version": "0.1.0",
+  "description": "Offline scheduling helper: positional change-log index + undo/redo with budget coupling",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
