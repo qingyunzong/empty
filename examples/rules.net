@@ -1,0 +1,12 @@
+// Netting rules for trade date 2026-10-04.
+// Constants are scoped per day; a day block overrides the global
+// filter/nettable for obligations of that day.
+
+const FEE_RATE = 0.5%;       // global: visible in every scope
+
+day 2026-10-04 {
+  const LIMIT = 1000000 USD; // cents; only visible inside this day block
+  filter currency == USD and amount >= 100;
+  nettable = min(amount, LIMIT) - amount * FEE_RATE;
+  expect cycle @M1 -> @M2 -> @M3 -> @M4 -> @M5;
+}

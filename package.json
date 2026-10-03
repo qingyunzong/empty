@@ -1,0 +1,16 @@
+{
+  "name": "netdsl",
+  "version": "0.1.0",
+  "description": "Netting DSL and cycle-cancellation engine for exchange member obligations",
+  "type": "module",
+  "license": "UNLICENSED",
+  "bin": {
+    "net": "bin/net"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

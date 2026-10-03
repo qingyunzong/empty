@@ -1,0 +1,9 @@
+{
+  "obligations": [
+    { "id": "O1", "day": "2026-10-04", "from": "M1", "to": "M2", "ccy": "USD", "amount": 10000 },
+    { "id": "O2", "day": "2026-10-04", "from": "M2", "to": "M3", "ccy": "USD", "amount": 10000 },
+    { "id": "O3", "day": "2026-10-04", "from": "M3", "to": "M4", "ccy": "USD", "amount": 10000 },
+    { "id": "O4", "day": "2026-10-04", "from": "M4", "to": "M5", "ccy": "USD", "amount": 10000 },
+    { "id": "O5", "day": "2026-10-04", "from": "M5", "to": "M1", "ccy": "USD", "amount": 10000 }
+  ]
+}
