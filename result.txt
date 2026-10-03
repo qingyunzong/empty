@@ -1,0 +1,47 @@
+$ node --test
+
+--- stdout ---
+TAP version 13
+# Subtest: test/brute.js
+ok 1 - test/brute.js
+  ---
+  duration_ms: 976.282016
+  type: 'test'
+  ...
+# Subtest: test/budget.test.js
+ok 2 - test/budget.test.js
+  ---
+  duration_ms: 3434.475127
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 3 - test/cli.test.js
+  ---
+  duration_ms: 3685.098515
+  type: 'test'
+  ...
+# Subtest: test/infeasible.test.js
+ok 4 - test/infeasible.test.js
+  ---
+  duration_ms: 2334.696794
+  type: 'test'
+  ...
+# Subtest: test/optimal.test.js
+ok 5 - test/optimal.test.js
+  ---
+  duration_ms: 1675.592143
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4087.905826
+
+--- stderr ---
+
+--- exit code: 0 ---

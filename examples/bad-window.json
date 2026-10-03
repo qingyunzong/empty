@@ -1,0 +1,7 @@
+{
+  "skills": ["electrical"],
+  "inspectors": [{ "id": "p1", "skills": ["electrical"] }],
+  "tasks": [
+    { "id": "t1", "zone": "A", "skills": ["electrical"], "duration": 1, "window": [6, 2] }
+  ]
+}

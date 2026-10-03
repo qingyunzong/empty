@@ -1,0 +1,21 @@
+{
+  "skills": ["electrical", "plumbing", "hvac"],
+  "inspectors": [
+    { "id": "p1", "skills": ["electrical", "plumbing"] },
+    { "id": "p2", "skills": ["plumbing", "hvac"] },
+    { "id": "p3", "skills": ["electrical", "hvac" ] }
+  ],
+  "travel": {
+    "A": { "B": 1, "C": 2 },
+    "B": { "A": 1, "C": 2 },
+    "C": { "A": 2, "B": 2 }
+  },
+  "tasks": [
+    { "id": "m1", "zone": "A", "skills": ["electrical"], "duration": 2, "window": [0, 6] },
+    { "id": "m2", "zone": "B", "skills": ["plumbing"], "duration": 3, "window": [0, 7] },
+    { "id": "m3", "zone": "C", "skills": ["hvac"], "duration": 2, "window": [1, 8] },
+    { "id": "m4", "zone": "A", "skills": ["electrical"], "duration": 1, "window": [2, 9] },
+    { "id": "m5", "zone": "B", "skills": ["plumbing"], "duration": 2, "window": [0, 10] },
+    { "id": "m6", "zone": "C", "skills": ["hvac"], "duration": 3, "window": [0, 11] }
+  ]
+}

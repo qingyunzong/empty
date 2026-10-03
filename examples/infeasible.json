@@ -1,0 +1,15 @@
+{
+  "skills": ["electrical", "plumbing", "high-voltage"],
+  "inspectors": [
+    { "id": "p1", "skills": ["electrical", "plumbing"] },
+    { "id": "p2", "skills": ["plumbing"] }
+  ],
+  "travel": {
+    "A": { "B": 2 },
+    "B": { "A": 2 }
+  },
+  "tasks": [
+    { "id": "t-hard", "zone": "A", "skills": ["high-voltage"], "duration": 2, "window": [0, 10] },
+    { "id": "t-easy", "zone": "B", "skills": ["plumbing"], "duration": 1, "window": [0, 10] }
+  ]
+}

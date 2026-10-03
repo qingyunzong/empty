@@ -1,0 +1,15 @@
+{
+  "name": "inspection-planner",
+  "version": "1.0.0",
+  "description": "Offline inspection scheduling library and CLI (finite-domain CSP solver)",
+  "type": "module",
+  "bin": {
+    "plan": "bin/plan.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
