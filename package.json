@@ -1,0 +1,10 @@
+{
+  "name": "biobank-custody-chain",
+  "version": "1.0.0",
+  "description": "Append-only hash-chained custody ledger for biological samples with consent revocation, Merkle proofs, and crash-safe snapshots",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "bin": { "custody": "./bin/custody.js" },
+  "scripts": { "test": "node --test" }
+}
