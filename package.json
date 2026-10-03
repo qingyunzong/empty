@@ -1,0 +1,10 @@
+{
+  "name": "offline-settlement",
+  "version": "1.0.0",
+  "description": "Offline merchant end-of-day settlement library and CLI (snapshot isolation, first-committer-wins)",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
