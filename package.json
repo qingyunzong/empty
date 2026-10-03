@@ -1,0 +1,15 @@
+{
+  "name": "biospec-store",
+  "version": "0.1.0",
+  "description": "Embedded transactional sample store with WAL, CRC and persistent secondary indexes",
+  "type": "module",
+  "bin": {
+    "biospec": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
