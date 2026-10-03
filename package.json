@@ -1,0 +1,9 @@
+{
+  "name": "eod-ledger-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-of-day batch pricing audit tool: event-sourced ledger with length-prefixed frame ingestion, corrections, period close and Merkle certificates.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
