@@ -1,0 +1,12 @@
+{"type":"limits","seq":0,"funds":1000,"securities":20,"window":50}
+{"type":"new","seq":1,"clOrdId":"X1","side":"buy","qty":10,"price":5,"ts":0}
+{"type":"new","seq":2,"clOrdId":"S1","side":"sell","qty":6,"price":4,"ts":0}
+{"type":"match","seq":3,"ts":1}
+{"type":"amend","seq":4,"clOrdId":"A1","origId":"X1","qty":8,"ts":2}
+{"type":"new","seq":5,"clOrdId":"S2","side":"sell","qty":5,"price":5,"ts":3}
+{"type":"match","seq":6,"ts":4}
+{"type":"cancel","seq":7,"origId":"S2","ts":5}
+{"type":"settle","seq":8,"ts":6}
+{"type":"fail","seq":9,"origId":"X1","ts":7}
+{"type":"new","seq":10,"clOrdId":"X3","side":"buy","qty":5,"price":5,"ts":40}
+{"type":"match","seq":11,"ts":100}
