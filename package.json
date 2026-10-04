@@ -1,0 +1,9 @@
+{
+  "name": "obs-gate",
+  "version": "0.1.0",
+  "description": "Quality gating for observations before network admission: thresholds, derived metrics, exemptions, auditable decisions, replay.",
+  "type": "module",
+  "bin": { "gate": "bin/gate.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
