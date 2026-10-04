@@ -1,0 +1,4 @@
+{
+  "alpha": { "name": "Alpha", "status": "open", "priority": 1 },
+  "beta": { "owner": "lin", "active": true }
+}

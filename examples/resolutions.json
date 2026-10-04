@@ -1,0 +1,4 @@
+[
+  { "project": "alpha", "field": "status", "pick": "target" },
+  { "project": "beta", "field": "owner", "pick": "value", "value": "lin" }
+]

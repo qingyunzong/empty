@@ -1,0 +1,4 @@
+{
+  "alpha": { "name": "Alpha", "status": "done", "priority": 1 },
+  "beta": { "owner": "lin-local", "active": true }
+}
