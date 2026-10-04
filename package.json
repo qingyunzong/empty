@@ -1,0 +1,11 @@
+{
+  "name": "keyed-request-coalescer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Key-shared in-flight request coalescing with per-waiter cancellation and virtual-time failure caching",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
