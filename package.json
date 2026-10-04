@@ -1,0 +1,11 @@
+{
+  "name": "amount-cn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "中文金额解析/格式化/增量编辑库（仅 Node.js 内置库）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
