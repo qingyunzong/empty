@@ -1,0 +1,10 @@
+{
+  "name": "route-lib",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline process-routing library and CLI: chunked CRC32 graph store, optimistic version control with read-set conflict certificates, and optimal route selection.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
