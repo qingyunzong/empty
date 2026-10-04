@@ -1,0 +1,11 @@
+{
+  "name": "round-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Per-round generational runtime: late stdout/assert/exit messages are attributed only to their original round; closed rounds never accept writes; termination waits for stream drain or explicit truncation.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "simulate": "tsc -p tsconfig.json && node dist/src/simulate.js"
+  }
+}
