@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcurve2d.a CMakeFiles/curve2d.dir/src/geometry.cpp.o CMakeFiles/curve2d.dir/src/library.cpp.o
+/usr/bin/ranlib libcurve2d.a

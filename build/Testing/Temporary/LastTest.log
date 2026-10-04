@@ -1,0 +1,85 @@
+Start testing: Oct 05 05:30 CST
+----------------------------------------------------------
+1/5 Testing: rational
+1/5 Test: rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build
+"rational" start time: Oct 05 05:30 CST
+Output:
+----------------------------------------------------------
+test_rational: 19 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rational" end time: Oct 05 05:30 CST
+"rational" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: intersect
+2/5 Test: intersect
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build/test_intersect"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build
+"intersect" start time: Oct 05 05:30 CST
+Output:
+----------------------------------------------------------
+test_intersect: 24 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"intersect" end time: Oct 05 05:30 CST
+"intersect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: incremental
+3/5 Test: incremental
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build/test_incremental"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build
+"incremental" start time: Oct 05 05:30 CST
+Output:
+----------------------------------------------------------
+test_incremental: 255 checks, 0 failures
+<end of output>
+Test time =   6.31 sec
+----------------------------------------------------------
+Test Passed.
+"incremental" end time: Oct 05 05:30 CST
+"incremental" time elapsed: 00:00:06
+----------------------------------------------------------
+
+4/5 Testing: enumerate
+4/5 Test: enumerate
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build/test_enumerate"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build
+"enumerate" start time: Oct 05 05:30 CST
+Output:
+----------------------------------------------------------
+5x5 grid: 300 segments
+enumerated: 44895 pairs (17082 point, 432 overlap), 7260 triples
+test_enumerate: 79971 checks, 0 failures
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"enumerate" end time: Oct 05 05:30 CST
+"enumerate" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: certificate
+5/5 Test: certificate
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build/test_certificate"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b34b00e023924781aeb4e48f8a603e83/run/A/attempt-001/workspace/build
+"certificate" start time: Oct 05 05:30 CST
+Output:
+----------------------------------------------------------
+test_certificate: 7 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"certificate" end time: Oct 05 05:30 CST
+"certificate" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 05:30 CST
