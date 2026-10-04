@@ -1,0 +1,14 @@
+{
+  "name": "command-session-parser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Streaming parser for command sessions: keeps sent bytes, echo and program output apart, applies a public finite control-sequence table, flags truncated commands, and is chunk-boundary invariant.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
