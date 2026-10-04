@@ -1,0 +1,12 @@
+{
+  "name": "stable-admissions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stable admissions matching with nested category quotas, tie-breaking, withdrawals, blocking-pair certificates and exhaustive verification on small instances.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
