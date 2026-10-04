@@ -1,0 +1,12 @@
+{
+  "name": "plugin-planner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "插件能力规划库：在至多 18 个插件中求启用目标能力的最低成本序列",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test \"dist/tests/*.test.js\"",
+    "plan": "tsc && node dist/src/cli.js"
+  }
+}
