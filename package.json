@@ -1,0 +1,12 @@
+{
+  "name": "alert-intervals",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Alert library: emits intervals where a signal stays above a threshold for at least d ticks, with retraction on late events.",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.build.json && node --test dist/tests/*.test.js"
+  }
+}
