@@ -1,0 +1,14 @@
+{
+  "name": "checkpoint-importer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Batch record importer with byte-offset + prefix-digest checkpoints and safe resume",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/importer.test.js"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
