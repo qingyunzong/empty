@@ -1,0 +1,13 @@
+{
+  "name": "layered-resolver",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Layered resource resolution with directory tombstones, configurable case rules, and immutable snapshots",
+  "type": "module",
+  "exports": "./dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --experimental-test-isolation=none --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
