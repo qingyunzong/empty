@@ -1,0 +1,16 @@
+{
+  "name": "order-cancel-machine",
+  "version": "1.0.0",
+  "description": "Causal state machine for order cancel/match with vector clocks, hash-chained events, conflict merge and human resolution certificates",
+  "type": "module",
+  "main": "src/machine.js",
+  "bin": {
+    "order-machine": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
