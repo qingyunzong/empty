@@ -1,0 +1,11 @@
+{
+  "name": "mini-csp-solver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small finite-domain CSP solver (<=16 vars) with allDifferent and table constraints, trail-based undo, node budget, and independent enumeration cross-check.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
