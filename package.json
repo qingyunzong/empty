@@ -1,0 +1,10 @@
+{
+  "name": "heat-treatment-scheduler",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "热处理车间离线炉批编排：离散时间精确搜索 + UNSAT 证书 + 增量重排/撤销",
+  "scripts": {
+    "test": "node --test"
+  }
+}
