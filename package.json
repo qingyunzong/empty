@@ -1,0 +1,12 @@
+{
+  "name": "bench-ab-analysis",
+  "version": "1.0.0",
+  "description": "Paired A/B benchmark analysis: exact median, Wilcoxon signed-rank exact test, atomic snapshots",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
