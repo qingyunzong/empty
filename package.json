@@ -1,0 +1,15 @@
+{
+  "name": "idempotent-payments",
+  "version": "1.0.0",
+  "description": "Offline idempotent payment & cancel library with WAL + MVCC, plus CLI",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "payctl": "src/cli.js"
+  }
+}
