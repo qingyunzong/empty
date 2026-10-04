@@ -1,0 +1,7 @@
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/test_completion.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/test_destroy.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/test_shutdown.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/test_frame_stats.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/CMakeFiles/rebuild_cache.dir

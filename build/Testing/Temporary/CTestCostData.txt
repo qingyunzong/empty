@@ -1,0 +1,5 @@
+completion 2 0.0032241
+destroy 2 0.00258081
+shutdown 2 0.00331648
+frame_stats 2 0.00323038
+---

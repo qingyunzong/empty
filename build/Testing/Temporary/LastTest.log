@@ -1,0 +1,75 @@
+Start testing: Oct 05 01:24 CST
+----------------------------------------------------------
+1/4 Testing: completion
+1/4 Test: completion
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/test_completion"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build
+"completion" start time: Oct 05 01:24 CST
+Output:
+----------------------------------------------------------
+  scenario complete_first=1: resumed=1 outcome=1 releases/frame: [f2]=1
+  scenario complete_first=0: resumed=1 outcome=0 releases/frame: [f2]=1
+test_completion: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"completion" end time: Oct 05 01:24 CST
+"completion" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: destroy
+2/4 Test: destroy
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/test_destroy"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build
+"destroy" start time: Oct 05 01:24 CST
+Output:
+----------------------------------------------------------
+  frame 0: 1 release(s)
+test_destroy: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"destroy" end time: Oct 05 01:24 CST
+"destroy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: shutdown
+3/4 Test: shutdown
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/test_shutdown"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build
+"shutdown" start time: Oct 05 01:24 CST
+Output:
+----------------------------------------------------------
+  frame 2: 4 release(s)
+test_shutdown: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"shutdown" end time: Oct 05 01:24 CST
+"shutdown" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: frame_stats
+4/4 Test: frame_stats
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build/test_frame_stats"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9fb7e2a0d07d406aa6237d942df16d53/run/A/attempt-001/workspace/build
+"frame_stats" start time: Oct 05 01:24 CST
+Output:
+----------------------------------------------------------
+  frame 0: resumed 3
+  frame 1: resumed 1
+  frame 2: resumed 2
+  releases in frame 2: 3
+test_frame_stats: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"frame_stats" end time: Oct 05 01:24 CST
+"frame_stats" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 01:24 CST
