@@ -1,0 +1,12 @@
+{
+  "name": "event-loop-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic event-loop simulator: timer heap + microtask queue, step budget, replayable trace",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "examples": "tsc -p tsconfig.json && node dist/src/main.js"
+  }
+}
