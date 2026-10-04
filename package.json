@@ -1,0 +1,13 @@
+{
+  "name": "cnc-tool-life",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CNC tool life service synchronized over unreliable messages",
+  "main": "src/service.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
