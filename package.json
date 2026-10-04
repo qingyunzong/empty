@@ -1,0 +1,11 @@
+{
+  "name": "finite-timing-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compile finite timing conditions (e.g. B within d ticks after A, and no C) into a tick-driven monitor with per-instance tracking, cancellation, evidence, and snapshot/resume.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  }
+}
