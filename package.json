@@ -1,0 +1,11 @@
+{
+  "name": "event-compressor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "按 key 合并连续版本事件、屏障禁止跨越的事件压缩库（可逆还原事件顺序）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
