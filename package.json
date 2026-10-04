@@ -1,0 +1,9 @@
+{
+  "name": "line-side-buffer-sim",
+  "version": "1.0.0",
+  "description": "Offline discrete-event simulation and certificate generation for line-side buffer starvation/overflow analysis",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
