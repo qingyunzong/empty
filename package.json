@@ -1,0 +1,16 @@
+{
+  "name": "payrev-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Payment reversal propagation over a dependency graph (SCC-aware), with NDJSON CLI.",
+  "bin": {
+    "payrev": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
