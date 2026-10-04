@@ -1,0 +1,19 @@
+{
+  "name": "workshop-mvcc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline MVCC key-value store with snapshot isolation and a unique secondary index (workcenter, timeSlot) for discrete workshop scheduling, plus a JSON-driven CLI.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cli": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  }
+}
