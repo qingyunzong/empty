@@ -1,0 +1,14 @@
+{
+  "name": "posix-argv",
+  "version": "0.1.0",
+  "description": "Structured POSIX argv display-string construction, decoding, and response-file expansion with byte provenance and reverse editing. No shell is ever spawned.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
