@@ -1,0 +1,8 @@
+{
+  "stages": 2,
+  "feeders": [
+    { "id": "F1", "capacity": [0, 50, 100], "loads": [
+      { "id": "L1", "power": 50, "level": 1, "shed": { "0": 0, "1.5": 20, "2": 40 } }
+    ] }
+  ]
+}

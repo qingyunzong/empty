@@ -1,0 +1,9 @@
+{
+  "stages": 1,
+  "feeders": [
+    { "id": "F1", "capacity": [0, 100], "loads": [
+      { "id": "L1", "power": 50, "level": 1, "shed": [0, 10] }
+    ] }
+  ],
+  "interlocks": [ { "type": "unsheddable", "loads": ["GHOST"] } ]
+}

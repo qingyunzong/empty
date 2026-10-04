@@ -1,0 +1,9 @@
+{
+  "name": "shed",
+  "version": "0.1.0",
+  "description": "Offline load-shedding optimizer: finite-domain CSP with propagation and backtracking",
+  "type": "module",
+  "bin": { "shed": "./shed.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,19 @@
+{
+  "stages": 1,
+  "feeders": [
+    {
+      "id": "F1",
+      "capacity": [0, 500],
+      "loads": [
+        { "id": "L1", "power": 60, "level": 1, "shed": [0, 60] },
+        { "id": "L2", "power": 60, "level": 1, "shed": [0, 60] },
+        { "id": "L3", "power": 60, "level": 1, "shed": [0, 60] }
+      ]
+    }
+  ],
+  "interlocks": [
+    { "type": "together", "loads": ["L1", "L2"] },
+    { "type": "sequence", "loads": ["L2", "L3"] },
+    { "type": "unsheddable", "loads": ["L3"] }
+  ]
+}

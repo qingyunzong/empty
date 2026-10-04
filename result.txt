@@ -1,0 +1,64 @@
+# result.txt — 真实运行输出与退出码
+# 日期: 2026-10-04 22:25:20 CST  Node: v22.22.1
+
+== 1a. node --test ==
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# duration_ms 2771.219454
+exit=0
+
+== 1b. 逐条用例 (node --test-reporter=spec test/shed.test.js) ==
+✔ 3-load instance matches exhaustive enumeration (74.903181ms)
+✔ 4-load instance with interlocks matches exhaustive enumeration (24.661323ms)
+✔ 5-load instance with unsheddable load matches exhaustive enumeration (19.038309ms)
+✔ infeasible 4-load instance matches exhaustive enumeration (5.243378ms)
+✔ interlock chain makes gap unreachable and reports minimal conflict (9.543833ms)
+✔ feeder capacity conflict is reported as minimal core (2.395683ms)
+✔ tiny budget returns unknown with pending loads, never infeasible (7.298448ms)
+✔ larger budget finds a verifiable optimal plan (48.208482ms)
+✔ CLI: negative power exits 2 (26.583088ms)
+✔ CLI: unknown load in interlock exits 2 (25.045779ms)
+✔ CLI: non-integer stage exits 2 (2.841942ms)
+✔ CLI: feasible model exits 0 with plan (7.487526ms)
+✔ CLI: infeasible model exits 1 with conflict (5.168912ms)
+✔ CLI: exhausted budget exits 3 with pending loads (2.416936ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 360.31311
+exit=0
+
+== 2. shed examples/ok.json --gap 120 --budget 300 ==
+{"status":"ok","gap":120,"shed":120,"cost":"15240870","plan":{"L1":2,"L2":2,"L3":3,"L4":0,"L5":1},"nodes":77}
+exit=0
+
+== 3. shed examples/ok.json --gap 120 --budget 1 ==
+{"status":"unknown","gap":120,"pending":["L2","L3","L4","L5"],"incumbent":null,"nodes":1}
+exit=3
+
+== 4. shed examples/ok.json --gap 120 --budget 1000000 ==
+{"status":"ok","gap":120,"shed":120,"cost":"15240870","plan":{"L1":2,"L2":2,"L3":3,"L4":0,"L5":1},"nodes":77}
+exit=0
+
+== 5. shed examples/conflict.json --gap 50 ==
+{"status":"infeasible","gap":50,"maxShed":180,"conflict":{"feeders":[],"interlocks":[{"type":"together","loads":["L1","L2"]},{"type":"sequence","loads":["L2","L3"]},{"type":"unsheddable","loads":["L3"]}]},"nodes":0}
+exit=1
+
+== 6. shed examples/bad-power.json --gap 10 ==
+{"error":"load \"L1\": negative power -5"}
+exit=2
+
+== 7. shed examples/bad-stage.json --gap 10 ==
+{"error":"load \"L1\": non-integer stage \"1.5\""}
+exit=2
+
+== 8. shed examples/bad-load.json --gap 10 ==
+{"error":"interlock \"unsheddable\": unknown load \"GHOST\""}
+exit=2
+

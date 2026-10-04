@@ -1,0 +1,25 @@
+{
+  "stages": 3,
+  "feeders": [
+    {
+      "id": "F1",
+      "capacity": [0, 90, 180, 400],
+      "loads": [
+        { "id": "L1", "power": 60, "level": 1, "shed": [0, 20, 40, 60] },
+        { "id": "L2", "power": 50, "level": 2, "shed": [0, 10, 30, 50] },
+        { "id": "L3", "power": 40, "level": 1, "shed": [0, 0, 20, 40] }
+      ]
+    },
+    {
+      "id": "F2",
+      "capacity": [0, 60, 120, 400],
+      "loads": [
+        { "id": "L4", "power": 70, "level": 3, "shed": [0, 30, 50, 70] },
+        { "id": "L5", "power": 30, "level": 2, "shed": [0, 10, 20, 30] }
+      ]
+    }
+  ],
+  "interlocks": [
+    { "type": "sequence", "loads": ["L1", "L2"] }
+  ]
+}
