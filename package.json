@@ -1,0 +1,9 @@
+{
+  "name": "furnace-batch-scheduler",
+  "version": "1.0.0",
+  "description": "Offline heat-treatment furnace batch scheduler (stdlib only)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
