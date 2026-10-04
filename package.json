@@ -1,0 +1,9 @@
+{
+  "name": "incder",
+  "version": "1.0.0",
+  "description": "Incremental maintenance of derived values in a dependency graph, with CLI",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

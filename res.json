@@ -1,0 +1,208 @@
+{
+  "results": [
+    {
+      "id": "t1",
+      "status": "ok",
+      "affected": [
+        "s",
+        "m"
+      ],
+      "diffs": [
+        {
+          "node": "a",
+          "before": {
+            "value": 1,
+            "blocked": false
+          },
+          "after": {
+            "value": 10,
+            "blocked": false
+          }
+        },
+        {
+          "node": "s",
+          "before": {
+            "value": 3,
+            "blocked": false
+          },
+          "after": {
+            "value": 12,
+            "blocked": false
+          }
+        },
+        {
+          "node": "m",
+          "before": {
+            "value": 3,
+            "blocked": false
+          },
+          "after": {
+            "value": 12,
+            "blocked": false
+          }
+        }
+      ],
+      "blocked": [],
+      "deriveErrors": [],
+      "certificate": {
+        "version": 1,
+        "digest": "5552e9d5a9fca8b9c51e8213bf5aee96d2687f256732d291ee050a62ead86466"
+      }
+    },
+    {
+      "id": "t2",
+      "status": "error",
+      "error": {
+        "code": "E_CYCLE",
+        "message": "edge m -> s introduces a cycle",
+        "edge": {
+          "from": "m",
+          "to": "s"
+        }
+      },
+      "state": {
+        "version": 1,
+        "nodes": [
+          {
+            "id": "a",
+            "kind": "source",
+            "value": 10,
+            "blocked": false
+          },
+          {
+            "id": "b",
+            "kind": "source",
+            "value": 2,
+            "blocked": false
+          },
+          {
+            "id": "m",
+            "kind": "derived",
+            "op": "max",
+            "value": 12,
+            "blocked": false
+          },
+          {
+            "id": "s",
+            "kind": "derived",
+            "op": "sum",
+            "value": 12,
+            "blocked": false
+          }
+        ],
+        "edges": [
+          {
+            "from": "a",
+            "to": "s"
+          },
+          {
+            "from": "b",
+            "to": "s"
+          },
+          {
+            "from": "s",
+            "to": "m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "t3",
+      "status": "ok",
+      "affected": [
+        "s",
+        "m"
+      ],
+      "diffs": [
+        {
+          "node": "a",
+          "before": {
+            "value": 10,
+            "blocked": false
+          },
+          "after": {
+            "value": 1,
+            "blocked": false
+          }
+        },
+        {
+          "node": "m",
+          "before": {
+            "value": 12,
+            "blocked": false
+          },
+          "after": {
+            "value": 3,
+            "blocked": false
+          }
+        },
+        {
+          "node": "s",
+          "before": {
+            "value": 12,
+            "blocked": false
+          },
+          "after": {
+            "value": 3,
+            "blocked": false
+          }
+        }
+      ],
+      "blocked": [],
+      "deriveErrors": [],
+      "certificate": {
+        "version": 2,
+        "digest": "cd3df0ba76fd9f8e1c40b25075fd2a62b23da3e3f1cb9ae210d63a0c3457b145"
+      }
+    }
+  ],
+  "state": {
+    "version": 2,
+    "nodes": [
+      {
+        "id": "a",
+        "kind": "source",
+        "value": 1,
+        "blocked": false
+      },
+      {
+        "id": "b",
+        "kind": "source",
+        "value": 2,
+        "blocked": false
+      },
+      {
+        "id": "m",
+        "kind": "derived",
+        "op": "max",
+        "value": 3,
+        "blocked": false
+      },
+      {
+        "id": "s",
+        "kind": "derived",
+        "op": "sum",
+        "value": 3,
+        "blocked": false
+      }
+    ],
+    "edges": [
+      {
+        "from": "a",
+        "to": "s"
+      },
+      {
+        "from": "b",
+        "to": "s"
+      },
+      {
+        "from": "s",
+        "to": "m"
+      }
+    ]
+  },
+  "certificate": {
+    "version": 2,
+    "digest": "cd3df0ba76fd9f8e1c40b25075fd2a62b23da3e3f1cb9ae210d63a0c3457b145"
+  }
+}

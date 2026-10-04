@@ -1,0 +1,15 @@
+{
+  "state": {
+    "nodes": [
+      { "id": "a", "kind": "source", "value": 1 },
+      { "id": "b", "kind": "source", "value": 2 },
+      { "id": "s", "kind": "derived", "op": "sum", "inputs": ["a", "b"] },
+      { "id": "m", "kind": "derived", "op": "max", "inputs": ["s"] }
+    ]
+  },
+  "transactions": [
+    { "id": "t1", "undoTag": "u1", "ops": [{ "type": "setSource", "node": "a", "value": 10 }] },
+    { "id": "t2", "ops": [{ "type": "addEdge", "from": "m", "to": "s" }] },
+    { "id": "t3", "ops": [{ "type": "undo", "tag": "u1" }] }
+  ]
+}
