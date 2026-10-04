@@ -1,0 +1,10 @@
+{
+  "initial": "closed",
+  "states": ["closed", "open", "locked"],
+  "transitions": [
+    {"action": "open", "from": "closed", "to": "open"},
+    {"action": "close", "from": "open", "to": "closed"},
+    {"action": "lock", "from": "closed", "to": "locked"},
+    {"action": "unlock", "from": "locked", "to": "closed"}
+  ]
+}
