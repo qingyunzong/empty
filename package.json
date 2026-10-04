@@ -1,0 +1,9 @@
+{
+  "name": "param-sync",
+  "version": "1.0.0",
+  "description": "Offline param pack/feedback sync with interlock validation, deterministic conflict resolution and layered rollback",
+  "type": "module",
+  "bin": { "param-sync": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
