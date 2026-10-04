@@ -1,0 +1,29 @@
+{
+  "name": "demo-release-1.4",
+  "branches": ["login", "logout", "checkout", "refund", "search", "profile"],
+  "features": {
+    "os": ["linux", "windows"],
+    "browser": ["chrome", "firefox"],
+    "db": ["postgres", "mysql"]
+  },
+  "time_limit": 100,
+  "tests": [
+    {"name": "t00-setup-auth",  "cost": 2,  "duration": 5,  "branches": ["login", "logout"]},
+    {"name": "t01-smoke-linux", "cost": 6,  "duration": 20, "requires": ["t00-setup-auth"],
+     "branches": ["checkout"], "assign": {"os": "linux", "browser": "chrome", "db": "postgres"}},
+    {"name": "t02-smoke-win",   "cost": 6,  "duration": 20, "requires": ["t00-setup-auth"],
+     "branches": ["refund"],   "assign": {"os": "windows", "browser": "firefox", "db": "mysql"}},
+    {"name": "t03-cross-lf",    "cost": 5,  "duration": 15, "assign": {"os": "linux", "browser": "firefox"}},
+    {"name": "t04-cross-wc",    "cost": 5,  "duration": 15, "assign": {"os": "windows", "browser": "chrome"}},
+    {"name": "t05-db-lmy",      "cost": 4,  "duration": 10, "assign": {"os": "linux", "db": "mysql"}},
+    {"name": "t06-db-wpg",      "cost": 4,  "duration": 10, "assign": {"os": "windows", "db": "postgres"}},
+    {"name": "t07-db-cmy",      "cost": 4,  "duration": 10, "assign": {"browser": "chrome", "db": "mysql"}},
+    {"name": "t08-db-fpg",      "cost": 4,  "duration": 10, "assign": {"browser": "firefox", "db": "postgres"}},
+    {"name": "t09-profile-win", "cost": 9,  "duration": 25, "branches": ["profile"],
+     "assign": {"os": "windows", "browser": "chrome", "db": "postgres"}},
+    {"name": "t10-search-lin",  "cost": 7,  "duration": 15, "branches": ["search"],
+     "assign": {"os": "linux", "browser": "firefox", "db": "mysql"}},
+    {"name": "t11-refund-win",  "cost": 7,  "duration": 15, "requires": ["t00-setup-auth"],
+     "branches": ["refund"],   "assign": {"os": "windows", "browser": "firefox", "db": "mysql"}}
+  ]
+}
