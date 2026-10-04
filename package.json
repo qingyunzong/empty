@@ -1,0 +1,9 @@
+{
+  "name": "recon-differ",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental reconciliation diff-cluster engine and CLI (stdlib only)",
+  "type": "commonjs",
+  "bin": { "recon": "bin/recon.js" },
+  "scripts": { "test": "node --test" }
+}
