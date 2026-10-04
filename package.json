@@ -1,0 +1,8 @@
+{
+  "name": "event-merger",
+  "version": "0.1.0",
+  "description": "History-branching event merger: three-way merge, causal cycle reporting, verifiable topo certificates, JSONL CLI",
+  "type": "module",
+  "bin": { "event-merge": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
