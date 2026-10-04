@@ -1,0 +1,10 @@
+{
+  "name": "shift-time-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shift work-hour attribution with priority sweep and joint capacitated allocation",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
