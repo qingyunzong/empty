@@ -1,0 +1,15 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "description": "Deterministic offline 2-machine Lmax scheduler with transactional WAL store and JSON CLI",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "scheduler": "bin/cli.js"
+  }
+}
