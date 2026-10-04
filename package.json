@@ -1,0 +1,12 @@
+{
+  "name": "evidence-verifier",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cross-check result manifest, trajectories and file summaries for run-ID / problem-summary / stage-source consistency",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "verify": "node dist/src/cli.js"
+  }
+}
