@@ -1,0 +1,11 @@
+{
+  "name": "scoped-rename",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Block-scope-aware rename refactoring that emits a byte edit plan and rejects captures atomically",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
