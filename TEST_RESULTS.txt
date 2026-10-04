@@ -1,0 +1,41 @@
+=== RUN   TestDFAMatchesDirectGlob
+--- PASS: TestDFAMatchesDirectGlob (0.00s)
+=== RUN   TestCheckEmptyWitnessAndCertificate
+--- PASS: TestCheckEmptyWitnessAndCertificate (0.00s)
+=== RUN   TestDifferenceAutomaton
+--- PASS: TestDifferenceAutomaton (0.00s)
+=== RUN   TestDiagnoseFullyShadowedRule
+--- PASS: TestDiagnoseFullyShadowedRule (0.00s)
+=== RUN   TestDiagnoseGivesShortestReachablePath
+--- PASS: TestDiagnoseGivesShortestReachablePath (0.00s)
+=== RUN   TestDiagnoseEmptyLanguageFromExclusions
+--- PASS: TestDiagnoseEmptyLanguageFromExclusions (0.00s)
+=== RUN   TestDiagnoseTiedRulesDoNotShadowEachOther
+--- PASS: TestDiagnoseTiedRulesDoNotShadowEachOther (0.00s)
+=== RUN   TestPriorityBySpecificity
+--- PASS: TestPriorityBySpecificity (0.00s)
+=== RUN   TestTiedSpecificityRejected
+--- PASS: TestTiedSpecificityRejected (0.00s)
+=== RUN   TestHotReloadDoesNotReuseOldState
+--- PASS: TestHotReloadDoesNotReuseOldState (0.00s)
+=== RUN   TestVerifyCrossChecksCachedEngine
+    engine_test.go:122: verified 259 paths
+    engine_test.go:138: verified 85 paths after reload
+--- PASS: TestVerifyCrossChecksCachedEngine (0.00s)
+=== RUN   TestDoubleStarCrossesZeroOrMoreSegments
+--- PASS: TestDoubleStarCrossesZeroOrMoreSegments (0.00s)
+=== RUN   TestStarMatchesExactlyOneSegment
+--- PASS: TestStarMatchesExactlyOneSegment (0.00s)
+=== RUN   TestDoubleStarAloneMatchesEverything
+--- PASS: TestDoubleStarAloneMatchesEverything (0.00s)
+=== RUN   TestLiteralPattern
+--- PASS: TestLiteralPattern (0.00s)
+=== RUN   TestInvalidGlobs
+--- PASS: TestInvalidGlobs (0.00s)
+=== RUN   TestRuleWithExclusions
+--- PASS: TestRuleWithExclusions (0.00s)
+PASS
+ok  	rulelib	0.012s
+
+$ go test ./... (count=1)
+ok  	rulelib	0.005s
