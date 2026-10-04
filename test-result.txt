@@ -1,0 +1,73 @@
+TAP version 13
+# RECOVERY_HASH n=1 crash=none cancels=[] source=snapshot+log 995bbb0924fa095d68d0175076349ba8b83b24d0199c8169bd024f624ebe97f3
+# RECOVERY_HASH n=1 crash=none cancels=[0] source=log-only:watermark-missing-or-corrupt da3e55f4d7cf900a26377a307b92cfd359eb310ae558cd59e9c379b4866cb0e1
+# RECOVERY_HASH AGG n=1 crash=none scenarios=2 da24302078fa160cb178e64150d6bf1d4429c5fc52f20b1009b660cd09eca5c6
+# RECOVERY_HASH n=1 crash=settle:beforeRename cancels=[] source=log-only:watermark-missing-or-corrupt d2799efdb1734af87899f413553d59743b94cc580bb40e03b9f1ada0759f0bc3
+# RECOVERY_HASH n=1 crash=settle:beforeRename cancels=[0] source=log-only:watermark-missing-or-corrupt da3e55f4d7cf900a26377a307b92cfd359eb310ae558cd59e9c379b4866cb0e1
+# RECOVERY_HASH AGG n=1 crash=settle:beforeRename scenarios=2 8a3861e8f61b28d1eac7d494295f994b3b7111a67da885f067b905e71f790170
+# RECOVERY_HASH n=1 crash=settle:afterRename cancels=[] source=log-only:watermark-missing-or-corrupt 995bbb0924fa095d68d0175076349ba8b83b24d0199c8169bd024f624ebe97f3
+# RECOVERY_HASH n=1 crash=settle:afterRename cancels=[0] source=log-only:watermark-missing-or-corrupt da3e55f4d7cf900a26377a307b92cfd359eb310ae558cd59e9c379b4866cb0e1
+# RECOVERY_HASH AGG n=1 crash=settle:afterRename scenarios=2 da24302078fa160cb178e64150d6bf1d4429c5fc52f20b1009b660cd09eca5c6
+# RECOVERY_HASH n=2 crash=none cancels=[] source=snapshot+log 2a319820d860f43f43f0dcb557c5a92f7cd9e10172864eced9e2af60502231be
+# RECOVERY_HASH n=2 crash=none cancels=[0] source=snapshot+log 67841bde93afb8951a20a014ec666de093f662b892dfdfa0cc2992b9d4df4821
+# RECOVERY_HASH n=2 crash=none cancels=[1] source=snapshot+log f908b2302a803affb67668fa230a8f3ac48cee11dcb5bd8513ee77bf28996406
+# RECOVERY_HASH n=2 crash=none cancels=[0,1] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH n=2 crash=none cancels=[1,0] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH AGG n=2 crash=none scenarios=5 fee4702e1ba5c01abe97aa83c9b1bffbad3ac3c7257b90f1030bc6434c613c00
+# RECOVERY_HASH n=2 crash=settle:beforeRename cancels=[] source=log-only:watermark-missing-or-corrupt 513e5da27d83173822d475b894b1d1b0151b97f5413b988e10db6046c527b249
+# RECOVERY_HASH n=2 crash=settle:beforeRename cancels=[0] source=log-only:watermark-missing-or-corrupt c8dd8a3859634ac764887eab1cf2c51353cc2bdb60aad665d7ef904150d3018f
+# RECOVERY_HASH n=2 crash=settle:beforeRename cancels=[1] source=log-only:watermark-missing-or-corrupt 977390bef5a5d566e2e23296638f7b18de14211f06ea8ed2d2f6dae983eebd38
+# RECOVERY_HASH n=2 crash=settle:beforeRename cancels=[0,1] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH n=2 crash=settle:beforeRename cancels=[1,0] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH AGG n=2 crash=settle:beforeRename scenarios=5 fad157e13493e5869651217be5f94ad9d66fd39098a618a4622f66ce91995e52
+# RECOVERY_HASH n=2 crash=settle:afterRename cancels=[] source=log-only:watermark-missing-or-corrupt 2a319820d860f43f43f0dcb557c5a92f7cd9e10172864eced9e2af60502231be
+# RECOVERY_HASH n=2 crash=settle:afterRename cancels=[0] source=log-only:watermark-missing-or-corrupt 67841bde93afb8951a20a014ec666de093f662b892dfdfa0cc2992b9d4df4821
+# RECOVERY_HASH n=2 crash=settle:afterRename cancels=[1] source=log-only:watermark-missing-or-corrupt f908b2302a803affb67668fa230a8f3ac48cee11dcb5bd8513ee77bf28996406
+# RECOVERY_HASH n=2 crash=settle:afterRename cancels=[0,1] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH n=2 crash=settle:afterRename cancels=[1,0] source=log-only:watermark-missing-or-corrupt 57fd4bd999515eeb3eaa3db9d6a62c8803de1bf98906a87e2d1f81ab192f14b5
+# RECOVERY_HASH AGG n=2 crash=settle:afterRename scenarios=5 fee4702e1ba5c01abe97aa83c9b1bffbad3ac3c7257b90f1030bc6434c613c00
+# RECOVERY_HASH AGG n=3 crash=none scenarios=16 9ee2db8bc0292c2c9d5ef4ef7ac8b7b35fc62f0f5142549dda4b1ae124ab97ef
+# RECOVERY_HASH AGG n=3 crash=settle:beforeRename scenarios=16 50906a8aa52ab05083bc0fe1f0dac11ad0a627e63d08f5aba34013e5e294bc84
+# RECOVERY_HASH AGG n=3 crash=settle:afterRename scenarios=16 9ee2db8bc0292c2c9d5ef4ef7ac8b7b35fc62f0f5142549dda4b1ae124ab97ef
+# RECOVERY_HASH AGG n=4 crash=none scenarios=65 941595eb6bdd1ef7020db4d2d5240beb51362625d224aa1a1783a9cb2316a99b
+# RECOVERY_HASH AGG n=4 crash=settle:beforeRename scenarios=65 3f974d3df91cf77218b06f20f15950961d33cfcf9cb65d9f7edcafa8280c7120
+# RECOVERY_HASH AGG n=4 crash=settle:afterRename scenarios=65 941595eb6bdd1ef7020db4d2d5240beb51362625d224aa1a1783a9cb2316a99b
+# RECOVERY_HASH clean-run 1f6efc5d4077243e8ade51feb34f9b3b889e429ff82e96d2925f0c6c629ebd48
+# RECOVERY_HASH AGG n=5 crash=none scenarios=326 0ac2a0ff364416d72ce7286f06f6061a0dd2ad7eb945e055f33b41737932c40c
+# RECOVERY_HASH AGG n=5 crash=settle:beforeRename scenarios=326 30551f8d45b7d378dc8a483f37dbc77a9a7229277a60351065f26022a14441c5
+# RECOVERY_HASH crash=settle:beforeRename 03f5089c95810cd6a1931995c9739ea8cfdcbd7a7ca55fa892c59c8a84d0cd84
+# RECOVERY_HASH AGG n=5 crash=settle:afterRename scenarios=326 0ac2a0ff364416d72ce7286f06f6061a0dd2ad7eb945e055f33b41737932c40c
+# RECOVERY_HASH crash=settle:afterRename 1f6efc5d4077243e8ade51feb34f9b3b889e429ff82e96d2925f0c6c629ebd48
+# RECOVERY_HASH AGG n=6 crash=none scenarios=1957 2e1c847b08cb1b0faee0fc6502ccb8a8f066463c284f97b849a6ee02e87d3a47
+# RECOVERY_HASH corrupt-watermark 1f6efc5d4077243e8ade51feb34f9b3b889e429ff82e96d2925f0c6c629ebd48
+# RECOVERY_HASH AGG n=6 crash=settle:beforeRename scenarios=1957 69e043ce40dea160dff01d9fc7266eedf1b156cd5e68753512ff0a8d7fdb260e
+# RECOVERY_HASH corrupt-snapshot 1f6efc5d4077243e8ade51feb34f9b3b889e429ff82e96d2925f0c6c629ebd48
+# RECOVERY_HASH AGG n=6 crash=settle:afterRename scenarios=1957 2e1c847b08cb1b0faee0fc6502ccb8a8f066463c284f97b849a6ee02e87d3a47
+# RECOVERY_HASH ENUM verified total=7113 scenarios 3ef6aed051b05e0b1c75b10af1b471ec6edd17381d60cd46de65903221b61f4b
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 6899.553037
+  type: 'test'
+  ...
+# Subtest: test/enumeration.test.js
+ok 2 - test/enumeration.test.js
+  ---
+  duration_ms: 6688.307472
+  type: 'test'
+  ...
+# Subtest: test/ledger.test.js
+ok 3 - test/ledger.test.js
+  ---
+  duration_ms: 901.540373
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6984.747139

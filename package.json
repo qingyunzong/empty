@@ -1,0 +1,12 @@
+{
+  "name": "netting-ledger",
+  "version": "1.0.0",
+  "description": "Multilateral netting settlement ledger with crash-safe snapshots and log replay",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
