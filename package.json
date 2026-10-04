@@ -1,0 +1,13 @@
+{
+  "name": "quality-quarantine-control",
+  "version": "1.0.0",
+  "description": "Quality quarantine control library and CLI: periodic QC windows, FEFO issuing, late-inspection recompute",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "qqc": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

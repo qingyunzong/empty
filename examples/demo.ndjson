@@ -1,0 +1,11 @@
+{"cmd":"config","timezones":{"Asia/Shanghai":[{"from":null,"offsetMinutes":480}]},"window":{"zone":"Asia/Shanghai","weekly":[{"days":[1,2,3,4,5],"start":"09:00","end":"17:00"}],"holidays":["2026-10-01"]},"defects":[["2026-01-15T00:00:00Z","2026-01-15T00:00:00Z"]]}
+{"cmd":"receive","batch":"B1","qty":50,"expiry":"2026-07-10T00:00:00Z","span":["2026-01-10T00:00:00Z","2026-01-15T00:00:00Z"],"at":"2026-06-01T01:00:00Z"}
+{"cmd":"receive","batch":"B2","qty":50,"expiry":"2026-07-05T00:00:00Z","span":["2026-01-16T00:00:00Z","2026-01-20T00:00:00Z"],"at":"2026-06-01T01:30:00Z"}
+{"cmd":"available","batch":"B1","at":"2026-06-01T02:00:00Z"}
+{"cmd":"available","batch":"B2","at":"2026-06-01T02:00:00Z"}
+{"cmd":"inspect","batch":"B1","inspectedAt":"2026-06-01T02:30:00Z","passed":true}
+{"cmd":"inspect","batch":"B2","inspectedAt":"2026-06-02T02:30:00Z","passed":true}
+{"cmd":"issue","orderId":"O1","qty":60,"at":"2026-06-03T03:00:00Z"}
+{"cmd":"inspect","batch":"B2","inspectedAt":"2026-06-02T08:00:00Z","passed":false,"at":"2026-06-04T01:00:00Z"}
+{"cmd":"issuable","at":"2026-06-04T02:00:00Z"}
+{"cmd":"status"}

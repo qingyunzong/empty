@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: CLI pipeline emits one JSON result per input line
+ok 1 - CLI pipeline emits one JSON result per input line
+  ---
+  duration_ms: 71.25443
+  type: 'test'
+  ...
+# Subtest: CLI input parser accepts a single JSON array or object
+ok 2 - CLI input parser accepts a single JSON array or object
+  ---
+  duration_ms: 6.90226
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 202.320266
+TAP version 13
+# Subtest: zero-length and boundary-touching defects do not block a batch
+ok 1 - zero-length and boundary-touching defects do not block a batch
+  ---
+  duration_ms: 24.049466
+  type: 'test'
+  ...
+# Subtest: interval set matches reference enumeration over randomized cases
+ok 2 - interval set matches reference enumeration over randomized cases
+  ---
+  duration_ms: 105.591343
+  type: 'test'
+  ...
+# Subtest: store-level issuability matches per-batch reference enumeration
+ok 3 - store-level issuability matches per-batch reference enumeration
+  ---
+  duration_ms: 11.298921
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 214.780598
+TAP version 13
+# Subtest: issuing more than issuable stock is a NEGATIVE_INVENTORY error and changes nothing
+ok 1 - issuing more than issuable stock is a NEGATIVE_INVENTORY error and changes nothing
+  ---
+  duration_ms: 41.445701
+  type: 'test'
+  ...
+# Subtest: events for unknown batches are errors
+ok 2 - events for unknown batches are errors
+  ---
+  duration_ms: 1.638731
+  type: 'test'
+  ...
+# Subtest: illegal window periods are errors
+ok 3 - illegal window periods are errors
+  ---
+  duration_ms: 1.765694
+  type: 'test'
+  ...
+# Subtest: restore that would drive a batch negative is rejected
+ok 4 - restore that would drive a batch negative is rejected
+  ---
+  duration_ms: 3.481741
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 150.564683
+TAP version 13
+# Subtest: FEFO picks earliest expiry even when inspected in a later window
+ok 1 - FEFO picks earliest expiry even when inspected in a later window
+  ---
+  duration_ms: 69.849957
+  type: 'test'
+  ...
+# Subtest: equal expiry instants are tied by batch id
+ok 2 - equal expiry instants are tied by batch id
+  ---
+  duration_ms: 12.610812
+  type: 'test'
+  ...
+# Subtest: batches without a passed in-window inspection are not issuable
+ok 3 - batches without a passed in-window inspection are not issuable
+  ---
+  duration_ms: 18.119831
+  type: 'test'
+  ...
+# Subtest: inspection outside the quality window is an error
+ok 4 - inspection outside the quality window is an error
+  ---
+  duration_ms: 18.324259
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 271.236448
+TAP version 13
+# Subtest: late failed inspection halts two batches and certifies historical orders
+ok 1 - late failed inspection halts two batches and certifies historical orders
+  ---
+  duration_ms: 27.183159
+  type: 'test'
+  ...
+# Subtest: on-time inspection produces no certificates
+ok 2 - on-time inspection produces no certificates
+  ---
+  duration_ms: 1.537101
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 81.810035
+TAP version 13
+# Subtest: undo returns stock and restore deducts it again
+ok 1 - undo returns stock and restore deducts it again
+  ---
+  duration_ms: 17.511825
+  type: 'test'
+  ...
+# Subtest: double undo / double restore are state errors
+ok 2 - double undo / double restore are state errors
+  ---
+  duration_ms: 3.198106
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 78.667574
+TAP version 13
+# Subtest: timezone table converts across offset segments
+ok 1 - timezone table converts across offset segments
+  ---
+  duration_ms: 6.79288
+  type: 'test'
+  ...
+# Subtest: window membership follows local time across DST shift
+ok 2 - window membership follows local time across DST shift
+  ---
+  duration_ms: 4.083851
+  type: 'test'
+  ...
+# Subtest: holiday exception closes an otherwise open window
+ok 3 - holiday exception closes an otherwise open window
+  ---
+  duration_ms: 1.471143
+  type: 'test'
+  ...
+# Subtest: overnight window belongs to the day it starts
+ok 4 - overnight window belongs to the day it starts
+  ---
+  duration_ms: 0.978055
+  type: 'test'
+  ...
+# Subtest: illegal periods are rejected
+ok 5 - illegal periods are rejected
+  ---
+  duration_ms: 4.304957
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 102.137547
