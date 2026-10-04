@@ -1,0 +1,13 @@
+{
+  "name": "weather-sessionizer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sessionizes weather-station observations from JSONL upsert/retract/watermark streams.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,51 @@
+# test-results.txt
+# Generated: 2026-10-04T04:48:02Z on v22.22.1
+
+============================================================
+$ node --test
+============================================================
+--- stdout ---
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 2370.347108
+  type: 'test'
+  ...
+# Subtest: test/sessions.test.js
+ok 2 - test/sessions.test.js
+  ---
+  duration_ms: 2498.803618
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2968.810565
+--- stderr ---
+--- exit code: 0 ---
+
+============================================================
+$ node src/cli.js sessions --in examples/data.jsonl
+============================================================
+--- stdout ---
+{"station":"s1","start":"2026-01-01T00:00:00.000Z","end":"2026-01-01T00:15:00.000Z","count":3,"avgTemp":20,"ids":["a","b","c"],"version":1}
+{"station":"s2","start":"2026-01-01T01:00:00.000Z","end":"2026-01-01T01:00:00.000Z","count":1,"avgTemp":5,"ids":["x"],"version":1}
+{"station":"s2","start":"2026-01-01T01:12:00.000Z","end":"2026-01-01T01:12:00.000Z","count":1,"avgTemp":9,"ids":["z"],"version":1}
+--- stderr ---
+{"error":"LATE","message":"id \"d\": eventTime 2026-01-01T00:10:00.000Z is at or before the watermark","line":5,"record":{"op":"UPSERT","id":"d","station":"s1","eventTime":"2026-01-01T00:10:00Z","temp":99,"version":1}}
+{"error":"UNKNOWN_RETRACT","message":"id \"ghost\": no such observation","line":6,"record":{"op":"RETRACT","id":"ghost","version":1}}
+--- exit code: 0 ---
+
+============================================================
+$ node src/cli.js sessions --in /nonexistent.jsonl   (fatal)
+============================================================
+--- stdout ---
+--- stderr ---
+{"fatal":true,"error":"IO","message":"cannot read /nonexistent.jsonl: ENOENT: no such file or directory, open '/nonexistent.jsonl'"}
+--- exit code: 2 ---
