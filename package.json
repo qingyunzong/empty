@@ -1,0 +1,11 @@
+{
+  "name": "scoped-resource",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "嵌套作用域资源清理库:成功才登记、异常逆序聚合清理、迟到获取仍回收",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
