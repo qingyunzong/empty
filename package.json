@@ -1,0 +1,10 @@
+{
+  "name": "rect-pack-cli",
+  "version": "1.0.0",
+  "description": "Exact rectangle packing on a small grid: max-profit subset, min-area tie-break, with exhaustive verification",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}

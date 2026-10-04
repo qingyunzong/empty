@@ -1,0 +1,15 @@
+{
+  "grid": { "width": 8, "height": 8, "forbidden": [[3,3],[4,4],[0,7],[7,0]] },
+  "items": [
+    { "id": "A", "w": 3, "h": 2, "profit": 14, "rotate": true },
+    { "id": "B", "w": 2, "h": 2, "profit": 10 },
+    { "id": "C", "w": 1, "h": 4, "profit": 9, "rotate": true },
+    { "id": "D", "w": 2, "h": 3, "profit": 11, "rotate": true },
+    { "id": "E", "w": 1, "h": 1, "profit": 2 },
+    { "id": "F", "w": 4, "h": 1, "profit": 7, "rotate": true },
+    { "id": "G", "w": 3, "h": 3, "profit": 16, "rotate": false },
+    { "id": "H", "w": 2, "h": 1, "profit": 4, "rotate": true },
+    { "id": "I", "w": 5, "h": 2, "profit": 15, "rotate": true },
+    { "id": "J", "w": 1, "h": 2, "profit": 3, "rotate": true }
+  ]
+}
