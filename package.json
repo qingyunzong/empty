@@ -1,0 +1,13 @@
+{
+  "name": "sequencing-batch-join",
+  "version": "1.0.0",
+  "description": "Join READ_METRIC events to BATCH intervals with versioning, watermark freezing and corrections",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

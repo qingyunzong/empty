@@ -1,0 +1,6 @@
+{"type":"READ_METRIC","metricId":"m1","batchId":"b1","ts":42,"yield":128.5,"quality":0.93}
+{"type":"BATCH","op":"UPSERT","batchId":"b1","start":0,"end":100,"version":1}
+{"type":"READ_METRIC","metricId":"m2","batchId":"b1","ts":90,"yield":64.0,"quality":0.88}
+{"type":"BATCH","op":"UPSERT","batchId":"b1","start":0,"end":50,"version":2}
+{"type":"WATERMARK","ts":200}
+{"type":"BATCH","op":"UPSERT","batchId":"b1","start":0,"end":500,"version":3}
