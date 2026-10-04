@@ -1,0 +1,12 @@
+{
+  "name": "event-loop-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "事件循环模拟器：定时任务 + 微任务、步数预算、可重放轨迹",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
