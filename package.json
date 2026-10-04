@@ -1,0 +1,11 @@
+{
+  "name": "unit-calc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unit-aware expression calculator with exact rational arithmetic",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/calc.test.js"
+  }
+}
