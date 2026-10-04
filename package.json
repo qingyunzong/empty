@@ -1,0 +1,10 @@
+{
+  "name": "delivery-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependency-aware delivery event scheduler with cancellation, blocking chains and delivery certificates",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
