@@ -1,0 +1,17 @@
+{
+  "name": "bounded-pubsub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bounded-queue pub/sub exposed as async iterators with backpressure and abortable publish (TypeScript, Node.js built-ins only).",
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
