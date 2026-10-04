@@ -1,0 +1,8 @@
+{
+  "name": "ptag-pack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline product tag pack library and CLI (versioned dictionaries, delta record blocks, CRC32, random-access index)",
+  "bin": { "ptag": "cli.js" },
+  "scripts": { "test": "node --test" }
+}
