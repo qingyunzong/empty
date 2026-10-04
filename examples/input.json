@@ -1,0 +1,8 @@
+{
+  "rules_hash": "2e85042498265080bc46c29ebbf3c5d78bb13f508f6484daf869372f2736d27f",
+  "flows": [
+    { "id": "t-001", "account": "acct-a", "amount": "1234.56", "date": "2026-10-01" },
+    { "id": "t-002", "account": "acct-a", "amount": "5.00", "date": "2026-10-02" },
+    { "id": "t-003", "account": "acct-b", "amount": "99999.99", "date": "2026-10-03" }
+  ]
+}

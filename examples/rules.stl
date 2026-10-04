@@ -1,0 +1,23 @@
+// 清算所结算规则 v1
+// fee  : 手续费，按费率计提，设最低收费，2026-01-01 起生效
+// tax  : 增值税，按手续费计提
+// net  : 净额轧差 = 金额 - 手续费 - 税额
+
+let fee_rate: rate = 0.0015;
+let vat_rate: rate = 0.06;
+let min_fee: money = 0.01m;
+let effective: date = 2026-01-01;
+
+rule fee(amount: money, day: date) -> money {
+  let raw: money = round(amount * fee_rate);
+  return if (day >= effective and raw < min_fee) then min_fee else raw;
+}
+
+rule tax(amount: money, day: date) -> money {
+  let f: money = fee(amount, day);
+  return round(f * vat_rate);
+}
+
+rule net(amount: money, day: date) -> money {
+  return amount - fee(amount, day) - tax(amount, day);
+}
