@@ -1,0 +1,12 @@
+{
+  "name": "defect-recall",
+  "version": "1.0.0",
+  "description": "Offline defect recall-set generator with positional inverted index, Roaring-style bitmaps and auditable proof certificates",
+  "type": "module",
+  "bin": {
+    "defect-recall": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
