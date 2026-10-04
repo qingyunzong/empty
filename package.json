@@ -1,0 +1,12 @@
+{
+  "name": "incremental-compile-cache",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental compile cache: separate impl/interface summaries, SCC batch publishing, stale-task baseline checks.",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
