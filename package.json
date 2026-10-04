@@ -1,0 +1,10 @@
+{
+  "name": "coldchain-cert",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline cold-chain compliance certificates for vaccine batches (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
