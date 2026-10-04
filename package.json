@@ -1,0 +1,11 @@
+{
+  "name": "tree-slot-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "函数执行库：为整条调用树限制在途数，await 子任务交还占位、恢复重新申请、异常清理全部占位",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/scheduler.test.js"
+  }
+}
