@@ -1,0 +1,12 @@
+{
+  "name": "logtopo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Multi-source log causal/topological ordering CLI with incremental revision",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
