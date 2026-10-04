@@ -1,0 +1,23 @@
+{
+  "orders": ["W1", "W2", "W3", "W4"],
+  "stations": ["S1", "S2", "S3", "S4"],
+  "costs": [
+    { "order": "W1", "station": "S1", "cost": 9 },
+    { "order": "W1", "station": "S2", "cost": -2 },
+    { "order": "W1", "station": "S3", "cost": 7 },
+    { "order": "W1", "station": "S4", "cost": 8 },
+    { "order": "W2", "station": "S1", "cost": 6 },
+    { "order": "W2", "station": "S2", "cost": 4 },
+    { "order": "W2", "station": "S3", "cost": -3 },
+    { "order": "W2", "station": "S4", "cost": 7 },
+    { "order": "W3", "station": "S1", "cost": 5 },
+    { "order": "W3", "station": "S2", "cost": 8 },
+    { "order": "W3", "station": "S3", "cost": 1 },
+    { "order": "W3", "station": "S4", "cost": -4 },
+    { "order": "W4", "station": "S1", "cost": 7 },
+    { "order": "W4", "station": "S2", "cost": 6 },
+    { "order": "W4", "station": "S3", "cost": 9 },
+    { "order": "W4", "station": "S4", "cost": 4 }
+  ],
+  "forbidden": [["W1", "S1"], ["W4", "S3"]]
+}

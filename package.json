@@ -1,0 +1,12 @@
+{
+  "name": "assign-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Min-cost one-to-one assignment of up to 12 work orders to workstations, with dual certificate / Hall witness, independent verifier and permutation-enumeration cross-check. TypeScript + Node built-ins only.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
