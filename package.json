@@ -1,0 +1,12 @@
+{
+  "name": "ad-delivery-planner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "投放规划 CLI：至多 16 个广告组、整数投放量 0-10、分渠道预算与总曝光下限、非线性收益表，收益最大并列成本最低，输出预算证书",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/tests/*.test.js\"",
+    "start": "npm run build && node dist/src/cli.js"
+  }
+}

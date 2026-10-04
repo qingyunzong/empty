@@ -1,0 +1,37 @@
+{
+  "channels": [
+    { "id": "search", "budget": 40 },
+    { "id": "social", "budget": 30 }
+  ],
+  "minImpressions": 60,
+  "groups": [
+    {
+      "id": "g1",
+      "channel": "search",
+      "unitCost": 3,
+      "unitImpressions": 8,
+      "revenue": [0, 6, 11, 15, 18, 20, 21, 22, 23, 24, 25]
+    },
+    {
+      "id": "g2",
+      "channel": "search",
+      "unitCost": 5,
+      "unitImpressions": 12,
+      "revenue": [0, 9, 17, 24, 30, 35, 39, 42, 44, 45, 46]
+    },
+    {
+      "id": "g3",
+      "channel": "social",
+      "unitCost": 2,
+      "unitImpressions": 5,
+      "revenue": [0, 4, 7, 9, 10, 11, 12, 13, 14, 15, 16]
+    },
+    {
+      "id": "g4",
+      "channel": "social",
+      "unitCost": 4,
+      "unitImpressions": 9,
+      "revenue": [0, 7, 13, 18, 22, 25, 27, 28, 29, 30, 31]
+    }
+  ]
+}
