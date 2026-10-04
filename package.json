@@ -1,0 +1,13 @@
+{
+  "name": "toollife",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Machine-shop tool-life ledger: cuts, regrinds, undos and compensations",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
