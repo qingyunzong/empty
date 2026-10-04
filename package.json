@@ -1,0 +1,12 @@
+{
+  "name": "three-way-merge",
+  "version": "1.0.0",
+  "description": "Field-level three-way merge with digest-bound resolutions, conflict provenance and diff output",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
