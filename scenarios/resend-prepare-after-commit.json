@@ -1,0 +1,14 @@
+{
+  "retransmitInterval": 10,
+  "prepareTimeout": 50,
+  "maxTime": 400,
+  "accounts": [
+    { "id": "A", "balance": 100, "creditLimit": 1000 },
+    { "id": "B", "balance": 50, "creditLimit": 1000 }
+  ],
+  "txs": [{ "id": "t1", "from": "A", "to": "B", "amount": 25 }],
+  "actions": [
+    { "at": 120, "op": "send", "from": "c", "to": "p:A", "msg": { "tx": "t1", "phase": "prepare", "acct": "A", "amount": -25 } },
+    { "at": 120, "op": "send", "from": "c", "to": "p:B", "msg": { "tx": "t1", "phase": "prepare", "acct": "B", "amount": 25 } }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "retransmitInterval": 10,
+  "prepareTimeout": 50,
+  "maxTime": 500,
+  "accounts": [
+    { "id": "A", "balance": 100, "creditLimit": 500 },
+    { "id": "B", "balance": 50, "creditLimit": 500 }
+  ],
+  "txs": [
+    { "id": "t1", "from": "A", "to": "B", "amount": 40 }
+  ]
+}

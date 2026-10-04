@@ -1,0 +1,14 @@
+{
+  "retransmitInterval": 10,
+  "prepareTimeout": 50,
+  "maxTime": 400,
+  "accounts": [
+    { "id": "A", "balance": 100, "creditLimit": 1000 },
+    { "id": "B", "balance": 50, "creditLimit": 1000 }
+  ],
+  "txs": [{ "id": "t1", "from": "A", "to": "B", "amount": 30 }],
+  "faults": [
+    { "type": "fragment", "match": {}, "occurrence": "all", "chunks": 3, "reverse": true },
+    { "type": "duplicate", "match": { "phase": "commit", "acct": "A" }, "occurrence": 0, "times": 1 }
+  ]
+}
