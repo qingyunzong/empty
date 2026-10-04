@@ -1,0 +1,12 @@
+{
+  "name": "rect-layout-optimizer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "整数网格矩形布局：显式尺寸/对齐/不重叠约束，最小化相对旧布局的总移动距离，输出可校验约束证书",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "solve": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
