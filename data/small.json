@@ -1,0 +1,14 @@
+{
+  "name": "small-6",
+  "depot": 0,
+  "timeLimit": 60,
+  "stations": [
+    { "id": 0, "name": "BASE", "x": 0,  "y": 0,  "service": 0, "open": 0,  "close": 60, "profit": 0 },
+    { "id": 1, "name": "A",    "x": 5,  "y": 0,  "service": 2, "open": 3,  "close": 20, "profit": 8 },
+    { "id": 2, "name": "B",    "x": 8,  "y": 6,  "service": 3, "open": 8,  "close": 25, "profit": 10 },
+    { "id": 3, "name": "C",    "x": -6, "y": 4,  "service": 2, "open": 0,  "close": 15, "profit": 6 },
+    { "id": 4, "name": "D",    "x": 0,  "y": -9, "service": 3, "open": 5,  "close": 30, "profit": 7 },
+    { "id": 5, "name": "E",    "x": 12, "y": -4, "service": 2, "open": 12, "close": 28, "profit": 9 },
+    { "id": 6, "name": "F",    "x": -3, "y": -5, "service": 1, "open": 0,  "close": 10, "profit": 3 }
+  ]
+}

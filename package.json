@@ -1,0 +1,12 @@
+{
+  "name": "patrol-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inspection route CLI: depot round-trip, time windows, profits, exact solver with certificate",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node dist/src/cli.js data/instance.json --verify",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
