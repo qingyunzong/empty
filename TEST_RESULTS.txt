@@ -1,0 +1,16 @@
+=== RUN   TestSuccessUniqueDelivery
+--- PASS: TestSuccessUniqueDelivery (0.00s)
+=== RUN   TestCapacityEnforced
+--- PASS: TestCapacityEnforced (0.05s)
+=== RUN   TestLateConnAfterTimeoutReturnsToPool
+--- PASS: TestLateConnAfterTimeoutReturnsToPool (0.05s)
+=== RUN   TestLateConnAfterCloseDestroyed
+--- PASS: TestLateConnAfterCloseDestroyed (0.00s)
+=== RUN   TestCloseDestroysIdle
+--- PASS: TestCloseDestroysIdle (0.05s)
+=== RUN   TestDialErrorReleasesSlot
+--- PASS: TestDialErrorReleasesSlot (0.00s)
+=== RUN   TestDialErrorAfterTimeout
+--- PASS: TestDialErrorAfterTimeout (0.05s)
+PASS
+ok  	dialpool	0.215s
