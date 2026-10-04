@@ -1,0 +1,12 @@
+{
+  "name": "collab-tree-merge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Collaborative tree library: three-way merge of parent changes by node ID, with cycle-breaking evidence and tombstone preservation.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/tests/*.test.js\"",
+    "check": "tsc -p tsconfig.json --noEmit"
+  }
+}
