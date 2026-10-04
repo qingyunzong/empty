@@ -1,0 +1,10 @@
+{
+  "name": "temporal-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "有限时序条件监测库：A 后 d 内 B 且无 C，逐 tick 实例枚举、证据输出、快照续行",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
