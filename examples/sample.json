@@ -1,0 +1,3 @@
+{"start":"A","end":"F","checkpoints":["D"],"edges":[
+{"from":"A","to":"B","cost":2},{"from":"B","to":"D","cost":2},{"from":"D","to":"F","cost":2},
+{"from":"A","to":"C","cost":1},{"from":"C","to":"F","cost":1},{"from":"A","to":"D","cost":9}]}

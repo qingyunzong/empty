@@ -1,0 +1,11 @@
+{
+  "name": "path-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bottleneck-first constrained simple-path CLI (start->end, <=12 nodes, mandatory checkpoints, no repeated nodes)",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "start": "node dist/src/cli.js"
+  }
+}
