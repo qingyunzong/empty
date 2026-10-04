@@ -1,0 +1,10 @@
+{
+  "name": "starcatsolve",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental, explainable, replayable star-catalog maintenance over a JSONL event stream",
+  "scripts": {
+    "test": "node --test"
+  }
+}
