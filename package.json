@@ -1,0 +1,11 @@
+{
+  "name": "asrs-wave-planner",
+  "version": "0.1.0",
+  "description": "Offline wave/task/move planner for automated storage and retrieval shuttles with battery budgets, hierarchical rollback and causal aisle-exclusion verification.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}

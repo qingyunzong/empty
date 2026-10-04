@@ -1,0 +1,129 @@
+# Acceptance run — real captured output
+# date: 2026-10-04T01:03:54Z
+# node: v22.22.1
+
+## node --test (full suite)
+
+```
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+# Subtest: test/concurrency.test.js
+ok 2 - test/concurrency.test.js
+# Subtest: test/planner.test.js
+ok 3 - test/planner.test.js
+# Subtest: test/rollback.test.js
+ok 4 - test/rollback.test.js
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+```
+
+## per-file subtest detail
+
+### node test/planner.test.js
+
+```
+# Subtest: acceptance 1: planner matches exhaustive reference optimum
+ok 1 - acceptance 1: planner matches exhaustive reference optimum
+# Subtest: acceptance 1: ties broken by completion time, energy, then path order
+ok 2 - acceptance 1: ties broken by completion time, energy, then path order
+# Subtest: acceptance 4: battery exactly equal to demand is feasible
+ok 3 - acceptance 4: battery exactly equal to demand is feasible
+# Subtest: budget shortfall exits 17 with the minimal reduction set
+ok 4 - budget shortfall exits 17 with the minimal reduction set
+# Subtest: minimal reduction prefers minimum cardinality then lexicographic order
+ok 5 - minimal reduction prefers minimum cardinality then lexicographic order
+# Subtest: repositioning energy counts against the budget
+ok 6 - repositioning energy counts against the budget
+```
+
+### node test/rollback.test.js
+
+```
+# Subtest: rollback wave cascades: executed moves compensated, unstarted moves reusable
+ok 1 - rollback wave cascades: executed moves compensated, unstarted moves reusable
+# Subtest: acceptance 2: replay after wave rollback does not increase energy
+ok 2 - acceptance 2: replay after wave rollback does not increase energy
+# Subtest: rollback level violations exit 18
+ok 3 - rollback level violations exit 18
+# Subtest: innermost rollback is legal and cascades only its own subtree
+ok 4 - innermost rollback is legal and cascades only its own subtree
+# Subtest: rollback of an unknown entity exits 2
+ok 5 - rollback of an unknown entity exits 2
+```
+
+### node test/concurrency.test.js
+
+```
+# Subtest: acceptance 3: planned schedule never double-books an aisle
+ok 1 - acceptance 3: planned schedule never double-books an aisle
+# Subtest: acceptance 3: only causally provable moves are released; conflicts stay pending
+ok 2 - acceptance 3: only causally provable moves are released; conflicts stay pending
+# Subtest: acceptance 3: overlapping execution on one aisle is rejected by verify
+ok 3 - acceptance 3: overlapping execution on one aisle is rejected by verify
+# Subtest: unknown aisle state never produces a pending move
+ok 4 - unknown aisle state never produces a pending move
+```
+
+### node test/cli.test.js
+
+```
+# Subtest: full chain: wave -> execute -> rollback -> verify stays consistent
+ok 1 - full chain: wave -> execute -> rollback -> verify stays consistent
+# Subtest: verify detects a budget violation in a forged journal
+ok 2 - verify detects a budget violation in a forged journal
+# Subtest: verify detects hierarchy errors
+ok 3 - verify detects hierarchy errors
+# Subtest: malformed JSONL exits 2 with a parse error
+ok 4 - malformed JSONL exits 2 with a parse error
+# Subtest: wave without budget or shuttles exits 2
+ok 5 - wave without budget or shuttles exits 2
+# Subtest: rollback flags override the journal rollback line
+ok 6 - rollback flags override the journal rollback line
+# Subtest: no command prints usage and exits 2
+ok 7 - no command prints usage and exits 2
+```
+
+## sample CLI session
+
+$ node src/cli.js wave < w1.jsonl            # budget 100, two shuttles share aisle A1
+{"type":"wave","id":"W1","status":"planned","budget":100,"makespan":6,"energy":6,"exhaustive":true}
+{"type":"assignment","wave":"W1","task":"T1","shuttle":"S1","seq":0}
+{"type":"assignment","wave":"W1","task":"T2","shuttle":"S2","seq":0}
+{"type":"move","wave":"W1","task":"T1","id":"M1","shuttle":"S1","kind":"task","from":"A1:0","to":"A1:4","aisles":["A1"],"start":0,"end":4,"energy":4,"duration":4,"status":"planned"}
+{"type":"move","wave":"W1","task":"T2","id":"M2","shuttle":"S2","kind":"task","from":"A1:0","to":"A1:2","aisles":["A1"],"start":4,"end":6,"energy":2,"duration":2,"status":"planned"}
+exit=0
+
+$ ... execute M1, then rollback wave W1
+{"type":"status","entity":"move","id":"M2","status":"reusable"}
+{"type":"reusable","move":{"id":"M2","from":"A1:0","to":"A1:2","aisles":["A1"],"energy":2,"duration":2}}
+{"type":"status","entity":"move","id":"M1","status":"compensated"}
+{"type":"move","wave":"W1","task":"T1","id":"C~M1","kind":"compensation","compensates":"M1","shuttle":"S1","from":"A1:4","to":"A1:0","aisles":["A1"],"start":6,"end":10,"energy":4,"duration":4,"status":"executed"}
+{"type":"status","entity":"task","id":"T1","status":"rolled-back"}
+{"type":"status","entity":"task","id":"T2","status":"rolled-back"}
+{"type":"status","entity":"wave","id":"W1","status":"rolled-back"}
+{"type":"rollback-result","level":"wave","id":"W1","status":"ok","compensated":["M1"],"reusable":["M2"],"compensationEnergy":4}
+
+$ node src/cli.js verify < journal
+{"type":"check","name":"hierarchy","ok":true,"violations":[]}
+{"type":"check","name":"budget","ok":true,"violations":[]}
+{"type":"check","name":"aisle-exclusion","ok":true,"violations":[]}
+{"type":"check","name":"causal-order","ok":true,"violations":[]}
+{"type":"check","name":"compensation-integrity","ok":true,"violations":[]}
+{"type":"check","name":"pending-conditions","ok":true,"violations":[]}
+{"type":"summary","ok":true,"failed":[]}
+exit=0
+
+$ node src/cli.js wave < w2.jsonl            # budget 4 < required 5 -> exit 17
+{"type":"error","code":"BUDGET_INSUFFICIENT","message":"budget 4 cannot cover the wave; remove 1 task(s) to proceed","budget":4,"minimalReduction":["T2"]}
+exit=17
+
+$ rollback a non-top task                    # level violation -> exit 18
+{"type":"error","code":"ROLLBACK_LEVEL_VIOLATION","message":"cannot roll back task T1: task T2 was committed after it and is not its descendant","level":"task","id":"T1","blocking":{"level":"task","id":"T2"}}
+exit=18
