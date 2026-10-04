@@ -1,0 +1,11 @@
+{
+  "name": "versioned-subscription-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Versioned subscription hub: snapshot-first delivery, contiguous increments, explicit resync on overflow",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/test/hub.test.js"
+  }
+}
