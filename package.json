@@ -1,0 +1,12 @@
+{
+  "name": "anomaly-segment-detector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental detector for anomaly segments formed by consecutive over-threshold edges between sorted points",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done",
+    "typecheck": "tsc --noEmit"
+  }
+}
