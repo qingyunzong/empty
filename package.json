@@ -1,0 +1,11 @@
+{
+  "name": "url-signing-canonicalizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "URL canonicalization for request signing: dot-segment removal, unreserved-only percent decoding, duplicate-preserving byte-sorted query, bidirectional offset mapping, atomic field replacement",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  },
+  "devDependencies": {}
+}
