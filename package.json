@@ -1,0 +1,12 @@
+{
+  "name": "map-limit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Concurrency-limited async map with input-ordered output and earliest-failure semantics",
+  "type": "module",
+  "exports": "./dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
