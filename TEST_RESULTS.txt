@@ -1,0 +1,22 @@
+$ go test ./...
+
+ok  	desim	(cached)
+
+$ go test ./... -v
+
+=== RUN   TestEventSpawnsSuccessors
+--- PASS: TestEventSpawnsSuccessors (0.00s)
+=== RUN   TestQuiescenceRequiresNoEnabledComponents
+--- PASS: TestQuiescenceRequiresNoEnabledComponents (0.00s)
+=== RUN   TestQueueMomentarilyEmpty
+--- PASS: TestQueueMomentarilyEmpty (0.00s)
+=== RUN   TestBudgetExceededReportsBacklog
+--- PASS: TestBudgetExceededReportsBacklog (0.00s)
+=== RUN   TestTimeBudgetReportsBacklog
+--- PASS: TestTimeBudgetReportsBacklog (0.00s)
+=== RUN   TestSnapshotRestoreMatchesFullRun
+--- PASS: TestSnapshotRestoreMatchesFullRun (0.00s)
+=== RUN   TestDeterminism
+--- PASS: TestDeterminism (0.00s)
+PASS
+ok  	desim	0.005s
