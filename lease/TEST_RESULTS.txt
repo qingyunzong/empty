@@ -1,0 +1,21 @@
+# go test ./... 实际结果
+# 日期: 2026-10-05 03:40:32 CST
+# go 版本: go version go1.27.1 linux/amd64
+
+$ go test ./...
+ok  	leasesim	0.072s
+
+$ go test ./... -v
+=== RUN   TestIntervalOverlapsHalfOpen
+--- PASS: TestIntervalOverlapsHalfOpen (0.00s)
+=== RUN   TestVoterNeverGrantsOverlappingLeases
+--- PASS: TestVoterNeverGrantsOverlappingLeases (0.00s)
+=== RUN   TestCertificateValidity
+--- PASS: TestCertificateValidity (0.00s)
+=== RUN   TestConflictingHoldersCannotBothCertify
+--- PASS: TestConflictingHoldersCannotBothCertify (0.00s)
+=== RUN   TestEnumerateSmallHistories
+    lease_test.go:147: enumerated 12 top-level histories, 22620 certificates, 22620 safety checks: all safe
+--- PASS: TestEnumerateSmallHistories (0.04s)
+PASS
+ok  	leasesim	(cached)
