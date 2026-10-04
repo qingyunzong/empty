@@ -1,0 +1,338 @@
+recall-trace real test results
+=== interval-set-ops ===
+{
+  "union": [
+    [
+      0,
+      10
+    ]
+  ],
+  "touchIntersect": [],
+  "difference": [
+    [
+      0,
+      3
+    ],
+    [
+      5,
+      10
+    ]
+  ]
+}
+
+=== acceptance-1-three-layer-converging ===
+[
+  {
+    "product": "F2",
+    "hitInterval": [
+      [
+        "2026-03-08T00:00:00.000Z",
+        "2026-03-10T00:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-05T02:00:00.000Z",
+      "2026-03-11T02:00:00.000Z"
+    ],
+    "inPackaging": false,
+    "packagingHitInterval": [],
+    "path": [
+      {
+        "record": "R2",
+        "version": 1,
+        "parent": "C",
+        "child": "M2"
+      },
+      {
+        "record": "R5",
+        "version": 1,
+        "parent": "M2",
+        "child": "F2"
+      }
+    ]
+  },
+  {
+    "product": "F2",
+    "hitInterval": [
+      [
+        "2026-03-08T00:00:00.000Z",
+        "2026-03-10T00:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-05T02:00:00.000Z",
+      "2026-03-11T02:00:00.000Z"
+    ],
+    "inPackaging": false,
+    "packagingHitInterval": [],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "M1"
+      },
+      {
+        "record": "R4",
+        "version": 1,
+        "parent": "M1",
+        "child": "F2"
+      }
+    ]
+  },
+  {
+    "product": "F1",
+    "hitInterval": [
+      [
+        "2026-03-08T00:00:00.000Z",
+        "2026-03-09T02:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-04T02:00:00.000Z",
+      "2026-03-09T02:00:00.000Z"
+    ],
+    "inPackaging": true,
+    "packagingHitInterval": [
+      [
+        "2026-03-08T00:00:00.000Z",
+        "2026-03-08T02:00:00.000Z"
+      ]
+    ],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "M1"
+      },
+      {
+        "record": "R3",
+        "version": 1,
+        "parent": "M1",
+        "child": "F1"
+      }
+    ]
+  }
+]
+
+=== acceptance-2-endpoint-touch ===
+[]
+
+=== acceptance-2-one-ms-crossing ===
+[
+  {
+    "product": "F",
+    "hitInterval": [
+      [
+        "2026-03-10T00:00:00.999Z",
+        "2026-03-10T00:00:01.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-10T00:00:00.000Z",
+      "2026-03-10T00:00:01.000Z"
+    ],
+    "inPackaging": true,
+    "packagingHitInterval": [
+      [
+        "2026-03-10T00:00:00.999Z",
+        "2026-03-10T00:00:02.000Z"
+      ]
+    ],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "F"
+      }
+    ]
+  }
+]
+
+=== acceptance-3-snapshot-v1-results ===
+[
+  {
+    "product": "F1",
+    "hitInterval": [
+      [
+        "2026-03-10T00:00:00.000Z",
+        "2026-03-12T00:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-03T02:00:00.000Z",
+      "2026-04-02T02:00:00.000Z"
+    ],
+    "inPackaging": false,
+    "packagingHitInterval": [],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "M"
+      },
+      {
+        "record": "R2",
+        "version": 1,
+        "parent": "M",
+        "child": "F1"
+      }
+    ]
+  }
+]
+
+=== acceptance-3-snapshot-v2-results ===
+[
+  {
+    "product": "F2",
+    "hitInterval": [
+      [
+        "2026-03-10T00:00:00.000Z",
+        "2026-03-12T00:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-04T02:00:00.000Z",
+      "2026-04-03T02:00:00.000Z"
+    ],
+    "inPackaging": false,
+    "packagingHitInterval": [],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "M"
+      },
+      {
+        "record": "R2",
+        "version": 2,
+        "parent": "M",
+        "child": "F2"
+      }
+    ]
+  }
+]
+
+=== acceptance-3-after-rollback-current ===
+[
+  {
+    "product": "F1",
+    "hitInterval": [
+      [
+        "2026-03-10T00:00:00.000Z",
+        "2026-03-12T00:00:00.000Z"
+      ]
+    ],
+    "inShelfLife": true,
+    "shelfLifeWindow": [
+      "2026-03-03T02:00:00.000Z",
+      "2026-04-02T02:00:00.000Z"
+    ],
+    "inPackaging": false,
+    "packagingHitInterval": [],
+    "path": [
+      {
+        "record": "R1",
+        "version": 1,
+        "parent": "C",
+        "child": "M"
+      },
+      {
+        "record": "R2",
+        "version": 1,
+        "parent": "M",
+        "child": "F1"
+      }
+    ]
+  }
+]
+
+=== error-cases ===
+{
+  "reversedBatch": "REVERSED_INTERVAL",
+  "negativeShelfLife": "NEGATIVE_SHELF_LIFE",
+  "reversedObservation": "REVERSED_INTERVAL",
+  "unknownBatch": "UNKNOWN_BATCH",
+  "unknownSnapshot": "UNKNOWN_SNAPSHOT"
+}
+
+=== cli-engine-run ===
+{
+  "outputs": [
+    {
+      "index": 0,
+      "op": "addBatch",
+      "ok": true
+    },
+    {
+      "index": 1,
+      "op": "addBatch",
+      "ok": true
+    },
+    {
+      "index": 2,
+      "op": "addRecord",
+      "ok": true
+    },
+    {
+      "index": 3,
+      "op": "snapshot",
+      "ok": true
+    },
+    {
+      "index": 4,
+      "op": "recall",
+      "ok": true,
+      "results": [
+        {
+          "product": "F",
+          "hitInterval": [
+            [
+              "2026-03-03T00:00:00.000Z",
+              "2026-03-04T00:00:00.000Z"
+            ]
+          ],
+          "inShelfLife": true,
+          "shelfLifeWindow": [
+            "2026-03-02T01:00:00.000Z",
+            "2026-03-05T01:00:00.000Z"
+          ],
+          "inPackaging": true,
+          "packagingHitInterval": [
+            [
+              "2026-03-03T00:00:00.000Z",
+              "2026-03-03T01:00:00.000Z"
+            ]
+          ],
+          "path": [
+            {
+              "record": "R1",
+              "version": 1,
+              "parent": "C",
+              "child": "F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "op": "recall",
+      "ok": false,
+      "error": {
+        "code": "UNKNOWN_SNAPSHOT",
+        "message": "snapshot missing does not exist"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "recall-trace",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Product recall traceability library and CLI (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
