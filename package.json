@@ -1,0 +1,9 @@
+{
+  "name": "shift-archive",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Cross-shift device event archive: active/frozen segments, shared-dictionary compression, phrase & near queries",
+  "bin": { "shift-archive": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
