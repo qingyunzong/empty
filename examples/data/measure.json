@@ -1,0 +1,8 @@
+[
+  {"id": 1, "station": "s1", "temp": 10.5, "hum": 40},
+  {"id": 2, "station": "s1", "temp": null, "hum": 45},
+  {"id": 3, "station": "s2", "temp": 20.0, "hum": null},
+  {"id": 4, "station": null, "temp": 15.0, "hum": 50},
+  {"id": 5, "station": "s2", "temp": 22.5, "hum": 55},
+  {"id": 6, "station": "s3", "temp": null, "hum": null}
+]

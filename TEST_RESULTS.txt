@@ -1,0 +1,95 @@
+# lakeql test results
+
+- date: 2026-10-04T16:40:57Z
+- node: v22.22.1
+- command: node --test
+
+```
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 752.827876
+  type: 'test'
+  ...
+# Subtest: test/equiv.test.js
+ok 2 - test/equiv.test.js
+  ---
+  duration_ms: 864.372478
+  type: 'test'
+  ...
+# Subtest: test/exec.test.js
+ok 3 - test/exec.test.js
+  ---
+  duration_ms: 623.077956
+  type: 'test'
+  ...
+# Subtest: test/optimize.test.js
+ok 4 - test/optimize.test.js
+  ---
+  duration_ms: 634.720101
+  type: 'test'
+  ...
+# Subtest: test/parse.test.js
+ok 5 - test/parse.test.js
+  ---
+  duration_ms: 558.502721
+  type: 'test'
+  ...
+# Subtest: test/values.test.js
+ok 6 - test/values.test.js
+  ---
+  duration_ms: 540.06439
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 932.643688
+```
+
+## Per-file subtests
+
+```
+### test/cli.test.js
+  ok 1 - cli: sql runs a query and emits a certificate
+  ok 2 - cli: explain shows plans, rules, ties and certificate
+  ok 3 - cli: verify accepts equivalent plans and rejects different ones
+  ok 4 - cli: verify rejects a corrupted (wrongly rewritten) plan instead of approximating
+  ok 5 - cli: parse errors exit 1 with E_PARSE
+  ok 6 - cli: bench runs hash vs nested loop
+### test/equiv.test.js
+  ok 1 - optimized == direct enumeration on random data (uniqueKey=false)
+  ok 2 - optimized == direct enumeration on random data (uniqueKey=true)
+  ok 3 - unknown groups survive optimization identically (boundary)
+### test/exec.test.js
+  ok 1 - NULL join keys never match
+  ok 2 - aggregates ignore NULLs; COUNT(*) counts rows
+  ok 3 - aggregate over empty input: COUNT(*)=0, SUM=NULL
+  ok 4 - HAVING three-valued output: unknown groups are surfaced, not dropped silently
+  ok 5 - duplicates are preserved through joins (bag semantics)
+  ok 6 - E_TYPE surfaced through query execution
+  ok 7 - hash join and nested loop agree on NULL-heavy data
+### test/optimize.test.js
+  ok 1 - predicate pushdown moves single-side conjuncts below the join
+  ok 2 - projection pruning inserts lean projects above scans
+  ok 3 - aggregate pushdown fires only under verified constraints
+  ok 4 - aggregate pushdown refused when it would change NULL/unknown semantics
+  ok 5 - tied minimum-cost plans are all reported
+  ok 6 - no false ties: larger inputs prefer hash join only
+### test/parse.test.js
+  ok 1 - parses a full query
+  ok 2 - operator precedence: NOT binds looser than comparison
+  ok 3 - E_PARSE on malformed input
+  ok 4 - E_UNSUPPORTED on out-of-scope constructs
+### test/values.test.js
+  ok 1 - three-valued AND/OR/NOT truth tables
+  ok 2 - comparisons with NULL are unknown
+  ok 3 - E_TYPE on mismatched or invalid operands
+  ok 4 - arithmetic NULL propagation and division by zero
+```

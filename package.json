@@ -1,0 +1,9 @@
+{
+  "name": "lakeql",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Single-node offline query optimizer with verifiable equivalence certificates",
+  "main": "src/engine.js",
+  "bin": { "lakeql": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
