@@ -1,0 +1,12 @@
+{
+  "name": "causal-event-analyzer",
+  "version": "0.1.0",
+  "description": "Offline causal analysis of delayed/out-of-order device event logs",
+  "type": "module",
+  "bin": {
+    "cea": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
