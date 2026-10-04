@@ -1,0 +1,16 @@
+{
+  "name": "alarm-ack-mvcc",
+  "version": "1.0.0",
+  "description": "Offline MVCC alarm acknowledgment store with snapshot isolation, predicate index, undo log, and a JSON CLI",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "alarm-ack": "src/cli.js"
+  }
+}
