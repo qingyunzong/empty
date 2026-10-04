@@ -1,0 +1,18 @@
+{
+  "contexts": ["sql"],
+  "entry": "n0",
+  "nodes": [
+    {"id": "n0", "kind": "entry"},
+    {"id": "n1", "kind": "source", "var": "user"},
+    {"id": "n2", "kind": "branch", "uses": ["cond"]},
+    {"id": "n3", "kind": "assign", "var": "z", "uses": ["user"]},
+    {"id": "n4", "kind": "sink", "var": "z", "contexts": ["sql"]}
+  ],
+  "edges": [
+    {"from": "n0", "to": "n1"},
+    {"from": "n1", "to": "n2"},
+    {"from": "n2", "to": "n3", "label": "loop"},
+    {"from": "n3", "to": "n2"},
+    {"from": "n2", "to": "n4", "label": "exit"}
+  ]
+}

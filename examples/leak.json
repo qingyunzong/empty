@@ -1,0 +1,15 @@
+{
+  "contexts": ["sql", "html"],
+  "entry": "n0",
+  "nodes": [
+    {"id": "n0", "kind": "entry"},
+    {"id": "n1", "kind": "source", "var": "user"},
+    {"id": "n2", "kind": "assign", "var": "query", "uses": ["user"]},
+    {"id": "n3", "kind": "sink", "var": "query", "contexts": ["sql"]}
+  ],
+  "edges": [
+    {"from": "n0", "to": "n1"},
+    {"from": "n1", "to": "n2"},
+    {"from": "n2", "to": "n3"}
+  ]
+}
