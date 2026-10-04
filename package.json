@@ -1,0 +1,12 @@
+{
+  "name": "wtx-store",
+  "version": "1.0.0",
+  "description": "Nested-transaction KV store with WAL, undo/redo and crash recovery",
+  "type": "module",
+  "bin": {
+    "wtx": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
