@@ -1,0 +1,13 @@
+{
+  "name": "seq-batch-join",
+  "version": "1.0.0",
+  "description": "Streaming join of sequencing read metrics to batch intervals with watermarks, corrections and retractions",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
