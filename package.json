@@ -1,0 +1,11 @@
+{
+  "name": "lease-broker-sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "模拟消息代理：租约领取 / ACK / 重投 / 订阅世代，处理端 ID 事务去重，故障注入验证恰好一次业务效果",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
