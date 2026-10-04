@@ -1,0 +1,12 @@
+{
+  "name": "dag-boundary-bisect",
+  "version": "1.0.0",
+  "description": "Locate boundary bad versions (bad versions whose parents are all good) in a version DAG under a query budget, with pending-on-error oracles, query evidence, and full-DAG cross-check.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
