@@ -1,0 +1,13 @@
+{
+  "name": "oee-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Device-state interval sessions with incremental per-shift OEE metrics and an offline CLI",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
