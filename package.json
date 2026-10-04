@@ -1,0 +1,10 @@
+{
+  "name": "miniopt",
+  "version": "1.0.0",
+  "description": "Single-machine offline query engine with a cost-based optimizer (JSON queries, node:test).",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "result": "bash scripts/result.sh"
+  }
+}

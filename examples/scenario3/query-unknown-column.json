@@ -1,0 +1,6 @@
+{
+  "scan": "users",
+  "filter": [
+    { "col": "users.nope", "op": "=", "value": 1 }
+  ]
+}

@@ -1,0 +1,74 @@
+=== Scenario 1: stats change crosses the join-order threshold (plan changes, result identical) ===
+
+$ node cli.js explain --catalog examples/scenario1/catalog.json --query examples/scenario1/query.json
+plan (cost 105300):
+InnerJoin(b.id=c.b_id)
+  InnerJoin(a.id=b.a_id)
+    SeqScan(a)
+    SeqScan(b)
+  SeqScan(c)
+plan-string: InnerJoin(b.id=c.b_id;InnerJoin(a.id=b.a_id;SeqScan(a);SeqScan(b));SeqScan(c))
+
+$ node cli.js update-stats --catalog examples/scenario1/catalog.json --data examples/scenario1/data.json --query examples/scenario1/query.json --table c --stats examples/scenario1/stats-update.json
+table: c
+invalidated plans: 1
+old plan (cost 105300):
+InnerJoin(b.id=c.b_id)
+  InnerJoin(a.id=b.a_id)
+    SeqScan(a)
+    SeqScan(b)
+  SeqScan(c)
+new plan (cost 22300):
+InnerJoin(a.id=b.a_id)
+  InnerJoin(b.id=c.b_id)
+    SeqScan(b)
+    SeqScan(c)
+  SeqScan(a)
+old hash: 22a96504c363ad44132f29b9c21ac9e45554e5bd9ce1abba9eaa9b1e41295a29
+new hash: 22a96504c363ad44132f29b9c21ac9e45554e5bd9ce1abba9eaa9b1e41295a29
+hash delta: unchanged
+
+=== Scenario 2: left join with predicate on the null-padded column (no inner-join rewrite) ===
+
+$ node cli.js explain --catalog examples/scenario2/catalog.json --query examples/scenario2/query.json
+plan (cost 1090):
+Filter(profiles.city="bj")
+  LeftJoin(users.id=profiles.user_id)
+    SeqScan(users)
+    SeqScan(profiles)
+plan-string: Filter(profiles.city="bj";LeftJoin(users.id=profiles.user_id;SeqScan(users);SeqScan(profiles)))
+
+$ node cli.js execute --catalog examples/scenario2/catalog.json --data examples/scenario2/data.json --query examples/scenario2/query.json
+plan (cost 1090):
+Filter(profiles.city="bj")
+  LeftJoin(users.id=profiles.user_id)
+    SeqScan(users)
+    SeqScan(profiles)
+rows:
+[
+  {
+    "users.id": 1,
+    "users.name": "ann",
+    "users.dept": "eng",
+    "profiles.user_id": 1,
+    "profiles.city": "bj"
+  },
+  {
+    "users.id": 2,
+    "users.name": "bob",
+    "users.dept": "ops",
+    "profiles.user_id": 2,
+    "profiles.city": "bj"
+  }
+]
+hash: 3cefe188af3f901db2216f981ee7bc70b907878035e3737b5d7c589838a7659c
+
+=== Scenario 3: illegal queries return errors ===
+
+$ node cli.js explain --catalog examples/scenario3/catalog.json --query examples/scenario3/query-unknown-column.json
+error: unknown column: users.nope
+exit code: 1
+
+$ node cli.js explain --catalog examples/scenario3/catalog.json --query examples/scenario3/query-nested-aggregate.json
+error: nested aggregate is not allowed
+exit code: 1

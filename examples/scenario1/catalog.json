@@ -1,0 +1,11 @@
+{
+  "tables": {
+    "a": { "rowCount": 1000, "pages": 100, "columns": { "id": {}, "x": {} } },
+    "b": { "rowCount": 500, "pages": 100, "columns": { "id": {}, "a_id": {} } },
+    "c": { "rowCount": 2000, "pages": 100, "columns": { "id": {}, "b_id": {} } }
+  },
+  "joinSelectivity": {
+    "a.id=b.a_id": 0.01,
+    "b.id=c.b_id": 0.01
+  }
+}

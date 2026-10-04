@@ -1,0 +1,7 @@
+{
+  "scan": "a",
+  "joins": [
+    { "type": "inner", "table": "b", "on": [["a.id", "b.a_id"]] },
+    { "type": "inner", "table": "c", "on": [["b.id", "c.b_id"]] }
+  ]
+}

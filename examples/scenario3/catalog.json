@@ -1,0 +1,9 @@
+{
+  "tables": {
+    "users": {
+      "rowCount": 1000,
+      "pages": 50,
+      "columns": { "id": {}, "name": {}, "dept": {} }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "users": [
+    { "id": 1, "name": "ann", "dept": "eng" },
+    { "id": 2, "name": "bob", "dept": "ops" },
+    { "id": 3, "name": "cat", "dept": "eng" },
+    { "id": 4, "name": "dan", "dept": "hr" }
+  ],
+  "profiles": [
+    { "user_id": 1, "city": "bj" },
+    { "user_id": 2, "city": "sh" },
+    { "user_id": 2, "city": "bj" },
+    { "user_id": 99, "city": "bj" }
+  ]
+}

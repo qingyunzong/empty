@@ -1,0 +1,9 @@
+{
+  "scan": "users",
+  "joins": [
+    { "type": "left", "table": "profiles", "on": [["users.id", "profiles.user_id"]] }
+  ],
+  "filter": [
+    { "col": "profiles.city", "op": "=", "value": "bj" }
+  ]
+}

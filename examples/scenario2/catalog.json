@@ -1,0 +1,17 @@
+{
+  "tables": {
+    "users": {
+      "rowCount": 1000,
+      "pages": 50,
+      "columns": { "id": {}, "name": {}, "dept": {} }
+    },
+    "profiles": {
+      "rowCount": 800,
+      "pages": 40,
+      "columns": { "user_id": {}, "city": { "selectivity": 0.1 } }
+    }
+  },
+  "joinSelectivity": {
+    "profiles.user_id=users.id": 0.001
+  }
+}

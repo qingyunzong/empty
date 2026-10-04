@@ -1,0 +1,9 @@
+{
+  "scan": "users",
+  "groupBy": {
+    "keys": ["users.dept"],
+    "aggregates": [
+      { "fn": "sum", "col": { "fn": "avg", "col": "users.id" }, "as": "s" }
+    ]
+  }
+}
