@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "count": 5,
+  "root": "2f8e5b4998e8abecc04a1563b1fd4305f9bcefe1f396dce41964216488323432",
+  "headHash": "ef284b4cf858eaf65c547fa9a5d3b4b59b0650802704c047878c8c8d376e2516",
+  "vclock": 5,
+  "log": "audit.log",
+  "key": "terminal.key",
+  "sig": "e61cb2e8dd78d254fe713cbf4f0c47ec5d32943368d5e3ae0b0ce58038511ffd"
+}
