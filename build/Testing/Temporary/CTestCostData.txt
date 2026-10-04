@@ -1,0 +1,6 @@
+rational 1 0.00344382
+intersection 1 0.00281085
+incremental 1 0.0296152
+certificate 1 0.0182431
+enumeration 1 0.210292
+---

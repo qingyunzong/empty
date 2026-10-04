@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_enumeration.dir/link.d CMakeFiles/test_enumeration.dir/tests/test_enumeration.cpp.o -o test_enumeration
