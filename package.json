@@ -1,0 +1,17 @@
+{
+  "name": "event-bus-replay",
+  "version": "1.0.0",
+  "description": "Offline replay of multi-source device events: causal queries, SCC detection, layered checkpoints",
+  "type": "module",
+  "main": "src/eventbus.js",
+  "bin": {
+    "event-bus-replay": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node bin/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
