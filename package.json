@@ -1,0 +1,14 @@
+{
+  "name": "multilateral-settlement",
+  "version": "1.0.0",
+  "description": "Offline multilateral bank settlement solver and CLI",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
