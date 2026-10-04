@@ -1,0 +1,11 @@
+{
+  "name": "change-compress",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compress consecutive same-key change ops; emit inverse batches; flag missing baselines.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
