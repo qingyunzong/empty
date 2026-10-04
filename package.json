@@ -1,0 +1,8 @@
+{
+  "name": "cnc-pack",
+  "version": "0.1.0",
+  "description": "Offline CNC program package library and CLI (stdlib only)",
+  "type": "module",
+  "bin": { "cnc-pack": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
