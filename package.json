@@ -1,0 +1,13 @@
+{
+  "name": "subtitle-layer-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "字幕库：半开区间 + 优先级，最多 k 层同层不重叠的最大收益显示集合（含层分配证书、时码更正重算、小子集着色枚举核对）",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "solve": "node dist/src/cli.js"
+  }
+}
