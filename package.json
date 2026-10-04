@@ -1,0 +1,11 @@
+{
+  "name": "coalesce",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Key-based in-flight request coalescing with per-waiter cancellation and TTL-bounded failure caching",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"build/test/*.test.js\""
+  }
+}
