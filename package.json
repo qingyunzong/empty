@@ -1,0 +1,16 @@
+{
+  "name": "wip-count",
+  "version": "0.1.0",
+  "description": "Offline WIP counting for handheld terminals: sessions, crash recovery, CRDT sync",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "wip-count": "bin/wip-count.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
