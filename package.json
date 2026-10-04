@@ -1,0 +1,12 @@
+{
+  "name": "state-sequence",
+  "version": "1.0.0",
+  "description": "状态序列库：样本保持至下一样本或自身 TTL，同时间更正取高版本，范围查询输出最大等值半开段",
+  "type": "module",
+  "main": "dist/src/state-sequence.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
