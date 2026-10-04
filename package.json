@@ -1,0 +1,13 @@
+{
+  "name": "block-archive",
+  "version": "1.0.0",
+  "description": "Block-wise compressed archive with indexed random-access range reads",
+  "type": "module",
+  "main": "src/archive.ts",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT"
+}
