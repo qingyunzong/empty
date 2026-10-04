@@ -1,0 +1,10 @@
+{
+  "name": "mvlin",
+  "version": "0.1.0",
+  "description": "Version-graph materialized views with happens-before, 3-way merge and linearizability checking",
+  "type": "module",
+  "private": true,
+  "bin": { "mvlin": "bin/mv.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
