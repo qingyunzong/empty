@@ -1,0 +1,11 @@
+{
+  "name": "execution-diagnosis",
+  "version": "0.1.0",
+  "private": true,
+  "description": "结构化执行事件诊断库：前置缺失 / 通信中断 / 断言失败分类与因果链输出",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
