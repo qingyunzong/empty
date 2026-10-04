@@ -1,0 +1,9 @@
+{
+  "name": "planstore",
+  "version": "1.0.0",
+  "description": "Offline production planning store and CLI for a single industrial machine",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
