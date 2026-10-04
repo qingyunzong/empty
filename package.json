@@ -1,0 +1,11 @@
+{
+  "name": "browser-lock-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "In-memory browser lock simulator: FIFO grants, crash release, generation-guarded recovery, logical-clock reordering, mutual-exclusion audit",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
