@@ -1,0 +1,5 @@
+{"batch":"B1","account":"A100","currency":"USD","amount":100.5,"direction":"credit","timestamp":"2026-01-01T00:00:00Z"}
+{"batch":"B1","account":"A101","currency":"EUR","amount":50,"direction":"credit","timestamp":"2026-01-01T00:01:00Z"}
+{"batch":"B2","account":"A102","currency":"USD","amount":25.25,"direction":"debit","timestamp":"2026-01-01T00:02:00Z"}
+{"batch":"B2","account":"A103","currency":"USD","amount":10,"direction":"credit","timestamp":"2026-01-01T00:03:00Z"}
+{"batch":"B3","account":"A104","currency":"JPY","amount":7,"direction":"debit","timestamp":"2026-01-01T00:04:00Z"}
