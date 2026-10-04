@@ -1,0 +1,9 @@
+{
+  "name": "txn-undo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Transaction undo library with explicit DFA lifecycle, hierarchical batch rollback, fork-aware undo, and append-only journal recovery",
+  "scripts": {
+    "test": "node --test"
+  }
+}
