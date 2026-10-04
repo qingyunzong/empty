@@ -1,0 +1,11 @@
+{
+  "name": "incremental-build-cache",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dependency-tracking incremental build cache with reverse-closure invalidation, version-checked publishing, cycle evidence and full-graph verification.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
