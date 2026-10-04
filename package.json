@@ -1,0 +1,12 @@
+{
+  "name": "lis-sequence-library",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "支持末尾追加与撤销的序列库，输出严格递增最长子序列的索引证书（等长按索引序最小）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
