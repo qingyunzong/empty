@@ -1,0 +1,13 @@
+{
+  "name": "margin-call-engine",
+  "version": "1.0.0",
+  "description": "Incremental margin-call scheduler with snapshot undo and deterministic proof",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "config": { "slots": 2, "slotCapacity": 1 },
+  "accounts": [
+    { "id": "A1", "priority": 2, "liquidationLine": 1000, "deadlineSlot": 2, "cash": 0, "position": 10 },
+    { "id": "A2", "priority": 1, "liquidationLine": 800, "deadlineSlot": 2, "cash": 0, "position": 5 },
+    { "id": "A3", "priority": 1, "liquidationLine": 500, "deadlineSlot": 1, "cash": 100, "position": 4 }
+  ]
+}

@@ -1,0 +1,9 @@
+[
+  { "accountId": "A1", "price": 90, "version": 1 },
+  { "accountId": "A1", "price": 70, "version": 2 },
+  { "accountId": "A2", "price": 100, "version": 1 },
+  { "accountId": "A3", "price": 60, "version": 1 },
+  { "op": "undo", "accountId": "A1", "version": 2 },
+  { "accountId": "A2", "price": 50, "version": 0 },
+  { "op": "undo", "accountId": "A3", "version": 9 }
+]
