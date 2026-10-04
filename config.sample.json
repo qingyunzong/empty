@@ -1,0 +1,64 @@
+{
+  "demand": 200,
+  "suppliers": [
+    {
+      "name": "甲",
+      "moq": 20,
+      "freightThresholdCents": 100000,
+      "freightFeeCents": 1500,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 550 },
+        { "minQty": 80, "unitPriceCents": 520 },
+        { "minQty": 150, "unitPriceCents": 500 }
+      ]
+    },
+    {
+      "name": "乙",
+      "moq": 30,
+      "freightThresholdCents": 80000,
+      "freightFeeCents": 1200,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 560 },
+        { "minQty": 100, "unitPriceCents": 505 }
+      ]
+    },
+    {
+      "name": "丙",
+      "moq": 50,
+      "freightThresholdCents": 0,
+      "freightFeeCents": 0,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 540 },
+        { "minQty": 120, "unitPriceCents": 510 }
+      ]
+    },
+    {
+      "name": "丁",
+      "moq": 10,
+      "freightThresholdCents": 50000,
+      "freightFeeCents": 900,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 575 },
+        { "minQty": 60, "unitPriceCents": 530 }
+      ]
+    },
+    {
+      "name": "戊",
+      "moq": 100,
+      "freightThresholdCents": 120000,
+      "freightFeeCents": 2000,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 495 }
+      ]
+    },
+    {
+      "name": "己",
+      "moq": 1,
+      "freightThresholdCents": 30000,
+      "freightFeeCents": 600,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 590 }
+      ]
+    }
+  ]
+}

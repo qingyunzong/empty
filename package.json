@@ -1,0 +1,11 @@
+{
+  "name": "procurement-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "采购优化 CLI：阶梯全量单价 + 运费门槛 + 起订量，费用最小再供应商数量最少",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/solver.test.js",
+    "start": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
