@@ -1,0 +1,10 @@
+{
+  "name": "qlin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline quality lineage store: block-encoded batch records with CRC32, manifest hashes, lot index, incremental decoder and path certificates",
+  "main": "src/decoder.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
