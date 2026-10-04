@@ -1,0 +1,14 @@
+{
+  "name": "bounded-pubsub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bounded message queue exposed as an async iterator, with blocking publish and cancellation.",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/tests/*.test.js\""
+  }
+}
