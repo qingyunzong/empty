@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    {"id": "a", "weight": 5, "cost": 5, "domain": "d1", "voter": true},
+    {"id": "b", "weight": 1, "cost": 1, "domain": "d1", "voter": true},
+    {"id": "c", "weight": 5, "cost": 5, "domain": "d2", "voter": true},
+    {"id": "d", "weight": 1, "cost": 1, "domain": "d2", "voter": true},
+    {"id": "e", "weight": 2, "cost": 2, "domain": "d3", "voter": true},
+    {"id": "f", "weight": 1, "cost": 1, "domain": "d3", "voter": true}
+  ]
+}
