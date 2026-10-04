@@ -1,0 +1,276 @@
+# Bitemporal equipment-state audit — CLI acceptance scenarios
+# node: v22.22.1   generated(UTC): 2026-10-04T14:30:55Z
+
+======================================================================
+Scenario 1: retroactive correction (past valid_time) changes the
+current view but never the historical AS OF tx_time view
+======================================================================
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario1.log --file /tmp/tmp.f6lUyUe8FS/s1-tx1.json
+{
+  "status": "committed",
+  "tx_id": "tx-1",
+  "deltas": [
+    {
+      "date": "2024-01-01",
+      "up": 1
+    }
+  ],
+  "hash": "215262122387f4cb28d73cc45ea8bc333475cedf5e3cbb2f8e2eab5f83e8921d"
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario1.log
+{
+  "tx_time": "now",
+  "counts": {
+    "2024-01-01": {
+      "up": 1,
+      "down": 0
+    }
+  },
+  "hash": "215262122387f4cb28d73cc45ea8bc333475cedf5e3cbb2f8e2eab5f83e8921d"
+}
+(exit=0)
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario1.log --equipment pump-1 --valid-time 2024-01-05T00:00:00Z --tx-time 2024-01-15T00:00:00Z
+{
+  "equipment": "pump-1",
+  "valid_time": "2024-01-05T00:00:00.000Z",
+  "tx_time": "2024-01-15T00:00:00.000Z",
+  "state": "up"
+}
+(exit=0)
+
+--> retroactive 'down' correction arrives at tx_time 2024-01-20 for valid_time 2024-01-01:
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario1.log --file /tmp/tmp.f6lUyUe8FS/s1-tx2.json
+{
+  "status": "committed",
+  "tx_id": "tx-2",
+  "deltas": [
+    {
+      "date": "2024-01-01",
+      "up": -1,
+      "down": 1
+    }
+  ],
+  "hash": "76f77a726f630623060f48957dc1aa0f25b3f0a87f6b2687263978269ab28a72"
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario1.log
+{
+  "tx_time": "now",
+  "counts": {
+    "2024-01-01": {
+      "up": 0,
+      "down": 1
+    }
+  },
+  "hash": "76f77a726f630623060f48957dc1aa0f25b3f0a87f6b2687263978269ab28a72"
+}
+(exit=0)
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario1.log --equipment pump-1 --valid-time 2024-01-05T00:00:00Z
+{
+  "equipment": "pump-1",
+  "valid_time": "2024-01-05T00:00:00.000Z",
+  "tx_time": "now",
+  "state": "down"
+}
+(exit=0)
+
+--> historical AS OF tx_time 2024-01-15 is unchanged (still 'up', up=1):
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario1.log --equipment pump-1 --valid-time 2024-01-05T00:00:00Z --tx-time 2024-01-15T00:00:00Z
+{
+  "equipment": "pump-1",
+  "valid_time": "2024-01-05T00:00:00.000Z",
+  "tx_time": "2024-01-15T00:00:00.000Z",
+  "state": "up"
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario1.log --tx-time 2024-01-15T00:00:00Z
+{
+  "tx_time": "2024-01-15T00:00:00.000Z",
+  "counts": {
+    "2024-01-01": {
+      "up": 1,
+      "down": 0
+    }
+  }
+}
+(exit=0)
+
+$ node cli.js verify /tmp/tmp.f6lUyUe8FS/scenario1.log
+{
+  "status": "ok",
+  "days": 1,
+  "hash": "76f77a726f630623060f48957dc1aa0f25b3f0a87f6b2687263978269ab28a72"
+}
+(exit=0)
+
+======================================================================
+Scenario 2: out-of-order tx_time — visibility follows transaction
+time, not arrival order
+======================================================================
+--> tx-a (tx_time 2024-02-10, state=down) arrives FIRST:
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario2.log --file /tmp/tmp.f6lUyUe8FS/s2-txa.json
+{
+  "status": "committed",
+  "tx_id": "tx-a",
+  "deltas": [
+    {
+      "date": "2024-02-01",
+      "down": 1
+    }
+  ],
+  "hash": "76c34c030b1fa9431be3f2f2cf34994318da1742ce381b12de97286a141be139"
+}
+(exit=0)
+
+--> tx-b (tx_time 2024-02-05, EARLIER, state=up) arrives SECOND:
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario2.log --file /tmp/tmp.f6lUyUe8FS/s2-txb.json
+{
+  "status": "committed",
+  "tx_id": "tx-b",
+  "deltas": [],
+  "hash": "76c34c030b1fa9431be3f2f2cf34994318da1742ce381b12de97286a141be139"
+}
+(exit=0)
+
+--> current view: greatest tx_time (tx-a, 02-10) wins despite arriving first:
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario2.log --equipment pump-2 --valid-time 2024-02-03T00:00:00Z
+{
+  "equipment": "pump-2",
+  "valid_time": "2024-02-03T00:00:00.000Z",
+  "tx_time": "now",
+  "state": "down"
+}
+(exit=0)
+
+--> AS OF tx_time 2024-02-07: only tx-b visible -> 'up'; AS OF 2024-02-04: neither -> null:
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario2.log --equipment pump-2 --valid-time 2024-02-03T00:00:00Z --tx-time 2024-02-07T00:00:00Z
+{
+  "equipment": "pump-2",
+  "valid_time": "2024-02-03T00:00:00.000Z",
+  "tx_time": "2024-02-07T00:00:00.000Z",
+  "state": "up"
+}
+(exit=0)
+
+$ node cli.js state /tmp/tmp.f6lUyUe8FS/scenario2.log --equipment pump-2 --valid-time 2024-02-03T00:00:00Z --tx-time 2024-02-04T00:00:00Z
+{
+  "equipment": "pump-2",
+  "valid_time": "2024-02-03T00:00:00.000Z",
+  "tx_time": "2024-02-04T00:00:00.000Z",
+  "state": null
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario2.log --tx-time 2024-02-07T00:00:00Z
+{
+  "tx_time": "2024-02-07T00:00:00.000Z",
+  "counts": {
+    "2024-02-01": {
+      "up": 1,
+      "down": 0
+    }
+  }
+}
+(exit=0)
+
+$ node cli.js verify /tmp/tmp.f6lUyUe8FS/scenario2.log
+{
+  "status": "ok",
+  "days": 1,
+  "hash": "76c34c030b1fa9431be3f2f2cf34994318da1742ce381b12de97286a141be139"
+}
+(exit=0)
+
+======================================================================
+Scenario 3: atomic batch rejection — invalid schema/time rolls back
+the whole batch; counts and hash are unchanged
+======================================================================
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario3.log --file /tmp/tmp.f6lUyUe8FS/s3-tx1.json
+{
+  "status": "committed",
+  "tx_id": "tx-1",
+  "deltas": [
+    {
+      "date": "2024-03-01",
+      "up": 1,
+      "down": 1
+    }
+  ],
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
+
+$ node cli.js hash /tmp/tmp.f6lUyUe8FS/scenario3.log
+{
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario3.log
+{
+  "tx_time": "now",
+  "counts": {
+    "2024-03-01": {
+      "up": 1,
+      "down": 1
+    }
+  },
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
+
+--> batch with one illegal valid_time and one illegal state is rejected as a whole:
+
+$ node cli.js append /tmp/tmp.f6lUyUe8FS/scenario3.log --file /tmp/tmp.f6lUyUe8FS/s3-bad.json
+{
+  "status": "rejected",
+  "error": "events[1].valid_time is not a valid time: \"not-a-timestamp\""
+}
+(exit=1)
+
+--> hash, counts and log size are identical after the rejected batch:
+
+$ node cli.js hash /tmp/tmp.f6lUyUe8FS/scenario3.log
+{
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
+
+$ node cli.js counts /tmp/tmp.f6lUyUe8FS/scenario3.log
+{
+  "tx_time": "now",
+  "counts": {
+    "2024-03-01": {
+      "up": 1,
+      "down": 1
+    }
+  },
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
+
+$ wc -l /tmp/tmp.f6lUyUe8FS/scenario3.log
+1 /tmp/tmp.f6lUyUe8FS/scenario3.log
+(exit=0)
+
+$ node cli.js verify /tmp/tmp.f6lUyUe8FS/scenario3.log
+{
+  "status": "ok",
+  "days": 1,
+  "hash": "4f463edf89a8116b43d268bc0671ee6c68e540fad5d3f70ee5b3db088bb71f71"
+}
+(exit=0)
