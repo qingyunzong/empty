@@ -1,0 +1,16 @@
+{
+  "name": "creditnet",
+  "version": "1.0.0",
+  "description": "Trusted-network credit freezing: max-flow based capacity allocation with min-cut certificates",
+  "type": "commonjs",
+  "main": "src/credit-network.js",
+  "bin": {
+    "creditnet": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
