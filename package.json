@@ -1,0 +1,10 @@
+{
+  "name": "scoped-event-bus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Snapshot-semantics event bus with scoped in-flight invocation tracking",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
