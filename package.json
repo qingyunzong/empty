@@ -1,0 +1,12 @@
+{
+  "name": "fir-decimate-chain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Streaming chain of integer FIR filters and decimators with original-time delay mapping, explicit-sample config switching and per-sample source ranges.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
