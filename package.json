@@ -1,0 +1,9 @@
+{
+  "name": "credit-hold-ledger",
+  "version": "1.0.0",
+  "description": "Event-sourced cardholder credit authorization/hold ledger with dependency-graph derived state",
+  "type": "module",
+  "private": true,
+  "bin": { "credit-ledger": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
