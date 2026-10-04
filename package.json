@@ -1,0 +1,11 @@
+{
+  "name": "incremental-doc-parser",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental document parser: headings, paragraphs, reference links and definitions",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  }
+}
