@@ -1,0 +1,13 @@
+{
+  "states": ["s0", "s1", "g"],
+  "initial": "s0",
+  "events": ["a", "b"],
+  "transitions": [
+    {"from": "s0", "event": "a", "to": "s1"},
+    {"from": "s1", "event": "a", "to": "s1"},
+    {"from": "s1", "event": "b", "to": "s1"},
+    {"from": "s1", "event": "b", "to": "g"}
+  ],
+  "goal": ["g"],
+  "budget": 10
+}
