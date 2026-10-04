@@ -1,0 +1,57 @@
+{
+  "suppliers": [
+    {
+      "id": "A",
+      "moq": 1,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 520 },
+        { "minQty": 100, "unitPriceCents": 480 },
+        { "minQty": 200, "unitPriceCents": 460 }
+      ],
+      "shipping": { "freeAboveCents": 50000, "feeCents": 900 }
+    },
+    {
+      "id": "B",
+      "moq": 20,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 505 },
+        { "minQty": 150, "unitPriceCents": 435 },
+        { "minQty": 180, "unitPriceCents": 490 }
+      ],
+      "shipping": { "freeAboveCents": 40000, "feeCents": 700 }
+    },
+    {
+      "id": "C",
+      "moq": 50,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 520 },
+        { "minQty": 120, "unitPriceCents": 465 }
+      ],
+      "shipping": { "freeAboveCents": 60000, "feeCents": 1200 }
+    },
+    {
+      "id": "D",
+      "moq": 1,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 530 },
+        { "minQty": 80, "unitPriceCents": 470 }
+      ],
+      "shipping": { "freeAboveCents": 0, "feeCents": 0 }
+    },
+    {
+      "id": "E",
+      "moq": 100,
+      "tiers": [{ "minQty": 1, "unitPriceCents": 465 }],
+      "shipping": { "freeAboveCents": 45000, "feeCents": 1500 }
+    },
+    {
+      "id": "F",
+      "moq": 30,
+      "tiers": [
+        { "minQty": 1, "unitPriceCents": 530 },
+        { "minQty": 90, "unitPriceCents": 475 }
+      ],
+      "shipping": { "freeAboveCents": 30000, "feeCents": 600 }
+    }
+  ]
+}

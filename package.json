@@ -1,0 +1,12 @@
+{
+  "name": "procure-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "采购优化 CLI：整数数量、阶梯全量单价、运费门槛、起订量，费用最小再供应商最少",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/solve.test.js dist/test/cli.test.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
