@@ -1,0 +1,10 @@
+{
+  "name": "weighted-rank-lib",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Weighted percentile rank index with DAG-derived observation weights, atomic generation snapshots and crash-safe persistence",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
