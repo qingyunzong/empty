@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "contentHash": "a21d6efc8ebce97f2b0c88d7d95c3fd688b50f84a34a904cdd64d285a2ba81ba",
+  "eventCount": 6,
+  "itemCount": 2,
+  "items": {
+    "SKU-001": {
+      "item": "SKU-001",
+      "batch": "B2026-10",
+      "state": "REWORK",
+      "qty": 3,
+      "reason": null,
+      "lastEventId": "B2026-10|SKU-001|2|REWORK",
+      "lastLamport": 3,
+      "eventCount": 3,
+      "scrapped": false
+    },
+    "SKU-002": {
+      "item": "SKU-002",
+      "batch": "B2026-10",
+      "state": "SCRAPPED",
+      "qty": 29,
+      "reason": "audit",
+      "lastEventId": "B2026-10|SKU-002|3|CORRECT",
+      "lastLamport": 6,
+      "eventCount": 3,
+      "scrapped": true
+    }
+  },
+  "validEvents": [
+    {
+      "id": "B2026-10|SKU-001|3|CORRECT",
+      "kind": "PACK",
+      "batch": "B2026-10",
+      "item": "SKU-001",
+      "seq": 1,
+      "lamport": 1,
+      "qty": 50,
+      "reason": "vision-recount",
+      "corrections": 1
+    },
+    {
+      "id": "B2026-10|SKU-001|2|REWORK",
+      "kind": "REWORK",
+      "batch": "B2026-10",
+      "item": "SKU-001",
+      "seq": 2,
+      "lamport": 2,
+      "qty": 3,
+      "reason": null,
+      "corrections": 0
+    },
+    {
+      "id": "B2026-10|SKU-002|1|PACK",
+      "kind": "PACK",
+      "batch": "B2026-10",
+      "item": "SKU-002",
+      "seq": 1,
+      "lamport": 4,
+      "qty": 30,
+      "reason": null,
+      "corrections": 0
+    },
+    {
+      "id": "B2026-10|SKU-002|3|CORRECT",
+      "kind": "SCRAP",
+      "batch": "B2026-10",
+      "item": "SKU-002",
+      "seq": 2,
+      "lamport": 5,
+      "qty": 29,
+      "reason": "audit",
+      "corrections": 1
+    }
+  ],
+  "supersededEvents": [
+    {
+      "id": "B2026-10|SKU-001|1|PACK",
+      "kind": "PACK",
+      "batch": "B2026-10",
+      "item": "SKU-001",
+      "seq": 1,
+      "lamport": 1,
+      "qty": 48,
+      "reason": null,
+      "status": "superseded",
+      "supersededBy": "B2026-10|SKU-001|3|CORRECT"
+    },
+    {
+      "id": "B2026-10|SKU-002|2|SCRAP",
+      "kind": "SCRAP",
+      "batch": "B2026-10",
+      "item": "SKU-002",
+      "seq": 2,
+      "lamport": 5,
+      "qty": 30,
+      "reason": "seal-defect",
+      "status": "superseded",
+      "supersededBy": "B2026-10|SKU-002|3|CORRECT"
+    }
+  ],
+  "supersededChains": [
+    {
+      "root": "B2026-10|SKU-001|1|PACK",
+      "chain": [
+        "B2026-10|SKU-001|1|PACK",
+        "B2026-10|SKU-001|3|CORRECT"
+      ],
+      "effective": "B2026-10|SKU-001|3|CORRECT"
+    },
+    {
+      "root": "B2026-10|SKU-002|2|SCRAP",
+      "chain": [
+        "B2026-10|SKU-002|2|SCRAP",
+        "B2026-10|SKU-002|3|CORRECT"
+      ],
+      "effective": "B2026-10|SKU-002|3|CORRECT"
+    }
+  ]
+}
