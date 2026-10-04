@@ -1,0 +1,16 @@
+{
+  "name": "patrol-optw-cli",
+  "version": "1.0.0",
+  "description": "巡检路线 CLI：基地出发返回，时间窗 + 服务时间 + 收益，总时限 60，收益最大优先、路程最小次之",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\"",
+    "solve": "node dist/cli.js solve instances/demo.json",
+    "check": "node dist/cli.js check instances/small.json"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

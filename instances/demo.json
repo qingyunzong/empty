@@ -1,0 +1,17 @@
+{
+  "name": "demo-10站",
+  "timeLimit": 60,
+  "depot": { "x": 0, "y": 0 },
+  "stations": [
+    { "id": "S1", "x": 6, "y": 2, "service": 3, "open": 0, "close": 25, "profit": 6 },
+    { "id": "S2", "x": 10, "y": 8, "service": 4, "open": 8, "close": 30, "profit": 9 },
+    { "id": "S3", "x": 4, "y": 12, "service": 2, "open": 15, "close": 40, "profit": 7 },
+    { "id": "S4", "x": -8, "y": 6, "service": 5, "open": 0, "close": 20, "profit": 8 },
+    { "id": "S5", "x": -5, "y": -9, "service": 3, "open": 10, "close": 35, "profit": 5 },
+    { "id": "S6", "x": 12, "y": -6, "service": 6, "open": 0, "close": 50, "profit": 10 },
+    { "id": "S7", "x": 20, "y": 15, "service": 4, "open": 0, "close": 18, "profit": 12 },
+    { "id": "S8", "x": -14, "y": -2, "service": 2, "open": 20, "close": 55, "profit": 6 },
+    { "id": "S9", "x": 2, "y": -14, "service": 5, "open": 5, "close": 45, "profit": 7 },
+    { "id": "S10", "x": 28, "y": 0, "service": 3, "open": 0, "close": 60, "profit": 15 }
+  ]
+}

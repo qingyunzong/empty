@@ -1,0 +1,13 @@
+{
+  "name": "small-6站",
+  "timeLimit": 60,
+  "depot": { "x": 0, "y": 0 },
+  "stations": [
+    { "id": "A", "x": 5, "y": 1, "service": 2, "open": 0, "close": 30, "profit": 6 },
+    { "id": "B", "x": 9, "y": 7, "service": 3, "open": 6, "close": 25, "profit": 8 },
+    { "id": "C", "x": -6, "y": 4, "service": 4, "open": 0, "close": 22, "profit": 7 },
+    { "id": "D", "x": -3, "y": -8, "service": 2, "open": 12, "close": 40, "profit": 5 },
+    { "id": "E", "x": 11, "y": -5, "service": 5, "open": 0, "close": 50, "profit": 9 },
+    { "id": "F", "x": 22, "y": 3, "service": 2, "open": 0, "close": 20, "profit": 11 }
+  ]
+}
