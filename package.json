@@ -1,0 +1,8 @@
+{
+  "name": "clearing-house",
+  "version": "0.1.0",
+  "description": "Incremental netting engine with dependency-graph differential maintenance and audit certificates",
+  "type": "module",
+  "bin": { "clearing": "bin/clearing.js" },
+  "scripts": { "test": "node --test" }
+}
