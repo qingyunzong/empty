@@ -1,0 +1,3 @@
+{
+  "events": ["noop", "open", "read", "lock", "noop", "write"]
+}

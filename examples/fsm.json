@@ -1,0 +1,10 @@
+{
+  "initial": "idle",
+  "failureStates": ["error"],
+  "transitions": {
+    "idle":   { "open": "opened", "noop": "idle" },
+    "opened": { "read": "opened", "lock": "locked", "close": "idle", "noop": "opened" },
+    "locked": { "write": "error", "unlock": "opened", "noop": "locked" },
+    "error":  { "reset": "idle" }
+  }
+}
