@@ -1,0 +1,12 @@
+{
+  "name": "chunked-csv-parser",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental byte-chunk CSV parser with raw field ranges (TypeScript, Node.js built-ins only)",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/csv.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
