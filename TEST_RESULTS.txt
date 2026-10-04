@@ -1,0 +1,7 @@
+command: go test ./...
+date: 2026-10-05T01:40:43+08:00
+go: go version go1.27.1 linux/amd64
+---
+ok  	dateparse	0.021s
+---
+exit code: 0
