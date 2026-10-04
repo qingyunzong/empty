@@ -1,0 +1,15 @@
+{
+  "name": "gate",
+  "version": "1.0.0",
+  "description": "Quality gating for observations before network admission: thresholds, derived metrics, exemptions, sliding-window aggregates, auditable decisions and replay.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "gate": "bin/gate.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
