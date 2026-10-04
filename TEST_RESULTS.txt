@@ -1,0 +1,26 @@
+# go test ./... 实际运行记录
+date: 2026-10-04T16:21:23Z
+os/arch: Linux 6.6.114.1-microsoft-standard-WSL2 x86_64
+
+## 工具链探测
+$ go version
+/bin/bash: line 8: go: command not found
+exit=127
+
+## 运行 go test ./...
+$ go test ./...
+/bin/bash: line 13: go: command not found
+exit=127
+
+## 补充说明
+本环境无 Go 工具链（go: command not found, exit=127），无网络、无 root，
+无法安装 Go，故 go test ./... 未能在本机执行。
+
+作为替代验证，用 Python 逐行镜像了 Go 实现的压缩算法：
+1. log_test.go 中全部预期回收数量（19/30/31、93、11）逐一复核通过；
+2. 300 组随机试验 x 200 步（随机追加/加 pin/释放/截断）验证核心不变式：
+   任意截断后，所有存活 pin 版本 v 的 ScanFrom(v)/StateAt(v)
+   与全量保留模型完全一致。
+
+在有 Go 工具链的机器上执行 `go test ./...`（建议加 `-race`）即可运行
+全部单元测试、屏障交错测试与并发压力对照测试。
