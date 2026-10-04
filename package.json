@@ -1,0 +1,10 @@
+{
+  "name": "dyn-event-slicer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dynamic event slicing over read/write state units: minimal slice query, covering-write elimination, control-dependency preservation, delete-and-replay verification.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
