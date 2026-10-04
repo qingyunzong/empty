@@ -1,0 +1,11 @@
+{
+  "name": "edit-map",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Half-open interval edits on a shared original text with bidirectional position mapping",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/edit-map.test.js"
+  }
+}
