@@ -1,0 +1,6 @@
+rope_unit 2 0.00143182
+rope_utf8 2 0.00118251
+rope_random 2 0.00772141
+rope_lifetime 1 0.00253741
+rope_overflow 2 0.000918236
+---

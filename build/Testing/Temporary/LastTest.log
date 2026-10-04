@@ -1,0 +1,83 @@
+Start testing: Oct 05 04:46 CST
+----------------------------------------------------------
+1/5 Testing: rope_unit
+1/5 Test: rope_unit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build/rope_tests" "unit"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build
+"rope_unit" start time: Oct 05 04:46 CST
+Output:
+----------------------------------------------------------
+unit: 794 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rope_unit" end time: Oct 05 04:46 CST
+"rope_unit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: rope_utf8
+2/5 Test: rope_utf8
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build/rope_tests" "utf8"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build
+"rope_utf8" start time: Oct 05 04:46 CST
+Output:
+----------------------------------------------------------
+utf8: 3417 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rope_utf8" end time: Oct 05 04:46 CST
+"rope_utf8" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: rope_random
+3/5 Test: rope_random
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build/rope_tests" "random"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build
+"rope_random" start time: Oct 05 04:46 CST
+Output:
+----------------------------------------------------------
+random: 3621 checks, 0 failures
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"rope_random" end time: Oct 05 04:46 CST
+"rope_random" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: rope_lifetime
+4/5 Test: rope_lifetime
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build/rope_tests" "lifetime"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build
+"rope_lifetime" start time: Oct 05 04:46 CST
+Output:
+----------------------------------------------------------
+lifetime: 15 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rope_lifetime" end time: Oct 05 04:46 CST
+"rope_lifetime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: rope_overflow
+5/5 Test: rope_overflow
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build/rope_tests" "overflow"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/B/attempt-001/workspace/build
+"rope_overflow" start time: Oct 05 04:46 CST
+Output:
+----------------------------------------------------------
+overflow: 7 checks, 0 failures
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rope_overflow" end time: Oct 05 04:46 CST
+"rope_overflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 04:46 CST
