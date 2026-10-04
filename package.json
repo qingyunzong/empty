@@ -1,0 +1,12 @@
+{
+  "name": "byte-range-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Three-way merge of byte-range patches from two branches against a common base version",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/merge.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
