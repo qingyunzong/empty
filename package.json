@@ -1,0 +1,11 @@
+{
+  "name": "coupon-library",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "优惠库:至多18券、有向前置、互斥组、整数分计算、跨订单共享券、已结算锁定与退款重算",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  }
+}
