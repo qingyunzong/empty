@@ -1,0 +1,16 @@
+{
+  "k": 2,
+  "budget": 500,
+  "sites": [
+    {"id": "bj1", "domain": "beijing", "capacity": 3, "cost": 40},
+    {"id": "bj2", "domain": "beijing", "capacity": 2, "cost": 25},
+    {"id": "sh1", "domain": "shanghai", "capacity": 2, "cost": 30},
+    {"id": "gz1", "domain": "guangzhou", "capacity": 2, "cost": 35},
+    {"id": "cd1", "domain": "chengdu", "capacity": 1, "cost": 20}
+  ],
+  "shards": [
+    {"id": "shard-a"},
+    {"id": "shard-b", "costs": {"cd1": 50}},
+    {"id": "shard-c"}
+  ]
+}
