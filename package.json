@@ -1,0 +1,12 @@
+{
+  "name": "resumable-importer",
+  "version": "1.0.0",
+  "description": "Resumable file importer with byte-offset checkpoints and prefix digests",
+  "type": "module",
+  "main": "dist/src/importer.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json || node /usr/local/lib/node_modules/typescript/bin/tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
