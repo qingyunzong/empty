@@ -1,0 +1,12 @@
+{
+  "name": "crdt-text-replica",
+  "version": "1.0.0",
+  "description": "Replicated text (RGA-style CRDT): unique char IDs, predecessor links, tombstones, out-of-order buffering, cycle detection",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/**/*.test.js\""
+  },
+  "devDependencies": {}
+}
