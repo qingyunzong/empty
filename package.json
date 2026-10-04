@@ -1,0 +1,11 @@
+{
+  "name": "versioned-array",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integer array with half-open interval assignment, historical snapshots, and version diffing",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/versioned-array.test.js"
+  }
+}
