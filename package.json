@@ -1,0 +1,11 @@
+{
+  "name": "crdt-text-copy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Replicated text buffer: unique char ids, predecessor links, tombstones, out-of-order buffering, dependency-cycle rejection. Node built-ins only.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test-reporter=spec dist/tests/crdt.test.js"
+  }
+}
