@@ -1,0 +1,31 @@
+{
+  "calendar": {
+    "shifts": [
+      { "name": "day", "start": "06:00", "end": "14:00" },
+      { "name": "swing", "start": "14:00", "end": "22:00" },
+      { "name": "night", "start": "22:00", "end": "06:00" }
+    ]
+  },
+  "materials": {
+    "M-1": { "stock": 10 },
+    "M-2": { "stock": 4 }
+  },
+  "productLines": {
+    "PL-1": {
+      "permission": "allow",
+      "workCenters": {
+        "WC-1": {
+          "permission": "inherit",
+          "capabilities": { "assembly": 2 },
+          "orders": {
+            "WO-1": { "materials": { "M-1": 1 }, "capability": "assembly", "durationMin": 120 },
+            "WO-2": { "materials": { "M-1": 1, "M-2": 2 }, "capability": "assembly", "durationMin": 480 },
+            "WO-3": { "materials": {}, "capability": "assembly", "durationMin": 60 },
+            "WO-4": { "materials": { "M-2": 1 }, "capability": "assembly", "durationMin": 90 }
+          }
+        }
+      }
+    }
+  },
+  "policy": { "tieBreak": "freeze-wins" }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gate-interpreter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline night-shift gate interpreter for a discrete assembly plant",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

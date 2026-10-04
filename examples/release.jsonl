@@ -1,0 +1,5 @@
+{"ts":"2026-10-04T20:00:00Z","type":"release","order":"WO-1"}
+{"ts":"2026-10-04T20:05:00Z","type":"release","order":"WO-2","priority":1}
+{"ts":"2026-10-04T20:10:00Z","type":"freeze","order":"WO-1"}
+{"ts":"2026-10-04T20:15:00Z","type":"revoke","target":3,"actor":"supervisor"}
+{"ts":"2026-10-04T20:20:00Z","type":"reschedule","order":"WO-2","to":"2026-10-04T22:30:00Z"}
