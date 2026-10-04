@@ -1,0 +1,14 @@
+{
+  "name": "config-migrate",
+  "version": "1.0.0",
+  "description": "Desktop app config migration library: version-graph path selection, reversible patches, reverse-order rollback and crash recovery",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test dist/tests/*.test.js"
+  }
+}
