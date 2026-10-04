@@ -1,0 +1,11 @@
+{
+  "name": "stable-search-pagination",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic search with stable (score, id) ordering, version/digest-bound cursors and honest budget accounting",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
