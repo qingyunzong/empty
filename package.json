@@ -1,0 +1,13 @@
+{
+  "name": "weighted-fair-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Integer weighted max-min fair allocation with per-user caps, demand revocation, fractional evidence, and a per-unit reference model.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/allocator.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
