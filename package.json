@@ -1,0 +1,11 @@
+{
+  "name": "signflip-exact",
+  "version": "1.0.0",
+  "description": "Exact sign-flip permutation test for paired rational differences",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/all.test.js"
+  },
+  "license": "MIT"
+}
