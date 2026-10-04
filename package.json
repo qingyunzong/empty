@@ -1,0 +1,11 @@
+{
+  "name": "ledger-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline settlement-batch audit library and CLI: restricted-regex rules, NFA->DFA->minimized DFA with verifiable partition certificates, rule-set equivalence with minimal witnesses, snapshot-based rule versioning.",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
