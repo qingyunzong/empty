@@ -1,0 +1,11 @@
+{
+  "name": "graph-replica",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Replicated graph library: tagged adds, observed-remove, cycle-reporting projection",
+  "scripts": {
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/graph.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
