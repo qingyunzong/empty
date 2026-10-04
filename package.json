@@ -1,0 +1,9 @@
+{
+  "name": "wal-event-store",
+  "version": "1.0.0",
+  "description": "Append-only WAL event store with CRC32 frames, crash recovery and secondary indexes",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "wal-events": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
