@@ -1,0 +1,11 @@
+{
+  "name": "strategy-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Append-only versioned strategy library: batch diffs with before/after summaries, verify-first inverse publish, reader snapshot isolation.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
