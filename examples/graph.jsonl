@@ -1,0 +1,10 @@
+{"op":"add","id":"LOT-2025-0001","attrs":{"type":"raw","date":"2025-01-01","name":"flour"}}
+{"op":"add","id":"LOT-2025-0002","attrs":{"type":"semi","date":"2025-01-02","name":"dough-a"}}
+{"op":"add","id":"LOT-2025-0003","attrs":{"type":"semi","date":"2025-01-03","name":"dough-b"}}
+{"op":"add","id":"LOT-2025-0004","attrs":{"type":"finished","date":"2025-01-04","name":"bread"}}
+{"op":"begin"}
+{"op":"link","from":"LOT-2025-0001","to":"LOT-2025-0002"}
+{"op":"link","from":"LOT-2025-0001","to":"LOT-2025-0003"}
+{"op":"commit"}
+{"op":"link","from":"LOT-2025-0002","to":"LOT-2025-0004"}
+{"op":"link","from":"LOT-2025-0003","to":"LOT-2025-0004"}

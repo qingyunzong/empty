@@ -1,0 +1,16 @@
+{
+  "name": "lineage-graph",
+  "version": "1.0.0",
+  "description": "Batch lineage graph library, query DSL and CLI for food-factory traceability",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "lineage": "src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
