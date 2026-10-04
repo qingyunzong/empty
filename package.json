@@ -1,0 +1,12 @@
+{
+  "name": "delivery-plan-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic delivery scheduler: candidates require all deps satisfied, priority then id ordering, cancellation blocks successors but preserves metadata.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
