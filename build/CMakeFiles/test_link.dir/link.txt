@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_link.dir/link.d CMakeFiles/test_link.dir/tests/test_link.cpp.o -o test_link  liblinktool.a

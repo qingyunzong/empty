@@ -1,0 +1,5 @@
+object weak_first
+section .text size=16 align=8
+sym main strong def .text 0
+sym hook weak def .text 8
+reloc .text 0 ABS64 hook

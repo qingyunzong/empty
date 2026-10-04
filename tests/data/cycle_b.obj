@@ -1,0 +1,4 @@
+object cycle_b
+section .text size=8 align=8
+sym spin_b strong def .text 0
+reloc .text 0 ABS64 spin_a

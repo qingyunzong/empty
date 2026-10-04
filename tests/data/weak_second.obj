@@ -1,0 +1,3 @@
+object weak_second
+section .text size=8 align=8
+sym hook weak def .text 0

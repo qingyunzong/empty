@@ -1,0 +1,5 @@
+unit 2 0.00211149
+cli_cycle 3 0.0010392
+cli_weak_order 3 0.00161926
+cli_strong_conflict 3 0.00118679
+---

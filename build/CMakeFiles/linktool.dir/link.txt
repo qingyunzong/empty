@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblinktool.a CMakeFiles/linktool.dir/src/parse.cpp.o CMakeFiles/linktool.dir/src/link.cpp.o CMakeFiles/linktool.dir/src/interp.cpp.o
+/usr/bin/ranlib liblinktool.a

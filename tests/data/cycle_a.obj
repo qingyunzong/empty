@@ -1,0 +1,6 @@
+# a and b reference each other: a legal cycle
+object cycle_a
+section .text size=8 align=8
+sym boot strong def .text 0
+sym spin_a strong def .text 0
+reloc .text 0 ABS64 spin_b

@@ -1,0 +1,3 @@
+object conflict_b
+section .text size=8
+sym dup strong def .text 0
