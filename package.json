@@ -1,0 +1,11 @@
+{
+  "name": "multilateral-settlement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline multilateral bank settlement solver and CLI (Node.js 22, stdlib only)",
+  "type": "commonjs",
+  "main": "cli.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
