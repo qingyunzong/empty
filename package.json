@@ -1,0 +1,12 @@
+{
+  "name": "preview-parser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental preview-markup parser: p, b, i, br and text only",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/parser.test.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  }
+}
