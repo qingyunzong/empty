@@ -1,0 +1,19 @@
+{
+  "name": "payment-channel-network",
+  "version": "1.0.0",
+  "description": "Undirected payment-channel graph with atomic batch cancellation, bridge certificates and lexicographic routing",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./src/network.js"
+  },
+  "bin": {
+    "payment-net": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
