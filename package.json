@@ -1,0 +1,11 @@
+{
+  "name": "descparse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Descriptive binary format parsing library with a differential-tested direct interpreter",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}

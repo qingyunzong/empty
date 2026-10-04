@@ -1,0 +1,23 @@
+{
+  "definitions": {
+    "point": {
+      "fields": [
+        { "name": "x", "type": "uint16le" },
+        { "name": "y", "type": "uint16le" }
+      ]
+    }
+  },
+  "root": {
+    "fields": [
+      { "name": "magic", "type": "uint16be" },
+      { "name": "version", "type": "uint8" },
+      { "name": "name_len", "type": "uint8" },
+      { "name": "name", "type": "string", "length": { "ref": "name_len" } },
+      { "name": "point_count", "type": "uint8" },
+      { "name": "points", "type": "array", "count": { "ref": "point_count" }, "element": { "type": "ref", "ref": "point" } },
+      { "name": "flags", "type": "uint8" },
+      { "name": "checksum", "type": "bytes", "length": 4, "when": { "ref": "flags", "gt": 0 } },
+      { "name": "matrix", "type": "array", "count": 2, "element": { "type": "array", "count": 2, "element": { "type": "uint8" } } }
+    ]
+  }
+}
