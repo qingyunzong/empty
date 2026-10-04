@@ -1,0 +1,10 @@
+{
+  "name": "session-diff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental sessionization with net diffs, verified against sorted rebuild",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test"
+  }
+}
