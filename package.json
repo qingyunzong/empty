@@ -1,0 +1,13 @@
+{
+  "name": "shiftlog-equiv",
+  "version": "1.0.0",
+  "description": "Offline shift-log merge and partial-order equivalence checker (Node.js stdlib only)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
