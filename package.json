@@ -1,0 +1,11 @@
+{
+  "name": "crdt-list",
+  "version": "0.1.0",
+  "private": true,
+  "description": "List CRDT: stable element IDs, versioned position records, tombstone deletes, deterministic concurrent-move resolution, order-independent merge.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
