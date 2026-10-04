@@ -1,0 +1,12 @@
+{
+  "name": "alert-window-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Alert store showing the earliest event per key inside a sliding time window, with diff output, subscriptions and a deterministic interleaving harness.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
