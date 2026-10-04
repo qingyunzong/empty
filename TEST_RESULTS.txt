@@ -1,0 +1,66 @@
+$ go test ./... -count=1 -v
+=== RUN   TestOneShot
+=== RUN   TestOneShot/empty
+=== RUN   TestOneShot/idents_numbers_punct
+=== RUN   TestOneShot/number_dot_not_fraction
+=== RUN   TestOneShot/string_with_escapes
+=== RUN   TestOneShot/empty_string
+=== RUN   TestOneShot/unterminated_string_at_eof
+=== RUN   TestOneShot/unterminated_string_trailing_backslash
+=== RUN   TestOneShot/unterminated_string_at_newline
+=== RUN   TestOneShot/line_comment
+=== RUN   TestOneShot/line_comment_ends_at_eof
+=== RUN   TestOneShot/block_comment_simple
+=== RUN   TestOneShot/block_comment_nested
+=== RUN   TestOneShot/nested_closers_balance
+=== RUN   TestOneShot/unterminated_block_comment_depth1
+=== RUN   TestOneShot/unterminated_nested_block_comment
+=== RUN   TestOneShot/unterminated_comment_ends_with_star
+=== RUN   TestOneShot/comment_markers_inside_string
+=== RUN   TestOneShot/quote_inside_line_comment
+=== RUN   TestOneShot/line_comment_inside_block_comment
+=== RUN   TestOneShot/block_open_inside_line_comment
+=== RUN   TestOneShot/lone_slash_at_eof
+=== RUN   TestOneShot/slash_star_slash_is_unterminated
+=== RUN   TestOneShot/invalid_char
+=== RUN   TestOneShot/error_then_recovery
+--- PASS: TestOneShot (0.00s)
+    --- PASS: TestOneShot/empty (0.00s)
+    --- PASS: TestOneShot/idents_numbers_punct (0.00s)
+    --- PASS: TestOneShot/number_dot_not_fraction (0.00s)
+    --- PASS: TestOneShot/string_with_escapes (0.00s)
+    --- PASS: TestOneShot/empty_string (0.00s)
+    --- PASS: TestOneShot/unterminated_string_at_eof (0.00s)
+    --- PASS: TestOneShot/unterminated_string_trailing_backslash (0.00s)
+    --- PASS: TestOneShot/unterminated_string_at_newline (0.00s)
+    --- PASS: TestOneShot/line_comment (0.00s)
+    --- PASS: TestOneShot/line_comment_ends_at_eof (0.00s)
+    --- PASS: TestOneShot/block_comment_simple (0.00s)
+    --- PASS: TestOneShot/block_comment_nested (0.00s)
+    --- PASS: TestOneShot/nested_closers_balance (0.00s)
+    --- PASS: TestOneShot/unterminated_block_comment_depth1 (0.00s)
+    --- PASS: TestOneShot/unterminated_nested_block_comment (0.00s)
+    --- PASS: TestOneShot/unterminated_comment_ends_with_star (0.00s)
+    --- PASS: TestOneShot/comment_markers_inside_string (0.00s)
+    --- PASS: TestOneShot/quote_inside_line_comment (0.00s)
+    --- PASS: TestOneShot/line_comment_inside_block_comment (0.00s)
+    --- PASS: TestOneShot/block_open_inside_line_comment (0.00s)
+    --- PASS: TestOneShot/lone_slash_at_eof (0.00s)
+    --- PASS: TestOneShot/slash_star_slash_is_unterminated (0.00s)
+    --- PASS: TestOneShot/invalid_char (0.00s)
+    --- PASS: TestOneShot/error_then_recovery (0.00s)
+=== RUN   TestAllTwoChunks
+--- PASS: TestAllTwoChunks (0.00s)
+=== RUN   TestAllThreeChunks
+--- PASS: TestAllThreeChunks (0.01s)
+=== RUN   TestByteByByte
+--- PASS: TestByteByByte (0.00s)
+=== RUN   TestRandomChunking
+--- PASS: TestRandomChunking (0.02s)
+=== RUN   TestPositionsAreByteOffsets
+--- PASS: TestPositionsAreByteOffsets (0.00s)
+PASS
+ok  	lexer	0.032s
+
+$ go vet ./...
+vet: OK
