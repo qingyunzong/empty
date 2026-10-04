@@ -1,0 +1,15 @@
+{
+  "name": "bond-distribution-tree",
+  "version": "1.0.0",
+  "description": "Bond distribution tree with compressed positional index, atomic upward compensation and revocation certificates",
+  "type": "module",
+  "bin": {
+    "bond-tree": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
