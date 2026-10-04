@@ -1,0 +1,9 @@
+{
+  "name": "mold-plan",
+  "version": "1.0.0",
+  "description": "Offline injection-molding shop scheduler: molds, calendars, budgets, incremental re-planning, hierarchical rollback, two-terminal sync.",
+  "main": "src/planner.js",
+  "bin": { "mold-plan": "bin/mold-plan.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
