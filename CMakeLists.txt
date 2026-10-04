@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.16)
+project(rope LANGUAGES CXX)
+
+add_library(rope INTERFACE)
+target_include_directories(rope INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_compile_features(rope INTERFACE cxx_std_20)
+
+option(ROPE_SANITIZE "Build tests with ASan+UBSan" OFF)
+
+add_executable(rope_tests tests/rope_tests.cpp)
+target_link_libraries(rope_tests PRIVATE rope)
+if(MSVC)
+  target_compile_options(rope_tests PRIVATE /W4)
+else()
+  target_compile_options(rope_tests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+if(ROPE_SANITIZE AND NOT MSVC)
+  target_compile_options(rope_tests PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+  target_link_options(rope_tests PRIVATE -fsanitize=address,undefined)
+endif()
+
+enable_testing()
+foreach(case basic persistence utf8_boundaries random_fuzz lifetime overflow)
+  add_test(NAME ${case} COMMAND rope_tests ${case})
+endforeach()

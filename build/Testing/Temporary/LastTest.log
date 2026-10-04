@@ -1,0 +1,99 @@
+Start testing: Oct 05 04:45 CST
+----------------------------------------------------------
+1/6 Testing: basic
+1/6 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"basic" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+basic: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 05 04:45 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: persistence
+2/6 Test: persistence
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "persistence"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"persistence" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+persistence: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"persistence" end time: Oct 05 04:45 CST
+"persistence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: utf8_boundaries
+3/6 Test: utf8_boundaries
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "utf8_boundaries"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"utf8_boundaries" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+utf8_boundaries: PASS
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"utf8_boundaries" end time: Oct 05 04:45 CST
+"utf8_boundaries" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: random_fuzz
+4/6 Test: random_fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "random_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"random_fuzz" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+random_fuzz: PASS
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"random_fuzz" end time: Oct 05 04:45 CST
+"random_fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: lifetime
+5/6 Test: lifetime
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "lifetime"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"lifetime" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+lifetime: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"lifetime" end time: Oct 05 04:45 CST
+"lifetime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: overflow
+6/6 Test: overflow
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build/rope_tests" "overflow"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8a18f533756041f680409a045974f01d/run/A/attempt-001/workspace/build
+"overflow" start time: Oct 05 04:45 CST
+Output:
+----------------------------------------------------------
+overflow: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"overflow" end time: Oct 05 04:45 CST
+"overflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 04:45 CST

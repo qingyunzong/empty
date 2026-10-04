@@ -1,0 +1,7 @@
+basic 1 0.00330653
+persistence 1 0.00277932
+utf8_boundaries 1 0.0323467
+random_fuzz 1 0.0191854
+lifetime 1 0.00315266
+overflow 1 0.0022842
+---

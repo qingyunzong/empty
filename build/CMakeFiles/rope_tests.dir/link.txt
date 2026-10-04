@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/rope_tests.dir/link.d CMakeFiles/rope_tests.dir/tests/rope_tests.cpp.o -o rope_tests
