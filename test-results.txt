@@ -1,0 +1,30 @@
+command: go test ./... -count=1 -v
+date:    2026-10-04T21:37:45Z
+go:      go version go1.27.1 linux/amd64
+
+=== RUN   TestPublishAndRead
+--- PASS: TestPublishAndRead (0.00s)
+=== RUN   TestRepublishIdempotent
+--- PASS: TestRepublishIdempotent (0.00s)
+=== RUN   TestConflictingDigestRejected
+--- PASS: TestConflictingDigestRejected (0.00s)
+=== RUN   TestCrashRestartMatrix
+=== RUN   TestCrashRestartMatrix/claim
+=== RUN   TestCrashRestartMatrix/files
+=== RUN   TestCrashRestartMatrix/verify
+=== RUN   TestCrashRestartMatrix/manifest-staged
+=== RUN   TestCrashRestartMatrix/manifest
+--- PASS: TestCrashRestartMatrix (0.00s)
+    --- PASS: TestCrashRestartMatrix/claim (0.00s)
+    --- PASS: TestCrashRestartMatrix/files (0.00s)
+    --- PASS: TestCrashRestartMatrix/verify (0.00s)
+    --- PASS: TestCrashRestartMatrix/manifest-staged (0.00s)
+    --- PASS: TestCrashRestartMatrix/manifest (0.00s)
+=== RUN   TestReaderRejectsCorruption
+--- PASS: TestReaderRejectsCorruption (0.00s)
+=== RUN   TestUnpublishedRunReadsAsAbsent
+--- PASS: TestUnpublishedRunReadsAsAbsent (0.00s)
+=== RUN   TestInvalidRunID
+--- PASS: TestInvalidRunID (0.00s)
+PASS
+ok  	materialpub	0.007s
