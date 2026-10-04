@@ -1,0 +1,25 @@
+{
+  "items": [
+    { "id": "A1", "side": "asset", "restatement": true },
+    { "id": "L1", "side": "liability" },
+    { "id": "E1", "side": "equity" }
+  ],
+  "periods": [
+    { "id": "P1", "status": "closed" },
+    { "id": "P2", "status": "open" }
+  ],
+  "balances": {
+    "A1": { "P1": 100, "P2": 120 },
+    "L1": { "P1": 60, "P2": 60 },
+    "E1": { "P1": 50, "P2": 50 }
+  },
+  "domain": { "min": -50, "max": 50, "step": 10 },
+  "formulas": [
+    { "id": "F_BS", "lhs": [{ "side": "asset" }], "rhs": [{ "side": "liability" }, { "side": "equity" }] },
+    { "id": "F_IS", "lhs": [{ "item": "A1" }], "rhs": [{ "item": "E1", "coef": 2 }, { "const": 10 }] },
+    { "id": "F_CF", "lhs": [{ "item": "L1" }], "rhs": [{ "item": "E1" }, { "const": 10 }] }
+  ],
+  "vouchers": [{ "id": "V1", "layer": "L1" }],
+  "layers": [{ "id": "L1", "publish": "ok" }],
+  "budget": 100000
+}

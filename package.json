@@ -1,0 +1,9 @@
+{
+  "name": "restatement-engine",
+  "version": "1.0.0",
+  "description": "Offline regulatory report restatement engine and CLI (Node.js 22, stdlib only)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
