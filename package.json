@@ -1,0 +1,11 @@
+{
+  "name": "module-loader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Module loader with in-flight request dedup, dependency-chain cycle detection and generation-scoped failure cache eviction",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
