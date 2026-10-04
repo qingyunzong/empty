@@ -1,0 +1,11 @@
+{
+  "name": "fixture-store",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fixture library with immutable baselines, fork/merge, alias-preserving cyclic object graphs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/store.test.js",
+    "test:verbose": "tsc -p tsconfig.json && node dist/test/store.test.js"
+  }
+}
