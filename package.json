@@ -1,0 +1,11 @@
+{
+  "name": "combined-acquire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "组合请求库：并发申请多个资源，任一失败/超时即取消其余，已获得者按逆申请顺序释放",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/combinedAcquire.test.js"
+  }
+}
