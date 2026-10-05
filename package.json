@@ -1,0 +1,12 @@
+{
+  "name": "journey-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "行程查询库：整数绝对分钟班次、站内最低换乘时间、最多 3 次换乘、取消班次后重查",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
