@@ -1,0 +1,3 @@
+ok  	mbt/cmd/mbt	0.019s
+?   	mbt/cmd/turnstile-adapter	[no test files]
+ok  	mbt/mbt	0.010s

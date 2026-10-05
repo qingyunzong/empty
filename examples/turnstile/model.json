@@ -1,0 +1,12 @@
+{
+  "initial": "locked",
+  "states": {
+    "locked":   {},
+    "unlocked": {}
+  },
+  "transitions": [
+    { "from": "locked",   "action": "coin", "to": "unlocked" },
+    { "from": "unlocked", "action": "push", "to": "locked"   },
+    { "from": "unlocked", "action": "coin", "to": "unlocked" }
+  ]
+}

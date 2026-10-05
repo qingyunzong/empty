@@ -1,0 +1,130 @@
+{
+  "max_steps": 3,
+  "budget_closed": true,
+  "sequences": [
+    {
+      "actions": [
+        "coin"
+      ],
+      "target": "unlocked",
+      "calls": [
+        {
+          "op": "reset",
+          "ok": true,
+          "state": "locked",
+          "data": {
+            "fare": 0
+          }
+        },
+        {
+          "op": "apply",
+          "action": "coin",
+          "ok": true,
+          "state": "unlocked",
+          "data": {
+            "fare": 1
+          }
+        }
+      ],
+      "match": true
+    },
+    {
+      "actions": [
+        "coin",
+        "push"
+      ],
+      "target": "locked",
+      "calls": [
+        {
+          "op": "reset",
+          "ok": true,
+          "state": "locked",
+          "data": {
+            "fare": 0
+          }
+        },
+        {
+          "op": "apply",
+          "action": "coin",
+          "ok": true,
+          "state": "unlocked",
+          "data": {
+            "fare": 1
+          }
+        },
+        {
+          "op": "apply",
+          "action": "push",
+          "ok": true,
+          "state": "locked",
+          "data": {
+            "fare": 1
+          }
+        }
+      ],
+      "match": true
+    },
+    {
+      "actions": [
+        "coin",
+        "coin"
+      ],
+      "target": "unlocked",
+      "calls": [
+        {
+          "op": "reset",
+          "ok": true,
+          "state": "locked",
+          "data": {
+            "fare": 0
+          }
+        },
+        {
+          "op": "apply",
+          "action": "coin",
+          "ok": true,
+          "state": "unlocked",
+          "data": {
+            "fare": 1
+          }
+        },
+        {
+          "op": "apply",
+          "action": "coin",
+          "ok": true,
+          "state": "unlocked",
+          "data": {
+            "fare": 2
+          }
+        }
+      ],
+      "match": true
+    }
+  ],
+  "illegal_probes": [
+    {
+      "at_state": "locked",
+      "history": [],
+      "action": "push",
+      "calls": [
+        {
+          "op": "apply",
+          "action": "push",
+          "ok": false,
+          "error": "turnstile is locked"
+        },
+        {
+          "op": "state",
+          "ok": true,
+          "state": "locked",
+          "data": {
+            "fare": 0
+          }
+        }
+      ],
+      "rejected": true,
+      "unchanged": true
+    }
+  ],
+  "verdict": "PASS"
+}
