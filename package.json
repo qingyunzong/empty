@@ -1,0 +1,17 @@
+{
+  "name": "policy-intersect-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intersection and redirect-chain equivalence engine for URL policies (TypeScript, Node.js built-ins only)",
+  "bin": {
+    "policy-cli": "dist/src/main.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "cli": "node dist/src/main.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

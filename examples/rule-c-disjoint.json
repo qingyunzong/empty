@@ -1,0 +1,10 @@
+{
+  "name": "C",
+  "protocols": ["http"],
+  "ports": [8080],
+  "exactDomains": ["other.org"],
+  "wildcardDomains": [],
+  "allowSubdomains": [],
+  "excludeSubdomains": [],
+  "maxRedirects": 1
+}

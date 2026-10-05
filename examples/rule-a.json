@@ -1,0 +1,10 @@
+{
+  "name": "A",
+  "protocols": ["https"],
+  "ports": [443],
+  "exactDomains": ["status.example.com"],
+  "wildcardDomains": ["*.example.com"],
+  "allowSubdomains": ["api.partner.net"],
+  "excludeSubdomains": ["evil.example.com"],
+  "maxRedirects": 2
+}

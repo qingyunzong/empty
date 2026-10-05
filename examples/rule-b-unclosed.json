@@ -1,0 +1,9 @@
+{
+  "name": "B-unclosed",
+  "protocols": ["https"],
+  "ports": [443],
+  "wildcardDomains": ["*.api.example.com", "*.partner.net"],
+  "allowSubdomains": ["status.example.com"],
+  "excludeSubdomains": ["staging.api.example.com"],
+  "maxRedirects": null
+}
