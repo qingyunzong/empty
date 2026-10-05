@@ -1,0 +1,14 @@
+{
+  "name": "ev-fleet-sim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Discrete-tick EV fleet simulation: fixed paths, integer energy, charger windows/capacity, snapshot replay and energy ledger verification",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
