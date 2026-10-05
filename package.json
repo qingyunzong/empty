@@ -1,0 +1,12 @@
+{
+  "name": "billing-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "账单库：区间求交计费、比例分账、冲正更正、断点重放",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
