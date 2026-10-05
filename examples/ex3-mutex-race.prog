@@ -1,0 +1,14 @@
+# UNSAFE even with locks: Checker can grab m before Writer stores 1.
+var x = 0
+mutex m
+thread Writer
+  lock m
+  write x 1
+  unlock m
+end
+thread Checker
+  lock m
+  read r x
+  unlock m
+  assert r == 1
+end

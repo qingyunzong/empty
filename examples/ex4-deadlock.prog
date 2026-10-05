@@ -1,0 +1,15 @@
+# UNSAFE: lock-order inversion can deadlock (T1 holds a, T2 holds b).
+mutex a
+mutex b
+thread T1
+  lock a
+  lock b
+  unlock b
+  unlock a
+end
+thread T2
+  lock b
+  lock a
+  unlock a
+  unlock b
+end

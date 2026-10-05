@@ -1,0 +1,9 @@
+# UNSAFE: Checker may read x before Writer stores 1.
+var x = 0
+thread Writer
+  write x 1
+end
+thread Checker
+  read r x
+  assert r == 1
+end

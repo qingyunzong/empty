@@ -1,0 +1,12 @@
+# SAFE under SC: if the flag is set, the data write is already visible.
+var data = 0
+var flag = 0
+thread Producer
+  write data 1
+  write flag 1
+end
+thread Consumer
+  read f flag
+  read d data
+  assert d >= f
+end

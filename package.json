@@ -1,0 +1,10 @@
+{
+  "name": "por-model-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interleaving model checker with swap-based (partial-order) reduction for small shared-memory programs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}

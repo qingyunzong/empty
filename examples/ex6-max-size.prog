@@ -1,0 +1,35 @@
+# SAFE: maximum allowed size (3 threads x 8 instructions), threads are
+# pairwise independent so the reduction explores one class.
+var x = 0
+var y = 0
+var z = 0
+thread T1
+  write x 1
+  read a x
+  write x 2
+  read b x
+  write x 3
+  read c x
+  assert a == 1
+  assert c == 3
+end
+thread T2
+  write y 1
+  read a y
+  write y 2
+  read b y
+  write y 3
+  read c y
+  assert a == 1
+  assert c == 3
+end
+thread T3
+  write z 1
+  read a z
+  write z 2
+  read b z
+  write z 3
+  read c z
+  assert a == 1
+  assert c == 3
+end

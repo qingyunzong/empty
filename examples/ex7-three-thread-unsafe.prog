@@ -1,0 +1,15 @@
+# UNSAFE: T3 observes the two writes in an inconsistent order;
+# the shortest failing history has 4 steps.
+var x = 0
+var y = 0
+thread T1
+  write x 1
+end
+thread T2
+  write y 1
+end
+thread T3
+  read a x
+  read b y
+  assert a == b
+end
