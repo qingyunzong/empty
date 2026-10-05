@@ -1,0 +1,9 @@
+{
+  "name": "wip-count",
+  "version": "1.0.0",
+  "description": "Offline WIP counting: resumable sessions, version-vector sync, crash-safe ledger",
+  "type": "commonjs",
+  "license": "MIT",
+  "bin": { "wip-count": "bin/wip-count.js" },
+  "scripts": { "test": "node --test" }
+}
