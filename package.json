@@ -1,0 +1,11 @@
+{
+  "name": "benchpair",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Paired A/B benchmark analysis: exact median, Wilcoxon signed-rank exact test, persistent snapshots",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
