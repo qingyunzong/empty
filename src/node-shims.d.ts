@@ -1,0 +1,16 @@
+// 环境无 @types/node（离线），此处声明本项目用到的最小 Node 内置 API。
+declare module "node:test" {
+  export function test(name: string, fn: () => void | Promise<void>): void;
+  export function describe(name: string, fn: () => void): void;
+}
+
+declare module "node:assert/strict" {
+  export function equal(actual: unknown, expected: unknown, message?: string): void;
+  export function deepEqual(actual: unknown, expected: unknown, message?: string): void;
+  export function ok(value: unknown, message?: string): void;
+  export function throws(fn: () => unknown, message?: string): void;
+}
+
+declare const console: {
+  log(...args: unknown[]): void;
+};

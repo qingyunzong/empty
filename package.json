@@ -1,0 +1,12 @@
+{
+  "name": "cart-split-optimizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "购物拆单优化：满减+运费+全局限用一次券，子集 DP 求最低实付（并列时订单最少）",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "start": "tsc -p tsconfig.json && node dist/src/main.js"
+  }
+}
