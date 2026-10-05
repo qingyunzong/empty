@@ -1,0 +1,11 @@
+{
+  "name": "split-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integer split (分账) by rational weights with per-recipient bounds, largest-remainder allocation, and a multi-order ledger with refund/lock support.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
