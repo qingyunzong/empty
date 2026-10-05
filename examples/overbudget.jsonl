@@ -1,0 +1,4 @@
+{"type":"budget","id":"b1","level":"segment","order":"O1","op":"P1","seg":"S1","limit":100}
+{"type":"cut","id":"c1","tool":"T1","order":"O1","op":"P1","seg":"S1","length":60,"causes":["b1"]}
+{"type":"measure","id":"m1","tool":"T1","order":"O1","op":"P1","seg":"S1","length":50,"causes":["c1"]}
+{"type":"cut","id":"c2","tool":"T1","order":"O1","op":"P1","seg":"S1","length":10,"causes":["m1"]}

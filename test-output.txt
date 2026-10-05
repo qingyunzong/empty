@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: test/boundary.test.js
+ok 1 - test/boundary.test.js
+  ---
+  duration_ms: 742.095313
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 2083.959931
+  type: 'test'
+  ...
+# Subtest: test/concurrency.test.js
+ok 3 - test/concurrency.test.js
+  ---
+  duration_ms: 941.33287
+  type: 'test'
+  ...
+# Subtest: test/machine.test.js
+ok 4 - test/machine.test.js
+  ---
+  duration_ms: 930.690462
+  type: 'test'
+  ...
+# Subtest: test/undo.test.js
+ok 5 - test/undo.test.js
+  ---
+  duration_ms: 945.235842
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2122.766881

@@ -1,0 +1,9 @@
+{
+  "name": "toollife",
+  "version": "1.0.0",
+  "description": "Offline replay of machining tool-life events: layered budgets, causal state machine, compensation undo",
+  "type": "module",
+  "bin": { "toollife": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
