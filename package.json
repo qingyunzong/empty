@@ -1,0 +1,11 @@
+{
+  "name": "version-delta-merge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Subscription merge library: versioned deltas with parent declaration, buffering, branching, digest quarantine",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
