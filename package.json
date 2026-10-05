@@ -1,0 +1,11 @@
+{
+  "name": "manifest-merge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Three-way merge for artifact manifests, keyed by object id; emits conflicts and a reversible plan.",
+  "main": "dist/src/merge.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  }
+}
