@@ -1,0 +1,10 @@
+{
+  "name": "config-edit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Whitespace- and comment-preserving config editor (YAML block subset) with span-precise edits",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}

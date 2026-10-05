@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "node16",
+    "rootDir": ".",
+    "outDir": "dist",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [],
+    "lib": ["es2022"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "types/**/*.d.ts"]
+}
