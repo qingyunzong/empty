@@ -1,0 +1,32 @@
+{
+  "types": {
+    "Animal": {
+      "fields": {"name": "string"},
+      "methods": {"speak": {"params": [], "result": "string"}}
+    },
+    "Pet": {
+      "fields": {"name": "string", "owner": "string"},
+      "methods": {"speak": {"params": [], "result": "string"}}
+    },
+    "PetStore": {
+      "methods": {"sell": {"params": ["Pet"], "result": "Animal"}}
+    },
+    "AnimalStore": {
+      "methods": {"sell": {"params": ["Animal"], "result": "Animal"}}
+    },
+    "CatStore": {
+      "methods": {"sell": {"params": ["Animal"], "result": "Pet"}}
+    },
+    "ChainA": {"fields": {"next": "ChainA", "value": "int"}},
+    "ChainB": {"fields": {"next": "ChainB", "value": "int"}},
+    "ChainC": {"fields": {"next": "ChainC", "value": "string"}}
+  },
+  "queries": [
+    {"sub": "Pet", "super": "Animal"},
+    {"sub": "Animal", "super": "Pet"},
+    {"sub": "CatStore", "super": "AnimalStore"},
+    {"sub": "PetStore", "super": "AnimalStore"},
+    {"sub": "ChainA", "super": "ChainB"},
+    {"sub": "ChainA", "super": "ChainC"}
+  ]
+}
