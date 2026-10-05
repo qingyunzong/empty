@@ -1,0 +1,11 @@
+{
+  "name": "change-log",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "变更库：同键连续操作压缩、逆批次撤销、需要基线报告",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/test/change-log.test.js"
+  }
+}
