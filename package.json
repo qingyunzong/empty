@@ -1,0 +1,15 @@
+{
+  "name": "perm-mincover",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Min-cost permission-rule subset selection with deny-priority semantics (<=18 candidates)",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

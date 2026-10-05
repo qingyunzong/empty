@@ -1,0 +1,10 @@
+{
+  "candidates": [
+    { "id": "r1", "cost": 1, "effect": "allow", "matches": ["s1", "s2"] },
+    { "id": "r2", "cost": 1, "effect": "deny",  "matches": ["s1"] }
+  ],
+  "samples": [
+    { "id": "s1", "expect": "allow" },
+    { "id": "s2", "expect": "deny" }
+  ]
+}
