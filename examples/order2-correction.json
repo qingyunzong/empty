@@ -1,0 +1,13 @@
+{
+  "kerf": 3,
+  "scrapThreshold": 15,
+  "cutCost": 2,
+  "maxBars": 8,
+  "stockTypes": [
+    {"length": 100, "cost": 50},
+    {"length": 60, "cost": 35}
+  ],
+  "demands": [
+    {"label": "brace", "length": 20, "qty": 1}
+  ]
+}

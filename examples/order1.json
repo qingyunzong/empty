@@ -1,0 +1,14 @@
+{
+  "kerf": 3,
+  "scrapThreshold": 15,
+  "cutCost": 2,
+  "maxBars": 8,
+  "stockTypes": [
+    {"length": 100, "cost": 50},
+    {"length": 60, "cost": 35}
+  ],
+  "demands": [
+    {"label": "beam", "length": 31, "qty": 2},
+    {"label": "post", "length": 24, "qty": 2}
+  ]
+}
