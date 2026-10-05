@@ -1,0 +1,15 @@
+{
+  "name": "fsm-failure-minimizer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shrink a failing FSM event history by deleting contiguous blocks until 1-minimal",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "run-example": "npm run build && node dist/src/cli.js run examples/counter.json --trace trace.jsonl"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

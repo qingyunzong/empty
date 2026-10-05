@@ -1,0 +1,13 @@
+{
+  "machine": {
+    "states": ["idle", "armed", "bad"],
+    "initial": "idle",
+    "failureStates": ["bad"],
+    "transitions": {
+      "idle":  { "arm": "armed", "ping": "idle"  },
+      "armed": { "fire": "bad",  "ping": "armed" },
+      "bad":   { "ping": "bad" }
+    }
+  },
+  "events": ["ping", "arm", "ping", "fire", "ping"]
+}
