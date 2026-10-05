@@ -1,0 +1,16 @@
+{
+  "name": "event-compressor",
+  "version": "1.0.0",
+  "description": "Merge consecutive same-key event versions without crossing explicit barriers; lossless round-trip.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node dist/test/event-compressor.test.js",
+    "demo": "npm run build && node dist/examples/demo.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
