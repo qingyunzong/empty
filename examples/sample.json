@@ -1,0 +1,29 @@
+{
+  "nodes": ["alice", "bob", "carol", "dave"],
+  "source": "alice",
+  "sink": "dave",
+  "amount": 5,
+  "edges": [
+    {
+      "from": "alice",
+      "to": "bob",
+      "capacity": 4,
+      "segments": [
+        { "upTo": 2, "unitCost": 1 },
+        { "upTo": 4, "unitCost": 3 }
+      ]
+    },
+    { "from": "bob", "to": "dave", "capacity": 4, "segments": [{ "upTo": 4, "unitCost": 1 }] },
+    {
+      "from": "alice",
+      "to": "carol",
+      "capacity": 3,
+      "segments": [
+        { "upTo": 1, "unitCost": -1 },
+        { "upTo": 3, "unitCost": 2 }
+      ]
+    },
+    { "from": "carol", "to": "dave", "capacity": 3, "segments": [{ "upTo": 3, "unitCost": 2 }] },
+    { "from": "alice", "to": "dave", "capacity": 2, "segments": [{ "upTo": 2, "unitCost": 6 }] }
+  ]
+}
