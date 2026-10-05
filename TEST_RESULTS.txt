@@ -1,0 +1,7 @@
+$ go test ./...
+ok  	logrules	0.016s
+
+$ go test ./... -race
+ok  	logrules	1.067s
+
+recorded: 2026-10-05T23:06:40Z, go version go1.27.1 linux/amd64
