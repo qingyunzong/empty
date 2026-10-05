@@ -1,0 +1,22 @@
+=== RUN   TestVersionVectorCompare
+--- PASS: TestVersionVectorCompare (0.00s)
+=== RUN   TestCausalOverwriteSameReplica
+--- PASS: TestCausalOverwriteSameReplica (0.00s)
+=== RUN   TestCausalOverwriteAcrossReplicas
+--- PASS: TestCausalOverwriteAcrossReplicas (0.00s)
+=== RUN   TestConcurrentWritesAllPreserved
+--- PASS: TestConcurrentWritesAllPreserved (0.00s)
+=== RUN   TestResolvingWriteObservesAllVersions
+--- PASS: TestResolvingWriteObservesAllVersions (0.00s)
+=== RUN   TestMergeCommutative
+--- PASS: TestMergeCommutative (0.00s)
+=== RUN   TestMergeAssociative
+--- PASS: TestMergeAssociative (0.00s)
+=== RUN   TestMergeIdempotent
+--- PASS: TestMergeIdempotent (0.00s)
+=== RUN   TestMergeNeverLosesConcurrentWrites
+--- PASS: TestMergeNeverLosesConcurrentWrites (0.00s)
+=== RUN   TestConvergence
+--- PASS: TestConvergence (0.00s)
+PASS
+ok  	causalreg/register	(cached)
