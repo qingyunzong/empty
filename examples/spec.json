@@ -1,0 +1,36 @@
+{
+  "models": [
+    {"id": "M01", "name": "disk-latency-spike"},
+    {"id": "M02", "name": "disk-corruption"},
+    {"id": "M03", "name": "network-partition"},
+    {"id": "M04", "name": "packet-loss"},
+    {"id": "M05", "name": "cpu-throttle"},
+    {"id": "M06", "name": "memory-leak"},
+    {"id": "M07", "name": "clock-skew"},
+    {"id": "M08", "name": "config-drift"},
+    {"id": "M09", "name": "auth-token-expiry"},
+    {"id": "M10", "name": "queue-backlog"},
+    {"id": "M11", "name": "cache-stampede"},
+    {"id": "M12", "name": "firmware-mismatch"}
+  ],
+  "assertions": [
+    {"id": "A01", "name": "fsync-latency-probe", "cost": 4, "side_effect_group": "write-io", "preconditions": ["fs-access"], "distinguishes": ["M01", "M02"]},
+    {"id": "A02", "name": "read-checksum-verify", "cost": 2, "preconditions": ["fs-access"], "distinguishes": ["M02"]},
+    {"id": "A03", "name": "partition-inject", "cost": 6, "side_effect_group": "net-inject", "preconditions": ["net-admin", "quorum-ok"], "distinguishes": ["M03", "M04"]},
+    {"id": "A04", "name": "ping-mesh", "cost": 3, "preconditions": ["net-admin"], "distinguishes": ["M03"]},
+    {"id": "A05", "name": "loss-sim", "cost": 5, "side_effect_group": "net-inject", "preconditions": ["net-admin"], "distinguishes": ["M04"]},
+    {"id": "A06", "name": "cpu-profile", "cost": 2, "distinguishes": ["M05"]},
+    {"id": "A07", "name": "heap-diff", "cost": 3, "preconditions": ["trace-enabled"], "distinguishes": ["M06"]},
+    {"id": "A08", "name": "gc-pressure", "cost": 4, "side_effect_group": "svc-restart", "preconditions": ["trace-enabled"], "distinguishes": ["M05", "M06"]},
+    {"id": "A09", "name": "ntp-offset", "cost": 1, "preconditions": ["net-admin"], "distinguishes": ["M07"]},
+    {"id": "A10", "name": "config-hash", "cost": 1, "distinguishes": ["M08"]},
+    {"id": "A11", "name": "token-refresh", "cost": 2, "preconditions": ["auth-admin"], "distinguishes": ["M09"]},
+    {"id": "A12", "name": "queue-depth", "cost": 2, "preconditions": ["mq-access"], "distinguishes": ["M10"]},
+    {"id": "A13", "name": "cache-hit-ratio", "cost": 2, "preconditions": ["metrics-access"], "distinguishes": ["M11"]},
+    {"id": "A14", "name": "restart-probe", "cost": 7, "side_effect_group": "svc-restart", "preconditions": ["quorum-ok"], "distinguishes": ["M05", "M10"]},
+    {"id": "A15", "name": "disk-smart", "cost": 3, "side_effect_group": "write-io", "preconditions": ["fs-access"], "distinguishes": ["M01"]},
+    {"id": "A16", "name": "tls-handshake", "cost": 2, "preconditions": ["net-admin", "auth-admin"], "distinguishes": ["M09"]},
+    {"id": "A17", "name": "lag-reporter", "cost": 3, "preconditions": ["mq-access", "metrics-access"], "distinguishes": ["M10", "M11"]},
+    {"id": "A18", "name": "broad-sweep", "cost": 30, "preconditions": ["maintenance-window"], "distinguishes": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11"]}
+  ]
+}

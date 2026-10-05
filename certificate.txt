@@ -1,0 +1,59 @@
+================================================================
+COVERAGE CERTIFICATE - minimum-cost assertion selection
+================================================================
+Instance: 18 candidate assertions, 12 fault models
+Distinguishable models: 11/12
+
+Indistinguishable models (listed separately; no candidate
+assertion separates them from normal, excluded from target):
+  M12  firmware-mismatch
+
+Selected plan (minimum total cost = 21):
+  A01  fsync-latency-probe    cost=4   side-effect=write-io
+       preconditions: fs-access
+       distinguishes: M01, M02
+  A03  partition-inject       cost=6   side-effect=net-inject
+       preconditions: net-admin, quorum-ok
+       distinguishes: M03, M04
+  A08  gc-pressure            cost=4   side-effect=svc-restart
+       preconditions: trace-enabled
+       distinguishes: M05, M06
+  A09  ntp-offset             cost=1   side-effect=-
+       preconditions: net-admin
+       distinguishes: M07
+  A10  config-hash            cost=1   side-effect=-
+       preconditions: -
+       distinguishes: M08
+  A11  token-refresh          cost=2   side-effect=-
+       preconditions: auth-admin
+       distinguishes: M09
+  A17  lag-reporter           cost=3   side-effect=-
+       preconditions: mq-access, metrics-access
+       distinguishes: M10, M11
+
+Public preconditions required by the plan: auth-admin, fs-access, metrics-access, mq-access, net-admin, quorum-ok, trace-enabled
+
+Side-effect mutex groups (at most one assertion each):
+  net-inject   -> A03
+  svc-restart  -> A08
+  write-io     -> A01
+
+Per-model separation from normal:
+  M01  disk-latency-spike     <- A01
+  M02  disk-corruption        <- A01
+  M03  network-partition      <- A03
+  M04  packet-loss            <- A03
+  M05  cpu-throttle           <- A08
+  M06  memory-leak            <- A08
+  M07  clock-skew             <- A09
+  M08  config-drift           <- A10
+  M09  auth-token-expiry      <- A11
+  M10  queue-backlog          <- A17
+  M11  cache-stampede         <- A17
+
+Optimality cross-check (small-subset enumeration):
+  greedy plan cost ............. 25
+  exhaustive subsets explored .. 262144 (2^18)
+  enumeration optimum .......... 21
+  optimal plans at this cost ... 2
+  STATUS: OPTIMAL (enumeration confirms the minimum)
