@@ -1,0 +1,28 @@
+# go test ./... 实际结果
+date: 2026-10-05 22:51:35 CST
+go version: go version go1.27.1 linux/amd64
+
+## $ go test ./...
+ok  	monitor	0.153s
+
+## $ go test ./... -v -count=1
+=== RUN   TestVersionOverwrite
+--- PASS: TestVersionOverwrite (0.00s)
+=== RUN   TestMissingCutsIntervals
+--- PASS: TestMissingCutsIntervals (0.00s)
+=== RUN   TestRandomOpsMatchModel
+--- PASS: TestRandomOpsMatchModel (0.04s)
+=== RUN   TestBatchPublishAndOldReaders
+--- PASS: TestBatchPublishAndOldReaders (0.00s)
+=== RUN   TestIncrementalLocality
+--- PASS: TestIncrementalLocality (0.01s)
+=== RUN   TestCrashRecoveryEnumerateFaults
+    monitor_test.go:332: enumerated 22 fault injection points
+--- PASS: TestCrashRecoveryEnumerateFaults (0.12s)
+=== RUN   TestTornRootPublication
+--- PASS: TestTornRootPublication (0.00s)
+PASS
+ok  	monitor	0.182s
+
+## $ go test -race ./... -count=1
+ok  	monitor	1.678s
