@@ -1,0 +1,11 @@
+{
+  "name": "browser-lock-sim",
+  "version": "1.0.0",
+  "description": "In-memory browser lock simulator: FIFO grants, crash release, generation-guarded stale messages",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/lock-sim.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
