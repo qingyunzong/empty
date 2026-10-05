@@ -1,0 +1,17 @@
+{
+  "name": "upgrade-plan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "差量包升级路径规划 CLI：空间限制下总下载量最小，并列取包 ID 序列字典序最小",
+  "bin": {
+    "upgrade-plan": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

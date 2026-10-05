@@ -1,0 +1,11 @@
+{
+  "start": "A",
+  "target": "D",
+  "spaceLimit": 500,
+  "packages": [
+    { "id": "pkg-b", "from": "A", "to": "B", "bytes": 60, "peak": 10 },
+    { "id": "pkg-d", "from": "B", "to": "D", "bytes": 40, "peak": 10 },
+    { "id": "pkg-a", "from": "A", "to": "C", "bytes": 60, "peak": 10 },
+    { "id": "pkg-c", "from": "C", "to": "D", "bytes": 40, "peak": 10 }
+  ]
+}

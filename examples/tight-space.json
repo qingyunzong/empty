@@ -1,0 +1,10 @@
+{
+  "start": "v1",
+  "target": "v3",
+  "spaceLimit": 200,
+  "packages": [
+    { "id": "big", "from": "v1", "to": "v3", "bytes": 150, "peak": 80 },
+    { "id": "s1", "from": "v1", "to": "v2", "bytes": 90, "peak": 100 },
+    { "id": "s2", "from": "v2", "to": "v3", "bytes": 90, "peak": 100 }
+  ]
+}
