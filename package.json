@@ -1,0 +1,11 @@
+{
+  "name": "budget-auth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hierarchical authorization budget library: parent tokens grant quota to children, spending/refund/revoke accounting, atomic batch transfers, conservation-checked.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
