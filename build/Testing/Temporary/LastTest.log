@@ -1,0 +1,51 @@
+Start testing: Oct 06 01:53 CST
+----------------------------------------------------------
+1/3 Testing: semantics
+1/3 Test: semantics
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build/test_semantics"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build
+"semantics" start time: Oct 06 01:53 CST
+Output:
+----------------------------------------------------------
+ALL CHECKS PASSED
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"semantics" end time: Oct 06 01:53 CST
+"semantics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: model
+2/3 Test: model
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build/test_model"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build
+"model" start time: Oct 06 01:53 CST
+Output:
+----------------------------------------------------------
+ALL CHECKS PASSED
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"model" end time: Oct 06 01:53 CST
+"model" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: lifetime
+3/3 Test: lifetime
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build/test_lifetime"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/65b5b55ce9ba400fb20709ca15c3fd9d/run/A/attempt-005/workspace/build
+"lifetime" start time: Oct 06 01:53 CST
+Output:
+----------------------------------------------------------
+ALL CHECKS PASSED
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Passed.
+"lifetime" end time: Oct 06 01:53 CST
+"lifetime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 01:53 CST
