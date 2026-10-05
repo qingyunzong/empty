@@ -1,0 +1,13 @@
+{
+  "name": "det-async-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic async test runtime: await boundaries as schedulable events, seed-driven scheduling, trace record/replay, segmented snapshots",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.build.json && node dist/examples/demo.js"
+  }
+}

@@ -1,0 +1,448 @@
+[
+  {
+    "seq": 0,
+    "kind": "spawn",
+    "task": "producer",
+    "detail": "T1",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 1,
+    "kind": "await",
+    "task": "producer",
+    "detail": "sleep:4",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 2,
+    "kind": "spawn",
+    "task": "victim",
+    "detail": "T2",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 3,
+    "kind": "await",
+    "task": "victim",
+    "detail": "sleep:50",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 4,
+    "kind": "spawn",
+    "task": "killer",
+    "detail": "T3",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 5,
+    "kind": "await",
+    "task": "killer",
+    "detail": "sleep:5",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 6,
+    "kind": "spawn",
+    "task": "impatient",
+    "detail": "T4",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 7,
+    "kind": "await",
+    "task": "impatient",
+    "detail": "sleep:30~9",
+    "clock": 0,
+    "rngState": 42,
+    "candidates": []
+  },
+  {
+    "seq": 8,
+    "kind": "resume",
+    "task": "producer",
+    "detail": "T1:sleep:4",
+    "clock": 4,
+    "rngState": 1831565855,
+    "candidates": [
+      "T1:sleep:4"
+    ]
+  },
+  {
+    "seq": 9,
+    "kind": "spawn",
+    "task": "worker-0",
+    "detail": "T5",
+    "clock": 4,
+    "rngState": 1831565855,
+    "candidates": []
+  },
+  {
+    "seq": 10,
+    "kind": "await",
+    "task": "worker-0",
+    "detail": "sleep:6~12",
+    "clock": 4,
+    "rngState": 1831565855,
+    "candidates": []
+  },
+  {
+    "seq": 11,
+    "kind": "await",
+    "task": "producer",
+    "detail": "sleep:5",
+    "clock": 4,
+    "rngState": 1831565855,
+    "candidates": []
+  },
+  {
+    "seq": 12,
+    "kind": "resume",
+    "task": "killer",
+    "detail": "T3:sleep:5",
+    "clock": 5,
+    "rngState": 3663131668,
+    "candidates": [
+      "T3:sleep:5"
+    ]
+  },
+  {
+    "seq": 13,
+    "kind": "complete",
+    "task": "killer",
+    "detail": "ok",
+    "clock": 5,
+    "rngState": 3663131668,
+    "candidates": []
+  },
+  {
+    "seq": 14,
+    "kind": "cancel",
+    "task": "victim",
+    "detail": "T2:cancel",
+    "clock": 5,
+    "rngState": 1199730185,
+    "candidates": [
+      "T2:cancel"
+    ]
+  },
+  {
+    "seq": 15,
+    "kind": "complete",
+    "task": "victim",
+    "detail": "ok",
+    "clock": 5,
+    "rngState": 1199730185,
+    "candidates": []
+  },
+  {
+    "seq": 16,
+    "kind": "resume",
+    "task": "producer",
+    "detail": "T1:sleep:5",
+    "clock": 9,
+    "rngState": 3031295998,
+    "candidates": [
+      "T1:sleep:5",
+      "T4:timeout"
+    ]
+  },
+  {
+    "seq": 17,
+    "kind": "spawn",
+    "task": "worker-1",
+    "detail": "T6",
+    "clock": 9,
+    "rngState": 3031295998,
+    "candidates": []
+  },
+  {
+    "seq": 18,
+    "kind": "await",
+    "task": "worker-1",
+    "detail": "sleep:6~12",
+    "clock": 9,
+    "rngState": 3031295998,
+    "candidates": []
+  },
+  {
+    "seq": 19,
+    "kind": "await",
+    "task": "producer",
+    "detail": "sleep:6",
+    "clock": 9,
+    "rngState": 3031295998,
+    "candidates": []
+  },
+  {
+    "seq": 20,
+    "kind": "timeout",
+    "task": "impatient",
+    "detail": "T4:timeout",
+    "clock": 9,
+    "rngState": 567894515,
+    "candidates": [
+      "T4:timeout"
+    ]
+  },
+  {
+    "seq": 21,
+    "kind": "await",
+    "task": "impatient",
+    "detail": "checkpoint",
+    "clock": 9,
+    "rngState": 567894515,
+    "candidates": []
+  },
+  {
+    "seq": 22,
+    "kind": "resume",
+    "task": "impatient",
+    "detail": "T4:checkpoint",
+    "clock": 9,
+    "rngState": 2399460328,
+    "candidates": [
+      "T4:checkpoint"
+    ]
+  },
+  {
+    "seq": 23,
+    "kind": "complete",
+    "task": "impatient",
+    "detail": "ok",
+    "clock": 9,
+    "rngState": 2399460328,
+    "candidates": []
+  },
+  {
+    "seq": 24,
+    "kind": "resume",
+    "task": "worker-0",
+    "detail": "T5:sleep:6~12",
+    "clock": 10,
+    "rngState": 4231026141,
+    "candidates": [
+      "T5:sleep:6~12"
+    ]
+  },
+  {
+    "seq": 25,
+    "kind": "await",
+    "task": "worker-0",
+    "detail": "checkpoint",
+    "clock": 10,
+    "rngState": 4231026141,
+    "candidates": []
+  },
+  {
+    "seq": 26,
+    "kind": "resume",
+    "task": "worker-0",
+    "detail": "T5:checkpoint",
+    "clock": 10,
+    "rngState": 1767624658,
+    "candidates": [
+      "T5:checkpoint"
+    ]
+  },
+  {
+    "seq": 27,
+    "kind": "complete",
+    "task": "worker-0",
+    "detail": "ok",
+    "clock": 10,
+    "rngState": 1767624658,
+    "candidates": []
+  },
+  {
+    "seq": 28,
+    "kind": "resume",
+    "task": "producer",
+    "detail": "T1:sleep:6",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": [
+      "T1:sleep:6",
+      "T6:sleep:6~12"
+    ]
+  },
+  {
+    "seq": 29,
+    "kind": "spawn",
+    "task": "worker-2",
+    "detail": "T7",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": []
+  },
+  {
+    "seq": 30,
+    "kind": "await",
+    "task": "worker-2",
+    "detail": "sleep:6~12",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": []
+  },
+  {
+    "seq": 31,
+    "kind": "spawn",
+    "task": "tail",
+    "detail": "T8",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": []
+  },
+  {
+    "seq": 32,
+    "kind": "await",
+    "task": "tail",
+    "detail": "sleep:3",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": []
+  },
+  {
+    "seq": 33,
+    "kind": "await",
+    "task": "producer",
+    "detail": "join:T8",
+    "clock": 15,
+    "rngState": 3599190471,
+    "candidates": []
+  },
+  {
+    "seq": 34,
+    "kind": "resume",
+    "task": "worker-1",
+    "detail": "T6:sleep:6~12",
+    "clock": 15,
+    "rngState": 1135788988,
+    "candidates": [
+      "T6:sleep:6~12"
+    ]
+  },
+  {
+    "seq": 35,
+    "kind": "await",
+    "task": "worker-1",
+    "detail": "checkpoint",
+    "clock": 15,
+    "rngState": 1135788988,
+    "candidates": []
+  },
+  {
+    "seq": 36,
+    "kind": "resume",
+    "task": "worker-1",
+    "detail": "T6:checkpoint",
+    "clock": 15,
+    "rngState": 2967354801,
+    "candidates": [
+      "T6:checkpoint"
+    ]
+  },
+  {
+    "seq": 37,
+    "kind": "complete",
+    "task": "worker-1",
+    "detail": "ok",
+    "clock": 15,
+    "rngState": 2967354801,
+    "candidates": []
+  },
+  {
+    "seq": 38,
+    "kind": "resume",
+    "task": "tail",
+    "detail": "T8:sleep:3",
+    "clock": 18,
+    "rngState": 503953318,
+    "candidates": [
+      "T8:sleep:3"
+    ]
+  },
+  {
+    "seq": 39,
+    "kind": "complete",
+    "task": "tail",
+    "detail": "ok",
+    "clock": 18,
+    "rngState": 503953318,
+    "candidates": []
+  },
+  {
+    "seq": 40,
+    "kind": "resume",
+    "task": "producer",
+    "detail": "T1:join:T8",
+    "clock": 18,
+    "rngState": 2335519131,
+    "candidates": [
+      "T1:join:T8"
+    ]
+  },
+  {
+    "seq": 41,
+    "kind": "complete",
+    "task": "producer",
+    "detail": "ok",
+    "clock": 18,
+    "rngState": 2335519131,
+    "candidates": []
+  },
+  {
+    "seq": 42,
+    "kind": "resume",
+    "task": "worker-2",
+    "detail": "T7:sleep:6~12",
+    "clock": 21,
+    "rngState": 4167084944,
+    "candidates": [
+      "T7:sleep:6~12"
+    ]
+  },
+  {
+    "seq": 43,
+    "kind": "await",
+    "task": "worker-2",
+    "detail": "checkpoint",
+    "clock": 21,
+    "rngState": 4167084944,
+    "candidates": []
+  },
+  {
+    "seq": 44,
+    "kind": "resume",
+    "task": "worker-2",
+    "detail": "T7:checkpoint",
+    "clock": 21,
+    "rngState": 1703683461,
+    "candidates": [
+      "T7:checkpoint"
+    ]
+  },
+  {
+    "seq": 45,
+    "kind": "complete",
+    "task": "worker-2",
+    "detail": "ok",
+    "clock": 21,
+    "rngState": 1703683461,
+    "candidates": []
+  }
+]
