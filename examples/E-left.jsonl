@@ -1,0 +1,10 @@
+{"id":"l1","account":"cash","amount":100,"direction":"debit","currency":"USD","relId":"t1"}
+{"id":"l2","account":"revenue","amount":100,"direction":"credit","currency":"USD","relId":"t1"}
+{"id":"l3","account":"cash","amount":40,"direction":"debit","currency":"EUR","relId":"t2"}
+{"id":"l4","account":"sales","amount":40,"direction":"credit","currency":"EUR","relId":"t2"}
+{"id":"x1a","account":"cash","amount":1,"direction":"debit","currency":"USD","relId":"e1"}
+{"id":"x1b","account":"fee","amount":1,"direction":"credit","currency":"USD","relId":"e1"}
+{"id":"x2a","account":"cash","amount":2,"direction":"debit","currency":"USD","relId":"e2"}
+{"id":"x2b","account":"fee","amount":2,"direction":"credit","currency":"USD","relId":"e2"}
+{"id":"x3a","account":"cash","amount":3,"direction":"debit","currency":"USD","relId":"e3"}
+{"id":"x3b","account":"fee","amount":3,"direction":"credit","currency":"USD","relId":"e3"}

@@ -1,0 +1,6 @@
+{"id":"l1","account":"cash","amount":100,"direction":"debit","currency":"USD","relId":"t1"}
+{"id":"l2","account":"revenue","amount":100,"direction":"credit","currency":"USD","relId":"t1"}
+{"id":"l3","account":"cash","amount":40,"direction":"debit","currency":"EUR","relId":"t2"}
+{"id":"l4","account":"sales","amount":40,"direction":"credit","currency":"EUR","relId":"t2"}
+{"id":"lx1","account":"cash","amount":7,"direction":"debit","currency":"USD","relId":"x1"}
+{"id":"lx2","account":"fee","amount":7,"direction":"credit","currency":"USD","relId":"x1"}

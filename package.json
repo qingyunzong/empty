@@ -1,0 +1,10 @@
+{
+  "name": "recon-diff",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reconciliation diff library and CLI: automaton-based balance semantics, minimal repair scripts, verifiable difference certificates.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
