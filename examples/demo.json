@@ -1,0 +1,18 @@
+{
+  "cars": [
+    {"id": "C1", "length": 12, "weight": 30},
+    {"id": "C2", "length": 14, "weight": 45, "hazmat": "A"},
+    {"id": "C3", "length": 10, "weight": 22},
+    {"id": "C4", "length": 15, "weight": 50, "hazmat": "B"},
+    {"id": "C5", "length": 11, "weight": 28},
+    {"id": "C6", "length": 13, "weight": 40},
+    {"id": "C7", "length": 12, "weight": 35, "hazmat": "A"},
+    {"id": "C8", "length": 14, "weight": 44}
+  ],
+  "incompatible": [["A", "B"]],
+  "types": [
+    {"name": "轻载型", "maxCars": 3, "maxLength": 40, "maxWeight": 90, "cost": 100, "allowHazmat": false},
+    {"name": "标准型", "maxCars": 4, "maxLength": 55, "maxWeight": 150, "cost": 160, "allowHazmat": true},
+    {"name": "重载型", "maxCars": 6, "maxLength": 80, "maxWeight": 240, "cost": 260, "allowHazmat": true}
+  ]
+}
