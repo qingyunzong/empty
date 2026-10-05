@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    "main",
+    "auth",
+    "core",
+    "legacy",
+    "store",
+    "report"
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "main",
+      "to": "auth",
+      "cost": 5,
+      "locked": true
+    },
+    {
+      "id": "e2",
+      "from": "auth",
+      "to": "core",
+      "cost": 3
+    },
+    {
+      "id": "e3",
+      "from": "core",
+      "to": "store",
+      "cost": 2
+    },
+    {
+      "id": "e4",
+      "from": "store",
+      "to": "core",
+      "cost": 1,
+      "group": "plugin"
+    },
+    {
+      "id": "e5",
+      "from": "core",
+      "to": "legacy",
+      "cost": 8
+    },
+    {
+      "id": "e6",
+      "from": "legacy",
+      "to": "auth",
+      "cost": 1
+    },
+    {
+      "id": "e7",
+      "from": "store",
+      "to": "report",
+      "cost": 4
+    },
+    {
+      "id": "e8",
+      "from": "report",
+      "to": "legacy",
+      "cost": 6
+    },
+    {
+      "id": "e9",
+      "from": "legacy",
+      "to": "legacy",
+      "cost": 2,
+      "group": "core-pkg"
+    }
+  ],
+  "entries": [
+    "main"
+  ],
+  "exits": [
+    "report"
+  ],
+  "budget": 10,
+  "groups": {
+    "plugin": {
+      "requires": [
+        "core-pkg"
+      ]
+    }
+  }
+}

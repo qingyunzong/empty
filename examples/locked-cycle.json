@@ -1,0 +1,8 @@
+{
+  "nodes": ["x", "y", "z"],
+  "edges": [
+    { "id": "xy", "from": "x", "to": "y", "locked": true },
+    { "id": "yz", "from": "y", "to": "z", "locked": true },
+    { "id": "zx", "from": "z", "to": "x", "locked": true }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "nodes": ["ui", "api", "db"],
+  "edges": [
+    { "id": "ui-api", "from": "ui", "to": "api", "cost": 2 },
+    { "id": "api-db", "from": "api", "to": "db", "cost": 4 },
+    { "id": "db-ui", "from": "db", "to": "ui", "cost": 1 }
+  ]
+}
