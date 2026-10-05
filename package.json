@@ -1,0 +1,11 @@
+{
+  "name": "snapshot-diff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Snapshot comparison library: path-based ignore rules, structural safety, minimal diffs, idempotent normalization",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
