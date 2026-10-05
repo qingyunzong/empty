@@ -1,0 +1,11 @@
+{
+  "name": "doc-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "基于稳定文件 ID 的三方文档同步器（base/local/remote 合并、冲突解决、原子变更计划）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/merge.test.js && node dist/test/plan.test.js"
+  }
+}
