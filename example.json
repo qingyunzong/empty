@@ -1,0 +1,13 @@
+{
+  "capacity": 8,
+  "initial": 0,
+  "final": 0,
+  "chargeEff": "4/5",
+  "dischargeEff": "1",
+  "periods": [
+    {"demand": 2, "price": 3, "chargeLimit": 10, "dischargeLimit": 8},
+    {"demand": 1, "price": 1, "chargeLimit": 10, "dischargeLimit": 8},
+    {"demand": 4, "price": 8, "chargeLimit": 10, "dischargeLimit": 8},
+    {"demand": 3, "price": 5, "chargeLimit": 10, "dischargeLimit": 8}
+  ]
+}
