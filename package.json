@@ -1,0 +1,19 @@
+{
+  "name": "rect-cover-db",
+  "version": "1.0.0",
+  "description": "Spatial store for integer axis-aligned rectangles with persistent snapshots and canonical >=k-coverage decomposition",
+  "type": "module",
+  "main": "dist/src/rectdb.js",
+  "exports": {
+    ".": "./dist/src/rectdb.js",
+    "./model": "./dist/src/model.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "*"
+  }
+}
