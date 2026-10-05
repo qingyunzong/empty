@@ -1,0 +1,8 @@
+[
+  { "type": "PLAN", "id": "job-a", "ver": 1, "start": 0, "cost": 40 },
+  { "type": "PLAN", "id": "job-b", "ver": 1, "start": 0, "cost": 30, "loseAck": 1 },
+  { "type": "PLAN", "id": "job-c", "ver": 1, "start": 1, "cost": 50 },
+  { "type": "MOVE", "id": "job-a", "ver": 2, "start": 1 },
+  { "type": "CANCEL", "id": "job-b", "ver": 2 },
+  { "type": "PLAN", "id": "job-d", "ver": 1, "start": 1, "cost": 10 }
+]

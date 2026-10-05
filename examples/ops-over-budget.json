@@ -1,0 +1,4 @@
+[
+  { "type": "PLAN", "id": "job-a", "ver": 1, "start": 0, "cost": 70 },
+  { "type": "PLAN", "id": "job-b", "ver": 1, "start": 0, "cost": 50 }
+]

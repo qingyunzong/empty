@@ -1,0 +1,10 @@
+{
+  "name": "factory-line-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline factory scheduler: PLAN/MOVE/CANCEL confirm protocol with daily budget cap",
+  "main": "scheduler.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}

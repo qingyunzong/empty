@@ -1,0 +1,4 @@
+[
+  { "type": "PLAN", "id": "job-a", "ver": 1, "start": 0, "cost": 10 },
+  { "type": "MOVE", "id": "ghost", "ver": 1, "start": 1 }
+]
