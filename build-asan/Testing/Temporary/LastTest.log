@@ -1,0 +1,99 @@
+Start testing: Oct 05 15:09 CST
+----------------------------------------------------------
+1/6 Testing: type_traits
+1/6 Test: type_traits
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "type_traits"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"type_traits" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: type_traits
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"type_traits" end time: Oct 05 15:09 CST
+"type_traits" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: success_release_order
+2/6 Test: success_release_order
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "success_release_order"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"success_release_order" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: success_release_order
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"success_release_order" end time: Oct 05 15:09 CST
+"success_release_order" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: failure_at_k
+3/6 Test: failure_at_k
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "failure_at_k"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"failure_at_k" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: failure_at_k
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"failure_at_k" end time: Oct 05 15:09 CST
+"failure_at_k" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: move_chain
+4/6 Test: move_chain
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "move_chain"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"move_chain" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: move_chain
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"move_chain" end time: Oct 05 15:09 CST
+"move_chain" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: throwing_release
+5/6 Test: throwing_release
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "throwing_release"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"throwing_release" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: throwing_release
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"throwing_release" end time: Oct 05 15:09 CST
+"throwing_release" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: release_once
+6/6 Test: release_once
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan/rbatch_tests" "release_once"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/A/attempt-003/workspace/build-asan
+"release_once" start time: Oct 05 15:09 CST
+Output:
+----------------------------------------------------------
+PASSED: release_once
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"release_once" end time: Oct 05 15:09 CST
+"release_once" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 15:09 CST

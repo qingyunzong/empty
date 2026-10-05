@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -fno-omit-frame-pointer -Wl,--dependency-file=CMakeFiles/rbatch_tests.dir/link.d CMakeFiles/rbatch_tests.dir/tests/test_batch.cpp.o -o rbatch_tests
