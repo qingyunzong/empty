@@ -1,0 +1,11 @@
+{
+  "name": "canonical-bytes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Canonical byte encoding for signed manifests: integers, byte strings, arrays, objects; UTF-8 byte-ordered keys; streaming parser with error offsets; order-independent digests.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
