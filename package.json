@@ -1,0 +1,12 @@
+{
+  "name": "provenance-merge",
+  "version": "1.0.0",
+  "description": "Field-level merge library with per-source provenance, transform chains, conflict tracking, and incremental withdrawal diffs",
+  "type": "module",
+  "private": true,
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
