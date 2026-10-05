@@ -1,0 +1,13 @@
+{
+  "name": "greenhouse-flux-windows",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Event-time hopping-window aggregation of greenhouse flux samples with versioned calibrations",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
