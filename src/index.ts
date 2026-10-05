@@ -1,0 +1,10 @@
+export { encodeKey, decodeKey, encodePart, prefixes } from "./key";
+export type { Key, KeyPart } from "./key";
+export { toBigInt } from "./events";
+export type { AdjustEvent, ExactInt, IngestResult, InsertEvent, MoveEvent, PivotEvent } from "./events";
+export { PivotStore } from "./store";
+export type { LeafAggregate, RecordState } from "./store";
+export { buildPivot, formatPivot } from "./pivot";
+export type { ColNode, Pivot, RowNode } from "./pivot";
+export { reconcile } from "./reconcile";
+export type { CellMismatch, GroupMismatch, ReconcileReport } from "./reconcile";

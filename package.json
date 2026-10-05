@@ -1,0 +1,11 @@
+{
+  "name": "pivot-exact",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact-integer multi-level pivot with NULL categories, idempotent corrections and GROUP BY reconciliation",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "demo": "npm run build && node dist/examples/demo.js"
+  }
+}
