@@ -1,0 +1,11 @@
+{
+  "name": "line-sim",
+  "version": "1.0.0",
+  "description": "Discrete-event production line simulation: machines, buffers, blocking, failures, material conservation",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
