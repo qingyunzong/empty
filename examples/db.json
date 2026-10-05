@@ -1,0 +1,16 @@
+{
+  "tables": {
+    "dept": [
+      { "id": 1, "dname": "eng" },
+      { "id": 2, "dname": "ops" },
+      { "id": 3, "dname": "ghost" }
+    ],
+    "emp": [
+      { "id": 10, "name": "amy", "dept_id": 1, "sal": 9007199254740993 },
+      { "id": 11, "name": "bob", "dept_id": 1, "sal": null },
+      { "id": 12, "name": "cy", "dept_id": 2, "sal": 120 },
+      { "id": 13, "name": "di", "dept_id": null, "sal": 80 },
+      { "id": 14, "name": "ed", "dept_id": 99, "sal": 200 }
+    ]
+  }
+}

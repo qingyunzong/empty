@@ -1,0 +1,21 @@
+{
+  "from": "emp",
+  "joins": [
+    { "table": "dept", "on": { "op": "=", "left": { "col": "emp.dept_id" }, "right": { "col": "dept.id" } } }
+  ],
+  "where": {
+    "op": "or",
+    "args": [
+      { "op": ">", "left": { "col": "emp.sal" }, "right": { "lit": 100 } },
+      { "op": "isnull", "arg": { "col": "emp.sal" } }
+    ]
+  },
+  "groupBy": ["dept.dname"],
+  "select": [
+    { "col": "dept.dname", "as": "dept" },
+    { "agg": "count", "arg": "*", "as": "heads" },
+    { "agg": "count", "arg": { "col": "emp.sal" }, "as": "paid" },
+    { "agg": "sum", "arg": { "col": "emp.sal" }, "as": "total_sal" },
+    { "agg": "avg", "arg": { "col": "emp.sal" }, "as": "avg_sal" }
+  ]
+}
