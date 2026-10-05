@@ -1,0 +1,13 @@
+{
+  "name": "tx-int-state",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Integer-state transaction library: nested savepoints, exception capture, staged external actions, operation budget; differentially tested against a copy-stack model.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/**/*.test.js\""
+  },
+  "devDependencies": {
+    "typescript": ">=5"
+  }
+}
