@@ -1,0 +1,12 @@
+{
+  "name": "pbtree",
+  "version": "0.1.0",
+  "description": "Property-based testing library: serializable seeds, shrink trees, operation histories, resumable shrinking. Node built-ins only.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
