@@ -1,0 +1,15 @@
+{
+  "horizon": 4,
+  "warehouses": [
+    {
+      "id": "S1",
+      "capacity": 6,
+      "initialInventory": 1,
+      "demand": [1, 2, 2, 1],
+      "leadTime": 1,
+      "fixedOrderCost": 4,
+      "holdingCost": 1,
+      "expedite": { "leadTime": 0, "fixedCost": 6, "unitCost": 1 }
+    }
+  ]
+}
