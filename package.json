@@ -1,0 +1,10 @@
+{
+  "name": "bucket-sync",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bucketed-digest set reconciliation over an integer key space (Node.js built-ins only)",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
