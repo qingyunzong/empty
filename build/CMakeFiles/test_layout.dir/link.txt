@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_layout.dir/link.d CMakeFiles/test_layout.dir/tests/test_layout.cpp.o -o test_layout  libasmlayout.a

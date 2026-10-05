@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/asmlayout_cli.dir/link.d CMakeFiles/asmlayout_cli.dir/src/main.cpp.o -o asmlayout_cli  libasmlayout.a

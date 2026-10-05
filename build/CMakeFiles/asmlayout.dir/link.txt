@@ -1,0 +1,2 @@
+/usr/bin/ar qc libasmlayout.a CMakeFiles/asmlayout.dir/src/layout.cpp.o
+/usr/bin/ranlib libasmlayout.a

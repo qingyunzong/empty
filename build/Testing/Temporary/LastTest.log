@@ -1,0 +1,108 @@
+Start testing: Oct 05 17:21 CST
+----------------------------------------------------------
+1/5 Testing: basic
+1/5 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build/test_layout" "basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build
+"basic" start time: Oct 05 17:21 CST
+Output:
+----------------------------------------------------------
+PASS  empty program has zero length
+PASS  empty program converges in one iteration
+PASS  fixed-only total length
+PASS  fixed-only offsets
+PASS  in-range jump stays short
+PASS  in-range jump total length
+PASS  out-of-range jump grows to long
+PASS  forced-long total length
+PASS  forced-long converges in two iterations
+PASS  disp +127 stays short
+PASS  disp +128 grows to long
+PASS  disp -128 stays short
+PASS  out-of-range jump target rejected
+all tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 05 17:21 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: cascade
+2/5 Test: cascade
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build/test_layout" "cascade"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build
+"cascade" start time: Oct 05 17:21 CST
+Output:
+----------------------------------------------------------
+PASS  cascade takes three iterations
+PASS  cascade iteration 0 flips insn 2
+PASS  cascade iteration 1 flips insn 0
+PASS  cascade final encoding
+PASS  cascade total length
+PASS  cascade certificate verifies
+all tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cascade" end time: Oct 05 17:21 CST
+"cascade" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: random
+3/5 Test: random
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build/test_layout" "random"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build
+"random" start time: Oct 05 17:21 CST
+Output:
+----------------------------------------------------------
+PASS  200 random programs: relaxation total == enumeration optimum
+all tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"random" end time: Oct 05 17:21 CST
+"random" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: limit
+4/5 Test: limit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build/test_layout" "limit"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build
+"limit" start time: Oct 05 17:21 CST
+Output:
+----------------------------------------------------------
+PASS  20-jump enumeration completes
+PASS  20-jump relaxation matches enumeration optimum
+PASS  21 jumps exceeds enumeration limit
+all tests passed
+<end of output>
+Test time =   0.83 sec
+----------------------------------------------------------
+Test Passed.
+"limit" end time: Oct 05 17:21 CST
+"limit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: verify
+5/5 Test: verify
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build/test_layout" "verify"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b8b4cf89d3a04e45831500ff3472cd87/run/A/attempt-003/workspace/build
+"verify" start time: Oct 05 17:21 CST
+Output:
+----------------------------------------------------------
+PASS  verify rejects tampered offsets
+PASS  verify rejects illegal encoding choice
+all tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"verify" end time: Oct 05 17:21 CST
+"verify" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 17:21 CST
