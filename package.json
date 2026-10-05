@@ -1,0 +1,17 @@
+{
+  "name": "qgenealogy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline quality genealogy library and CLI (block-encoded, CRC32 + manifest verified)",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "qg": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
