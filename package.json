@@ -1,0 +1,12 @@
+{
+  "name": "sync-plan-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sync planner: min-byte package cover of gaps, then min-peak-memory download/decode schedule with certificates.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}

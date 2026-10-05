@@ -1,0 +1,13 @@
+{
+  "existing": [[0, 5], [20, 24]],
+  "packages": [
+    { "id": "base-dict", "cover": [0, 5], "bytes": 4, "dict": 6, "deps": [] },
+    { "id": "a1", "cover": [6, 12], "bytes": 10, "dict": 3, "deps": ["base-dict"] },
+    { "id": "a2", "cover": [6, 12], "bytes": 6, "dict": 2, "deps": ["base-dict"] },
+    { "id": "b", "cover": [10, 19], "bytes": 14, "dict": 5, "deps": ["a1"] },
+    { "id": "c", "cover": [13, 26], "bytes": 9, "dict": 4, "deps": [] },
+    { "id": "d", "cover": [25, 30], "bytes": 5, "dict": 1, "deps": ["c"] }
+  ],
+  "maxPackages": 20,
+  "memoryLimit": 40
+}
