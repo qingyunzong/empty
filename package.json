@@ -1,0 +1,12 @@
+{
+  "name": "tri-policy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Three-valued-logic policy library with exact rational comparison and minimal decisive rule sets",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/examples/demo.js"
+  }
+}
