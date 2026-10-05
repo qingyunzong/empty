@@ -1,0 +1,15 @@
+{
+  "nodes": ["s", "a", "b", "c", "t"],
+  "edges": [
+    { "from": "s", "to": "a", "cost": 4 },
+    { "from": "a", "to": "c", "cost": 4 },
+    { "from": "s", "to": "b", "cost": 2 },
+    { "from": "b", "to": "c", "cost": 9 },
+    { "from": "c", "to": "t", "cost": 3 },
+    { "from": "b", "to": "t", "cost": 8 }
+  ],
+  "start": "s",
+  "end": "t",
+  "checkpoints": ["c"],
+  "maxNodes": 12
+}

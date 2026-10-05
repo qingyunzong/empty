@@ -1,0 +1,11 @@
+{
+  "name": "checkpoint-path-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple-path CLI: at most 12 nodes, mandatory checkpoints, minimax edge cost",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "start": "node dist/src/cli.js"
+  }
+}
