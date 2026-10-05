@@ -1,0 +1,34 @@
+Start testing: Oct 06 02:03 CST
+----------------------------------------------------------
+1/7 Testing: test_bigint
+1/7 Test: test_bigint
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_bigint"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_bigint" start time: Oct 06 02:03 CST
+Output:
+----------------------------------------------------------
+CHECK failed: BigInt::pow2(64).to_string() == "18446744073709551616" at /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/tests/test_bigint.cpp:22
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"test_bigint" end time: Oct 06 02:03 CST
+"test_bigint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: test_rational
+2/7 Test: test_rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_rational" start time: Oct 06 02:03 CST
+Output:
+----------------------------------------------------------
+CHECK failed: h20.to_string() == "55835135/15519504" at /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/tests/test_rational.cpp:28
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"test_rational" end time: Oct 06 02:03 CST
+"test_rational" time elapsed: 00:00:00
+----------------------------------------------------------
+

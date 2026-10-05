@@ -1,0 +1,9 @@
+H_100 (parallel, 8 threads, block=7) = 14466636279520351160221518043104131447711/2788815009188499086581352357412492142272
+H_100 (serial tree model, block=7)  = 14466636279520351160221518043104131447711/2788815009188499086581352357412492142272
+H_100 parallel == serial: yes
+sum_{i=0..199} 2^i = 1606938044258990275541962092341162602522202993782792835301375
+sum_{i=1..100000} i = 5000050000
+determinism trials (randomized arrival order): 50, mismatches: 0
+failing blocks {2,5} -> reported smallest block: 2
+cancelled run: value=none, cancelled=true, live buffers after return=0
+ALL RECORDED VALUES VERIFIED

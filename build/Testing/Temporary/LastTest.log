@@ -1,0 +1,117 @@
+Start testing: Oct 06 02:11 CST
+----------------------------------------------------------
+1/7 Testing: test_bigint
+1/7 Test: test_bigint
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_bigint"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_bigint" start time: Oct 06 02:11 CST
+Output:
+----------------------------------------------------------
+test_bigint: all checks passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_bigint" end time: Oct 06 02:11 CST
+"test_bigint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: test_rational
+2/7 Test: test_rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_rational" start time: Oct 06 02:11 CST
+Output:
+----------------------------------------------------------
+test_rational: all checks passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_rational" end time: Oct 06 02:11 CST
+"test_rational" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: test_determinism
+3/7 Test: test_determinism
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_determinism"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_determinism" start time: Oct 06 02:11 CST
+Output:
+----------------------------------------------------------
+test_determinism: 30 parallel/serial comparisons passed; integer sum = 1560723775323924212312
+<end of output>
+Test time =  93.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_determinism" end time: Oct 06 02:13 CST
+"test_determinism" time elapsed: 00:01:33
+----------------------------------------------------------
+
+4/7 Testing: test_cancel
+4/7 Test: test_cancel
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_cancel"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_cancel" start time: Oct 06 02:13 CST
+Output:
+----------------------------------------------------------
+test_cancel: all checks passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_cancel" end time: Oct 06 02:13 CST
+"test_cancel" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: test_failure
+5/7 Test: test_failure
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_failure"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_failure" start time: Oct 06 02:13 CST
+Output:
+----------------------------------------------------------
+test_failure: all checks passed
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"test_failure" end time: Oct 06 02:13 CST
+"test_failure" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: test_barrier
+6/7 Test: test_barrier
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_barrier"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"test_barrier" start time: Oct 06 02:13 CST
+Output:
+----------------------------------------------------------
+  raw barrier: 300 phases, 231 distinct arrival orders
+test_barrier: all checks passed
+<end of output>
+Test time =  22.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_barrier" end time: Oct 06 02:13 CST
+"test_barrier" time elapsed: 00:00:22
+----------------------------------------------------------
+
+7/7 Testing: record_results
+7/7 Test: record_results
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/record_results" "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/actual_results.txt"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+"record_results" start time: Oct 06 02:13 CST
+Output:
+----------------------------------------------------------
+results recorded to /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/actual_results.txt
+<end of output>
+Test time =  96.84 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[results recorded]
+"record_results" end time: Oct 06 02:15 CST
+"record_results" time elapsed: 00:01:36
+----------------------------------------------------------
+
+End testing: Oct 06 02:15 CST

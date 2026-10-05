@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_cancel.dir/link.d CMakeFiles/test_cancel.dir/tests/test_cancel.cpp.o -o test_cancel

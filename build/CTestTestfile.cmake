@@ -1,0 +1,20 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[test_bigint]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_bigint")
+set_tests_properties([=[test_bigint]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[test_rational]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_rational")
+set_tests_properties([=[test_rational]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[test_determinism]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_determinism")
+set_tests_properties([=[test_determinism]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[test_cancel]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_cancel")
+set_tests_properties([=[test_cancel]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[test_failure]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_failure")
+set_tests_properties([=[test_failure]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[test_barrier]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/test_barrier")
+set_tests_properties([=[test_barrier]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[record_results]=] "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/record_results" "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/build/actual_results.txt")
+set_tests_properties([=[record_results]=] PROPERTIES  PASS_REGULAR_EXPRESSION "results recorded" _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;40;add_test;/home/delin/.local/share/gsb-workbench/artifacts/21f6279043d2495793cdd94204968556/run/B/attempt-005/workspace/CMakeLists.txt;0;")

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/record_results.dir/link.d CMakeFiles/record_results.dir/tests/record_results.cpp.o -o record_results

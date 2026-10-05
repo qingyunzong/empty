@@ -1,0 +1,8 @@
+test_bigint 1 0.00791396
+test_rational 1 0.00724232
+test_determinism 1 93.0134
+test_cancel 2 0.0139287
+test_failure 2 0.0270952
+test_barrier 2 11.0041
+record_results 1 96.84
+---
