@@ -1,0 +1,21 @@
+{
+  "edges": [
+    { "id": "e1", "from": "app", "to": "core", "cost": 6, "locked": true },
+    { "id": "e2", "from": "core", "to": "util", "cost": 3 },
+    { "id": "e3", "from": "util", "to": "core", "cost": 4, "group": "legacy" },
+    { "id": "e4", "from": "util", "to": "io", "cost": 2 },
+    { "id": "e5", "from": "io", "to": "util", "cost": 5 },
+    { "id": "e6", "from": "core", "to": "io", "cost": 7 },
+    { "id": "e7", "from": "io", "to": "net", "cost": 1, "locked": true },
+    { "id": "e8", "from": "net", "to": "io", "cost": 8 },
+    { "id": "e9", "from": "core", "to": "docs", "cost": 1, "group": "docs" }
+  ],
+  "budget": 15,
+  "reachability": [
+    { "from": "app", "to": "net" },
+    { "from": "app", "to": "util" }
+  ],
+  "groups": {
+    "legacy": { "requires": ["docs"] }
+  }
+}

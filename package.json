@@ -1,0 +1,12 @@
+{
+  "name": "depcycle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimum-cost dependency cycle repair CLI (<=18 edges) with certificates",
+  "type": "commonjs",
+  "bin": { "depcycle": "dist/src/cli.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/solver.test.js"
+  }
+}

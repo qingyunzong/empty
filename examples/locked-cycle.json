@@ -1,0 +1,8 @@
+{
+  "edges": [
+    { "id": "x1", "from": "a", "to": "b", "cost": 1, "locked": true },
+    { "id": "x2", "from": "b", "to": "c", "cost": 1, "locked": true },
+    { "id": "x3", "from": "c", "to": "a", "cost": 1, "locked": true },
+    { "id": "x4", "from": "a", "to": "c", "cost": 9 }
+  ]
+}
