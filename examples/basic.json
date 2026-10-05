@@ -1,0 +1,16 @@
+{
+  "numNodes": 5,
+  "start": 0,
+  "end": 4,
+  "maxNodes": 12,
+  "edges": [
+    {"from": 0, "to": 1, "toll": 30, "time": 10},
+    {"from": 1, "to": 3, "toll": 40, "time": 12},
+    {"from": 3, "to": 4, "toll": 35, "time": 8},
+    {"from": 0, "to": 2, "toll": 20, "time": 6},
+    {"from": 2, "to": 3, "toll": 25, "time": 9},
+    {"from": 0, "to": 4, "toll": 120, "time": 30},
+    {"from": 2, "to": 1, "toll": 15, "time": 5}
+  ],
+  "rebate": {"threshold": 60, "amount": 25}
+}

@@ -1,0 +1,27 @@
+{
+  "numNodes": 6,
+  "start": 0,
+  "end": 5,
+  "maxNodes": 12,
+  "edges": [
+    {"from": 0, "to": 1, "toll": 12, "time": 7, "fuel": 3},
+    {"from": 1, "to": 3, "toll": 18, "time": 9, "fuel": 4},
+    {"from": 3, "to": 5, "toll": 22, "time": 6, "fuel": 3},
+    {"from": 0, "to": 2, "toll": 9,  "time": 5, "fuel": 2},
+    {"from": 2, "to": 3, "toll": 14, "time": 8, "fuel": 3},
+    {"from": 2, "to": 4, "toll": 10, "time": 4, "fuel": 2},
+    {"from": 4, "to": 5, "toll": 30, "time": 10, "fuel": 5},
+    {"from": 1, "to": 2, "toll": 6,  "time": 3, "fuel": 1},
+    {"from": 4, "to": 3, "toll": 8,  "time": 4, "fuel": 2}
+  ],
+  "rebate": {"threshold": 40, "amount": 20, "stations": [3, 4]},
+  "fuel": {
+    "capacity": 8,
+    "start": 5,
+    "stations": [{"node": 0, "price": 5}, {"node": 2, "price": 3}, {"node": 4, "price": 6}]
+  },
+  "coupons": [
+    {"requiresEdges": [0, 7], "discount": 15},
+    {"requiresEdges": [3], "discount": 10}
+  ]
+}
