@@ -1,0 +1,12 @@
+{
+  "name": "availability-monitor",
+  "version": "1.0.0",
+  "description": "Multi-service availability interval monitor: k-of-n coverage segments, causal dependency closure, versioned net-diff subscriptions",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
