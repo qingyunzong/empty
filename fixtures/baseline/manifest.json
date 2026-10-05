@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "itemId": "item-001",
+      "runId": "run-001",
+      "problemSummary": "实现快速排序并正确处理重复元素",
+      "stageSources": ["ingest", "solve", "grade"]
+    },
+    {
+      "itemId": "item-002",
+      "runId": "run-002",
+      "problemSummary": "修复日期解析中的时区偏移错误",
+      "stageSources": ["ingest", "solve"]
+    },
+    {
+      "itemId": "item-003",
+      "runId": "run-003",
+      "problemSummary": "为 CLI 添加 --verbose 日志选项",
+      "stageSources": ["ingest", "plan", "solve", "grade"]
+    }
+  ]
+}

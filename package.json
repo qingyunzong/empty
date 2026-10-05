@@ -1,0 +1,12 @@
+{
+  "name": "result-verifier",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "核验库：结果清单、轨迹、文件摘要三方一致性核验（仅 Node.js 内置库）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js",
+    "verify": "npm run build --silent && node dist/src/cli.js"
+  }
+}

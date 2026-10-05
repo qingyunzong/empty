@@ -1,0 +1,34 @@
+{
+  "runs": [
+    {
+      "runId": "run-001",
+      "itemId": "item-001",
+      "problemSummary": "实现快速排序并正确处理重复元素",
+      "stages": [
+        { "name": "ingest", "source": "ingest" },
+        { "name": "solve", "source": "solve" },
+        { "name": "grade", "source": "grade" }
+      ]
+    },
+    {
+      "runId": "run-002",
+      "itemId": "item-002",
+      "problemSummary": "修复日期解析中的时区偏移错误",
+      "stages": [
+        { "name": "ingest", "source": "ingest" },
+        { "name": "solve", "source": "solve" }
+      ]
+    },
+    {
+      "runId": "run-003",
+      "itemId": "item-003",
+      "problemSummary": "为 CLI 添加 --verbose 日志选项",
+      "stages": [
+        { "name": "ingest", "source": "ingest" },
+        { "name": "plan", "source": "plan" },
+        { "name": "solve", "source": "solve" },
+        { "name": "grade", "source": "grade" }
+      ]
+    }
+  ]
+}
