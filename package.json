@@ -1,0 +1,11 @@
+{
+  "name": "type-infer",
+  "version": "1.0.0",
+  "description": "Type inference library: type variables, functions, lists; unified occurs check; revocable named constraints; minimal ID-ordered conflict chains; immutable type snapshots.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
