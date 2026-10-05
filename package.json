@@ -1,0 +1,11 @@
+{
+  "name": "session-stats",
+  "version": "1.0.0",
+  "description": "Incremental session statistics with net diff output and sorted-rebuild verification",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/session-store.test.js"
+  }
+}
