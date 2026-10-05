@@ -1,0 +1,12 @@
+{
+  "name": "layered-resource-resolver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Layered resource resolution: priority layers, directory tombstones, case rules, immutable snapshots",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test dist/test/resolver.test.js"
+  }
+}
