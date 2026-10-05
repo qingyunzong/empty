@@ -1,0 +1,11 @@
+{
+  "name": "finite-csp-solver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Finite-domain CSP solver (<=16 vars): allDifferent + table constraints, propagation with trail-based undo, node budget, SAT/UNSAT-tree/CUTOFF-frontier outcomes, independent enumerator cross-check.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
