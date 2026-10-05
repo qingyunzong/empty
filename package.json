@@ -1,0 +1,12 @@
+{
+  "name": "line-inventory-jobs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "产线库作业：原料/设备占用、分阶段失败回收、重试免重复消耗、整单取消逆向补料、显式事件顺序与状态证书重放对照",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
