@@ -1,0 +1,9 @@
+orient_basic 2 0.00153114
+orient_id_rule 2 0.00141943
+orient_extrema 2 0.00166907
+orient_fuzz 2 0.0234627
+incircle_basic 2 0.00136779
+incircle_id_rule 2 0.00154061
+incircle_extrema 1 0.00323394
+incircle_fuzz 2 0.0208616
+---

@@ -1,0 +1,165 @@
+Start testing: Oct 05 21:45 CST
+----------------------------------------------------------
+1/8 Testing: orient_basic
+1/8 Test: orient_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "orient_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"orient_basic" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case orient_basic]
+  orient CCW                               sign=+1 degenerate=0 method=float-filter
+  orient CW                                sign=-1 degenerate=0 method=float-filter
+[case orient_basic] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"orient_basic" end time: Oct 05 21:45 CST
+"orient_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: orient_id_rule
+2/8 Test: orient_id_rule
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "orient_id_rule"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"orient_id_rule" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case orient_id_rule]
+  collinear ids(1,2,3)                     sign=+1 degenerate=1 method=exact-i128
+  collinear ids(2,1,3)                     sign=-1 degenerate=1 method=exact-i128
+  collinear big coords                     sign=+1 degenerate=1 method=exact-bigint
+[case orient_id_rule] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"orient_id_rule" end time: Oct 05 21:45 CST
+"orient_id_rule" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: orient_extrema
+3/8 Test: orient_extrema
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "orient_extrema"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"orient_extrema" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case orient_extrema]
+  extremum                                 sign=-1 degenerate=0 method=exact-bigint
+    model sign=-1
+  extremum                                 sign=+1 degenerate=0 method=exact-bigint
+    model sign=+1
+  extremum                                 sign=-1 degenerate=0 method=exact-bigint
+    model sign=-1
+  extremum                                 sign=-1 degenerate=0 method=exact-bigint
+    model sign=-1
+  extremum                                 sign=+1 degenerate=0 method=exact-bigint
+    model sign=+1
+  extremum                                 sign=-1 degenerate=0 method=exact-bigint
+    model sign=-1
+[case orient_extrema] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"orient_extrema" end time: Oct 05 21:45 CST
+"orient_extrema" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: orient_fuzz
+4/8 Test: orient_fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "orient_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"orient_fuzz" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case orient_fuzz]
+  fuzz: filter=23285 i128=1716 bigint=23999 degenerate=8389
+[case orient_fuzz] OK
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"orient_fuzz" end time: Oct 05 21:45 CST
+"orient_fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: incircle_basic
+5/8 Test: incircle_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "incircle_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"incircle_basic" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case incircle_basic]
+  d inside                                 sign=+1 degenerate=0 method=float-filter
+  d outside                                sign=-1 degenerate=0 method=float-filter
+[case incircle_basic] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_basic" end time: Oct 05 21:45 CST
+"incircle_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: incircle_id_rule
+6/8 Test: incircle_id_rule
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "incircle_id_rule"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"incircle_id_rule" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case incircle_id_rule]
+  cocircular ids(1,2,3,4)                  sign=+1 degenerate=1 method=exact-i128
+  cocircular ids(1,2,4,3)                  sign=-1 degenerate=1 method=exact-i128
+[case incircle_id_rule] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_id_rule" end time: Oct 05 21:45 CST
+"incircle_id_rule" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: incircle_extrema
+7/8 Test: incircle_extrema
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "incircle_extrema"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"incircle_extrema" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case incircle_extrema]
+  d on huge circle                         sign=+1 degenerate=1 method=exact-bigint
+  d one step inside                        sign=+1 degenerate=0 method=exact-bigint
+  d one step outside                       sign=-1 degenerate=0 method=exact-bigint
+[case incircle_extrema] OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_extrema" end time: Oct 05 21:45 CST
+"incircle_extrema" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: incircle_fuzz
+8/8 Test: incircle_fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build/test_predicates" "incircle_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/A/attempt-004/workspace/build
+"incircle_fuzz" start time: Oct 05 21:45 CST
+Output:
+----------------------------------------------------------
+[case incircle_fuzz]
+  fuzz: filter=18285 i128=798 bigint=917 degenerate=1715
+[case incircle_fuzz] OK
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_fuzz" end time: Oct 05 21:45 CST
+"incircle_fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 21:45 CST
