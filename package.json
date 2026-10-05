@@ -1,0 +1,12 @@
+{
+  "name": "buoy-profiles",
+  "version": "1.0.0",
+  "description": "Ocean buoy dive profile processor: UPSERT/RETRACT/WATERMARK events, inversion detection, profile certificates",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
