@@ -1,0 +1,11 @@
+{
+  "name": "virtual-config-loader",
+  "version": "1.0.0",
+  "description": "Config loader over a virtual file table: relative includes, overrides, array append, per-field provenance, cycle detection on the current include stack.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
