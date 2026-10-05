@@ -1,0 +1,11 @@
+{
+  "name": "lis-sequence-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Append/undo sequence library returning the longest strictly increasing subsequence with index-order (not value-order) tie-breaking and an index certificate.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
