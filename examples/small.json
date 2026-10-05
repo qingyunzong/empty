@@ -1,0 +1,11 @@
+{
+  "name": "small",
+  "events": [
+    {"id": "e1", "writes": ["x"]},
+    {"id": "e2", "writes": ["x"]},
+    {"id": "e3", "writes": ["y"]},
+    {"id": "e4", "reads": ["x"], "writes": ["z"]},
+    {"id": "e5", "reads": ["z", "x"]}
+  ],
+  "fail": {"x": ["e2"]}
+}
