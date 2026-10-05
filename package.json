@@ -1,0 +1,10 @@
+{
+  "name": "ranking-events",
+  "version": "1.0.0",
+  "private": true,
+  "description": "事件驱动的排名库：取消/更正比赛后增量重算受影响名次，并与完整重算核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
