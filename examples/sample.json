@@ -1,0 +1,13 @@
+{
+  "forbidden": ["delete"],
+  "demands": {"read": 3, "write": 2},
+  "globalQuota": 6,
+  "rules": [
+    {"id": "r-audit", "cost": 1, "actions": ["read"], "capacity": 1},
+    {"id": "r-reader", "cost": 2, "actions": ["read"], "capacity": 2},
+    {"id": "r-writer", "cost": 3, "actions": ["write"], "requires": ["r-audit"]},
+    {"id": "r-rw", "cost": 6, "actions": ["read", "write"]},
+    {"id": "r-admin", "cost": 1, "actions": ["read", "write", "delete"]},
+    {"id": "r-fast", "cost": 2, "actions": ["read"], "capacity": 2, "excludes": ["r-reader"]}
+  ]
+}
