@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: test/antientropy.test.js
+ok 1 - test/antientropy.test.js
+  ---
+  duration_ms: 3328.225638
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 3365.038494
+  type: 'test'
+  ...
+# Subtest: test/clock.test.js
+ok 3 - test/clock.test.js
+  ---
+  duration_ms: 2277.217461
+  type: 'test'
+  ...
+# Subtest: test/exhaustive.test.js
+ok 4 - test/exhaustive.test.js
+  ---
+  duration_ms: 10430.077931
+  type: 'test'
+  ...
+# Subtest: test/fencing.test.js
+ok 5 - test/fencing.test.js
+  ---
+  duration_ms: 5914.155745
+  type: 'test'
+  ...
+# Subtest: test/merge.test.js
+ok 6 - test/merge.test.js
+  ---
+  duration_ms: 1471.565978
+  type: 'test'
+  ...
+# Subtest: test/tombstone.test.js
+ok 7 - test/tombstone.test.js
+  ---
+  duration_ms: 3053.320118
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11535.313563
