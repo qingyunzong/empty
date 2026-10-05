@@ -1,0 +1,22 @@
+{
+  "nodes": 6,
+  "start": 0,
+  "goal": 5,
+  "fuelCap": 12,
+  "startFuel": 12,
+  "horizon": 40,
+  "discounts": [5, 3],
+  "edges": [
+    {"from": 0, "to": 1, "fuel": 4, "time": 2, "toll": 8, "discount": 0},
+    {"from": 0, "to": 2, "fuel": 6, "time": 4, "toll": 3, "discount": -1},
+    {"from": 1, "to": 2, "fuel": 2, "time": 1, "toll": 1, "discount": -1},
+    {"from": 1, "to": 3, "fuel": 5, "time": 3, "toll": 7, "windows": [{"start": 6, "end": 20}], "discount": -1},
+    {"from": 2, "to": 3, "fuel": 3, "time": 2, "toll": 6, "discount": 1},
+    {"from": 3, "to": 4, "fuel": 4, "time": 2, "toll": 5, "discount": -1},
+    {"from": 3, "to": 5, "fuel": 9, "time": 5, "toll": 2, "discount": -1},
+    {"from": 4, "to": 5, "fuel": 2, "time": 1, "toll": 4, "windows": [{"start": 0, "end": 12}, {"start": 20, "end": 30}], "discount": -1}
+  ],
+  "stations": [
+    {"node": 2, "fee": 2, "duration": 2, "capacity": 1, "occupancy": [0, 0, 0, 0, 1]}
+  ]
+}
