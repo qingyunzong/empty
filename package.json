@@ -1,0 +1,12 @@
+{
+  "name": "authz-session-snapshot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "鉴权会话库：会话快照绑定策略版本，长事务读旧权限，提交按最新版本重核全部写动作，失败全不提交",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node --test-reporter=spec \"$f\" || exit 1; done",
+    "simulate": "tsc -p tsconfig.json && node dist/src/simulation.js"
+  }
+}
