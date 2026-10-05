@@ -1,0 +1,13 @@
+{
+  "tables": [
+    {"name": "A", "card": 100},
+    {"name": "B", "card": 200},
+    {"name": "C", "card": 50},
+    {"name": "D", "card": 400}
+  ],
+  "edges": [
+    {"a": "A", "b": "B", "card": 1000},
+    {"a": "B", "b": "C", "card": 500},
+    {"a": "C", "b": "D", "card": 800}
+  ]
+}
