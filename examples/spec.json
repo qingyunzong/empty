@@ -1,0 +1,13 @@
+{
+  "dimensions": [
+    {"name": "os", "values": ["linux", "mac", "win"]},
+    {"name": "browser", "values": ["chrome", "firefox", "safari"]},
+    {"name": "db", "values": ["pg", "mysql"]}
+  ],
+  "forbidden": [
+    {"os": "win", "browser": "safari"}
+  ],
+  "requires": [
+    {"if": {"browser": "safari"}, "then": {"os": "mac"}}
+  ]
+}
