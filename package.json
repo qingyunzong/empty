@@ -1,0 +1,12 @@
+{
+  "name": "thermal-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-machine task scheduling with heat constraints: minimum makespan via Dijkstra, cross-checked by exhaustive per-tick BFS.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
