@@ -1,0 +1,15 @@
+{
+  "dimensions": [
+    {"name": "os", "values": ["linux", "win", "mac"]},
+    {"name": "browser", "values": ["chrome", "firefox", "safari"]},
+    {"name": "db", "values": ["mysql", "pg"]},
+    {"name": "cache", "values": ["on", "off"]}
+  ],
+  "forbidden": [
+    {"os": "win", "browser": "safari"},
+    {"os": "mac", "browser": "chrome"}
+  ],
+  "preconditions": [
+    {"when": {"db": "mysql"}, "require": {"os": "linux"}}
+  ]
+}
