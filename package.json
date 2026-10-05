@@ -1,0 +1,11 @@
+{
+  "name": "persistent-mode-array",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Versioned integer array with range-mode queries (frequency evidence), verified against a sorted-count model.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
