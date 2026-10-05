@@ -1,0 +1,12 @@
+{
+  "name": "bigint-budget-eval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Budget-limited arbitrary-precision integer expression evaluator (BigInt, zero runtime dependencies)",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
