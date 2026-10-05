@@ -1,0 +1,9 @@
+{
+  "initialBalances": { "A": "0", "B": "100", "C": "10" },
+  "bills": [
+    { "id": "b1", "payer": "B", "payee": "A", "amount": "60", "penalty": "3" },
+    { "id": "b2", "payer": "A", "payee": "C", "amount": "50", "penalty": "10" },
+    { "id": "b3", "payer": "C", "payee": "B", "amount": "40", "penalty": "1" },
+    { "id": "b4", "payer": "B", "payee": "C", "amount": "90", "penalty": "8" }
+  ]
+}
