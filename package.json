@@ -1,0 +1,15 @@
+{
+  "name": "secret-scan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chunk-safe secret scanner over bounded byte patterns with a context whitelist",
+  "exports": {
+    ".": "./dist/src/scanner.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
