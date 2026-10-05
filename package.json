@@ -1,0 +1,11 @@
+{
+  "name": "rect-coverage-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Persistent integer axis-aligned rectangle store with k-coverage canonical decomposition queries",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
