@@ -1,0 +1,8 @@
+{
+  "name": "shift-archive",
+  "version": "0.1.0",
+  "description": "Cross-shift device event archive with tiered index",
+  "type": "module",
+  "bin": { "shift-archive": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
