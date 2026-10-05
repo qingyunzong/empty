@@ -1,0 +1,14 @@
+{
+  "maxLength": 30,
+  "maxWeight": 120,
+  "trainBase": 10,
+  "typeCost": {"box": 3, "tank": 5, "flat": 2},
+  "cars": [
+    {"id": "C1", "type": "box",  "length": 12, "weight": 40},
+    {"id": "C2", "type": "box",  "length": 12, "weight": 40},
+    {"id": "C3", "type": "tank", "length": 10, "weight": 50, "hazard": 3},
+    {"id": "C4", "type": "tank", "length": 10, "weight": 50, "hazard": 3},
+    {"id": "C5", "type": "flat", "length": 14, "weight": 30},
+    {"id": "C6", "type": "box",  "length": 12, "weight": 45}
+  ]
+}
