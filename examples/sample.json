@@ -1,0 +1,20 @@
+{
+  "numNodes": 5,
+  "start": 0,
+  "goal": 4,
+  "maxFuel": 20,
+  "maxTime": 60,
+  "edges": [
+    {"from": 0, "to": 1, "fuel": 6, "time": 4, "toll": 12, "windows": [{"start": 0, "end": 30}], "coupon": 0, "discount": 8},
+    {"from": 0, "to": 2, "fuel": 3, "time": 6, "toll": 4, "windows": [], "coupon": -1, "discount": 0},
+    {"from": 1, "to": 3, "fuel": 5, "time": 5, "toll": 9, "windows": [{"start": 8, "end": 40}], "coupon": 1, "discount": 6},
+    {"from": 2, "to": 3, "fuel": 7, "time": 3, "toll": 10, "windows": [], "coupon": 1, "discount": 6},
+    {"from": 3, "to": 4, "fuel": 4, "time": 4, "toll": 7, "windows": [{"start": 0, "end": 60}], "coupon": 2, "discount": 5},
+    {"from": 3, "to": 1, "fuel": 5, "time": 5, "toll": 9, "windows": [], "coupon": 1, "discount": 6},
+    {"from": 2, "to": 4, "fuel": 12, "time": 8, "toll": 15, "windows": [{"start": 20, "end": 26}], "coupon": -1, "discount": 0}
+  ],
+  "stations": [
+    {"node": 2, "price": 2, "refuelTime": 1, "capacity": 2},
+    {"node": 3, "price": 3, "refuelTime": 1, "capacity": 1}
+  ]
+}

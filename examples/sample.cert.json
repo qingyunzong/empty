@@ -1,0 +1,142 @@
+{
+  "cost": 16,
+  "lowerBound": 16,
+  "steps": [
+    {
+      "index": 0,
+      "action": "traverse",
+      "edge": 1,
+      "station": -1,
+      "from": {
+        "node": 0,
+        "fuel": 20,
+        "time": 0,
+        "coupons": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "to": {
+        "node": 2,
+        "fuel": 17,
+        "time": 6,
+        "coupons": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "cost": 4,
+      "cumulative": 4
+    },
+    {
+      "index": 1,
+      "action": "traverse",
+      "edge": 3,
+      "station": -1,
+      "useCoupon": true,
+      "from": {
+        "node": 2,
+        "fuel": 17,
+        "time": 6,
+        "coupons": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "to": {
+        "node": 3,
+        "fuel": 10,
+        "time": 9,
+        "coupons": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "cost": 5,
+      "cumulative": 9
+    },
+    {
+      "index": 2,
+      "action": "traverse",
+      "edge": 4,
+      "station": -1,
+      "useCoupon": true,
+      "from": {
+        "node": 3,
+        "fuel": 10,
+        "time": 9,
+        "coupons": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "to": {
+        "node": 4,
+        "fuel": 6,
+        "time": 13,
+        "coupons": [
+          0,
+          3,
+          4,
+          5
+        ],
+        "slots": [
+          2,
+          1,
+          0,
+          0
+        ]
+      },
+      "cost": 7,
+      "cumulative": 16
+    }
+  ]
+}
