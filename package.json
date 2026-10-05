@@ -1,0 +1,12 @@
+{
+  "name": "offline-or-set",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first observed-remove set (OR-Set CRDT) with unique add tags, union merge, and version-vector-gated compaction. Node.js built-ins only.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
