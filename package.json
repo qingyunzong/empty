@@ -1,0 +1,11 @@
+{
+  "name": "incremental-compile-cache",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental compile cache: split impl/interface summaries, SCC batch publishing, baseline verification",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/compiler.test.js dist/test/random.test.js"
+  }
+}
