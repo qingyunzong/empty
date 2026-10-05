@@ -1,0 +1,3 @@
+{"id":"a1","device":"A","ts":1,"op":"set_count","plot":"P1","species":"S1","tier":2}
+{"id":"a2","device":"A","ts":2,"op":"sync","with":"B","mark":"m1"}
+{"id":"a3","device":"A","ts":3,"op":"set_count","plot":"P2","species":"G1","tier":1}

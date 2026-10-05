@@ -1,0 +1,10 @@
+{
+  "name": "eco-merge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Merge offline field-ecology quadrant histories from multiple tablets; decide convergence to a single species abundance matrix.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

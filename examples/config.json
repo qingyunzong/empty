@@ -1,0 +1,12 @@
+{
+  "species": [
+    {"id": "S1", "morph": "forb"},
+    {"id": "S2", "morph": "forb"},
+    {"id": "G1", "morph": "graminoid"}
+  ],
+  "plots": [
+    {"id": "P1", "area": 10},
+    {"id": "P2", "area": 6}
+  ],
+  "maxTier": 5
+}

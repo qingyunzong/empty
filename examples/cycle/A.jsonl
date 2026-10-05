@@ -1,0 +1,5 @@
+{"id":"a1","device":"A","ts":1,"op":"set_count","plot":"P1","species":"S1","tier":1}
+{"id":"sa1","device":"A","ts":2,"op":"sync","with":"B","mark":"m1"}
+{"id":"a2","device":"A","ts":3,"op":"set_count","plot":"P1","species":"S2","tier":1}
+{"id":"sa2","device":"A","ts":4,"op":"sync","with":"B","mark":"m2"}
+{"id":"a3","device":"A","ts":5,"op":"set_count","plot":"P2","species":"S1","tier":1}
