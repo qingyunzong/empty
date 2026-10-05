@@ -1,0 +1,18 @@
+{
+  "attributes": [
+    { "name": "a", "domain": [0, 1, 2] },
+    { "name": "b", "domain": [0, 1, 2] },
+    { "name": "c", "domain": [0, 1, 2] },
+    { "name": "d", "domain": [0, 1, 2] }
+  ],
+  "budget": 10,
+  "policies": {
+    "left": {
+      "default": "deny",
+      "rules": [
+        { "when": { "a": 2, "b": 2, "c": 2, "d": 2 }, "effect": "permit" }
+      ]
+    },
+    "right": { "default": "deny", "rules": [] }
+  }
+}

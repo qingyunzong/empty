@@ -1,0 +1,12 @@
+{
+  "name": "perm-diff",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Find the minimal attribute assignment on which two permission policies resolve differently.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\"",
+    "cli": "node dist/src/cli.js"
+  }
+}

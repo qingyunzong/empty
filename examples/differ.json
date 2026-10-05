@@ -1,0 +1,20 @@
+{
+  "attributes": [
+    { "name": "role", "domain": ["admin", "user"] },
+    { "name": "mfa", "domain": [false, true] }
+  ],
+  "policies": {
+    "baseline": {
+      "default": "deny",
+      "rules": [
+        { "when": { "role": "admin" }, "effect": "permit" }
+      ]
+    },
+    "hardened": {
+      "default": "deny",
+      "rules": [
+        { "when": { "role": "admin", "mfa": true }, "effect": "permit" }
+      ]
+    }
+  }
+}
