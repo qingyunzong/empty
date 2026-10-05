@@ -1,0 +1,10 @@
+{
+  "name": "clearing-daycut",
+  "version": "1.0.0",
+  "description": "Clearing house day-cut settlement engine and CLI (Node.js stdlib only)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

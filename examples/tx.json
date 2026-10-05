@@ -1,0 +1,8 @@
+[
+  { "id": "t1", "account": "acct-a", "calendar": "NY", "amount": 10000, "utc": "2024-06-10T15:30:00Z" },
+  { "id": "t4", "account": "acct-c", "calendar": "SH", "amount": 8800, "utc": "2024-06-10T15:30:00Z" },
+  { "id": "t3", "account": "acct-b", "calendar": "LN", "amount": 4200, "utc": "2024-06-10T16:30:00Z" },
+  { "id": "t2", "account": "acct-a", "calendar": "NY", "amount": -2500, "utc": "2024-06-10T21:00:00Z" },
+  { "id": "t5", "account": "acct-a", "calendar": "NY", "amount": 999, "utc": "2024-06-11T13:00:00Z", "hold": true, "holdReason": "AWAITING_COMPLIANCE_REVIEW" },
+  { "id": "r1", "type": "reversal", "reverses": "t1", "utc": "2024-06-12T14:00:00Z" }
+]
