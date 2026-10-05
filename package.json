@@ -1,0 +1,12 @@
+{
+  "name": "thermostat-sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exact rational-arithmetic thermostat simulation over piecewise-linear temperature signals",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
