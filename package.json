@@ -1,0 +1,12 @@
+{
+  "name": "sandboxed-file-access",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Simulated file-access library: stepwise path/symlink resolution with sandbox boundary checks, loop and expansion-limit detection, and generation-bound check/open.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
