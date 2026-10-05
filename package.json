@@ -1,0 +1,11 @@
+{
+  "name": "snapshot-diff",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Snapshot testing helper: path-rule based volatile-field ignoring, structural diff with minimal paths",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/tests/*.test.js\""
+  }
+}
