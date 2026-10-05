@@ -1,0 +1,11 @@
+{
+  "name": "secret-scanner",
+  "version": "1.0.0",
+  "description": "Chunk-safe secret scanner over finite byte patterns with context whitelist",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"out/test/*.test.js\""
+  },
+  "license": "MIT"
+}
