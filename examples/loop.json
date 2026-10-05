@@ -1,0 +1,10 @@
+{
+  "entry": "n1",
+  "nodes": [
+    {"id": "n1", "kind": "source", "var": "x", "next": "n2"},
+    {"id": "n2", "kind": "branch", "uses": ["x"], "then": "n3", "else": "n5"},
+    {"id": "n3", "kind": "assign", "var": "y", "uses": ["x"], "next": "n4"},
+    {"id": "n4", "kind": "assign", "var": "x", "uses": ["y"], "next": "n2"},
+    {"id": "n5", "kind": "sink", "args": ["x"], "context": "sql"}
+  ]
+}

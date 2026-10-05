@@ -1,0 +1,9 @@
+{
+  "entry": "n1",
+  "nodes": [
+    {"id": "n1", "kind": "source", "var": "u", "next": "n2"},
+    {"id": "n2", "kind": "assign", "var": "q", "uses": ["u"], "next": "n3"},
+    {"id": "n3", "kind": "sanitize", "var": "s", "arg": "q", "contexts": ["html"], "next": "n4"},
+    {"id": "n4", "kind": "sink", "args": ["s"], "context": "sql"}
+  ]
+}
