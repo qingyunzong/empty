@@ -1,0 +1,22 @@
+go test ./...  (2026-10-05 12:02:01 CST, go version go1.27.1 linux/amd64)
+
+=== RUN   TestDiamondDominatorSets
+--- PASS: TestDiamondDominatorSets (0.00s)
+=== RUN   TestDiamondNCD
+--- PASS: TestDiamondNCD (0.00s)
+=== RUN   TestDiamondDominanceFrontier
+--- PASS: TestDiamondDominanceFrontier (0.00s)
+=== RUN   TestLoop
+--- PASS: TestLoop (0.00s)
+=== RUN   TestAddEdgeKeepsOldVersionReadable
+--- PASS: TestAddEdgeKeepsOldVersionReadable (0.00s)
+=== RUN   TestRemoveEdgeUnreachable
+--- PASS: TestRemoveEdgeUnreachable (0.00s)
+=== RUN   TestIsolatedNodeThenConnect
+--- PASS: TestIsolatedNodeThenConnect (0.00s)
+=== RUN   TestEvidenceFormat
+--- PASS: TestEvidenceFormat (0.00s)
+=== RUN   TestRandomSmallGraphs
+--- PASS: TestRandomSmallGraphs (0.03s)
+PASS
+ok  	cfgdom	0.037s
