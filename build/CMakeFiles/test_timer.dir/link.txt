@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_timer.dir/link.d CMakeFiles/test_timer.dir/tests/test_timer.cpp.o -o test_timer

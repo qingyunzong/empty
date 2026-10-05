@@ -1,0 +1,6 @@
+test_completion 3 0.00176048
+test_destroy_suspended 3 0.00148051
+test_race 3 0.00131711
+test_shutdown 3 0.00125022
+test_timer 1 0.00397883
+---

@@ -1,0 +1,2 @@
+# Empty dependencies file for test_destroy_suspended.
+# This may be replaced when dependencies are built.
