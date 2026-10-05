@@ -1,0 +1,10 @@
+{
+  "name": "expropt",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Integer expression optimizer preserving error and side-effect ordering, with per-rewrite source mapping",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
