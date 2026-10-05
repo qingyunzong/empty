@@ -1,0 +1,11 @@
+{
+  "name": "rational-tempo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Orchestration library: rational beat times, tempo-map to rational milliseconds, undoable tempo changes, bidirectional mapping certificates",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
