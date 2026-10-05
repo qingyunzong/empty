@@ -1,0 +1,32 @@
+
+
+补充核验记录（对应最终产物，区别于原模型会话）：
+下列命令在对应产物提交的目录中执行。补充核验不属于 A/B 原始交互，未改写原轨迹。
+
+A 产物提交：25d7afa05f970c685d77d6fe747c9b6c8aa65604
+
+A 测试命令：/home/delin/.local/bin/python3.11 -m unittest discover -s tests -v
+退出码：0
+完整输出以 JSON 字符串记录，解码后可还原完整原始输出："test_exact_end_plus_late_boundary (test_latefix.BoundaryTest.test_exact_end_plus_late_boundary) ... ok\ntest_one_past_boundary_dropped (test_latefix.BoundaryTest.test_one_past_boundary_dropped) ... ok\ntest_cli_boolean_val_exits_2 (test_latefix.CliTest.test_cli_boolean_val_exits_2) ... ok\ntest_cli_clock_regression_does_not_exit (test_latefix.CliTest.test_cli_clock_regression_does_not_exit) ... ok\ntest_cli_happy_path (test_latefix.CliTest.test_cli_happy_path) ... ok\ntest_cli_non_numeric_val_exits_2 (test_latefix.CliTest.test_cli_non_numeric_val_exits_2) ... ok\ntest_empty_input_no_output (test_latefix.EmptyWindowTest.test_empty_input_no_output) ... ok\ntest_empty_windows_never_emit (test_latefix.EmptyWindowTest.test_empty_windows_never_emit) ... ok\ntest_random_small_inputs_match_reference (test_latefix.FuzzAgainstReferenceTest.test_random_small_inputs_match_reference) ... ok\ntest_streaming_output_is_well_formed (test_latefix.FuzzAgainstReferenceTest.test_streaming_output_is_well_formed) ... ok\ntest_duplicate_before_emission_counts_once (test_latefix.IdempotencyTest.test_duplicate_before_emission_counts_once) ... ok\ntest_duplicate_events_are_idempotent (test_latefix.IdempotencyTest.test_duplicate_events_are_idempotent) ... ok\ntest_retract_byte_equal_to_last_add (test_latefix.VersionChainTest.test_retract_byte_equal_to_last_add) ... ok\ntest_two_corrections_version_chain (test_latefix.VersionChainTest.test_two_corrections_version_chain) ... ok\ntest_clock_regression_ignored_not_fatal (test_latefix.WatermarkTest.test_clock_regression_ignored_not_fatal) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.986s\n\nOK\n"
+
+A 检查：零值迟到事件的版本链
+复现命令：/home/delin/.local/bin/python3.11 '{support}/probe.py' '{workspace}'
+将下列探针按文件名保存到单独目录，用该目录替换 {support}，用上述提交检出的源码目录替换 {workspace}；在源码目录执行。探针是补充核验输入。
+
+A 探针完整输入文件 probe.py以 JSON 字符串记录，解码后可还原完整输入文件："import sys\nsys.path.insert(0,sys.argv[1])\nfrom latefix.core import Event,run_stream\nr=run_stream([Event('k',1,2),Event('trigger',10,1),Event('k',2,0)],10,5)\nk=[x.to_dict() for x in r if x.key=='k']\nprint('ops='+','.join(x['op'] for x in k)+' versions='+','.join(str(x['version']) for x in k),flush=True)\nassert [x['op'] for x in k]==['ADD','RETRACT','ADD'],'unique zero-value correction must emit a version'\nassert [x['version'] for x in k]==[1,1,2]\nassert k[0]['val']==k[1]['val']==k[2]['val']==2\n"
+
+A 上述检查的完整执行输出以 JSON 字符串记录，解码后可还原完整原始输出："$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/864db78f57174a23b8c2272e75b7c3fd/judge/pair/attempt-010/demonstration-A/demonstration/probe.py /home/delin/.local/share/gsb-workbench/artifacts/864db78f57174a23b8c2272e75b7c3fd/record/A/attempt-001/workspace\nops=ADD versions=1\nTraceback (most recent call last):\n  File \"/home/delin/.local/share/gsb-workbench/artifacts/864db78f57174a23b8c2272e75b7c3fd/judge/pair/attempt-010/demonstration-A/demonstration/probe.py\", line 7, in <module>\n    assert [x['op'] for x in k]==['ADD','RETRACT','ADD'],'unique zero-value correction must emit a version'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: unique zero-value correction must emit a version\n"
+
+B 产物提交：1bf0a00979863f3a1c2a25f72d61fc940e6f4017
+
+B 测试命令：/home/delin/.local/bin/python3.11 -m unittest discover -s tests -v
+退出码：0
+完整输出以 JSON 字符串记录，解码后可还原完整原始输出："test_cli_bad_json_exit2 (test_latefix.TestCli.test_cli_bad_json_exit2) ... ok\ntest_cli_happy_path (test_latefix.TestCli.test_cli_happy_path) ... ok\ntest_cli_missing_file_exit2 (test_latefix.TestCli.test_cli_missing_file_exit2) ... ok\ntest_cli_non_numeric_val_exit2 (test_latefix.TestCli.test_cli_non_numeric_val_exit2) ... ok\ntest_duplicate_before_and_after_finalize (test_latefix.TestIdempotency.test_duplicate_before_and_after_finalize) ... ok\ntest_same_ts_different_val_not_duplicate (test_latefix.TestIdempotency.test_same_ts_different_val_not_duplicate) ... ok\ntest_exact_boundary_corrects (test_latefix.TestLatenessBoundary.test_exact_boundary_corrects) ... ok\ntest_first_event_beyond_horizon_dropped (test_latefix.TestLatenessBoundary.test_first_event_beyond_horizon_dropped) ... ok\ntest_one_past_boundary_dropped (test_latefix.TestLatenessBoundary.test_one_past_boundary_dropped) ... ok\ntest_random_small_inputs (test_latefix.TestReferenceFuzz.test_random_small_inputs) ... ok\ntest_clock_regression_ignored_not_error (test_latefix.TestValidation.test_clock_regression_ignored_not_error) ... ok\ntest_missing_fields_rejected (test_latefix.TestValidation.test_missing_fields_rejected) ... ok\ntest_non_numeric_val_rejected (test_latefix.TestValidation.test_non_numeric_val_rejected) ... ok\ntest_two_corrections (test_latefix.TestVersionChain.test_two_corrections) ... ok\ntest_empty_windows_never_emit (test_latefix.TestWatermarkAndEmpty.test_empty_windows_never_emit) ... ok\ntest_multiple_keys_independent (test_latefix.TestWatermarkAndEmpty.test_multiple_keys_independent) ... ok\ntest_wm_never_regresses (test_latefix.TestWatermarkAndEmpty.test_wm_never_regresses) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.315s\n\nOK\n"
+
+B 检查：零值迟到事件的版本链
+复现命令：/home/delin/.local/bin/python3.11 '{support}/probe.py' '{workspace}'
+将下列探针按文件名保存到单独目录，用该目录替换 {support}，用上述提交检出的源码目录替换 {workspace}；在源码目录执行。探针是补充核验输入。
+
+B 探针完整输入文件 probe.py以 JSON 字符串记录，解码后可还原完整输入文件："import sys\nsys.path.insert(0,sys.argv[1])\nfrom latefix.core import run\nr=run([{'key':'k','ts':1,'val':2},{'key':'trigger','ts':10,'val':1},{'key':'k','ts':2,'val':0}],10,5)\nk=[x for x in r if x['key']=='k']\nprint('ops='+','.join(x['op'] for x in k)+' versions='+','.join(str(x['version']) for x in k),flush=True)\nassert [x['op'] for x in k]==['ADD','RETRACT','ADD'],'unique zero-value correction must emit a version'\nassert [x['version'] for x in k]==[1,1,2]\nassert k[0]['val']==k[1]['val']==k[2]['val']==2\n"
+
+B 上述检查的完整执行输出以 JSON 字符串记录，解码后可还原完整原始输出："$ /home/delin/.local/bin/python3.11 /home/delin/.local/share/gsb-workbench/artifacts/864db78f57174a23b8c2272e75b7c3fd/judge/pair/attempt-010/demonstration-B/demonstration/probe.py /home/delin/.local/share/gsb-workbench/artifacts/864db78f57174a23b8c2272e75b7c3fd/record/B/attempt-001/workspace\nops=ADD,RETRACT,ADD versions=1,1,2\n"
