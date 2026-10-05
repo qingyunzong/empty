@@ -1,0 +1,12 @@
+{
+  "name": "file-undo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Editor undo library with before/after snapshots, atomic batch undo, move chains and overwrite backups",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
