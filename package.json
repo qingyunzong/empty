@@ -1,0 +1,12 @@
+{
+  "name": "budget-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hierarchical token budget ledger: parent allocates quota to children, consumption rolls up, one-shot refunds by original id, atomic batch transfers.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
