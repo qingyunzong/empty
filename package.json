@@ -1,0 +1,10 @@
+{
+  "name": "relation-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Versioned directed labeled multigraph store with diffs, atomic batches and property tests",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/*.test.js"
+  }
+}
