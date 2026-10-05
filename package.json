@@ -1,0 +1,10 @@
+{
+  "name": "biobank-freezer-alloc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Biobank -80C freezer rack allocation with quotas, fairness, preemption and undo",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
