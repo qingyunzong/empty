@@ -1,0 +1,16 @@
+{
+  "name": "symbol-impact-review",
+  "version": "0.1.0",
+  "description": "Map symbol changes to public entry points via a reference graph and report the shortest impact chain per entry.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  },
+  "devDependencies": {}
+}
