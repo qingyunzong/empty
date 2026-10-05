@@ -1,0 +1,11 @@
+{
+  "name": "signal-weighted-window",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "信号库：最近 k 个有效样本的加权平均（缺测占位不计权重，权重由时间相位与缺测前后距离决定）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
