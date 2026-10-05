@@ -1,0 +1,12 @@
+{
+  "people": [
+    { "id": "alice", "skills": ["backend", "devops"], "cost": 9 },
+    { "id": "bob", "skills": ["backend"], "cost": 5 },
+    { "id": "carol", "skills": ["frontend", "design"], "cost": 6 },
+    { "id": "dave", "skills": ["frontend"], "cost": 4 },
+    { "id": "erin", "skills": ["design", "pm"], "cost": 7 },
+    { "id": "frank", "skills": ["pm", "devops"], "cost": 3 }
+  ],
+  "forbiddenPairs": [["alice", "bob"], ["carol", "dave"]],
+  "required": { "backend": 1, "frontend": 1, "design": 1, "pm": 1 }
+}

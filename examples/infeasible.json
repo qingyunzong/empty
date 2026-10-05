@@ -1,0 +1,8 @@
+{
+  "people": [
+    { "id": "a", "skills": ["go"], "cost": 2 },
+    { "id": "b", "skills": ["go"], "cost": 3 }
+  ],
+  "forbiddenPairs": [["a", "b"]],
+  "required": { "go": 2 }
+}
