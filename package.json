@@ -1,0 +1,11 @@
+{
+  "name": "premul-layer-compositor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premultiplied RGBA layer compositing with integer denominators, per-layer round-half-even blending, dirty-rect versioned output and exact fractional verification.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
