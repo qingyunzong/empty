@@ -1,0 +1,12 @@
+{
+  "name": "minicore-sat",
+  "version": "1.0.0",
+  "description": "Exhaustive named-boolean-constraint solver: minimum unsat core, lex-min assignment, assumption cache, proof tree, pausable frontier.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "cli": "node dist/src/cli.js"
+  }
+}

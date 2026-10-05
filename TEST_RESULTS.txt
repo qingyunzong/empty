@@ -1,0 +1,89 @@
+Recorded: 2026-10-05 11:12:06 UTC
+Command: npm test
+Node: v22.22.1
+tsc: Version 7.0.2
+
+===== npm test (file-level TAP) =====
+
+> minicore-sat@1.0.0 test
+> tsc -p tsconfig.json && node --test "dist/test/*.test.js"
+
+TAP version 13
+# Subtest: dist/test/cli.test.js
+ok 1 - dist/test/cli.test.js
+  ---
+  duration_ms: 5022.911921
+  type: 'test'
+  ...
+# Subtest: dist/test/expr.test.js
+ok 2 - dist/test/expr.test.js
+  ---
+  duration_ms: 416.466922
+  type: 'test'
+  ...
+# Subtest: dist/test/solver.test.js
+ok 3 - dist/test/solver.test.js
+  ---
+  duration_ms: 406.28711
+  type: 'test'
+  ...
+# Subtest: dist/test/verify.test.js
+ok 4 - dist/test/verify.test.js
+  ---
+  duration_ms: 401.537636
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5050.365108
+
+===== per-file subtest detail (node dist/test/<file>) =====
+--- dist/test/cli.test.js ---
+ok 1 - CLI end-to-end: SAT solve then independent verify
+ok 2 - CLI end-to-end: UNSAT solve prints minimal core and proof tree
+ok 3 - CLI end-to-end: assumptions add/remove drive the conflict cache reuse rule
+ok 4 - CLI end-to-end: pause persists the frontier and resume finishes it
+ok 5 - CLI end-to-end: input beyond the explicit exhaustive limit is rejected
+ok 6 - CLI end-to-end: limits command prints the exhaustive bounds
+ok 7 - CLI end-to-end: constraints merge from file and CLI, CLI wins on name clash
+--- dist/test/expr.test.js ---
+ok 1 - parser respects precedence: ! & | ^ -> <->
+ok 2 - parser handles keywords, constants and parentheses
+ok 3 - parser rejects malformed input
+ok 4 - varsOf returns sorted unique variables
+ok 5 - varMask and fullMask match naive bit patterns
+ok 6 - mask evaluator matches naive evaluator on 300 random expressions
+ok 7 - combinations enumerate in lexicographic order and cover C(n,k)
+ok 8 - a combination can be paused and resumed mid-enumeration
+--- dist/test/solver.test.js ---
+ok 1 - SAT: returns the lexicographically smallest assignment (false < true, variables sorted)
+ok 2 - SAT: tautological set assigns everything false
+ok 3 - UNSAT: single self-contradictory constraint is a size-1 core
+ok 4 - UNSAT: minimum cardinality wins over lexicographic order
+ok 5 - UNSAT: ties on cardinality are broken by the lexicographically smaller ID list
+ok 6 - UNSAT: proof tree is a complete, genuinely contradictory case split
+ok 7 - limits: more than 18 named constraints is rejected explicitly
+ok 8 - limits: more than 18 distinct variables is rejected explicitly
+ok 9 - limits: exactly 18 constraints and 18 variables are accepted
+ok 10 - pause/resume: a chopped-up run reaches the same core as an uninterrupted run
+ok 11 - pause/resume: SAT result is identical when paused and resumed
+ok 12 - conflict cache: valid entry is reused and reports a cache hit
+ok 13 - conflict cache: entry with a retracted source is NOT reusable
+ok 14 - conflict cache: corrupt entry (satisfiable sources) is never trusted
+ok 15 - conflict cache: entry still fully present stays reusable across runs
+--- dist/test/verify.test.js ---
+ok 1 - verify: a genuine UNSAT result passes every independent check
+ok 2 - verify: a genuine SAT result passes every independent check
+ok 3 - verify: a non-minimal core is caught by the smaller-subset audit
+ok 4 - verify: a satisfiable 'core' is caught by the truth-table check
+ok 5 - verify: a tampered assignment is caught
+ok 6 - verify: a non-minimal satisfying assignment is caught
+ok 7 - verify: cache audit flags corrupt entries and tolerates non-reusable ones
+
+Total subtests: 37 passed, 0 failed
