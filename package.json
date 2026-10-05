@@ -1,0 +1,13 @@
+{
+  "name": "dual-worker-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two-worker task scheduling: optimal makespan via discrete state-space search (Node built-ins only)",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/src/main.js",
+    "test": "tsc && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
