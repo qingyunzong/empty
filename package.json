@@ -1,0 +1,15 @@
+{
+  "name": "oee-merger",
+  "version": "1.0.0",
+  "description": "CRDT-based merge of offline filling-line terminals for OEE computation",
+  "type": "module",
+  "bin": {
+    "oee-merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
