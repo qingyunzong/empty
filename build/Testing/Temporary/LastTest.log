@@ -1,0 +1,115 @@
+Start testing: Oct 05 17:23 CST
+----------------------------------------------------------
+1/6 Testing: rounding
+1/6 Test: rounding
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "rounding"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"rounding" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=rounding checks=19
+rounding: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rounding" end time: Oct 05 17:23 CST
+"rounding" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: saturation
+2/6 Test: saturation
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "saturation"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"saturation" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=saturation clipped_pos=9 clipped_neg=9
+saturation: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"saturation" end time: Oct 05 17:23 CST
+"saturation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: identity_delay
+3/6 Test: identity_delay
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "identity_delay"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"identity_delay" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=delay group_delay=3 recovered=500
+identity_delay: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"identity_delay" end time: Oct 05 17:23 CST
+"identity_delay" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: chunked_vs_oneshot
+4/6 Test: chunked_vs_oneshot
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "chunked_vs_oneshot"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"chunked_vs_oneshot" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=chunked cfg=0 ratio=3/2 taps=5 in=1000 tail=4 out=1506 trials=8 match=yes
+STATS case=chunked cfg=1 ratio=2/3 taps=3 in=999 tail=3 out=668 trials=8 match=yes
+STATS case=chunked cfg=2 ratio=1/4 taps=4 in=777 tail=0 out=195 trials=8 match=yes
+STATS case=chunked cfg=3 ratio=4/1 taps=7 in=513 tail=7 out=2080 trials=8 match=yes
+STATS case=chunked cfg=4 ratio=147/160 taps=10 in=640 tail=11 out=599 trials=8 match=yes
+STATS case=chunked cfg=5 ratio=1/1 taps=3 in=256 tail=2 out=258 trials=8 match=yes
+STATS case=chunked cfg=6 ratio=5/7 taps=5 in=350 tail=9 out=257 trials=8 match=yes
+chunked_vs_oneshot: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"chunked_vs_oneshot" end time: Oct 05 17:23 CST
+"chunked_vs_oneshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: zero_tail
+5/6 Test: zero_tail
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "zero_tail"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"zero_tail" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=zero_tail z=0 out=180 expect=180
+STATS case=zero_tail z=1 out=182 expect=182
+STATS case=zero_tail z=2 out=183 expect=183
+STATS case=zero_tail z=5 out=188 expect=188
+STATS case=zero_tail z=13 out=200 expect=200
+zero_tail: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"zero_tail" end time: Oct 05 17:23 CST
+"zero_tail" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: dc
+6/6 Test: dc
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build/resampler_tests" "dc"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/A/attempt-003/workspace/build
+"dc" start time: Oct 05 17:23 CST
+Output:
+----------------------------------------------------------
+STATS case=dc phase_sum=3000 steady=390/406
+dc: PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"dc" end time: Oct 05 17:23 CST
+"dc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 17:23 CST

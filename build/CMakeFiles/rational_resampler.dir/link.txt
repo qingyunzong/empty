@@ -1,0 +1,2 @@
+/usr/bin/ar qc librational_resampler.a CMakeFiles/rational_resampler.dir/src/rational_resampler.cpp.o
+/usr/bin/ranlib librational_resampler.a
