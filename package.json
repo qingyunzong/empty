@@ -1,0 +1,13 @@
+{
+  "name": "map-limit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Concurrency-limited async mapping with input-ordered results and first-failure semantics",
+  "exports": "./dist/src/map-limit.js",
+  "types": "./dist/src/map-limit.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  }
+}
