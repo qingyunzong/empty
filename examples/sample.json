@@ -1,0 +1,14 @@
+{
+  "numRegisters": 4,
+  "intervals": [
+    {"id": "sum",  "start": 0, "end": 8, "loadCost": 3, "storeCost": 4},
+    {"id": "a",    "start": 2, "end": 4, "loadCost": 9, "storeCost": 9},
+    {"id": "b",    "start": 2, "end": 4, "loadCost": 9, "storeCost": 9},
+    {"id": "c",    "start": 2, "end": 4, "loadCost": 9, "storeCost": 9},
+    {"id": "d",    "start": 2, "end": 4, "loadCost": 9, "storeCost": 9},
+    {"id": "tmp",  "start": 5, "end": 6, "loadCost": 1, "storeCost": 1}
+  ],
+  "calls": [
+    {"point": 6, "reserved": [0, 1]}
+  ]
+}
