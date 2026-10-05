@@ -1,0 +1,11 @@
+{
+  "name": "mail-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Email template library with variables, conditionals, loops, provenance tracking and atomic length limits",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
