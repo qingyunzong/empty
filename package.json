@@ -1,0 +1,12 @@
+{
+  "name": "table-query-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental table query engine: filter + sum-by-key + top-k, net-diff publications, pinned-version subscribers, per-batch full-scan verification",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
