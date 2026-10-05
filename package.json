@@ -1,0 +1,13 @@
+{
+  "name": "shiftlog-equiv",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Offline shift-log merge and equivalence checker (Node.js 22 standard library only)",
+  "main": "src/store.js",
+  "bin": {
+    "shiftlog": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
