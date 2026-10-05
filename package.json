@@ -1,0 +1,11 @@
+{
+  "name": "xfer-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Transfer simulation library: permission-versioned batches, resume rechecks, revocation safety, publish history, event-ordered decisions with evidence and model reconciliation.",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js"
+  }
+}
