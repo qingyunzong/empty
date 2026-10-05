@@ -1,0 +1,11 @@
+{
+  "name": "tenant-generation-cache",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cache keyed by (tenant, generation, key) with atomic namespace switching on permission changes.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
