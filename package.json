@@ -1,0 +1,10 @@
+{
+  "name": "log-compaction",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Log compaction library driven by replica acknowledgment vectors, with epoch-persisted deregistration and snapshot-first replica join.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
