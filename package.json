@@ -1,0 +1,11 @@
+{
+  "name": "reactive-state",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "响应式状态库：读取事务结束时一次登记依赖，错误保留旧依赖，销毁安全",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
