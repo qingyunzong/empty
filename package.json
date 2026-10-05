@@ -1,0 +1,14 @@
+{
+  "name": "policy-intersect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLI: intersect two URL policies (protocol/domain/wildcard/port, allow/exclude subdomains, redirect budget) with small-domain enumeration cross-check and finite-state redirect-chain equivalence proof",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

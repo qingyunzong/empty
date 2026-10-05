@@ -1,0 +1,4 @@
+{
+  "policyA": { "protocols": ["https"], "wildcardDomains": ["a.com"] },
+  "policyB": { "protocols": ["http"], "wildcardDomains": ["a.com"] }
+}

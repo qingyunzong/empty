@@ -1,0 +1,16 @@
+{
+  "policyA": {
+    "protocols": ["https"],
+    "wildcardDomains": ["*.example.com"],
+    "exactDomains": ["api.example.com"],
+    "allowSubdomains": ["api", "www"],
+    "redirectBudget": 2
+  },
+  "policyB": {
+    "protocols": ["https", "http"],
+    "wildcardDomains": ["example.com"],
+    "ports": [443],
+    "excludeSubdomains": ["www"],
+    "redirectBudget": 3
+  }
+}
