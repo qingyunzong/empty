@@ -1,0 +1,12 @@
+{
+  "name": "det-async-scheduler",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deterministic async test scheduler: await boundaries as schedulable events, seeded scheduling, full event trace, replay verification, segmented snapshots",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
