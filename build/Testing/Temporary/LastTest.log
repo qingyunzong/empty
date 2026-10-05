@@ -1,0 +1,83 @@
+Start testing: Oct 05 21:52 CST
+----------------------------------------------------------
+1/5 Testing: duplicate_edges
+1/5 Test: duplicate_edges
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/mesh_tests" "duplicate_edges"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build
+"duplicate_edges" start time: Oct 05 21:52 CST
+Output:
+----------------------------------------------------------
+PASS: duplicate_edges
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"duplicate_edges" end time: Oct 05 21:52 CST
+"duplicate_edges" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: zero_area
+2/5 Test: zero_area
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/mesh_tests" "zero_area"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build
+"zero_area" start time: Oct 05 21:52 CST
+Output:
+----------------------------------------------------------
+PASS: zero_area
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"zero_area" end time: Oct 05 21:52 CST
+"zero_area" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: normal_aggregation
+3/5 Test: normal_aggregation
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/mesh_tests" "normal_aggregation"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build
+"normal_aggregation" start time: Oct 05 21:52 CST
+Output:
+----------------------------------------------------------
+PASS: normal_aggregation
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"normal_aggregation" end time: Oct 05 21:52 CST
+"normal_aggregation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: incremental_move
+4/5 Test: incremental_move
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/mesh_tests" "incremental_move"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build
+"incremental_move" start time: Oct 05 21:52 CST
+Output:
+----------------------------------------------------------
+PASS: incremental_move
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"incremental_move" end time: Oct 05 21:52 CST
+"incremental_move" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: snapshot_lifetime
+5/5 Test: snapshot_lifetime
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/mesh_tests" "snapshot_lifetime"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build
+"snapshot_lifetime" start time: Oct 05 21:52 CST
+Output:
+----------------------------------------------------------
+PASS: snapshot_lifetime
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"snapshot_lifetime" end time: Oct 05 21:52 CST
+"snapshot_lifetime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 21:52 CST

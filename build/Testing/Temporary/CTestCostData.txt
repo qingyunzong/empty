@@ -1,0 +1,6 @@
+duplicate_edges 3 0.00211101
+zero_area 3 0.00166165
+normal_aggregation 3 0.00175427
+incremental_move 3 0.00200855
+snapshot_lifetime 2 0.002783
+---

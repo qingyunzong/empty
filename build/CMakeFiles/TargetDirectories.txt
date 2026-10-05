@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/CMakeFiles/mesh.dir
+/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/CMakeFiles/mesh_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/cfb90e761c054920877435d9ce1c9739/run/A/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir
