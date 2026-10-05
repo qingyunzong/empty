@@ -1,0 +1,13 @@
+{
+  "name": "recall-dag",
+  "version": "1.0.0",
+  "description": "Incremental affected-batch recall over an event DAG with replayable certificates",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

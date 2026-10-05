@@ -1,0 +1,14 @@
+# 产线事件流：原料 R1 经混料 M1/M2 进入批次 B1，M2 也进入 B2
+{"edge":{"from":"R1","to":"M1","ver":1}}
+{"edge":{"from":"R1","to":"M2","ver":1}}
+{"edge":{"from":"M1","to":"B1","ver":1}}
+{"edge":{"from":"M2","to":"B1","ver":1}}
+{"edge":{"from":"M2","to":"B2","ver":1}}
+{"markBad":{"node":"R1"}}
+{"query":{"node":"B1"}}
+# 更正：M1->B1 边被删除，B1 仍由 M2 支持
+{"delEdge":{"from":"M1","to":"B1"}}
+{"query":{"node":"B1"}}
+# 更正：M2->B1 也删除，B1 的所有支持消失
+{"delEdge":{"from":"M2","to":"B1"}}
+{"query":{"node":"B1"}}
