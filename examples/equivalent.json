@@ -1,0 +1,21 @@
+{
+  "attributes": {
+    "role": ["admin", "user"],
+    "mfa": ["on", "off"]
+  },
+  "policies": {
+    "A": {
+      "default": "deny",
+      "rules": [
+        { "when": { "role": "admin" }, "decision": "permit" }
+      ]
+    },
+    "B": {
+      "default": "deny",
+      "rules": [
+        { "when": { "role": "admin", "mfa": "on" }, "decision": "permit" },
+        { "when": { "role": "admin", "mfa": "off" }, "decision": "permit" }
+      ]
+    }
+  }
+}
