@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgatesim.a CMakeFiles/gatesim.dir/src/gatesim.cpp.o
+/usr/bin/ranlib libgatesim.a

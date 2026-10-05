@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/gatesim_demo.dir/link.d CMakeFiles/gatesim_demo.dir/src/main.cpp.o -o gatesim_demo  libgatesim.a

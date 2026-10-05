@@ -1,0 +1,115 @@
+Start testing: Oct 05 21:56 CST
+----------------------------------------------------------
+1/7 Testing: inertial_cancel
+1/7 Test: inertial_cancel
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "inertial_cancel"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"inertial_cancel" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS inertial_cancel
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"inertial_cancel" end time: Oct 05 21:56 CST
+"inertial_cancel" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: stale_event
+2/7 Test: stale_event
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "stale_event"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"stale_event" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS stale_event
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"stale_event" end time: Oct 05 21:56 CST
+"stale_event" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: zero_delay_delta
+3/7 Test: zero_delay_delta
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "zero_delay_delta"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"zero_delay_delta" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS zero_delay_delta
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"zero_delay_delta" end time: Oct 05 21:56 CST
+"zero_delay_delta" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: same_tick_order
+4/7 Test: same_tick_order
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "same_tick_order"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"same_tick_order" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS same_tick_order
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"same_tick_order" end time: Oct 05 21:56 CST
+"same_tick_order" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: pulse_exactly_delay
+5/7 Test: pulse_exactly_delay
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "pulse_exactly_delay"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"pulse_exactly_delay" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS pulse_exactly_delay
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"pulse_exactly_delay" end time: Oct 05 21:56 CST
+"pulse_exactly_delay" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: xor_same_tick
+6/7 Test: xor_same_tick
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "xor_same_tick"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"xor_same_tick" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS xor_same_tick
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"xor_same_tick" end time: Oct 05 21:56 CST
+"xor_same_tick" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: delta_loop
+7/7 Test: delta_loop
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "delta_loop"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+"delta_loop" start time: Oct 05 21:56 CST
+Output:
+----------------------------------------------------------
+PASS delta_loop
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"delta_loop" end time: Oct 05 21:56 CST
+"delta_loop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 21:56 CST

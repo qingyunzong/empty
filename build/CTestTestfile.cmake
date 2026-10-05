@@ -1,0 +1,20 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[inertial_cancel]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "inertial_cancel")
+set_tests_properties([=[inertial_cancel]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[stale_event]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "stale_event")
+set_tests_properties([=[stale_event]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[zero_delay_delta]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "zero_delay_delta")
+set_tests_properties([=[zero_delay_delta]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[same_tick_order]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "same_tick_order")
+set_tests_properties([=[same_tick_order]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[pulse_exactly_delay]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "pulse_exactly_delay")
+set_tests_properties([=[pulse_exactly_delay]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[xor_same_tick]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "xor_same_tick")
+set_tests_properties([=[xor_same_tick]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[delta_loop]=] "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/build/gatesim_tests" "delta_loop")
+set_tests_properties([=[delta_loop]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/aa3f4640eb144775a37f88a88b1936ff/run/B/attempt-004/workspace/CMakeLists.txt;0;")

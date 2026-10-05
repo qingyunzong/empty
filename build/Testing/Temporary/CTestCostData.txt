@@ -1,0 +1,8 @@
+inertial_cancel 4 0.00291588
+stale_event 4 0.00185685
+zero_delay_delta 4 0.00468117
+same_tick_order 3 0.0028521
+pulse_exactly_delay 4 0.00272094
+xor_same_tick 4 0.00187288
+delta_loop 4 0.00342653
+---
