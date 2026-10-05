@@ -1,0 +1,86 @@
+{
+  "name": "example",
+  "branches": [
+    "login/ok",
+    "login/fail",
+    "cart/add",
+    "cart/remove",
+    "checkout/pay",
+    "checkout/cancel"
+  ],
+  "pairs": [
+    "os=linux,browser=firefox",
+    "os=mac,browser=safari",
+    "os=windows,browser=edge"
+  ],
+  "timeLimit": 40,
+  "tests": [
+    {
+      "id": "smoke",
+      "cost": 4,
+      "time": 6,
+      "branches": [
+        "login/ok"
+      ],
+      "pairs": [
+        "os=linux,browser=firefox"
+      ]
+    },
+    {
+      "id": "login-negative",
+      "cost": 3,
+      "time": 5,
+      "requires": [
+        "smoke"
+      ],
+      "branches": [
+        "login/fail"
+      ]
+    },
+    {
+      "id": "cart",
+      "cost": 6,
+      "time": 9,
+      "branches": [
+        "cart/add",
+        "cart/remove"
+      ],
+      "pairs": [
+        "os=mac,browser=safari"
+      ]
+    },
+    {
+      "id": "checkout",
+      "cost": 8,
+      "time": 12,
+      "requires": [
+        "cart"
+      ],
+      "branches": [
+        "checkout/pay",
+        "checkout/cancel"
+      ]
+    },
+    {
+      "id": "checkout-full",
+      "cost": 15,
+      "time": 20,
+      "branches": [
+        "cart/add",
+        "checkout/pay",
+        "checkout/cancel"
+      ],
+      "pairs": [
+        "os=windows,browser=edge"
+      ]
+    },
+    {
+      "id": "edge-matrix",
+      "cost": 5,
+      "time": 8,
+      "pairs": [
+        "os=windows,browser=edge"
+      ]
+    }
+  ]
+}
