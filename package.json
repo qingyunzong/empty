@@ -1,0 +1,14 @@
+{
+  "name": "sync-plan",
+  "version": "1.0.0",
+  "description": "Sync planning CLI: min-byte package cover of receiver gaps with dictionary-memory-bounded download/decode scheduling",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "bin": {
+    "sync-plan": "dist/src/cli.js"
+  }
+}

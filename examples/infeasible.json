@@ -1,0 +1,8 @@
+{
+  "range": { "start": 0, "end": 50 },
+  "receiver": [],
+  "memoryLimit": 1000,
+  "packages": [
+    { "id": "A", "cover": [ { "start": 0, "end": 30 } ], "bytes": 10, "dictBytes": 0, "needs": [] }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "range": { "start": 0, "end": 100 },
+  "receiver": [ { "start": 0, "end": 20 }, { "start": 55, "end": 70 } ],
+  "memoryLimit": 260,
+  "maxPackages": 20,
+  "packages": [
+    { "id": "A", "cover": [ { "start": 20, "end": 45 } ], "bytes": 90,  "dictBytes": 40, "needs": [] },
+    { "id": "B", "cover": [ { "start": 40, "end": 60 } ], "bytes": 80,  "dictBytes": 30, "needs": ["D"] },
+    { "id": "C", "cover": [ { "start": 70, "end": 100 } ], "bytes": 70, "dictBytes": 25, "needs": ["B"] },
+    { "id": "D", "cover": [ { "start": 45, "end": 55 } ], "bytes": 60,  "dictBytes": 90, "needs": [] },
+    { "id": "E", "cover": [ { "start": 20, "end": 100 } ], "bytes": 260, "dictBytes": 10, "needs": [] }
+  ]
+}
