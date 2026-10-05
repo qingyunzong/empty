@@ -1,0 +1,11 @@
+{
+  "name": "amount-parse-edit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "中文金额(亿/万/两位小数)解析、格式化与增量编辑库",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
