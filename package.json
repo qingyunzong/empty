@@ -1,0 +1,12 @@
+{
+  "name": "segment-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Incremental character analysis: longest distinct-code-point segment with legal lexical boundaries, supporting append, tail-undo and snapshots.",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test \"dist/test/*.test.js\"",
+    "typecheck": "tsc --noEmit"
+  }
+}
