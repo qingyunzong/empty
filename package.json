@@ -1,0 +1,11 @@
+{
+  "name": "availability-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "监控库：多服务可用区间的 k-of-n 最大区间、因果依赖闭包、订阅净差更正",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
