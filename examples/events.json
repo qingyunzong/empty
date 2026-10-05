@@ -1,0 +1,95 @@
+{
+  "ops": [
+    {
+      "op": "append",
+      "event": {
+        "id": "e1",
+        "output": "RAW-A",
+        "inputs": []
+      }
+    },
+    {
+      "op": "append",
+      "event": {
+        "id": "e2",
+        "output": "RAW-B",
+        "inputs": []
+      }
+    },
+    {
+      "op": "append",
+      "event": {
+        "id": "e3",
+        "output": "SUB-1",
+        "inputs": [
+          "RAW-A",
+          "RAW-B"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "event": {
+        "id": "e4",
+        "output": "ASSY-1",
+        "inputs": [
+          "SUB-1"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "event": {
+        "id": "e5",
+        "output": "FG-1",
+        "inputs": [
+          "ASSY-1"
+        ]
+      }
+    },
+    {
+      "op": "hold",
+      "batch": "RAW-A"
+    },
+    {
+      "op": "query",
+      "batch": "FG-1"
+    },
+    {
+      "op": "ship",
+      "batch": "FG-1"
+    },
+    {
+      "op": "query",
+      "batch": "FG-1"
+    },
+    {
+      "op": "correct",
+      "eventId": "e4",
+      "event": {
+        "inputs": [
+          "RAW-B"
+        ]
+      }
+    },
+    {
+      "op": "query",
+      "batch": "FG-1"
+    },
+    {
+      "op": "undo",
+      "eventId": "e5"
+    },
+    {
+      "op": "undo",
+      "eventId": "e4"
+    },
+    {
+      "op": "release",
+      "batch": "RAW-A"
+    },
+    {
+      "op": "query"
+    }
+  ]
+}
