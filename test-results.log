@@ -1,0 +1,50 @@
+
+> call-tree-limiter@0.1.0 test
+> tsc -p tsconfig.json && for f in dist/test/*.test.js; do node "$f" || exit 1; done
+
+TAP version 13
+# Subtest: 嵌套深度超过容量仍能完成且不超并行预算（深度 12，容量 2）
+ok 1 - 嵌套深度超过容量仍能完成且不超并行预算（深度 12，容量 2）
+  ---
+  duration_ms: 11.205676
+  type: 'test'
+  ...
+# Subtest: 容量为 1 时任意深度仍可完成（await 子任务必须交还占位）
+ok 2 - 容量为 1 时任意深度仍可完成（await 子任务必须交还占位）
+  ---
+  duration_ms: 3.669243
+  type: 'test'
+  ...
+# Subtest: 父函数恢复时重新申请占位（acquire 计数 = 帧数 + 恢复数）
+ok 3 - 父函数恢复时重新申请占位（acquire 计数 = 帧数 + 恢复数）
+  ---
+  duration_ms: 3.987081
+  type: 'test'
+  ...
+# Subtest: 异常沿调用树传播时清理全部占位
+ok 4 - 异常沿调用树传播时清理全部占位
+  ---
+  duration_ms: 4.271068
+  type: 'test'
+  ...
+# Subtest: 并发扇出不超并行预算（容量 3，3 叉扇出深度 3）
+ok 5 - 并发扇出不超并行预算（容量 3，3 叉扇出深度 3）
+  ---
+  duration_ms: 5.660872
+  type: 'test'
+  ...
+# Subtest: 默认调度器（setImmediate）下也能跑通
+ok 6 - 默认调度器（setImmediate）下也能跑通
+  ---
+  duration_ms: 1.33489
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 53.736855

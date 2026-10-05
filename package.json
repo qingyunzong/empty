@@ -1,0 +1,14 @@
+{
+  "name": "call-tree-limiter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Function execution library that caps in-flight slots across an entire call tree",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
