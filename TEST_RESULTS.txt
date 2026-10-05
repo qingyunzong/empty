@@ -1,0 +1,42 @@
+command: go test ./... -count=1 -v
+date:    2026-10-05T10:07:42Z
+go:      go version go1.27.1 linux/amd64
+
+=== RUN   TestChainApplyAndForwardMap
+--- PASS: TestChainApplyAndForwardMap (0.00s)
+=== RUN   TestChainIllegalStepRejected
+--- PASS: TestChainIllegalStepRejected (0.00s)
+=== RUN   TestChainSaveLoadRoundTrip
+--- PASS: TestChainSaveLoadRoundTrip (0.00s)
+=== RUN   TestInverseCertificate
+--- PASS: TestInverseCertificate (0.00s)
+=== RUN   TestRandomChainReproducible
+--- PASS: TestRandomChainReproducible (0.00s)
+=== RUN   TestGraphBasics
+--- PASS: TestGraphBasics (0.00s)
+=== RUN   TestRelabelApplyAndMaps
+--- PASS: TestRelabelApplyAndMaps (0.00s)
+=== RUN   TestRelabelIllegal
+--- PASS: TestRelabelIllegal (0.00s)
+=== RUN   TestAddIsolated
+--- PASS: TestAddIsolated (0.00s)
+=== RUN   TestSplitEdge
+--- PASS: TestSplitEdge (0.00s)
+=== RUN   TestUnknownKindRejected
+--- PASS: TestUnknownKindRejected (0.00s)
+=== RUN   TestVerifyChainAcceptsHonestOutput
+--- PASS: TestVerifyChainAcceptsHonestOutput (0.00s)
+=== RUN   TestVerifyChainRejectsTamperedOutput
+--- PASS: TestVerifyChainRejectsTamperedOutput (0.00s)
+=== RUN   TestVerifyChainRejectsIllegalSteps
+--- PASS: TestVerifyChainRejectsIllegalSteps (0.00s)
+=== RUN   TestVerifyCertificateAcceptsProperInverse
+--- PASS: TestVerifyCertificateAcceptsProperInverse (0.00s)
+=== RUN   TestVerifyCertificateRejectsMonochromaticInverse
+--- PASS: TestVerifyCertificateRejectsMonochromaticInverse (0.00s)
+=== RUN   TestVerifyCertificateRejectsIllegalChain
+--- PASS: TestVerifyCertificateRejectsIllegalChain (0.00s)
+=== RUN   TestVerifyRandomChainsEndToEnd
+--- PASS: TestVerifyRandomChainsEndToEnd (0.00s)
+PASS
+ok  	graphtest	0.010s
