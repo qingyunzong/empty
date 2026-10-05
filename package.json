@@ -1,0 +1,11 @@
+{
+  "name": "safe-export",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Snapshot-based export library: re-verifies permission epochs before atomic all-or-nothing publish",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
