@@ -1,0 +1,11 @@
+{
+  "name": "si-mvcc-db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Relational store with snapshot-isolation transactions (MVCC), Node.js built-ins only at runtime",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
