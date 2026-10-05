@@ -1,0 +1,17 @@
+{
+  "name": "agv-router",
+  "version": "1.0.0",
+  "description": "Dynamic shortest-path library and JSONL CLI for AGV night-shift dispatch, with auditable optimality certificates",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "agv-router": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
