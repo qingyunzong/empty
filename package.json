@@ -1,0 +1,11 @@
+{
+  "name": "lr1-conflict-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "规范 LR(1) 语法分析 CLI：移入-归约冲突报告、最短符号路径、前缀枚举核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
