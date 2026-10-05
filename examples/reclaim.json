@@ -1,0 +1,19 @@
+{
+  "config": { "starveAfter": 2, "trace": true },
+  "tenants": [
+    { "id": "R", "parent": null, "guarantee": 2 },
+    { "id": "A", "parent": "R", "guarantee": 2 },
+    { "id": "B", "parent": "R", "guarantee": 0 },
+    { "id": "C", "parent": "B", "guarantee": 0 }
+  ],
+  "orders": [
+    { "id": "c1", "tenant": "C", "duration": 5 },
+    { "id": "c2", "tenant": "C", "duration": 5 }
+  ],
+  "commands": [
+    { "tick": 2, "type": "submit", "order": { "id": "a1", "tenant": "A", "duration": 3 } },
+    { "tick": 2, "type": "submit", "order": { "id": "a2", "tenant": "A", "duration": 3 } },
+    { "tick": 2, "type": "reclaim", "tenant": "A", "amount": 2 }
+  ],
+  "horizon": 6
+}

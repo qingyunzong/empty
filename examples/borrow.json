@@ -1,0 +1,12 @@
+{
+  "config": { "starveAfter": 3, "trace": true },
+  "tenants": [
+    { "id": "root", "parent": null, "guarantee": 2 },
+    { "id": "A", "parent": "root", "guarantee": 2 },
+    { "id": "B", "parent": "root", "guarantee": 0 }
+  ],
+  "orders": [
+    { "id": "b1", "tenant": "B", "duration": 2, "priority": 1 },
+    { "id": "b2", "tenant": "B", "duration": 2, "priority": 0 }
+  ]
+}
