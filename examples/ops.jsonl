@@ -1,0 +1,8 @@
+{"op":"batchBegin","id":"b1"}
+{"op":"deposit","account":"alice","amount":200}
+{"op":"transfer","from":"alice","to":"bob","amount":50}
+{"op":"freeze","account":"alice","amount":30}
+{"op":"batchEnd","id":"b1"}
+{"op":"deposit","account":"carol","amount":80}
+{"op":"undo","batch":"b1"}
+{"op":"undo"}

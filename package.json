@@ -1,0 +1,10 @@
+{
+  "name": "undo-chain-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Account operations with inverse-op undo chains, batches, invariants and deterministic undo planning",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
