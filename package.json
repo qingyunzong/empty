@@ -1,0 +1,12 @@
+{
+  "name": "mincost-tree-parse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimum-cost parse for finite tree grammars (weighted CFG, recursive rules allowed) with derivation certificates and exhaustive small-grammar cross-checks",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/examples/demo.js"
+  }
+}
