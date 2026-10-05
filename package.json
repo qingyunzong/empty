@@ -1,0 +1,12 @@
+{
+  "name": "stratlog",
+  "version": "0.1.0",
+  "description": "Stratified Datalog inference with negation, provenance and incremental retraction",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/inference.test.js"
+  },
+  "license": "MIT"
+}
