@@ -1,0 +1,11 @@
+{
+  "name": "dep-test-executor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-graph test executor: isolates cycle SCCs and their downstream, cancels dependents on failure, emits results sorted by case id.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}

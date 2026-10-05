@@ -1,0 +1,59 @@
+{
+  "generatedAt": "deterministic-fixture",
+  "startSet": [
+    "boot",
+    "config",
+    "lint"
+  ],
+  "isolated": [
+    "cycle-a",
+    "cycle-b",
+    "report"
+  ],
+  "cyclicSccs": [
+    [
+      "cycle-a",
+      "cycle-b"
+    ]
+  ],
+  "results": [
+    {
+      "id": "api",
+      "status": "cancelled"
+    },
+    {
+      "id": "boot",
+      "status": "passed"
+    },
+    {
+      "id": "config",
+      "status": "passed"
+    },
+    {
+      "id": "cycle-a",
+      "status": "isolated"
+    },
+    {
+      "id": "cycle-b",
+      "status": "isolated"
+    },
+    {
+      "id": "db",
+      "status": "failed",
+      "error": "db connection refused"
+    },
+    {
+      "id": "lint",
+      "status": "passed"
+    },
+    {
+      "id": "report",
+      "status": "isolated"
+    },
+    {
+      "id": "ui",
+      "status": "cancelled"
+    }
+  ],
+  "stableText": "api\tcancelled\nboot\tpassed\nconfig\tpassed\ncycle-a\tisolated\ncycle-b\tisolated\ndb\tfailed\tdb connection refused\nlint\tpassed\nreport\tisolated\nui\tcancelled"
+}
