@@ -1,0 +1,28 @@
+{
+  "start": "A",
+  "end": "F",
+  "fuel": { "capacity": 6, "start": 3 },
+  "rebate": { "threshold": 20, "amount": 10, "stations": ["C", "E"] },
+  "nodes": [
+    { "id": "A", "fuelPrice": 2 },
+    { "id": "B", "fuelPrice": 4 },
+    { "id": "C", "fuelPrice": 1 },
+    { "id": "D", "fuelPrice": 3 },
+    { "id": "E" },
+    { "id": "F" }
+  ],
+  "edges": [
+    { "from": "A", "to": "B", "toll": 10, "time": 4, "dist": 3 },
+    { "from": "B", "to": "C", "toll": 12, "time": 5, "dist": 4 },
+    { "from": "C", "to": "F", "toll": 8,  "time": 6, "dist": 3 },
+    { "from": "A", "to": "D", "toll": 6,  "time": 3, "dist": 2 },
+    { "from": "D", "to": "E", "toll": 6,  "time": 3, "dist": 2 },
+    { "from": "E", "to": "F", "toll": 6,  "time": 3, "dist": 2 },
+    { "from": "B", "to": "E", "toll": 15, "time": 2, "dist": 5 },
+    { "from": "D", "to": "C", "toll": 9,  "time": 4, "dist": 3 }
+  ],
+  "coupons": [
+    { "id": "c1", "requires": [["A", "B"], ["B", "C"]], "discount": 5 },
+    { "id": "c2", "requires": [["A", "D"], ["D", "E"]], "discount": 4 }
+  ]
+}
