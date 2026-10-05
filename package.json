@@ -1,0 +1,11 @@
+{
+  "name": "archive-crdt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Event-sourced document archive with delete/restore tombstone semantics and idempotent merge (CRDT).",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
