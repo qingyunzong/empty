@@ -1,0 +1,3 @@
+module statlabels
+
+go 1.27.1
