@@ -1,0 +1,10 @@
+{
+  "name": "cmdspec",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Structured-argument POSIX command display strings with response-file expansion, per-byte provenance and reverse source editing. Never starts a shell.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  }
+}
