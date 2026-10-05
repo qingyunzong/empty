@@ -1,0 +1,11 @@
+{
+  "name": "combined-request",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "组合请求库：并发申请多个资源，任一失败/超时即取消其余并按逆申请序释放",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
