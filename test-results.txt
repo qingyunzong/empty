@@ -1,0 +1,43 @@
+=== RUN   TestUpdateHappyPath
+--- PASS: TestUpdateHappyPath (0.00s)
+=== RUN   TestUpdateFreshInstall
+--- PASS: TestUpdateFreshInstall (0.00s)
+=== RUN   TestRefuseSymlinkCrossFilesystem
+--- PASS: TestRefuseSymlinkCrossFilesystem (0.00s)
+=== RUN   TestAllowSymlinkSameFilesystem
+--- PASS: TestAllowSymlinkSameFilesystem (0.00s)
+=== RUN   TestRefuseTargetIsSymlink
+--- PASS: TestRefuseTargetIsSymlink (0.00s)
+=== RUN   TestPendingTransactionBlocksNewUpdate
+--- PASS: TestPendingTransactionBlocksNewUpdate (0.00s)
+=== RUN   TestRecoverFromEveryCrashPoint
+=== RUN   TestRecoverFromEveryCrashPoint/AfterStaging
+=== RUN   TestRecoverFromEveryCrashPoint/BeforeRetireRename
+=== RUN   TestRecoverFromEveryCrashPoint/AfterRetireRename
+=== RUN   TestRecoverFromEveryCrashPoint/AfterRetireRecorded
+=== RUN   TestRecoverFromEveryCrashPoint/BeforePublishRename
+=== RUN   TestRecoverFromEveryCrashPoint/AfterPublishRename
+=== RUN   TestRecoverFromEveryCrashPoint/AfterPublishRecorded
+--- PASS: TestRecoverFromEveryCrashPoint (0.01s)
+    --- PASS: TestRecoverFromEveryCrashPoint/AfterStaging (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/BeforeRetireRename (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/AfterRetireRename (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/AfterRetireRecorded (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/BeforePublishRename (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/AfterPublishRename (0.00s)
+    --- PASS: TestRecoverFromEveryCrashPoint/AfterPublishRecorded (0.00s)
+=== RUN   TestRecoverRefusesExternalPaths
+--- PASS: TestRecoverRefusesExternalPaths (0.00s)
+=== RUN   TestRecoverRefusesInvalidTxID
+--- PASS: TestRecoverRefusesInvalidTxID (0.00s)
+=== RUN   TestCleanupDoesNotFollowSymlinks
+--- PASS: TestCleanupDoesNotFollowSymlinks (0.00s)
+=== RUN   TestStaleStagingCleanedOnNewUpdate
+--- PASS: TestStaleStagingCleanedOnNewUpdate (0.00s)
+=== RUN   TestRecoverWithoutPendingTransaction
+--- PASS: TestRecoverWithoutPendingTransaction (0.00s)
+PASS
+ok  	dirswap	0.034s
+
+--- plain run (GOCACHE=/tmp/gocache) ---
+ok  	dirswap	0.045s
