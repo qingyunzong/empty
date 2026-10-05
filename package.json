@@ -1,0 +1,11 @@
+{
+  "name": "offline-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline sync library: atomic page+cursor commits, idempotent replay, conflict rejection, crash-recoverable storage",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test-reporter=spec dist/test/sync.test.js"
+  }
+}
