@@ -1,0 +1,13 @@
+{
+  "name": "min-cost-tree-parse",
+  "version": "1.0.0",
+  "description": "Minimum-cost parsing for finite regular tree grammars with non-negative per-rule costs",
+  "type": "module",
+  "private": true,
+  "exports": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test out/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
