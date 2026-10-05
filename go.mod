@@ -1,0 +1,3 @@
+module recvwin
+
+go 1.27.1
