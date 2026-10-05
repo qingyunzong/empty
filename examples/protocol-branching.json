@@ -1,0 +1,10 @@
+{
+  "name": "branching",
+  "steps": [
+    { "id": "weigh", "kind": "weigh", "produces": ["s.weighed"], "timeout": 300 },
+    { "id": "dilute", "kind": "dilute", "requires": ["s.weighed"], "produces": ["s.diluted"], "timeout": 300 },
+    { "id": "heat", "kind": "incubate", "requires": ["s.diluted"], "produces": ["s.heated"], "timeout": 300 },
+    { "id": "cool", "kind": "incubate", "requires": ["s.diluted"], "produces": ["s.cooled"], "timeout": 300 },
+    { "id": "combine", "kind": "mix", "requires": ["s.heated", "s.cooled"], "produces": ["s.final"], "timeout": 300 }
+  ]
+}

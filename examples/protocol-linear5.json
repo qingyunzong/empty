@@ -1,0 +1,10 @@
+{
+  "name": "linear5",
+  "steps": [
+    { "id": "weigh", "kind": "weigh", "produces": ["s.weighed"], "timeout": 300 },
+    { "id": "dilute", "kind": "dilute", "requires": ["s.weighed"], "produces": ["s.diluted"], "timeout": 300 },
+    { "id": "mix", "kind": "mix", "requires": ["s.diluted"], "produces": ["s.mixed"], "timeout": 300 },
+    { "id": "incubate", "kind": "incubate", "requires": ["s.mixed"], "produces": ["s.incubated"], "timeout": 300 },
+    { "id": "measure", "kind": "measure", "requires": ["s.incubated"], "produces": ["s.result"], "timeout": 300 }
+  ]
+}

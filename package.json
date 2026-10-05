@@ -1,0 +1,9 @@
+{
+  "name": "lab-prep-recovery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Crash-recoverable lab sample prep workflow engine (stdlib only)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
