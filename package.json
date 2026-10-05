@@ -1,0 +1,11 @@
+{
+  "name": "null3vl-query-optimizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NULL 三值逻辑下的查询重写库：过滤下推、投影消除、内外连接重写，带公开前置条件与重写证书，小表穷举核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "demo": "tsc -p tsconfig.json && node dist/examples/demo.js",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
