@@ -1,0 +1,11 @@
+{
+  "people": [
+    { "id": "ana", "skills": ["backend"], "cost": 5 },
+    { "id": "bo", "skills": ["backend", "devops"], "cost": 9 },
+    { "id": "cy", "skills": ["devops"], "cost": 4 },
+    { "id": "di", "skills": ["backend", "frontend"], "cost": 7 },
+    { "id": "eli", "skills": ["frontend"], "cost": 3 }
+  ],
+  "forbiddenPairs": [["ana", "bo"]],
+  "minSkills": { "backend": 1, "devops": 1, "frontend": 1 }
+}

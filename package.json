@@ -1,0 +1,12 @@
+{
+  "name": "teamforge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exact minimum-cost team selection with skill minimums and forbidden pairs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build --silent && node --test dist/test/*.test.js",
+    "start": "npm run build --silent && node dist/src/cli.js"
+  }
+}
