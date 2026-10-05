@@ -1,0 +1,13 @@
+{
+  "name": "weather-merge",
+  "version": "0.1.0",
+  "description": "Offline merge of multi-station weather temperature corrections (JSONL, CRDT-style)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "weather-merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
