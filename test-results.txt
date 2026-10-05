@@ -1,0 +1,116 @@
+=== RUN   TestEventReorderingWritesNeverLost
+=== RUN   TestEventReorderingWritesNeverLost/seed=1
+=== RUN   TestEventReorderingWritesNeverLost/seed=2
+=== RUN   TestEventReorderingWritesNeverLost/seed=3
+=== RUN   TestEventReorderingWritesNeverLost/seed=4
+=== RUN   TestEventReorderingWritesNeverLost/seed=5
+=== RUN   TestEventReorderingWritesNeverLost/seed=6
+=== RUN   TestEventReorderingWritesNeverLost/seed=7
+=== RUN   TestEventReorderingWritesNeverLost/seed=8
+=== RUN   TestEventReorderingWritesNeverLost/seed=9
+=== RUN   TestEventReorderingWritesNeverLost/seed=10
+=== RUN   TestEventReorderingWritesNeverLost/seed=11
+=== RUN   TestEventReorderingWritesNeverLost/seed=12
+=== RUN   TestEventReorderingWritesNeverLost/seed=13
+=== RUN   TestEventReorderingWritesNeverLost/seed=14
+=== RUN   TestEventReorderingWritesNeverLost/seed=15
+=== RUN   TestEventReorderingWritesNeverLost/seed=16
+=== RUN   TestEventReorderingWritesNeverLost/seed=17
+=== RUN   TestEventReorderingWritesNeverLost/seed=18
+=== RUN   TestEventReorderingWritesNeverLost/seed=19
+=== RUN   TestEventReorderingWritesNeverLost/seed=20
+=== RUN   TestEventReorderingWritesNeverLost/seed=21
+=== RUN   TestEventReorderingWritesNeverLost/seed=22
+=== RUN   TestEventReorderingWritesNeverLost/seed=23
+=== RUN   TestEventReorderingWritesNeverLost/seed=24
+=== RUN   TestEventReorderingWritesNeverLost/seed=25
+=== RUN   TestEventReorderingWritesNeverLost/seed=26
+=== RUN   TestEventReorderingWritesNeverLost/seed=27
+=== RUN   TestEventReorderingWritesNeverLost/seed=28
+=== RUN   TestEventReorderingWritesNeverLost/seed=29
+=== RUN   TestEventReorderingWritesNeverLost/seed=30
+=== RUN   TestEventReorderingWritesNeverLost/seed=31
+=== RUN   TestEventReorderingWritesNeverLost/seed=32
+=== RUN   TestEventReorderingWritesNeverLost/seed=33
+=== RUN   TestEventReorderingWritesNeverLost/seed=34
+=== RUN   TestEventReorderingWritesNeverLost/seed=35
+=== RUN   TestEventReorderingWritesNeverLost/seed=36
+=== RUN   TestEventReorderingWritesNeverLost/seed=37
+=== RUN   TestEventReorderingWritesNeverLost/seed=38
+=== RUN   TestEventReorderingWritesNeverLost/seed=39
+=== RUN   TestEventReorderingWritesNeverLost/seed=40
+=== RUN   TestEventReorderingWritesNeverLost/seed=41
+=== RUN   TestEventReorderingWritesNeverLost/seed=42
+=== RUN   TestEventReorderingWritesNeverLost/seed=43
+=== RUN   TestEventReorderingWritesNeverLost/seed=44
+=== RUN   TestEventReorderingWritesNeverLost/seed=45
+=== RUN   TestEventReorderingWritesNeverLost/seed=46
+=== RUN   TestEventReorderingWritesNeverLost/seed=47
+=== RUN   TestEventReorderingWritesNeverLost/seed=48
+=== RUN   TestEventReorderingWritesNeverLost/seed=49
+=== RUN   TestEventReorderingWritesNeverLost/seed=50
+--- PASS: TestEventReorderingWritesNeverLost (0.01s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=1 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=2 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=3 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=4 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=5 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=6 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=7 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=8 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=9 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=10 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=11 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=12 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=13 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=14 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=15 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=16 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=17 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=18 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=19 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=20 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=21 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=22 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=23 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=24 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=25 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=26 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=27 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=28 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=29 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=30 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=31 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=32 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=33 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=34 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=35 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=36 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=37 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=38 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=39 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=40 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=41 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=42 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=43 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=44 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=45 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=46 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=47 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=48 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=49 (0.00s)
+    --- PASS: TestEventReorderingWritesNeverLost/seed=50 (0.00s)
+=== RUN   TestOnlyContiguousPrefixPublishes
+--- PASS: TestOnlyContiguousPrefixPublishes (0.00s)
+=== RUN   TestStaleAckNeverMisused
+=== RUN   TestStaleAckNeverMisused/forged_epoch_ack_ignored
+=== RUN   TestStaleAckNeverMisused/genuine_old-epoch_ack_still_counts
+--- PASS: TestStaleAckNeverMisused (0.00s)
+    --- PASS: TestStaleAckNeverMisused/forged_epoch_ack_ignored (0.00s)
+    --- PASS: TestStaleAckNeverMisused/genuine_old-epoch_ack_still_counts (0.00s)
+=== RUN   TestRestartFillsHolesFromLog
+--- PASS: TestRestartFillsHolesFromLog (0.00s)
+=== RUN   TestTailCrashAndRejoin
+--- PASS: TestTailCrashAndRejoin (0.00s)
+PASS
+ok  	chainrepl	0.016s
