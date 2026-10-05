@@ -1,0 +1,11 @@
+{
+  "name": "domain-rule-lib",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ASCII domain rule library: normalization, wildcard rules, inclusion relation with counterexamples, exhaustive cross-check",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/domain.test.js && node dist/test/rules.test.js && node dist/test/exhaustive.test.js"
+  }
+}
