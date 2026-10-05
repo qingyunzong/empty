@@ -1,0 +1,71 @@
+$ go test ./... -count=1 -v
+=== RUN   TestFixedCases
+=== RUN   TestFixedCases/data=""/delim=","
+=== RUN   TestFixedCases/data=","/delim=","
+=== RUN   TestFixedCases/data="a,b,c"/delim=","
+=== RUN   TestFixedCases/data="a,,b"/delim=","
+=== RUN   TestFixedCases/data=",a,"/delim=","
+=== RUN   TestFixedCases/data="a\\,b,c"/delim=","
+=== RUN   TestFixedCases/data="a\\\\,b"/delim=","
+=== RUN   TestFixedCases/data="a\\\\\\,b"/delim=","
+=== RUN   TestFixedCases/data="\\"/delim=","
+=== RUN   TestFixedCases/data="a\\"/delim=","
+=== RUN   TestFixedCases/data="\\,"/delim=","
+=== RUN   TestFixedCases/data="aaa"/delim="aa"
+=== RUN   TestFixedCases/data="aaaa"/delim="aa"
+=== RUN   TestFixedCases/data="aaaaa"/delim="aa"
+=== RUN   TestFixedCases/data="ababab"/delim="ab"
+=== RUN   TestFixedCases/data="aabaa"/delim="aa"
+=== RUN   TestFixedCases/data="abcabcabc"/delim="abc"
+=== RUN   TestFixedCases/data="aaaaaa"/delim="aaa"
+=== RUN   TestFixedCases/data="abababa"/delim="aba"
+=== RUN   TestFixedCases/data="a\\ab"/delim="aa"
+=== RUN   TestFixedCases/data="aa\\aa"/delim="aa"
+=== RUN   TestFixedCases/data="ab\\cab"/delim="abc"
+=== RUN   TestFixedCases/data="ab\\"/delim="abc"
+=== RUN   TestFixedCases/data="a\\b"/delim="\\"
+=== RUN   TestFixedCases/data="a\\\\b"/delim="\\"
+=== RUN   TestFixedCases/data="a\\\\b"/delim="\\\\"
+=== RUN   TestFixedCases/data="x\\a\\byabz"/delim="ab"
+=== RUN   TestFixedCases/data="delimiter"/delim="delimiter"
+=== RUN   TestFixedCases/data="delimite"/delim="delimiter"
+--- PASS: TestFixedCases (0.01s)
+    --- PASS: TestFixedCases/data=""/delim="," (0.00s)
+    --- PASS: TestFixedCases/data=","/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a,b,c"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a,,b"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data=",a,"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a\\,b,c"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a\\\\,b"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a\\\\\\,b"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="\\"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="a\\"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="\\,"/delim="," (0.00s)
+    --- PASS: TestFixedCases/data="aaa"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="aaaa"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="aaaaa"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="ababab"/delim="ab" (0.00s)
+    --- PASS: TestFixedCases/data="aabaa"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="abcabcabc"/delim="abc" (0.00s)
+    --- PASS: TestFixedCases/data="aaaaaa"/delim="aaa" (0.00s)
+    --- PASS: TestFixedCases/data="abababa"/delim="aba" (0.00s)
+    --- PASS: TestFixedCases/data="a\\ab"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="aa\\aa"/delim="aa" (0.00s)
+    --- PASS: TestFixedCases/data="ab\\cab"/delim="abc" (0.00s)
+    --- PASS: TestFixedCases/data="ab\\"/delim="abc" (0.00s)
+    --- PASS: TestFixedCases/data="a\\b"/delim="\\" (0.00s)
+    --- PASS: TestFixedCases/data="a\\\\b"/delim="\\" (0.00s)
+    --- PASS: TestFixedCases/data="a\\\\b"/delim="\\\\" (0.00s)
+    --- PASS: TestFixedCases/data="x\\a\\byabz"/delim="ab" (0.00s)
+    --- PASS: TestFixedCases/data="delimiter"/delim="delimiter" (0.00s)
+    --- PASS: TestFixedCases/data="delimite"/delim="delimiter" (0.00s)
+=== RUN   TestBlockTailEscape
+--- PASS: TestBlockTailEscape (0.00s)
+=== RUN   TestRandomChunkSizes
+--- PASS: TestRandomChunkSizes (0.02s)
+=== RUN   TestRandomByteByByte
+--- PASS: TestRandomByteByByte (0.05s)
+=== RUN   TestEmptyDelimiterPanics
+--- PASS: TestEmptyDelimiterPanics (0.00s)
+PASS
+ok  	logsplit	0.088s
