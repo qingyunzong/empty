@@ -1,0 +1,11 @@
+{
+  "name": "stratlog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Stratified Datalog with negation: compile-time negative-cycle rejection, layered minimal-model evaluation, incremental fact retraction with provenance.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"build/test/*.test.js\""
+  }
+}
