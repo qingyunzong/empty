@@ -1,0 +1,12 @@
+{
+  "name": "rect-pack-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "至多 8x8 网格上放置至多 10 个矩形的最优收益子集 CLI（TypeScript + Node 内置库）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "cli": "node dist/src/cli.js"
+  }
+}

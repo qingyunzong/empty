@@ -1,0 +1,10 @@
+{
+  "grid": { "width": 4, "height": 4, "forbidden": [[1, 1]] },
+  "rectangles": [
+    { "id": "a", "w": 2, "h": 2, "profit": 9, "rotate": true },
+    { "id": "b", "w": 1, "h": 3, "profit": 6, "rotate": true },
+    { "id": "c", "w": 2, "h": 2, "profit": 8 },
+    { "id": "d", "w": 1, "h": 1, "profit": 1 },
+    { "id": "e", "w": 4, "h": 1, "profit": 7, "rotate": true }
+  ]
+}
