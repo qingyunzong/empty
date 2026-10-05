@@ -1,0 +1,15 @@
+{
+  "name": "recon-minimize",
+  "version": "1.0.0",
+  "description": "Financial reconciliation diff locator and minimal counterexample minimizer",
+  "type": "module",
+  "bin": {
+    "recon": "bin/recon.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
