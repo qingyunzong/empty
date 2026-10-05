@@ -1,0 +1,15 @@
+{
+  "name": "relation-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Versioned store of directed labeled edges with set-difference version diffs",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/store.test.js dist/test/random.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
