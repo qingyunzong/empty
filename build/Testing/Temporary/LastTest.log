@@ -1,0 +1,19 @@
+Start testing: Oct 06 00:15 CST
+----------------------------------------------------------
+1/1 Testing: resource_batch
+1/1 Test: resource_batch
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/B/attempt-005/workspace/build/test_resource_batch"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/80895d0e125348c9b46b0b3c13b309cd/run/B/attempt-005/workspace/build
+"resource_batch" start time: Oct 06 00:15 CST
+Output:
+----------------------------------------------------------
+53 checks, 0 failures
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"resource_batch" end time: Oct 06 00:15 CST
+"resource_batch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 00:15 CST
