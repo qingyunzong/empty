@@ -1,0 +1,9 @@
+{
+  "ops": [
+    { "op": "PLAN", "id": "A", "ver": 1, "cost": 40, "start": 8, "end": 10 },
+    { "op": "PLAN", "id": "B", "ver": 1, "cost": 30, "start": 8, "end": 9 },
+    { "op": "MOVE", "id": "A", "ver": 2, "cost": 20, "start": 9, "end": 11 },
+    { "op": "CANCEL", "id": "B", "ver": 2 },
+    { "op": "PLAN", "id": "C", "ver": 1, "cost": 50, "start": 7, "end": 8 }
+  ]
+}

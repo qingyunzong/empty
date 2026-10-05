@@ -1,0 +1,13 @@
+{
+  "name": "factory-line-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline factory scheduler: PLAN/MOVE/CANCEL synced to a line terminal via an ACK/NAK confirmation protocol with lossy-channel retransmission and transactional budget rollback.",
+  "main": "src/simulator.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
