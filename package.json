@@ -1,0 +1,14 @@
+{
+  "name": "photo-rename",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Batch photo rename CLI with preflight conflict checks, journaled crash-safe execution and inverse plans",
+  "type": "module",
+  "bin": {
+    "photo-rename": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
