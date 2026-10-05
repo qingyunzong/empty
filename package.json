@@ -1,0 +1,12 @@
+{
+  "name": "event-stats",
+  "version": "1.0.0",
+  "private": true,
+  "description": "按事件 ID 维护多维标签组合计数的统计库（原子更正、<=4 维投影、稀疏差分、逐条核对）",
+  "type": "module",
+  "main": "dist/src/store.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
