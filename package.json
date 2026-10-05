@@ -1,0 +1,15 @@
+{
+  "name": "generational-round-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runtime with per-round generations: late stdout/assertion/exit messages are attributed only to their originating round, closed generations cannot write into new rounds, and round termination waits for stream drain or explicit truncation.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\"",
+    "simulate": "npm run build && node dist/src/simulate.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
