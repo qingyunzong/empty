@@ -1,0 +1,12 @@
+{
+  "edges": [
+    ["api/users", "svc/user"],
+    ["api/orders", "svc/order"],
+    ["svc/user", "repo/user"],
+    ["svc/order", "repo/order"],
+    ["repo/user", "db/client"],
+    ["repo/order", "db/client"],
+    ["svc/user", "util/cache"]
+  ],
+  "entries": ["api/users", "api/orders"]
+}

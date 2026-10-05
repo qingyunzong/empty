@@ -1,0 +1,15 @@
+{
+  "name": "symbol-impact-review",
+  "version": "0.1.0",
+  "description": "Map symbol-level changes to public entry points via a reference graph; shortest impact chain per entry; union of old/new graphs so deletions keep old-graph impact.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
