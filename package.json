@@ -1,0 +1,21 @@
+{
+  "name": "clearing-net",
+  "version": "1.0.0",
+  "description": "Feasibility of clearing networks with bounded settlement edges (circulation with lower/upper bounds), with event-sourced undo/redo and an NDJSON CLI.",
+  "type": "module",
+  "exports": {
+    ".": "./src/ledger.js",
+    "./circulation": "./src/circulation.js",
+    "./cli": "./src/cli.js"
+  },
+  "bin": {
+    "clearing-net": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
