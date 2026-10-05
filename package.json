@@ -1,0 +1,14 @@
+{
+  "name": "command-session-parser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental parser for interactive command sessions: keeps sent bytes, echo and program output apart, interprets a public finite table of control sequences, flags truncated commands.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/parser.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
