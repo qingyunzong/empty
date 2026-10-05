@@ -1,0 +1,14 @@
+{
+  "name": "preview-parser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "增量预览解析库：仅支持 p/b/i/br 与文本，实体解码保留原始偏移映射",
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
