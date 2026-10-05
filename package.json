@@ -1,0 +1,13 @@
+{
+  "name": "recipe-tag-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-line recipe tag engine: dependency graph, incremental recompute, invalidation, undo/redo, offline CLI",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
