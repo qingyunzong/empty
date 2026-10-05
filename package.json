@@ -1,0 +1,12 @@
+{
+  "name": "config-merge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "分层配置合并库：对象递归合并、数组按稳定 ID 合并、显式删除墓碑、类型变化整项替换、逐项来源追踪",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/test/merge.test.js",
+    "demo": "npm run build && node dist/src/demo.js"
+  }
+}
