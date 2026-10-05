@@ -1,0 +1,2 @@
+/usr/bin/ar qc libspatial.a CMakeFiles/spatial.dir/src/spatial.cpp.o
+/usr/bin/ranlib libspatial.a

@@ -1,0 +1,83 @@
+Start testing: Oct 05 11:44 CST
+----------------------------------------------------------
+1/5 Testing: rational
+1/5 Test: rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build
+"rational" start time: Oct 05 11:44 CST
+Output:
+----------------------------------------------------------
+test_rational: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"rational" end time: Oct 05 11:44 CST
+"rational" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: ray_aabb
+2/5 Test: ray_aabb
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/test_ray_aabb"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build
+"ray_aabb" start time: Oct 05 11:44 CST
+Output:
+----------------------------------------------------------
+test_ray_aabb: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ray_aabb" end time: Oct 05 11:44 CST
+"ray_aabb" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: tree_vs_scan
+3/5 Test: tree_vs_scan
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/test_tree_vs_scan"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build
+"tree_vs_scan" start time: Oct 05 11:44 CST
+Output:
+----------------------------------------------------------
+test_tree_vs_scan: OK (2400 rays, 990 total hits)
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"tree_vs_scan" end time: Oct 05 11:44 CST
+"tree_vs_scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: snapshot
+4/5 Test: snapshot
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/test_snapshot"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build
+"snapshot" start time: Oct 05 11:44 CST
+Output:
+----------------------------------------------------------
+test_snapshot: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"snapshot" end time: Oct 05 11:44 CST
+"snapshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: concurrency
+5/5 Test: concurrency
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/test_concurrency"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build
+"concurrency" start time: Oct 05 11:44 CST
+Output:
+----------------------------------------------------------
+test_concurrency: OK (3670 snapshot validations, 0 errors)
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"concurrency" end time: Oct 05 11:44 CST
+"concurrency" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 11:44 CST

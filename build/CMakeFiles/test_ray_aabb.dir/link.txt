@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_ray_aabb.dir/link.d CMakeFiles/test_ray_aabb.dir/tests/test_ray_aabb.cpp.o -o test_ray_aabb  libspatial.a

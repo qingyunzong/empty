@@ -1,0 +1,9 @@
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/spatial.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test_rational.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test_ray_aabb.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test_tree_vs_scan.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test_snapshot.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test_concurrency.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d1370921baf84c6d80efb379f901c2c0/run/B/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir
