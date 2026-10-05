@@ -1,0 +1,13 @@
+{
+  "horizon": 40,
+  "tasks": [
+    { "id": "需求分析", "duration": 3, "workers": 1, "skill": "any" },
+    { "id": "架构设计", "duration": 4, "workers": 1, "skill": "A", "deps": ["需求分析"] },
+    { "id": "环境搭建", "duration": 2, "workers": 1, "skill": "B", "deps": ["需求分析"] },
+    { "id": "核心开发", "duration": 6, "workers": 2, "deps": ["架构设计", "环境搭建"] },
+    { "id": "文档编写", "duration": 3, "workers": 1, "skill": "B", "deps": ["架构设计"] },
+    { "id": "联调测试", "duration": 4, "workers": 2, "deps": ["核心开发"] },
+    { "id": "修复回归", "duration": 2, "workers": 1, "skill": "any", "deps": ["联调测试"] },
+    { "id": "发布评审", "duration": 1, "workers": 2, "deps": ["文档编写", "修复回归"] }
+  ]
+}
