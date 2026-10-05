@@ -1,0 +1,5 @@
+command: go test ./... -count=1
+date: 2026-10-05T05:07:34Z
+go: go version go1.27.1 linux/amd64
+
+ok  	contractopt	0.074s
