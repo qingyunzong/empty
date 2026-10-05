@@ -1,0 +1,37 @@
+{
+  "kind": "block",
+  "name": "root",
+  "body": [
+    {
+      "kind": "txn",
+      "seq": 1,
+      "body": [
+        { "kind": "assign", "name": "x", "expr": { "kind": "bin", "op": "+", "left": { "kind": "obs", "name": "x" }, "right": { "kind": "int", "value": 1 } } },
+        { "kind": "guard", "expr": { "kind": "bin", "op": ">", "left": { "kind": "obs", "name": "x" }, "right": { "kind": "int", "value": 0 } } }
+      ]
+    },
+    {
+      "kind": "block",
+      "name": "inner",
+      "body": [
+        {
+          "kind": "txn",
+          "seq": 2,
+          "body": [
+            { "kind": "assign", "name": "y", "expr": { "kind": "bin", "op": "+", "left": { "kind": "obs", "name": "y" }, "right": { "kind": "int", "value": 5 } } },
+            { "kind": "assign", "name": "x", "expr": { "kind": "bin", "op": "*", "left": { "kind": "obs", "name": "x" }, "right": { "kind": "int", "value": 10 } } },
+            { "kind": "assign", "name": "sample", "expr": { "kind": "evidence", "value": "B" } },
+            { "kind": "guard", "expr": { "kind": "bin", "op": ">=", "left": { "kind": "obs", "name": "y" }, "right": { "kind": "int", "value": 15 } } }
+          ]
+        },
+        {
+          "kind": "txn",
+          "seq": 3,
+          "body": [
+            { "kind": "assign", "name": "y", "expr": { "kind": "bin", "op": "-", "left": { "kind": "obs", "name": "y" }, "right": { "kind": "int", "value": 1 } } }
+          ]
+        }
+      ]
+    }
+  ]
+}
