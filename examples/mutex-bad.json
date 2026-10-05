@@ -1,0 +1,10 @@
+{
+  "name": "mutex-bad",
+  "numBits": 2,
+  "initial": { "bits": 0 },
+  "goal": { "bits": { "0": 1 } },
+  "actions": [
+    { "name": "conflict",
+      "effects": [ { "set": { "0": 1 } }, { "set": { "0": 0 } } ] }
+  ]
+}

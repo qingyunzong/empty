@@ -1,0 +1,12 @@
+{
+  "name": "bitplanner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Finite-action boolean/resource planner: BFS-shortest certificates, sound backtracking learning, conditional effects, serializable frontier, certified heuristic lower bounds.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}

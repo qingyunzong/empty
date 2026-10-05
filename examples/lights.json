@@ -1,0 +1,13 @@
+{
+  "name": "lights",
+  "numBits": 4,
+  "initial": { "bits": 0 },
+  "goal": { "bits": { "0": 1, "1": 1, "2": 1, "3": 1 } },
+  "actions": [
+    { "name": "set0", "effects": [ { "set": { "0": 1 } } ] },
+    { "name": "set1", "pre": { "bits": { "0": 1 } }, "effects": [ { "set": { "1": 1 } } ] },
+    { "name": "set2", "pre": { "bits": { "1": 1 } }, "effects": [ { "set": { "2": 1 } } ] },
+    { "name": "set3", "pre": { "bits": { "2": 1 } }, "effects": [ { "set": { "3": 1 } } ] },
+    { "name": "clear0", "pre": { "bits": { "0": 1 } }, "effects": [ { "set": { "0": 0 } } ] }
+  ]
+}

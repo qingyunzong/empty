@@ -1,0 +1,32 @@
+{
+  "name": "robot",
+  "numBits": 3,
+  "resources": [ { "name": "fuel", "max": 4, "initial": 2 } ],
+  "initial": { "bits": 0 },
+  "goal": { "bits": { "2": 1 } },
+  "actions": [
+    { "name": "load",
+      "pre": { "bits": { "0": 0 } },
+      "effects": [ { "set": { "1": 1 } } ] },
+    { "name": "move",
+      "pre": { "bits": { "0": 0 }, "resources": [ { "index": 0, "op": ">=", "value": 1 } ] },
+      "effects": [ { "set": { "0": 1 } }, { "res": [ { "index": 0, "delta": -1 } ] } ] },
+    { "name": "move_back",
+      "pre": { "bits": { "0": 1 }, "resources": [ { "index": 0, "op": ">=", "value": 1 } ] },
+      "effects": [ { "set": { "0": 0 } }, { "res": [ { "index": 0, "delta": -1 } ] } ] },
+    { "name": "refuel",
+      "pre": { "bits": { "0": 0 } },
+      "effects": [
+        { "when": { "resources": [ { "index": 0, "op": "<=", "value": 2 } ] },
+          "res": [ { "index": 0, "delta": 2 } ] },
+        { "when": { "resources": [ { "index": 0, "op": "==", "value": 3 } ] },
+          "res": [ { "index": 0, "delta": 1 } ] }
+      ] },
+    { "name": "deliver",
+      "pre": { "bits": { "0": 1, "1": 1 } },
+      "effects": [
+        { "set": { "2": 1 } },
+        { "when": { "bits": { "1": 1 } }, "set": { "1": 0 } }
+      ] }
+  ]
+}
