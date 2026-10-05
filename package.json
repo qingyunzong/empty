@@ -1,0 +1,12 @@
+{
+  "name": "version-dag",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Multi-parent commit DAG: nearest common ancestors, cycle-rejecting insertion, ancestor certificates",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/dag.test.js",
+    "demo": "npm run build && node dist/src/demo.js"
+  }
+}
