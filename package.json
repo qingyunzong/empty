@@ -1,0 +1,11 @@
+{
+  "name": "http-cache-key",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "HTTP cache key library: normalizes method, path and selected headers; rejects CR/LF headers; keeps audit provenance for ignored fields",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
