@@ -1,0 +1,11 @@
+{
+  "name": "cart-split-optimizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "购物车拆单优化：子集 DP 求最低实付（再最少单数），附券证书与小件数暴力对照",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "solve": "tsc -p tsconfig.json && node dist/src/main.js",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
