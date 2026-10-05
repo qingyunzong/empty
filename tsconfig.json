@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "lib": ["ES2022"],
+    "strict": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "types": [],
+    "rootDir": ".",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*", "test/**/*"]
+}

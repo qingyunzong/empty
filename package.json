@@ -1,0 +1,11 @@
+{
+  "name": "lease-broker-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simulated message broker: lease fetch, ACK, redelivery, generation-invalidated ACKs, at-least-once delivery with transactional idempotent consumer",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
