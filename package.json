@@ -1,0 +1,12 @@
+{
+  "name": "sliding-quantile-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fixed-size sliding-window quantile stats over a persistent order-statistics index, with event corrections, branch merge conflicts and atomic resolution.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
