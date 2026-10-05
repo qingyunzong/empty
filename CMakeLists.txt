@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.20)
+project(png8 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_library(png8 src/png8.cpp)
+target_include_directories(png8 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(png8 PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+include(CTest)
+if(BUILD_TESTING)
+    foreach(name IN ITEMS crc zlib decode_basic filters chunking errors)
+        add_executable(test_${name} tests/test_${name}.cpp)
+        target_link_libraries(test_${name} PRIVATE png8)
+        target_include_directories(test_${name} PRIVATE tests)
+        if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+            target_compile_options(test_${name} PRIVATE -Wall -Wextra -Wpedantic)
+        endif()
+        add_test(NAME ${name} COMMAND test_${name})
+    endforeach()
+endif()
