@@ -1,0 +1,11 @@
+{
+  "name": "bounded-queue-network-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tick-based service-desk network simulation with bounded output queues, blocking, circular-wait evidence and snapshot replay",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
