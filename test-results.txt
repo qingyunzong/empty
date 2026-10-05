@@ -1,0 +1,41 @@
+TAP version 13
+# Subtest: test/cli.test.js
+ok 1 - test/cli.test.js
+  ---
+  duration_ms: 6224.606357
+  type: 'test'
+  ...
+# Subtest: test/helpers.js
+ok 2 - test/helpers.js
+  ---
+  duration_ms: 1220.10262
+  type: 'test'
+  ...
+# Subtest: test/inherit.test.js
+ok 3 - test/inherit.test.js
+  ---
+  duration_ms: 1656.991424
+  type: 'test'
+  ...
+# Subtest: test/merge.test.js
+ok 4 - test/merge.test.js
+  ---
+  duration_ms: 1950.391502
+  type: 'test'
+  ...
+# Subtest: test/squash.test.js
+ok 5 - test/squash.test.js
+  ---
+  duration_ms: 1444.428702
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6360.952158
+0

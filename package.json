@@ -1,0 +1,9 @@
+{
+  "name": "alert-hierarchy-vcs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline alert hierarchy config versioning tool (device tree thresholds, 3-way merge, squash)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
