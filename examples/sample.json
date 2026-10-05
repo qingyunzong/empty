@@ -1,0 +1,11 @@
+{
+  "k": 2,
+  "items": [
+    { "id": "s01", "start": 0.0, "end": 2.5, "priority": 3 },
+    { "id": "s02", "start": 1.0, "end": 3.0, "priority": 4 },
+    { "id": "s03", "start": 2.5, "end": 4.0, "priority": 2 },
+    { "id": "s04", "start": 3.0, "end": 5.0, "priority": 5 },
+    { "id": "s05", "start": 4.0, "end": 6.0, "priority": 4 },
+    { "id": "s06", "start": 5.0, "end": 7.0, "priority": 3 }
+  ]
+}

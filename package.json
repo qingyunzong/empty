@@ -1,0 +1,11 @@
+{
+  "name": "subtitle-layer-scheduler",
+  "version": "1.0.0",
+  "description": "Max-profit k-layer subtitle display scheduling over half-open intervals",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
