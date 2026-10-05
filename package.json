@@ -1,0 +1,11 @@
+{
+  "name": "ev-fleet-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "离散 tick 电动车队仿真：整数能耗、充电时段与占位容量、等待辅助能耗、快照重放核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
