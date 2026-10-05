@@ -1,0 +1,11 @@
+{
+  "balances": { "A": 10, "B": 0, "C": 5, "D": 100 },
+  "bills": [
+    { "id": "b1", "from": "A", "to": "B", "amount": 10, "penalty": 2 },
+    { "id": "b2", "from": "B", "to": "C", "amount": 10, "penalty": 9 },
+    { "id": "b3", "from": "C", "to": "D", "amount": 14, "penalty": 4 },
+    { "id": "b4", "from": "D", "to": "A", "amount": 60, "penalty": 1 },
+    { "id": "b5", "from": "A", "to": "D", "amount": 25, "penalty": 3 },
+    { "id": "b6", "from": "C", "to": "A", "amount": 1, "penalty": 5 }
+  ]
+}

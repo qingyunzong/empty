@@ -1,0 +1,21 @@
+{
+  "balances": { "甲": 30, "乙": 0, "丙": 8, "丁": 50 },
+  "bills": [
+    { "id": "t01", "from": "甲", "to": "乙", "amount": 20, "penalty": 6 },
+    { "id": "t02", "from": "乙", "to": "丙", "amount": 15, "penalty": 9 },
+    { "id": "t03", "from": "丙", "to": "丁", "amount": 20, "penalty": 3 },
+    { "id": "t04", "from": "丁", "to": "甲", "amount": 40, "penalty": 2 },
+    { "id": "t05", "from": "甲", "to": "丙", "amount": 12, "penalty": 7 },
+    { "id": "t06", "from": "乙", "to": "丁", "amount": 5, "penalty": 1 },
+    { "id": "t07", "from": "丙", "to": "甲", "amount": 9, "penalty": 4 },
+    { "id": "t08", "from": "丁", "to": "乙", "amount": 18, "penalty": 8 },
+    { "id": "t09", "from": "甲", "to": "丁", "amount": 70, "penalty": 5 },
+    { "id": "t10", "from": "乙", "to": "甲", "amount": 33, "penalty": 2 },
+    { "id": "t11", "from": "丙", "to": "乙", "amount": 4, "penalty": 3 },
+    { "id": "t12", "from": "丁", "to": "丙", "amount": 11, "penalty": 6 },
+    { "id": "t13", "from": "甲", "to": "乙", "amount": 25, "penalty": 9 },
+    { "id": "t14", "from": "乙", "to": "丙", "amount": 40, "penalty": 1 },
+    { "id": "t15", "from": "丙", "to": "丁", "amount": 30, "penalty": 2 },
+    { "id": "t16", "from": "丁", "to": "甲", "amount": 6, "penalty": 5 }
+  ]
+}
