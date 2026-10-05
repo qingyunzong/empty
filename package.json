@@ -1,0 +1,12 @@
+{
+  "name": "transfer-sim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Transfer simulation library: permission-versioned batches, resume re-checks, revocation-safe commits, published history retention, event-ordered resolution with evidence",
+  "type": "module",
+  "exports": "./dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
