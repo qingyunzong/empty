@@ -1,0 +1,29 @@
+{
+  "types": {
+    "Packet": {
+      "kind": "struct",
+      "fields": [
+        { "name": "magic", "type": { "kind": "uint", "bits": 16 } },
+        { "name": "version", "type": { "kind": "uint", "bits": 8 } },
+        { "name": "flags", "type": { "kind": "uint", "bits": 8 } },
+        { "name": "payloadLen", "type": { "kind": "uint", "bits": 16, "littleEndian": true } },
+        { "name": "payload", "type": { "kind": "bytes", "length": { "ref": "payloadLen" } } },
+        { "name": "checksum", "type": { "kind": "uint", "bits": 32 }, "when": { "field": "flags", "equals": 1 } },
+        { "name": "tagCount", "type": { "kind": "uint", "bits": 8 } },
+        {
+          "name": "tags",
+          "type": { "kind": "array", "count": { "ref": "tagCount" }, "element": { "kind": "ref", "name": "Tag" } }
+        }
+      ]
+    },
+    "Tag": {
+      "kind": "struct",
+      "fields": [
+        { "name": "id", "type": { "kind": "uint", "bits": 8 } },
+        { "name": "textLen", "type": { "kind": "uint", "bits": 8 } },
+        { "name": "text", "type": { "kind": "bytes", "length": { "ref": "textLen" } } }
+      ]
+    }
+  },
+  "root": "Packet"
+}
