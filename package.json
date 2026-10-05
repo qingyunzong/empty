@@ -1,0 +1,11 @@
+{
+  "name": "unit-quantity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dimensional-analysis expression evaluator with exact rational arithmetic",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
