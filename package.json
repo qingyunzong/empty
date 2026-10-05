@@ -1,0 +1,11 @@
+{
+  "name": "tpc-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Two-phase commit simulator with persistent WAL, crash recovery and an independent consistency checker",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
