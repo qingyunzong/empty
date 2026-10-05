@@ -1,0 +1,10 @@
+{
+  "name": "causal-log-orderer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic causal (topological) ordering for multi-source event logs, with incremental revision, conflict evidence and snapshots. Node.js built-in libraries only.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  }
+}
