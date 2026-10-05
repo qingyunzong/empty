@@ -1,0 +1,12 @@
+{
+  "name": "sparse-sourcemap-compose",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compose two-level sparse source maps with same-line nearest-left segment lookup.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
