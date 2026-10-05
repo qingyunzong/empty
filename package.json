@@ -1,0 +1,12 @@
+{
+  "name": "sourcemap-compose",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compose two levels of sparse source maps with same-line nearest-left segment lookup",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  }
+}
