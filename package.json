@@ -1,0 +1,13 @@
+{
+  "name": "assign-cli",
+  "version": "1.0.0",
+  "description": "Min-cost one-to-one work-order/workstation assignment with dual certificate, Hall witness, independent verifier and brute-force cross-check",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/src/cli.js",
+    "test": "tsc && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}

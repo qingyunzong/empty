@@ -1,0 +1,9 @@
+{
+  "orders": ["W1", "W2", "W3"],
+  "stations": ["S1", "S2", "S3"],
+  "costs": [
+    [1, null, null],
+    [2, null, null],
+    [1, 1, 1]
+  ]
+}
