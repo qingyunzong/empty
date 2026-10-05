@@ -1,0 +1,14 @@
+{
+  "feeders": [
+    {
+      "id": "F1",
+      "capacity": 100,
+      "loads": [
+        { "id": "L1", "power": 50, "level": 1, "maxStage": 2 }
+      ]
+    }
+  ],
+  "interlocks": [
+    { "type": "noshed", "load": "L9" }
+  ]
+}

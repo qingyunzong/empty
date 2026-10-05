@@ -1,0 +1,17 @@
+{
+  "name": "shed",
+  "version": "0.1.0",
+  "description": "Offline load-shedding optimizer: finite-domain stage CSP with feeder capacity and interlock propagation",
+  "type": "commonjs",
+  "main": "src/solver.js",
+  "bin": {
+    "shed": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
