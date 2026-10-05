@@ -1,0 +1,8 @@
+{
+  "name": "voucher-index",
+  "version": "1.0.0",
+  "description": "Persistent positional index for merchant settlement vouchers",
+  "type": "module",
+  "bin": { "voucher-index": "bin/cli.js" },
+  "scripts": { "test": "node --test" }
+}
