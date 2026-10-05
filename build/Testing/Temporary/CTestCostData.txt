@@ -1,0 +1,7 @@
+copy_and_alloc 1 0.00316408
+field_store_load 1 0.0028988
+fixpoint_cycle 1 0.00239257
+alloc_site_distinction 1 0.00213739
+deletion_consistency 1 0.00238325
+delete_all 1 0.00279833
+---

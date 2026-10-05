@@ -1,0 +1,99 @@
+Start testing: Oct 05 16:48 CST
+----------------------------------------------------------
+1/6 Testing: copy_and_alloc
+1/6 Test: copy_and_alloc
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "copy_and_alloc"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"copy_and_alloc" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS copy_and_alloc
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"copy_and_alloc" end time: Oct 05 16:48 CST
+"copy_and_alloc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: field_store_load
+2/6 Test: field_store_load
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "field_store_load"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"field_store_load" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS field_store_load
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"field_store_load" end time: Oct 05 16:48 CST
+"field_store_load" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: fixpoint_cycle
+3/6 Test: fixpoint_cycle
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "fixpoint_cycle"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"fixpoint_cycle" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS fixpoint_cycle
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"fixpoint_cycle" end time: Oct 05 16:48 CST
+"fixpoint_cycle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: alloc_site_distinction
+4/6 Test: alloc_site_distinction
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "alloc_site_distinction"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"alloc_site_distinction" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS alloc_site_distinction
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"alloc_site_distinction" end time: Oct 05 16:48 CST
+"alloc_site_distinction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: deletion_consistency
+5/6 Test: deletion_consistency
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "deletion_consistency"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"deletion_consistency" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS deletion_consistency
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"deletion_consistency" end time: Oct 05 16:48 CST
+"deletion_consistency" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: delete_all
+6/6 Test: delete_all
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build/pta_tests" "delete_all"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/B/attempt-003/workspace/build
+"delete_all" start time: Oct 05 16:48 CST
+Output:
+----------------------------------------------------------
+PASS delete_all
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"delete_all" end time: Oct 05 16:48 CST
+"delete_all" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 16:48 CST

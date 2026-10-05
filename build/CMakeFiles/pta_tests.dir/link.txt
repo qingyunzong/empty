@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/pta_tests.dir/link.d CMakeFiles/pta_tests.dir/tests/test_points_to.cpp.o -o pta_tests  libpoints_to.a
