@@ -1,0 +1,16 @@
+{
+  "name": "weighted-fair-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "整数需求/权重/户上限的逐轮加权最大最小公平分摊库(仅 Node.js 内置库)",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.build.json && node dist/src/demo.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
