@@ -1,0 +1,12 @@
+{
+  "name": "pbt-contract",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Property-based testing library: serializable seeds, contract-preserving shrinking, resumable shrink checkpoints",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "demo": "tsc -p tsconfig.json && node dist/examples/demo.js"
+  }
+}
