@@ -1,0 +1,12 @@
+{
+  "name": "stable-search-pagination",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stable (score, id) search pagination with version/digest-bound cursors and budget-aware unclosed results",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/search.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
