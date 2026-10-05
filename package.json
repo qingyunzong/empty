@@ -1,0 +1,13 @@
+{
+  "name": "rect-layout-opt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integer-grid rectangle re-layout: minimize total movement under size, alignment and non-overlap constraints, with certified bounds.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --no-warnings --test dist/test/*.test.js",
+    "start": "tsc -p tsconfig.build.json && node dist/src/main.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
