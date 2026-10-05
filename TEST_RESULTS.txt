@@ -1,0 +1,22 @@
+$ go test ./...
+ok  	inventory	0.006s
+
+$ go test ./... -v
+=== RUN   TestReserveAcrossMultipleBatches
+--- PASS: TestReserveAcrossMultipleBatches (0.00s)
+=== RUN   TestReserveInsufficientStock
+--- PASS: TestReserveInsufficientStock (0.00s)
+=== RUN   TestConfirmTransfersWholeBatchSet
+--- PASS: TestConfirmTransfersWholeBatchSet (0.00s)
+=== RUN   TestExpiryIncludesDeadlineMoment
+--- PASS: TestExpiryIncludesDeadlineMoment (0.00s)
+=== RUN   TestEventOrderDecidesRaces
+--- PASS: TestEventOrderDecidesRaces (0.00s)
+=== RUN   TestRequestIDBindsParameters
+--- PASS: TestRequestIDBindsParameters (0.00s)
+=== RUN   TestReacquireGetsNewGeneration
+--- PASS: TestReacquireGetsNewGeneration (0.00s)
+=== RUN   TestReplayMatchesAndConservesPerBatch
+--- PASS: TestReplayMatchesAndConservesPerBatch (0.00s)
+PASS
+ok  	inventory	(cached)
