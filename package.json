@@ -1,0 +1,11 @@
+{
+  "name": "config-loader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Config loader with relative includes, overrides, array append, and provenance tracking over a virtual file table.",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test \"dist/test/*.test.js\""
+  }
+}
