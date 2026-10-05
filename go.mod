@@ -1,0 +1,3 @@
+module parity
+
+go 1.27.1
