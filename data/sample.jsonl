@@ -1,0 +1,10 @@
+{"op":"UPSERT","id":"o1","station":"s1","eventTime":"2026-01-01T00:00:00Z","temp":10,"version":1}
+{"op":"UPSERT","id":"o2","station":"s1","eventTime":"2026-01-01T00:05:00Z","temp":12,"version":1}
+{"op":"UPSERT","id":"o3","station":"s1","eventTime":"2026-01-01T00:30:00Z","temp":20,"version":1}
+{"op":"UPSERT","id":"o4","station":"s1","eventTime":"2026-01-01T00:08:00Z","temp":14,"version":1}
+{"op":"RETRACT","id":"o2","station":"s1","eventTime":"2026-01-01T00:05:00Z","version":1}
+{"op":"UPSERT","id":"o9","station":"s1","eventTime":"2026-01-01T00:01:00Z","temp":99,"version":1}
+{"op":"WATERMARK","ts":"2026-01-01T00:20:00Z"}
+{"op":"RETRACT","id":"no-such-id","station":"s1","eventTime":"2026-01-01T00:02:00Z","version":1}
+{"op":"UPSERT","id":"late1","station":"s1","eventTime":"2026-01-01T00:03:00Z","temp":1,"version":1}
+{"op":"WATERMARK","ts":"2026-01-01T01:00:00Z"}

@@ -1,0 +1,13 @@
+{
+  "name": "weather-sessions",
+  "version": "1.0.0",
+  "description": "Event-time sessionization of weather station observations (UPSERT/RETRACT/WATERMARK)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
