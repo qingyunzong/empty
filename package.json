@@ -1,0 +1,15 @@
+{
+  "name": "int-dsp-chain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Integer FIR + decimator chains: block-independent streaming state, original-time delay mapping, explicit-sample config switching, output source ranges",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "clean": "rm -rf dist"
+  }
+}
