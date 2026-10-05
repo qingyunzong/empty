@@ -1,0 +1,11 @@
+{
+  "name": "retry-query",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Retrying query library with virtual clock, generation guards and cancellation",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
