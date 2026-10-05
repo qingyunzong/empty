@@ -1,0 +1,12 @@
+{
+  "source": "alice",
+  "sink": "dave",
+  "amount": 5,
+  "edges": [
+    { "from": "alice", "to": "bob",   "segments": [ { "capacity": 2, "cost": -1 }, { "capacity": 3, "cost": 2 } ] },
+    { "from": "alice", "to": "carol", "segments": [ { "capacity": 4, "cost": 3 } ] },
+    { "from": "bob",   "to": "carol", "segments": [ { "capacity": 2, "cost": 1 } ] },
+    { "from": "bob",   "to": "dave",  "segments": [ { "capacity": 3, "cost": 2 } ] },
+    { "from": "carol", "to": "dave",  "segments": [ { "capacity": 4, "cost": 1 } ] }
+  ]
+}

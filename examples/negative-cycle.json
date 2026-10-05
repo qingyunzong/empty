@@ -1,0 +1,10 @@
+{
+  "source": "A",
+  "sink": "C",
+  "amount": 1,
+  "edges": [
+    { "from": "A", "to": "B", "segments": [ { "capacity": 1, "cost": -2 } ] },
+    { "from": "B", "to": "A", "segments": [ { "capacity": 1, "cost": -2 } ] },
+    { "from": "A", "to": "C", "segments": [ { "capacity": 1, "cost": 1 } ] }
+  ]
+}
