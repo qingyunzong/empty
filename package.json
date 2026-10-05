@@ -1,0 +1,11 @@
+{
+  "name": "sliding-window-order-stats",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fixed-size sliding-window integer statistics with persistent order-statistics index, branching, merge conflicts and rational quantiles.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
