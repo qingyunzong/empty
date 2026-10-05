@@ -1,0 +1,11 @@
+{
+  "capacity": 10,
+  "items": [
+    { "id": 1, "size": 4, "group": "a" },
+    { "id": 2, "size": 6 },
+    { "id": 3, "size": 4, "group": "a" },
+    { "id": 4, "size": 5 },
+    { "id": 5, "size": 3 }
+  ],
+  "forbidden": [[2, 4]]
+}
