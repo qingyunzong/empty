@@ -1,0 +1,11 @@
+{
+  "name": "provenance-merge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Merge library with per-field source/version/transform-chain provenance, conflict detection, retraction and net diffs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
