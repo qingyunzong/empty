@@ -1,0 +1,17 @@
+{
+  "name": "tvl-policy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Three-valued-logic policy library with exact rational comparison, default-deny semantics, and verified rule-set minimization",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "demo": "npm run build && node dist/examples/demo.js"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  }
+}
