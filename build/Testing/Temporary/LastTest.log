@@ -1,0 +1,107 @@
+Start testing: Oct 06 04:20 CST
+----------------------------------------------------------
+1/4 Testing: basic
+1/4 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/test_pta" "basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build
+"basic" start time: Oct 06 04:20 CST
+Output:
+----------------------------------------------------------
+--- basic ---
+pts(q) = {obj@1, obj@2}
+pts(p) = {obj@1}
+pts(y) = {obj@2}
+pts(x) = {obj@1}
+basic: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 06 04:20 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: fields
+2/4 Test: fields
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/test_pta" "fields"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build
+"fields" start time: Oct 06 04:20 CST
+Output:
+----------------------------------------------------------
+--- fields ---
+pts(w) = {obj@11}
+pts(v) = {obj@10}
+pts(p) = {obj@20}
+pts(y) = {obj@11}
+pts(x) = {obj@10}
+fld(obj@20, f) = {obj@10}
+fld(obj@20, g) = {obj@11}
+fields: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"fields" end time: Oct 06 04:20 CST
+"fields" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: fixpoint
+3/4 Test: fixpoint
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/test_pta" "fixpoint"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build
+"fixpoint" start time: Oct 06 04:20 CST
+Output:
+----------------------------------------------------------
+--- fixpoint ---
+pts(cur) = {obj@1, obj@2}
+pts(n1) = {obj@2}
+pts(n0) = {obj@1}
+fld(obj@1, next) = {obj@2}
+fld(obj@2, next) = {obj@1}
+fixpoint: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"fixpoint" end time: Oct 06 04:20 CST
+"fixpoint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: deletion
+4/4 Test: deletion
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/test_pta" "deletion"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build
+"deletion" start time: Oct 06 04:20 CST
+Output:
+----------------------------------------------------------
+--- before deletion ---
+pts(v) = {obj@10, obj@11}
+pts(r) = {obj@20}
+pts(y) = {obj@11}
+pts(x) = {obj@10}
+pts(q) = {obj@1, obj@2}
+pts(p) = {obj@1, obj@2}
+pts(b) = {obj@2}
+pts(a) = {obj@1}
+fld(obj@20, f) = {obj@10, obj@11}
+--- after deletion ---
+pts(v) = {obj@10}
+pts(r) = {obj@20}
+pts(y) = {obj@11}
+pts(x) = {obj@10}
+pts(q) = {obj@1}
+pts(p) = {obj@1}
+pts(b) = {obj@2}
+pts(a) = {obj@1}
+fld(obj@20, f) = {obj@10}
+deletion result == from-empty recomputation
+deletion: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"deletion" end time: Oct 06 04:20 CST
+"deletion" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 04:20 CST

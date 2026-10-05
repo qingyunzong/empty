@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_pta.dir/link.d CMakeFiles/test_pta.dir/tests/test_pta.cpp.o -o test_pta  libpta.a

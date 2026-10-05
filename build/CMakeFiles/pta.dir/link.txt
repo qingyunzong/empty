@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpta.a CMakeFiles/pta.dir/src/points_to.cpp.o
+/usr/bin/ranlib libpta.a

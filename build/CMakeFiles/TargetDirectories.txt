@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/CMakeFiles/pta.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/CMakeFiles/test_pta.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6abfaedc01d14c39aa66c2d8f22fb18a/run/A/attempt-006/workspace/build/CMakeFiles/rebuild_cache.dir
