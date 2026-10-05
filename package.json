@@ -1,0 +1,11 @@
+{
+  "name": "sheet-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incremental spreadsheet engine (DAG deps, min-origin error propagation, dynamic IF branches) with a naive full-table interpreter oracle",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
