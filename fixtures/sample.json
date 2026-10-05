@@ -1,0 +1,17 @@
+{
+  "certificates": [
+    { "id": "leaf", "issuers": ["ca-b", "ca-a"], "usages": ["serverAuth", "clientAuth"] },
+    { "id": "ca-a", "issuers": ["root-z"], "usages": ["serverAuth", "clientAuth"] },
+    { "id": "ca-b", "issuers": ["root-a"], "usages": ["serverAuth"] },
+    { "id": "root-a", "issuers": [], "usages": ["serverAuth", "clientAuth"] },
+    { "id": "root-z", "issuers": [], "usages": ["serverAuth", "clientAuth"] }
+  ],
+  "validity": {
+    "leaf": true,
+    "ca-a": true,
+    "ca-b": true,
+    "root-a": true,
+    "root-z": true
+  },
+  "trustedRoots": ["root-a", "root-z"]
+}
