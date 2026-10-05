@@ -1,0 +1,12 @@
+{
+  "name": "billing-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "区间计费、分账与冲正台账（仅 Node.js 内置库）",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
