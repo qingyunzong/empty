@@ -1,0 +1,7 @@
+test_filters 1 0.02436
+test_chunking 1 0.0193131
+test_crc 1 0.00753121
+test_ihdr 1 0.0104812
+test_overflow 1 0.0136393
+test_stream 1 0.0132263
+---

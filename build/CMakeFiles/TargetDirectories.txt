@@ -1,0 +1,10 @@
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/pngdec.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_filters.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_chunking.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_crc.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_ihdr.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_overflow.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test_stream.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/4e4c5d00ea064b78b46f967a1efd878c/run/A/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir

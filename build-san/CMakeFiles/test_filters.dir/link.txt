@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -fno-omit-frame-pointer -g -Wl,--dependency-file=CMakeFiles/test_filters.dir/link.d CMakeFiles/test_filters.dir/tests/test_filters.cpp.o -o test_filters  libpngdec.a

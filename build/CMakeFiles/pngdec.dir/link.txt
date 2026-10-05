@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpngdec.a CMakeFiles/pngdec.dir/src/pngdec.cpp.o
+/usr/bin/ranlib libpngdec.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_stream.dir/link.d CMakeFiles/test_stream.dir/tests/test_stream.cpp.o -o test_stream  libpngdec.a

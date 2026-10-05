@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_crc.dir/link.d CMakeFiles/test_crc.dir/tests/test_crc.cpp.o -o test_crc  libpngdec.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_ihdr.dir/link.d CMakeFiles/test_ihdr.dir/tests/test_ihdr.cpp.o -o test_ihdr  libpngdec.a
