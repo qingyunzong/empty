@@ -1,0 +1,52 @@
+Start testing: Oct 05 18:04 CST
+----------------------------------------------------------
+1/3 Testing: test_stable_ids
+1/3 Test: test_stable_ids
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build/test_stable_ids"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build
+"test_stable_ids" start time: Oct 05 18:04 CST
+Output:
+----------------------------------------------------------
+test_stable_ids: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_stable_ids" end time: Oct 05 18:04 CST
+"test_stable_ids" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: test_roundtrip
+2/3 Test: test_roundtrip
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build/test_roundtrip"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build
+"test_roundtrip" start time: Oct 05 18:04 CST
+Output:
+----------------------------------------------------------
+test_roundtrip: OK (280 random graphs)
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Passed.
+"test_roundtrip" end time: Oct 05 18:04 CST
+"test_roundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: test_failure
+3/3 Test: test_failure
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build/test_failure"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e335bed0f2ae4ed482675d4bb879bf59/run/B/attempt-003/workspace/build
+"test_failure" start time: Oct 05 18:04 CST
+Output:
+----------------------------------------------------------
+warmup complete
+test_failure: OK (8 failure cases, no leaks)
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_failure" end time: Oct 05 18:04 CST
+"test_failure" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 18:04 CST
