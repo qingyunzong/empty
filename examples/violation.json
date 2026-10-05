@@ -1,0 +1,14 @@
+{
+  "states": ["s0","s1","s2","s3"],
+  "initial": "s0",
+  "events": ["a","b"],
+  "transitions": [
+    {"from":"s0","event":"a","to":"s1"},
+    {"from":"s1","event":"b","to":"s3"},
+    {"from":"s0","event":"b","to":"s2"},
+    {"from":"s2","event":"a","to":"s3"},
+    {"from":"s2","event":"b","to":"s2"}
+  ],
+  "bad": ["s3"],
+  "budget": 10
+}

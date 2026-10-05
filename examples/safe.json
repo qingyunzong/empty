@@ -1,0 +1,11 @@
+{
+  "states": ["s0","s1","s2"],
+  "initial": "s0",
+  "events": ["a"],
+  "transitions": [
+    {"from":"s0","event":"a","to":"s1"},
+    {"from":"s1","event":"a","to":"s0"}
+  ],
+  "bad": ["s2"],
+  "budget": 10
+}
