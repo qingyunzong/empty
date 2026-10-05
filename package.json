@@ -1,0 +1,11 @@
+{
+  "name": "domain-rule-containment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ASCII domain rule library: normalization, validation, containment with counterexamples",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  }
+}
