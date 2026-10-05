@@ -1,0 +1,15 @@
+{
+  "name": "generation-cache",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tenant- and generation-scoped cache: permission changes atomically swap namespaces, stale in-flight results never publish into the new generation.",
+  "exports": {
+    ".": "./dist/src/cache.js",
+    "./deferred": "./dist/src/deferred.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js"
+  }
+}
