@@ -1,0 +1,13 @@
+{
+  "name": "json-mask-stream",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Streaming JSON desensitization: rejects duplicate decoded keys, then masks values by JSON pointer while preserving all non-target bytes (including number lexemes).",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
