@@ -1,0 +1,12 @@
+{
+  "name": "dag-executor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-graph task executor: failure cancels only successors, cycles rejected with path",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  },
+  "devDependencies": {}
+}
