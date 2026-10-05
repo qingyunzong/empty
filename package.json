@@ -1,0 +1,12 @@
+{
+  "name": "log-segment-search",
+  "version": "1.0.0",
+  "description": "Shortest contiguous log-event segment satisfying multiple keyword requirements with dependency/source-mutex constraints, certificates and incremental recompute",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
