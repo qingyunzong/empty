@@ -1,0 +1,12 @@
+{
+  "name": "http-cache-key",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical cache keys for HTTP requests: normalized method/path/selected headers, duplicate-header merge rules, CR/LF rejection, and audit provenance for ignored fields.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
