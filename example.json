@@ -1,0 +1,15 @@
+{
+  "capacity": 6,
+  "initial_soc": 1,
+  "final_soc_min": 1,
+  "charge_efficiency": {"num": 9, "den": 10},
+  "discharge_efficiency": {"num": 9, "den": 10},
+  "slots": [
+    {"demand": 2, "price": 3, "charge_limit": 3, "discharge_limit": 3},
+    {"demand": 1, "price": 2, "charge_limit": 3, "discharge_limit": 3},
+    {"demand": 4, "price": 9, "charge_limit": 2, "discharge_limit": 3},
+    {"demand": 5, "price": 12, "charge_limit": 2, "discharge_limit": 3},
+    {"demand": 3, "price": 6, "charge_limit": 3, "discharge_limit": 3},
+    {"demand": 2, "price": 4, "charge_limit": 3, "discharge_limit": 3}
+  ]
+}
