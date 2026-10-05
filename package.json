@@ -1,0 +1,12 @@
+{
+  "name": "keyed-serial-queue",
+  "version": "1.0.0",
+  "description": "Per-key serial task queue: parallel across keys, serial within a key",
+  "type": "commonjs",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
