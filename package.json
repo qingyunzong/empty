@@ -1,0 +1,11 @@
+{
+  "name": "thermal-scheduler",
+  "version": "1.0.0",
+  "description": "Thermal-aware single-machine task scheduler CLI with exhaustive verification",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/scheduler.test.js"
+  },
+  "license": "MIT"
+}

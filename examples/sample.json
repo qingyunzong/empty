@@ -1,0 +1,13 @@
+{
+  "maxTemp": 20,
+  "coolingRate": 2,
+  "initialTemp": 0,
+  "maxTicks": 50,
+  "tasks": [
+    { "id": "t1", "duration": 3, "heat": 4, "deadline": 12 },
+    { "id": "t2", "duration": 2, "heat": 6, "deadline": 18 },
+    { "id": "t3", "duration": 4, "heat": 3, "deadline": 30 },
+    { "id": "t4", "duration": 2, "heat": 5, "deadline": 25 },
+    { "id": "t5", "duration": 3, "heat": 2, "deadline": 40 }
+  ]
+}
