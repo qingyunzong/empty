@@ -1,0 +1,12 @@
+{
+  "name": "mvcc-snapshot-isolation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "In-memory relational store with snapshot isolation (MVCC), zero runtime deps, Node built-in test runner",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
