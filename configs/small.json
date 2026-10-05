@@ -1,0 +1,13 @@
+{
+  "channels": [
+    { "id": "search", "budget": 12 },
+    { "id": "social", "budget": 9 }
+  ],
+  "exposureLowerBound": 8,
+  "groups": [
+    { "id": "g1", "channel": "search", "unitCost": 2, "unitExposure": 2, "revenue": [0, 6, 11, 15, 18, 20, 21, 22, 23, 24, 25] },
+    { "id": "g2", "channel": "search", "unitCost": 3, "unitExposure": 1, "revenue": [0, 9, 13, 16, 18, 19, 20, 21, 22, 23, 24] },
+    { "id": "g3", "channel": "social", "unitCost": 1, "unitExposure": 2, "revenue": [0, 4, 9, 13, 16, 18, 19, 20, 21, 22, 23] },
+    { "id": "g4", "channel": "social", "unitCost": 2, "unitExposure": 3, "revenue": [0, 5, 12, 14, 18, 19, 20, 21, 22, 23, 24] }
+  ]
+}

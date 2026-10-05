@@ -1,0 +1,323 @@
+{
+  "channels": [
+    {
+      "id": "search",
+      "budget": 60
+    },
+    {
+      "id": "social",
+      "budget": 45
+    },
+    {
+      "id": "video",
+      "budget": 50
+    }
+  ],
+  "exposureLowerBound": 40,
+  "groups": [
+    {
+      "id": "g01",
+      "channel": "search",
+      "unitCost": 3,
+      "unitExposure": 2,
+      "revenue": [
+        0,
+        9,
+        11,
+        14,
+        16,
+        21,
+        21,
+        21,
+        37,
+        36,
+        37
+      ]
+    },
+    {
+      "id": "g02",
+      "channel": "social",
+      "unitCost": 2,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        10,
+        11,
+        22,
+        24,
+        27,
+        28,
+        28,
+        33,
+        31,
+        34
+      ]
+    },
+    {
+      "id": "g03",
+      "channel": "video",
+      "unitCost": 3,
+      "unitExposure": 4,
+      "revenue": [
+        0,
+        9,
+        11,
+        10,
+        12,
+        15,
+        18,
+        18,
+        31,
+        31,
+        34
+      ]
+    },
+    {
+      "id": "g04",
+      "channel": "search",
+      "unitCost": 3,
+      "unitExposure": 3,
+      "revenue": [
+        0,
+        10,
+        15,
+        18,
+        20,
+        34,
+        37,
+        37,
+        40,
+        42,
+        44
+      ]
+    },
+    {
+      "id": "g05",
+      "channel": "social",
+      "unitCost": 5,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        13,
+        25,
+        26,
+        29,
+        33,
+        35,
+        35,
+        40,
+        39,
+        43
+      ]
+    },
+    {
+      "id": "g06",
+      "channel": "video",
+      "unitCost": 1,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        21,
+        26,
+        36,
+        44,
+        46,
+        49,
+        55,
+        59,
+        59,
+        63
+      ]
+    },
+    {
+      "id": "g07",
+      "channel": "search",
+      "unitCost": 4,
+      "unitExposure": 2,
+      "revenue": [
+        0,
+        8,
+        10,
+        12,
+        13,
+        16,
+        16,
+        22,
+        23,
+        25,
+        24
+      ]
+    },
+    {
+      "id": "g08",
+      "channel": "social",
+      "unitCost": 1,
+      "unitExposure": 4,
+      "revenue": [
+        0,
+        9,
+        11,
+        17,
+        16,
+        18,
+        25,
+        29,
+        30,
+        31,
+        30
+      ]
+    },
+    {
+      "id": "g09",
+      "channel": "video",
+      "unitCost": 4,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        7,
+        11,
+        11,
+        19,
+        20,
+        21,
+        25,
+        23,
+        26,
+        28
+      ]
+    },
+    {
+      "id": "g10",
+      "channel": "search",
+      "unitCost": 5,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        18,
+        25,
+        31,
+        32,
+        38,
+        42,
+        45,
+        54,
+        57,
+        59
+      ]
+    },
+    {
+      "id": "g11",
+      "channel": "social",
+      "unitCost": 2,
+      "unitExposure": 3,
+      "revenue": [
+        0,
+        12,
+        18,
+        24,
+        28,
+        34,
+        36,
+        39,
+        38,
+        40,
+        44
+      ]
+    },
+    {
+      "id": "g12",
+      "channel": "video",
+      "unitCost": 4,
+      "unitExposure": 2,
+      "revenue": [
+        0,
+        13,
+        14,
+        19,
+        22,
+        24,
+        39,
+        42,
+        42,
+        47,
+        47
+      ]
+    },
+    {
+      "id": "g13",
+      "channel": "search",
+      "unitCost": 2,
+      "unitExposure": 2,
+      "revenue": [
+        0,
+        19,
+        24,
+        31,
+        33,
+        39,
+        40,
+        58,
+        59,
+        61,
+        66
+      ]
+    },
+    {
+      "id": "g14",
+      "channel": "social",
+      "unitCost": 4,
+      "unitExposure": 3,
+      "revenue": [
+        0,
+        20,
+        27,
+        34,
+        39,
+        46,
+        51,
+        54,
+        58,
+        60,
+        64
+      ]
+    },
+    {
+      "id": "g15",
+      "channel": "video",
+      "unitCost": 3,
+      "unitExposure": 4,
+      "revenue": [
+        0,
+        21,
+        27,
+        43,
+        48,
+        53,
+        58,
+        63,
+        63,
+        66,
+        71
+      ]
+    },
+    {
+      "id": "g16",
+      "channel": "search",
+      "unitCost": 1,
+      "unitExposure": 1,
+      "revenue": [
+        0,
+        12,
+        18,
+        24,
+        26,
+        27,
+        31,
+        47,
+        48,
+        49,
+        50
+      ]
+    }
+  ]
+}

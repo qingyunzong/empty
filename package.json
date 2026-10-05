@@ -1,0 +1,16 @@
+{
+  "name": "ad-placement-planner",
+  "version": "1.0.0",
+  "description": "投放规划 CLI：至多 16 个广告组、整数投放量 0-10、分渠道预算与总曝光下限、非线性收益表，收益最大并列成本低，输出预算证书",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build --silent && node dist/test/solver.test.js",
+    "cli": "node dist/src/cli.js",
+    "sample": "npm run build --silent && node dist/src/cli.js sample"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
