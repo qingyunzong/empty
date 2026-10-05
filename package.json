@@ -1,0 +1,11 @@
+{
+  "name": "stage-orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stage-DAG test orchestration library with input-digest caching and atomic result publishing",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
