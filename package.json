@@ -1,0 +1,11 @@
+{
+  "name": "config-merge",
+  "version": "1.0.0",
+  "description": "Layered config merge: recursive objects, id-keyed arrays, explicit delete tombstones, provenance report",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/examples/three-layer.js"
+  }
+}
