@@ -1,0 +1,3 @@
+{"id":"e1","type":"measure","tool":"T1","order":"O1","op":"OP1","seg":"S1","length":40,"deps":[]}
+{"id":"e2","type":"cut","tool":"T1","order":"O1","op":"OP1","seg":"S1","length":30,"deps":["e1"]}
+{"id":"e3","type":"measure","tool":"T1","order":"O1","op":"OP1","seg":"S1","length":25,"deps":["e2"]}

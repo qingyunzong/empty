@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: test/budget-boundary.test.js
+ok 1 - test/budget-boundary.test.js
+  ---
+  duration_ms: 716.427469
+  type: 'test'
+  ...
+# Subtest: test/cli.test.js
+ok 2 - test/cli.test.js
+  ---
+  duration_ms: 732.428318
+  type: 'test'
+  ...
+# Subtest: test/conflict.test.js
+ok 3 - test/conflict.test.js
+  ---
+  duration_ms: 1045.974289
+  type: 'test'
+  ...
+# Subtest: test/locked-recovery.test.js
+ok 4 - test/locked-recovery.test.js
+  ---
+  duration_ms: 686.65556
+  type: 'test'
+  ...
+# Subtest: test/machine.test.js
+ok 5 - test/machine.test.js
+  ---
+  duration_ms: 646.547165
+  type: 'test'
+  ...
+# Subtest: test/undo.test.js
+ok 6 - test/undo.test.js
+  ---
+  duration_ms: 764.789559
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1148.152369

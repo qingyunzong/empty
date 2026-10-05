@@ -1,0 +1,13 @@
+{
+  "name": "tool-life-replay",
+  "version": "1.0.0",
+  "description": "Offline replay of machining tool-life events with layered budgets, causal guards and compensation",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "tool-life": "src/cli.js"
+  }
+}

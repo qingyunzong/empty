@@ -1,0 +1,6 @@
+{
+  "tools": { "T1": 100 },
+  "orders": { "O1": 1000 },
+  "operations": { "O1/OP1": 500 },
+  "segments": { "O1/OP1/S1": 200 }
+}
