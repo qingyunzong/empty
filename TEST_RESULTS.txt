@@ -1,0 +1,45 @@
+# go test ./... 实际结果
+
+日期: 2026-10-05 22:19:25 CST
+Go: go version go1.27.1 linux/amd64
+
+## go test ./... -count=1 -v
+```
+=== RUN   TestCaptureWithinBudgetKeepsEverything
+--- PASS: TestCaptureWithinBudgetKeepsEverything (0.00s)
+=== RUN   TestCaptureDropsMiddle
+--- PASS: TestCaptureDropsMiddle (0.00s)
+=== RUN   TestCaptureTailRingAcrossWrites
+--- PASS: TestCaptureTailRingAcrossWrites (0.00s)
+=== RUN   TestCaptureLargeSingleWrite
+--- PASS: TestCaptureLargeSingleWrite (0.00s)
+=== RUN   TestCaptureZeroAndTinyBudgets
+--- PASS: TestCaptureZeroAndTinyBudgets (0.00s)
+=== RUN   TestHelperProcess
+--- PASS: TestHelperProcess (0.00s)
+=== RUN   TestExecStarterExit
+--- PASS: TestExecStarterExit (0.01s)
+=== RUN   TestExecStarterTimeout
+--- PASS: TestExecStarterTimeout (0.10s)
+=== RUN   TestRunExitZero
+--- PASS: TestRunExitZero (0.00s)
+=== RUN   TestRunExitNonZero
+--- PASS: TestRunExitNonZero (0.00s)
+=== RUN   TestRunDrainsBeforeReturning
+--- PASS: TestRunDrainsBeforeReturning (0.11s)
+=== RUN   TestRunTimeout
+--- PASS: TestRunTimeout (0.05s)
+=== RUN   TestRunCanceled
+--- PASS: TestRunCanceled (0.05s)
+=== RUN   TestRunStreamBudgets
+--- PASS: TestRunStreamBudgets (0.00s)
+=== RUN   TestRunStartFailure
+--- PASS: TestRunStartFailure (0.00s)
+PASS
+ok  	executor	0.331s
+```
+
+## go test ./... -count=1 -race
+```
+ok  	executor	1.421s
+```
