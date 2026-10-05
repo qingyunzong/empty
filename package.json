@@ -1,0 +1,11 @@
+{
+  "name": "tag-stats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "按事件ID维护多维标签组合计数的统计库：原子更正、空标签区分缺失、<=4维任意投影、稀疏差分、全事件逐条投影核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
