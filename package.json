@@ -1,0 +1,11 @@
+{
+  "name": "test-explainer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "测试解释库: 断言失败时给出最小原因切片与可重放证据",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test \"dist/test/**/*.test.js\""
+  }
+}
