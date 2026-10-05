@@ -1,0 +1,12 @@
+{
+  "name": "oneof-validator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Schema validator (object/array/integer/$ref/oneOf) with an iterative engine cross-checked against a direct recursive model",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
