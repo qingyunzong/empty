@@ -1,0 +1,14 @@
+{
+  "name": "merge3",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Line-based three-way document merge CLI with reversible results",
+  "bin": {
+    "merge3": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
