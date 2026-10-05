@@ -1,0 +1,11 @@
+{
+  "name": "safetpl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "安全模板库：仅自有字段读取、拒绝原型链访问、循环/过滤步数预算、异常原子输出",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\""
+  }
+}
