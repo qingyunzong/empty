@@ -1,0 +1,11 @@
+{
+  "name": "sync-object-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "同步对象库：墓碑删除、阻塞引用、全副本确认 GC、乱序合并与快照释放验收",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
