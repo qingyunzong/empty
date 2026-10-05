@@ -1,0 +1,11 @@
+{
+  "name": "delta-merge-library",
+  "version": "1.0.0",
+  "description": "订阅合并库：版本差量接收、父缺失缓冲、多分支版本图、坏摘要隔离、乱序重放对照",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
