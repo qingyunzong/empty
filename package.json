@@ -1,0 +1,16 @@
+{
+  "name": "sample-qc-joiner",
+  "version": "1.0.0",
+  "description": "Event-time tumbling-window join of SAMPLE_ACQUIRED and QC_RESULT streams with durable state log",
+  "main": "index.js",
+  "bin": {
+    "sample-qc-joiner": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

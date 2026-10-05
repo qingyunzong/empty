@@ -1,0 +1,154 @@
+# test-results.txt
+# Recorded: 2026-10-05T11:26:07Z (UTC)
+# Command: node --test --test-reporter=spec
+# Node: v22.22.1
+
+## exit code
+0
+
+## stdout
+✔ test/cli.test.js (3898.217294ms)
+✔ test/joiner.test.js (221.97644ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3921.041908
+
+## stderr
+(empty)
+
+## detail: node test/joiner.test.js (exit code 0)
+TAP version 13
+# Subtest: joins out-of-order arrivals in the same window
+ok 1 - joins out-of-order arrivals in the same window
+  ---
+  duration_ms: 4.328286
+  type: 'test'
+  ...
+# Subtest: does not join events in different windows
+ok 2 - does not join events in different windows
+  ---
+  duration_ms: 0.85891
+  type: 'test'
+  ...
+# Subtest: retract before close cascades WITHDRAW and re-judges at watermark
+ok 3 - retract before close cascades WITHDRAW and re-judges at watermark
+  ---
+  duration_ms: 0.333971
+  type: 'test'
+  ...
+# Subtest: retract then re-upsert re-joins before close
+ok 4 - retract then re-upsert re-joins before close
+  ---
+  duration_ms: 0.93403
+  type: 'test'
+  ...
+# Subtest: retract of unjoined side emits nothing
+ok 5 - retract of unjoined side emits nothing
+  ---
+  duration_ms: 0.989931
+  type: 'test'
+  ...
+# Subtest: unknown retract throws UNKNOWN_RETRACT
+ok 6 - unknown retract throws UNKNOWN_RETRACT
+  ---
+  duration_ms: 2.385836
+  type: 'test'
+  ...
+# Subtest: events after window close are LATE
+ok 7 - events after window close are LATE
+  ---
+  duration_ms: 0.85499
+  type: 'test'
+  ...
+# Subtest: watermark expires multiple unmatched sides in sorted order
+ok 8 - watermark expires multiple unmatched sides in sorted order
+  ---
+  duration_ms: 0.811925
+  type: 'test'
+  ...
+# Subtest: non-monotonic watermark is a no-op
+ok 9 - non-monotonic watermark is a no-op
+  ---
+  duration_ms: 0.564796
+  type: 'test'
+  ...
+# Subtest: validateRecord rejects malformed input
+ok 10 - validateRecord rejects malformed input
+  ---
+  duration_ms: 1.468109
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 37.964586
+
+## detail: node test/cli.test.js (exit code 0)
+TAP version 13
+# Subtest: clean run: out-of-order join, withdraw cascade, expire, late
+ok 1 - clean run: out-of-order join, withdraw cascade, expire, late
+  ---
+  duration_ms: 161.740372
+  type: 'test'
+  ...
+# Subtest: crash after Nth record, recovery output matches clean run exactly
+ok 2 - crash after Nth record, recovery output matches clean run exactly
+  ---
+  duration_ms: 2102.613598
+  type: 'test'
+  ...
+# Subtest: recovery without prior crash replays nothing new
+ok 3 - recovery without prior crash replays nothing new
+  ---
+  duration_ms: 328.21523
+  type: 'test'
+  ...
+# Subtest: malformed input exits 2 with MALFORMED on stderr
+ok 4 - malformed input exits 2 with MALFORMED on stderr
+  ---
+  duration_ms: 190.158786
+  type: 'test'
+  ...
+# Subtest: unknown retract exits 2 with UNKNOWN_RETRACT
+ok 5 - unknown retract exits 2 with UNKNOWN_RETRACT
+  ---
+  duration_ms: 181.75366
+  type: 'test'
+  ...
+# Subtest: corrupt state log exits 2 with DURABLE_STATE_CORRUPT
+ok 6 - corrupt state log exits 2 with DURABLE_STATE_CORRUPT
+  ---
+  duration_ms: 158.891578
+  type: 'test'
+  ...
+# Subtest: recover with missing state log exits 2 with DURABLE_STATE_CORRUPT
+ok 7 - recover with missing state log exits 2 with DURABLE_STATE_CORRUPT
+  ---
+  duration_ms: 167.730576
+  type: 'test'
+  ...
+# Subtest: missing --state exits 2 with MALFORMED
+ok 8 - missing --state exits 2 with MALFORMED
+  ---
+  duration_ms: 168.845455
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3471.660219
