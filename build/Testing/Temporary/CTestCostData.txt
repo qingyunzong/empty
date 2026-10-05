@@ -1,0 +1,9 @@
+bigint_model 2 0.0198267
+orient_basic 3 0.00248374
+orient_degenerate_id 3 0.00253717
+orient_near_collinear 3 0.00204026
+orient_fuzz 3 0.0628356
+incircle_basic 3 0.00201076
+incircle_near_cocircular 2 0.00260807
+incircle_fuzz 3 0.157469
+---

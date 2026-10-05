@@ -1,0 +1,133 @@
+Start testing: Oct 05 11:45 CST
+----------------------------------------------------------
+1/8 Testing: bigint_model
+1/8 Test: bigint_model
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "bigint_model"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"bigint_model" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+bigint_model: OK
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"bigint_model" end time: Oct 05 11:45 CST
+"bigint_model" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: orient_basic
+2/8 Test: orient_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "orient_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"orient_basic" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+orient_basic: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"orient_basic" end time: Oct 05 11:45 CST
+"orient_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: orient_degenerate_id
+3/8 Test: orient_degenerate_id
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "orient_degenerate_id"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"orient_degenerate_id" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+orient_degenerate_id: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"orient_degenerate_id" end time: Oct 05 11:45 CST
+"orient_degenerate_id" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: orient_near_collinear
+4/8 Test: orient_near_collinear
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "orient_near_collinear"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"orient_near_collinear" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+orient_near_collinear: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"orient_near_collinear" end time: Oct 05 11:45 CST
+"orient_near_collinear" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: orient_fuzz
+5/8 Test: orient_fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "orient_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"orient_fuzz" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+orient fuzz: 1/200000 cases used the exact branch
+orient_fuzz: OK
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"orient_fuzz" end time: Oct 05 11:45 CST
+"orient_fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: incircle_basic
+6/8 Test: incircle_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "incircle_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"incircle_basic" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+incircle_basic: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_basic" end time: Oct 05 11:45 CST
+"incircle_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: incircle_near_cocircular
+7/8 Test: incircle_near_cocircular
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "incircle_near_cocircular"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"incircle_near_cocircular" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+incircle_near_cocircular: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_near_cocircular" end time: Oct 05 11:45 CST
+"incircle_near_cocircular" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: incircle_fuzz
+8/8 Test: incircle_fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/test_predicates" "incircle_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build
+"incircle_fuzz" start time: Oct 05 11:45 CST
+Output:
+----------------------------------------------------------
+incircle fuzz: 0/100000 cases used the exact branch
+incircle_fuzz: OK
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Passed.
+"incircle_fuzz" end time: Oct 05 11:45 CST
+"incircle_fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 05 11:45 CST

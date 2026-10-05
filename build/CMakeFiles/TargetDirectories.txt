@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/CMakeFiles/geom.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/CMakeFiles/test_predicates.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/d3260ace7abc46d99ff6b27091729e22/run/B/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir
