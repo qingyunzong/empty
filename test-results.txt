@@ -1,0 +1,63 @@
+# Test results (recorded 2026-10-05, go1.27.1 linux/amd64)
+
+Note: the default GOCACHE (~/.cache/go-build) is read-only in this sandbox,
+so the run uses GOCACHE=/tmp/gocache-dirdiff. With a writable cache, plain
+`go test ./...` passes identically (verified earlier in the same session).
+
+$ GOCACHE=/tmp/gocache-dirdiff go test ./... -v
+=== RUN   TestPermutationAcceptance
+=== RUN   TestPermutationAcceptance/n=1
+    diff_test.go:162: verified 1 permutations
+=== RUN   TestPermutationAcceptance/n=2
+    diff_test.go:162: verified 2 permutations
+=== RUN   TestPermutationAcceptance/n=3
+    diff_test.go:162: verified 6 permutations
+=== RUN   TestPermutationAcceptance/n=4
+    diff_test.go:162: verified 24 permutations
+=== RUN   TestPermutationAcceptance/n=5
+    diff_test.go:162: verified 120 permutations
+=== RUN   TestPermutationAcceptance/n=6
+    diff_test.go:162: verified 720 permutations
+=== RUN   TestPermutationAcceptance/n=7
+    diff_test.go:162: verified 5040 permutations
+=== RUN   TestPermutationAcceptance/n=8
+    diff_test.go:162: verified 554 permutations
+=== RUN   TestPermutationAcceptance/n=9
+    diff_test.go:162: verified 559 permutations
+=== RUN   TestPermutationAcceptance/n=10
+    diff_test.go:162: verified 569 permutations
+=== RUN   TestPermutationAcceptance/n=11
+    diff_test.go:162: verified 580 permutations
+=== RUN   TestPermutationAcceptance/n=12
+    diff_test.go:162: verified 591 permutations
+--- PASS: TestPermutationAcceptance (0.20s)
+    --- PASS: TestPermutationAcceptance/n=1 (0.00s)
+    --- PASS: TestPermutationAcceptance/n=2 (0.00s)
+    --- PASS: TestPermutationAcceptance/n=3 (0.00s)
+    --- PASS: TestPermutationAcceptance/n=4 (0.00s)
+    --- PASS: TestPermutationAcceptance/n=5 (0.00s)
+    --- PASS: TestPermutationAcceptance/n=6 (0.01s)
+    --- PASS: TestPermutationAcceptance/n=7 (0.10s)
+    --- PASS: TestPermutationAcceptance/n=8 (0.01s)
+    --- PASS: TestPermutationAcceptance/n=9 (0.02s)
+    --- PASS: TestPermutationAcceptance/n=10 (0.01s)
+    --- PASS: TestPermutationAcceptance/n=11 (0.02s)
+    --- PASS: TestPermutationAcceptance/n=12 (0.02s)
+=== RUN   TestSwapCycleUsesTemp
+--- PASS: TestSwapCycleUsesTemp (0.00s)
+=== RUN   TestChainMoveOrder
+--- PASS: TestChainMoveOrder (0.00s)
+=== RUN   TestDeleteBeforeCreateOnSamePath
+--- PASS: TestDeleteBeforeCreateOnSamePath (0.00s)
+=== RUN   TestDeleteDepthOrder
+--- PASS: TestDeleteDepthOrder (0.00s)
+=== RUN   TestInverseChecksTargetVersion
+--- PASS: TestInverseChecksTargetVersion (0.00s)
+=== RUN   TestApplyRejectsOccupiedDestination
+--- PASS: TestApplyRejectsOccupiedDestination (0.00s)
+=== RUN   TestEmptyDiff
+--- PASS: TestEmptyDiff (0.00s)
+=== RUN   TestMoveNotDeleteCreate
+--- PASS: TestMoveNotDeleteCreate (0.00s)
+PASS
+ok  	dirdiff	0.207s
