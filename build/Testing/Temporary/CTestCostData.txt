@@ -1,0 +1,8 @@
+quantize 4 0.00160231
+identity 4 0.00274587
+chunk_invariance 3 0.00755385
+zero_tail 4 0.00237642
+impulse_delay 4 0.00191512
+saturation 4 0.00134557
+guards 4 0.00197048
+---

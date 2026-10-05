@@ -1,0 +1,2 @@
+/usr/bin/ar qc libresampler.a CMakeFiles/resampler.dir/src/resampler.cpp.o
+/usr/bin/ranlib libresampler.a

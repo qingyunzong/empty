@@ -1,0 +1,20 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[quantize]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "quantize")
+set_tests_properties([=[quantize]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[identity]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "identity")
+set_tests_properties([=[identity]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[chunk_invariance]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "chunk_invariance")
+set_tests_properties([=[chunk_invariance]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[zero_tail]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "zero_tail")
+set_tests_properties([=[zero_tail]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[impulse_delay]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "impulse_delay")
+set_tests_properties([=[impulse_delay]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[saturation]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "saturation")
+set_tests_properties([=[saturation]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")
+add_test([=[guards]=] "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "guards")
+set_tests_properties([=[guards]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/CMakeLists.txt;0;")

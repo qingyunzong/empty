@@ -1,0 +1,128 @@
+Start testing: Oct 06 01:45 CST
+----------------------------------------------------------
+1/7 Testing: quantize
+1/7 Test: quantize
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "quantize"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"quantize" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[quantize] 18 cases checked
+quantize: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"quantize" end time: Oct 06 01:45 CST
+"quantize" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: identity
+2/7 Test: identity
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "identity"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"identity" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[identity] 500 samples, out==in: yes
+identity: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"identity" end time: Oct 06 01:45 CST
+"identity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: chunk_invariance
+3/7 Test: chunk_invariance
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "chunk_invariance"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"chunk_invariance" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[chunk] rate=3/2 outputs=1557 checksum=5959565895624343526 all 7 chunkings identical
+[chunk] rate=2/3 outputs=687 checksum=17361218614946378932 all 7 chunkings identical
+[chunk] rate=1/4 outputs=252 checksum=3555165965718977980 all 7 chunkings identical
+[chunk] rate=4/1 outputs=4168 checksum=9181217459282374587 all 7 chunkings identical
+[chunk] rate=5/7 outputs=746 checksum=7390644574630206809 all 7 chunkings identical
+[chunk] rate=7/5 outputs=1466 checksum=1173901895713654630 all 7 chunkings identical
+[chunk] rate=1/1 outputs=1007 checksum=6709074136924627476 all 7 chunkings identical
+chunk_invariance: PASS
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"chunk_invariance" end time: Oct 06 01:45 CST
+"chunk_invariance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: zero_tail
+4/7 Test: zero_tail
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "zero_tail"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"zero_tail" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[zero_tail] counts z=0:440 z=5:447 z=40:500 prefix+reference ok
+zero_tail: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"zero_tail" end time: Oct 06 01:45 CST
+"zero_tail" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: impulse_delay
+5/7 Test: impulse_delay
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "impulse_delay"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"impulse_delay" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[impulse] peak at output 3 amplitude 4000 total outputs 366 identical across chunkings
+impulse_delay: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"impulse_delay" end time: Oct 06 01:45 CST
+"impulse_delay" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: saturation
+6/7 Test: saturation
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "saturation"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"saturation" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[saturation] 40000->32767, -40000->-32768, boundary 16384*-2=-32768 ok
+saturation: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"saturation" end time: Oct 06 01:45 CST
+"saturation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: guards
+7/7 Test: guards
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build/test_resampler" "guards"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/84e857f336ce46d5ba023b290431db02/run/B/attempt-005/workspace/build
+"guards" start time: Oct 06 01:45 CST
+Output:
+----------------------------------------------------------
+[guards] process-after-finish, double-finish, invalid-args all throw
+guards: PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"guards" end time: Oct 06 01:45 CST
+"guards" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 01:45 CST
