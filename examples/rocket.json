@@ -1,0 +1,13 @@
+{
+  "bits": 4,
+  "initial": 1,
+  "goal": { "requireMask": 13, "forbidMask": 2 },
+  "resources": { "fuel": 3 },
+  "actions": [
+    { "name": "fly-out", "requireMask": 1, "forbidMask": 2, "setMask": 2, "clearMask": 1, "cost": { "fuel": 1 } },
+    { "name": "fly-back", "requireMask": 2, "setMask": 1, "clearMask": 2, "cost": { "fuel": 1 } },
+    { "name": "plant-flag", "requireMask": 2, "forbidMask": 4, "setMask": 4 },
+    { "name": "take-photo", "requireMask": 2, "forbidMask": 8, "setMask": 8,
+      "cond": [ { "requireMask": 4, "setMask": 8 } ] }
+  ]
+}

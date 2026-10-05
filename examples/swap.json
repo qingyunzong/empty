@@ -1,0 +1,15 @@
+{
+  "bits": 2,
+  "initial": 1,
+  "goal": { "requireMask": 2, "forbidMask": 1 },
+  "actions": [
+    {
+      "name": "swap",
+      "cond": [
+        { "requireMask": 1, "setMask": 2, "clearMask": 1 },
+        { "requireMask": 2, "setMask": 1, "clearMask": 2 }
+      ]
+    },
+    { "name": "nop-set-0", "setMask": 1 }
+  ]
+}

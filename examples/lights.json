@@ -1,0 +1,12 @@
+{
+  "bits": 4,
+  "initial": 0,
+  "goal": { "requireMask": 15 },
+  "actions": [
+    { "name": "switch-0", "setMask": 1 },
+    { "name": "switch-1", "requireMask": 1, "setMask": 2 },
+    { "name": "switch-2", "requireMask": 2, "setMask": 4 },
+    { "name": "switch-3", "requireMask": 4, "setMask": 8 },
+    { "name": "reset", "clearMask": 15 }
+  ]
+}
