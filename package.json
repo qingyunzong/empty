@@ -1,0 +1,11 @@
+{
+  "name": "collab-tree-merge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "协作树三方合并：按节点 ID 合并父指针变动，检测并解除组合环，保留墓碑子树",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
