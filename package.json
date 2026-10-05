@@ -1,0 +1,11 @@
+{
+  "name": "indent-tree",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental space-indentation syntax tree for editors (Tab rejected, blank lines stack-neutral).",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
