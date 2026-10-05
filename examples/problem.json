@@ -1,0 +1,15 @@
+{
+  "berth_length": 200,
+  "step": 30,
+  "tides": [
+    {"start": 1080, "end": 1620},
+    {"start": 1860, "end": 2160}
+  ],
+  "ships": [
+    {"id": "Aurora",  "length": 120, "arrival": 1110, "duration": 120},
+    {"id": "Boreal",  "length": 90,  "arrival": 1140, "duration": 90},
+    {"id": "Cygnus",  "length": 150, "arrival": 1230, "duration": 150},
+    {"id": "Dorado",  "length": 60,  "arrival": 1300, "duration": 60},
+    {"id": "Eridani", "length": 200, "arrival": 1830, "duration": 180}
+  ]
+}
