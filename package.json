@@ -1,0 +1,11 @@
+{
+  "name": "line-sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "产线模拟库：机器消耗输入并产出，输出仓满持成品阻塞，故障暂停续行，逐tick物料守恒核对",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
