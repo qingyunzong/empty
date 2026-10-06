@@ -1,0 +1,14 @@
+{
+  "name": "crdt-counter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Per-replica PN-Counter CRDT: component-wise max merge, inverse-op undo, restart generations, bigint math",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/test/counter.test.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
