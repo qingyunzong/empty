@@ -1,0 +1,11 @@
+{
+  "name": "script-splitter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Split scripts on top-level semicolons, respecting strings, comments and template interpolations.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
