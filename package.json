@@ -1,0 +1,16 @@
+{
+  "name": "upgrade-planner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "差量包升级路径规划 CLI：空间限制下总下载量最小、包 ID 序列字典序最小，输出逐步空间证书",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build --silent && node --test dist/test/*.test.js",
+    "plan": "npm run build --silent && node dist/src/main.js plan",
+    "start": "node dist/src/main.js"
+  }
+}

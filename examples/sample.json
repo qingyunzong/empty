@@ -1,0 +1,14 @@
+{
+  "source": "v1.0",
+  "target": "v2.0",
+  "spaceLimitBytes": 512,
+  "packages": [
+    { "id": "delta-ab", "from": "v1.0", "to": "v1.1", "bytes": 300 },
+    { "id": "delta-bd", "from": "v1.1", "to": "v2.0", "bytes": 400 },
+    { "id": "delta-ac", "from": "v1.0", "to": "v1.5", "bytes": 200 },
+    { "id": "delta-cd", "from": "v1.5", "to": "v2.0", "bytes": 250 },
+    { "id": "delta-ad", "from": "v1.0", "to": "v2.0", "bytes": 480 },
+    { "id": "delta-ax", "from": "v1.0", "to": "v9.9", "bytes": 100 },
+    { "id": "delta-xd", "from": "v9.9", "to": "v2.0", "bytes": 600 }
+  ]
+}
