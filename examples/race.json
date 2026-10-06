@@ -1,0 +1,17 @@
+{
+  "shared": { "x": 0 },
+  "threads": [
+    [
+      { "op": "read", "shared": "x", "into": "t" },
+      { "op": "add", "local": "t", "value": 1 },
+      { "op": "write", "shared": "x", "from": { "local": "t" } }
+    ],
+    [
+      { "op": "read", "shared": "x", "into": "t" },
+      { "op": "add", "local": "t", "value": 1 },
+      { "op": "write", "shared": "x", "from": { "local": "t" } }
+    ]
+  ],
+  "schedule": [0, 1, 1, 1, 0, 0],
+  "maxSteps": 20
+}

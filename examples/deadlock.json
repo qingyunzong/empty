@@ -1,0 +1,18 @@
+{
+  "threads": [
+    [
+      { "op": "lock", "lock": "A" },
+      { "op": "lock", "lock": "B" },
+      { "op": "unlock", "lock": "B" },
+      { "op": "unlock", "lock": "A" }
+    ],
+    [
+      { "op": "lock", "lock": "B" },
+      { "op": "lock", "lock": "A" },
+      { "op": "unlock", "lock": "A" },
+      { "op": "unlock", "lock": "B" }
+    ]
+  ],
+  "schedule": [0, 1],
+  "maxSteps": 20
+}
