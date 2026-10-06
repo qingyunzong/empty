@@ -1,0 +1,12 @@
+{
+  "name": "indexed-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Transactional indexed row store with unique-key batch swap, post-commit reentrant subscriptions and replica index-model verification",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
