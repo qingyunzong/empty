@@ -1,0 +1,7 @@
+# Adding 100 wraps mod 256 (orbit of 64 values). The loop head
+# over-approximates to the full [0,255] once > 4 segments would be needed.
+x = 0
+loop:
+x = x + 100
+if x != 0 goto loop
+halt

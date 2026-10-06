@@ -1,0 +1,6 @@
+# Wrapping subtraction: 10, 7, 4, 1, then 1-3 wraps to 254 and stops.
+x = 10
+loop:
+x = x - 3
+if x < 200 goto loop
+halt

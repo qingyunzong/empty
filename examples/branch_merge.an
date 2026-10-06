@@ -1,0 +1,14 @@
+# After the count-up loop, x in [100,102] abstractly, so both arms of
+# the second conditional are reachable in the abstract. At 'done',
+# y over-approximates to [5,5] U [200,200] (two segments kept).
+x = 0
+loop:
+x = x + 3
+if x < 100 goto loop
+if x >= 101 goto big
+y = 5
+goto done
+big:
+y = 200
+done:
+halt

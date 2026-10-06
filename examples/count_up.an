@@ -1,0 +1,6 @@
+# Counts 0,3,6,... until x >= 100. Exit set should be [100,102].
+x = 0
+loop:
+x = x + 3
+if x < 100 goto loop
+halt
