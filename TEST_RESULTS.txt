@@ -1,0 +1,38 @@
+== go version ==
+go version go1.27.1 linux/amd64
+
+== go vet ./... ==
+vet: OK
+
+== go test ./... -count=1 -v ==
+=== RUN   TestTreapStructureAndSharing
+--- PASS: TestTreapStructureAndSharing (0.00s)
+=== RUN   TestRandomBatchesAgainstNaiveModel
+--- PASS: TestRandomBatchesAgainstNaiveModel (0.47s)
+=== RUN   TestVerifyHullRejectsBadHulls
+--- PASS: TestVerifyHullRejectsBadHulls (0.00s)
+=== RUN   TestHullDegenerate
+--- PASS: TestHullDegenerate (0.00s)
+=== RUN   TestHullAllCollinear
+--- PASS: TestHullAllCollinear (0.00s)
+=== RUN   TestHullDropsCollinearEdgePoints
+--- PASS: TestHullDropsCollinearEdgePoints (0.00s)
+=== RUN   TestHullCCWFromLexMin
+--- PASS: TestHullCCWFromLexMin (0.00s)
+=== RUN   TestArea2Triangle
+--- PASS: TestArea2Triangle (0.00s)
+=== RUN   TestDuplicateCoordinatesGroupedByID
+--- PASS: TestDuplicateCoordinatesGroupedByID (0.00s)
+=== RUN   TestLayersGrid
+--- PASS: TestLayersGrid (0.00s)
+=== RUN   TestInteriorCorrectionChangesAllLayers
+--- PASS: TestInteriorCorrectionChangesAllLayers (0.00s)
+=== RUN   TestSnapshotPersistenceAndBranching
+--- PASS: TestSnapshotPersistenceAndBranching (0.00s)
+=== RUN   TestAddReplacesExistingID
+--- PASS: TestAddReplacesExistingID (0.00s)
+PASS
+ok  	geom	0.476s
+
+== go test ./... -race -count=1 ==
+ok  	geom	5.967s
