@@ -1,0 +1,12 @@
+{
+  "name": "argmerge",
+  "version": "1.0.0",
+  "description": "Layered argument library: merges defaults, config and CLI with source tracking",
+  "type": "module",
+  "main": "dist/src/args.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  },
+  "license": "MIT"
+}
