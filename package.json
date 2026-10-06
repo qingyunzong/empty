@@ -1,0 +1,13 @@
+{
+  "name": "export-linker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Module export linker: merges explicit exports, star exports and aliases with fixed-point resolution over cyclic module graphs.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\"",
+    "link": "node dist/src/cli.js"
+  },
+  "devDependencies": {}
+}
