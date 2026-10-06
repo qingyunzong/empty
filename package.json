@@ -1,0 +1,10 @@
+{
+  "name": "diff-harness",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Differential testing harness: drives two implementations with the same op sequence under a deterministic scheduler",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
