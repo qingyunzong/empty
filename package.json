@@ -1,0 +1,11 @@
+{
+  "name": "lazy-shared-eval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Integer expression evaluator with shared lazy let-bindings, black-hole detection, failure caching, observable forcing order and evaluation budget.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
