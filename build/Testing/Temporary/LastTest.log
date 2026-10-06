@@ -1,0 +1,130 @@
+Start testing: Oct 07 04:26 CST
+----------------------------------------------------------
+1/6 Testing: unit
+1/6 Test: unit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/test_analysis"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"unit" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+all unit checks passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unit" end time: Oct 07 04:26 CST
+"unit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: cli_nested
+2/6 Test: cli_nested
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/loopfind" "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/tests/data/nested.cfg"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"cli_nested" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+graph: nodes=6 edges=7 entry=0
+reachable: 6/6
+back-edge: 3 -> 2
+back-edge: 4 -> 1
+natural-loop header=1 latches={4} body={1 2 3 4}
+  natural-loop header=2 latches={3} body={2 3}
+irreducible-loop: none
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[  natural-loop header=2]
+"cli_nested" end time: Oct 07 04:26 CST
+"cli_nested" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: cli_irreducible
+3/6 Test: cli_irreducible
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/loopfind" "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/tests/data/irreducible.cfg"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"cli_irreducible" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+graph: nodes=4 edges=6 entry=0
+reachable: 4/4
+back-edge: none
+natural-loop: none
+irreducible-loop entries={1 2} nodes={1 2}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[irreducible-loop entries={1 2}]
+"cli_irreducible" end time: Oct 07 04:26 CST
+"cli_irreducible" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: cli_multi_backedge
+4/6 Test: cli_multi_backedge
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/loopfind" "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/tests/data/multi_backedge.cfg"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"cli_multi_backedge" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+graph: nodes=5 edges=6 entry=0
+reachable: 5/5
+back-edge: 2 -> 1
+back-edge: 3 -> 1
+natural-loop header=1 latches={2 3} body={1 2 3}
+irreducible-loop: none
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[latches={2 3}]
+"cli_multi_backedge" end time: Oct 07 04:26 CST
+"cli_multi_backedge" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: cli_split
+5/6 Test: cli_split
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/loopfind" "--split" "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/tests/data/irreducible.cfg"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"cli_split" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+graph: nodes=4 edges=6 entry=0
+reachable: 4/4
+back-edge: none
+natural-loop: none
+irreducible-loop entries={1 2} nodes={1 2}
+split graph: nodes=6 edges=10 entry=0
+split reachable: 6/6
+split back-edge: 2 -> 1
+split back-edge: 4 -> 5
+split natural-loop header=1 latches={2} body={1 2}
+split natural-loop header=5 latches={4} body={4 5}
+split irreducible-loop: none
+input-unchanged: yes
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[input-unchanged: yes]
+"cli_split" end time: Oct 07 04:26 CST
+"cli_split" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: cli_missing_file
+6/6 Test: cli_missing_file
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build/loopfind" "does-not-exist.cfg"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c780d111e2fb41d28d4eaaac20318c53/run/B/attempt-002/workspace/build
+"cli_missing_file" start time: Oct 07 04:26 CST
+Output:
+----------------------------------------------------------
+loopfind: cannot open 'does-not-exist.cfg'
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cli_missing_file" end time: Oct 07 04:26 CST
+"cli_missing_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 04:26 CST

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcfg.a CMakeFiles/cfg.dir/src/graph.cpp.o CMakeFiles/cfg.dir/src/analysis.cpp.o
+/usr/bin/ranlib libcfg.a

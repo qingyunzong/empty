@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/loopfind.dir/link.d CMakeFiles/loopfind.dir/src/main.cpp.o -o loopfind  libcfg.a
