@@ -1,0 +1,11 @@
+{
+  "name": "rule-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rule expression parser and short-circuit evaluator (&&, ||, !, comparisons, parentheses, bigint numbers)",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
