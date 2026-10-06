@@ -1,0 +1,12 @@
+{
+  "name": "scoped-event-bus",
+  "version": "1.0.0",
+  "description": "Event bus with snapshot publish semantics, scoped in-flight tracking and publish-tree error aggregation",
+  "type": "module",
+  "main": "dist/src/event-bus.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
