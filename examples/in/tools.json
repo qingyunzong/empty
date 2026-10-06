@@ -1,0 +1,6 @@
+{
+  "tools": [
+    { "tool_id": "T1", "max_life": 100, "materials": { "steel": 2, "aluminum": 1 } },
+    { "tool_id": "T2", "max_life": 50, "materials": { "steel": 5 } }
+  ]
+}

@@ -1,0 +1,6 @@
+{"op_id": "op-1", "type": "setup", "tool_id": "T1"}
+{"op_id": "op-2", "type": "cut", "tool_id": "T1", "material": "steel", "units": 10}
+{"op_id": "op-3", "type": "cut", "tool_id": "T1", "material": "aluminum", "units": 5}
+{"op_id": "op-4", "type": "regrind", "tool_id": "T1", "amount": 8}
+{"op_id": "op-5", "type": "cut", "tool_id": "T2", "material": "steel", "units": 11}
+{"op_id": "op-6", "type": "cut", "tool_id": "T2", "material": "steel", "units": 1}

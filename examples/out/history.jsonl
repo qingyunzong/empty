@@ -1,0 +1,9 @@
+{"seq":1,"kind":"op","op_id":"op-1","type":"setup","tool_id":"T1","result":"applied","remaining_after":100}
+{"seq":2,"kind":"op","op_id":"op-2","type":"cut","tool_id":"T1","result":"applied","material":"steel","units":10,"coefficient":2,"deducted":20,"remaining_after":80}
+{"seq":3,"kind":"op","op_id":"op-3","type":"cut","tool_id":"T1","result":"applied","material":"aluminum","units":5,"coefficient":1,"deducted":5,"remaining_after":75}
+{"seq":4,"kind":"op","op_id":"op-4","type":"regrind","tool_id":"T1","result":"applied","requested":8,"restored":8,"remaining_after":83}
+{"seq":5,"kind":"op","op_id":"op-5","type":"cut","tool_id":"T2","result":"applied","material":"steel","units":11,"coefficient":5,"deducted":55,"remaining_after":-5,"flag":"OVERUSE"}
+{"seq":6,"kind":"op","op_id":"op-6","type":"cut","tool_id":"T2","result":"rejected","reason":"tool OVERUSE: cut forbidden until regrind or setup (replace)","remaining_after":-5}
+{"seq":7,"kind":"undo","undo_id":"u-1","op_id":"op-2","tool_id":"T1","result":"compensated","compensate_op_id":"comp:u-1","blocked_by":["op-3","op-4"]}
+{"seq":8,"kind":"compensate_op","op_id":"comp:u-1","tool_id":"T1","reverses":"op-2","amount":20,"remaining_after":103}
+{"seq":9,"kind":"undo","undo_id":"u-1","op_id":"op-2","result":"noop","reason":"duplicate undo_id"}

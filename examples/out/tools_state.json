@@ -1,0 +1,16 @@
+{
+  "tools": {
+    "T1": {
+      "tool_id": "T1",
+      "max_life": 100,
+      "remaining_life": 103,
+      "status": "OK"
+    },
+    "T2": {
+      "tool_id": "T2",
+      "max_life": 50,
+      "remaining_life": -5,
+      "status": "OVERUSE"
+    }
+  }
+}
