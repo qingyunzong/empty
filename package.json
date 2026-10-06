@@ -1,0 +1,11 @@
+{
+  "name": "permission-merge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Causal (vector-clock) remove-wins permission merge library for replicated systems",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  }
+}
