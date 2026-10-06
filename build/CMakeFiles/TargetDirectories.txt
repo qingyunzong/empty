@@ -1,0 +1,10 @@
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/linklib.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_basic.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_conflicts.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_weak.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_gc.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_circular.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test_oracle.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/CMakeFiles/rebuild_cache.dir

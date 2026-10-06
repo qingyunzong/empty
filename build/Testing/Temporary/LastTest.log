@@ -1,0 +1,99 @@
+Start testing: Oct 06 21:10 CST
+----------------------------------------------------------
+1/6 Testing: basic
+1/6 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"basic" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_basic: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 06 21:10 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: conflicts
+2/6 Test: conflicts
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_conflicts"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"conflicts" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_conflicts: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"conflicts" end time: Oct 06 21:10 CST
+"conflicts" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: weak
+3/6 Test: weak
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_weak"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"weak" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_weak: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"weak" end time: Oct 06 21:10 CST
+"weak" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: gc
+4/6 Test: gc
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_gc"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"gc" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_gc: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"gc" end time: Oct 06 21:10 CST
+"gc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: circular
+5/6 Test: circular
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_circular"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"circular" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_circular: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"circular" end time: Oct 06 21:10 CST
+"circular" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: oracle
+6/6 Test: oracle
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build/test_oracle"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b86daf711c9e4d6c95aed7ac81bc00e0/run/A/attempt-009/workspace/build
+"oracle" start time: Oct 06 21:10 CST
+Output:
+----------------------------------------------------------
+test_oracle: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"oracle" end time: Oct 06 21:10 CST
+"oracle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 21:10 CST

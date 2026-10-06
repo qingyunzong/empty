@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_conflicts.dir/link.d CMakeFiles/test_conflicts.dir/tests/test_conflicts.cpp.o -o test_conflicts  liblinklib.a

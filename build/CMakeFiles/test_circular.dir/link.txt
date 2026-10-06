@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_circular.dir/link.d CMakeFiles/test_circular.dir/tests/test_circular.cpp.o -o test_circular  liblinklib.a

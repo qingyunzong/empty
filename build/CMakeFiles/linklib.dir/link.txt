@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblinklib.a CMakeFiles/linklib.dir/src/linker.cpp.o CMakeFiles/linklib.dir/src/interpreter.cpp.o
+/usr/bin/ranlib liblinklib.a
