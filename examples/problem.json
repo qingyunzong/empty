@@ -1,0 +1,19 @@
+{
+  "users": 8,
+  "tiers": [
+    { "r1": 3, "r2": 2, "benefit": 4 },
+    { "r1": 5, "r2": 4, "benefit": 9 },
+    { "r1": 8, "r2": 6, "benefit": 15 }
+  ],
+  "budget1": 24,
+  "budget2": 18,
+  "pairBonuses": [
+    { "i": 0, "j": 1, "a": 2, "b": 2, "bonus": 6 },
+    { "i": 2, "j": 3, "a": 1, "b": 1, "bonus": 4 },
+    { "i": 4, "j": 5, "a": 0, "b": 2, "bonus": 3 }
+  ],
+  "constraints": [
+    { "kind": "same", "i": 0, "j": 1 },
+    { "kind": "diff", "i": 6, "j": 7 }
+  ]
+}
