@@ -1,0 +1,17 @@
+{
+  "demand": 100,
+  "maxTotal": 120,
+  "suppliers": [
+    { "name": "A", "minQty": 10, "maxQty": 60, "tiers": [ { "upTo": 30, "unitPrice": 5 }, { "upTo": 60, "unitPrice": 4 } ] },
+    { "name": "B", "minQty": 20, "maxQty": 80, "tiers": [ { "upTo": 50, "unitPrice": 4.5 }, { "upTo": 80, "unitPrice": 3.8 } ] },
+    { "name": "C", "minQty": 5,  "maxQty": 40, "tiers": [ { "upTo": 40, "unitPrice": 6 } ] },
+    { "name": "D", "minQty": 15, "maxQty": 50, "tiers": [ { "upTo": 25, "unitPrice": 4.2 }, { "upTo": 50, "unitPrice": 3.5 } ] }
+  ],
+  "mutex": [ [ 0, 1 ] ],
+  "depends": [ [ 2, 3 ] ],
+  "slots": [
+    { "capacity": 50, "demand": 30 },
+    { "capacity": 60, "demand": 35 },
+    { "capacity": 60, "demand": 35 }
+  ]
+}
