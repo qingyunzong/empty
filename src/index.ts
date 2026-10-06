@@ -1,0 +1,25 @@
+export {
+  parse,
+  toPlain,
+  parseScalar,
+  ParseError,
+  type Document,
+  type Node,
+  type ScalarNode,
+  type MapNode,
+  type MapEntry,
+  type SeqNode,
+  type SeqItem,
+  type Line,
+} from "./parser.js";
+export {
+  setByPath,
+  deleteByPath,
+  formatScalar,
+  resolve,
+  applyEdits,
+  type Edit,
+  type EditResult,
+  type Path,
+  type PathSegment,
+} from "./edit.js";

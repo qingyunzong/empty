@@ -1,0 +1,11 @@
+{
+  "name": "config-edit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Whitespace/comment-preserving YAML-subset config editor: path-based scalar set (lexical-span replace) and item delete (trailing comments move to previous surviving item).",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
