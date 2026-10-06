@@ -1,0 +1,13 @@
+{
+  "name": "doc-index",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental document index: headings, anchors and internal references with fenced-code awareness",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node --test \"dist/test/*.test.js\"",
+    "typecheck": "tsc --noEmit"
+  }
+}
