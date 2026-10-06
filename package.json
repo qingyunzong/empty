@@ -1,0 +1,12 @@
+{
+  "name": "incremental-sessionizer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Incremental user-sessionization with out-of-order bridging, retraction splits, watermark GC and delta output",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
