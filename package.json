@@ -1,0 +1,10 @@
+{
+  "name": "tag-dag",
+  "version": "1.0.0",
+  "private": true,
+  "description": "分类库 DAG 标签管理：最近公共祖先查询与批量改边（拒绝成环）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
