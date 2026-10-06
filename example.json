@@ -1,0 +1,14 @@
+{
+  "registers": ["r0", "r1", "r2", "r3"],
+  "intervals": [
+    {"name": "a", "start": 0, "end": 6, "loadCost": 2, "storeCost": 2},
+    {"name": "b", "start": 1, "end": 3, "loadCost": 1, "storeCost": 1},
+    {"name": "c", "start": 2, "end": 5, "loadCost": 3, "storeCost": 1},
+    {"name": "d", "start": 3, "end": 6, "loadCost": 1, "storeCost": 4},
+    {"name": "e", "start": 4, "end": 7, "loadCost": 2, "storeCost": 2}
+  ],
+  "calls": [
+    {"point": 3, "reserved": ["r2", "r3"]},
+    {"point": 5, "reserved": ["r0"]}
+  ]
+}
