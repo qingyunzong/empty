@@ -1,0 +1,19 @@
+Start testing: Oct 07 01:43 CST
+----------------------------------------------------------
+1/1 Testing: compress_tests
+1/1 Test: compress_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/B/attempt-002/workspace/build/compress_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/B/attempt-002/workspace/build
+"compress_tests" start time: Oct 07 01:43 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"compress_tests" end time: Oct 07 01:43 CST
+"compress_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 01:43 CST
