@@ -1,0 +1,11 @@
+{
+  "name": "async-round-robin-merge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Merge K async iterators: one prefetch per source, round-robin delivery, graceful return/next race handling",
+  "main": "dist/src/merge.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
