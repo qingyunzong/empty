@@ -1,0 +1,13 @@
+{
+  "name": "subtitle-editor",
+  "version": "1.0.0",
+  "description": "字幕编辑库：区间插入、裁剪、撤销，半开区间遮挡规则与最大连续可见段输出",
+  "type": "module",
+  "main": "dist/src/subtitle-editor.js",
+  "types": "dist/src/subtitle-editor.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
