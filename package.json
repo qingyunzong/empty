@@ -1,0 +1,13 @@
+{
+  "name": "mvx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Crash-safe batch rename CLI with swap/cycle support, journaling and recovery",
+  "bin": {
+    "mvx": "dist/src/mvx.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
