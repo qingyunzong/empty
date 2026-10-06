@@ -1,0 +1,14 @@
+{
+  "name": "path-fill-geometry",
+  "version": "0.1.0",
+  "description": "Limited move/line/close path parser with even-odd / non-zero winding point hit testing",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
