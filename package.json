@@ -1,0 +1,12 @@
+{
+  "name": "rational-tempo-sequencer",
+  "version": "0.1.0",
+  "description": "Sequencer tick <-> microsecond conversion over a piecewise-rational tempo map with exact integration and single round-half-even",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
