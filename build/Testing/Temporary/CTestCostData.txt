@@ -1,0 +1,8 @@
+unit 1 0.00247426
+cli_countdown 1 0.00256142
+cli_wrap7 1 0.00236942
+cli_four_segments 1 0.00288548
+cli_five_branches 1 0.00243746
+cli_input_echo 1 0.00244224
+cli_no_args 1 0.00226016
+---

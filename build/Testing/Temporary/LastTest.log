@@ -1,0 +1,251 @@
+Start testing: Oct 07 04:47 CST
+----------------------------------------------------------
+1/7 Testing: unit
+1/7 Test: unit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/unit_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"unit" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+all unit tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unit" end time: Oct 07 04:47 CST
+"unit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: cli_countdown
+2/7 Test: cli_countdown
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer" "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/examples/countdown.sl"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_countdown" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+== Program ==
+  L0	x = 10
+      loop:
+  L1	x = x - 1
+  L2	if x != 255 goto loop
+  L3	halt
+
+== Abstract fixpoint (interval unions, at most 4 segments; extra segments merged) ==
+  converged after 25 transfer applications (no iteration cap)
+  L0	x: [0,0]
+  L1	x: [0,10]
+  L2	x: [0,9] ∪ [255,255]
+  L3	x: [255,255]
+
+== Concrete verification (exhaustive enumeration) ==
+  enumerated 24 concrete configurations
+  VERDICT: PASS (abstract sets over-approximate all concrete states)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[VERDICT: PASS]
+"cli_countdown" end time: Oct 07 04:47 CST
+"cli_countdown" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: cli_wrap7
+3/7 Test: cli_wrap7
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer" "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/examples/wrap7.sl"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_wrap7" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+== Program ==
+  L0	x = 0
+      loop:
+  L1	x = x + 7
+  L2	if x < 250 goto loop
+  L3	halt
+
+== Abstract fixpoint (interval unions, at most 4 segments; extra segments merged) ==
+  converged after 85 transfer applications (no iteration cap)
+  L0	x: [0,0]
+  L1	x: [0,249]
+  L2	x: [0,0] ∪ [7,255]
+  L3	x: [250,255]
+
+== Concrete verification (exhaustive enumeration) ==
+  enumerated 74 concrete configurations
+  VERDICT: PASS (abstract sets over-approximate all concrete states)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[VERDICT: PASS]
+"cli_wrap7" end time: Oct 07 04:47 CST
+"cli_wrap7" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: cli_four_segments
+4/7 Test: cli_four_segments
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer" "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/examples/four_segments.sl"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_four_segments" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+== Program ==
+  L0	input x
+  L1	if x < 64 goto a
+  L2	if x < 128 goto b
+  L3	if x < 192 goto c
+  L4	goto d
+      a:
+  L5	x = 10
+  L6	goto j
+      b:
+  L7	x = 80
+  L8	goto j
+      c:
+  L9	x = 150
+  L10	goto j
+      d:
+  L11	x = 220
+      j:
+  L12	halt
+
+== Abstract fixpoint (interval unions, at most 4 segments; extra segments merged) ==
+  converged after 15 transfer applications (no iteration cap)
+  L0	x: [0,0]
+  L1	x: [0,255]
+  L2	x: [64,255]
+  L3	x: [128,255]
+  L4	x: [192,255]
+  L5	x: [0,63]
+  L6	x: [10,10]
+  L7	x: [64,127]
+  L8	x: [80,80]
+  L9	x: [128,191]
+  L10	x: [150,150]
+  L11	x: [192,255]
+  L12	x: [10,10] ∪ [80,80] ∪ [150,150] ∪ [220,220]
+
+== Concrete verification (exhaustive enumeration) ==
+  enumerated 904 concrete configurations
+  VERDICT: PASS (abstract sets over-approximate all concrete states)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[VERDICT: PASS]
+"cli_four_segments" end time: Oct 07 04:47 CST
+"cli_four_segments" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: cli_five_branches
+5/7 Test: cli_five_branches
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer" "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/examples/five_branches.sl"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_five_branches" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+== Program ==
+  L0	input x
+  L1	if x < 32 goto a
+  L2	if x < 64 goto b
+  L3	if x < 96 goto c
+  L4	if x < 128 goto d
+  L5	goto e
+      a:
+  L6	x = 1
+  L7	goto j
+      b:
+  L8	x = 70
+  L9	goto j
+      c:
+  L10	x = 100
+  L11	goto j
+      d:
+  L12	x = 200
+  L13	goto j
+      e:
+  L14	x = 250
+      j:
+  L15	halt
+
+== Abstract fixpoint (interval unions, at most 4 segments; extra segments merged) ==
+  converged after 19 transfer applications (no iteration cap)
+  L0	x: [0,0]
+  L1	x: [0,255]
+  L2	x: [32,255]
+  L3	x: [64,255]
+  L4	x: [96,255]
+  L5	x: [128,255]
+  L6	x: [0,31]
+  L7	x: [1,1]
+  L8	x: [32,63]
+  L9	x: [70,70]
+  L10	x: [64,95]
+  L11	x: [100,100]
+  L12	x: [96,127]
+  L13	x: [200,200]
+  L14	x: [128,255]
+  L15	x: [1,1] ∪ [70,100] ∪ [200,200] ∪ [250,250]
+
+== Concrete verification (exhaustive enumeration) ==
+  enumerated 1226 concrete configurations
+  VERDICT: PASS (abstract sets over-approximate all concrete states)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[VERDICT: PASS]
+"cli_five_branches" end time: Oct 07 04:47 CST
+"cli_five_branches" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: cli_input_echo
+6/7 Test: cli_input_echo
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer" "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/examples/input_echo.sl"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_input_echo" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+== Program ==
+  L0	input x
+  L1	y = x + 1
+  L2	halt
+
+== Abstract fixpoint (interval unions, at most 4 segments; extra segments merged) ==
+  converged after 3 transfer applications (no iteration cap)
+  L0	x: [0,0]	y: [0,0]
+  L1	x: [0,255]	y: [0,0]
+  L2	x: [0,255]	y: [0,255]
+
+== Concrete verification (exhaustive enumeration) ==
+  enumerated 513 concrete configurations
+  VERDICT: PASS (abstract sets over-approximate all concrete states)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[VERDICT: PASS]
+"cli_input_echo" end time: Oct 07 04:47 CST
+"cli_input_echo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: cli_no_args
+7/7 Test: cli_no_args
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build/analyzer"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/51380a22fece493baed1a00ae301dc9b/run/B/attempt-002/workspace/build
+"cli_no_args" start time: Oct 07 04:47 CST
+Output:
+----------------------------------------------------------
+usage: analyzer [--no-verify] FILE
+  Computes an 8-bit wrap-aware range fixpoint (interval unions, at most
+  4 segments; extra segments merged) and verifies the over-approximation
+  by exhaustive enumeration of all concrete states.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cli_no_args" end time: Oct 07 04:47 CST
+"cli_no_args" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 04:47 CST

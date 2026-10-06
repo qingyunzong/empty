@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwrapfix_core.a CMakeFiles/wrapfix_core.dir/src/interval_set.cpp.o CMakeFiles/wrapfix_core.dir/src/parser.cpp.o CMakeFiles/wrapfix_core.dir/src/analysis.cpp.o CMakeFiles/wrapfix_core.dir/src/verify.cpp.o
+/usr/bin/ranlib libwrapfix_core.a
