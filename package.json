@@ -1,0 +1,10 @@
+{
+  "name": "config-resolve",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Config store with recursive ${key} expansion, cycle detection and version-stamped dependency cache",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/config.test.js"
+  }
+}
