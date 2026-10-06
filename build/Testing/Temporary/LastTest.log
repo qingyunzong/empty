@@ -1,0 +1,51 @@
+Start testing: Oct 07 02:31 CST
+----------------------------------------------------------
+1/3 Testing: test_sign_extension
+1/3 Test: test_sign_extension
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build/test_sign_extension"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build
+"test_sign_extension" start time: Oct 07 02:31 CST
+Output:
+----------------------------------------------------------
+test_sign_extension: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_sign_extension" end time: Oct 07 02:31 CST
+"test_sign_extension" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: test_random_updates
+2/3 Test: test_random_updates
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build/test_random_updates"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build
+"test_random_updates" start time: Oct 07 02:31 CST
+Output:
+----------------------------------------------------------
+test_random_updates: OK
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"test_random_updates" end time: Oct 07 02:31 CST
+"test_random_updates" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: test_scan
+3/3 Test: test_scan
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build/test_scan"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/A/attempt-002/workspace/build
+"test_scan" start time: Oct 07 02:31 CST
+Output:
+----------------------------------------------------------
+test_scan: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_scan" end time: Oct 07 02:31 CST
+"test_scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 02:31 CST

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_sign_extension.dir/link.d CMakeFiles/test_sign_extension.dir/tests/test_sign_extension.cpp.o -o test_sign_extension
