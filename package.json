@@ -1,0 +1,12 @@
+{
+  "name": "pbt-lite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Property-based testing library with per-test independent integer RNG state, failure persistence, and verified shrinking",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
