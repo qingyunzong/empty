@@ -1,0 +1,12 @@
+{
+  "name": "exec-planner",
+  "version": "0.1.0",
+  "description": "Execution planning library: structured action lists only, digest-verified resources, ordered plans with tamper-evident evidence.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
