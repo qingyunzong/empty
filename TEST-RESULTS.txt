@@ -1,0 +1,44 @@
+$ go version
+go version go1.27.1 linux/amd64
+
+$ go test ./... -count=1 -v
+=== RUN   TestCLIPackUnpack
+--- PASS: TestCLIPackUnpack (0.00s)
+=== RUN   TestCLIBadUsage
+--- PASS: TestCLIBadUsage (0.00s)
+PASS
+ok  	archivecli	0.027s
+=== RUN   TestRoundTrip
+--- PASS: TestRoundTrip (0.00s)
+=== RUN   TestHardlinkTargetArrivesLate
+--- PASS: TestHardlinkTargetArrivesLate (0.00s)
+=== RUN   TestIllegalEntriesFailWholeRelease
+=== RUN   TestIllegalEntriesFailWholeRelease/hardlink_missing_target
+=== RUN   TestIllegalEntriesFailWholeRelease/unsupported_type
+=== RUN   TestIllegalEntriesFailWholeRelease/good_then_bad
+=== RUN   TestIllegalEntriesFailWholeRelease/dotdot_name
+=== RUN   TestIllegalEntriesFailWholeRelease/absolute_name
+=== RUN   TestIllegalEntriesFailWholeRelease/nested_traversal
+=== RUN   TestIllegalEntriesFailWholeRelease/symlink_escapes_root
+=== RUN   TestIllegalEntriesFailWholeRelease/absolute_symlink_target
+=== RUN   TestIllegalEntriesFailWholeRelease/hardlink_escapes_root
+--- PASS: TestIllegalEntriesFailWholeRelease (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/hardlink_missing_target (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/unsupported_type (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/good_then_bad (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/dotdot_name (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/absolute_name (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/nested_traversal (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/symlink_escapes_root (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/absolute_symlink_target (0.00s)
+    --- PASS: TestIllegalEntriesFailWholeRelease/hardlink_escapes_root (0.00s)
+=== RUN   TestExtractRefusesExistingDest
+--- PASS: TestExtractRefusesExistingDest (0.00s)
+=== RUN   TestCreateRejectsIllegalSourceEntries
+=== RUN   TestCreateRejectsIllegalSourceEntries/absolute_symlink
+=== RUN   TestCreateRejectsIllegalSourceEntries/fifo
+--- PASS: TestCreateRejectsIllegalSourceEntries (0.00s)
+    --- PASS: TestCreateRejectsIllegalSourceEntries/absolute_symlink (0.00s)
+    --- PASS: TestCreateRejectsIllegalSourceEntries/fifo (0.00s)
+PASS
+ok  	archivecli/internal/archive	0.032s
