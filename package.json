@@ -1,0 +1,17 @@
+{
+  "name": "linebreak-layout",
+  "version": "1.0.0",
+  "description": "Optimal paragraph line breaking: char width tables, unbreakable regions, soft hyphens, floats, widow/orphan control, bounded hyphenation",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  },
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src",
+    "README.md"
+  ]
+}
