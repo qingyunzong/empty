@@ -1,0 +1,10 @@
+basic_intersection 2 0.00110339
+duplicates_unique_output 3 0.000662375
+cursor_error_publishes_nothing 3 0.000610898
+error_at_first_element 3 0.000623301
+budget_exceeded 3 0.00059746
+resident_ids_bounded_on_large_input 3 0.225972
+unsorted_input_detected 3 0.000744578
+empty_and_single_inputs 3 0.000709928
+fuzz_against_reference 3 0.012621
+---

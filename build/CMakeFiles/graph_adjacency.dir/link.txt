@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgraph_adjacency.a CMakeFiles/graph_adjacency.dir/src/adjacency_intersection.cpp.o
+/usr/bin/ranlib libgraph_adjacency.a

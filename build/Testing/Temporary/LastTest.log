@@ -1,0 +1,147 @@
+Start testing: Oct 07 05:22 CST
+----------------------------------------------------------
+1/9 Testing: basic_intersection
+1/9 Test: basic_intersection
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "basic_intersection"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"basic_intersection" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+basic_intersection: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"basic_intersection" end time: Oct 07 05:22 CST
+"basic_intersection" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/9 Testing: duplicates_unique_output
+2/9 Test: duplicates_unique_output
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "duplicates_unique_output"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"duplicates_unique_output" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+duplicates_unique_output: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"duplicates_unique_output" end time: Oct 07 05:22 CST
+"duplicates_unique_output" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/9 Testing: cursor_error_publishes_nothing
+3/9 Test: cursor_error_publishes_nothing
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "cursor_error_publishes_nothing"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"cursor_error_publishes_nothing" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+cursor_error_publishes_nothing: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cursor_error_publishes_nothing" end time: Oct 07 05:22 CST
+"cursor_error_publishes_nothing" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/9 Testing: error_at_first_element
+4/9 Test: error_at_first_element
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "error_at_first_element"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"error_at_first_element" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+error_at_first_element: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"error_at_first_element" end time: Oct 07 05:22 CST
+"error_at_first_element" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/9 Testing: budget_exceeded
+5/9 Test: budget_exceeded
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "budget_exceeded"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"budget_exceeded" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+budget_exceeded: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"budget_exceeded" end time: Oct 07 05:22 CST
+"budget_exceeded" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/9 Testing: resident_ids_bounded_on_large_input
+6/9 Test: resident_ids_bounded_on_large_input
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "resident_ids_bounded_on_large_input"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"resident_ids_bounded_on_large_input" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+resident_ids_bounded_on_large_input: OK
+<end of output>
+Test time =   0.68 sec
+----------------------------------------------------------
+Test Passed.
+"resident_ids_bounded_on_large_input" end time: Oct 07 05:22 CST
+"resident_ids_bounded_on_large_input" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/9 Testing: unsorted_input_detected
+7/9 Test: unsorted_input_detected
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "unsorted_input_detected"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"unsorted_input_detected" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+unsorted_input_detected: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unsorted_input_detected" end time: Oct 07 05:22 CST
+"unsorted_input_detected" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/9 Testing: empty_and_single_inputs
+8/9 Test: empty_and_single_inputs
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "empty_and_single_inputs"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"empty_and_single_inputs" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+empty_and_single_inputs: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"empty_and_single_inputs" end time: Oct 07 05:22 CST
+"empty_and_single_inputs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/9 Testing: fuzz_against_reference
+9/9 Test: fuzz_against_reference
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build/adjacency_intersection_test" "fuzz_against_reference"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/A/attempt-002/workspace/build
+"fuzz_against_reference" start time: Oct 07 05:22 CST
+Output:
+----------------------------------------------------------
+fuzz_against_reference: OK
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"fuzz_against_reference" end time: Oct 07 05:22 CST
+"fuzz_against_reference" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 05:22 CST

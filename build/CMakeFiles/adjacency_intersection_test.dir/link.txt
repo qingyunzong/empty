@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/adjacency_intersection_test.dir/link.d CMakeFiles/adjacency_intersection_test.dir/tests/adjacency_intersection_test.cpp.o -o adjacency_intersection_test  libgraph_adjacency.a
