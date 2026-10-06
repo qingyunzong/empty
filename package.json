@@ -1,0 +1,11 @@
+{
+  "name": "replica-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Replica sync via binary Merkle trie diffing with version-restart semantics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
