@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/convolve.dir
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/test_convolution.dir
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/test_cli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir

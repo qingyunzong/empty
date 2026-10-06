@@ -1,0 +1,35 @@
+Start testing: Oct 07 03:36 CST
+----------------------------------------------------------
+1/2 Testing: convolution
+1/2 Test: convolution
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/test_convolution"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build
+"convolution" start time: Oct 07 03:36 CST
+Output:
+----------------------------------------------------------
+all convolution tests passed
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"convolution" end time: Oct 07 03:36 CST
+"convolution" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: cli
+2/2 Test: cli
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build/test_cli"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/B/attempt-002/workspace/build
+"cli" start time: Oct 07 03:36 CST
+Output:
+----------------------------------------------------------
+all CLI tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cli" end time: Oct 07 03:36 CST
+"cli" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 03:36 CST
