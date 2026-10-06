@@ -1,0 +1,11 @@
+{
+  "name": "join-pager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two-table inner join with duplicate keys, deterministic ordering and version-bound keyset pagination",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
