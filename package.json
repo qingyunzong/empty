@@ -1,0 +1,12 @@
+{
+  "name": "archive-index",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Archive directory index for the browser importer",
+  "type": "commonjs",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
