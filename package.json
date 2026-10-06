@@ -1,0 +1,12 @@
+{
+  "name": "threshold-calibrator",
+  "version": "1.0.0",
+  "description": "Per-group acceptance threshold calibration under a global false-positive budget (DP + exhaustive verification)",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "cli": "npm run build --silent && node dist/src/cli.js"
+  },
+  "license": "MIT"
+}
