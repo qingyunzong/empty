@@ -1,0 +1,10 @@
+{
+  "name": "incremental-spc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Incremental SPC (Western Electric rules) with corrections, invalidation, fault injection and alarm minimality checks",
+  "scripts": {
+    "test": "node --test"
+  }
+}
