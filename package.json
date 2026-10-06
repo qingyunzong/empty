@@ -1,0 +1,11 @@
+{
+  "name": "vm-time-travel-debugger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Record/replay debugger for a register+heap VM: event log, time travel, input forks, snapshot verification",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
