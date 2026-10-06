@@ -1,0 +1,10 @@
+{
+  "name": "shop-coupon-allocation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsc -p tsconfig.build.json && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
