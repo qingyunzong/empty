@@ -1,0 +1,12 @@
+{
+  "name": "stable-admissions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Stable admissions with two-sided preferences, capacities, nested category quotas, withdrawal, certificates and exhaustive verification.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}

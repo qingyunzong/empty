@@ -1,0 +1,12 @@
+{
+  "applicants": [
+    { "id": "a1", "prefs": ["i1", "i2", "i3"] },
+    { "id": "a2", "prefs": ["i2", "i1", "i3"] },
+    { "id": "a3", "prefs": ["i1", "i2", "i3"] }
+  ],
+  "institutions": [
+    { "id": "i1", "capacity": 1, "prefs": ["a2", "a1", "a3"] },
+    { "id": "i2", "capacity": 1, "prefs": ["a1", "a2", "a3"] },
+    { "id": "i3", "capacity": 1, "prefs": ["a1", "a2", "a3"] }
+  ]
+}
