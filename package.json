@@ -1,0 +1,12 @@
+{
+  "name": "terminal-buffer",
+  "version": "0.1.0",
+  "description": "Terminal screen buffer: wide chars, combining marks, scroll regions, save/restore screen",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/examples/demo.js"
+  },
+  "devDependencies": {}
+}
