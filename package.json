@@ -1,0 +1,14 @@
+{
+  "name": "jumpforge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Custom jump-capture board puzzle solver CLI (max captures, lexicographically smallest landing sequence)",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "presolve": "npm run build",
+    "solve": "node dist/src/cli.js"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "width": 5,
+  "height": 5,
+  "player": [0, 4],
+  "enemies": [[0, 3]],
+  "toggle": [1, 4],
+  "directionsA": [[1, 0]],
+  "directionsB": [[1, 0], [0, -1]]
+}

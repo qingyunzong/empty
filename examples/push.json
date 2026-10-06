@@ -1,0 +1,8 @@
+{
+  "width": 5,
+  "height": 3,
+  "player": [0, 1],
+  "enemies": [[1, 1]],
+  "obstacles": [[2, 1]],
+  "directionsA": [[1, 0], [-1, 0], [0, 1], [0, -1]]
+}
