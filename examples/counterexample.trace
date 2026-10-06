@@ -1,0 +1,8 @@
+# unsynced write may be dropped: "expect has b" is not a valid invariant
+write a 1
+sync
+write b 2
+crash
+expect eq a 1
+expect has b
+recover

@@ -1,0 +1,7 @@
+# synced writes survive every crash
+write a 1
+sync
+write b 2
+crash
+expect eq a 1
+recover

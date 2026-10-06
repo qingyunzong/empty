@@ -1,0 +1,23 @@
+# 19 unsynced writes exceed the enumeration budget of 18
+write k0 v0
+write k1 v1
+write k2 v2
+write k3 v3
+write k4 v4
+write k5 v5
+write k6 v6
+write k7 v7
+write k8 v8
+write k9 v9
+write k10 v10
+write k11 v11
+write k12 v12
+write k13 v13
+write k14 v14
+write k15 v15
+write k16 v16
+write k17 v17
+write k18 v18
+crash
+expect has k0
+recover
