@@ -1,0 +1,14 @@
+{
+  "users": [
+    [ { "r1": 0, "r2": 0, "profit": 0 }, { "r1": 4, "r2": 3, "profit": 8 }, { "r1": 7, "r2": 5, "profit": 13 } ],
+    [ { "r1": 0, "r2": 0, "profit": 0 }, { "r1": 3, "r2": 4, "profit": 7 }, { "r1": 6, "r2": 6, "profit": 12 } ],
+    [ { "r1": 0, "r2": 0, "profit": 0 }, { "r1": 5, "r2": 2, "profit": 6 } ]
+  ],
+  "budget1": 12,
+  "budget2": 10,
+  "combos": [
+    { "i": 0, "j": 1, "ti": 2, "tj": 2, "bonus": 4 }
+  ],
+  "sameTier": [],
+  "diffTier": [[1, 2]]
+}

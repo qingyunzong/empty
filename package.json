@@ -1,0 +1,12 @@
+{
+  "name": "tier-assign",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "质量档分配优化：双资源预算、组合收益、同档/分档约束，可保存恢复的分支限界求解",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}
