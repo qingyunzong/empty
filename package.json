@@ -1,0 +1,12 @@
+{
+  "name": "rational-tempo-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rational beat-point event scheduling with exact tempo-map millisecond mapping, undo, and bidirectional mapping certificates",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "demo": "npm run build && node dist/examples/demo.js"
+  }
+}
