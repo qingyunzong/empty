@@ -1,0 +1,11 @@
+{
+  "name": "stream-watermark-sim",
+  "version": "1.0.0",
+  "description": "Event-driven stream watermark simulation: min watermark over active partitions, explicit idle events, late-data rejection, replay monotonicity check",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && for f in dist/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
