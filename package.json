@@ -1,0 +1,12 @@
+{
+  "name": "generation-router",
+  "version": "1.0.0",
+  "description": "Session routing library with node generations, weighted least-load failover, and atomic health-event batches",
+  "type": "module",
+  "main": "dist/src/router.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
