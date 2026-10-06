@@ -1,0 +1,12 @@
+{
+  "name": "object-library-quota",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "对象库受控上传：预留最大上传量、结束按实际结算、单终态、额度归还一次、旧代际取消",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/tests/*.test.js\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
