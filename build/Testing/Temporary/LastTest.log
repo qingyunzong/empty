@@ -1,0 +1,19 @@
+Start testing: Oct 07 02:34 CST
+----------------------------------------------------------
+1/1 Testing: manhattan_path_test
+1/1 Test: manhattan_path_test
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/3b4953a2330f4c9e90989dd4364de1d1/run/B/attempt-002/workspace/build/manhattan_path_test"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/3b4953a2330f4c9e90989dd4364de1d1/run/B/attempt-002/workspace/build
+"manhattan_path_test" start time: Oct 07 02:34 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.84 sec
+----------------------------------------------------------
+Test Passed.
+"manhattan_path_test" end time: Oct 07 02:34 CST
+"manhattan_path_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 02:34 CST
