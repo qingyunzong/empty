@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/compress_tests.dir/link.d CMakeFiles/compress_tests.dir/tests/test_compress.cpp.o -o compress_tests  libcompress.a

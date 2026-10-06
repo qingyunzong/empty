@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/compress.dir
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/compress_cli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/compress_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/5644ecc233734228bee52ff93ff53266/run/A/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir
