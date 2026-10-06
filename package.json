@@ -1,0 +1,10 @@
+{
+  "name": "incremental-spreadsheet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spreadsheet engine with integer arithmetic, cell references, IF, dynamic dependency tracking, cycle paths, and transactional undo",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/sheet.test.js"
+  }
+}
