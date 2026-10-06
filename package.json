@@ -1,0 +1,15 @@
+{
+  "name": "lincon-solver",
+  "version": "1.0.0",
+  "description": "Exact CLI solver for linear inequalities and congruences over 64-bit integer domains (pure bigint arithmetic)",
+  "type": "module",
+  "bin": {
+    "lincon": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "node dist/src/cli.js solve"
+  },
+  "license": "MIT"
+}
