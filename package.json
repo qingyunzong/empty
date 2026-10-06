@@ -1,0 +1,11 @@
+{
+  "name": "config-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Span-preserving editor for simple key=value config files with comments",
+  "scripts": {
+    "build": "tsc",
+    "test": "rm -rf dist && tsc && node --test dist/test/config-editor.test.js"
+  }
+}
