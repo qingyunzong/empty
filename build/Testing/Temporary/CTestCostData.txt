@@ -1,0 +1,5 @@
+basic 2 0.0102485
+multihop 1 0.0203511
+cancel 2 0.00599345
+reference 2 0.0439461
+---

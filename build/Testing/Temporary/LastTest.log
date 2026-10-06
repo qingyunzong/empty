@@ -1,0 +1,63 @@
+Start testing: Oct 06 15:03 CST
+----------------------------------------------------------
+1/4 Testing: basic
+1/4 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/test_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build
+"basic" start time: Oct 06 15:03 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 06 15:03 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: multihop
+2/4 Test: multihop
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/test_multihop"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build
+"multihop" start time: Oct 06 15:03 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"multihop" end time: Oct 06 15:03 CST
+"multihop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: cancel
+3/4 Test: cancel
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/test_cancel"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build
+"cancel" start time: Oct 06 15:03 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cancel" end time: Oct 06 15:03 CST
+"cancel" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: reference
+4/4 Test: reference
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/test_reference"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build
+"reference" start time: Oct 06 15:03 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"reference" end time: Oct 06 15:03 CST
+"reference" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 15:03 CST

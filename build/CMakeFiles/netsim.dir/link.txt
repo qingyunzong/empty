@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnetsim.a CMakeFiles/netsim.dir/src/simulator.cpp.o CMakeFiles/netsim.dir/src/reference.cpp.o
+/usr/bin/ranlib libnetsim.a

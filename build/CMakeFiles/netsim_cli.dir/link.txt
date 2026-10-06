@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/netsim_cli.dir/link.d CMakeFiles/netsim_cli.dir/src/main.cpp.o -o netsim_cli  libnetsim.a

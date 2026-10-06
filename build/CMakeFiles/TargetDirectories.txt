@@ -1,0 +1,9 @@
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/netsim.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/netsim_cli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/test_basic.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/test_multihop.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/test_cancel.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/test_reference.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff5d208f89984794a4c7be48f50d0d1a/run/B/attempt-001/workspace/build/CMakeFiles/rebuild_cache.dir
