@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/fencesim_tests.dir/link.d CMakeFiles/fencesim_tests.dir/tests/fence_tests.cpp.o -o fencesim_tests

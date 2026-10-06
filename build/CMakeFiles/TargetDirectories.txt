@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/A/attempt-002/workspace/build/CMakeFiles/fencesim_demo.dir
+/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/A/attempt-002/workspace/build/CMakeFiles/fencesim_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/A/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/A/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/A/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir
