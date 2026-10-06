@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/colcli.dir/link.d CMakeFiles/colcli.dir/src/main.cpp.o -o colcli  libcolumnar.a

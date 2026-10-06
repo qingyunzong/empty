@@ -1,0 +1,8 @@
+engine_test 2 0.0461777
+cli_gen 3 0.000687273
+cli_agg 3 0.000554464
+cli_filter 3 0.000542979
+cli_agg_filtered 3 0.000492665
+cli_corrupt 3 0.000566382
+cli_corrupt_filter 3 0.000655246
+---

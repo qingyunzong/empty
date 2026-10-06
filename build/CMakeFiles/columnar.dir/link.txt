@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcolumnar.a CMakeFiles/columnar.dir/src/blocks.cpp.o
+/usr/bin/ranlib libcolumnar.a

@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/columnar.dir
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/colcli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/engine_test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/1ff5bd2c7117476cb054d56d025cf0d4/run/B/attempt-002/workspace/build/CMakeFiles/rebuild_cache.dir
