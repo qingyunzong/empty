@@ -1,0 +1,11 @@
+{
+  "name": "procurement-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "采购下单优化 CLI：阶梯全量计价 + 互斥/依赖合同约束 + 分时段配送容量与缺货验证（DP 求解，枚举核验）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/run.js",
+    "cli": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}

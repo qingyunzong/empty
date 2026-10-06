@@ -1,0 +1,18 @@
+{
+  "demand": 100,
+  "cap": 110,
+  "suppliers": [
+    { "id": "A", "minQty": 20, "arrivalSlot": 0,
+      "tiers": [ { "upTo": 40, "unitPrice": 10 }, { "upTo": 80, "unitPrice": 8 } ] },
+    { "id": "B", "minQty": 30, "arrivalSlot": 0,
+      "tiers": [ { "upTo": 50, "unitPrice": 9 }, { "upTo": 80, "unitPrice": 7 } ] },
+    { "id": "C", "minQty": 10, "arrivalSlot": 1,
+      "tiers": [ { "upTo": 80, "unitPrice": 11 } ] },
+    { "id": "D", "minQty": 25, "arrivalSlot": 1,
+      "tiers": [ { "upTo": 60, "unitPrice": 9 }, { "upTo": 80, "unitPrice": 6 } ] }
+  ],
+  "exclusions": [[0, 1]],
+  "dependencies": [[3, 2]],
+  "slotCapacity": [70, 60],
+  "slotDemand": [50, 55]
+}
