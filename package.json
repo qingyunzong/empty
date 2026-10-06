@@ -1,0 +1,13 @@
+{
+  "name": "safety-interlock-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline safety-interlock monitor: three-valued regex monitoring with WAL/checkpoint crash recovery",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

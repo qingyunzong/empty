@@ -1,0 +1,10 @@
+{"type":"init","pattern":"open close open"}
+{"type":"batch","events":[{"id":"e1","name":"open"}]}
+{"type":"status"}
+{"type":"checkpoint"}
+{"type":"batch","events":[{"id":"e2","name":"close"},{"id":"e3","name":"open"}]}
+{"type":"status"}
+{"type":"crash"}
+{"type":"status"}
+{"type":"batch","events":[{"id":"e4","name":"reset"}]}
+{"type":"status"}
