@@ -1,0 +1,19 @@
+Start testing: Oct 07 04:00 CST
+----------------------------------------------------------
+1/1 Testing: intersect
+1/1 Test: intersect
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/A/attempt-002/workspace/build-clean/test_intersect"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/A/attempt-002/workspace/build-clean
+"intersect" start time: Oct 07 04:00 CST
+Output:
+----------------------------------------------------------
+All tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"intersect" end time: Oct 07 04:00 CST
+"intersect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 04:00 CST

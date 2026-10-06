@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_intersect.dir/link.d CMakeFiles/test_intersect.dir/tests/test_intersect.cpp.o -o test_intersect  libgeom.a

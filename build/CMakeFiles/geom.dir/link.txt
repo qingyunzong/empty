@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgeom.a CMakeFiles/geom.dir/src/intersect.cpp.o
+/usr/bin/ranlib libgeom.a
