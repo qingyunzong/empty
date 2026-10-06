@@ -1,0 +1,14 @@
+{
+  "name": "logical-time-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "逻辑时间调度测试库：到期交付、微任务按序、同刻队尾、预算续跑、轨迹输出、取消与重入核验",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/scheduler.test.js"
+  },
+  "devDependencies": {
+    "typescript": ">=5"
+  }
+}
