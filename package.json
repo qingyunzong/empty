@@ -1,0 +1,14 @@
+{
+  "name": "modlink",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Statically-linked module loader with dependency-depth initialization, live bindings and an explicit state machine",
+  "type": "module",
+  "exports": {
+    ".": "./dist/src/loader.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
