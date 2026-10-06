@@ -1,0 +1,12 @@
+{
+  "name": "bigint-external-sort",
+  "version": "1.0.0",
+  "description": "External merge-sort CLI for JSONL records keyed by bigint, with bounded memory, resumable temp segments and atomic output publish",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "start": "node dist/src/cli.js"
+  }
+}
