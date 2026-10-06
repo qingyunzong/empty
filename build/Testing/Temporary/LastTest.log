@@ -1,0 +1,19 @@
+Start testing: Oct 06 14:37 CST
+----------------------------------------------------------
+1/1 Testing: temporal_tests
+1/1 Test: temporal_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/temporal_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build
+"temporal_tests" start time: Oct 06 14:37 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"temporal_tests" end time: Oct 06 14:37 CST
+"temporal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 14:37 CST

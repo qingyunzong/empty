@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/CMakeFiles/temporal_demo.dir
+/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/CMakeFiles/temporal_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/B/attempt-001/workspace/build/CMakeFiles/rebuild_cache.dir
