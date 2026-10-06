@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/score-cli.dir/link.d "CMakeFiles/score-cli.dir/src/main.cpp.o" -o score-cli  libscore.a

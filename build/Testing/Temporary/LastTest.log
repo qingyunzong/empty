@@ -1,0 +1,49 @@
+Start testing: Oct 07 02:26 CST
+----------------------------------------------------------
+1/3 Testing: unit
+1/3 Test: unit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build/score_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build
+"unit" start time: Oct 07 02:26 CST
+Output:
+----------------------------------------------------------
+34/34 checks passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unit" end time: Oct 07 02:26 CST
+"unit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: cli_basic
+2/3 Test: cli_basic
+Command: "/usr/bin/cmake" "-DEXE=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build/score-cli" "-DINPUT=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/examples/basic.score" "-DEXPECTED=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/examples/basic.expected" "-P" "/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/cmake/run_and_compare.cmake"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build
+"cli_basic" start time: Oct 07 02:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cli_basic" end time: Oct 07 02:26 CST
+"cli_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: cli_tuplet
+3/3 Test: cli_tuplet
+Command: "/usr/bin/cmake" "-DEXE=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build/score-cli" "-DINPUT=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/examples/tuplet.score" "-DEXPECTED=/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/examples/tuplet.expected" "-P" "/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/cmake/run_and_compare.cmake"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/B/attempt-002/workspace/build
+"cli_tuplet" start time: Oct 07 02:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cli_tuplet" end time: Oct 07 02:26 CST
+"cli_tuplet" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 02:26 CST
