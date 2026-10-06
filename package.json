@@ -1,0 +1,15 @@
+{
+  "name": "mvbatch",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Atomic batch rename CLI with swap/cycle support, journaling and crash recovery",
+  "bin": {
+    "mvbatch": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run build && node --test dist/test/*.test.js",
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
