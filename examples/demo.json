@@ -1,0 +1,22 @@
+{
+  "config": {
+    "totalCap": 1000,
+    "categoryCaps": { "DINE": 700, "SHOP": 700 },
+    "period": { "origin": 0, "length": 1440, "count": 3 }
+  },
+  "steps": [
+    { "op": "freeze", "id": "F1", "category": "DINE", "amount": 400, "start": 1000, "end": 2000 },
+    { "op": "freeze", "id": "F2", "category": "DINE", "amount": 300, "start": 1200, "end": 1600 },
+    { "op": "freeze", "id": "F3", "category": "SHOP", "amount": 300, "start": 1300, "end": 2500 },
+    { "op": "freeze", "id": "F4", "category": "DINE", "amount": 100, "start": 1600, "end": 1800 },
+    { "op": "unfreeze", "group": "F3", "start": 1500, "end": 1800 },
+    { "op": "freeze", "group": "F3", "start": 1500, "end": 1800 },
+    { "op": "capture", "group": "F1", "amount": 150 },
+    { "batch": [
+      { "op": "freeze", "id": "R1", "category": "SHOP", "amount": 400, "start": 2000, "end": 2100, "priority": 5 },
+      { "op": "freeze", "id": "R2", "category": "SHOP", "amount": 400, "start": 2000, "end": 2100, "priority": 5 },
+      { "op": "freeze", "id": "R3", "category": "SHOP", "amount": 400, "start": 2000, "end": 2100, "priority": 5 }
+    ]},
+    { "op": "advance", "now": 2001 }
+  ]
+}

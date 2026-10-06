@@ -1,0 +1,10 @@
+{
+  "name": "freeze-engine",
+  "version": "1.0.0",
+  "description": "Bank card credit-limit freeze engine (half-open intervals, period resets, deterministic arbitration)",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
