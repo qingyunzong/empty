@@ -1,0 +1,8 @@
+{
+  "liquids": [
+    { "name": "water", "concentration": "0", "cost": 1 },
+    { "name": "syrup", "concentration": "3/4", "cost": 4 }
+  ],
+  "target": ["1/4", "1/2"],
+  "maxTotal": 40
+}

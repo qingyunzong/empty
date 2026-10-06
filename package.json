@@ -1,0 +1,12 @@
+{
+  "name": "blend-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exact rational blending optimizer: minimize integer cost, then lexicographically smallest amount vector",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "cli": "node dist/src/cli.js"
+  }
+}
