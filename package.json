@@ -1,0 +1,12 @@
+{
+  "name": "stream-watermark-sim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stream simulation library: global watermark as the minimum over active partitions, with explicit idleness events, rejection of data preceding the published watermark, and monotonicity-checked replay.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
