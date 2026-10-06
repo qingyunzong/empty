@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -fno-omit-frame-pointer -fsanitize=address,undefined -Wl,--dependency-file=CMakeFiles/page_compressor_tests.dir/link.d CMakeFiles/page_compressor_tests.dir/tests/page_compressor_tests.cpp.o -o page_compressor_tests  libpage_compressor.a

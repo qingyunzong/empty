@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpage_compressor.a CMakeFiles/page_compressor.dir/src/page_compressor.cpp.o
+/usr/bin/ranlib libpage_compressor.a

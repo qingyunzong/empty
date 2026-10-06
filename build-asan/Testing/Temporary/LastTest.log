@@ -1,0 +1,19 @@
+Start testing: Oct 06 14:52 CST
+----------------------------------------------------------
+1/1 Testing: page_compressor_tests
+1/1 Test: page_compressor_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/page_compressor_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan
+"page_compressor_tests" start time: Oct 06 14:52 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"page_compressor_tests" end time: Oct 06 14:52 CST
+"page_compressor_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 14:52 CST

@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/CMakeFiles/page_compressor.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/CMakeFiles/page_compressor_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/B/attempt-001/workspace/build-asan/CMakeFiles/rebuild_cache.dir
