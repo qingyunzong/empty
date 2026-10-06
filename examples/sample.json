@@ -1,0 +1,9 @@
+{
+  "liquids": [
+    { "concentration": "0.10", "cost": 5 },
+    { "concentration": "0.25", "cost": 3 },
+    { "concentration": "0.60", "cost": 1 }
+  ],
+  "target": ["1/5", "3/10"],
+  "maxTotal": 40
+}
