@@ -1,0 +1,13 @@
+{
+  "name": "keyed-serial",
+  "version": "1.0.0",
+  "description": "Per-key serial task executor: same key runs sequentially, different keys run in parallel.",
+  "type": "module",
+  "main": "dist/src/keyed-serial.js",
+  "types": "dist/src/keyed-serial.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
