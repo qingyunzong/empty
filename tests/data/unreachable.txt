@@ -1,0 +1,6 @@
+# required edge 1 (1->2) cannot return to start 0
+3 2 0
+0 1 1
+1 2 1
+1
+1

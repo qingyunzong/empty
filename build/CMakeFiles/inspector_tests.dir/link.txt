@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/inspector_tests.dir/link.d CMakeFiles/inspector_tests.dir/tests/test_inspector.cpp.o -o inspector_tests  libinspector.a
