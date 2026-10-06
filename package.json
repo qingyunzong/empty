@@ -1,0 +1,12 @@
+{
+  "name": "vv-replica-sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dynamo-style replica simulation: version vectors, sibling conflict sets, read repair, partition healing with no-resurrection guarantees",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "demo": "tsc -p tsconfig.json && node dist/src/demo.js"
+  }
+}
