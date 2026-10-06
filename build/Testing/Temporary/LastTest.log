@@ -1,0 +1,19 @@
+Start testing: Oct 06 14:38 CST
+----------------------------------------------------------
+1/1 Testing: bitemporal
+1/1 Test: bitemporal
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/A/attempt-001/workspace/build/test_bitemporal"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/fd4f6a41106046df9866a0d710393597/run/A/attempt-001/workspace/build
+"bitemporal" start time: Oct 06 14:38 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   1.28 sec
+----------------------------------------------------------
+Test Passed.
+"bitemporal" end time: Oct 06 14:38 CST
+"bitemporal" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Oct 06 14:38 CST

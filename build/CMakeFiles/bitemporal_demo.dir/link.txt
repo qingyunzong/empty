@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/bitemporal_demo.dir/link.d CMakeFiles/bitemporal_demo.dir/src/main.cpp.o -o bitemporal_demo
