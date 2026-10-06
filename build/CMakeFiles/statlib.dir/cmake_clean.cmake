@@ -1,0 +1,15 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/statlib.dir/src/bigint.cpp.o"
+  "CMakeFiles/statlib.dir/src/bigint.cpp.o.d"
+  "CMakeFiles/statlib.dir/src/rational.cpp.o"
+  "CMakeFiles/statlib.dir/src/rational.cpp.o.d"
+  "CMakeFiles/statlib.dir/src/stats_tree.cpp.o"
+  "CMakeFiles/statlib.dir/src/stats_tree.cpp.o.d"
+  "libstatlib.a"
+  "libstatlib.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/statlib.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,51 @@
+Start testing: Oct 07 03:55 CST
+----------------------------------------------------------
+1/3 Testing: bigint
+1/3 Test: bigint
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build/test_bigint"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build
+"bigint" start time: Oct 07 03:55 CST
+Output:
+----------------------------------------------------------
+OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"bigint" end time: Oct 07 03:55 CST
+"bigint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: rational
+2/3 Test: rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build
+"rational" start time: Oct 07 03:55 CST
+Output:
+----------------------------------------------------------
+OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"rational" end time: Oct 07 03:55 CST
+"rational" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: stats
+3/3 Test: stats
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build/test_stats"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/B/attempt-002/workspace/build
+"stats" start time: Oct 07 03:55 CST
+Output:
+----------------------------------------------------------
+OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"stats" end time: Oct 07 03:55 CST
+"stats" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 03:55 CST

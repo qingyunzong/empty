@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstatlib.a CMakeFiles/statlib.dir/src/bigint.cpp.o CMakeFiles/statlib.dir/src/rational.cpp.o CMakeFiles/statlib.dir/src/stats_tree.cpp.o
+/usr/bin/ranlib libstatlib.a
