@@ -1,0 +1,12 @@
+{
+  "name": "step-graph-saga",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-aware step graph runner with saga-style compensation, cancellation and failure aggregation.",
+  "main": "dist/src/graph.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
