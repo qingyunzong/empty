@@ -1,0 +1,10 @@
+{
+  "name": "export-linker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fixed-point export linker: merges explicit exports, star exports and aliases across a module graph",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
