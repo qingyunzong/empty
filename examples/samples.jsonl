@@ -1,0 +1,11 @@
+{"type":"batch","id":"B-2026-0042","size":1000}
+{"type":"sample","id":"s001","defects":0}
+{"type":"sample","id":"s002","defects":1,"level":"minor"}
+{"type":"sample","id":"s003","defects":0}
+{"type":"sample","id":"s004","defects":0}
+{"type":"sample","id":"s005","defects":0}
+{"type":"sample","id":"s006","defects":0}
+{"type":"sample","id":"s007","defects":0}
+{"type":"sample","id":"s008","defects":0}
+{"type":"sample","id":"s009","defects":0}
+{"type":"sample","id":"s010","defects":0}

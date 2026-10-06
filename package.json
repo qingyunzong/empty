@@ -1,0 +1,16 @@
+{
+  "name": "qcert",
+  "version": "1.0.0",
+  "description": "Offline batch sampling QC rule engine: DSL -> bytecode -> VM, versioned certificates",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "qcert": "bin/qcert.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
