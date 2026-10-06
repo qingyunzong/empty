@@ -1,0 +1,11 @@
+{
+  "name": "causal-broadcast",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Causal broadcast simulation: per-source sequence numbers, dependency vectors, watermarks",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
