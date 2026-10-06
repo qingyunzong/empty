@@ -1,0 +1,13 @@
+{
+  "name": "rational-sequencer",
+  "version": "1.0.0",
+  "description": "Sequencer timing library: exact rational tempo maps, tick <-> microseconds",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "tsc --noEmit -p tsconfig.json && tsc -p tsconfig.build.json && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "license": "MIT"
+}
