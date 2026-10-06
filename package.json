@@ -1,0 +1,12 @@
+{
+  "name": "config-edit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Edit simple key=value config files: value-span-only edits, comment-aware key moves, duplicate-key rejection, re-parse verification.",
+  "license": "MIT",
+  "main": "dist/src/config.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
