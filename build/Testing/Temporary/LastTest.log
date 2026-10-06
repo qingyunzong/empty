@@ -1,0 +1,20 @@
+Start testing: Oct 07 02:08 CST
+----------------------------------------------------------
+1/1 Testing: units_tests
+1/1 Test: units_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/d70c65607b5044eebc02d576164260db/run/A/attempt-002/workspace/build/units_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/d70c65607b5044eebc02d576164260db/run/A/attempt-002/workspace/build
+"units_tests" start time: Oct 07 02:08 CST
+Output:
+----------------------------------------------------------
+reference-model cross-check: 3956 compared, 44 overflow-rejected
+7958 checks, 0 failures
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"units_tests" end time: Oct 07 02:08 CST
+"units_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 02:08 CST
