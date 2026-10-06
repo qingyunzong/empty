@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "alphabet": ["a", "b"],
+  "initialState": "p0",
+  "initialRegisters": { "r": 0 },
+  "states": {
+    "p0": {
+      "accepting": false,
+      "transitions": {
+        "a": { "next": "p1", "output": 1, "update": { "r": { "op": "add", "value": 1 } } }
+      }
+    },
+    "p1": {
+      "accepting": false,
+      "transitions": {
+        "b": { "next": "p2", "output": 3 }
+      }
+    },
+    "p2": {
+      "accepting": true,
+      "transitions": {}
+    }
+  }
+}

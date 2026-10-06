@@ -1,0 +1,24 @@
+{
+  "name": "client",
+  "alphabet": ["a", "b"],
+  "initialState": "q0",
+  "initialRegisters": { "r": 0 },
+  "states": {
+    "q0": {
+      "accepting": false,
+      "transitions": {
+        "a": { "next": "q1", "output": 1, "update": { "r": { "op": "add", "value": 1 } } }
+      }
+    },
+    "q1": {
+      "accepting": false,
+      "transitions": {
+        "b": { "next": "q2", "output": 2 }
+      }
+    },
+    "q2": {
+      "accepting": true,
+      "transitions": {}
+    }
+  }
+}

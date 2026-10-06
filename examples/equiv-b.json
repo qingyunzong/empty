@@ -1,0 +1,22 @@
+{
+  "name": "impl",
+  "alphabet": ["a", "b"],
+  "initialState": "s0",
+  "initialRegisters": { "r0": 0 },
+  "states": {
+    "s0": {
+      "accepting": true,
+      "transitions": {
+        "a": { "next": "s1", "output": 0 },
+        "b": { "next": "s0", "output": 1 }
+      }
+    },
+    "s1": {
+      "accepting": true,
+      "transitions": {
+        "a": { "next": "s0", "output": 0 },
+        "b": { "next": "s1", "output": 1 }
+      }
+    }
+  }
+}

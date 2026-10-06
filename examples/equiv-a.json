@@ -1,0 +1,15 @@
+{
+  "name": "spec",
+  "alphabet": ["a", "b"],
+  "initialState": "q0",
+  "initialRegisters": { "r0": 0 },
+  "states": {
+    "q0": {
+      "accepting": true,
+      "transitions": {
+        "a": { "next": "q0", "output": 0 },
+        "b": { "next": "q0", "output": 1 }
+      }
+    }
+  }
+}
