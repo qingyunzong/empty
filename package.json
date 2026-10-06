@@ -1,0 +1,12 @@
+{
+  "name": "tree-budget-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "树形整数拨款优化: 树DP + 叶向量枚举核验 + 跨子树差值约束/启动费的全局可续算搜索",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "solve": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}

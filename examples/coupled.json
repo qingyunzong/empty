@@ -1,0 +1,23 @@
+{
+  "totalBudget": 8,
+  "root": {
+    "kind": "internal", "id": "R", "min": 0, "max": 80,
+    "children": [
+      {
+        "kind": "internal", "id": "G1", "min": 0, "max": 80,
+        "children": [
+          { "kind": "leaf", "id": "a", "min": 0, "max": 4, "payoff": [0, 1, 2, 3, 20] },
+          { "kind": "leaf", "id": "b", "min": 0, "max": 4, "payoff": [0, 1, 1, 1, 1], "startupFee": 2 }
+        ]
+      },
+      {
+        "kind": "internal", "id": "G2", "min": 0, "max": 80,
+        "children": [
+          { "kind": "leaf", "id": "c", "min": 0, "max": 4, "payoff": [0, 1, 1, 1, 1] },
+          { "kind": "leaf", "id": "d", "min": 0, "max": 4, "payoff": [0, 5, 5, 5, 5] }
+        ]
+      }
+    ]
+  },
+  "cross": [{ "leafA": "a", "leafB": "d", "maxDiff": 1 }]
+}

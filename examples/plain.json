@@ -1,0 +1,16 @@
+{
+  "totalBudget": 10,
+  "root": {
+    "kind": "internal", "id": "R", "min": 0, "max": 80,
+    "children": [
+      {
+        "kind": "internal", "id": "G", "min": 2, "max": 6,
+        "children": [
+          { "kind": "leaf", "id": "a", "min": 0, "max": 5, "payoff": [0, 1, 1, 9, 9, 9] },
+          { "kind": "leaf", "id": "b", "min": 0, "max": 5, "payoff": [0, 4, 4, 4, 4, 12] }
+        ]
+      },
+      { "kind": "leaf", "id": "c", "min": 0, "max": 4, "payoff": [0, 2, 3, 4, 5] }
+    ]
+  }
+}
