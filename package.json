@@ -1,0 +1,11 @@
+{
+  "name": "tree-budget-allocator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integer budget allocation on a tree: exact tree DP with leaf-vector enumeration verification, plus a resumable branch-and-bound for cross-subtree difference constraints and fixed startup fees.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "tsc -p tsconfig.json && node dist/src/cli.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "budget": 4,
+  "root": {
+    "id": "R",
+    "children": [
+      { "id": "a", "leaf": { "payoff": [0, 0, 0, 10], "startupFee": 0 } },
+      { "id": "b", "leaf": { "payoff": [0, 10] } }
+    ]
+  },
+  "constraints": [{ "a": 0, "b": 1, "maxDiff": 1 }]
+}
