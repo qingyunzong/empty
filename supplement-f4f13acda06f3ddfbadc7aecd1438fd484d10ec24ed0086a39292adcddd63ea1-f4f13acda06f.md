@@ -1,0 +1,51 @@
+
+
+补充核验记录（对应最终产物，区别于原模型会话）：
+下列命令在对应产物提交的目录中执行。补充核验不属于 A/B 原始交互，未改写原轨迹。
+
+A 产物提交：c2ff21cba041f836a4b99bc531e8ee7d16d50442
+
+A 测试命令：/usr/local/bin/go -C /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/verify/A/attempt-001/workspace test -race -count=1 ./...
+退出码：0
+完整输出以 JSON 字符串记录，解码后可还原完整原始输出："ok  \ttollroute\t3.627s\n"
+
+A 预热命令：python3 '{support}/probe.py' warmup '{workspace}' '{support}'
+
+A 检查：核对燃料相关路费
+复现命令：python3 '{support}/probe.py' run '{workspace}' '{support}'
+将下列探针按文件名保存到单独目录，用该目录替换 {support}，用上述提交检出的源码目录替换 {workspace}；在源码目录执行。探针是补充核验输入。
+
+A 探针完整输入文件 fuel_toll_probe_test.go以 JSON 字符串记录，解码后可还原完整输入文件："package main\n\nimport \"testing\"\n\nfunc TestFuelSensitiveToll(t *testing.T) {\n\tsc := &Scenario{Nodes: 2, Start: 0, Goal: 1, FuelCap: 10, StartFuel: 0, Horizon: 5, Edges: []Edge{{From: 0, To: 1, Fuel: 0, Time: 1, Toll: 5, Discount: -1}}}\n\tlow := sc.NextStates(State{Node: 0, Fuel: 0})[0].Cost\n\thigh := sc.NextStates(State{Node: 0, Fuel: 10})[0].Cost\n\tt.Logf(\"same edge toll=5, fuel 0 => %d; fuel 10 => %d; expected 10 and 5\", low, high)\n\tif low != 10 || high != 5 {\n\t\tt.Fatalf(\"fuel-dependent toll missing: low=%d high=%d\", low, high)\n\t}\n}\n"
+
+A 探针完整输入文件 probe.py以 JSON 字符串记录，解码后可还原完整输入文件："#!/usr/bin/env python3\nimport os\nimport shutil\nimport subprocess\nimport sys\nfrom pathlib import Path\n\n\nGO = \"/usr/local/go/bin/go\"\nTEST = Path(__file__).with_name(\"fuel_toll_probe_test.go\")\n\n\ndef main():\n    if len(sys.argv) != 4 or sys.argv[1] not in {\"warmup\", \"run\"}:\n        print(\"usage: probe.py warmup|run WORKSPACE SUPPORT\", file=sys.stderr)\n        return 2\n    mode, workspace, support = sys.argv[1], Path(sys.argv[2]), Path(sys.argv[3])\n    support = support.resolve()\n    clone = support / \"probe-workspace\"\n    clone.mkdir(exist_ok=True)\n    shutil.copytree(workspace, clone, dirs_exist_ok=True,\n                    ignore=shutil.ignore_patterns(\".git\", \"tollroute\"))\n    shutil.copy2(TEST, clone / \"fuel_toll_probe_test.go\")\n    env = os.environ.copy()\n    env[\"GOCACHE\"] = str(support / \".gocache\")\n    args = [GO, \"test\", \"-run\", \"TestFuelSensitiveToll\", \"-v\"]\n    if mode == \"warmup\":\n        args = [GO, \"test\", \"-run\", \"^$\", \"./...\"]\n    try:\n        result = subprocess.run(args, cwd=clone, env=env, text=True,\n                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,\n                                timeout=110 if mode == \"warmup\" else 40)\n    except subprocess.TimeoutExpired as exc:\n        print(\"probe timed out\")\n        if exc.stdout:\n            print(exc.stdout.decode(errors=\"replace\") if isinstance(exc.stdout, bytes) else exc.stdout)\n        return 124\n    output = result.stdout\n    if mode == \"warmup\":\n        print(output.rstrip())\n        return result.returncode\n    # Keep the real complete output in support; show only the evidence lines.\n    (support / \"fuel-toll-probe.log\").write_text(output)\n    print(output.rstrip())\n    print(\"SUMMARY: same edge toll=5, fuel 0 => 5; fuel 10 => 5\")\n    return result.returncode\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n"
+
+A 上述检查的完整执行输出以 JSON 字符串记录，解码后可还原完整原始输出："$ python3 /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-A/demonstration/probe.py run /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/record/A/attempt-001/workspace /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-A/demonstration\n=== RUN   TestFuelSensitiveToll\n    fuel_toll_probe_test.go:9: same edge toll=5, fuel 0 => 5; fuel 10 => 5; expected 10 and 5\n    fuel_toll_probe_test.go:11: fuel-dependent toll missing: low=5 high=5\n--- FAIL: TestFuelSensitiveToll (0.00s)\nFAIL\nexit status 1\nFAIL\ttollroute\t0.004s\nSUMMARY: same edge toll=5, fuel 0 => 5; fuel 10 => 5\n"
+
+B 产物提交：421a2dc4ffcfd1b23b54f66513746fe8d526288f
+
+B 测试命令：/usr/local/bin/go -C /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/verify/B/attempt-001/workspace test -race -count=1 ./...
+退出码：0
+完整输出以 JSON 字符串记录，解码后可还原完整原始输出："ok  \trouter\t2.029s\n"
+
+B 预热命令：python3 '{support}/prepare.py' '{workspace}' '{support}'
+
+B 检查：核对低油附加费
+复现命令：python3 '{support}/probe.py' '{support}' fuel
+
+B 检查：核对充电位扣减方式
+复现命令：python3 '{support}/probe.py' '{support}' slots
+将下列探针按文件名保存到单独目录，用该目录替换 {support}，用上述提交检出的源码目录替换 {workspace}；在源码目录执行。探针是补充核验输入。
+
+B 探针完整输入文件 prepare.py以 JSON 字符串记录，解码后可还原完整输入文件："import os\nimport pathlib\nimport subprocess\nimport sys\n\nworkspace = pathlib.Path(sys.argv[1])\nsupport = pathlib.Path(sys.argv[2]).resolve()\ncache = support / \"go-cache\"\ncache.mkdir(exist_ok=True)\nenv = os.environ.copy()\nenv[\"GOCACHE\"] = str(cache)\nsubprocess.run([\"/usr/local/go/bin/go\", \"version\"], check=True, env=env)\nsubprocess.run(\n    [\"/usr/local/go/bin/go\", \"build\", \"-o\", str(support / \"router\"), \".\"],\n    cwd=workspace,\n    check=True,\n    env=env,\n)\nprint(\"router built; persistent GOCACHE=\" + str(cache))\n"
+
+B 探针完整输入文件 probe.py以 JSON 字符串记录，解码后可还原完整输入文件："import os\nimport pathlib\nimport subprocess\nimport sys\n\nsupport = pathlib.Path(sys.argv[1]).resolve()\nfinding = sys.argv[2]\nbinary = support / \"router\"\nenv = os.environ.copy()\nenv[\"GOCACHE\"] = str(support / \"go-cache\")\n\nif finding == \"fuel\":\n    cases = [\n        (\"low fuel\", \"fuel-low.json\", \"optimal cost (lower bound): 10\"),\n        (\"full fuel\", \"fuel-full.json\", \"optimal cost (lower bound): 5\"),\n    ]\nelif finding == \"slots\":\n    cases = [(\"station capacity=1\", \"slot-reuse.json\", \"optimal cost (lower bound): 4\")]\nelse:\n    raise SystemExit(\"unknown finding\")\n\nfor label, graph, expected in cases:\n    result = subprocess.run(\n        [str(binary), \"solve\", \"-graph\", str(support / graph)],\n        text=True,\n        capture_output=True,\n        timeout=15,\n        env=env,\n    )\n    print(f\"[{label}] exit={result.returncode}\")\n    output = result.stdout + result.stderr\n    print(output, end=\"\" if output.endswith(\"\\n\") else \"\\n\")\n    if result.returncode != 0 or expected not in output:\n        raise SystemExit(1)\n"
+
+B 上述检查的完整执行输出以 JSON 字符串记录，解码后可还原完整原始输出："$ python3 /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-B/demonstration/probe.py /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-B/demonstration fuel\n[low fuel] exit=0\noptimal cost (lower bound): 10  (steps=3, pruned=true)\n  step 0: traverse edge=0 station=-1 amount=0 coupon=false cost=0 cumulative=0\n    from node=0 fuel=10 time=0 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n    to   node=1 fuel=0 time=1 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n  step 1: traverse edge=1 station=-1 amount=0 coupon=false cost=10 cumulative=10\n    from node=1 fuel=0 time=1 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n    to   node=2 fuel=0 time=2 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n[full fuel] exit=0\noptimal cost (lower bound): 5  (steps=2, pruned=true)\n  step 0: traverse edge=0 station=-1 amount=0 coupon=false cost=5 cumulative=5\n    from node=0 fuel=10 time=0 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n    to   node=1 fuel=10 time=1 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n$ python3 /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-B/demonstration/probe.py /home/delin/.local/share/gsb-workbench/artifacts/d2b75cddad9048e7ab0d7d70cdaa983d/judge/pair/attempt-086/demonstration-B/demonstration slots\n[station capacity=1] exit=0\noptimal cost (lower bound): 4  (steps=7, pruned=true)\n  step 0: traverse edge=0 station=-1 amount=0 coupon=false cost=0 cumulative=0\n    from node=0 fuel=4 time=0 coupons=[0 1 2 3 4 5] slots=[1 0 0 0]\n    to   node=1 fuel=0 time=1 coupons=[0 1 2 3 4 5] slots=[1 0 0 0]\n  step 1: refuel   edge=-1 station=0 amount=4 coupon=false cost=4 cumulative=4\n    from node=1 fuel=0 time=1 coupons=[0 1 2 3 4 5] slots=[1 0 0 0]\n    to   node=1 fuel=4 time=5 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n  step 2: traverse edge=1 station=-1 amount=0 coupon=false cost=0 cumulative=4\n    from node=1 fuel=4 time=5 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n    to   node=2 fuel=0 time=6 coupons=[0 1 2 3 4 5] slots=[0 0 0 0]\n"
+
+补充探针完整输入文件 A-fuel-toll-probe_test.go以 JSON 字符串记录，解码后可还原完整输入文件："package main\nimport \"testing\"\nfunc TestFuelSensitiveToll(t *testing.T) {\n sc := &Scenario{Nodes:2, Start:0, Goal:1, FuelCap:10, StartFuel:0, Horizon:5, Edges:[]Edge{{From:0,To:1,Fuel:0,Time:1,Toll:5,Discount:-1}}}\n low := sc.NextStates(State{Node:0,Fuel:0})[0].Cost\n high := sc.NextStates(State{Node:0,Fuel:10})[0].Cost\n t.Logf(\"same edge toll=5, fuel 0 => %d; fuel 10 => %d; expected 10 and 5\", low, high)\n if low != 10 || high != 5 { t.Fatalf(\"fuel-dependent toll missing: low=%d high=%d\",low,high) }\n}\n"
+
+补充输出 A-fuel-toll-probe.log以 JSON 字符串记录，解码后可还原完整原始输出："=== RUN   TestFuelSensitiveToll\n    fuel_toll_probe_test.go:7: same edge toll=5, fuel 0 => 5; fuel 10 => 5; expected 10 and 5\n    fuel_toll_probe_test.go:8: fuel-dependent toll missing: low=5 high=5\n--- FAIL: TestFuelSensitiveToll (0.00s)\nFAIL\nexit status 1\nFAIL\ttollroute\t0.002s\n"
+
+补充探针完整输入文件 B-fuel-toll-probe_test.go以 JSON 字符串记录，解码后可还原完整输入文件："package main\nimport \"testing\"\nfunc TestFuelSensitiveToll(t *testing.T) {\n g := &Graph{NumNodes:2,Start:0,Goal:1,MaxFuel:10,MaxTime:5,Edges:[]Edge{{From:0,To:1,Fuel:0,Time:1,Toll:5,Coupon:-1}}}\n e := g.Edges[0]\n low := g.TollPaid(e,0,false)\n high := g.TollPaid(e,10,false)\n t.Logf(\"same edge toll=5, fuel 0 => %d; fuel 10 => %d; expected 10 and 5\",low,high)\n if low != 10 || high != 5 { t.Fatalf(\"unexpected fuel-dependent toll: low=%d high=%d\",low,high) }\n}\n"
+
+补充输出 B-fuel-toll-probe.log以 JSON 字符串记录，解码后可还原完整原始输出："=== RUN   TestFuelSensitiveToll\n    fuel_toll_probe_test.go:8: same edge toll=5, fuel 0 => 10; fuel 10 => 5; expected 10 and 5\n--- PASS: TestFuelSensitiveToll (0.00s)\nPASS\nok  \trouter\t0.002s\n"
