@@ -1,0 +1,63 @@
+Start testing: Oct 06 16:22 CST
+----------------------------------------------------------
+1/4 Testing: issuer
+1/4 Test: issuer
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests/test_issuer"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests
+"issuer" start time: Oct 06 16:22 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"issuer" end time: Oct 06 16:22 CST
+"issuer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: storage
+2/4 Test: storage
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests/test_storage"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests
+"storage" start time: Oct 06 16:22 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"storage" end time: Oct 06 16:22 CST
+"storage" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: simulation
+3/4 Test: simulation
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests/test_simulation"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests
+"simulation" start time: Oct 06 16:22 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"simulation" end time: Oct 06 16:22 CST
+"simulation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: verifier
+4/4 Test: verifier
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests/test_verifier"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/e09130e7d4444d22bd3d912c8ff06fd9/run/B/attempt-001/workspace/build/tests
+"verifier" start time: Oct 06 16:22 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"verifier" end time: Oct 06 16:22 CST
+"verifier" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 16:22 CST

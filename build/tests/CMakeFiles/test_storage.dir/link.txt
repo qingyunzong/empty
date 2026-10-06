@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_storage.dir/link.d CMakeFiles/test_storage.dir/test_storage.cpp.o -o test_storage
