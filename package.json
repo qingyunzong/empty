@@ -1,0 +1,11 @@
+{
+  "name": "reserved-upload-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "对象库预留式上传：先预留最大量、结束按实际结算、超预留拒绝发布；受控上传适配器保证额度归还一次与旧代际取消",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
