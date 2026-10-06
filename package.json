@@ -1,0 +1,25 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Observable store with async notifications, coalescing and graceful teardown",
+  "type": "module",
+  "main": "src/store.ts",
+  "scripts": {
+    "test": "tsc -p tsconfig.build.json && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qingyunzong/empty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/qingyunzong/empty/issues"
+  },
+  "homepage": "https://github.com/qingyunzong/empty#readme"
+}
