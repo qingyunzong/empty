@@ -1,0 +1,29 @@
+{
+  "alphabet": ["a", "b"],
+  "registers": ["count"],
+  "initialRegisters": { "count": 0 },
+  "automata": [
+    {
+      "name": "ProtoA",
+      "states": ["idle", "open"],
+      "initial": "idle",
+      "accepting": ["open"],
+      "transitions": [
+        { "from": "idle", "on": "a", "to": "open", "output": 1, "update": { "count": "count + 1" } },
+        { "from": "open", "on": "b", "to": "idle", "output": 0 },
+        { "from": "open", "on": "a", "to": "open", "output": "count" }
+      ]
+    },
+    {
+      "name": "ProtoB",
+      "states": ["s0", "s1"],
+      "initial": "s0",
+      "accepting": ["s1"],
+      "transitions": [
+        { "from": "s0", "on": "a", "to": "s1", "output": 1, "update": { "count": "count + 1" } },
+        { "from": "s1", "on": "b", "to": "s0", "output": 0 },
+        { "from": "s1", "on": "a", "to": "s1", "output": "count" }
+      ]
+    }
+  ]
+}

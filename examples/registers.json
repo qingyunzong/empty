@@ -1,0 +1,26 @@
+{
+  "alphabet": ["tick"],
+  "registers": ["seq"],
+  "initialRegisters": { "seq": 0 },
+  "stateBudget": 100000,
+  "automata": [
+    {
+      "name": "SenderV1",
+      "states": ["ready"],
+      "initial": "ready",
+      "accepting": ["ready"],
+      "transitions": [
+        { "from": "ready", "on": "tick", "to": "ready", "output": "seq", "update": { "seq": "seq + 1" } }
+      ]
+    },
+    {
+      "name": "SenderV2",
+      "states": ["ready"],
+      "initial": "ready",
+      "accepting": ["ready"],
+      "transitions": [
+        { "from": "ready", "on": "tick", "to": "ready", "output": "seq", "update": { "seq": "seq + 2" } }
+      ]
+    }
+  ]
+}

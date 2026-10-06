@@ -1,0 +1,27 @@
+{
+  "alphabet": ["ack", "fin", "syn"],
+  "automata": [
+    {
+      "name": "Client",
+      "states": ["closed", "syn_sent", "established"],
+      "initial": "closed",
+      "accepting": ["established"],
+      "transitions": [
+        { "from": "closed", "on": "syn", "to": "syn_sent", "output": 100 },
+        { "from": "syn_sent", "on": "ack", "to": "established", "output": 200 },
+        { "from": "established", "on": "fin", "to": "closed", "output": 300 }
+      ]
+    },
+    {
+      "name": "Server",
+      "states": ["closed", "syn_sent", "established"],
+      "initial": "closed",
+      "accepting": ["established"],
+      "transitions": [
+        { "from": "closed", "on": "syn", "to": "syn_sent", "output": 100 },
+        { "from": "syn_sent", "on": "ack", "to": "established", "output": 201 },
+        { "from": "established", "on": "fin", "to": "closed", "output": 300 }
+      ]
+    }
+  ]
+}
