@@ -1,0 +1,12 @@
+{
+  "name": "stable-id-sequence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "稳定 ID 游标序列库：墓碑删除、代际句柄、事件日志与模型核验",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run typecheck && npm run build && node --test \"dist/tests/*.test.js\""
+  }
+}
