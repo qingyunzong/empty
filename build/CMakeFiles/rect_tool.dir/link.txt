@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/rect_tool.dir/link.d CMakeFiles/rect_tool.dir/src/main.cpp.o -o rect_tool  librect_union.a

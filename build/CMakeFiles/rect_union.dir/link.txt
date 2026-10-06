@@ -1,0 +1,2 @@
+/usr/bin/ar qc librect_union.a CMakeFiles/rect_union.dir/src/rect_union.cpp.o
+/usr/bin/ranlib librect_union.a

@@ -1,0 +1,19 @@
+Start testing: Oct 07 02:42 CST
+----------------------------------------------------------
+1/1 Testing: rect_union_test
+1/1 Test: rect_union_test
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/A/attempt-002/workspace/build/rect_union_test"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/A/attempt-002/workspace/build
+"rect_union_test" start time: Oct 07 02:42 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"rect_union_test" end time: Oct 07 02:42 CST
+"rect_union_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 02:42 CST

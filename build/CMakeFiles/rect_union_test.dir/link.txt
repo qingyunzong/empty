@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/rect_union_test.dir/link.d CMakeFiles/rect_union_test.dir/tests/test_rect_union.cpp.o -o rect_union_test  librect_union.a
