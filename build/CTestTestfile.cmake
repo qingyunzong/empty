@@ -1,0 +1,14 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[parser]=] "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_parser")
+set_tests_properties([=[parser]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;30;add_test;/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;0;")
+add_test([=[eval]=] "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_eval")
+set_tests_properties([=[eval]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;30;add_test;/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;0;")
+add_test([=[vm]=] "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_vm")
+set_tests_properties([=[vm]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;30;add_test;/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;0;")
+add_test([=[exhaustive]=] "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_exhaustive")
+set_tests_properties([=[exhaustive]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;30;add_test;/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/CMakeLists.txt;0;")

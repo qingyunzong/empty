@@ -1,0 +1,103 @@
+Start testing: Oct 07 06:51 CST
+----------------------------------------------------------
+1/4 Testing: parser
+1/4 Test: parser
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_parser"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build
+"parser" start time: Oct 07 06:51 CST
+Output:
+----------------------------------------------------------
+PASS literal_forms
+PASS literal_errors_carry_position
+PASS lex_error_positions
+PASS unknown_register_position
+PASS illegal_slices_rejected
+PASS concat_width_limits
+PASS ternary_branch_widths_must_match
+PASS grouping_is_transparent
+PASS precedence
+OK (9 cases)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"parser" end time: Oct 07 06:51 CST
+"parser" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: eval
+2/4 Test: eval
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_eval"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build
+"eval" start time: Oct 07 06:51 CST
+Output:
+----------------------------------------------------------
+PASS add_mod_result_width
+PASS shifts
+PASS slices
+PASS concat
+PASS comparisons_and_logic
+PASS ternary
+PASS registers
+PASS runtime_errors_on_illegal_values
+PASS short_circuit_skips_illegal_values
+PASS grouping_does_not_change_semantics
+OK (10 cases)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"eval" end time: Oct 07 06:51 CST
+"eval" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: vm
+3/4 Test: vm
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_vm"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build
+"vm" start time: Oct 07 06:51 CST
+Output:
+----------------------------------------------------------
+PASS vm_matches_ast_on_suite
+PASS pause_resume_at_every_instruction_boundary
+PASS short_circuit_avoids_runtime_errors
+PASS verifier_accepts_compiler_output
+PASS verifier_rejects_bad_jump_target_stack_type
+PASS verifier_rejects_width_mismatch_at_merge
+PASS verifier_rejects_out_of_range_and_misc
+PASS vm_runtime_guards
+PASS disassemble_smoke
+OK (9 cases)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"vm" end time: Oct 07 06:51 CST
+"vm" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: exhaustive
+4/4 Test: exhaustive
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build/test_exhaustive"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/B/attempt-002/workspace/build
+"exhaustive" start time: Oct 07 06:51 CST
+Output:
+----------------------------------------------------------
+PASS exhaustive_add_8bit
+PASS exhaustive_add_mixed_width
+PASS exhaustive_shifts_8bit
+PASS exhaustive_slices_16bit
+PASS exhaustive_concat_8bit
+PASS exhaustive_compare_and_logic_8bit
+PASS exhaustive_ternary_8bit
+PASS random_ast_vs_vm_with_resume
+OK (8 cases)
+<end of output>
+Test time =   0.74 sec
+----------------------------------------------------------
+Test Passed.
+"exhaustive" end time: Oct 07 06:51 CST
+"exhaustive" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 06:51 CST

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libregx.a CMakeFiles/regx.dir/src/parser.cpp.o CMakeFiles/regx.dir/src/eval.cpp.o CMakeFiles/regx.dir/src/compiler.cpp.o CMakeFiles/regx.dir/src/verifier.cpp.o CMakeFiles/regx.dir/src/vm.cpp.o CMakeFiles/regx.dir/src/bytecode.cpp.o
+/usr/bin/ranlib libregx.a
