@@ -1,0 +1,11 @@
+{
+  "name": "retry-clearing",
+  "version": "1.0.0",
+  "description": "Offline clearing retry planner: batched retries, tentative freezes, cancellations, crash recovery",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
