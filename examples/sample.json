@@ -1,0 +1,17 @@
+{
+  "berths": [
+    {"id": "B1", "length": 300},
+    {"id": "B2", "length": 180}
+  ],
+  "ships": [
+    {"id": "S1", "length": 220, "arrival": 1320, "duration": 180,
+     "tidal_windows": [{"start": 1200, "end": 1560}],
+     "candidates": [1320, 1380]},
+    {"id": "S2", "length": 150, "arrival": 1380, "duration": 120,
+     "tidal_windows": [{"start": 1320, "end": 1620}],
+     "candidates": [1380, 1440, 1500]},
+    {"id": "S3", "length": 100, "arrival": 60, "duration": 90,
+     "tidal_windows": [{"start": 0, "end": 300}],
+     "candidates": [60, 120, 180]}
+  ]
+}
