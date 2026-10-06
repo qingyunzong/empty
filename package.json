@@ -1,0 +1,12 @@
+{
+  "name": "interval-join-stream",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Streaming interval join over two half-open time-interval streams with watermarks, lateness rejection and backpressure",
+  "type": "module",
+  "main": "dist/src/interval-join.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
