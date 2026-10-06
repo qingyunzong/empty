@@ -1,0 +1,12 @@
+{
+  "name": "archive-dir-index",
+  "version": "0.1.0",
+  "description": "Archive directory index for the browser importer: slash-segmented path normalization with dot-segment elimination and root-escape rejection, symlink expansion with shortest-cycle reporting, case-sensitive duplicate rejection, verified against a recursive slow model.",
+  "type": "module",
+  "private": true,
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\""
+  }
+}
