@@ -1,0 +1,10 @@
+{
+  "name": "probe-sim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "探测模拟库：心跳序号、探测代际、疑似期限；旧回包不能清新疑似，同刻有效回包先于超时",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
