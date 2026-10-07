@@ -1,0 +1,10 @@
+{
+  "name": "dairy-trace",
+  "version": "1.0.0",
+  "description": "Dairy plant quality traceability: lineage graph, impact analysis, minimal recall certificates, WAL-backed undo/redo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
