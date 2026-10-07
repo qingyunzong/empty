@@ -1,0 +1,11 @@
+{
+  "name": "gen-module-loader",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static-linked module loader with live bindings, depth-ordered init, generational reset and an event trace",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
