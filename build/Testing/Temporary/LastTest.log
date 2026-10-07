@@ -1,0 +1,92 @@
+Start testing: Oct 07 12:42 CST
+----------------------------------------------------------
+1/4 Testing: solver_tests
+1/4 Test: solver_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build
+"solver_tests" start time: Oct 07 12:42 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"solver_tests" end time: Oct 07 12:42 CST
+"solver_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: cli_sample_ok
+2/4 Test: cli_sample_ok
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_ok.txt"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build
+"cli_sample_ok" start time: Oct 07 12:42 CST
+Output:
+----------------------------------------------------------
+status ok
+cost 7
+steps 5
+step 1: edge 3  1->3  w=1  required
+step 2: edge 5  3->2  w=1
+step 3: edge 2  2->1  w=2
+step 4: edge 1  1->2  w=1  required
+step 5: edge 2  2->1  w=2
+coverage
+edge 1: 1->2 w=1 covered 1
+edge 3: 1->3 w=1 covered 1
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[cost 7]
+"cli_sample_ok" end time: Oct 07 12:42 CST
+"cli_sample_ok" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: cli_sample_unreachable
+3/4 Test: cli_sample_unreachable
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_unreachable.txt"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build
+"cli_sample_unreachable" start time: Oct 07 12:42 CST
+Output:
+----------------------------------------------------------
+status unreachable
+problem: edge 2 (2->3): cannot return from head vertex to start
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[status unreachable]
+"cli_sample_unreachable" end time: Oct 07 12:42 CST
+"cli_sample_unreachable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: cli_verify_flag
+4/4 Test: cli_verify_flag
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "--verify" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_ok.txt"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build
+"cli_verify_flag" start time: Oct 07 12:42 CST
+Output:
+----------------------------------------------------------
+status ok
+cost 7
+steps 5
+step 1: edge 3  1->3  w=1  required
+step 2: edge 5  3->2  w=1
+step 3: edge 2  2->1  w=2
+step 4: edge 1  1->2  w=1  required
+step 5: edge 2  2->1  w=2
+coverage
+edge 1: 1->2 w=1 covered 1
+edge 3: 1->3 w=1 covered 1
+verify ok (reference cost 7)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[verify ok]
+"cli_verify_flag" end time: Oct 07 12:42 CST
+"cli_verify_flag" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 12:42 CST

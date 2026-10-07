@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpatrol_lib.a CMakeFiles/patrol_lib.dir/src/solver.cpp.o
+/usr/bin/ranlib libpatrol_lib.a

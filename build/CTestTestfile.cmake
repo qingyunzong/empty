@@ -1,0 +1,14 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(solver_tests "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol_tests")
+set_tests_properties(solver_tests PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;21;add_test;/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test(cli_sample_ok "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_ok.txt")
+set_tests_properties(cli_sample_ok PROPERTIES  PASS_REGULAR_EXPRESSION "cost 7" _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;23;add_test;/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test(cli_sample_unreachable "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_unreachable.txt")
+set_tests_properties(cli_sample_unreachable PROPERTIES  PASS_REGULAR_EXPRESSION "status unreachable" _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;28;add_test;/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test(cli_verify_flag "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/build/patrol" "--verify" "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/tests/sample_ok.txt")
+set_tests_properties(cli_verify_flag PROPERTIES  PASS_REGULAR_EXPRESSION "verify ok" _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;33;add_test;/home/delin/.local/share/gsb-workbench/artifacts/342261901b014f87a7c26b52ace05d0b/run/B/attempt-003/workspace/CMakeLists.txt;0;")

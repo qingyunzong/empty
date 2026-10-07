@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/patrol.dir/link.d CMakeFiles/patrol.dir/src/main.cpp.o -o patrol  libpatrol_lib.a

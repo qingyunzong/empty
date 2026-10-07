@@ -1,0 +1,5 @@
+solver_tests 1 0.00998619
+cli_sample_ok 1 0.00460608
+cli_sample_unreachable 1 0.00375649
+cli_verify_flag 1 0.00422268
+---

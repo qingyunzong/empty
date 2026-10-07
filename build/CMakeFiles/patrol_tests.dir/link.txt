@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/patrol_tests.dir/link.d CMakeFiles/patrol_tests.dir/tests/test_solver.cpp.o -o patrol_tests  libpatrol_lib.a
