@@ -1,0 +1,13 @@
+{
+  "name": "linearizable-payment-history",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline library and CLI that linearizes out-of-order refund/void/unfreeze requests into a serializable commit history.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
