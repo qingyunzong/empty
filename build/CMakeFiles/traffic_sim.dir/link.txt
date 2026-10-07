@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtraffic_sim.a CMakeFiles/traffic_sim.dir/src/traffic_sim.cpp.o
+/usr/bin/ranlib libtraffic_sim.a

@@ -1,0 +1,10 @@
+no_conflict_both_pass 2 0.000993853
+id_tiebreak_and_reason 2 0.000824763
+waiting_time_priority 2 0.000833337
+emergency_priority_only 2 0.000782727
+swap_conflict 2 0.000913957
+follow_conflict 1 0.00182157
+waiting_accumulates_and_resets 1 0.00166821
+verify_helpers 2 0.000819752
+full_run_reference 2 0.000867984
+---

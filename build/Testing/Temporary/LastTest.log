@@ -1,0 +1,147 @@
+Start testing: Oct 07 16:17 CST
+----------------------------------------------------------
+1/9 Testing: no_conflict_both_pass
+1/9 Test: no_conflict_both_pass
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "no_conflict_both_pass"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"no_conflict_both_pass" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+no_conflict_both_pass: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"no_conflict_both_pass" end time: Oct 07 16:17 CST
+"no_conflict_both_pass" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/9 Testing: id_tiebreak_and_reason
+2/9 Test: id_tiebreak_and_reason
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "id_tiebreak_and_reason"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"id_tiebreak_and_reason" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+id_tiebreak_and_reason: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"id_tiebreak_and_reason" end time: Oct 07 16:17 CST
+"id_tiebreak_and_reason" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/9 Testing: waiting_time_priority
+3/9 Test: waiting_time_priority
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "waiting_time_priority"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"waiting_time_priority" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+waiting_time_priority: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"waiting_time_priority" end time: Oct 07 16:17 CST
+"waiting_time_priority" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/9 Testing: emergency_priority_only
+4/9 Test: emergency_priority_only
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "emergency_priority_only"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"emergency_priority_only" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+emergency_priority_only: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"emergency_priority_only" end time: Oct 07 16:17 CST
+"emergency_priority_only" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/9 Testing: swap_conflict
+5/9 Test: swap_conflict
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "swap_conflict"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"swap_conflict" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+swap_conflict: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"swap_conflict" end time: Oct 07 16:17 CST
+"swap_conflict" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/9 Testing: follow_conflict
+6/9 Test: follow_conflict
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "follow_conflict"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"follow_conflict" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+follow_conflict: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"follow_conflict" end time: Oct 07 16:17 CST
+"follow_conflict" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/9 Testing: waiting_accumulates_and_resets
+7/9 Test: waiting_accumulates_and_resets
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "waiting_accumulates_and_resets"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"waiting_accumulates_and_resets" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+waiting_accumulates_and_resets: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"waiting_accumulates_and_resets" end time: Oct 07 16:17 CST
+"waiting_accumulates_and_resets" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/9 Testing: verify_helpers
+8/9 Test: verify_helpers
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "verify_helpers"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"verify_helpers" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+verify_helpers: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"verify_helpers" end time: Oct 07 16:17 CST
+"verify_helpers" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/9 Testing: full_run_reference
+9/9 Test: full_run_reference
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build/traffic_sim_tests" "full_run_reference"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/A/attempt-003/workspace/build
+"full_run_reference" start time: Oct 07 16:17 CST
+Output:
+----------------------------------------------------------
+full_run_reference: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"full_run_reference" end time: Oct 07 16:17 CST
+"full_run_reference" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 16:17 CST
