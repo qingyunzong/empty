@@ -1,0 +1,84 @@
+Start testing: Oct 07 13:22 CST
+----------------------------------------------------------
+1/5 Testing: parser
+1/5 Test: parser
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "parser"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+"parser" start time: Oct 07 13:22 CST
+Output:
+----------------------------------------------------------
+OK (44 checks, 0 failures)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"parser" end time: Oct 07 13:22 CST
+"parser" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: exhaustive
+2/5 Test: exhaustive
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "exhaustive"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+"exhaustive" start time: Oct 07 13:22 CST
+Output:
+----------------------------------------------------------
+exhaustive: 62312 checks
+OK (62312 checks, 0 failures)
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"exhaustive" end time: Oct 07 13:22 CST
+"exhaustive" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: column
+3/5 Test: column
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "column"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+"column" start time: Oct 07 13:22 CST
+Output:
+----------------------------------------------------------
+OK (12 checks, 0 failures)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"column" end time: Oct 07 13:22 CST
+"column" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: csv
+4/5 Test: csv
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "csv"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+"csv" start time: Oct 07 13:22 CST
+Output:
+----------------------------------------------------------
+OK (8 checks, 0 failures)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"csv" end time: Oct 07 13:22 CST
+"csv" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: cli_end_to_end
+5/5 Test: cli_end_to_end
+Command: "/usr/bin/cmake" "-DBIN=/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport" "-DDATA=/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/tests/data" "-P" "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/tests/cli_test.cmake"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+"cli_end_to_end" start time: Oct 07 13:22 CST
+Output:
+----------------------------------------------------------
+-- CLI end-to-end tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cli_end_to_end" end time: Oct 07 13:22 CST
+"cli_end_to_end" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 13:22 CST

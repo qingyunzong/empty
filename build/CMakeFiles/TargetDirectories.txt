@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/numimport_core.dir
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/numimport.dir
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/numimport_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/CMakeFiles/rebuild_cache.dir

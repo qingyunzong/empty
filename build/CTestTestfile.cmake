@@ -1,0 +1,16 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[parser]=] "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "parser")
+set_tests_properties([=[parser]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;26;add_test;/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test([=[exhaustive]=] "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "exhaustive")
+set_tests_properties([=[exhaustive]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;26;add_test;/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test([=[column]=] "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "column")
+set_tests_properties([=[column]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;26;add_test;/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test([=[csv]=] "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport_tests" "csv")
+set_tests_properties([=[csv]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;26;add_test;/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;0;")
+add_test([=[cli_end_to_end]=] "/usr/bin/cmake" "-DBIN=/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/build/numimport" "-DDATA=/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/tests/data" "-P" "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/tests/cli_test.cmake")
+set_tests_properties([=[cli_end_to_end]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;29;add_test;/home/delin/.local/share/gsb-workbench/artifacts/67a08946584f48a8bfcf9ed36029f602/run/B/attempt-003/workspace/CMakeLists.txt;0;")

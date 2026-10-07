@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnumimport_core.a CMakeFiles/numimport_core.dir/src/numparse.cpp.o CMakeFiles/numimport_core.dir/src/column.cpp.o CMakeFiles/numimport_core.dir/src/csv.cpp.o
+/usr/bin/ranlib libnumimport_core.a

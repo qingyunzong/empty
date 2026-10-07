@@ -1,0 +1,6 @@
+parser 6 0.000456009
+exhaustive 6 0.0833485
+column 6 0.000455881
+csv 6 0.000409788
+cli_end_to_end 2 0.00889625
+---
