@@ -1,0 +1,7 @@
+roundtrip 1 0.00420039
+transforms 1 0.00358274
+reduce_minimality 1 0.00607136
+cache_env 1 0.00343562
+trajectory 1 0.00494487
+bounded_verify 3 0.00562543
+---

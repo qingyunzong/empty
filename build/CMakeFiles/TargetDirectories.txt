@@ -1,0 +1,5 @@
+/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/CMakeFiles/reduce.dir
+/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/CMakeFiles/reducer_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir

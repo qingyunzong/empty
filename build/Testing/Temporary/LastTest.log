@@ -1,0 +1,93 @@
+Start testing: Oct 08 06:31 CST
+----------------------------------------------------------
+1/6 Testing: roundtrip
+1/6 Test: roundtrip
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "roundtrip"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"roundtrip" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"roundtrip" end time: Oct 08 06:31 CST
+"roundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: transforms
+2/6 Test: transforms
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "transforms"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"transforms" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"transforms" end time: Oct 08 06:31 CST
+"transforms" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: reduce_minimality
+3/6 Test: reduce_minimality
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "reduce_minimality"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"reduce_minimality" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"reduce_minimality" end time: Oct 08 06:31 CST
+"reduce_minimality" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: cache_env
+4/6 Test: cache_env
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "cache_env"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"cache_env" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cache_env" end time: Oct 08 06:31 CST
+"cache_env" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: trajectory
+5/6 Test: trajectory
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "trajectory"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"trajectory" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"trajectory" end time: Oct 08 06:31 CST
+"trajectory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: bounded_verify
+6/6 Test: bounded_verify
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build/reducer_tests" "bounded_verify"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/2eb59850c30d41998b0fd5f59a3b41d0/run/B/attempt-004/workspace/build
+"bounded_verify" start time: Oct 08 06:31 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"bounded_verify" end time: Oct 08 06:31 CST
+"bounded_verify" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 06:31 CST
