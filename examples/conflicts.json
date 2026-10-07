@@ -1,0 +1,33 @@
+{
+  "conflicts": [
+    {
+      "id": "t003",
+      "rule": "R1",
+      "base": {
+        "id": "t003",
+        "account": "ACC-100",
+        "amount": 500,
+        "ccy": "USD",
+        "seq": 3,
+        "status": "DRAFT"
+      },
+      "left": {
+        "id": "t003",
+        "account": "ACC-100",
+        "amount": 550,
+        "ccy": "USD",
+        "seq": 3,
+        "status": "LOCKED"
+      },
+      "right": {
+        "id": "t003",
+        "account": "ACC-100",
+        "amount": 999,
+        "ccy": "USD",
+        "seq": 3,
+        "status": "LOCKED"
+      },
+      "sha256": "1798aa68cfce0566a6af62730849e4feaee9d9e10683e4c79275f04fe8870d40"
+    }
+  ]
+}

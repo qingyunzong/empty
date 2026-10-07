@@ -1,0 +1,4 @@
+{"id":"t003","account":"ACC-100","amount":550,"ccy":"USD","seq":3,"status":"LOCKED"}
+{"id":"t001","account":"ACC-200","amount":1200,"ccy":"EUR","seq":1,"status":"LOCKED"}
+{"id":"t002","account":"ACC-300","amount":300,"ccy":"USD","seq":2,"status":"DRAFT"}
+{"id":"t005","account":"ACC-500","amount":42,"ccy":"USD","seq":5,"status":"DRAFT"}
