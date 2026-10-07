@@ -1,0 +1,13 @@
+{
+  "name": "provenance-audit",
+  "version": "1.0.0",
+  "description": "Offline provenance/lineage audit: versioned graph certificates for reachability and non-reachability",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
