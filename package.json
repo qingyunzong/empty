@@ -1,0 +1,12 @@
+{
+  "name": "rule-expr",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Rule expression library: integer arithmetic, comparison, short-circuit booleans, ternary, lexically scoped functions with lazy parameters, step budgets and pausable evaluation",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
