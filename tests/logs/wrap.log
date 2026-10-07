@@ -1,0 +1,12 @@
+# full wrap at modulus 8, then a retransmission of raw 7
+0 0
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+0 7
+0 0
+0 1
+0 7
