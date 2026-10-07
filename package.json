@@ -1,0 +1,11 @@
+{
+  "name": "sheet-merge-copy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Table editing library: rectangular merge/split and cross-region copy with snapshot semantics and atomic batches",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test test/*.test.js"
+  }
+}
