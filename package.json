@@ -1,0 +1,17 @@
+{
+  "name": "payment-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Single-node payment ledger: freeze/unfreeze state machine, reversal chains, logical-clock linearization, verifiable hash chain.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  },
+  "bin": {
+    "payment-ledger": "src/cli.js"
+  }
+}
