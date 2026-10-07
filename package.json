@@ -1,0 +1,10 @@
+{
+  "name": "oee-crdt",
+  "version": "1.0.0",
+  "description": "Offline-first OEE merge for filling lines (CRDT counters, revocable downtime intervals, tombstones, anti-entropy)",
+  "type": "module",
+  "license": "MIT",
+  "bin": { "oee-cli": "src/cli.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,74 @@
+# node --test 真实结果
+# date: 2026-10-07T12:01:10+08:00  node: v22.22.1  platform: linux x64
+
+## test/antientropy.test.js
+  ✔ repair via interval summaries converges to full merge (12.395522ms)
+  ✔ summaries detect a single missing event in its bucket (6.237078ms)
+  ✔ repair is idempotent (2.752873ms)
+  ℹ tests 3
+  ℹ pass 3
+  ℹ fail 0
+
+## test/cli.test.js
+  ✔ ingest two terminals, merge, oee reports a/p/q and empty pending (19.030679ms)
+  ✔ negative count exits 10 (1.570182ms)
+  ✔ hold events in final state exit 11 and list pending (2.689366ms)
+  ✔ merge is order-independent at the CLI level (3.694536ms)
+  ✔ digest and repair converge two partial replicas (4.480112ms)
+  ✔ usage errors exit 2 (0.669172ms)
+  ℹ tests 6
+  ℹ pass 6
+  ℹ fail 0
+
+## test/enumeration.test.js
+  ✔ all merge orders of 7 events agree (5040 permutations) (281.537693ms)
+  ✔ all pairwise merge trees of 6 events agree (55.118374ms)
+  ℹ tests 2
+  ℹ pass 2
+  ℹ fail 0
+
+## test/hold.test.js
+  ✔ out-of-bound events go to hold and are not applied (6.433564ms)
+  ✔ events within skew bound are accepted (0.958598ms)
+  ✔ held events do not count as loss or violation in OEE (0.93919ms)
+  ✔ holds propagate through merge (0.39479ms)
+  ℹ tests 4
+  ℹ pass 4
+  ℹ fail 0
+
+## test/merge-laws.test.js
+  ✔ any sharded merge equals full merge (75.705363ms)
+  ✔ merge is commutative and associative (1.955735ms)
+  ✔ merge is idempotent (1.039285ms)
+  ✔ re-ingest of the same events is a no-op (0.70097ms)
+  ℹ tests 4
+  ℹ pass 4
+  ℹ fail 0
+
+## test/oee.test.js
+  ✔ downtime revoke returns OEE to reference (12.156647ms)
+  ✔ overlapping downtimes merge into one cover (2.065592ms)
+  ✔ rejects are clamped to production and flagged as violation (1.123567ms)
+  ✔ PN-counter decrements keep counters non-negative (0.340019ms)
+  ℹ tests 4
+  ℹ pass 4
+  ℹ fail 0
+
+## test/tombstone.test.js
+  ✔ duplicate revoke is idempotent (2.863362ms)
+  ✔ re-applying the identical revoke event is a full no-op (0.58001ms)
+  ✔ tombstone wins over late/arriving downtime (remove-wins) (0.549483ms)
+  ✔ tombstones survive further merges (no resurrection after anti-entropy) (0.222615ms)
+  ℹ tests 4
+  ℹ pass 4
+  ℹ fail 0
+
+## 汇总 (node --test)
+  # tests 8
+  # suites 0
+  # pass 8
+  # fail 0
+  # cancelled 0
+  # skipped 0
+  # todo 0
+  # duration_ms 923.591106
