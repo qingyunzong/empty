@@ -1,0 +1,6 @@
+# shared holds are mutually compatible; the shared wait is not blocked
+T1 acquire L1 shared
+T2 acquire L1 shared
+T3 wait L1 shared
+T1 release L1
+T3 acquire L1 shared

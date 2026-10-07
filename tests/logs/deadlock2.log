@@ -1,0 +1,5 @@
+# classic two-thread deadlock
+T1 acquire L1 exclusive
+T2 acquire L2 exclusive
+T1 wait L2 exclusive
+T2 wait L1 exclusive

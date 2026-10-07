@@ -1,0 +1,2 @@
+T1 acquire L1 exclusive
+T2 wait L1

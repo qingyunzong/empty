@@ -1,0 +1,3 @@
+# shared -> exclusive upgrade against the thread's own shared hold
+T1 acquire L1 shared
+T1 wait L1 exclusive

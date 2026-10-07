@@ -1,0 +1,5 @@
+# waits without matching grants: no holders, so no wait-for edges
+T1 wait L1 exclusive
+T2 wait L2 exclusive
+T1 wait L2 exclusive
+T2 wait L1 exclusive

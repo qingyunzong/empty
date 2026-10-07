@@ -1,0 +1,6 @@
+# blocked wait resolves once the holder releases
+T1 acquire L1 exclusive
+T2 wait L1 shared
+T1 release L1
+T2 acquire L1 shared
+T2 release L1
