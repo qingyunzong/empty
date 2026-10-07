@@ -1,0 +1,11 @@
+{
+  "name": "pathrule",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Path-rule intersection CLI: literal segments, single-segment '*' and whole-segment '**' wildcards, exclude sets, shortest-then-byte-order witness",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "cli": "node dist/src/cli.js"
+  }
+}
