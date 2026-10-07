@@ -1,0 +1,11 @@
+{
+  "name": "logical-time-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic logical-time scheduler for tests: due-only I/O, id-ordered microtasks, budgeted resumable ticks, delivery trace.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/scheduler.test.js"
+  }
+}
