@@ -1,0 +1,6 @@
+{"id":"t1","account":"acct1","amount":80,"hour":10,"region":"domestic","channel":"pos","history":"clean"}
+{"id":"t2","account":"acct1","amount":25000,"hour":2,"region":"sanctioned","channel":"online","history":"flagged"}
+{"id":"t3","account":"acct2","amount":300,"hour":11,"region":"domestic","channel":"online","history":"clean"}
+{"id":"t4","account":"acct2","amount":450,"hour":11,"region":"domestic","channel":"online","history":"clean"}
+{"id":"t5","account":"acct2","amount":600,"hour":12,"region":"crossborder","channel":"online","history":"clean"}
+{"id":"t6","account":"acct1","amount":1200,"hour":15,"region":"domestic","channel":"atm","history":"clean"}
