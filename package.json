@@ -1,0 +1,10 @@
+{
+  "name": "coupon-cart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "购物车定额券分摊与部分退货退款守恒库",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
