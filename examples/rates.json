@@ -1,0 +1,8 @@
+[
+  { "id": "USD/CNY-2024-01", "pair": "USD/CNY", "rate": 7.10, "version": "fx-2024-01",
+    "startUtc": "2024-01-01T00:00:00Z", "endUtc": "2024-02-01T00:00:00Z" },
+  { "id": "USD/CNY-2024-02", "pair": "USD/CNY", "rate": 7.20, "version": "fx-2024-02",
+    "startUtc": "2024-02-01T00:00:00Z", "endUtc": "2024-03-01T00:00:00Z" },
+  { "id": "USD/CNY-2024-03", "pair": "USD/CNY", "rate": 7.25, "version": "fx-2024-03",
+    "startUtc": "2024-03-01T00:00:00Z", "endUtc": "2024-04-01T00:00:00Z" }
+]

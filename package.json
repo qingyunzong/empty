@@ -1,0 +1,14 @@
+{
+  "name": "xborder-recon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-border acquiring reconciliation with versioned timezone tables",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

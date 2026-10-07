@@ -1,0 +1,6 @@
+[
+  { "id": "txn-jan-1", "pair": "USD/CNY", "amount": 100.00, "utc": "2024-01-15T16:30:00Z" },
+  { "id": "txn-feb-1", "pair": "USD/CNY", "amount": 200.00, "utc": "2024-02-10T08:00:00Z" },
+  { "id": "txn-feb-2", "pair": "USD/CNY", "amount": 50.00,  "utc": "2024-02-20T12:00:00Z" },
+  { "id": "txn-mar-1", "pair": "USD/CNY", "amount": 80.00,  "utc": "2024-03-05T03:00:00Z" }
+]

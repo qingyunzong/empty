@@ -1,0 +1,7 @@
+[
+  { "txnId": "txn-jan-1", "amount": 710.00, "localDay": "2024-01-16" },
+  { "txnId": "txn-feb-1", "amount": 1440.00, "localDay": "2024-02-10" },
+  { "txnId": "txn-feb-2", "amount": 361.00, "localDay": "2024-02-20" },
+  { "txnId": "txn-mar-1", "amount": 580.00, "localDay": "2024-03-04" },
+  { "txnId": "txn-ghost", "amount": 1.00, "localDay": "2024-03-01" }
+]
