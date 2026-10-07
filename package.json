@@ -1,0 +1,11 @@
+{
+  "name": "vertex-snap-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Editor library: drag integer vertices onto candidate wires with self-intersection validation and undo",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {}
+}
