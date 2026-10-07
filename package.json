@@ -1,0 +1,11 @@
+{
+  "name": "stable-id-text",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Text editing model with stable character IDs, ID-anchored selections, paged storage and op-log merge/replay",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
