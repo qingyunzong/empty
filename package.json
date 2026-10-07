@@ -1,0 +1,10 @@
+{
+  "name": "config-migrator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop app config migration library: version-graph path selection, reversible steps, resumable rollback",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
