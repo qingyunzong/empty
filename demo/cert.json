@@ -1,0 +1,36 @@
+{
+  "rules_version": "1.0.0",
+  "input_hash": "sha256:7489f74d641a9f4e401a7fbc8d39f14742c922a6a47fe0c3e0d94768a507e3a8",
+  "sources": [
+    "RM-101"
+  ],
+  "affected_batches": [
+    "B-201",
+    "P-301",
+    "P-302",
+    "RM-101"
+  ],
+  "affected_products": [
+    "P-301",
+    "P-302"
+  ],
+  "boundary": [
+    {
+      "batch": "P-301",
+      "kind": "sink"
+    },
+    {
+      "batch": "P-302",
+      "kind": "sink"
+    }
+  ],
+  "corrections": [
+    {
+      "inspection": "IN-1",
+      "status": "fail"
+    }
+  ],
+  "tombstones": [
+    "P-302"
+  ]
+}

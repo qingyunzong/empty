@@ -1,0 +1,14 @@
+{
+  "name": "food-trace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline batch lineage tracing and recall certificates (stdlib only)",
+  "type": "commonjs",
+  "main": "src/lineage.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

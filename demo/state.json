@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "rules_version": "1.0.0",
+  "events": [
+    {
+      "type": "intake",
+      "batch": "RM-101",
+      "material": "milk"
+    },
+    {
+      "type": "intake",
+      "batch": "RM-102",
+      "material": "sugar"
+    },
+    {
+      "type": "inspect",
+      "id": "IN-1",
+      "batch": "RM-101",
+      "test": "salmonella",
+      "status": "pass"
+    },
+    {
+      "type": "mix",
+      "output": "B-201",
+      "inputs": [
+        "RM-101",
+        "RM-102"
+      ]
+    },
+    {
+      "type": "split",
+      "input": "B-201",
+      "outputs": [
+        "P-301",
+        "P-302"
+      ]
+    },
+    {
+      "type": "scrap",
+      "batch": "P-302",
+      "reason": "damaged packaging"
+    },
+    {
+      "type": "correct",
+      "inspection": "IN-1",
+      "status": "fail",
+      "reason": "lab retest positive"
+    }
+  ]
+}
