@@ -1,0 +1,8 @@
+{"type":"freeze","id":"F-001","ts":"2026-10-07T09:00:00Z","customer":"C0001","bucket":"working_capital","amount":120000,"until":"2026-12-31","note":"REQ-1001","scope":["HQ","REGION","TEAM"]}
+{"type":"freeze","id":"F-002","ts":"2026-10-07T09:05:00Z","customer":"C0001","bucket":"working_capital","amount":100000,"until":"2026-11-30","note":"REQ-1002","scope":["HQ","REGION"]}
+{"type":"freeze","id":"F-003","ts":"2026-10-07T09:10:00Z","customer":"C0001","bucket":"working_capital","amount":60000,"until":"2026-12-31","note":"REQ-1003","scope":["HQ","REGION","TEAM"]}
+{"type":"freeze","id":"F-004","ts":"2026-10-07T09:15:00Z","customer":"C0001","bucket":"working_capital","amount":10000,"until":"2026-12-31","note":"bad note!","scope":["HQ"]}
+{"type":"debit","id":"D-001","ts":"2026-10-08T10:00:00Z","customer":"C0001","bucket":"working_capital","amount":30000,"note":"REQ-1004","freeze_id":"F-001"}
+{"type":"unfreeze","id":"U-001","ts":"2026-10-09T10:00:00Z","customer":"C0001","bucket":"working_capital","amount":20000,"note":"REQ-1005","freeze_id":"F-001"}
+{"type":"business_day","id":"BD-1","date":"2026-12-01"}
+{"type":"business_day","id":"BD-2","date":"2027-01-01"}

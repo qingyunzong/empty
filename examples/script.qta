@@ -1,0 +1,28 @@
+// 授信额度策略：客户 C0001，两个额度桶，三级审批嵌套
+customer C0001;
+note /^[A-Z0-9-]{3,32}$/;
+
+bucket working_capital {
+  limit 1000000;
+  valid 2026-01-01 to 2027-12-31;
+}
+
+bucket revolver {
+  limit 500000;
+}
+
+approval HQ {
+  cap working_capital 800000;
+  let buffer = 50000;
+  reject freeze when amount > available(working_capital) - buffer;
+
+  approval REGION {
+    cap working_capital 400000;
+    let buffer = 20000;   // 只读 shadowing：内层覆盖外层 buffer
+    reject freeze when amount > 300000 unless note matches /^VIP-/;
+
+    approval TEAM {
+      cap working_capital 150000;
+    }
+  }
+}

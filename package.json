@@ -1,0 +1,8 @@
+{
+  "name": "quota-dsl",
+  "version": "1.0.0",
+  "description": "Credit quota freeze DSL with nested approval scopes, bytecode VM and event sourcing",
+  "type": "module",
+  "bin": { "quota": "./bin/quota.js" },
+  "scripts": { "test": "node --test" }
+}
