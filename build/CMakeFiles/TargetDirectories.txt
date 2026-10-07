@@ -1,0 +1,4 @@
+/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build/CMakeFiles/ray_triangle_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir

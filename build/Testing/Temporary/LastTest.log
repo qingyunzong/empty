@@ -1,0 +1,19 @@
+Start testing: Oct 08 03:10 CST
+----------------------------------------------------------
+1/1 Testing: ray_triangle_tests
+1/1 Test: ray_triangle_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build/ray_triangle_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/04363af27b4a4783bcf9815ef76d1ef8/run/B/attempt-004/workspace/build
+"ray_triangle_tests" start time: Oct 08 03:10 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ray_triangle_tests" end time: Oct 08 03:10 CST
+"ray_triangle_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 03:10 CST
