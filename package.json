@@ -1,0 +1,10 @@
+{
+  "name": "redflush-lp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Exact rational LP (dim <= 3) for verifying invoice red-flush constraint cancellation",
+  "scripts": {
+    "test": "node --test"
+  }
+}
