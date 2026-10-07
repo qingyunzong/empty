@@ -1,0 +1,11 @@
+{
+  "name": "rational-ellipse-line-intersection",
+  "version": "1.0.0",
+  "description": "Exact intersection of a rational ellipse and a rational line: algebraic points, isolating intervals, exact discriminant",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
