@@ -1,0 +1,10 @@
+{
+  "name": "settlement-ledger",
+  "version": "1.0.0",
+  "description": "Causal event-sourced settlement account ledger with tombstones, epochs and merge conflict detection",
+  "type": "module",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
