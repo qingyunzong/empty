@@ -1,0 +1,5 @@
+{"op":"batchBegin","id":"B1"}
+{"op":"deposit","account":"a","amount":10,"ts":5}
+{"op":"deposit","account":"b","amount":10,"ts":5}
+{"op":"batchEnd"}
+{"op":"undo"}
