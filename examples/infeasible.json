@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    { "id": "allow-doc", "action": "allow", "cost": 1,
+      "match": { "subject": "*", "op": "*", "resource": "doc" } },
+    { "id": "deny-doc", "action": "deny", "cost": 1,
+      "match": { "subject": "*", "op": "*", "resource": "doc" } }
+  ],
+  "samples": [
+    { "id": "want-allow", "expect": "allow",
+      "request": { "subject": "alice", "op": "read", "resource": "doc" } },
+    { "id": "want-deny", "expect": "deny",
+      "request": { "subject": "alice", "op": "read", "resource": "doc" } }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "perm-solve",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimum-cost permission rule subset selection with deny-priority conflict resolution, verified by exhaustive enumeration",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build --silent && node --test dist/test/*.test.js",
+    "solve": "npm run build --silent && node dist/src/cli.js"
+  }
+}

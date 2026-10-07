@@ -1,0 +1,26 @@
+{
+  "candidates": [
+    { "id": "allow-alice-read", "action": "allow", "cost": 2,
+      "match": { "subject": "alice", "op": "read", "resource": "*" } },
+    { "id": "allow-all-read", "action": "allow", "cost": 1,
+      "match": { "subject": "*", "op": "read", "resource": "*" } },
+    { "id": "deny-secret", "action": "deny", "cost": 1,
+      "match": { "subject": "*", "op": "*", "resource": "secret/*" } },
+    { "id": "allow-bob-secret", "action": "allow", "cost": 5,
+      "match": { "subject": "bob", "op": "read", "resource": "secret/*" } },
+    { "id": "allow-alice-write", "action": "allow", "cost": 4,
+      "match": { "subject": "alice", "op": "write", "resource": "*" } }
+  ],
+  "samples": [
+    { "id": "s1", "expect": "allow",
+      "request": { "subject": "alice", "op": "read", "resource": "doc/a" } },
+    { "id": "s2", "expect": "deny",
+      "request": { "subject": "alice", "op": "read", "resource": "secret/x" } },
+    { "id": "s3", "expect": "allow",
+      "request": { "subject": "bob", "op": "read", "resource": "doc/b" } },
+    { "id": "s4", "expect": "deny",
+      "request": { "subject": "carol", "op": "write", "resource": "doc/c" } },
+    { "id": "s5", "expect": "allow",
+      "request": { "subject": "alice", "op": "write", "resource": "doc/d" } }
+  ]
+}
