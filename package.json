@@ -1,0 +1,10 @@
+{
+  "name": "tag-dag",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Taxonomy DAG tag library: lowest common ancestors, atomic batch edge edits with cycle rejection",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
