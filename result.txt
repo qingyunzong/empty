@@ -1,0 +1,13 @@
+✔ test/cli.test.js (12516.741611ms)
+✔ test/enumeration.test.js (20730.795891ms)
+✔ test/merkle.test.js (317.348283ms)
+✔ test/replica.test.js (336.888023ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20760.772302
+0

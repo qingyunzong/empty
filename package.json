@@ -1,0 +1,10 @@
+{
+  "name": "recon-anti-entropy",
+  "version": "1.0.0",
+  "description": "Reconciliation anti-entropy snapshot library and CLI (Node.js stdlib only)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-reporter spec"
+  }
+}
