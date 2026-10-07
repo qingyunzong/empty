@@ -1,0 +1,12 @@
+{
+  "name": "destructure-expr",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Expression library with atomic nested array/object pattern destructuring",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.build.json && node dist/test/destructure.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
