@@ -1,0 +1,13 @@
+{
+  "name": "jump-capture-solver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CLI solver for a custom jump-capture board puzzle (exhaustive, certified)",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "node dist/src/cli.js solve",
+    "verify": "node dist/src/cli.js verify"
+  }
+}
