@@ -1,0 +1,13 @@
+{
+  "name": "audit-chain",
+  "version": "1.0.0",
+  "description": "Hash-chain certificates for append/correct batch audit logs",
+  "type": "module",
+  "main": "src/audit.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
