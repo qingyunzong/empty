@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -fno-omit-frame-pointer -Wl,--dependency-file=CMakeFiles/test_basic.dir/link.d CMakeFiles/test_basic.dir/tests/test_basic.cpp.o -o test_basic  libintcol.a

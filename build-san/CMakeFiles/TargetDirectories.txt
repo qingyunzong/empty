@@ -1,0 +1,9 @@
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/intcol.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test_basic.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test_snapshot.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test_scan.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test_boundary.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test_fuzz.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build-san/CMakeFiles/rebuild_cache.dir

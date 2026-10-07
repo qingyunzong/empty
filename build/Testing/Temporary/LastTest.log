@@ -1,0 +1,83 @@
+Start testing: Oct 07 19:59 CST
+----------------------------------------------------------
+1/5 Testing: basic
+1/5 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build/test_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build
+"basic" start time: Oct 07 19:59 CST
+Output:
+----------------------------------------------------------
+test_basic OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 07 19:59 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: snapshot
+2/5 Test: snapshot
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build/test_snapshot"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build
+"snapshot" start time: Oct 07 19:59 CST
+Output:
+----------------------------------------------------------
+test_snapshot OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"snapshot" end time: Oct 07 19:59 CST
+"snapshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: scan
+3/5 Test: scan
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build/test_scan"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build
+"scan" start time: Oct 07 19:59 CST
+Output:
+----------------------------------------------------------
+test_scan OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"scan" end time: Oct 07 19:59 CST
+"scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: boundary
+4/5 Test: boundary
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build/test_boundary"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build
+"boundary" start time: Oct 07 19:59 CST
+Output:
+----------------------------------------------------------
+test_boundary OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"boundary" end time: Oct 07 19:59 CST
+"boundary" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: fuzz
+5/5 Test: fuzz
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build/test_fuzz"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/a3f467b7a9b24108bff65754d29b8801/run/B/attempt-004/workspace/build
+"fuzz" start time: Oct 07 19:59 CST
+Output:
+----------------------------------------------------------
+test_fuzz OK
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"fuzz" end time: Oct 07 19:59 CST
+"fuzz" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 19:59 CST

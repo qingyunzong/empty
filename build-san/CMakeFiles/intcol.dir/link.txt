@@ -1,0 +1,2 @@
+/usr/bin/ar qc libintcol.a CMakeFiles/intcol.dir/src/column.cpp.o
+/usr/bin/ranlib libintcol.a
