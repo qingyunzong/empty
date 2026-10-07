@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/counter_set_cli.dir/link.d CMakeFiles/counter_set_cli.dir/src/main.cpp.o -o counter_set_cli  libcounter_set.a

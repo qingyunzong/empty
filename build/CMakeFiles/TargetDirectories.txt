@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/counter_set.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/counter_set_cli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/counter_set_test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/A/attempt-003/workspace/build/CMakeFiles/rebuild_cache.dir
