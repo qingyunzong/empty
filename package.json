@@ -1,0 +1,13 @@
+{
+  "name": "rational-quadratic-bezier-aabb",
+  "version": "1.0.0",
+  "description": "Exact certified axis-aligned bounding boxes for rational quadratic Bezier curves with positive rational weights",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
