@@ -1,0 +1,11 @@
+{
+  "name": "signflip-exact",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exact sign-flip (randomization) inference for paired rational differences",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
