@@ -1,0 +1,13 @@
+{
+  "name": "stable-cursor-sequence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sequence with stable-ID cursors, generational IDs and tombstone retention",
+  "scripts": {
+    "test": "tsc && node --test dist/test/sequence.test.js",
+    "test:only": "node --test dist/test/sequence.test.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}
