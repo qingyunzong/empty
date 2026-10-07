@@ -1,0 +1,9 @@
+{
+  "name": "trace-genealogy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Batch genealogy traceability as a minimized DFA with equivalence certificates and savepoint-layer imports",
+  "scripts": {
+    "test": "node --test"
+  }
+}

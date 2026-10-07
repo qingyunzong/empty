@@ -1,0 +1,2 @@
+{"batch":"rework","op":"test","parents":["qc"],"defects":["d2"]}
+{"batch":"recheck","op":"ship","parents":["rework"]}

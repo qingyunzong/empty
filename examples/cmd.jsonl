@@ -1,0 +1,5 @@
+{"cmd":"import","file":"batches-base.jsonl"}
+{"cmd":"import","file":"batches-ext.jsonl"}
+{"cmd":"equiv","a":"rules-v1.jsonl","b":"rules-v2.jsonl"}
+{"cmd":"equiv","a":"rules-v1.jsonl","b":"rules-v3.jsonl"}
+{"cmd":"rollback","layer":1}

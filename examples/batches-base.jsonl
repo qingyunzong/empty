@@ -1,0 +1,6 @@
+{"batch":"harvest","defects":["d0"]}
+{"batch":"wash","op":"split","parents":["harvest"],"defects":["d1"]}
+{"batch":"peel","op":"split","parents":["harvest"]}
+{"batch":"mix","op":"merge","parents":["wash","peel"]}
+{"batch":"qc","op":"test","parents":["mix"],"status":"pending"}
+{"batch":"ship-out","op":"ship","parents":["qc"]}

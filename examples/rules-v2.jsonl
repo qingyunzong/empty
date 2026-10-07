@@ -1,0 +1,6 @@
+{"batch":"src","defects":["d0"]}
+{"batch":"cut-a","op":"split","parents":["src"],"defects":["d1"]}
+{"batch":"cut-b","op":"split","parents":["src"]}
+{"batch":"bundle","op":"merge","parents":["cut-a","cut-b"]}
+{"batch":"inspect","op":"test","parents":["bundle"],"status":"pending"}
+{"batch":"dispatch","op":"ship","parents":["inspect"]}

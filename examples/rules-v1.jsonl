@@ -1,0 +1,6 @@
+{"batch":"raw","defects":["d0"]}
+{"batch":"cook-a","op":"split","parents":["raw"],"defects":["d1"]}
+{"batch":"cook-b","op":"split","parents":["raw"]}
+{"batch":"pack","op":"merge","parents":["cook-a","cook-b"]}
+{"batch":"qc","op":"test","parents":["pack"],"status":"pending"}
+{"batch":"out","op":"ship","parents":["qc"]}
