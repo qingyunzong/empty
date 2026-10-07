@@ -1,0 +1,9 @@
+{
+  "name": "tombstone-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Causal tombstone ledger for trade cancel/restore, with CLI",
+  "scripts": {
+    "test": "node --test"
+  }
+}
