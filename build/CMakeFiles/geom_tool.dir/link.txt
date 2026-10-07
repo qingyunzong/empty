@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/geom_tool.dir/link.d CMakeFiles/geom_tool.dir/src/main.cpp.o -o geom_tool  librect_union.a

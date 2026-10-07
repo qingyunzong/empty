@@ -1,0 +1,14 @@
+single_rectangle 4 0.000876936
+zero_area_ignored 4 0.000881597
+unnormalized_coordinates 4 0.000812023
+overlap 4 0.000835256
+edge_touching_merges 4 0.000775482
+partial_edge_touching 4 0.000775829
+corner_touching_does_not_merge 4 0.000721031
+containment 4 0.000910229
+remove_restores 4 0.000769635
+replace_same_id 3 0.00115028
+large_coordinates 4 0.000808303
+negative_coordinates 4 0.000900956
+randomized_vs_unit_grid_model 1 0.0900281
+---

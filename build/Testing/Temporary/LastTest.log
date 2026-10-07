@@ -1,0 +1,211 @@
+Start testing: Oct 08 02:23 CST
+----------------------------------------------------------
+1/13 Testing: single_rectangle
+1/13 Test: single_rectangle
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "single_rectangle"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"single_rectangle" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS single_rectangle
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"single_rectangle" end time: Oct 08 02:23 CST
+"single_rectangle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/13 Testing: zero_area_ignored
+2/13 Test: zero_area_ignored
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "zero_area_ignored"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"zero_area_ignored" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS zero_area_ignored
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"zero_area_ignored" end time: Oct 08 02:23 CST
+"zero_area_ignored" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/13 Testing: unnormalized_coordinates
+3/13 Test: unnormalized_coordinates
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "unnormalized_coordinates"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"unnormalized_coordinates" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS unnormalized_coordinates
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unnormalized_coordinates" end time: Oct 08 02:23 CST
+"unnormalized_coordinates" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/13 Testing: overlap
+4/13 Test: overlap
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "overlap"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"overlap" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS overlap
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"overlap" end time: Oct 08 02:23 CST
+"overlap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/13 Testing: edge_touching_merges
+5/13 Test: edge_touching_merges
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "edge_touching_merges"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"edge_touching_merges" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS edge_touching_merges
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"edge_touching_merges" end time: Oct 08 02:23 CST
+"edge_touching_merges" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/13 Testing: partial_edge_touching
+6/13 Test: partial_edge_touching
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "partial_edge_touching"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"partial_edge_touching" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS partial_edge_touching
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"partial_edge_touching" end time: Oct 08 02:23 CST
+"partial_edge_touching" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/13 Testing: corner_touching_does_not_merge
+7/13 Test: corner_touching_does_not_merge
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "corner_touching_does_not_merge"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"corner_touching_does_not_merge" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS corner_touching_does_not_merge
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"corner_touching_does_not_merge" end time: Oct 08 02:23 CST
+"corner_touching_does_not_merge" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/13 Testing: containment
+8/13 Test: containment
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "containment"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"containment" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS containment
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"containment" end time: Oct 08 02:23 CST
+"containment" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/13 Testing: remove_restores
+9/13 Test: remove_restores
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "remove_restores"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"remove_restores" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS remove_restores
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"remove_restores" end time: Oct 08 02:23 CST
+"remove_restores" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/13 Testing: replace_same_id
+10/13 Test: replace_same_id
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "replace_same_id"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"replace_same_id" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS replace_same_id
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"replace_same_id" end time: Oct 08 02:23 CST
+"replace_same_id" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/13 Testing: large_coordinates
+11/13 Test: large_coordinates
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "large_coordinates"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"large_coordinates" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS large_coordinates
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"large_coordinates" end time: Oct 08 02:23 CST
+"large_coordinates" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/13 Testing: negative_coordinates
+12/13 Test: negative_coordinates
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "negative_coordinates"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"negative_coordinates" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS negative_coordinates
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"negative_coordinates" end time: Oct 08 02:23 CST
+"negative_coordinates" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/13 Testing: randomized_vs_unit_grid_model
+13/13 Test: randomized_vs_unit_grid_model
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build/rect_union_tests" "randomized_vs_unit_grid_model"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/9aa63454f00c4be2aa52dc43397132ac/run/B/attempt-004/workspace/build
+"randomized_vs_unit_grid_model" start time: Oct 08 02:23 CST
+Output:
+----------------------------------------------------------
+PASS randomized_vs_unit_grid_model
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"randomized_vs_unit_grid_model" end time: Oct 08 02:23 CST
+"randomized_vs_unit_grid_model" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 02:23 CST
