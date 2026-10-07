@@ -1,0 +1,11 @@
+{
+  "name": "vv-inventory-replicas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "副本库存模拟: 版本向量 + 并发冲突集合 + 读修复 + 墓碑防撤回复活",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "demo": "tsc -p tsconfig.json && node dist/src/simulation.js"
+  }
+}
