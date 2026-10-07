@@ -1,0 +1,13 @@
+{
+  "packages": [
+    {"name": "a", "versions": ["1.0.0"]},
+    {"name": "b", "versions": ["1.0.0"]},
+    {"name": "c", "versions": ["1.0.0", "2.0.0"]}
+  ],
+  "dependencies": [
+    {"from": "a", "from_version": "1.0.0", "to": "c", "range": ">=2.0.0"},
+    {"from": "b", "from_version": "1.0.0", "to": "c", "range": "<2.0.0"}
+  ],
+  "roots": [{"name": "a", "range": "*"}, {"name": "b", "range": "*"}],
+  "lock": {}
+}
