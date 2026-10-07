@@ -1,0 +1,14 @@
+{
+  "name": "threshold-calibrator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Per-group acceptance-threshold calibration under a global false-positive budget (suffix DP + exhaustive optimality certificate).",
+  "type": "commonjs",
+  "bin": {
+    "calibrate": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
