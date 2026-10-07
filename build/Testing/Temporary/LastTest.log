@@ -1,0 +1,19 @@
+Start testing: Oct 08 02:36 CST
+----------------------------------------------------------
+1/1 Testing: mex_tests
+1/1 Test: mex_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/B/attempt-004/workspace/build/mex_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/ff30823f46bc4a45b7b0f72e796310c0/run/B/attempt-004/workspace/build
+"mex_tests" start time: Oct 08 02:36 CST
+Output:
+----------------------------------------------------------
+all tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"mex_tests" end time: Oct 08 02:36 CST
+"mex_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 02:36 CST
