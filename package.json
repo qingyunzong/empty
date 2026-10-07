@@ -1,0 +1,11 @@
+{
+  "name": "linsolve-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact bigint solver for linear inequalities and congruence constraints over signed 64-bit domains",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\"",
+    "solve": "node dist/src/cli.js"
+  }
+}
