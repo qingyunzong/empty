@@ -1,0 +1,16 @@
+{
+  "name": "sched-mvcc",
+  "version": "1.0.0",
+  "description": "Offline MVCC scheduling store for discrete manufacturing work orders",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": "./src/store.js",
+  "bin": {
+    "sched-mvcc": "./cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
