@@ -1,0 +1,6 @@
+foreach(name IN ITEMS test_rational test_simulator test_reference)
+  add_executable(${name} ${name}.cpp)
+  target_link_libraries(${name} PRIVATE motion)
+  target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+  add_test(NAME ${name} COMMAND ${name})
+endforeach()
