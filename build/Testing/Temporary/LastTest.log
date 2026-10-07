@@ -1,0 +1,45 @@
+Start testing: Oct 08 02:54 CST
+----------------------------------------------------------
+1/2 Testing: unit
+1/2 Test: unit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/A/attempt-004/workspace/build/test_convolve"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/A/attempt-004/workspace/build
+"unit" start time: Oct 08 02:54 CST
+Output:
+----------------------------------------------------------
+primitive root tests done
+random tests done
+extreme tests done
+large ones test done (ntt_size=262144, primes=1)
+all unit tests passed
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"unit" end time: Oct 08 02:54 CST
+"unit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: cli
+2/2 Test: cli
+Command: "/usr/bin/bash" "/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/A/attempt-004/workspace/tests/cli_test.sh" "/home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/A/attempt-004/workspace/build/sigconv"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/516b06542b5d4e999307fcffc26dc710/run/A/attempt-004/workspace/build
+"cli" start time: Oct 08 02:54 CST
+Output:
+----------------------------------------------------------
+ok small
+ok signs
+ok cancel
+ok int64min
+ok stdin
+ok invalid-input rejection
+all cli tests passed
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"cli" end time: Oct 08 02:54 CST
+"cli" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 02:54 CST
