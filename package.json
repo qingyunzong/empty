@@ -1,0 +1,13 @@
+{
+  "name": "offline-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic two-machine offline scheduler with transactional WAL store and JSON CLI",
+  "main": "src/scheduler.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
