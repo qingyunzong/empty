@@ -1,0 +1,10 @@
+{
+  "name": "fill-join",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Event-time windowed join of trade and cancel streams for end-of-day settlement",
+  "main": "lib/join.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
