@@ -1,0 +1,12 @@
+{
+  "name": "cert-check",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Certificate checkers for directed paths, costs, edge versions, and shortest-path optimality",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
