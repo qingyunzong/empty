@@ -1,0 +1,11 @@
+priority_wait_then_id 2 0.000823777
+emergency_boosts_priority 2 0.000782366
+emergency_not_exempt_from_conflict 2 0.00075027
+conflict_rejection_reason 2 0.000699252
+occupied_target_blocks_even_if_vacated 2 0.000716925
+head_on_swap_blocked 2 0.000701926
+wait_accumulation 2 0.000772481
+arrival_and_done 2 0.000688077
+randomized_no_collision_and_wait_check 2 0.00539874
+invalid_input_rejected 2 0.000874935
+---

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sim_tests.dir/link.d CMakeFiles/sim_tests.dir/tests/test_simulator.cpp.o -o sim_tests  libtrafficsim.a

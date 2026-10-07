@@ -1,0 +1,163 @@
+Start testing: Oct 07 08:13 CST
+----------------------------------------------------------
+1/10 Testing: priority_wait_then_id
+1/10 Test: priority_wait_then_id
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "priority_wait_then_id"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"priority_wait_then_id" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS priority_wait_then_id
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"priority_wait_then_id" end time: Oct 07 08:13 CST
+"priority_wait_then_id" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/10 Testing: emergency_boosts_priority
+2/10 Test: emergency_boosts_priority
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "emergency_boosts_priority"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"emergency_boosts_priority" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS emergency_boosts_priority
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"emergency_boosts_priority" end time: Oct 07 08:13 CST
+"emergency_boosts_priority" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/10 Testing: emergency_not_exempt_from_conflict
+3/10 Test: emergency_not_exempt_from_conflict
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "emergency_not_exempt_from_conflict"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"emergency_not_exempt_from_conflict" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS emergency_not_exempt_from_conflict
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"emergency_not_exempt_from_conflict" end time: Oct 07 08:13 CST
+"emergency_not_exempt_from_conflict" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/10 Testing: conflict_rejection_reason
+4/10 Test: conflict_rejection_reason
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "conflict_rejection_reason"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"conflict_rejection_reason" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS conflict_rejection_reason
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"conflict_rejection_reason" end time: Oct 07 08:13 CST
+"conflict_rejection_reason" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/10 Testing: occupied_target_blocks_even_if_vacated
+5/10 Test: occupied_target_blocks_even_if_vacated
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "occupied_target_blocks_even_if_vacated"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"occupied_target_blocks_even_if_vacated" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS occupied_target_blocks_even_if_vacated
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"occupied_target_blocks_even_if_vacated" end time: Oct 07 08:13 CST
+"occupied_target_blocks_even_if_vacated" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/10 Testing: head_on_swap_blocked
+6/10 Test: head_on_swap_blocked
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "head_on_swap_blocked"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"head_on_swap_blocked" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS head_on_swap_blocked
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"head_on_swap_blocked" end time: Oct 07 08:13 CST
+"head_on_swap_blocked" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/10 Testing: wait_accumulation
+7/10 Test: wait_accumulation
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "wait_accumulation"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"wait_accumulation" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS wait_accumulation
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"wait_accumulation" end time: Oct 07 08:13 CST
+"wait_accumulation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/10 Testing: arrival_and_done
+8/10 Test: arrival_and_done
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "arrival_and_done"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"arrival_and_done" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS arrival_and_done
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"arrival_and_done" end time: Oct 07 08:13 CST
+"arrival_and_done" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/10 Testing: randomized_no_collision_and_wait_check
+9/10 Test: randomized_no_collision_and_wait_check
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "randomized_no_collision_and_wait_check"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"randomized_no_collision_and_wait_check" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS randomized_no_collision_and_wait_check
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"randomized_no_collision_and_wait_check" end time: Oct 07 08:13 CST
+"randomized_no_collision_and_wait_check" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/10 Testing: invalid_input_rejected
+10/10 Test: invalid_input_rejected
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build/sim_tests" "invalid_input_rejected"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/87addb94300847d093fc14baffb0772f/run/B/attempt-002/workspace/build
+"invalid_input_rejected" start time: Oct 07 08:13 CST
+Output:
+----------------------------------------------------------
+PASS invalid_input_rejected
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"invalid_input_rejected" end time: Oct 07 08:13 CST
+"invalid_input_rejected" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 08:13 CST
