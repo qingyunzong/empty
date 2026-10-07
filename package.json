@@ -1,0 +1,16 @@
+{
+  "name": "certchain",
+  "version": "1.0.0",
+  "description": "Offline certificate-chain payment authorization library and CLI (Node.js 22, stdlib only)",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "certchain": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
