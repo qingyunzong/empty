@@ -1,0 +1,38 @@
+$ python3.11 -m unittest discover -s tests -v
+
+test_error_lines_are_json (test_cli.CliTest.test_error_lines_are_json) ... ok
+test_full_flow_and_durable_replay_across_processes (test_cli.CliTest.test_full_flow_and_durable_replay_across_processes) ... ok
+test_partial_window_failure_rolls_back_everything (test_gate.AtomicityTest.test_partial_window_failure_rolls_back_everything) ... ok
+test_rejection_carries_window_and_occupancy_evidence (test_gate.AtomicityTest.test_rejection_carries_window_and_occupancy_evidence) ... ok
+test_confirm_after_deadline_loses_to_timeout (test_gate.ConfirmCancelFlowTest.test_confirm_after_deadline_loses_to_timeout) ... ok
+test_confirm_and_cancel_are_idempotent (test_gate.ConfirmCancelFlowTest.test_confirm_and_cancel_are_idempotent) ... ok
+test_unknown_request (test_gate.ConfirmCancelFlowTest.test_unknown_request) ... ok
+test_crash_between_confirm_write_and_response (test_gate.CrashRecoveryTest.test_crash_between_confirm_write_and_response) ... ok
+test_crash_between_reserve_write_and_response_replays (test_gate.CrashRecoveryTest.test_crash_between_reserve_write_and_response_replays) ... ok
+test_business_day_flips_at_local_midnight (test_gate.CrossMidnightTest.test_business_day_flips_at_local_midnight) ... ok
+test_rolling_window_spans_midnight (test_gate.CrossMidnightTest.test_rolling_window_spans_midnight) ... ok
+test_shared_parent_charged_once_through_diamond (test_gate.HierarchyTest.test_shared_parent_charged_once_through_diamond) ... ok
+test_unknown_subject_rejected (test_gate.HierarchyTest.test_unknown_subject_rejected) ... ok
+test_conflicting_payload_rejected (test_gate.IdempotencyTest.test_conflicting_payload_rejected) ... ok
+test_id_reuse_after_terminal_state_gets_new_version (test_gate.IdempotencyTest.test_id_reuse_after_terminal_state_gets_new_version) ... ok
+test_replayed_reserve_returns_stored_result_and_charges_once (test_gate.IdempotencyTest.test_replayed_reserve_returns_stored_result_and_charges_once) ... ok
+test_expiry_timer_is_versioned (test_gate.LateCancelTest.test_expiry_timer_is_versioned) ... ok
+test_stale_cancel_cannot_release_newer_hold (test_gate.LateCancelTest.test_stale_cancel_cannot_release_newer_hold) ... ok
+test_quota_decrease_keeps_existing_blocks_new (test_gate.QuotaUpdateTest.test_quota_decrease_keeps_existing_blocks_new) ... ok
+test_concurrent_interleavings_match_some_serial_history (test_linearizability.ConcurrencyTest.test_concurrent_interleavings_match_some_serial_history) ... ok
+test_last_unit_contention_has_exactly_one_winner (test_linearizability.ConcurrencyTest.test_last_unit_contention_has_exactly_one_winner) ... ok
+test_all_serial_histories_satisfy_invariants (test_linearizability.SerialEnumerationTest.test_all_serial_histories_satisfy_invariants) ... ok
+test_expiry_linearizes_before_late_confirm (test_linearizability.SerialEnumerationTest.test_expiry_linearizes_before_late_confirm) ... ok
+test_bucket_around_spring_forward (test_windows.BusinessDayDstTest.test_bucket_around_spring_forward) ... ok
+test_fall_back_day_is_25_hours (test_windows.BusinessDayDstTest.test_fall_back_day_is_25_hours) ... ok
+test_fold_instants_share_one_business_day (test_windows.BusinessDayDstTest.test_fold_instants_share_one_business_day) ... ok
+test_hour_and_month_grains (test_windows.BusinessDayDstTest.test_hour_and_month_grains) ... ok
+test_spring_forward_day_is_23_hours (test_windows.BusinessDayDstTest.test_spring_forward_day_is_23_hours) ... ok
+test_out_of_order_execution_time_cannot_overflow_future_point (test_windows.RollingWindowTest.test_out_of_order_execution_time_cannot_overflow_future_point) ... ok
+test_remove_returns_amount (test_windows.RollingWindowTest.test_remove_returns_amount) ... ok
+test_trailing_window_uses_real_instants (test_windows.RollingWindowTest.test_trailing_window_uses_real_instants) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.737s
+
+OK
