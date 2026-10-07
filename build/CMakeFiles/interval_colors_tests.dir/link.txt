@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/interval_colors_tests.dir/link.d CMakeFiles/interval_colors_tests.dir/tests/interval_colors_tests.cpp.o -o interval_colors_tests

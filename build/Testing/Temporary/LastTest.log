@@ -1,0 +1,19 @@
+Start testing: Oct 07 13:12 CST
+----------------------------------------------------------
+1/1 Testing: interval_colors_tests
+1/1 Test: interval_colors_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build/interval_colors_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build
+"interval_colors_tests" start time: Oct 07 13:12 CST
+Output:
+----------------------------------------------------------
+all interval_colors tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"interval_colors_tests" end time: Oct 07 13:12 CST
+"interval_colors_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 13:12 CST

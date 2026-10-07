@@ -1,0 +1,4 @@
+/home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build/CMakeFiles/interval_colors_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/df3d6e6be9e54dd0a379e50ad6e15232/run/B/attempt-003/workspace/build/CMakeFiles/rebuild_cache.dir
