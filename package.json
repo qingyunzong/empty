@@ -1,0 +1,11 @@
+{
+  "name": "tailcall-interp",
+  "version": "1.0.0",
+  "description": "Expression interpreter with exceptions, finally, tail-call frame reuse and frame metering",
+  "type": "module",
+  "scripts": {
+    "test": "tsc -p tsconfig.build.json && node --test dist/test/interpreter.test.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
