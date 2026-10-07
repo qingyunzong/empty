@@ -1,0 +1,10 @@
+{
+  "name": "rollback-dsu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rollback-capable union-find with snapshots; component identity is the minimum member id",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/rollback-dsu.test.js"
+  }
+}
