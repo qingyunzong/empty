@@ -1,0 +1,13 @@
+{
+  "name": "maintenance-planner",
+  "version": "1.0.0",
+  "description": "Maintenance work-order scheduler: SCC compression, DAG scheduling, grouped commit and hierarchical rollback",
+  "type": "module",
+  "main": "src/planner.js",
+  "bin": {
+    "mplanner": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
