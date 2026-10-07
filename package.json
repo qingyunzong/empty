@@ -1,0 +1,8 @@
+{
+  "name": "chunk-ledger",
+  "version": "1.0.0",
+  "description": "Offline chunked settlement ledger with CRC32 integrity, index and crash recovery",
+  "type": "module",
+  "bin": { "chunk-ledger": "./cli.js" },
+  "scripts": { "test": "node --test" }
+}
