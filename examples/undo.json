@@ -1,0 +1,9 @@
+{
+  "config": { "slots": 2, "capacity": 1 },
+  "instructions": [
+    { "id": "low", "institution": "L", "amount": 10, "priority": 1, "deadline": 2 },
+    { "id": "mid", "institution": "M", "amount": 10, "priority": 5, "deadline": 2 },
+    { "id": "high", "institution": "H", "amount": 10, "priority": 9, "deadline": 2 }
+  ],
+  "undo": [{ "id": "high", "expectedVersion": 1 }]
+}

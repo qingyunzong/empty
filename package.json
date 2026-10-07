@@ -1,0 +1,16 @@
+{
+  "name": "clearinghouse-scheduler",
+  "version": "1.0.0",
+  "description": "Deterministic clearing-house payment instruction scheduler with quotas, preemption certificates and incremental undo repair",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "clearing": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
