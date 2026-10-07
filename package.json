@@ -1,0 +1,13 @@
+{
+  "name": "agv-router",
+  "version": "1.0.0",
+  "description": "Dynamic shortest-path library and JSONL CLI for AGV dispatching with optimality certificates",
+  "type": "module",
+  "main": "src/graph.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
