@@ -1,0 +1,2 @@
+?   	permplan	[no test files]
+ok  	permplan/internal/planner	3.832s

@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {"id": "reader",  "cost": 3, "use_cost": 0, "capacity": 0, "actions": {"read": 3}},
+    {"id": "writer",  "cost": 4, "use_cost": 1, "capacity": 3, "actions": {"write": 2, "read": 1}},
+    {"id": "auditor", "cost": 2, "use_cost": 0, "capacity": 0, "actions": {"audit": 2}},
+    {"id": "admin",   "cost": 9, "use_cost": 0, "capacity": 0, "actions": {"read": 3, "write": 2, "audit": 2}},
+    {"id": "rootkit", "cost": 1, "use_cost": 0, "capacity": 0, "actions": {"read": 5, "delete": 1}}
+  ],
+  "mutex": [["writer", "admin"]],
+  "prereqs": [{"rule": "auditor", "requires": "reader"}],
+  "quota": 6,
+  "demands": {"read": 2, "write": 2, "audit": 1},
+  "forbidden": ["delete"]
+}
