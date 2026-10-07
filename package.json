@@ -1,0 +1,13 @@
+{
+  "name": "tail-safe-interp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tree-walking interpreter on an explicit stack machine: functions, exceptions, finally, proper tail calls with frame reuse, frame metering.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "devDependencies": {}
+}
