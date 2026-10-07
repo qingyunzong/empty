@@ -1,0 +1,11 @@
+{
+  "name": "dag-critical-path",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DAG 关键路径（最早/最晚开始、关键边、增量更新、最长路径证书、最短环检测）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
