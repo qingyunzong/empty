@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.20)
+project(skyline LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_library(skyline src/skyline.cpp)
+target_include_directories(skyline PUBLIC include)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(skyline PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+enable_testing()
+add_executable(skyline_tests tests/skyline_tests.cpp)
+target_link_libraries(skyline_tests PRIVATE skyline)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(skyline_tests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+add_test(NAME skyline_tests COMMAND skyline_tests)

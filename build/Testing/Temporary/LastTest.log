@@ -1,0 +1,19 @@
+Start testing: Oct 07 15:31 CST
+----------------------------------------------------------
+1/1 Testing: skyline_tests
+1/1 Test: skyline_tests
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/A/attempt-003/workspace/build/skyline_tests"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/A/attempt-003/workspace/build
+"skyline_tests" start time: Oct 07 15:31 CST
+Output:
+----------------------------------------------------------
+40557 checks, 0 failures
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"skyline_tests" end time: Oct 07 15:31 CST
+"skyline_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 15:31 CST
