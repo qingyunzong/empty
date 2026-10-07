@@ -1,0 +1,24 @@
+{
+  "calendar": {
+    "start": "2026-01-05T00:00:00Z",
+    "days": 1,
+    "shifts": [{ "days": [1], "start": "08:00", "end": "16:00" }]
+  },
+  "machines": [{ "id": "M1" }, { "id": "M2" }, { "id": "M3" }],
+  "orders": [
+    {
+      "id": "O2", "product": "P2", "quantity": 1, "due": "2026-01-05T18:00:00Z",
+      "route": [
+        { "machines": ["M1"], "cycle": 120 },
+        { "machines": ["M2", "M3"], "cycle": 60 }
+      ]
+    },
+    {
+      "id": "O1", "product": "P1", "quantity": 1, "due": "2026-01-05T12:00:00Z",
+      "route": [
+        { "machines": ["M2"], "cycle": 60 },
+        { "machines": ["M3"], "cycle": 60 }
+      ]
+    }
+  ]
+}

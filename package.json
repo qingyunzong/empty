@@ -1,0 +1,11 @@
+{
+  "name": "offline-production-planner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline production scheduling library and CLI (Node.js 22, stdlib only)",
+  "scripts": {
+    "test": "node --test",
+    "cli": "node cli.js"
+  }
+}
