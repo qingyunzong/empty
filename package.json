@@ -1,0 +1,14 @@
+{
+  "name": "flow-planner",
+  "version": "1.0.0",
+  "description": "Incremental max-flow planner for order/slot scheduling with corrections, commit/undo and bottleneck certificates",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "bin": {
+    "flow-planner": "./cli.js"
+  }
+}
