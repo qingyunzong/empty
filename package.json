@@ -1,0 +1,11 @@
+{
+  "name": "dag-critical-path",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DAG critical-path scheduling: earliest/latest start, critical edges, incremental duration updates, longest-path certificate, shortest-cycle reporting",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/test/*.test.js"
+  }
+}
