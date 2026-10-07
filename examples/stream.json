@@ -1,0 +1,7 @@
+[
+  {"id": 1, "arrival": 0, "cost": 3, "group": "web", "priority": 0},
+  {"id": 2, "arrival": 0, "cost": 2, "group": "batch", "priority": 5},
+  {"id": 3, "arrival": 1, "cost": 1, "group": "batch", "priority": 5},
+  {"id": 4, "arrival": 2, "cost": 2, "group": "web", "priority": 0},
+  {"id": 5, "arrival": 3, "cost": 1, "group": "batch", "priority": 1}
+]

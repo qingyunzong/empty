@@ -1,0 +1,65 @@
+{
+  "completed": 5,
+  "tickets": [
+    {
+      "id": 1,
+      "group": "web",
+      "start": 0,
+      "end": 2,
+      "waits": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "group": "batch",
+      "start": 0,
+      "end": 1,
+      "waits": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "group": "batch",
+      "start": 2,
+      "end": 2,
+      "waits": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "group": "web",
+      "start": 3,
+      "end": 4,
+      "waits": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "group": "batch",
+      "start": 3,
+      "end": 3,
+      "waits": [
+        [
+          3,
+          3
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "workers": 2,
+  "aging_step": 2,
+  "boost": 3,
+  "base_quota": {"web": 1, "batch": 2}
+}
