@@ -1,0 +1,7 @@
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/test_parser.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/test_semantics.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/test_vm.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/test_exhaustive.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6b47071bdbfa448c9d98420270d378cc/run/A/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir
