@@ -1,0 +1,10 @@
+{
+  "name": "probe-detector-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Heartbeat/probe failure-detector simulation: generations, suspicion deadlines, stale-ack rejection, same-tick ack-before-timeout ordering",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
