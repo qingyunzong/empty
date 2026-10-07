@@ -1,0 +1,11 @@
+{
+  "name": "exact-pivot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pivot library: multi-level row/column keys, exact integer (BigInt) aggregation, NULL as its own category, idempotent corrections by event id, tree output with grand total, and reconciliation against full-table grouping.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
