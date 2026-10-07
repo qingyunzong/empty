@@ -1,0 +1,14 @@
+{
+  "name": "device-status-calendar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Timezone-aware recurring-shift device calendar with versioned concurrency control and hierarchical transactions",
+  "main": "src/engine.js",
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
