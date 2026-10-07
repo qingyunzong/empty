@@ -1,0 +1,8 @@
+{
+  "name": "qc-loop",
+  "version": "1.0.0",
+  "description": "Offline assembly-plant quality closed-loop: defects, rework, re-inspection, scrap with crash-provable recovery (JSON snapshot + WAL).",
+  "type": "module",
+  "bin": { "qc": "src/cli.js" },
+  "scripts": { "test": "node --test" }
+}
