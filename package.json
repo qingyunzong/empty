@@ -1,0 +1,11 @@
+{
+  "name": "dom-query-index",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DOM-style selector queries over a plain tree model, with an incremental index checked against a full-scan reference",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js"
+  }
+}
