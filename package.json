@@ -1,0 +1,11 @@
+{
+  "name": "local-utc-timezone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offset-transition-table timezone library: maps local integer seconds to UTC without the system timezone",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
