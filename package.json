@@ -1,0 +1,11 @@
+{
+  "name": "rational-anim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Integer-time animation library with exact rational keyframe interpolation",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test build/test/*.test.js"
+  }
+}
