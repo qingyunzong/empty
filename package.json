@@ -1,0 +1,10 @@
+{
+  "name": "interest-cert",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact rational daily interest accrual with verifiable recalculation certificates",
+  "main": "src/ledger.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
