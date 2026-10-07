@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/motion_cli.dir/link.d CMakeFiles/motion_cli.dir/examples/motion_cli.cpp.o -o motion_cli  libmotion.a

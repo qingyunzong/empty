@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmotion.a CMakeFiles/motion.dir/src/bigint.cpp.o CMakeFiles/motion.dir/src/rational.cpp.o CMakeFiles/motion.dir/src/simulation.cpp.o
+/usr/bin/ranlib libmotion.a
