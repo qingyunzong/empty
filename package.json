@@ -1,0 +1,13 @@
+{
+  "name": "rule-engine",
+  "version": "1.0.0",
+  "description": "规则表达式引擎：解析 &&、||、!、比较与括号，逻辑短路求值，bigint 数值",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
