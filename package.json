@@ -1,0 +1,10 @@
+{
+  "name": "device-window-stats",
+  "version": "1.0.0",
+  "description": "Single-node offline device up/down 15-minute window statistics with late-event corrections and crash-safe append-only log",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "record": "bash scripts/record-results.sh"
+  }
+}
