@@ -1,0 +1,3 @@
+{"addInvoice":{"id":"A:1","ccy":"CNY","num":100}}
+{"addInvoice":{"id":"B:1","ccy":"JPY","num":-1000}}
+{"setRate":{"pair":"USD/CNY","num":7}}

@@ -1,0 +1,14 @@
+{
+  "name": "fsc-settle",
+  "version": "1.0.0",
+  "description": "Multi-currency net settlement with exact rational arithmetic, auditable history hash and rate-conflict certificates",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "settle": "node src/cli.js settle",
+    "verify": "node src/cli.js verify",
+    "hash": "node src/cli.js hash",
+    "example": "bash examples/run.sh"
+  }
+}

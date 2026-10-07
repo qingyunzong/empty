@@ -1,0 +1,4 @@
+{"setRate":{"pair":"USD/CNY","num":7}}
+{"setRate":{"pair":"CNY/EUR","num":"1/7"}}
+{"setRate":{"pair":"EUR/USD","num":"1/2"}}
+{"addInvoice":{"id":"A:1","ccy":"USD","num":10}}

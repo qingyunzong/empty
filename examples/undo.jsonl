@@ -1,0 +1,6 @@
+{"addInvoice":{"id":"A:1","ccy":"CNY","num":100}}
+{"addInvoice":{"id":"B:1","ccy":"CNY","num":-100}}
+{"addInvoice":{"id":"C:1","ccy":"CNY","num":5}}
+{"undo":{"eventId":"evt:3"}}
+{"correct":{"refId":"A:1","newNum":120}}
+{"undo":{"eventId":"evt:5"}}
