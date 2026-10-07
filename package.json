@@ -1,0 +1,13 @@
+{
+  "name": "plc-audit-regex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline PLC alarm-log audit: regex danger-pattern emptiness checking with certificates and versioned rule packs",
+  "main": "lib/engine.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

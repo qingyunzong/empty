@@ -1,0 +1,7 @@
+{"op":"loadPack","path":"demo/rules.pack"}
+{"op":"check"}
+{"op":"setFilter","regex":"b(a|b)*","alphabet":["a","b"]}
+{"op":"check","pattern":"(a|b)*aa(a|b)*","alphabet":["a","b"]}
+{"op":"setFilter"}
+{"op":"check","pattern":"~(a*)&(a|b)*","alphabet":["a","b"]}
+{"op":"rollback","version":1}

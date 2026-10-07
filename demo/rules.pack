@@ -1,0 +1,1 @@
+{"crc":"07d285be","body":{"type":"pack","version":1,"rules":[{"id":"danger-double-alarm","pattern":"(a|b)*aa(a|b)*","alphabet":["a","b"]},{"id":"impossible-combo","pattern":"(a|b)*","filter":"~((a|b)*)","alphabet":["a","b"]}]}}
