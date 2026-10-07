@@ -1,0 +1,16 @@
+{
+  "name": "boiler-interlock-merge",
+  "version": "1.0.0",
+  "description": "Offline merge of boiler-room interlock/bypass/reset collector logs with vector causality, epoch fencing and tombstones",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "boiler-merge": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
