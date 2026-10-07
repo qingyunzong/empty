@@ -1,0 +1,16 @@
+{
+  "name": "labelpack",
+  "version": "1.0.0",
+  "description": "Offline product label pack library and CLI (versioned dictionaries, delta record blocks, CRC32, random-access index)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "labelpack": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
