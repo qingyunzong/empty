@@ -1,0 +1,19 @@
+{
+  "shared": { "x": 0 },
+  "threads": [
+    [
+      { "op": "lock", "mutex": "m" },
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 1 },
+      { "op": "write", "var": "x", "src": "r" },
+      { "op": "unlock", "mutex": "m" }
+    ],
+    [
+      { "op": "lock", "mutex": "m" },
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 1 },
+      { "op": "write", "var": "x", "src": "r" },
+      { "op": "unlock", "mutex": "m" }
+    ]
+  ]
+}

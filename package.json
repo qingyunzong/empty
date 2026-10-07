@@ -1,0 +1,11 @@
+{
+  "name": "thread-schedule-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "模拟 ≤3 线程的共享内存读写、互斥锁与分支执行：按调度序列逐步推进，检测死锁，输出共享状态与持锁表，并可穷举 ≤20 步调度生成结果集合做顺序参考核验",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/tests/*.test.js",
+    "cli": "npm run build --silent && node dist/src/cli.js"
+  }
+}

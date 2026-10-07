@@ -1,0 +1,15 @@
+{
+  "shared": { "x": 0 },
+  "threads": [
+    [
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 1 },
+      { "op": "write", "var": "x", "src": "r" }
+    ],
+    [
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 1 },
+      { "op": "write", "var": "x", "src": "r" }
+    ]
+  ]
+}

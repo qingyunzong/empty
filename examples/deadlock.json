@@ -1,0 +1,17 @@
+{
+  "shared": {},
+  "threads": [
+    [
+      { "op": "lock", "mutex": "a" },
+      { "op": "lock", "mutex": "b" },
+      { "op": "unlock", "mutex": "b" },
+      { "op": "unlock", "mutex": "a" }
+    ],
+    [
+      { "op": "lock", "mutex": "b" },
+      { "op": "lock", "mutex": "a" },
+      { "op": "unlock", "mutex": "a" },
+      { "op": "unlock", "mutex": "b" }
+    ]
+  ]
+}

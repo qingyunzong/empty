@@ -1,0 +1,18 @@
+{
+  "shared": { "x": 0 },
+  "threads": [
+    [
+      { "op": "set", "dst": "n", "value": 2 },
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 1 },
+      { "op": "write", "var": "x", "src": "r" },
+      { "op": "add", "dst": "n", "value": -1 },
+      { "op": "jnz", "reg": "n", "target": 1 }
+    ],
+    [
+      { "op": "read", "var": "x", "dst": "r" },
+      { "op": "add", "dst": "r", "value": 10 },
+      { "op": "write", "var": "x", "src": "r" }
+    ]
+  ]
+}
