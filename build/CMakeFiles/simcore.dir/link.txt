@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsimcore.a CMakeFiles/simcore.dir/src/scenario.cpp.o CMakeFiles/simcore.dir/src/solver.cpp.o CMakeFiles/simcore.dir/src/bruteforce.cpp.o
+/usr/bin/ranlib libsimcore.a

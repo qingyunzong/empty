@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/simtool.dir/link.d CMakeFiles/simtool.dir/src/main.cpp.o -o simtool  libsimcore.a

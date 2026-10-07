@@ -1,0 +1,47 @@
+# Example scenario: 4 targets, 3 ammo types, budget 12.
+# Damage tables are discrete and deliberately non-linear (saturation).
+budget 12
+ammo 3
+
+# target <value> <threshold> [name]
+target 120 45 CommandPost
+target 90 30 RadarSite
+target 70 55 ArmorColumn
+target 40 20 FuelDepot
+
+# damage <target> <ammo> <rounds> <damage>
+damage 0 0 1 10
+damage 0 0 2 18
+damage 0 0 3 24
+damage 0 0 4 28
+damage 0 1 1 6
+damage 0 1 2 14
+damage 0 1 3 26
+damage 0 1 4 34
+damage 0 2 1 20
+damage 0 2 2 22
+
+damage 1 0 1 8
+damage 1 0 2 12
+damage 1 1 1 12
+damage 1 1 2 20
+damage 1 1 3 24
+damage 1 2 1 4
+damage 1 2 2 10
+damage 1 2 3 18
+
+damage 2 0 1 15
+damage 2 0 2 25
+damage 2 0 3 30
+damage 2 1 1 10
+damage 2 1 2 22
+damage 2 1 3 38
+damage 2 1 4 44
+damage 2 2 1 5
+
+damage 3 0 1 6
+damage 3 0 2 9
+damage 3 1 1 14
+damage 3 1 2 16
+damage 3 2 1 8
+damage 3 2 2 17
