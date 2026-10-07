@@ -1,0 +1,10 @@
+linear_basic 3 0.000503456
+nonlinear_synergy 3 0.000437178
+tie_break_ammo 3 0.000412328
+budget_limit 3 0.000415748
+unreachable_threshold 3 0.000537557
+zero_budget 3 0.000540143
+cross_check_random 3 0.00300344
+four_types 1 0.00273013
+cross_check_four_types 1 0.011043
+---

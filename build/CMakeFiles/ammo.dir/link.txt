@@ -1,0 +1,2 @@
+/usr/bin/ar qc libammo.a CMakeFiles/ammo.dir/src/solver.cpp.o
+/usr/bin/ranlib libammo.a

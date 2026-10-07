@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/ammo_sim.dir/link.d CMakeFiles/ammo_sim.dir/src/main.cpp.o -o ammo_sim  libammo.a

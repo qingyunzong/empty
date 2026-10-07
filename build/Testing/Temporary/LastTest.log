@@ -1,0 +1,147 @@
+Start testing: Oct 07 08:01 CST
+----------------------------------------------------------
+1/9 Testing: linear_basic
+1/9 Test: linear_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "linear_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"linear_basic" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+linear_basic PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"linear_basic" end time: Oct 07 08:01 CST
+"linear_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/9 Testing: nonlinear_synergy
+2/9 Test: nonlinear_synergy
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "nonlinear_synergy"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"nonlinear_synergy" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+nonlinear_synergy PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"nonlinear_synergy" end time: Oct 07 08:01 CST
+"nonlinear_synergy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/9 Testing: tie_break_ammo
+3/9 Test: tie_break_ammo
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "tie_break_ammo"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"tie_break_ammo" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+tie_break_ammo PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"tie_break_ammo" end time: Oct 07 08:01 CST
+"tie_break_ammo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/9 Testing: budget_limit
+4/9 Test: budget_limit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "budget_limit"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"budget_limit" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+budget_limit PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"budget_limit" end time: Oct 07 08:01 CST
+"budget_limit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/9 Testing: unreachable_threshold
+5/9 Test: unreachable_threshold
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "unreachable_threshold"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"unreachable_threshold" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+unreachable_threshold PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unreachable_threshold" end time: Oct 07 08:01 CST
+"unreachable_threshold" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/9 Testing: zero_budget
+6/9 Test: zero_budget
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "zero_budget"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"zero_budget" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+zero_budget PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"zero_budget" end time: Oct 07 08:01 CST
+"zero_budget" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/9 Testing: four_types
+7/9 Test: four_types
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "four_types"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"four_types" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+four_types PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"four_types" end time: Oct 07 08:01 CST
+"four_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/9 Testing: cross_check_random
+8/9 Test: cross_check_random
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "cross_check_random"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"cross_check_random" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+cross_check_random PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cross_check_random" end time: Oct 07 08:01 CST
+"cross_check_random" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/9 Testing: cross_check_four_types
+9/9 Test: cross_check_four_types
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build/test_solver" "cross_check_four_types"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c2bf9066f5c44648ac8c63042e62f049/run/A/attempt-002/workspace/build
+"cross_check_four_types" start time: Oct 07 08:01 CST
+Output:
+----------------------------------------------------------
+cross_check_four_types PASS
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cross_check_four_types" end time: Oct 07 08:01 CST
+"cross_check_four_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 08:01 CST

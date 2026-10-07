@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_solver.dir/link.d CMakeFiles/test_solver.dir/tests/test_solver.cpp.o -o test_solver  libammo.a
