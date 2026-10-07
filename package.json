@@ -1,0 +1,11 @@
+{
+  "name": "diff-alias-constraints",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Alias/difference-constraint store (x - y = d, bigint) with snapshots, rollback and contradiction evidence paths",
+  "scripts": {
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
