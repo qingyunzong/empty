@@ -1,0 +1,131 @@
+Start testing: Oct 08 04:01 CST
+----------------------------------------------------------
+1/8 Testing: basic
+1/8 Test: basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"basic" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+basic: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"basic" end time: Oct 08 04:01 CST
+"basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: randomized_vs_reference
+2/8 Test: randomized_vs_reference
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "randomized"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"randomized_vs_reference" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+randomized (500 trials vs std::set_intersection): ok
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"randomized_vs_reference" end time: Oct 08 04:01 CST
+"randomized_vs_reference" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: cursor_error
+3/8 Test: cursor_error
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "cursor_error"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"cursor_error" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+cursor_error: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cursor_error" end time: Oct 08 04:01 CST
+"cursor_error" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: unsorted_input
+4/8 Test: unsorted_input
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "unsorted"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"unsorted_input" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+unsorted: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"unsorted_input" end time: Oct 08 04:01 CST
+"unsorted_input" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: memory_budget
+5/8 Test: memory_budget
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "budget"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"memory_budget" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+budget: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"memory_budget" end time: Oct 08 04:01 CST
+"memory_budget" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: lazy_streaming
+6/8 Test: lazy_streaming
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "lazy"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"lazy_streaming" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+lazy: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"lazy_streaming" end time: Oct 08 04:01 CST
+"lazy_streaming" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: edge_cases
+7/8 Test: edge_cases
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "edge_cases"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"edge_cases" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+edge_cases: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"edge_cases" end time: Oct 08 04:01 CST
+"edge_cases" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: graph_integration
+8/8 Test: graph_integration
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "graph"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+"graph_integration" start time: Oct 08 04:01 CST
+Output:
+----------------------------------------------------------
+graph: ok
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"graph_integration" end time: Oct 08 04:01 CST
+"graph_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 04:01 CST

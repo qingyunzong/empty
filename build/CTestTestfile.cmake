@@ -1,0 +1,22 @@
+# CMake generated Testfile for 
+# Source directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace
+# Build directory: /home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[basic]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "basic")
+set_tests_properties([=[basic]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;16;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[randomized_vs_reference]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "randomized")
+set_tests_properties([=[randomized_vs_reference]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;17;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[cursor_error]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "cursor_error")
+set_tests_properties([=[cursor_error]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;18;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[unsorted_input]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "unsorted")
+set_tests_properties([=[unsorted_input]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;19;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[memory_budget]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "budget")
+set_tests_properties([=[memory_budget]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;20;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[lazy_streaming]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "lazy")
+set_tests_properties([=[lazy_streaming]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;21;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[edge_cases]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "edge_cases")
+set_tests_properties([=[edge_cases]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;22;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
+add_test([=[graph_integration]=] "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/build/test_intersect" "graph")
+set_tests_properties([=[graph_integration]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;23;add_test;/home/delin/.local/share/gsb-workbench/artifacts/8ac2f14ec9194c9f8265177519d75105/run/B/attempt-004/workspace/CMakeLists.txt;0;")
