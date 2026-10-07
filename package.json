@@ -1,0 +1,12 @@
+{
+  "name": "sentence-splitter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Split scripts into sentences on top-level semicolons, respecting strings, comments and template interpolations.",
+  "exports": "./src/splitter.ts",
+  "scripts": {
+    "test": "tsc -p tsconfig.json && node --test build/tests/*.test.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  }
+}
