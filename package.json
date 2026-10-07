@@ -1,0 +1,13 @@
+{
+  "name": "constrained-sampler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sample generation for finite integer parameters under input constraints (exact enumeration or seeded random).",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
