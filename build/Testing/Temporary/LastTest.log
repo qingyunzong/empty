@@ -1,0 +1,243 @@
+Start testing: Oct 08 04:09 CST
+----------------------------------------------------------
+1/16 Testing: round_trip_basic
+1/16 Test: round_trip_basic
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "round_trip_basic"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"round_trip_basic" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"round_trip_basic" end time: Oct 08 04:09 CST
+"round_trip_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/16 Testing: same_key_version_order
+2/16 Test: same_key_version_order
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "same_key_version_order"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"same_key_version_order" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"same_key_version_order" end time: Oct 08 04:09 CST
+"same_key_version_order" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/16 Testing: empty_input
+3/16 Test: empty_input
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "empty_input"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"empty_input" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"empty_input" end time: Oct 08 04:09 CST
+"empty_input" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/16 Testing: prefix_compression_saves_space
+4/16 Test: prefix_compression_saves_space
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "prefix_compression_saves_space"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"prefix_compression_saves_space" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"prefix_compression_saves_space" end time: Oct 08 04:09 CST
+"prefix_compression_saves_space" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/16 Testing: page_boundary_exact_fit
+5/16 Test: page_boundary_exact_fit
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "page_boundary_exact_fit"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"page_boundary_exact_fit" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"page_boundary_exact_fit" end time: Oct 08 04:09 CST
+"page_boundary_exact_fit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/16 Testing: page_boundary_one_byte_under_budget
+6/16 Test: page_boundary_one_byte_under_budget
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "page_boundary_one_byte_under_budget"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"page_boundary_one_byte_under_budget" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"page_boundary_one_byte_under_budget" end time: Oct 08 04:09 CST
+"page_boundary_one_byte_under_budget" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/16 Testing: critical_page_size_for_single_record
+7/16 Test: critical_page_size_for_single_record
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "critical_page_size_for_single_record"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"critical_page_size_for_single_record" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"critical_page_size_for_single_record" end time: Oct 08 04:09 CST
+"critical_page_size_for_single_record" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/16 Testing: prefix_compression_extends_page_capacity
+8/16 Test: prefix_compression_extends_page_capacity
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "prefix_compression_extends_page_capacity"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"prefix_compression_extends_page_capacity" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"prefix_compression_extends_page_capacity" end time: Oct 08 04:09 CST
+"prefix_compression_extends_page_capacity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/16 Testing: oversized_record_rejected
+9/16 Test: oversized_record_rejected
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "oversized_record_rejected"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"oversized_record_rejected" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"oversized_record_rejected" end time: Oct 08 04:09 CST
+"oversized_record_rejected" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/16 Testing: oversized_key_rejected
+10/16 Test: oversized_key_rejected
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "oversized_key_rejected"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"oversized_key_rejected" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"oversized_key_rejected" end time: Oct 08 04:09 CST
+"oversized_key_rejected" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/16 Testing: checksum_detects_corruption
+11/16 Test: checksum_detects_corruption
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "checksum_detects_corruption"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"checksum_detects_corruption" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"checksum_detects_corruption" end time: Oct 08 04:09 CST
+"checksum_detects_corruption" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/16 Testing: corrupt_structure_detected
+12/16 Test: corrupt_structure_detected
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "corrupt_structure_detected"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"corrupt_structure_detected" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"corrupt_structure_detected" end time: Oct 08 04:09 CST
+"corrupt_structure_detected" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/16 Testing: file_checksum_detects_corruption
+13/16 Test: file_checksum_detects_corruption
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "file_checksum_detects_corruption"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"file_checksum_detects_corruption" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"file_checksum_detects_corruption" end time: Oct 08 04:09 CST
+"file_checksum_detects_corruption" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/16 Testing: publish_load_roundtrip
+14/16 Test: publish_load_roundtrip
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "publish_load_roundtrip"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"publish_load_roundtrip" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"publish_load_roundtrip" end time: Oct 08 04:09 CST
+"publish_load_roundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/16 Testing: failed_publish_leaves_no_file
+15/16 Test: failed_publish_leaves_no_file
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "failed_publish_leaves_no_file"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"failed_publish_leaves_no_file" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"failed_publish_leaves_no_file" end time: Oct 08 04:09 CST
+"failed_publish_leaves_no_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/16 Testing: failed_publish_preserves_existing_file
+16/16 Test: failed_publish_preserves_existing_file
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build/pgc_tests" "failed_publish_preserves_existing_file"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b5c2058d19374e2aa7b8fe9b0c0e5f9c/run/A/attempt-004/workspace/build
+"failed_publish_preserves_existing_file" start time: Oct 08 04:09 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"failed_publish_preserves_existing_file" end time: Oct 08 04:09 CST
+"failed_publish_preserves_existing_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 04:09 CST

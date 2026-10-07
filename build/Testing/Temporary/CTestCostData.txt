@@ -1,0 +1,17 @@
+round_trip_basic 2 0.00214146
+same_key_version_order 2 0.00192096
+empty_input 2 0.0022949
+prefix_compression_saves_space 2 0.00257774
+page_boundary_exact_fit 2 0.00274231
+page_boundary_one_byte_under_budget 2 0.00285915
+critical_page_size_for_single_record 2 0.00202527
+prefix_compression_extends_page_capacity 1 0.00486708
+oversized_record_rejected 2 0.00289743
+oversized_key_rejected 2 0.00176422
+checksum_detects_corruption 2 0.00239741
+corrupt_structure_detected 2 0.00245649
+file_checksum_detects_corruption 2 0.00178148
+publish_load_roundtrip 2 0.00249428
+failed_publish_leaves_no_file 2 0.00271913
+failed_publish_preserves_existing_file 2 0.0025482
+---

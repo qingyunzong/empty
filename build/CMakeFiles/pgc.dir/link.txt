@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpgc.a CMakeFiles/pgc.dir/src/page_compressor.cpp.o
+/usr/bin/ranlib libpgc.a
