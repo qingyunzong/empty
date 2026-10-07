@@ -1,0 +1,11 @@
+{
+  "name": "leaderboard-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Integer-score leaderboard with a revocable event ledger and TopK net-change output",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node dist/test/leaderboard.test.js"
+  }
+}
