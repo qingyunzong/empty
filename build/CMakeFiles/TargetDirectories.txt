@@ -1,0 +1,8 @@
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/skyline.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/test_skyline.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/test_sources.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/test_snapshot.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/test_model.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/CMakeFiles/rebuild_cache.dir

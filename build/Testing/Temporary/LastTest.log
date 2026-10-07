@@ -1,0 +1,63 @@
+Start testing: Oct 07 15:26 CST
+----------------------------------------------------------
+1/4 Testing: test_skyline
+1/4 Test: test_skyline
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/test_skyline"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build
+"test_skyline" start time: Oct 07 15:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_skyline" end time: Oct 07 15:26 CST
+"test_skyline" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: test_sources
+2/4 Test: test_sources
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/test_sources"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build
+"test_sources" start time: Oct 07 15:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_sources" end time: Oct 07 15:26 CST
+"test_sources" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: test_snapshot
+3/4 Test: test_snapshot
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/test_snapshot"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build
+"test_snapshot" start time: Oct 07 15:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_snapshot" end time: Oct 07 15:26 CST
+"test_snapshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: test_model
+4/4 Test: test_model
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build/test_model"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/c8e5cb56ceb84f659d35fb4b0815d9e2/run/B/attempt-003/workspace/build
+"test_model" start time: Oct 07 15:26 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_model" end time: Oct 07 15:26 CST
+"test_model" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Oct 07 15:26 CST

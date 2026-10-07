@@ -1,0 +1,2 @@
+/usr/bin/ar qc libskyline.a CMakeFiles/skyline.dir/src/skyline.cpp.o
+/usr/bin/ranlib libskyline.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_sources.dir/link.d CMakeFiles/test_sources.dir/tests/test_sources.cpp.o -o test_sources  libskyline.a
