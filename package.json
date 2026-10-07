@@ -1,0 +1,10 @@
+{
+  "name": "saga-graph",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dependency-graph step executor with reverse-order compensation on failure or cancellation",
+  "main": "src/saga.ts",
+  "scripts": {
+    "test": "tsc -p tsconfig.json && node --test 'dist/tests/*.test.js'"
+  }
+}

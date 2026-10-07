@@ -1,0 +1,29 @@
+declare module "node:test" {
+  export function test(
+    name: string,
+    fn: () => void | Promise<void>,
+  ): void;
+}
+
+declare module "node:assert/strict" {
+  interface Assert {
+    (value: unknown, message?: string): asserts value;
+    equal(actual: unknown, expected: unknown, message?: string): void;
+    deepEqual(actual: unknown, expected: unknown, message?: string): void;
+    match(actual: string, regexp: RegExp, message?: string): void;
+    ok(value: unknown, message?: string): asserts value;
+    throws(fn: () => unknown, expected?: RegExp, message?: string): void;
+    rejects(
+      promise: Promise<unknown>,
+      expected?:
+        | (new (...args: never[]) => unknown)
+        | ((err: unknown) => boolean),
+    ): Promise<any>;
+  }
+  const assert: Assert;
+  export default assert;
+}
+
+declare function setImmediate(
+  callback: (...args: unknown[]) => void,
+): unknown;
