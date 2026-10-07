@@ -1,0 +1,5 @@
+# Four named constraints; {c1, c2, c3} is the minimum unsatisfiable subset.
+c1: a | b
+c2: !a
+c3: !b & (a -> c)
+c4: !c

@@ -1,0 +1,12 @@
+{
+  "name": "bool-mus-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Exhaustive boolean constraint solver: minimum unsatisfiable subset, lexicographically smallest assignment, named assumptions, conflict cache, pausable frontier.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/test/*.test.js\"",
+    "cli": "node dist/src/bin.js"
+  }
+}
