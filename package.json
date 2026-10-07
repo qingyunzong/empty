@@ -1,0 +1,11 @@
+{
+  "name": "vm-snapshot",
+  "version": "1.0.0",
+  "description": "VM snapshot library: serializes object graphs preserving shared references, cycles and stable object ids, with atomic two-phase loading",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/tests/*.test.js\""
+  }
+}
