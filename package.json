@@ -1,0 +1,13 @@
+{
+  "name": "budget-reserve",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline budget-envelope reservation allocator with CSP solver and CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
