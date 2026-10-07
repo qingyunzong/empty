@@ -1,0 +1,11 @@
+{
+  "name": "qopt",
+  "version": "0.1.0",
+  "description": "Query rewrite library with NULL three-valued logic, legality preconditions, rewrite certificates, and exhaustive small-table verification",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+  }
+}
