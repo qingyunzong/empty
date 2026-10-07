@@ -1,0 +1,10 @@
+{
+  "name": "defect-recall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline defect recall-set generator with verifiable proofs (stdlib only)",
+  "main": "src/store.js",
+  "bin": { "recall": "bin/recall.js" },
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
