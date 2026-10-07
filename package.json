@@ -1,0 +1,9 @@
+{
+  "name": "clearing-house",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Payment clearing house: 5-minute rolling window merchant net settlement with verifiable certificates",
+  "scripts": {
+    "test": "node --test"
+  }
+}
