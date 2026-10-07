@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/lockwait.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/lockwait-diag.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/lockwait_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/CMakeFiles/rebuild_cache.dir

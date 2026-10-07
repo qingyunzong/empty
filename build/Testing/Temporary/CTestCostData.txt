@@ -1,0 +1,13 @@
+basic_xy_deadlock 2 0.028821
+shared_vs_exclusive_blocking 3 0.00844235
+shared_wait_blocked_by_exclusive 3 0.00871926
+upgrade_deadlock 3 0.0111896
+unfinished_call_not_holder 3 0.0150192
+release_breaks_cycle 3 0.00880312
+shortest_cycle_wins 3 0.0079874
+multi_lock_holder 3 0.0050816
+cancel_removes_waiter 3 0.00597258
+per_moment_verification 2 0.00542235
+semantic_errors 3 0.0035538
+cli_sample_log 2 0.00797652
+---

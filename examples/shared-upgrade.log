@@ -1,0 +1,7 @@
+# Two readers upgrade to exclusive and deadlock on each other.
+REQ 1 T1 c1 L S
+GNT 2 c1
+REQ 3 T2 c2 L S
+GNT 4 c2
+REQ 5 T1 c3 L X
+REQ 6 T2 c4 L X

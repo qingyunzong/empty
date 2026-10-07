@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/lockwait-diag.dir/link.d "CMakeFiles/lockwait-diag.dir/src/main.cpp.o" -o lockwait-diag  liblockwait.a

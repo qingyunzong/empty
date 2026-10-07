@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblockwait.a CMakeFiles/lockwait.dir/src/model.cpp.o
+/usr/bin/ranlib liblockwait.a

@@ -1,0 +1,203 @@
+Start testing: Oct 08 06:16 CST
+----------------------------------------------------------
+1/12 Testing: basic_xy_deadlock
+1/12 Test: basic_xy_deadlock
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "basic_xy_deadlock"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"basic_xy_deadlock" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS basic_xy_deadlock
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"basic_xy_deadlock" end time: Oct 08 06:16 CST
+"basic_xy_deadlock" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/12 Testing: shared_vs_exclusive_blocking
+2/12 Test: shared_vs_exclusive_blocking
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "shared_vs_exclusive_blocking"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"shared_vs_exclusive_blocking" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS shared_vs_exclusive_blocking
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"shared_vs_exclusive_blocking" end time: Oct 08 06:16 CST
+"shared_vs_exclusive_blocking" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/12 Testing: shared_wait_blocked_by_exclusive
+3/12 Test: shared_wait_blocked_by_exclusive
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "shared_wait_blocked_by_exclusive"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"shared_wait_blocked_by_exclusive" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS shared_wait_blocked_by_exclusive
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"shared_wait_blocked_by_exclusive" end time: Oct 08 06:16 CST
+"shared_wait_blocked_by_exclusive" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: upgrade_deadlock
+4/12 Test: upgrade_deadlock
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "upgrade_deadlock"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"upgrade_deadlock" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS upgrade_deadlock
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"upgrade_deadlock" end time: Oct 08 06:16 CST
+"upgrade_deadlock" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: unfinished_call_not_holder
+5/12 Test: unfinished_call_not_holder
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "unfinished_call_not_holder"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"unfinished_call_not_holder" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS unfinished_call_not_holder
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"unfinished_call_not_holder" end time: Oct 08 06:16 CST
+"unfinished_call_not_holder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/12 Testing: release_breaks_cycle
+6/12 Test: release_breaks_cycle
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "release_breaks_cycle"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"release_breaks_cycle" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS release_breaks_cycle
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"release_breaks_cycle" end time: Oct 08 06:16 CST
+"release_breaks_cycle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/12 Testing: shortest_cycle_wins
+7/12 Test: shortest_cycle_wins
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "shortest_cycle_wins"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"shortest_cycle_wins" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS shortest_cycle_wins
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"shortest_cycle_wins" end time: Oct 08 06:16 CST
+"shortest_cycle_wins" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/12 Testing: multi_lock_holder
+8/12 Test: multi_lock_holder
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "multi_lock_holder"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"multi_lock_holder" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS multi_lock_holder
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"multi_lock_holder" end time: Oct 08 06:16 CST
+"multi_lock_holder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: cancel_removes_waiter
+9/12 Test: cancel_removes_waiter
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "cancel_removes_waiter"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"cancel_removes_waiter" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS cancel_removes_waiter
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cancel_removes_waiter" end time: Oct 08 06:16 CST
+"cancel_removes_waiter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: per_moment_verification
+10/12 Test: per_moment_verification
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "per_moment_verification"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"per_moment_verification" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS per_moment_verification
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"per_moment_verification" end time: Oct 08 06:16 CST
+"per_moment_verification" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/12 Testing: semantic_errors
+11/12 Test: semantic_errors
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait_tests" "semantic_errors"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"semantic_errors" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+PASS semantic_errors
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"semantic_errors" end time: Oct 08 06:16 CST
+"semantic_errors" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/12 Testing: cli_sample_log
+12/12 Test: cli_sample_log
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build/lockwait-diag" "/home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/examples/deadlock.log"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/b2233bbdc1c04c5a8660b3fe575c4fa0/run/B/attempt-004/workspace/build
+"cli_sample_log" start time: Oct 08 06:16 CST
+Output:
+----------------------------------------------------------
+per-moment full-graph verification: OK (6 of 6 moments)
+DEADLOCK first detected at event #6 [t=6] REQ T2 c4 L1 X
+shortest deadlock cycle: 2 thread(s)
+  T1  T2  (back to T1)
+  T1 waits on L2 (X, call c3, requested at event #5)
+    blocked by T2 holding L2 (X, call c2, granted at event #4)
+  T2 waits on L1 (X, call c4, requested at event #6)
+    blocked by T1 holding L1 (X, call c1, granted at event #2)
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[DEADLOCK first detected at event #6]
+"cli_sample_log" end time: Oct 08 06:16 CST
+"cli_sample_log" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 06:16 CST

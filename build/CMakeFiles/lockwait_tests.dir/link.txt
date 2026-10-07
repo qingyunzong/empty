@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/lockwait_tests.dir/link.d CMakeFiles/lockwait_tests.dir/tests/test_main.cpp.o -o lockwait_tests  liblockwait.a

@@ -1,0 +1,8 @@
+# Classic two-thread exclusive deadlock.
+# REQ <time> <thread> <call> <lock> <S|X>
+REQ 1 T1 c1 L1 X
+GNT 2 c1
+REQ 3 T2 c2 L2 X
+GNT 4 c2
+REQ 5 T1 c3 L2 X
+REQ 6 T2 c4 L1 X
