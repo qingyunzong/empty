@@ -1,0 +1,2 @@
+/usr/bin/ar qc libastreduce.a CMakeFiles/astreduce.dir/src/ast.cpp.o CMakeFiles/astreduce.dir/src/sha1.cpp.o CMakeFiles/astreduce.dir/src/transform.cpp.o CMakeFiles/astreduce.dir/src/predicate.cpp.o CMakeFiles/astreduce.dir/src/reduce.cpp.o
+/usr/bin/ranlib libastreduce.a

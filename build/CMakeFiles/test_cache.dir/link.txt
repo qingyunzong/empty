@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_cache.dir/link.d CMakeFiles/test_cache.dir/tests/test_cache.cpp.o -o test_cache  libastreduce.a

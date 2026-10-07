@@ -1,0 +1,8 @@
+ast 3 0.00206595
+transform 3 0.00190331
+cache 3 0.00194369
+reduce 2 0.0050256
+cli_reduce_ok 3 1.136
+cli_bad_predicate 3 0.0760674
+cli_flaky_predicate 3 0.0777278
+---

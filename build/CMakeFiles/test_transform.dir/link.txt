@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_transform.dir/link.d CMakeFiles/test_transform.dir/tests/test_transform.cpp.o -o test_transform  libastreduce.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/test_reduce.dir/link.d CMakeFiles/test_reduce.dir/tests/test_reduce.cpp.o -o test_reduce  libastreduce.a
