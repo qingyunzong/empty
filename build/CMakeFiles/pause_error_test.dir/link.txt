@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/pause_error_test.dir/link.d CMakeFiles/pause_error_test.dir/tests/pause_error_test.cpp.o -o pause_error_test

@@ -1,0 +1,51 @@
+Start testing: Oct 07 14:20 CST
+----------------------------------------------------------
+1/3 Testing: model_test
+1/3 Test: model_test
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build/model_test"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build
+"model_test" start time: Oct 07 14:20 CST
+Output:
+----------------------------------------------------------
+model_test: OK
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"model_test" end time: Oct 07 14:20 CST
+"model_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: pause_error_test
+2/3 Test: pause_error_test
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build/pause_error_test"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build
+"pause_error_test" start time: Oct 07 14:20 CST
+Output:
+----------------------------------------------------------
+pause_error_test: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"pause_error_test" end time: Oct 07 14:20 CST
+"pause_error_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: cancel_test
+3/3 Test: cancel_test
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build/cancel_test"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/3610a84f7b5a46588d13d832e019c9c7/run/B/attempt-003/workspace/build
+"cancel_test" start time: Oct 07 14:20 CST
+Output:
+----------------------------------------------------------
+cancel_test: OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cancel_test" end time: Oct 07 14:20 CST
+"cancel_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 14:20 CST
