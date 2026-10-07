@@ -1,0 +1,133 @@
+{
+  "horizon": 12,
+  "warehouses": [
+    {
+      "id": "WH-A",
+      "capacity": 40,
+      "initialInventory": 10,
+      "holdingCost": 1,
+      "demand": [
+        5,
+        7,
+        6,
+        9,
+        5,
+        6,
+        8,
+        5,
+        6,
+        7,
+        4,
+        6
+      ],
+      "channels": [
+        {
+          "name": "standard",
+          "leadTime": 3,
+          "fixedCost": 20
+        },
+        {
+          "name": "expedited",
+          "leadTime": 1,
+          "fixedCost": 35
+        }
+      ],
+      "published": [
+        {
+          "day": 1,
+          "channel": "expedited",
+          "qty": 8,
+          "locked": 8
+        },
+        {
+          "day": 3,
+          "channel": "standard",
+          "qty": 19,
+          "locked": 10
+        },
+        {
+          "day": 6,
+          "channel": "standard",
+          "qty": 18,
+          "locked": 0
+        },
+        {
+          "day": 9,
+          "channel": "standard",
+          "qty": 17,
+          "locked": 5
+        }
+      ]
+    },
+    {
+      "id": "WH-B",
+      "capacity": 25,
+      "initialInventory": 4,
+      "holdingCost": 2,
+      "demand": [
+        3,
+        2,
+        4,
+        2,
+        5,
+        3,
+        4,
+        3,
+        2,
+        5,
+        3,
+        2
+      ],
+      "channels": [
+        {
+          "name": "standard",
+          "leadTime": 2,
+          "fixedCost": 12
+        },
+        {
+          "name": "expedited",
+          "leadTime": 0,
+          "fixedCost": 30
+        }
+      ],
+      "published": [
+        {
+          "day": 1,
+          "channel": "expedited",
+          "qty": 1,
+          "locked": 1
+        },
+        {
+          "day": 2,
+          "channel": "standard",
+          "qty": 7,
+          "locked": 4
+        },
+        {
+          "day": 4,
+          "channel": "standard",
+          "qty": 7,
+          "locked": 0
+        },
+        {
+          "day": 6,
+          "channel": "standard",
+          "qty": 7,
+          "locked": 7
+        },
+        {
+          "day": 8,
+          "channel": "standard",
+          "qty": 6,
+          "locked": 0
+        },
+        {
+          "day": 10,
+          "channel": "standard",
+          "qty": 6,
+          "locked": 0
+        }
+      ]
+    }
+  ]
+}

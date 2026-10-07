@@ -1,0 +1,27 @@
+{
+  "horizon": 12,
+  "warehouses": [
+    {
+      "id": "WH-A",
+      "capacity": 40,
+      "initialInventory": 10,
+      "holdingCost": 1,
+      "demand": [5, 7, 6, 8, 5, 6, 7, 5, 6, 8, 4, 5],
+      "channels": [
+        { "name": "standard", "leadTime": 3, "fixedCost": 20 },
+        { "name": "expedited", "leadTime": 1, "fixedCost": 35 }
+      ]
+    },
+    {
+      "id": "WH-B",
+      "capacity": 25,
+      "initialInventory": 4,
+      "holdingCost": 2,
+      "demand": [3, 2, 4, 3, 5, 2, 4, 3, 2, 4, 3, 3],
+      "channels": [
+        { "name": "standard", "leadTime": 2, "fixedCost": 12 },
+        { "name": "expedited", "leadTime": 0, "fixedCost": 30 }
+      ]
+    }
+  ]
+}

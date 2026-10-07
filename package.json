@@ -1,0 +1,12 @@
+{
+  "name": "inv-planner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "库存规划 CLI：至多 12 天需求、提前期与独立仓容约束下的整数下单优化（固定启单费 + 持有费，禁止缺货）",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "cli": "node dist/src/cli.js"
+  }
+}
