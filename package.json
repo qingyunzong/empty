@@ -1,0 +1,11 @@
+{
+  "name": "pathfill",
+  "version": "1.0.0",
+  "description": "Parse M/L/Z path commands and test integer points against fill rules (even-odd / nonzero), boundary inclusive, with ring hit evidence and self-intersection checks.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit"
+  }
+}
