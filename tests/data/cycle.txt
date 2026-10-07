@@ -1,0 +1,6 @@
+# graph with a directed cycle; P(0 reaches 2) = 1/4
+3 3
+0 2
+0 1 1/2
+1 0 1/2
+1 2 1/2
