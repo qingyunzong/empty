@@ -1,0 +1,8 @@
+# directed cycle with shortcut; back edge 2->0 is irrelevant
+# P = P(0->2) + P(0->2 down)*P(0->1)*P(1->2) = 1/2 + 1/8 = 5/8
+3 4
+0 2
+0 1 1/2
+1 2 1/2
+2 0 1/2
+0 2 1/2
