@@ -1,0 +1,13 @@
+{
+  "name": "pay-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Payment mid-platform ledger: freeze/capture/void/reverse with layered undo tree, exact rational amounts, append-only crash-safe log",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
