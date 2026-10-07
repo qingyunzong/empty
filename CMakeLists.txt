@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.20)
+project(exact_stats LANGUAGES CXX)
+
+add_library(exact_stats INTERFACE)
+target_include_directories(exact_stats INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_compile_features(exact_stats INTERFACE cxx_std_20)
+
+enable_testing()
+foreach(t IN ITEMS test_bigint test_rational test_stats)
+    add_executable(${t} tests/${t}.cpp)
+    target_link_libraries(${t} PRIVATE exact_stats)
+    target_include_directories(${t} PRIVATE tests)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        target_compile_options(${t} PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+    add_test(NAME ${t} COMMAND ${t})
+endforeach()

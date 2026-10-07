@@ -1,0 +1,51 @@
+Start testing: Oct 08 03:02 CST
+----------------------------------------------------------
+1/3 Testing: test_bigint
+1/3 Test: test_bigint
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build/test_bigint"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build
+"test_bigint" start time: Oct 08 03:02 CST
+Output:
+----------------------------------------------------------
+test_bigint OK
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"test_bigint" end time: Oct 08 03:02 CST
+"test_bigint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: test_rational
+2/3 Test: test_rational
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build/test_rational"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build
+"test_rational" start time: Oct 08 03:02 CST
+Output:
+----------------------------------------------------------
+test_rational OK
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_rational" end time: Oct 08 03:02 CST
+"test_rational" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: test_stats
+3/3 Test: test_stats
+Command: "/home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build/test_stats"
+Directory: /home/delin/.local/share/gsb-workbench/artifacts/405f746b7cfd41a6ab70f002ddfdd1b0/run/A/attempt-004/workspace/build
+"test_stats" start time: Oct 08 03:02 CST
+Output:
+----------------------------------------------------------
+test_stats OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_stats" end time: Oct 08 03:02 CST
+"test_stats" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 08 03:02 CST
