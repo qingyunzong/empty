@@ -1,0 +1,10 @@
+{
+  "code": ["iconst_0", "istore_1", "iload_1", "iconst_2", "idiv", "istore_2", "iload_2", "ireturn"],
+  "handlers": [
+    {"name": "outer", "start": 0, "end": 7, "type": "java/lang/Throwable"},
+    {"name": "div",   "start": 2, "end": 5, "type": "java/lang/ArithmeticException"},
+    {"name": "div2",  "start": 2, "end": 5, "type": "java/lang/RuntimeException"},
+    {"name": "load",  "start": 3, "end": 4, "type": "java/lang/ArrayIndexOutOfBoundsException"}
+  ],
+  "insert": [{"at": 4, "count": 2}]
+}
