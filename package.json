@@ -1,0 +1,12 @@
+{
+  "name": "rollback-dsu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "支持合并、快照与回滚的连通库（并查集），组件返回最小成员 ID",
+  "type": "commonjs",
+  "main": "dist/src/rollback-dsu.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  }
+}
