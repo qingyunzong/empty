@@ -1,0 +1,11 @@
+# Two threads increment the shared integer without synchronization.
+# Each checks that its own increment is still visible: x == r1 + 1.
+shared x = 0
+thread t0
+  read r1
+  write r1 + 1
+  assert x == r1 + 1
+thread t1
+  read r1
+  write r1 + 1
+  assert x == r1 + 1

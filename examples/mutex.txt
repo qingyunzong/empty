@@ -1,0 +1,14 @@
+# Same increments, but protected by the mutex: no interleaving fails.
+shared x = 0
+thread t0
+  lock
+  read r1
+  write r1 + 1
+  assert x == r1 + 1
+  unlock
+thread t1
+  lock
+  read r1
+  write r1 + 1
+  assert x == r1 + 1
+  unlock

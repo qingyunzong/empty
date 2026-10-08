@@ -1,0 +1,5 @@
+# Re-taking the mutex while holding it blocks forever: deadlock.
+shared x = 0
+thread t0
+  lock
+  lock

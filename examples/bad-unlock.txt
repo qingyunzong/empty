@@ -1,0 +1,4 @@
+# Unlocking a mutex you do not hold is a runtime error.
+shared x = 0
+thread t0
+  unlock

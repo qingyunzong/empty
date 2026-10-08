@@ -1,0 +1,15 @@
+# Three threads of pure reads: all interleavings are equivalent,
+# so compression collapses the whole space to one execution.
+shared x = 7
+thread t0
+  read r1
+  read r2
+  read r3
+thread t1
+  read r1
+  read r2
+  read r3
+thread t2
+  read r1
+  read r2
+  read r3
