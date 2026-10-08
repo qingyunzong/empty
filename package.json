@@ -1,0 +1,12 @@
+{
+  "name": "anchor-patch",
+  "version": "1.0.0",
+  "description": "Content-anchored patch library: locate by original content, refuse ambiguity, apply atomically, emit inverse patches and location evidence.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test 'dist/test/*.test.js'"
+  },
+  "license": "MIT"
+}
