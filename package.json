@@ -1,0 +1,12 @@
+{
+  "name": "stable-id-text",
+  "version": "0.1.0",
+  "description": "Text editing core with stable character IDs, ID-anchored selections and replayable operation logs",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/*.test.js\""
+  },
+  "license": "MIT"
+}
