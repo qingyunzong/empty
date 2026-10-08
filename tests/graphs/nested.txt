@@ -1,0 +1,9 @@
+# Two nested natural loops: outer header B, inner header C.
+entry: A
+A -> B
+B -> C
+C -> D
+D -> C
+D -> E
+E -> B
+E -> F

@@ -1,0 +1,8 @@
+# Classic irreducible loop: SCC {A, B} has two entries A and B.
+entry: S
+S -> A
+S -> B
+A -> B
+B -> A
+A -> T
+B -> T

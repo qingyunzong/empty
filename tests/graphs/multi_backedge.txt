@@ -1,0 +1,8 @@
+# One natural loop with header B and two back edges (C->B, D->B).
+entry: A
+A -> B
+B -> C
+B -> D
+C -> B
+C -> D
+D -> B
