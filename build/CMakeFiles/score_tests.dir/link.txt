@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/score_tests.dir/link.d CMakeFiles/score_tests.dir/tests/score_tests.cpp.o -o score_tests  libscore.a

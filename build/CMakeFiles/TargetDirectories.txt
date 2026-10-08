@@ -1,0 +1,6 @@
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/score.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/scorecli.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/score_tests.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/test.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/edit_cache.dir
+/home/delin/.local/share/gsb-workbench/artifacts/6ab75812746041d7bd1104258ff638e3/run/A/attempt-005/workspace/build/CMakeFiles/rebuild_cache.dir
