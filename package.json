@@ -1,0 +1,14 @@
+{
+  "name": "quote-invert-cli",
+  "version": "1.0.0",
+  "description": "Invert rounded quote amounts back to integer original-price ranges under chained rational discounts with round-half-even",
+  "type": "module",
+  "bin": {
+    "quote": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "license": "MIT"
+}
