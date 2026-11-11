@@ -1,0 +1,1 @@
+媒体接入宿主需要C++MPEG-TS节目表组件，接收188字节包并由调用方指定PID，处理adaptation字段、连续计数器及payload_unit_start_indicator后的pointer_field。分段可能跨包或同包多段，先校验section_length及CRC32/MPEG-2，再按table_id、extension、version汇齐0至last_section_number才原子发布。current_next为0只缓存，重复计数同载荷忽略、异载荷重置该PID待组装状态。用自行编码的包测试指针前结束旧段、后开始新段、丢包和版本交错，不能拼接不同版本。
