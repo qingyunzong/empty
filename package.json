@@ -1,1 +1,1 @@
-{"name": "dlks-q256", "version": "0.0.0", "private": true, "type": "module", "scripts": {"build": "tsc -p tsconfig.json"}}
+{"name": "dlks-q256", "version": "0.0.0", "private": true, "type": "module", "scripts": {"build": "tsc -p tsconfig.json", "test": "tsc -p tsconfig.json && node --test test/math.test.mjs test/geometry.test.mjs test/scene-graph.test.mjs test/recompute-count.test.mjs"}}
