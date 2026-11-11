@@ -1,0 +1,1 @@
+IoT采集宿主需要Go MQTT QoS2接收组件，调用方提供已解码的PUBLISH、PUBREL及持久事务存储和业务落点。首次PUBLISH保存packet ID与载荷后才回PUBREC，重复同载荷重回PUBREC，异载荷拒绝；PUBREL把业务效果与完成标记在同一事务提交后回PUBCOMP，重传不能重复业务效果。完成后同ID的新PUBLISH允许开启下一代，未知PUBREL仅回PUBCOMP。持久会话断线恢复原状态，clean start清空协议状态；用各存储边界崩溃和packet ID复用测试，对业务落点提交次数逐项核对。
