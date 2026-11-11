@@ -1,0 +1,1 @@
+浏览器采集宿主需要可导入的TypeScript CookieJar，调用方传请求URL、顶层站点、方法、是否顶层导航及可控时钟，站点归属函数由调用方注入。按RFC6265域与路径匹配，host-only不能泄到子域，Secure只走HTTPS；SameSite=Strict只同站，Lax另允许顶层GET，None必须Secure。Partitioned按顶层站点隔离且要求Secure，__Host-要求无Domain且Path=/。同名按最长路径再创建序返回，更新保留创建序，Max-Age优先Expires。测试跨站跳转、分区混用、过期边界及同名不同路径。
