@@ -1,1 +1,18 @@
-{"name": "dlks-q196", "version": "0.0.0", "private": true, "type": "module", "scripts": {"build": "tsc -p tsconfig.json"}}
+{
+  "name": "dlks-q196",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs"
+  }
+}
