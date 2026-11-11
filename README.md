@@ -1,0 +1,1 @@
+采集浏览器需要可导入的TypeScript资源策略组件，调用方传页面origin、多个策略对象及待加载URL和资源类型。策略仅含default、script、img三类，源项支持none、self、scheme及host加可选端口和路径前缀；script或img未给时回退default，两者均无则该策略不限制。单策略源项取并，多策略取交，none必须独占；*.example.test只匹配子域，host项未给scheme时用页面scheme，未给端口时用该scheme默认端口；路径在单次百分号解码并消除点段后按段前缀比较，坏转义拒绝。返回允许或拒绝来源的策略索引。通过页面加载适配器测试默认端口、协议相对URL、通配根域、编码斜杠与多策略冲突。
