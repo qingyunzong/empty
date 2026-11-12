@@ -1,3 +1,50 @@
-# 叶记录的局部载荷模规则与跨页投影
+# SQLite 式只读 cell 投影
 
-采集宿主已定位数据库表叶中的目标cell，投影一小列时不应把其他大二进制列全部读入。开发Go可导入的SQLite式只读cell投影包，仅支持下面记录子集，不解析数据库头、B树目录、SQL或WAL。宿主给不可变ReaderAt、总页数、页长S为512..65536的2次幂、页尾保留字节R且U=S-R>=480，以及cell所在页号、页内起点和确切cell字节长；页号从1开始，文件长恰总页数乘S，cell不能进入保留区。cell先是载荷长度P的varint，再是rowid的varint，后接local字节载荷；P<=U-35时local=P且不含溢出指针，否则M=floor((U-12)*32/255)-23、K=M+(P-M)模(U-4)，local在K<=U-35时为K，否则为M，local之后再有4字节大端首溢出页号。不能总取M或总把页填满；cell精确长度须与这些组成一致。varint前至多8字节每字节高位1表示继续，低7位拼入整数；遇高位0即结束；若前8字节都继续，第9字节全部8位拼入后结束。位组大端，P按uint64解释，rowid按同一64位模式解释为二补码int64；接受较长但在9字节内终止的表示，不要求最短。溢出页前4字节是下一页大端页号，随后U-4字节为载荷，0只可表示链尾，最后一页仅取所需剩余字节，其未用尾部不限内容。必须恰好覆盖P-local后链尾为0，不允许提前0、额外页、页号越界、环或回指cell页；不根据未读的其他cell推断全库无共享页。逻辑载荷头以varint H开始，H包含自身长度，直到逻辑偏移H前每个varint是一个列serialType，不能截在varint中；H须不小于自身长度且不超过P。只接受0=null、6=8字节大端int64，以及>=12的偶数t=长度(t-12)/2的blob，其他类型明确unsupported，不冒充完整SQLite解码。数据区从H开始按列排列，全部列长之和必须精确P-H，包括未投影列。宿主给按0起始列序号的投影列表，允许重复且保留请求次序，越界拒绝；返回rowid、类型化值和每值的逻辑及物理分段来源，空blob与null不同。头和一个值都可跨局部区与多溢出页，不能要求记录头一定在cell页。先校验整条链、全部列头和总长，再交付投影；设置头字节预算、链页数预算及投影字节预算，超限无部分结果且不按P分配内存。可为链保留页号与逻辑区间目录，只读取链链接头、记录头和被投影的实际值区间；未投影blob的载荷不得读入，允许重复投影共用不可变字节但返回材料不能被调用方改写。记录实际ReaderAt请求及来源，用带禁止读取区间的宿主验证没有读隐藏列，不用“读取整个页再扔掉”掩盖。提供接入宿主例和独立构造cell/溢出页的夹具及完整载荷参考，覆盖P恰U-35与差1、K落在阈值两侧、负rowid九字节编码、48位以上P声明而预算先拒绝、记录头跨首个溢出页、列值跨两页、未投影大blob、空blob、链长恰足及多一页、保留尾部含垃圾、header与body长度不符和短读。仅对目标cell负责，不修改原快照或发布数据库文件。
+`example.org/dataeng/q0323` 从宿主已定位的单个表叶 cell 中投影指定列，只读取记录头、链链接头和实际请求的列值区间。它不解析数据库头、B 树目录、SQL 或 WAL，也不修改或发布快照文件。
+
+## 接入方式
+
+```go
+config := dataeng.Config{
+    PageSize:             512,  // S，512..65536 的 2 次幂
+    ReservedBytes:        32,   // R，且 U=S-R>=480
+    PageCount:            pages,
+    HeaderByteBudget:     4096,
+    ChainPageBudget:      1024,
+    ProjectionByteBudget: 1 << 20,
+}
+
+result, err := dataeng.Project(
+    immutableReaderAt,
+    config,
+    dataeng.CellRef{Page: cellPage, Offset: cellOffset, Length: cellLength},
+    []int{3, 0, 3}, // 0 起始列号；重复项保留，返回顺序一致
+)
+```
+
+需要复用页几何时可先调用 `NewProjector`，再调用 `Projector.Project` 或带取消支持的 `Projector.ProjectContext`。`bytes.Reader` 只是示例适配器，宿主也可以实现自己的不可变 `io.ReaderAt`。
+
+完整可运行示例见 `example_test.go`；独立构造 cell、溢出页和完整载荷参考的夹具见 `fixture` 子包。
+
+## 行为与限制
+
+- cell 前缀严格按 1..9 字节 varint 规则解析；接受九字节以内的非最短表示。负 rowid 按同一 64 位位型的二补码 `int64` 返回。
+- local 长度按题目给定的 M/K 规则计算，不用固定的 M，也不把页填满；cell 长度必须与“两个 varint + local + 可选 4 字节指针”精确一致。
+- 溢出链先完整校验：必须恰好覆盖 `P-local`，末尾链接必须为 0；提前结束、额外页、越界、环和回指 cell 页都拒绝。
+- 记录头 `H` 必须是 varint 且包含自身；直到偏移 `H` 的每个 serialType varint 都必须完整。仅支持 `0=null`、`6=int64`、`>=12` 的偶数 blob serial type；其他类型返回 `ErrUnsupportedSerial`。
+- 全部列（包括未投影列）的长度和必须精确等于 `P-H`。所有校验完成后才读取并交付投影值。
+- 预算字段是严格上限：`HeaderByteBudget` 限制 `H`，`ChainPageBudget` 限制溢出页数，`ProjectionByteBudget` 限制投影出现次数对应的值字节总数（重复投影重复计数）。超限返回错误且不返回部分结果。
+- 不按 `P` 分配内存。`Result.Reads`（及失败时的 `Error.Reads`）记录每次实际 `ReaderAt` 请求的页号、页内/文件偏移、来源和逻辑区间，可用于禁止区间审计。
+- `ColumnValue` 区分 `ValueNull` 与 `ValueBlob`；空 blob 的 `Blob` 是非 nil 的零长度切片。重复投影读取一次，但每个返回值都是独立副本，调用方改写不会影响其他结果或底层快照。
+- `ColumnValue.Segments` 和 `Result.OverflowPages` 保存逻辑载荷区间到物理页的映射；最后溢出页只记录实际需要的字节，未用尾部不读取。
+
+错误可用 `errors.Is` 检查稳定类别，例如 `ErrCellLengthMismatch`、`ErrBudgetExceeded`、`ErrOverflowChainEarly`、`ErrOverflowChainExtra`、`ErrOverflowChainCycle`、`ErrRecordLengthMismatch`、`ErrUnsupportedSerial` 和 `ErrShortRead`。失败不会返回部分 `Result`。
+
+## 验证
+
+```sh
+go test ./...
+go vet ./...
+```
+
+测试覆盖 `P=U-35` 及相邻值、K 阈值两侧、负 rowid 九字节编码、48 位以上 `P` 的预算先拒绝、记录头跨首个溢出页、值跨两个溢出页、未投影大 blob 禁止读取、空 blob/null、链恰好与多一页、保留区垃圾、头体长度不符和短读。
