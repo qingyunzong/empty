@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "outDir": "dist",
+    "rootDir": ".",
+    "strict": true,
+    "typeRoots": ["/usr/share/nodejs/@types"],
+    "types": ["node"],
+    "declaration": true,
+    "noEmitOnError": true
+  },
+  "include": ["index.ts", "index.test.ts"]
+}
