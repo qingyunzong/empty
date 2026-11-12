@@ -1,3 +1,86 @@
-# 组合枚举位向量的稀疏目录导航
+# Compact enumeration-coded bit index
 
-列式索引要给稀疏和稠密位区间共用一个可随机访问的紧凑位向量，不能保存解压原列作为查询捷径。开发Go可导入的枚举编码索引包，输入逻辑0/1序列，参数块宽b在1..63、检查点间隔S在1..4096、长度N<=2^32-1。线格式固定为u8 b、u32小端S、u64小端N，再接一个高位先行位流；每块含最多b位，末块长度m取实际剩余长度，非末块m=b。块的类c为1的个数，先写ceil(log2(b+1))位无符号c，再写w=ceil(log2(C(m,c)))位ordinal；C为精确组合数，C=1时w=0且ordinal必须0。ordinal是所有长度m且恰有c个1的位串按普通二进制数值升序排列时本块的0起始下标，首逻辑位为最高位，不能把colex组合序号误当这个序号。禁止浮点log计算w，须精确求最小w使2^w>=C。全位流结束仅在最后字节低位补0。Open从不可变字节快照构建检查点：每S块一项，记该块起始逻辑位号、其类字段的载荷位偏移、之前1的总数，另保存末尾N及总1数；不为每个逻辑位或每块保存展开值、offset或前缀rank，只能保存原压缩载荷、每S块目录和至多一个解码块缓存。导入逐块检查c<=m、ordinal<C、头参数、长度、填充与无额外尾字节，确认完整后才发布；N=0只能有头且无载荷。截断即使发生在w=0的块附近也要正确判断类字段，不把全0/全1块当缺失。实现Access(i)、Rank1(end)统计[0,end)内1个数、Rank0及Select0/Select1(k)返回第k个对应位的0起始位置，k零起始，k>=该位总数返回不存在，非法i/end或负k报错。Access及Rank只从目标块所在检查点顺扫至多S块的类和ordinal字段，最多解码目标一个块；Select通过目录累计相应位数二分选区，再顺扫该区至多S块并最多解码命中一个块，不得从文件头扫描或逐位展开全向量。目录中的相同累计rank不能错误地排除全0或全1检查区间。暴露每次查询实际读取的块头数、解码块数与载荷位区间，缓存命中须如实记0次解码，不在事后伪造计数。给列扫描宿主调用例，独立逐比特原序列参考核对所有短向量的全部Access/Rank/Select，另外独立枚举m<=12同类位串核对ordinal而非仅生产编码解码互证；覆盖b=1和63、S=1、末块m<b且c=m、ordinal恰为C-1及非法C、非字节对齐跨块、长全0/全1区间、检查点rank平台、N=0和被篡改填充。编码压缩率不作无条件承诺，但物理布局及查询访问上界必须真实可检查。
+`dataeng` is a Go-importable package for sparse and dense regions of a logical
+0/1 sequence.  It stores a compressed payload plus a checkpoint directory; it
+does not keep the original expanded column as a query shortcut.
+
+## Wire format
+
+The byte snapshot begins with a fixed 13-byte header:
+
+| Offset | Width | Field |
+| --- | --- | --- |
+| 0 | u8 | block width `b`, 1..63 |
+| 1 | u32 LE | checkpoint interval `S`, 1..4096 |
+| 5 | u64 LE | logical length `N`, 0..2^32-1 |
+
+The remaining bytes are an MSB-first bit stream.  A non-final block has
+`m = b`; the final block has `m = N mod b` (or `b` when the division is exact).
+For each block the encoder writes:
+
+1. `c`, the number of one bits, using `ceil(log2(b+1))` bits;
+2. `ordinal`, using `w = ceil(log2(C(m,c)))` bits.
+
+`C` is the exact binomial coefficient.  `w` is found exactly with
+`bits.Len64(C-1)` (zero when `C == 1`), never with a floating-point logarithm.
+The ordinal is the rank of the `m`-bit block word among all same-weight words
+in ordinary binary-value order, with the first logical bit as the most
+significant bit.  It is not a colex combinadic rank.  Only low padding bits in
+the final byte are zero.
+
+## API
+
+```go
+encoded, err := dataeng.Encode(logicalBits, 32, 64)
+index, err := dataeng.Open(encoded)              // copies and fully validates
+bit, err := index.Access(1234)
+ones, err := index.Rank1(2000)                   // ones in [0,2000)
+zeros, err := index.Rank0(2000)
+pos, found, err := index.Select1(17)             // zero-based k-th one
+pos, found, err = index.Select0(17)
+```
+
+`Encode` accepts `[]byte` whose elements are exactly 0 or 1.  `N = 0` produces
+a header-only snapshot.
+
+`Open` rejects malformed headers, `c > m`, `ordinal >= C`, truncated class
+fields, non-zero padding and trailing bytes.  Validation completes before an
+`Index` is published.
+
+Queries also have `...WithStats` variants.  A `QueryStats` reports:
+
+- `BlockHeadersRead`: class fields actually read;
+- `BlocksDecoded`: blocks actually reconstructed from their ordinal;
+- `CacheHits`: decoded-block cache hits;
+- `PayloadBitRanges`: half-open compressed payload bit ranges actually read.
+
+`CheckpointAt(i)` exposes the read-only checkpoint metadata (block index,
+logical start, payload bit offset and ones before), which makes the physical
+layout and every-`S`-blocks spacing directly inspectable.
+
+`Access` and rank queries start at the target block's checkpoint, inspect at
+most `S` block headers and decode at most the target block.  Select binary-
+searches the checkpoint directory using the relevant cumulative one/zero
+counts, then scans at most `S` blocks and decodes only the hit block.  Taking
+the rightmost checkpoint with a cumulative count `<= k` keeps all-zero and
+all-one checkpoint plateaus in the searched region.  The index keeps at most
+one decoded block; a cache hit reports zero decodes.
+
+## Example
+
+`examples/columnscan` shows a column-scan host iterating predicate matches
+with `Select1WithStats` and using `Rank1`/`Access` for row-boundary work:
+
+```sh
+go run ./examples/columnscan
+```
+
+## Tests
+
+Tests compare every `Access`, `Rank1`, `Rank0`, `Select0` and `Select1` result
+against a separate bit-by-bit sequence reference for all short vectors.  They
+also independently enumerate all same-weight words through `m = 12` to verify
+the ordinal definition, and cover `b = 1`/`63`, `S = 1`, short final blocks,
+`C-1` and invalid ordinals, checkpoint rank plateaus, long all-zero/all-one
+regions, `N = 0`, truncation near zero-width blocks, tampered padding and query
+access bounds.
