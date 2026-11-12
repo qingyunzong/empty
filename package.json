@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "tsc --project tsconfig.json --noEmit false --rewriteRelativeImportExtensions --outDir \"${TMPDIR:-/tmp}/dataeng-join-build\" && node --test \"${TMPDIR:-/tmp}/dataeng-join-build/test/\"*.test.js",
+    "typecheck": "tsc --noEmit"
   }
 }
