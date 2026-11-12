@@ -2,7 +2,10 @@
   "name": "dataeng-20261112-0296",
   "private": true,
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "bash scripts/test.sh",
+    "build": "tsc -p tsconfig.json"
   }
 }
