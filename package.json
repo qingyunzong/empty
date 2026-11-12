@@ -2,7 +2,12 @@
   "name": "dataeng-20261112-0019",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.json && tsc -p tsconfig.build.json && node --test dist/test/wait.test.js",
+    "typecheck": "tsc -p tsconfig.json"
   }
 }
