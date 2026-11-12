@@ -1,8 +1,20 @@
 {
   "name": "dataeng-20261112-0325",
   "private": true,
+  "version": "0.1.0",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "example": "npm run build && node dist/examples/collector-host.js",
+    "typecheck": "tsc -p tsconfig.json"
   }
 }
