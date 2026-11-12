@@ -1,3 +1,32 @@
 # 轮询响应的最短长度与对象标识
 
 轮询采集拆开响应里的变量绑定时，长度的长形式多一个前导零，就会把下一个对象标识符算进当前值。实现可导入的Go包，供轮询采集调用，不发送报文，只解码一条消息。标识字节的高两位是类别，第6位为1表示构造类型。低5位小于31时就是标签；等于31时，后面用base128写标签，必须是最短形式且至少一个后续字节。长度小于128使用单字节短形式。长形式的首字节只能是0x81至0x84，后续大端长度必须大于127且没有前导零；0x80直接失败。内容长度一旦已知且大于宿主maxMessage就拒绝，不按声明分配。整条消息必须是一个构造SEQUENCE，里面依次是版本INTEGER、共同体OCTET STRING，以及上下文相关构造标签2的响应。版本只能是0或1。响应内容依次是请求号INTEGER、错误状态INTEGER、错误索引INTEGER和构造SEQUENCE绑定列表。错误状态只能是0至5，错误索引必须非负，没有错误时索引必须为0。每个绑定是构造SEQUENCE，含OBJECT IDENTIFIER和值。值只能是INTEGER、OCTET STRING、NULL、OBJECT IDENTIFIER，或应用原始标签1、2、3。NULL长度必须为0。INTEGER是大端补码，不能有多余前导0x00或0xFF，除非去掉后最高位会改变符号。OID的第一字节是40乘第一段再加第二段，第一段只能是0、1或2；第一段为0或1时第二段小于40。后续段是base128，每段必须最短，最后一字节的最高位为0，至少包含前两段。应用标签1、2、3按无符号整数解释，1至5字节，值不超过4294967295，同样禁止非最短。构造值必须正好包住内容，消息不能剩余字节。失败不交付半条消息。测试独立编码，覆盖长形式前导零、INTEGER多余符号字节、OID第一字节、错误状态6、带内容的NULL、5字节应用整数，以及长度吞并下一绑定。期望绑定不得调用被测包生成。
+
+## 使用
+
+包名是 `dataeng`，入口是 `Decode`：
+
+```go
+message, err := dataeng.Decode(packet, maxMessage)
+if err != nil {
+	// 整条消息无效，message 为 nil。
+}
+
+for _, binding := range message.Bindings {
+	fmt.Println(binding.OID, binding.Value.Type)
+}
+```
+
+`maxMessage` 是宿主允许的单个 TLV 内容长度上限，对短形式和长形式都生效。解码器先验证声明长度不超过该上限且不超过实际剩余字节，再从输入切片读取内容，不会按声明长度预分配。
+
+值通过 `Value.Type` 区分：
+
+| 类型 | 字段 |
+| --- | --- |
+| `ValueInteger` | `Integer` |
+| `ValueOctetString` | `Octets` |
+| `ValueNull` | 无 |
+| `ValueOID` | `OID` |
+| `ValueApplication` | `Tag`、`Unsigned` |
+
+失败时 `Decode` 总是返回 `nil` 消息；调用方不会拿到一部分绑定。
