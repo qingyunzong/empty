@@ -1,0 +1,3 @@
+# 浏览器下载采集的生命周期归档
+
+下载采集宿主调用可导入的TypeScript下载状态包，事件有唯一ID和全局唯一整数序号，含begin(id,url)、progress(id,received,total)、complete(id,摘要)或cancel(id)，允许乱序分批。每次对受影响下载按序号重放，begin必须唯一且早于其他事件；begin未到的片段暂存。首个终态后的事件忽略，之前progress的received非降，total可从未知变已知后不变且received不能超限。complete只有已知received等于total才就绪，否则保留等待更早progress；cancel立即就绪。新到更早终态可撤销旧归档，输出删除后增加的净差。相同事件重投忽略，冲突或非法progress整批回滚。用到达排列及迟到取消测试。

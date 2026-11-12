@@ -1,0 +1,8 @@
+{
+  "name": "dataeng-20261112-0123",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test"
+  }
+}
