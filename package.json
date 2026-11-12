@@ -1,8 +1,16 @@
 {
   "name": "dataeng-20261112-0313",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "tsc -p tsconfig.test.json && node --test dist/src/bid128.test.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.test.json",
+    "example": "tsc -p tsconfig.test.json && node dist/src/collector-host-example.js"
   }
 }
