@@ -1,3 +1,135 @@
 # 分页采集的排序键碰撞恢复
 
-公开目录只提供按更新时间倒序的分页查询，多个条目时间相同且服务端页内次序可变，直接保存最后时间会漏项。给TypeScript采集宿主实现可导入的增量收集器。远端由注入函数查询闭区间时间[a,b]，K为正整数，每次返回最多K条和total，记录含唯一ID、整数时间及内容；total是区间当前条目数，只有total不超过K时才保证该区间返回全部条目。一次采集在远端固定snapshotToken下运行，查询必须携带它，token过期则本轮停止且不推进持久化水位。时间域是有界int64整数，取中点须精确；递归二分直到各区间total不超过K，左右必须不重不漏。单个时间点仍超过K时，远端另提供按ID字节序的seek查询，该接口只用于该时间点，游标绑定token和时间，ID唯一且页边界排他。同一快照内结果按时间升序再ID字节序交付，每次交付携带snapshotToken，不能对不同快照的同ID内容冒充同一版本。重新取快照从最后已确认时间桶的下一整数时刻重新扫描，丢弃未确认桶的临时获取结果，已经投递但未确认的旧版本可重复投递且保留来源。。调用方确认整个时间桶后才可保存已完成水位，桶内失败重试允许重复投递但不得跳过未确认项；checkpoint需保留快照与未完成区间，恢复时若快照失效须重新取得同一范围的新快照并保留旧证据，不能继续拼接两份快照。请提供显式取消、注入存储与确定性测试，覆盖极端int64时间、密集同时间桶、返回条数与total矛盾、seek页不严格递增或记录时间超出查询范围、崩溃后恢复、确认与取消竞态，并与固定快照的全量排序模型对照。
+公开目录只提供按更新时间倒序的分页查询，多个条目时间相同且服务端页内次序可变，直接保存最后时间会漏项。本包提供一个可导入的 TypeScript 增量收集器，用时间二分、ID seek、快照 token 和持久化 checkpoint 解决这个问题。
+
+## 快速使用
+
+```ts
+import {
+  IncrementalTimeCollector,
+  InMemoryCheckpointStore,
+} from "./index.ts";
+
+const store = new InMemoryCheckpointStore();
+const collector = new IncrementalTimeCollector({
+  remote,
+  k: 100,
+  store,
+  from: 0n,                 // 可选，默认 INT64_MIN
+  to: 10_000_000n,          // 可选，默认 INT64_MAX
+});
+
+const controller = new AbortController();
+const session = await collector.start();
+while (true) {
+  const next = await session.next();
+  if (next.kind === "done") break;
+  if (next.kind === "expired") break;   // 本轮停止，水位未推进
+  if (next.kind === "cancelled") break;
+
+  await persistRecords(next.bucket.records); // 可失败、可重试
+  const confirmation = await next.bucket.confirm();
+  if (!confirmation.confirmed) {
+    // cancelled / stale / storage-failed：桶仍未确认
+    break;
+  }
+}
+```
+
+同一进程内重新 `start()` 会从存储恢复。发生崩溃时不需要调用 `cancel`；未确认桶的临时记录不会被 checkpoint 保存，恢复后会重新获取。调用方处理记录失败时不要确认，下一次 `next()` 会重复投递同一个桶，不会跳到下一桶。
+
+也可以显式取消：
+
+```ts
+session.cancel("operator stopped");
+// 或把 AbortSignal 传入 CollectorOptions.signal
+```
+
+## 远端契约
+
+```ts
+interface SnapshotRemote {
+  acquireSnapshot(range: { from: bigint; to: bigint }): Snapshot;
+  queryRange(from: bigint, to: bigint, token: string): RangePage;
+  seekById(time: bigint, afterId: string | null, token: string): SeekPage;
+}
+
+interface RangePage {
+  total: bigint | number | string; // 整个闭区间的当前条目数
+  records: readonly RemoteRecord[]; // 最多 K 条
+}
+
+interface SeekPage {
+  records: readonly RemoteRecord[];
+  hasMore?: boolean;
+}
+```
+
+- 所有查询都必须携带 `snapshotToken`。token 失效时远端应抛 `SnapshotExpiredError`，或抛 `code === "SNAPSHOT_EXPIRED"` 的错误。
+- `total <= K` 时，`records.length` 必须严格等于 `total`。
+- `total > K` 时，`records.length` 不得超过 `K`，也不得超过 `total`。
+- 任何页返回的条目时间必须落在查询区间内。seek 页只能返回该时间点，ID 必须严格大于游标且在 UTF-8 字节序下严格递增。
+- seek 仅用于“单个时间点 `total > K`”的情况；游标为排他边界，`afterId` 绑定 token 和时间。
+
+## 关键不变量
+
+- 时间统一使用 `bigint`。中点为 `from + floor((to-from)/2)`，不经过浮点数，`[-2^63, 2^63-1]` 也能精确拆分。
+- 非叶区间拆成 `[from, mid]` 和 `[mid+1, to]`，二者不重不漏；持续二分直到叶子 `total <= K`。
+- 每个叶子按“时间升序、同时间 ID 的 UTF-8 字节序”交付。叶子按时间顺序确认，因此全局交付顺序也满足该排序。
+- 每次交付的 `BucketDelivery` 都带 `snapshotToken` 和 `snapshotGeneration`。不同快照的同 ID 内容不会被合并成同一版本。
+- 空叶子也会作为空桶交付并要求确认；因此所有水位推进都对应一个被调用方确认的完整时间桶。
+- `confirm()` 通过存储提交 checkpoint 后才推进 `confirmedThrough`。存储失败时桶保持未确认，可以重试。
+
+## Checkpoint 与恢复
+
+`Checkpoint` 保存：
+
+- `snapshotToken` / `snapshotGeneration` / `snapshotRange`
+- `scan`（原始扫描范围）与 `confirmedThrough`（已确认水位）
+- `pending`（有序、连续、覆盖未完成范围的区间）
+- `retiredSnapshots`（失效快照的 token、原因和当时未完成区间）
+
+恢复规则：
+
+1. 同一快照仍有效时，从 `confirmedThrough + 1` 继续使用 `pending`，不重扫已确认桶。
+2. 快照失效时，先把旧快照和未完成区间写入 `retiredSnapshots`，再对 `[confirmedThrough + 1, scan.to]` 取新快照，重建 `pending = [[start, scan.to]]`。
+3. 旧快照下已投递但未确认的记录只保留在 append-only evidence 中，带旧 token；新快照的交付带新 token。不会把两个快照拼成一个连续版本。
+4. 旧 token 再次被 `acquireSnapshot` 返回会被拒绝（`SNAPSHOT_TOKEN_REUSED`）。
+
+存储接口：
+
+```ts
+interface CheckpointStore {
+  loadCheckpoint(): MaybePromise<Checkpoint | null>;
+  saveCheckpoint(checkpoint: Checkpoint): MaybePromise<void>; // 应原子
+  appendEvidence(evidence: DeliveryEvidence): MaybePromise<void>; // 只追加，不删除旧快照证据
+}
+```
+
+`InMemoryCheckpointStore` 适合测试和单进程宿主；生产环境请换成事务型持久存储。
+
+## 确认与取消的线性化
+
+- 先调用 `confirm()` 再调用 `cancel()`：确认已保留，允许完成并推进水位；`cancel()` 返回 `after-confirm`，后续 `next()` 返回 cancelled。
+- 先调用 `cancel()` 再调用 `confirm()`：确认返回 `{ confirmed: false, reason: "cancelled" }`，水位不推进。
+- 查询进行中调用 `cancel()`：本轮当前临时结果丢弃，不交付、不保存水位。
+- `AbortSignal` 与 `cancel()` 语义一致。
+
+## 测试
+
+```bash
+npm test
+npm run typecheck
+```
+
+确定性测试覆盖：
+
+- 极端 int64 时间（`INT64_MIN` / `INT64_MAX`）与精确二分
+- 密集同时间桶（seek 多页）及 UTF-8 ID 字节序
+- `total <= K` 但页短、页条数超过 `total`、页条数超过 `K`
+- range / seek 返回查询范围外的时间
+- seek 不严格递增、游标不排他、seek 总数与 range total 不一致
+- 崩溃后同快照恢复、未确认桶重复投递
+- 快照失效恢复、同一 ID 跨快照内容变化的证据保留
+- 确认/取消竞态、查询中取消、存储失败重试
+- 与固定快照全量“时间升序 + ID 字节序”模型逐条对照

@@ -2,7 +2,10 @@
   "name": "dataeng-20261112-0253",
   "private": true,
   "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "tsc -p tsconfig.json --noEmit false --outDir .test-dist --rewriteRelativeImportExtensions && node --test .test-dist/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }

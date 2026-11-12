@@ -2,5 +2,7 @@
 .env.*
 node_modules/
 dist/
+.test-dist/
+.test-dist2/
 *.pem
 *.key
