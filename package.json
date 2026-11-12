@@ -1,8 +1,27 @@
 {
   "name": "dataeng-20261112-0123",
+  "version": "1.0.0",
+  "description": "浏览器下载采集生命周期归档：乱序分批事件的暂存、重放与终态归档状态包",
   "private": true,
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.ts"
+  ],
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "build": "tsc -p tsconfig.json",
+    "build:test": "tsc -p tsconfig.test.json",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "node --test \"dist/test/**/*.test.js\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }
