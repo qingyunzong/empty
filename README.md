@@ -1,0 +1,3 @@
+# 输入法组合期间的采集控件回放
+
+表单采集测试宿主调用可导入的TypeScript输入回放包，单控件事件按严格递增序号输入，含控件代数、唯一事件ID及完整字符串值。compositionStart开始临时值，update及组合中的input替换临时值，end确认临时值；非组合input立即确认。input可引用beforeInput事件ID，被取消的beforeInput令该input忽略；end后的首个input若引用该end的ID只确认一次，不再追加确认。未知关联或无组合的update/end使整批回滚。代数增加以该事件给定初值替换控件并清除组合，旧代事件忽略。返回确认值与来源ID；测试组合取消、重复末尾input及换代。
