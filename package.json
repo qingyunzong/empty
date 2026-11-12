@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/*.test.js"
   }
 }
