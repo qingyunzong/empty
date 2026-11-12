@@ -3,6 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "build": "tsc --noEmit false --outDir dist --declaration --sourceMap",
+    "typecheck": "tsc",
+    "pretest": "tsc --noEmit false --outDir dist --declaration --sourceMap",
+    "test": "node --test 'dist/test/**/*.test.js'"
   }
 }
