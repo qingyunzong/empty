@@ -1,3 +1,57 @@
 # 加权事务的闭合共现集合枚举
 
-采集后的属性共现索引希望只保存闭合频繁集合，避免同一支持集合被大量子集重复描述。给数据画像宿主开发可导入Go包：事务各有唯一uint64 ID、正uint64权重及一个去重的item集合，item来自调用方按顺序给定的至多48个唯一字符串字典；未知item、重复事务ID、零权重或总权重溢出拒绝，事务内重复item按集合处理，空事务合法。support(X)是所有包含X事务的权重和，不是事务条数；closure(X)是包含X的所有事务的item交集，没有事务包含X时定义为整个item字典。调用者给正minSupport，输出恰好全部support>=minSupport且closure(X)=X的集合及support，不输出非闭合频繁集合；集合本身可为空，空输入没有输出。实现可暂停的惰性枚举器，绑定不可变输入，不能先枚举全部2^m子集或先物化全部输出。构建每item的有序事务ID集合或位图，以相交得到扩展的覆盖事务，再用这些事务计算闭包；每个闭合集只交付一次。固定遍历契约为：从C=closure(空集)开始，若C频繁先交付C，再依字典下标递增尝试不在C中的扩展i；得到D=closure(C并{i})，仅当D频繁且不存在j<i使j在D但不在C时进入D，并在D内只尝试下标大于i的扩展。闭包新增加的item不能再次作为当前分支的扩展，不能只按support相等就合并覆盖事务不同的集合。支持Next、取消及恢复：暂停只停止推进，下一次Next从原栈继续；取消释放位图引用并进入不可继续终态，重新开始须另建枚举器。导出只读计数：实际尝试的扩展次数、覆盖集合相交次数、当前递归栈深度；不允许通过全量预求后伪造计数。宿主需要Prefix(limit)消费例，不要求序列是普通集合字典序，而须严格遵守上述深度优先顺序。独立参考在至多12个item上穷举全部子集计算闭包与支持，核对完整结果与无重复，再另写直接递归参考核对交付顺序；覆盖不同权重使条数低于阈值但权重达到阈值的夹具、相同support不同事务集合、所有事务共有item、空事务、minSupport大于总权重、某item从未出现、暂停在闭包新增多个item处及取消后读取。大同闭包夹具中每条事务含相同的48个item，应只交付一个集合，不得遍历2^48个子集。
+包 `dataeng` 为数据画像宿主提供可导入的惰性闭合频繁集合枚举器。
+
+## 输入与语义
+
+- 字典按调用方给定顺序最多 48 个唯一字符串，item 下标就是该顺序。
+- 每个事务有唯一 `uint64` ID、正 `uint64` 权重和 item 集合；事务内重复 item 自动按集合处理，空事务合法。
+- 未知 item、重复事务 ID、零权重、总权重溢出、非正 `minSupport` 均返回错误。
+- `support(X)` 是包含 `X` 的所有事务的权重和。
+- `closure(X)` 是包含 `X` 的所有事务的 item 交集；没有事务包含 `X` 时是整个字典。
+- 结果恰好是所有 `support(X) >= minSupport` 且 `closure(X) == X` 的集合；空集合本身可以成为结果，空事务库没有结果。
+
+## 使用
+
+```go
+import "example.org/dataeng/q0306"
+
+dictionary := []string{"a", "b", "c"}
+transactions := []dataeng.Transaction{
+	{ID: 1, Weight: 3, Items: []string{"a", "b", "c"}},
+	{ID: 2, Weight: 2, Items: []string{"a", "b", "c"}},
+	{ID: 3, Weight: 1, Items: []string{"a"}},
+}
+
+enumerator, err := dataeng.NewEnumerator(dictionary, transactions, 5)
+if err != nil {
+	panic(err)
+}
+defer enumerator.Cancel()
+
+for _, item := range enumerator.Prefix(2) {
+	// item.Items 按字典下标升序，item.Support 是权重和。
+	_ = item
+}
+```
+
+`Next()` 一次交付一个结果。不调用 `Next()` 就是暂停；再次调用会从原深度优先栈继续。`Cancel()` 不可逆并释放事务位图，重新枚举必须新建 `Enumerator`。
+
+`Prefix(limit)` 从当前位置最多消费 `limit` 个结果。序列不是普通集合字典序，而是以下固定顺序：
+
+1. 从 `C = closure(空集)` 开始；若频繁先交付 `C`。
+2. 按字典下标递增尝试不在 `C` 中的扩展 `i`。
+3. 令 `D = closure(C ∪ {i})`；仅当 `D` 频繁且不存在 `j < i`（`j` 在 `D` 而不在 `C`）时进入 `D`。
+4. 在 `D` 内只尝试下标大于 `i` 的扩展；闭包新增的 item 不会重复作为当前分支的扩展。
+
+## 计数
+
+`Stats()`、`ExtensionAttempts()`、`CoverIntersections()` 和 `StackDepth()` 暴露实际完成的工作量：真实扩展尝试次数、真实覆盖位图相交次数、当前递归栈深度。没有预求结果或伪造计数。`Cancel()` 后计数仍可读取，栈深度归零。
+
+## 测试
+
+`go test ./...` 包含：
+
+- 12 item 以内的全子集穷举参考，核对完整结果与无重复。
+- 独立的直接递归参考，核对逐项交付顺序与实际计数。
+- 加权支持、同 support 不同覆盖、共有 item、空事务、高于总权重的阈值、从未出现 item、暂停/取消、48 item 同闭包等夹具。
