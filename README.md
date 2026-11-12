@@ -1,0 +1,3 @@
+# 采集控件名称的跨节点引用消环
+
+RPA定位宿主需要可导入的TypeScript名称解析包，DOM树节点有唯一ID、kind(text/element/image)、hidden、有序子节点，只有text节点有文本且无孩子及可选labelledby有序ID列表、label和alt。计算名称优先labelledby中存在的引用节点拼接，再折叠ASCII空白后非空的label，再image存在的alt（可为空且不回退），否则递归子节点文本；labelledby有有效引用但算出空名时不再回退。普通文本遍历跳过hidden子树，被直接引用的节点及其文本遍历允许读取hidden子树；同一引用在不同分支可重复，只有当前递归栈中的环被跳过，不能用全局visited吞掉合法共享。文本节点直接返回自身文本；label及alt的来源为该属性节点，非法树环或缺失孩子ID整次拒绝。将各片段ASCII空白折叠并以单空格拼接，给出每段最初文本来源和所经引用链。用菱形引用、空名优先级和隐藏被引用者测试，快照中的非ASCII空白原样保留。
