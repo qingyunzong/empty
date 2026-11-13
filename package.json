@@ -1,1 +1,15 @@
-{"name": "dlks-de-0069", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0069",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./build": "./build/index.js"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && for f in build/test/*.test.js; do node \"$f\" || exit 1; done"
+  }
+}
