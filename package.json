@@ -1,1 +1,1 @@
-{"name": "dlks-de-0160", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{"name": "dlks-de-0160", "private": true, "type": "module", "scripts": {"typecheck": "tsc -p tsconfig.json", "test": "tsc -p tsconfig.build.json && node --test dist/test/*.test.js"}}
