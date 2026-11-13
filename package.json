@@ -1,1 +1,19 @@
-{"name": "dlks-de-0179", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0179",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "scripts": {
+    "test": "node scripts/test.mjs",
+    "test:strip-types": "node --experimental-strip-types --test",
+    "typecheck": "tsc --noEmit"
+  }
+}
