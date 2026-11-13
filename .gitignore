@@ -5,3 +5,5 @@ dist/
 build/
 *.pem
 *.key
+.test-build/
+.tmp/

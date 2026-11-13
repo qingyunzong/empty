@@ -1,1 +1,19 @@
-{"name": "dlks-de-0196", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0196",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build:test": "tsc -p tsconfig.build.json",
+    "test": "npm run typecheck && npm run build:test && node --test test/*.test.mjs"
+  }
+}
