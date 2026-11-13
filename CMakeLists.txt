@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_executable(topk_tests tests/topk_tests.cpp)
+target_link_libraries(topk_tests PRIVATE dataeng)
+add_test(NAME topk_tests COMMAND topk_tests)
