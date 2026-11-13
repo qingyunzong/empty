@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_executable(interval_join_test tests/interval_join_test.cpp)
+target_link_libraries(interval_join_test PRIVATE dataeng)
+add_test(NAME interval_join_test COMMAND interval_join_test)
