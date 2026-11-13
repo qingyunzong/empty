@@ -1,1 +1,14 @@
-{"name": "dlks-de-0045", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0045",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "out=\"${TMPDIR:-.test-build}/dlks-de-0045-test\"; tsc --outDir \"$out\" --noEmit false --allowImportingTsExtensions false --rewriteRelativeImportExtensions true && node \"$out/test/table.test.js\""
+  }
+}
