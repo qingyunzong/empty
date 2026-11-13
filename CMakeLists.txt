@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_executable(framed_merger_test tests/framed_merger_test.cpp)
+target_link_libraries(framed_merger_test PRIVATE dataeng)
+add_test(NAME framed_merger_test COMMAND framed_merger_test)
