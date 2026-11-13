@@ -3,5 +3,7 @@
 node_modules/
 dist/
 build/
+.test-build/
+.test-tmp/
 *.pem
 *.key
