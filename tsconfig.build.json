@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "build",
+    "rootDir": ".",
+    "rewriteRelativeImportExtensions": true
+  },
+  "include": ["index.ts", "src/**/*.ts", "test/**/*.ts"]
+}
