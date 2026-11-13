@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": ".test-build",
+    "rootDir": ".",
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "index.ts",
+    "*.test.ts",
+    "tests/**/*.ts",
+    "tests/**/*.d.ts",
+    "test/**/*.ts",
+    "test/**/*.d.ts"
+  ]
+}
