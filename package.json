@@ -1,1 +1,1 @@
-{"name": "dlks-de-0020", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{"name": "dlks-de-0020", "private": true, "type": "module", "scripts": {"test": "rm -rf \"$TMPDIR/dlks-de-0020-test\" && tsc -p tsconfig.json --noEmit false --outDir \"$TMPDIR/dlks-de-0020-test\" && node --test \"$TMPDIR/dlks-de-0020-test\"", "typecheck": "tsc -p tsconfig.json"}}
