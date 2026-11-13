@@ -2,6 +2,17 @@ cmake_minimum_required(VERSION 3.16)
 project(dataeng LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_compile_features(dataeng PUBLIC cxx_std_20)
+
 enable_testing()
+
+add_executable(dataeng_tests tests/dataeng_test.cpp)
+target_link_libraries(dataeng_tests PRIVATE dataeng)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(dataeng_tests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+add_test(NAME dataeng_tests COMMAND dataeng_tests)
