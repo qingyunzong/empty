@@ -1,1 +1,1 @@
-{"name": "dlks-de-0054", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{"name": "dlks-de-0054", "private": true, "type": "module", "scripts": {"build": "tsc -p tsconfig.build.json", "typecheck": "tsc --noEmit", "test": "npm run build && node --test build/collector.test.js"}}
