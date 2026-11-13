@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_executable(stitch_test tests/stitch_test.cpp)
+target_link_libraries(stitch_test PRIVATE dataeng)
+add_test(NAME stitch_test COMMAND stitch_test)
