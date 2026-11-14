@@ -1,1 +1,10 @@
-{"name": "dlks-de-0060", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0060",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:test": "node -e \"require('node:fs').rmSync('.test-build',{recursive:true,force:true})\" && tsc -p tsconfig.test.json",
+    "test": "npm run build:test && node --test .test-build/test/*.test.js"
+  }
+}
