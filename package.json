@@ -1,1 +1,21 @@
-{"name": "dlks-de-0044", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0044",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    },
+    "./index.ts": "./index.ts",
+    "./src/*": "./src/*"
+  },
+  "scripts": {
+    "build": "tsc --noEmit false --outDir dist --rewriteRelativeImportExtensions",
+    "test": "node scripts/test.mjs",
+    "typecheck": "tsc --noEmit"
+  }
+}
