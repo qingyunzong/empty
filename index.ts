@@ -1,1 +1,35 @@
-export {};
+export {
+  ForeignKeyState,
+  ForeignKeyState as ForeignKeyTracker,
+  ForeignKeyState as ForeignKeyValidator,
+  ForeignKeyState as IncrementalForeignKeyState,
+  ForeignKeyState as ForeignKeyStateMachine,
+  createForeignKeyState,
+  createForeignKeyTracker,
+  createForeignKeyValidator,
+  default,
+} from "./src/foreign-key-state.ts";
+
+export type {
+  ChangeOperation,
+  ChildChange,
+  ChildState,
+  Change,
+  FinalViolation,
+  ForeignKeyKey,
+  ForeignKeyOptions,
+  ForeignKeySnapshot,
+  ForeignKeyStateOptions,
+  GetViolationOptions,
+  HistoryEvent,
+  HistoryEventKind,
+  ParentChange,
+  ParentState,
+  Pending,
+  PendingReference,
+  StateChange,
+  Violation,
+  ViolationRecord,
+  ViolationReason,
+  ViolationStatus,
+} from "./src/foreign-key-state.ts";
