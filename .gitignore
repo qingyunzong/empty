@@ -3,5 +3,6 @@
 node_modules/
 dist/
 build/
+.build/
 *.pem
 *.key
