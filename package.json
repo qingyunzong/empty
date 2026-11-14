@@ -1,1 +1,1 @@
-{"name": "dlks-de-0031", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{"name": "dlks-de-0031", "private": true, "type": "module", "scripts": {"test": "tsc -p tsconfig.json --noEmit false --outDir .test-build --rewriteRelativeImportExtensions; cd .test-build && node --test"}}
