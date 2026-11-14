@@ -1,1 +1,9 @@
-{"name": "dlks-de-0064", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0064",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "rm -rf build-test && tsc -p tsconfig.test.json && node build-test/test/coordinator.test.js",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}
