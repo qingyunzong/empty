@@ -1,1 +1,23 @@
-{"name": "dlks-de-0081", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0081",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./connection": "./src/connection.ts",
+    "./errors": "./src/errors.ts",
+    "./state": "./index.ts",
+    "./watermark": "./src/watermark.ts",
+    "./types": "./src/types.ts",
+    "./util": "./src/util.ts",
+    "./*": "./*"
+  },
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "test:node": "node --experimental-strip-types --test",
+    "typecheck": "tsc --noEmit"
+  }
+}
