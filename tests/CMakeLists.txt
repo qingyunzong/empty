@@ -1,0 +1,8 @@
+add_executable(dataeng_tests test_dataeng.cpp)
+target_link_libraries(dataeng_tests PRIVATE dataeng)
+if(MSVC)
+    target_compile_options(dataeng_tests PRIVATE /W4)
+else()
+    target_compile_options(dataeng_tests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+add_test(NAME dataeng_tests COMMAND dataeng_tests)
