@@ -1,1 +1,23 @@
-{"name": "dlks-de-0240", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0240",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./cdc": "./src/cdc.ts",
+    "./update-mask": "./src/update-mask.ts",
+    "./updateMask": "./src/updateMask.ts",
+    "./merger": "./src/merger.ts",
+    "./schema": "./src/schema.ts",
+    "./types": "./src/types.ts",
+    "./binary": "./src/binary.ts"
+  },
+  "scripts": {
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
