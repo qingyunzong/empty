@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": false, "outDir": "build" },
+  "include": ["index.ts", "collector.test.ts", "node-shims.d.ts"]
+}
