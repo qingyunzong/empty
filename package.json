@@ -1,1 +1,21 @@
-{"name": "dlks-de-0205", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0205",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./index.js": "./index.js",
+    "./index.ts": "./index.ts"
+  },
+  "scripts": {
+    "build": "tsc --ignoreConfig --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --declaration --outDir . index.ts",
+    "test": "node --experimental-strip-types --test"
+  }
+}
