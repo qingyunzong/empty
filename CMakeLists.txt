@@ -5,3 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_library(xml_slicer xml_slicer.cpp)
+target_include_directories(xml_slicer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_compile_features(xml_slicer PUBLIC cxx_std_20)
+
+add_executable(test_xml_slicer tests/test_xml_slicer.cpp)
+target_link_libraries(test_xml_slicer PRIVATE xml_slicer)
+target_compile_options(test_xml_slicer PRIVATE -Wall -Wextra -Wpedantic)
+add_test(NAME test_xml_slicer COMMAND test_xml_slicer)
