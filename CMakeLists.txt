@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(dataeng dataeng.cpp)
 target_include_directories(dataeng PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
+
+add_executable(dataeng_union_slice_test tests/test_union_slice.cpp)
+target_link_libraries(dataeng_union_slice_test PRIVATE dataeng)
+add_test(NAME dataeng_union_slice_test COMMAND dataeng_union_slice_test)
