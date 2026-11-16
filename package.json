@@ -1,1 +1,24 @@
-{"name": "dlks-de-0249", "private": true, "type": "module", "scripts": {"test": "node --experimental-strip-types --test"}}
+{
+  "name": "dlks-de-0249",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./watermark": "./watermark.ts",
+    "./watermark.ts": "./watermark.ts",
+    "./watermark-coordinator": "./watermark-coordinator.ts",
+    "./watermark-coordinator.ts": "./watermark-coordinator.ts",
+    "./src": "./src/index.ts",
+    "./src/index.ts": "./src/index.ts",
+    "./src/watermark": "./src/watermark.ts",
+    "./src/watermark.ts": "./src/watermark.ts",
+    "./src/watermark-coordinator": "./src/watermark-coordinator.ts",
+    "./src/watermark-coordinator.ts": "./src/watermark-coordinator.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test"
+  }
+}
