@@ -1,8 +1,21 @@
 {
   "name": "dlks-formal-10168",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.js"
+    }
+  },
+  "sideEffects": false,
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "clean": "rm -rf build",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run clean && npm run build && node --test test/*.test.mjs"
   }
 }
