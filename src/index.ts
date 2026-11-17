@@ -1,0 +1,51 @@
+export { crc16, keySlot, SLOT_COUNT } from "./crc16.js";
+export {
+  CommandCatalog,
+  commandKeys,
+  defaultCommandCatalog,
+  prepareCommand,
+  type CommandDefinition,
+  type KeySpec,
+  type PreparedCommand,
+} from "./commands.js";
+export {
+  CrossSlotError,
+  IndeterminateExecutionError,
+  InvalidRedirectError,
+  RedisReplyError,
+  RedisRouterError,
+  RetryExhaustedError,
+  SlotNotAssignedError,
+  TooManyRedirectsError,
+  TransportError,
+  isRedisReplyError,
+  isTransportError,
+  notSentError,
+  unknownDeliveryError,
+  type DeliveryState,
+  type RouterErrorCode,
+} from "./errors.js";
+export { RouteCache, type ApplyTopologyOptions } from "./route-cache.js";
+export { SlotRouter, createSlotRouter, type SlotRouterOptions } from "./router.js";
+export type {
+  ClusterNode,
+  ClusterTransport,
+  Endpoint,
+  ExecuteOptions,
+  ExecutionResult,
+  MigrationPhase,
+  PipelineItemResult,
+  RedisArgument,
+  RouteAttempt,
+  RoutableCommand,
+  SlotMigration,
+  SlotPhase,
+  SlotRange,
+  SlotRoute,
+  TopologyProvider,
+  TopologySnapshot,
+  TransportBatchEntry,
+  TransportBatchItem,
+  TransportContext,
+  WireCommand,
+} from "./types.js";
