@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/dlks_formalTargets.cmake")
+check_required_components(dlks_formal)
