@@ -3,5 +3,7 @@
 node_modules/
 build/
 dist/
+.test-build/
+*.tsbuildinfo
 *.pem
 *.key
