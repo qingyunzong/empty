@@ -2,7 +2,12 @@
   "name": "dlks-formal-10057",
   "private": true,
   "type": "module",
+  "main": "./index.ts",
+  "exports": "./index.ts",
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "clean": "node -e \"require('node:fs').rmSync('build',{recursive:true,force:true})\"",
+    "build": "tsc -p tsconfig.json",
+    "pretest": "npm run clean",
+    "test": "npm run build && node --test build/test/*.test.js"
   }
 }
