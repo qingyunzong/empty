@@ -1,0 +1,8 @@
+{
+  "name": "dlks-formal-10039",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test"
+  }
+}
