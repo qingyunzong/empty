@@ -2,7 +2,14 @@
   "name": "dlks-formal-10032",
   "private": true,
   "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "test": "npm run build:test && node --test build/test/*.test.js",
+    "build:test": "tsc -p tsconfig.test.json",
+    "typecheck": "tsc -p tsconfig.json"
   }
 }
