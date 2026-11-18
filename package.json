@@ -1,8 +1,25 @@
 {
   "name": "dlks-formal-10077",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
+  "sideEffects": false,
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    }
+  },
+  "files": [
+    "build/index.js",
+    "build/index.js.map",
+    "build/index.d.ts",
+    "build/src"
+  ],
   "scripts": {
-    "test": "node --experimental-strip-types --test"
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test build/test/*.test.js"
   }
 }
