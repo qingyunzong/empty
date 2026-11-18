@@ -1,4 +1,15 @@
 cmake_minimum_required(VERSION 3.20)
 project(dlks_formal LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_library(dlks_formal INTERFACE)
+target_include_directories(dlks_formal INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+include(CTest)
+if(BUILD_TESTING)
+  add_executable(extendible_hash_test tests/extendible_hash_test.cpp)
+  target_link_libraries(extendible_hash_test PRIVATE dlks_formal)
+  target_compile_options(extendible_hash_test PRIVATE -Wall -Wextra -O2)
+  add_test(NAME extendible_hash COMMAND extendible_hash_test)
+endif()
