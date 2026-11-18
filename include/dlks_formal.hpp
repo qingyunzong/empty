@@ -1,2 +1,3 @@
 #pragma once
-namespace dlks_formal {}
+
+#include "dlks_formal/consistent_hash_ring.hpp"
